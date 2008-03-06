@@ -1,0 +1,616 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="robots" content="index,nofollow"><title>Cinelerra/Developers/ichthyo/Cinelerra woes - Pipapo Wiki</title>
+
+
+<script type="text/javascript" src="Cinelerra_woes_files/common.js"></script>
+
+<script type="text/javascript">
+<!--// common functions
+
+// We keep here the state of the search box
+searchIsDisabled = false;
+
+function searchChange(e) {
+    // Update search buttons status according to search box content.
+    // Ignore empty or whitespace search term.
+    var value = e.value.replace(/\s+/, '');
+    if (value == '' || searchIsDisabled) { 
+        searchSetDisabled(true);
+    } else {
+        searchSetDisabled(false);
+    }
+}
+
+function searchSetDisabled(flag) {
+    // Enable or disable search
+    document.getElementById('fullsearch').disabled = flag;
+    document.getElementById('titlesearch').disabled = flag;
+}
+
+function searchFocus(e) {
+    // Update search input content on focus
+    if (e.value == 'Suche') {
+        e.value = '';
+        e.className = '';
+        searchIsDisabled = false;
+    }
+}
+
+function searchBlur(e) {
+    // Update search input content on blur
+    if (e.value == '') {
+        e.value = 'Suche';
+        e.className = 'disabled';
+        searchIsDisabled = true;
+    }
+}
+
+function actionsMenuInit(title) {
+    // Initialize action menu
+    for (i = 0; i < document.forms.length; i++) {
+        var form = document.forms[i];
+        if (form.className == 'actionsmenu') {
+            // Check if this form needs update
+            var div = form.getElementsByTagName('div')[0];
+            var label = div.getElementsByTagName('label')[0];
+            if (label) {
+                // This is the first time: remove label and do buton.
+                div.removeChild(label);
+                var dobutton = div.getElementsByTagName('input')[0];
+                div.removeChild(dobutton);
+                // and add menu title
+                var select = div.getElementsByTagName('select')[0];
+                var item = document.createElement('option');
+                item.appendChild(document.createTextNode(title));
+                item.value = 'show';
+                select.insertBefore(item, select.options[0]);
+                select.selectedIndex = 0;
+            }
+        }
+    }
+}
+//-->
+</script>
+
+<script type="text/javascript">
+var gui_editor_link_href = "/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=edit&editor=gui";
+var gui_editor_link_text = "Editieren (GUI)";
+</script>        
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="Cinelerra_woes_files/common.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="screen" href="Cinelerra_woes_files/screen.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="print" href="Cinelerra_woes_files/print.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="projection" href="Cinelerra_woes_files/projection.css"><!-- css only for MSIE browsers --><!--[if IE]>
+   <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/wiki/modern/css/msie.css">
+<![endif]-->
+
+
+
+
+
+
+<link rel="Start" href="http://www.pipapo.org/pipawiki/StartSeite">
+<link rel="Alternate" title="Wiki Quelltext" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=raw">
+<link rel="Alternate" media="print" title="Druckansicht" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=print">
+<link rel="Up" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo">
+<link rel="Search" href="http://www.pipapo.org/pipawiki/SeiteFinden">
+<link rel="Index" href="http://www.pipapo.org/pipawiki/TitelIndex">
+<link rel="Glossary" href="http://www.pipapo.org/pipawiki/WortIndex">
+<link rel="Help" href="http://www.pipapo.org/pipawiki/HilfeZumFormatieren"></head><body dir="ltr" lang="de">
+
+<div id="header">
+
+
+<form id="searchform" method="get" action="">
+<div>
+<input name="action" value="fullsearch" type="hidden">
+<input name="context" value="180" type="hidden">
+<label style="display: none;" for="searchinput">Suchen:</label>
+<input class="disabled" id="searchinput" name="value" value="" size="20" onfocus="searchFocus(this)" onblur="searchBlur(this)" onkeyup="searchChange(this)" onchange="searchChange(this)" alt="Search" type="text">
+<input disabled="disabled" id="titlesearch" name="titlesearch" value="Titel" alt="Search Titles" type="submit">
+<input disabled="disabled" id="fullsearch" name="fullsearch" value="Text" alt="Search Full Text" type="submit">
+</div>
+</form>
+<script type="text/javascript">
+<!--// Initialize search form
+var f = document.getElementById('searchform');
+f.getElementsByTagName('label')[0].style.display = 'none';
+var e = document.getElementById('searchinput');
+searchChange(e);
+searchBlur(e);
+//-->
+</script>
+
+<ul id="username"><li><a href="http://www.pipapo.org/pipawiki/Ichthyostega" id="userhome" title="Ichthyostega @ Self">Ichthyostega</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=userprefs" id="userprefs">Einstellungen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=logout&amp;logout=logout" id="logout">Abmelden</a></li></ul>
+<div id="locationline">
+
+
+<ul id="pagelocation">
+<li><a href="http://www.pipapo.org/pipawiki/Cinelerra">Cinelerra</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers">Developers</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo">ichthyo</a></li><li><a class="backlink" title="Hier klicken für eine Liste der Seiten, die auf diese verweisen" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=fullsearch&amp;value=linkto%3A%22Cinelerra/Developers/ichthyo/Cinelerra+woes%22&amp;context=180">Cinelerra woes</a></li>
+</ul>
+
+</div>
+
+<ul id="pagetrail">
+<li><a href="http://www.pipapo.org/pipawiki/Aktuelle%C3%84nderungen">AktuelleÄnderungen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess">Cinelerra3/DesignProcess</a></li><li><a href="http://www.pipapo.org/pipawiki/Ichthyostega">Ichthyostega</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra3">Cinelerra3</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes">Cinelerra woes</a></li>
+</ul>
+
+<ul id="navibar">
+<li class="wikilink"><a href="http://www.pipapo.org/pipawiki/StartSeite">StartSeite</a></li><li class="wikilink"><a href="http://www.pipapo.org/pipawiki/Aktuelle%C3%84nderungen">AktuelleÄnderungen</a></li><li class="wikilink"><a href="http://www.pipapo.org/pipawiki/SeiteFinden">SeiteFinden</a></li><li class="wikilink"><a href="http://www.pipapo.org/pipawiki/HilfeInhalt">HilfeInhalt</a></li><li class="current"><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes">Cinelerra woes</a></li>
+</ul>
+
+<div id="pageline"><hr style="display: none;"></div>
+
+<ul class="editbar"><li><a name="texteditlink" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=edit&amp;editor=text">Editieren (Text)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=edit&amp;editor=gui">Editieren (GUI)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=info">Info</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=subscribe">Abonnieren</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=quicklink">Verweis hinzufügen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=AttachFile">Dateianhänge</a></li><li>
+<form class="actionsmenu" method="get" action="">
+<div>
+    
+    <select name="action" onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="show">Weitere Aktionen:</option><option value="raw">Rohform</option>
+<option value="print">Druckansicht</option>
+<option value="RenderAsDocbook">Docbook ausgeben</option>
+<option value="refresh">Cache löschen</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="SpellCheck">Rechtschreibung prüfen</option>
+<option value="LikePages">Ähnliche Seiten</option>
+<option value="LocalSiteMap">ÜbersichtsKarte</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="RenamePage">Seite umbenennen</option>
+<option value="DeletePage">Seite löschen</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="MyPages">Meine Seiten</option>
+<option value="SubscribeUser">Abo für Benutzer</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="Despam">Spam entfernen</option>
+<option value="PackagePages">Seiten paketieren</option>
+    </select>
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('Weitere Aktionen:');
+//-->
+</script>
+</form>
+</li></ul>
+
+</div>
+
+<div id="page" dir="ltr" lang="en">
+<div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><p class="line867">
+</p><h1 id="head-450e2c6842704c1d8de372e8fed635c80bd8a30a">Cinelerra woes</h1>
+<span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><p class="line867"><span class="u">This text is polemic</span>. It is intended to forment controversy, and to foster discussion. <span class="anchor" id="line-4"></span>My
+intention is to collect a list of things considered problematic and to
+analyze why they are this way and if it is possible to change them. <span class="anchor" id="line-5"></span><span class="anchor" id="line-6"></span></p><p class="line867">
+</p><h2 id="head-5808b2d621bb3cb51f4edb256836164fd890bac3">Cinelerra has Pro focus</h2>
+<span class="anchor" id="line-7"></span><p class="line874">It claims to
+be quality oriented. It is clear you rather need big iron to run it.
+And indeed, you can open any media size and framerate and use RGB-float
+for processing. And indeed, it doesn't bother you with wizards and
+doesnt aply "intelli-sense" to revert your parameters to use "safe"
+amateur settings automagically. <span class="anchor" id="line-8"></span><span class="anchor" id="line-9"></span></p><p class="line874">But
+its stability doesn't stand up to Pro standards. There is a certain
+discrepancy between the partially very advanced featues embodied into
+Cinelerra, and the shortcommings at quite basic features. The
+Application segfaults on a regular base, often letting the backup and
+the program defaults in an inconsistent state, so to cause the
+Application immediately to segfault again when trying to restore the
+latest state. I encountered several cases, where even the stored
+Session was messed up since some time and I had to rebuild it by
+handwork, in order not to looose the last two hours of work. Such can
+be very problematic in a Pro context, as you often have tight schedules
+and deadlines to meet. Further, Cinelerra doesn't give you the
+slightest clue about the limitations of many parameters and what is
+acceptable. Often, a simple zero check would prevent the segfaulting.
+This stability issues affect quite everyday features. Cinelerra can
+segfault if you "undo" to much steps under certain circumstances. It
+can segfault if you try to "roll away" an edit. (and after you open the
+backup, all clips behind on the same track have been shifted by the
+amount you tried to roll). <span class="anchor" id="line-10"></span><span class="anchor" id="line-11"></span></p><p class="line867">
+</p><h2 id="head-35284e0add115edb1548771fcd61f36ce9e9b172">Problems with the release policy</h2>
+<span class="anchor" id="line-12"></span><p class="line874">The quality
+level of the last two releases is questionable. When I started using it
+for serious work, fall/winter 2005, for example, it didn't display the
+locations of mask keyframes or the length of transitions. You couldn't
+even mix dissolve transitions of different length in a single session.
+Without doing any checks, the loger transitions produced a numeric
+overflow of the pixels colour value in a quite stiking manner. All of
+this points got fixed quickly thanks to the community. Anyhow, the
+preceeding Release was maked "2.0" -- according to usual practice, such
+a version with defects in basic features should be labeled "beta" and
+numbered below "1.0" <span class="anchor" id="line-13"></span><span class="anchor" id="line-14"></span></p><p class="line874">The quality problems perpetuated with Release "2.1". It quite noticeable degraded stability and broke some <span class="anchor" id="line-15"></span>calculations in the basic color model ("additive" mode), while bringing in features of rather questionable <span class="anchor" id="line-16"></span>value (I'll come back to OpenGL later). Normally, you would expect an official release never to break any <span class="anchor" id="line-17"></span>basic features (and if, there should be a bugfix release on a tight schedule). The decision to rely on some <span class="anchor" id="line-18"></span>tool for larger projects requires a certain amount of trust, and this should be considered when planning new releases. <span class="anchor" id="line-19"></span><span class="anchor" id="line-20"></span></p><p class="line867">
+</p><h2 id="head-b495449abb5445d00ceb977a039909adead45333">missing the Usage Perspective</h2>
+<span class="anchor" id="line-21"></span><p class="line874">Besides
+broken featues (well, bugs can be fixed), the design of several
+features is insatisfactory from a usage perspective, albeit beeing
+technically brilliant. Especially, what would be the workflow if using
+them? Does the sollution scale? Does it fit in with other indispensable
+features? How many keystrokes are required to use it 30 times or to
+change and adapt 30 instances of the feature? <span class="anchor" id="line-22"></span></p><ul><li>the
+basic design of the transitions is problematic. Cinelerra adds the
+transitions at the source end of the render pipeline, before any plugin
+-- and this behaviour is hard wired. So it's impossible to combine them
+e.g. with color correction or fliped video playback. You may argue this
+is just right for creating patterns and then pass them on to effects.
+But, obviousely the most basic use case is to have dozens of single
+takes to combine in alternating fashion. Establishing shot, 2 medium
+shots, closeups. And commonly you need just to colour correct all the
+12 closeup shots of Actor B. <span class="anchor" id="line-23"></span></li><li>the
+selection of transition types provided is questionable. For example, we
+can have heart shaped wipe transitons. But the heart shape is nither
+antialiased nor is there a smoothly blended masking at the border. On
+the other hand, the additive dissolve transition is missing, as is a
+whipe transition with softened edge. <span class="anchor" id="line-24"></span></li><li>the
+possibility to edit transition's curve shapes is lacking, for sound as
+well as for the image transitions. The transitions go linearily and
+just end with a yank. Laymen probably won't notice, but Pro media
+people are trained to be attentive observers and look at the fine
+details. <span class="anchor" id="line-25"></span></li><li>so to work
+around the problems with transitions, it is crutial to use the fade
+automation, which, sadly enough, has lots of problems on its own. <span class="anchor" id="line-26"></span><ul><li>Newly added keyframes have an horizontal tangent. So we have to zoom in, pull out the ctrl points, drag them to where?  <span class="anchor" id="line-27"></span></li><li><p class="line862">we can feely drag them even in horizontal direction (which doesn't make much sense mathematically unless Cinelerra would <em>solve numerically</em>
+for the bezier equation), the horizontal drag beeing irrelevant, but
+the response to the vertical drag is over exagerated and we can't see
+the angle of the tangent entering the node. <span class="anchor" id="line-28"></span></p></li><li>the
+ability to have a common editable tangent on control points is lacking.
+This caused me hours and hours of work to get my curves smooth and
+correct by trial and error. <span class="anchor" id="line-29"></span></li><li>there
+is no automatic smooting facility and the linearization added in
+Release 2.1 is only after the fact, not dynamically adapting.
+Exponential smoothing behaviour is lacking. <span class="anchor" id="line-30"></span></li></ul></li><li>All
+of this aplies to camera, projetor, zoom and and audio curves as well,
+wheras masks behave differently and plugins do interpolation as they
+like. There is no common approach to things linked conceptually. <span class="anchor" id="line-31"></span></li><li>Cinelerra
+has the ability to play backwards smoothly. This is rare. Much many
+Apps stutter when playing backwards because they assemble small chunks
+of forward played rendering in reverse order. But we have to consider
+that in order to permit such cuteness the whole Rendering Engine has to
+be able to do its calculations backwards, including all plugins.
+Plastering half of the codebase with copy-n-pasted blocks
+"if(direction==PLAY_BACKWARD)..." seems way to high a price to pay for
+just getting smooth playback. On a second thought, this feature is even
+counterproductive. It causes the frames of a movie to be calculated
+different, the internal state of all plugins to evolve different, the
+masks, fades and all keyed features to behave different if the user
+just scrubbs some frames backwards to do adjustments. Try to correct an
+isolated jerk with the camera automation, try to to precise moving
+masks or any frame accurate keying with Cinelerra and you know what I
+am talking about. <span class="anchor" id="line-32"></span></li><li>Cinelerra
+has a motion tracker with quite astonishing technical abilities, but
+again the design insufficiently considers usability issues. Why can't
+the motion tracker just output camera or projector automaton, instead
+of adding an additional scale/translate operation with the unavoidable
+quality degradation? Why is the only possibility to store and reuse
+calculated values writing a huge pile of files in /temp, one for each
+frame, making several overlapping instances of the motion tracker
+impossible? <span class="anchor" id="line-33"></span></li><li>the
+ability of bounced tracks, or -- to use Cinelerras terminology -- using
+a "shared track" or "shared module" is an incredibly powerful feature.
+You could buld up quite astonishing effects and compositing via
+cooperating tracks out of simple building blocks, without the need of
+programming a ton of spcialized plugins. But, sadly enough, we can't
+really control the effects/maskings that we get bounced, we can't
+control the additional output at the other end of the shared module,
+switch it off or change its overlay mode. And without the patch by the
+community to apply masks before plugins most of this feature would be
+almost completely useless. <span class="anchor" id="line-34"></span><span class="anchor" id="line-35"></span></li></ul><p class="line874">I
+could continue this list, but rather I want to get to the point I am
+aimig at: If you do C programming, it isn't astonishing you miss a NULL
+pointer here and there. When fleshing out functional details under the
+hood, it is easy to miss the usage perspective (I know what I am
+talking about, I am software developer myself). But this doesn't
+explain the regularity of all these shortcommings. All of this rather
+gives rise to the suspicion of a common root for all of this burried
+somewhere in the source base. <span class="anchor" id="line-36"></span><span class="anchor" id="line-37"></span><span class="anchor" id="line-38"></span></p><p class="line867">
+</p><h2 id="head-75b3a81f3a3c35724c2e9872e600159cba6f10bc">Interdependency of Design and feature properties</h2>
+<span class="anchor" id="line-39"></span><p class="line862">And indeed,
+there is a link between certain Architecture and source level Design
+decisions and user visible problems and properties. This insight is not
+restricted to Cinelerra and there were many studies, much reasoning and
+quite some debate on this topic in the last decades. This
+interconnection is not simple, rarely isolated and obvious, but <em>when
+looking at the code from an Design perspective, we can see why features
+are implemented the way they are, and why the same problems tend to
+arise again and again.</em> Or, to put it in a more practical and
+personal manner: if an interested user-programmer tries to fix any of
+the aforementioned problems, which seem to be just silly omissions and
+shortcomings from user's perspective, he soon finds himself "running
+against walls" and "fighting against windmills". An inappropriate
+amount of dilligence and dedication is needed to correct any of this
+problems. To underpin and proove this analysis, I want to revisit the
+problems mentioned above from a programmers perspective. <span class="anchor" id="line-40"></span><span class="anchor" id="line-41"></span></p><p class="line867">
+</p><h4 id="head-257e8788c4f108feac3df5ec099fb0a5491428fc">NULL pointer and cast problems</h4>
+<span class="anchor" id="line-42"></span><p class="line862">The fact of Cinelerra's code base showing these symptoms is of <em>uttermost importance</em> and needs our undivided attention. Metaphorically speaking, these are symproms of serious illnes. <span class="anchor" id="line-43"></span><span class="anchor" id="line-44"></span></p><p class="line874">Regular
+segfaulting can be due to 2 quite different reasons, and I fear
+Cinelerra is affected by both. First, it can be caused by missing the
+detection of error situations, and secondly it can be a consequence of
+forced-to cast problems without the ability to detect object's runtime
+type. Both problems are not immediately obvious and notorios difficult
+to spot in a dynamic and concurrent environment. You need to attack the
+root of the problem, fixing symptomps won't help. <span class="anchor" id="line-45"></span><span class="anchor" id="line-46"></span></p><dl><dt>detection of error situations</dt><dd><span class="anchor" id="line-47"></span><ul><li style="list-style-type: none;">commonly,
+programmers tend to concentrate on the supposed standard case and tend
+to overlook the corner cases. As a first aproach, it is quite sound
+dooing so. You simply can't check every possible error and problem
+everywhere, this would clutter the code to a degree of beeing almost
+unreadable. The consequence is that some error situation slips through
+undetected (or still worse, it gets detected but the caller isn't
+prepared to deal with it and to change the control flow), causing
+unexpected NULL values to enter the sysem, sooner or later resulting in
+a segfault. <span class="anchor" id="line-48"></span><ul><li>error handling and checks need support by the design <span class="anchor" id="line-49"></span></li><li>fault
+tolerance is good, doing things in a inherentely save manner is still
+better (strong typing, avoiding conditional branches, etc) <span class="anchor" id="line-50"></span></li><li>design by contract combined with self-testing can help controlling these problems <span class="anchor" id="line-51"></span><span class="anchor" id="line-52"></span></li></ul></li></ul></dd><dt>forced to do unsafe type casts</dt><dd><span class="anchor" id="line-53"></span><ul><li style="list-style-type: none;">this
+is a well known problem showing that the underlying design of the
+Types, Classes and Interfaces contains subtle design errors. Those
+unsafe casts are not dangerous per se, but the Classses and operations
+seem to be more general than they are actually. When overlooking these
+hidden additional usage conditions and just applying the operations
+based on what they pretend to provide, we again get code behaving
+unreliable in corner cases. <span class="anchor" id="line-54"></span><ul><li>confusing genealogy and inheritance <span class="anchor" id="line-55"></span></li><li>inheritance expresses "is-a" relations, nothing else <span class="anchor" id="line-56"></span></li><li>prefere configuration over compositon over inheritence <span class="anchor" id="line-57"></span></li><li>design patterns are the only working and broadly aplicable solution known thus far <span class="anchor" id="line-58"></span><span class="anchor" id="line-59"></span></li></ul></li></ul></dd></dl><p class="line867">
+</p><h4 id="head-1f55d0d7a42f02d65396068ffb688832fc87c6c6">asserting the consistency of internal structures</h4>
+<span class="anchor" id="line-60"></span><ul><li>session getting in an inconsitent state unnoticed <span class="anchor" id="line-61"></span></li><li>internal structures messed up after detecting an error situration <span class="anchor" id="line-62"></span></li><li>undo not working bullet proof <span class="anchor" id="line-63"></span><span class="anchor" id="line-64"></span></li></ul><p class="line874">getting
+these under control is by no way simple, mostly we can't avoid the
+problem, but rather need to make the program more robust when dealing
+with such situaion. Often this requires introducing an indirection
+layer. Or some centralized entities transforming and gathering
+properties. Further, a common aproach is the policy "rigorusly strict
+output, tolerant at input". <span class="anchor" id="line-65"></span><span class="anchor" id="line-66"></span></p><p class="line874">Too
+strong coupling and interdependency is often one common root for such
+problems. Design by Contract and Design Patterns can helpe with this.
+No general, "one fits all" solution is available for this problem. <span class="anchor" id="line-67"></span><span class="anchor" id="line-68"></span><span class="anchor" id="line-69"></span></p><p class="line867">
+</p><h4 id="head-de523e97a19164a2e72f537bd39dc75af0157feb">release quality asurance</h4>
+<span class="anchor" id="line-70"></span><p class="line874">two aproaches to QA <span class="anchor" id="line-71"></span></p><ul><li>"old-style": organization, design documents, test matrices, QA departement <span class="anchor" id="line-72"></span></li><li>"new-style": design by contract, test driven developement, automatic regression testing <span class="anchor" id="line-73"></span><span class="anchor" id="line-74"></span></li></ul><p class="line874">the
+new style is a giganitc advace, as it enables small entities and even
+single individuals to get at a "corporate style" and "industrial
+strength" quality level. It helps fostering transparency and
+deescalating conflicts, because shortcommings are documented,
+improvements are visible and measurable. But the biggest improve, in
+terms of developement culture is: you can open up much more for
+external contributions, because you build up a neutral security mesh.
+Far less need for the "sceptical, suspicious" type of lead developer,
+or the "quality devil" (any better english term for this?). <span class="anchor" id="line-75"></span><span class="anchor" id="line-76"></span><span class="anchor" id="line-77"></span></p><p class="line867">
+</p><h4 id="head-2fb15bfdba829bfdfb4f68d349b497c7510efcc6">features driven by technical possibilities</h4>
+<span class="anchor" id="line-78"></span><p class="line874">This sort
+of problems is not overly problematic, if only the system is large,
+flexible and widespread enough to accomodate. In the discussion above
+we came across this topic with the heart shaped masks and the wipe
+transitions without soft border. Partially, the basic design of the
+transition calculation falls into this category as well: adding
+transitions at the source end is almost obvious and strikingly simple,
+i.e. it is elegant at the code level. The same holds true for the
+mentioned transitions. Just a conditional copy in a loop running over
+the pixel array. Looking at this stunning code is estetically pleasing:
+just a view lines of code, and the visual impact is quite impresive. <span class="anchor" id="line-79"></span><span class="anchor" id="line-80"></span></p><p class="line874">As
+said, such features don't impose much problems. You could well have 30
+plugins of this "cheap spin-off" type, if the asset management is
+designed to the necessary complexity, i.e. you can have a tree of
+effects, you have keywords on effects for searching, you can create
+personal collections or plugin "palettes". They could be made clear to
+be "goodies", and the "basic craftman's tools" are here at hand, in the
+main folder. <span class="anchor" id="line-81"></span><span class="anchor" id="line-82"></span></p><p class="line862">To
+return to the example, implementing these basic craftman's tools
+involves quite some consideration: you'd need a buffer to do a dissolve
+<em>following a path</em> at least, or in the advanced version, you'd
+need two buffers to mask and to blur and you'd overlay them togehter on
+top of the combined frames. So the lession learned is: some important
+tools are still missing and we'd need quite some infrastructure which
+isn't there at the moment. And it's highly adivsable not to add this
+infrastructure on a case-by-case base, because this can get dangerous.
+We'd need a buffer memory manager for plugins, as doing memory
+allocation in inner loops is a mayor problem for modern machines, and
+getting a buffer memory manager working correct in a highly
+parallelized environment can be tricky and should be done with the "big
+picture" in mind. <span class="anchor" id="line-83"></span><span class="anchor" id="line-84"></span></p><p class="line867">
+</p><h4 id="head-17f3e0b475733a80b5f42e0229ed2f23e56fe063">structural design problems</h4>
+<span class="anchor" id="line-85"></span><ul><li>design of the transitions <span class="anchor" id="line-86"></span></li><li>interpolation implemented several times independently, can't unify curve handling <span class="anchor" id="line-87"></span></li><li>handling of bezier control points needs cooperative changes beyond the single node <span class="anchor" id="line-88"></span></li></ul><p class="line867"><img alt="{X}" src="Cinelerra_woes_files/icon-error.png" title="{X}" height="16" width="16"> WIP <span class="anchor" id="line-89"></span><span class="anchor" id="line-90"></span></p><p class="line874">Solving
+any of this needs a some localized cooperation above the single-object
+level. This quickly gets difficult and complex to a level of beeing
+almost unmanageable with all the possible side effects it can cause, if
+it isnt's supported by encapsulation and data hiding. To use the bezier
+control points as an example: automatic smoothing includes the
+adjustment of neighbouring control points. If you have alredy a
+separation of container (list of nodes) and functionallity, and if you
+express the operations on bezier curves in an intentional,
+semantic-like style, i.e. as functional services (find_node, get_value,
+intersperse_interpolated_node_at, get_tanget_at) provided by an object
+encapsulating the node collection and implementing a generic interface,
+then adding all of this features is rather a breeze. But Cinelerra has
+none of this. Instead, individual node values and properties are done
+from quite unrelated code locations, and all of the searching, testing
+and manipulation code is implemented in a low-level-style without
+functional abstraction. <span class="anchor" id="line-91"></span><span class="anchor" id="line-92"></span></p><p class="line867">
+</p><h4 id="head-9ec261b0b9bdcae8df7f02b561c48896a167e544">problems with design level</h4>
+<span class="anchor" id="line-93"></span><ul><li>unifying curves and interpolation <span class="anchor" id="line-94"></span></li><li>full-blown keying of plugin parameters <span class="anchor" id="line-95"></span></li><li>the problem of reversed playback <span class="anchor" id="line-96"></span></li><li>the aproach to handle the different color models <span class="anchor" id="line-97"></span></li><li>how to integrate hardware supported rendering (OpenGL) <span class="anchor" id="line-98"></span></li><li>background rendering fits in here too <span class="anchor" id="line-99"></span><span class="anchor" id="line-100"></span></li></ul><p class="line862">Common to all those problems is that you have to step back in order to <em>see the problem</em>
+at all. If you just look at the individual technical feature,
+everything looks fine, correct and solved. You need to take the
+architectural viewpoint or the usage perspective or the code sanity
+aproach in order to see the dublication of efforts, discrepancies and
+inconsistencies -- and to see why they matter. <span class="anchor" id="line-101"></span><span class="anchor" id="line-102"></span></p><p class="line862">And
+still worse: after having seen them, really solving this sort of
+problems includes quite a bit of augmenting achitecture, considering
+performance and getting different domains subsumed under common
+patters. With such problems, commonly there seems to be sort of a
+natural slope in favour of just overlooking the problem and beeing
+content with the pragmatic sollution. To fight this, <em>users</em> have to point out the discrepanciy, users have to <em>demand the real sollution,</em>
+otherwise nothing will happen. Otherwise we won't get unyfied treatment
+of all interpolation, we won't get full-fledged manipulation of the
+inerpolation and keying of plugin parameters, we won't get a really
+usefull background rendering and we won't get smooth reversed playback <em>and</em> consistent treatment of keyframes and playback position at the same time. <span class="anchor" id="line-103"></span><span class="anchor" id="line-104"></span></p><p class="line874">To
+detail more on the "play backwards" problem just as an example, at
+first sight the current solution "feels good": it is lokal (in the
+sense that for handling playbak I only have to set a flag related to
+playback direction and doesn't need to build up global scale
+infrastructure), it is simple and easy to understand: you <span class="anchor" id="line-105"></span>allways display the frame the playback has just <em>passed</em>
+and you communicate a flag with the playback direction, which is passed
+on as parameter over all calls forming the rendering engine. The
+problems start to arise in conjuction with keyframes (where is a
+keyframe supposed to be located? and where does the changed value show
+off?). Putting on the code quality angle, I would even call the
+footprint of this solution desastrous: It fosters the widespread use of
+copy-n-paste style programming, causing code bloat, tearing apart
+features related functionallity-wise, opening the possibility for
+subtle bugs to creep in. For example, just while tracing the usage of
+bezier interpolation (which btw forced me to look up quite a lot of
+scattered locations due to missing encapsulation and abstraction), I
+came acros several almost classical bugs of conditions beeing treated
+differently in code blocks specialized by copy-n-paste programming. All
+of this bugs turend out to be fixed alredy, and all the fixes were not
+done "to the point", but by curing symptoms several levels separated
+from the source of the problem. In one case, it cost me several hours
+to find out and prove the problem to be soved. I don't tell this to
+complain (because that's normal programmer's work), but to make clear:
+the solution initially appealing to be pragmatic and simple puts quite
+a maintainence burden on the future. Because of this, today there is
+wide consensus that copy-n-paste-programming should be avoided at any
+rate (commonly known als the "DRY-Principle": Dont Repeat Youself!) <span class="anchor" id="line-106"></span><span class="anchor" id="line-107"></span></p><p class="line862">Getting
+the play-backward problem solved in a clean manner is far less stright
+forward and requires architectural considerations: We would need to
+advice the Render Engine to compute small chunks of frames in forward
+direction, maybe (to be further investigated) we would need to provide
+additional infrastructure to plugins touching more then single frames,
+e.g. selective tempoaral average, time front, sound reverberator or
+compressor etc, and finally, we need to assemble those chunks and send
+them to output in reversed order. Integrating this with the current
+design which is a highly parallelized one, using a thread for every
+frame (for calculation <em>and</em> display) -- could become a challenging task. That's what is meant with "level of Design" <span class="anchor" id="line-108"></span><span class="anchor" id="line-109"></span></p><p class="line874">But
+as a user doing much work with the Application, I stress the fact
+Cinelerra can't be a Pro application if it isn't able to support
+keyframe tweeking with frame precision, and as a quality oriented
+software developer, I'd like to propose that we drop the whole
+PLAY_BACKWARD thing and go for the clean sollution. <span class="anchor" id="line-110"></span><span class="anchor" id="line-111"></span></p><p class="line874">Just
+for completeness I want to point out that the current solution for
+supporting color models creates similar code-quality problems:
+widespread use of macros and case-tests within the next-to-inner
+rendering codepath (several superfluos color model and alpha channel
+tests per frame and plugin). The situation is similar with the current
+aproach to OpenGL support: Scattered code, duplicated algorithms,
+difficult to trace execution path. Both problems could be used much
+more satisfactory by fully applying the Builder Design Pattern -- again
+a solution on the architecture level, not the feature level. For this
+discuusion here it's enough to mention it; this is one of the central
+concerns of my design/project plan proposal I detail on another page. <span class="anchor" id="line-112"></span><span class="anchor" id="line-113"></span></p><p class="line867">
+</p><h4 id="head-b35908102c0c927bb91360aae874c697d739b896">problems with features cooperative in nature</h4>
+<span class="anchor" id="line-114"></span><ul><li>motion tracker generating camera/projector automation.  <span class="anchor" id="line-115"></span></li><li>motion tracker loading external automation <span class="anchor" id="line-116"></span></li><li>flexible
+design of transitions and masks (render pipeline as configurable tree)
+and controlling the properties of "shared tracks" <span class="anchor" id="line-117"></span></li><li>composite clips (clips of clips), multiple timelines <span class="anchor" id="line-118"></span></li><li>could add a better background render manager here too <span class="anchor" id="line-119"></span><span class="anchor" id="line-120"></span></li></ul><p class="line874">Problems
+of this category are different to the ones discussed in the previous
+section, as there is no acceptable simple sollution on the feature
+level. If you try to fix it there, you are running against walls. To
+solve them, you need an architectural aproach from the very start, and
+you need to make several parts of the system cooperate in order to get
+them solved. <span class="anchor" id="line-121"></span><span class="anchor" id="line-122"></span></p><p class="line874">Motion
+tracker simply can't output camera automation without a general
+facility to pass automation between plugins and other components of the
+render engine, without an abstraction layer unifying different
+automation types (remember, the motion tracker can generate adjustment
+values with sub-pixel precision), without the camera beeing treated
+like a general plugin (you need to be able to layer several instances)
+and without a facility to manage and build control connections between
+cooperating plugins. The same holds true for the other shortcommings
+regarding the components of the Render Engine. Partially and limited
+intermediary solution to ameliorate the most serious problems on a
+short term base are thinkable though. <span class="anchor" id="line-123"></span><span class="anchor" id="line-124"></span><span class="anchor" id="line-125"></span><span class="anchor" id="line-126"></span><span class="anchor" id="line-127"></span></p><p class="line867">
+</p><h2 id="head-7761cd2e6e2c584aaa86ab65d499628f2c6f92dc">Performance?</h2>
+<span class="anchor" id="line-128"></span><p class="line874">Quite deliberately, I left out here the difficult questions regarding performance. From a users perspective, <span class="anchor" id="line-129"></span>Cinelerra's
+performance isn't thrilling. Everyone has seen much more responsive
+Apps giving a much more "spontaneous" feeling today. <span class="u">But if we recall</span> it's geared at a rather <em>purist, hard core, ascetic</em> type of work, namely movie editing and montage including some unobstrusive Compositing, but all to be done with <em>absolute quality</em> -- then I would label it's behaviour "neutral" performance-wise. Not excitingly fast and not annoyingly slow. <span class="anchor" id="line-130"></span><span class="anchor" id="line-131"></span></p><p class="line874">Regarding the GUI, there is a certain, difficult to define "slughisness", which in my eyes isn't a problem of <span class="anchor" id="line-132"></span>slow
+reaction. Rather, many GUI elements are lacking all those subtle
+shortcuts, fuziness and convienience we take for granted nowadays. Many
+widgets you have to hit exactly, you have to navigate the menus
+precisely and have to click into the right place to make menus
+disapear, you can't use all of the common keyboard shrortcuts and
+navigation keys consistently over the application. I remember very well
+MOTIF or the early versions of GTK feeling the same way. I remember
+very much the situation at the time Cinelerra developement was started.
+It was a sound decision to develope a private GUI toolkitset for
+specialized needs at those days. <span class="anchor" id="line-133"></span><span class="anchor" id="line-134"></span></p><p class="line874">Meanwhile,
+the common main stream toolkits have advanced quite a lot, and, at some
+point in the future we could consider to switch over to one of them and
+get rid of all the intircate GUI toolkit questions. This could help
+implementing some of those features on everyones whishilst with much
+reduced effort. Personally, I don't consider this point overly
+important at the moment. It certainly doesn't interfere with
+Cinelerra's Pro focus on a short timescale, and that's the main concern
+of this page. <span class="anchor" id="line-135"></span><span class="anchor" id="line-136"></span></p><p class="line862">I want to add here a link to my <a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/never_calculate_twice">Vision of never throwing away a single frame</a>.
+Because this is an aproach to improve performance without improving the
+raw computing performance, but by using a smart workflow. <span class="anchor" id="line-137"></span><span class="anchor" id="line-138"></span></p><p class="line867"><br>
+ <span class="anchor" id="line-139"></span><br>
+ <span class="anchor" id="line-140"></span><span class="anchor" id="line-141"></span></p><p class="line867">
+</p><h2 id="head-b49230b7a135bbf02bfc265ba44972d12b310f80">Conclusions and Consequences</h2>
+<span class="anchor" id="line-142"></span><span class="anchor" id="line-143"></span><ul><li>Design matters <span class="anchor" id="line-144"></span></li><li>don't blame the past, start improving it now <span class="anchor" id="line-145"></span><span class="anchor" id="line-146"></span></li></ul><p class="line862">It is possible to attack these problems even in a quite large and long living code base. We just need to leave the <em>Problem perspective</em>
+and switch to the Design and Achiecture viewpoint. It is not necessary
+to cure tousends of isolated problems, but it will advance Cinelerra if
+we step back and introduce some Structures, Layer separation,
+encapsulation and QA facilities and then, in a second step, rework and
+reorganize a view central facilities to proviede a higher level of
+Integraion. <span class="anchor" id="line-147"></span><span class="anchor" id="line-148"></span></p><p class="line862">For
+a begining, we can take the "reversed aproach": From the identifying
+problem areas move on and introduce some »best practices« known to help
+curing just those problems (which are quite common and well known btw).
+I've <a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/best_practices">put together some of them on a separate page</a>  <span class="anchor" id="line-149"></span><span class="anchor" id="line-150"></span><span class="anchor" id="line-151"></span></p><p class="line867"><img alt="{X}" src="Cinelerra_woes_files/icon-error.png" title="{X}" height="16" width="16"> WIP: flesh out some details, smooth formulations etc. But the core of my argumentation is complete. <span class="anchor" id="line-152"></span><span class="anchor" id="bottom"></span></p></div><p id="pageinfo" class="info" dir="ltr" lang="de">Cinelerra/Developers/ichthyo/Cinelerra woes  (zuletzt geändert am 2007-06-08 06:32:20 durch <span title="Ichthyostega @ 91.12.13.231[91.12.13.231]"><a href="http://www.pipapo.org/pipawiki/Ichthyostega" title="Ichthyostega @ 91.12.13.231[91.12.13.231]">Ichthyostega</a></span>)</p>
+
+<div id="pagebottom"></div>
+</div>
+
+
+<div id="footer">
+<ul class="editbar"><li><a name="texteditlink" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=edit&amp;editor=text">Editieren (Text)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=edit&amp;editor=gui">Editieren (GUI)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=info">Info</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=subscribe">Abonnieren</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=quicklink">Verweis hinzufügen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes?action=AttachFile">Dateianhänge</a></li><li>
+<form class="actionsmenu" method="get" action="">
+<div>
+    
+    <select name="action" onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="show">Weitere Aktionen:</option><option value="raw">Rohform</option>
+<option value="print">Druckansicht</option>
+<option value="RenderAsDocbook">Docbook ausgeben</option>
+<option value="refresh">Cache löschen</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="SpellCheck">Rechtschreibung prüfen</option>
+<option value="LikePages">Ähnliche Seiten</option>
+<option value="LocalSiteMap">ÜbersichtsKarte</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="RenamePage">Seite umbenennen</option>
+<option value="DeletePage">Seite löschen</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="MyPages">Meine Seiten</option>
+<option value="SubscribeUser">Abo für Benutzer</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="Despam">Spam entfernen</option>
+<option value="PackagePages">Seiten paketieren</option>
+    </select>
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('Weitere Aktionen:');
+//-->
+</script>
+</form>
+</li></ul>
+
+<ul id="credits">
+<li><a href="http://moinmoin.wikiwikiweb.de/">MoinMoin Powered</a></li><li><a href="http://www.python.org/">Python Powered</a></li><li><a href="http://validator.w3.org/check?uri=referer">Valid HTML 4.01</a></li>
+</ul>
+
+
+</div>
+<ul id="timings">
+<li>getACL = 0.007s</li>
+<li>load_multi_cfg = 0.000s</li>
+<li>run = 0.275s</li>
+<li>send_page = 0.272s</li>
+<li>send_page_content = 0.065s</li>
+<li>total = 0.284s</li>
+</ul>
+
+</body></html>
