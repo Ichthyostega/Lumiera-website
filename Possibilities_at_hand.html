@@ -1,0 +1,383 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="robots" content="index,nofollow"><title>Cinelerra/Developers/ichthyo/Possibilities at hand - Pipapo Wiki</title>
+
+
+<script type="text/javascript" src="Possibilities_at_hand_files/common.js"></script>
+
+<script type="text/javascript">
+<!--// common functions
+
+// We keep here the state of the search box
+searchIsDisabled = false;
+
+function searchChange(e) {
+    // Update search buttons status according to search box content.
+    // Ignore empty or whitespace search term.
+    var value = e.value.replace(/\s+/, '');
+    if (value == '' || searchIsDisabled) { 
+        searchSetDisabled(true);
+    } else {
+        searchSetDisabled(false);
+    }
+}
+
+function searchSetDisabled(flag) {
+    // Enable or disable search
+    document.getElementById('fullsearch').disabled = flag;
+    document.getElementById('titlesearch').disabled = flag;
+}
+
+function searchFocus(e) {
+    // Update search input content on focus
+    if (e.value == 'Suche') {
+        e.value = '';
+        e.className = '';
+        searchIsDisabled = false;
+    }
+}
+
+function searchBlur(e) {
+    // Update search input content on blur
+    if (e.value == '') {
+        e.value = 'Suche';
+        e.className = 'disabled';
+        searchIsDisabled = true;
+    }
+}
+
+function actionsMenuInit(title) {
+    // Initialize action menu
+    for (i = 0; i < document.forms.length; i++) {
+        var form = document.forms[i];
+        if (form.className == 'actionsmenu') {
+            // Check if this form needs update
+            var div = form.getElementsByTagName('div')[0];
+            var label = div.getElementsByTagName('label')[0];
+            if (label) {
+                // This is the first time: remove label and do buton.
+                div.removeChild(label);
+                var dobutton = div.getElementsByTagName('input')[0];
+                div.removeChild(dobutton);
+                // and add menu title
+                var select = div.getElementsByTagName('select')[0];
+                var item = document.createElement('option');
+                item.appendChild(document.createTextNode(title));
+                item.value = 'show';
+                select.insertBefore(item, select.options[0]);
+                select.selectedIndex = 0;
+            }
+        }
+    }
+}
+//-->
+</script>
+
+<script type="text/javascript">
+var gui_editor_link_href = "/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=edit&editor=gui";
+var gui_editor_link_text = "Editieren (GUI)";
+</script>        
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="Possibilities_at_hand_files/common.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="screen" href="Possibilities_at_hand_files/screen.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="print" href="Possibilities_at_hand_files/print.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="projection" href="Possibilities_at_hand_files/projection.css"><!-- css only for MSIE browsers --><!--[if IE]>
+   <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/wiki/modern/css/msie.css">
+<![endif]-->
+
+
+
+
+
+
+<link rel="Start" href="http://www.pipapo.org/pipawiki/StartSeite">
+<link rel="Alternate" title="Wiki Quelltext" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=raw">
+<link rel="Alternate" media="print" title="Druckansicht" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=print">
+<link rel="Up" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo">
+<link rel="Search" href="http://www.pipapo.org/pipawiki/SeiteFinden">
+<link rel="Index" href="http://www.pipapo.org/pipawiki/TitelIndex">
+<link rel="Glossary" href="http://www.pipapo.org/pipawiki/WortIndex">
+<link rel="Help" href="http://www.pipapo.org/pipawiki/HilfeZumFormatieren"></head><body dir="ltr" lang="de">
+
+<div id="header">
+
+
+<form id="searchform" method="get" action="">
+<div>
+<input name="action" value="fullsearch" type="hidden">
+<input name="context" value="180" type="hidden">
+<label style="display: none;" for="searchinput">Suchen:</label>
+<input class="disabled" id="searchinput" name="value" value="" size="20" onfocus="searchFocus(this)" onblur="searchBlur(this)" onkeyup="searchChange(this)" onchange="searchChange(this)" alt="Search" type="text">
+<input disabled="disabled" id="titlesearch" name="titlesearch" value="Titel" alt="Search Titles" type="submit">
+<input disabled="disabled" id="fullsearch" name="fullsearch" value="Text" alt="Search Full Text" type="submit">
+</div>
+</form>
+<script type="text/javascript">
+<!--// Initialize search form
+var f = document.getElementById('searchform');
+f.getElementsByTagName('label')[0].style.display = 'none';
+var e = document.getElementById('searchinput');
+searchChange(e);
+searchBlur(e);
+//-->
+</script>
+
+<ul id="username"><li><a href="http://www.pipapo.org/pipawiki/Ichthyostega" id="userhome" title="Ichthyostega @ Self">Ichthyostega</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=userprefs" id="userprefs">Einstellungen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=logout&amp;logout=logout" id="logout">Abmelden</a></li></ul>
+<div id="locationline">
+
+
+<ul id="pagelocation">
+<li><a href="http://www.pipapo.org/pipawiki/Cinelerra">Cinelerra</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers">Developers</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo">ichthyo</a></li><li><a class="backlink" title="Hier klicken für eine Liste der Seiten, die auf diese verweisen" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=fullsearch&amp;value=linkto%3A%22Cinelerra/Developers/ichthyo/Possibilities+at+hand%22&amp;context=180">Possibilities at hand</a></li>
+</ul>
+
+</div>
+
+<ul id="pagetrail">
+<li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra3">Cinelerra3</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes">Cinelerra woes</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/best_practices">best practices</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal">Cin3 Project Proposal</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand">Possibilities at hand</a></li>
+</ul>
+
+<ul id="navibar">
+<li class="wikilink"><a href="http://www.pipapo.org/pipawiki/StartSeite">StartSeite</a></li><li class="wikilink"><a href="http://www.pipapo.org/pipawiki/Aktuelle%C3%84nderungen">AktuelleÄnderungen</a></li><li class="wikilink"><a href="http://www.pipapo.org/pipawiki/SeiteFinden">SeiteFinden</a></li><li class="wikilink"><a href="http://www.pipapo.org/pipawiki/HilfeInhalt">HilfeInhalt</a></li><li class="current"><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand">Possibilities at hand</a></li>
+</ul>
+
+<div id="pageline"><hr style="display: none;"></div>
+
+<ul class="editbar"><li><a name="texteditlink" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=edit&amp;editor=text">Editieren (Text)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=edit&amp;editor=gui">Editieren (GUI)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=info">Info</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=subscribe">Abonnieren</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=quicklink">Verweis hinzufügen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=AttachFile">Dateianhänge</a></li><li>
+<form class="actionsmenu" method="get" action="">
+<div>
+    
+    <select name="action" onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="show">Weitere Aktionen:</option><option value="raw">Rohform</option>
+<option value="print">Druckansicht</option>
+<option value="RenderAsDocbook">Docbook ausgeben</option>
+<option value="refresh">Cache löschen</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="SpellCheck">Rechtschreibung prüfen</option>
+<option value="LikePages">Ähnliche Seiten</option>
+<option value="LocalSiteMap">ÜbersichtsKarte</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="RenamePage">Seite umbenennen</option>
+<option value="DeletePage">Seite löschen</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="MyPages">Meine Seiten</option>
+<option value="SubscribeUser">Abo für Benutzer</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="Despam">Spam entfernen</option>
+<option value="PackagePages">Seiten paketieren</option>
+    </select>
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('Weitere Aktionen:');
+//-->
+</script>
+</form>
+</li></ul>
+
+</div>
+
+<div id="page" dir="ltr" lang="en">
+<div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><p class="line867">
+</p><h1 id="head-a5863c089ceb8e9992864fc22f294e91728dde3b">Editing and Render-Engine: Possibilities at hand</h1>
+<span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><p class="line862">You may call this text a vision, albeit a very moderate one.<br>
+ <span class="anchor" id="line-4"></span>The basic aproach taken by Cinelrra is quite modern and clean. I want to sketch what would be possible<br>
+ <span class="anchor" id="line-5"></span>if we'd really stand up to this basic aproach, making it govern parts of the actual Design and Implementation.<br>
+ <span class="anchor" id="line-6"></span>Just about doing things that seem self-evident nowadays. <span class="anchor" id="line-7"></span><span class="anchor" id="line-8"></span></p><p class="line874">We could spend our time <span class="anchor" id="line-9"></span><span class="anchor" id="line-10"></span></p><ul><li>just hunting and fixing bugs -- or we could spend it making things reliable by design <span class="anchor" id="line-11"></span></li><li>just
+having a GUI and Features like "the others" -- or we could spend it to
+embody and encompass these common ideas and structures within our
+internal design and implementation. <span class="anchor" id="line-12"></span><span class="anchor" id="line-13"></span></li></ul><p class="line874">So
+-- to motivate all those clean-up and restructuring efforts, I'll lay
+out some Ideas that seem to me beeing quite at hand, and I'll show how
+they could fit together. The first steps seem to be quite agreed upon.
+Possible <span class="anchor" id="line-14"></span>further steps and possibilities just coming into vision at the moment. Feel free to propose and participate. <span class="anchor" id="line-15"></span><span class="anchor" id="line-16"></span></p><p class="line862">I think, we should <em>prefere the bottom-up aproach</em>
+of how a certain design could give rise to usefull features over the
+aproach of defining cool features and then figuring out how to
+implement them. <span class="anchor" id="line-17"></span><span class="anchor" id="line-18"></span><span class="anchor" id="line-19"></span></p><p class="line867">
+</p><h3 id="head-27c7a7883c87ef6d362fc265e94c82f7f0de8e7a">Builder Pattern</h3>
+<span class="anchor" id="line-20"></span><p class="line862">Completely separate <em>building</em> of the Render Pipeline and <em>running</em> of the Render Pipeline. The Nodes in this Pipeline should process Video/Audio and <em>do nothing else.</em>
+No more any decisions, tests and conditional operations when running
+the Pipeline. Move all of this out into the configuration of the
+pipeline, done by the Builder. Make the actual processing nodes
+Template classes, parametrised by the color model and number of
+components. Make all Nodes on equal footing of each other, able to be
+connected freely within the limitations of the necessary input and
+output. Make the OpenGL rendering into alternate implementation of some
+operations together with an alternate signal flow (usable only if the
+whole Pipeline can be built up to support this changed signal flow),
+thus facturing out all the complexities of managing the data flow
+between core and hardware accelerated rendering out of the
+implementation of the actual processing. Introduce separate control
+data connections for the automation data, separating the case of true
+multi-channel-effects from the case where one node just gets remote
+controlled by another node (or two nodes using the sama automation
+data). Unfold any "internal-multi" effects into separate instances,
+e.g. the possibility of having an arbitrary number of <em>single</em> masks at <em>any</em> point of the pipeline instead of having <em>one</em> special masking facility encompassing multiple sub-masks. <span class="anchor" id="line-21"></span><span class="anchor" id="line-22"></span></p><p class="line867">
+</p><h3 id="head-ee5592e21379b280794d8614e8c77c3c4be5a905">Abstract Data-flow</h3>
+<span class="anchor" id="line-23"></span><p class="line874">Apply a
+moderate degree of abstraction to the data handling and data flows.
+Unify all data reading and writing and push it down into a data
+handling backend. Create a new data flow type "Intention and Hinting
+messages", thus giving rise for far more clever media access and
+caching on all levels, without the need of the Object/Editing Subsystem
+doing any data flow optimizing decisions. Unify the control and
+automation data and make it a first class data flow. Encapsulate all
+interpolation and keying consideartions thus freeing the Render nodes
+of any need to access "keyframes" or to do sub-frame interpolation
+(e.g. within one Audio Frame) on their own. Automation data could as
+well be created within the Render Engine (e.g. by the motion tracker)
+and written into an automation track for further editing. <span class="anchor" id="line-24"></span><span class="anchor" id="line-25"></span></p><p class="line867">
+</p><h3 id="head-6ef036926759d99d693449fdc54cf4cb2e25032d">Self-contained Builder</h3>
+<span class="anchor" id="line-26"></span><p class="line862">Make the
+Builder a separate entity with cleary specified interfaces. One
+interface is towards the Rendering-Engine for loading a newly
+constructed Render Pipeline into the Engine or for hot-swapping parts
+of the Render Pipeline in case of modifications while doing
+playback/rendering, and for passing on "Intention and Hinting
+messages". The other interface is towards the Object manipulation
+Subsystem, the EDLs and Session handling. Pass over this interface
+instructions <em>what</em> has to be done, but not <em>how</em> to do it. Concentrate structural and methodical optimizations within the Builder. He <em>could</em>
+rearrange or even "compile" the Render Pipeline, e.g. he could decide
+only to rende a region of some pipeline, because the rest will be
+discarded by the final projector and overlayed by another tracks
+output. This openes possibilities for further research and improvement
+without the need of hand written assembler or OpenGL code. <span class="anchor" id="line-27"></span><span class="anchor" id="line-28"></span></p><p class="line867">
+</p><h3 id="head-42d8e65b8d492736db54d13b26dd99093fadec1b">Clear Control Flow and Dependencies</h3>
+<span class="anchor" id="line-29"></span><p class="line862">Always try
+to get at a uniform Control Flow. Avoid mutual couplings and callbacks.
+Use Dependency Injection and Inversion of Control. For example, let the
+Builder make a <em>complete</em> set of decisions ready to be
+executed. Never call back from within the Render Engine to get
+additional Informations for "Plugin X" out of "Track N" in "the EDL".
+Because this unneccessarily couples the Render Engine to internal
+Details of "the EDL" <span class="anchor" id="line-30"></span><span class="anchor" id="line-31"></span></p><p class="line867">
+</p><h3 id="head-4961c1ab6b1aee377f385a35590d28e8f49f1d40">Separate Edit Decisions and actual Render Configuration</h3>
+<span class="anchor" id="line-32"></span><p class="line862">Distinguish
+between the Objects the user places and manipulates within the
+Session/EDL and the Objects which comprise the Render Pipeline. Don't
+take a "Plugin" out of "the EDL" and connect it into the Render
+Pipelene, be it bare or wrapped within a Virtual Node. Rather declare
+the user wants <em>a placement</em> of some Plugin (given by ID) at
+some Location, given absolutely by "(Track,Frame)" or relatively by
+"attached at Clip X". Let the Builder retrieve the actual Plugin or the
+actual Clip (or a Dummy / Proxy), resolve everything to actual
+Positions and Render Pipe Numbers (corresponding to the Tracks) and
+finally wire the Objects together. Persist both the Placement requested
+by the user (this is the EDL) and the actual Assembly found to
+implement this placement. Give the ability to fix this Assembly to a
+certain degree, so things can't be messed up by further editing. So the
+user can, say, lock a part of a larger project which is "done" and be
+content not the slightest detail will be changed when doing the final
+render some months later. (That's the reason why I propose to persist
+the actual Assembly as well, so all of the editing work can be checked
+into a SCM system by the user. May seem silly at the moment, as most
+users don't know the power of SCM, but this will change for sure). <span class="anchor" id="line-33"></span><span class="anchor" id="line-34"></span></p><p class="line867">
+</p><h3 id="head-24098d8434a1dd1878385a9034e63121783468b9">Use High-Level techniques where appropriate</h3>
+<span class="anchor" id="line-35"></span><p class="line874">Stick to the proved and the reliable for the foundations of the system. No "new Languages" for the Backbone! <span class="anchor" id="line-36"></span>But be open for advanced technology in cleanly isolated subsystems. For example, embed a Prolog engine and maybe <span class="anchor" id="line-37"></span>even some Constraint solver. Use them within the Builder to do the decisions and use them to <em>derive</em>
+the actual Object Assembly out of the Placements given by the user. We
+could even make the internal Structure visible to a ceratin degree,
+giving the user a better "feel" on what is going on internally, because
+the internals could be expressed in a high-level manner not overloaded
+with implemention details this way. <span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span></p><p class="line867">
+</p><h3 id="head-89e230a63348771097deeaa1ba92e7d8983dce0f">Structured EDL Elements</h3>
+<span class="anchor" id="line-40"></span><p class="line862">Make the
+contents of the EDL -- the things manipulated by the user -- more
+structured. Because of Decoupling and Inversion of Control, there is no
+longer any need for a flat and simple structure along the lines of
+Tracks, Edits, Plugin-Sets, separate Automation keyframes. Things could
+be tied together directly. Edits could be placed to be sequential,
+Clips and Sound could be linked, Effects could be attached to the track
+<em>or</em> to groups of objects, automation will be attached to the
+Effects and move with them. Nothing revolutionary. I have seen several
+users getting angry and feeling betrayed if a System hinderes them
+doing such things seemingly natural todays. Thats the story with
+"Accidental Complexity" versus "Fundamental Complexity". If I have to
+take care actively for keeping an audio clip placed in-synch, this is
+creating Accidental Complexity both for the user <em>and for the programmer.</em>  <span class="anchor" id="line-41"></span><span class="anchor" id="line-42"></span></p><p class="line867">
+</p><h3 id="head-7b91afdfd7c6a1b92b39b797762298b3dfa15f58">Support building up larger Structures</h3>
+<span class="anchor" id="line-43"></span><p class="line874">All this
+achievements together enable the building of larger structures and help
+maintaining them. If we separate Edit Decision Objects from Render
+Objects, we could provide "Meta Clips", the ability to assemble
+seamlessly complete Timelines or Sub-Sessions for a larger project. We
+could extend the Asset management to be really helpful where it is
+needed, i.e. in larger projects. Building up a customized collection of
+Media, prepared Clips, really-needed Effects, preconfigured Snipets and
+using them uniformely in the assembly of individual Sessions comprising
+a larger project. Save as Templates or Macro Blocks, search for
+keywords, organize clips within bins and sub bins, integrate with
+external systems used to organize movie shooting. <span class="anchor" id="line-44"></span><span class="anchor" id="line-45"></span></p><p class="line867">
+</p><h2 id="head-50608cd7747547643a3be2a55c911b3d149f80bd">Conclusion</h2>
+<span class="anchor" id="line-46"></span><p class="line874">None of
+this is there at the moment, and non of this will be there immediate.
+All of this together is way too much work as to be done by a single
+programmer or a small core team. We need colaboration to get at this
+level. But I don't see any other viable aproach for getting there
+besides working up from the core in a structured manner. <span class="anchor" id="line-47"></span><span class="anchor" id="bottom"></span></p></div><p id="pageinfo" class="info" dir="ltr" lang="de">Cinelerra/Developers/ichthyo/Possibilities at hand  (zuletzt geändert am 2007-06-10 18:34:44 durch <span title="MichaelPloujnikov @ 207.112.111.140[207.112.111.140]"><a class="nonexistent" href="http://www.pipapo.org/pipawiki/MichaelPloujnikov" title="MichaelPloujnikov @ 207.112.111.140[207.112.111.140]">MichaelPloujnikov</a></span>)</p>
+
+<div id="pagebottom"></div>
+</div>
+
+
+<div id="footer">
+<ul class="editbar"><li><a name="texteditlink" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=edit&amp;editor=text">Editieren (Text)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=edit&amp;editor=gui">Editieren (GUI)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=info">Info</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=subscribe">Abonnieren</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=quicklink">Verweis hinzufügen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Possibilities_at_hand?action=AttachFile">Dateianhänge</a></li><li>
+<form class="actionsmenu" method="get" action="">
+<div>
+    
+    <select name="action" onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="show">Weitere Aktionen:</option><option value="raw">Rohform</option>
+<option value="print">Druckansicht</option>
+<option value="RenderAsDocbook">Docbook ausgeben</option>
+<option value="refresh">Cache löschen</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="SpellCheck">Rechtschreibung prüfen</option>
+<option value="LikePages">Ähnliche Seiten</option>
+<option value="LocalSiteMap">ÜbersichtsKarte</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="RenamePage">Seite umbenennen</option>
+<option value="DeletePage">Seite löschen</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="MyPages">Meine Seiten</option>
+<option value="SubscribeUser">Abo für Benutzer</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="Despam">Spam entfernen</option>
+<option value="PackagePages">Seiten paketieren</option>
+    </select>
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('Weitere Aktionen:');
+//-->
+</script>
+</form>
+</li></ul>
+
+<ul id="credits">
+<li><a href="http://moinmoin.wikiwikiweb.de/">MoinMoin Powered</a></li><li><a href="http://www.python.org/">Python Powered</a></li><li><a href="http://validator.w3.org/check?uri=referer">Valid HTML 4.01</a></li>
+</ul>
+
+
+</div>
+<ul id="timings">
+<li>getACL = 0.007s</li>
+<li>load_multi_cfg = 0.000s</li>
+<li>run = 0.626s</li>
+<li>send_page = 0.622s</li>
+<li>send_page_content = 0.073s</li>
+<li>total = 0.636s</li>
+</ul>
+
+</body></html>
