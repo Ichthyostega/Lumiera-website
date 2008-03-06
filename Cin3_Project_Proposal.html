@@ -1,0 +1,617 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="robots" content="index,nofollow"><title>Cinelerra/Developers/ichthyo/Cin3 Project Proposal - Pipapo Wiki</title>
+
+
+<script type="text/javascript" src="Cin3_Project_Proposal_files/common.js"></script>
+
+<script type="text/javascript">
+<!--// common functions
+
+// We keep here the state of the search box
+searchIsDisabled = false;
+
+function searchChange(e) {
+    // Update search buttons status according to search box content.
+    // Ignore empty or whitespace search term.
+    var value = e.value.replace(/\s+/, '');
+    if (value == '' || searchIsDisabled) { 
+        searchSetDisabled(true);
+    } else {
+        searchSetDisabled(false);
+    }
+}
+
+function searchSetDisabled(flag) {
+    // Enable or disable search
+    document.getElementById('fullsearch').disabled = flag;
+    document.getElementById('titlesearch').disabled = flag;
+}
+
+function searchFocus(e) {
+    // Update search input content on focus
+    if (e.value == 'Suche') {
+        e.value = '';
+        e.className = '';
+        searchIsDisabled = false;
+    }
+}
+
+function searchBlur(e) {
+    // Update search input content on blur
+    if (e.value == '') {
+        e.value = 'Suche';
+        e.className = 'disabled';
+        searchIsDisabled = true;
+    }
+}
+
+function actionsMenuInit(title) {
+    // Initialize action menu
+    for (i = 0; i < document.forms.length; i++) {
+        var form = document.forms[i];
+        if (form.className == 'actionsmenu') {
+            // Check if this form needs update
+            var div = form.getElementsByTagName('div')[0];
+            var label = div.getElementsByTagName('label')[0];
+            if (label) {
+                // This is the first time: remove label and do buton.
+                div.removeChild(label);
+                var dobutton = div.getElementsByTagName('input')[0];
+                div.removeChild(dobutton);
+                // and add menu title
+                var select = div.getElementsByTagName('select')[0];
+                var item = document.createElement('option');
+                item.appendChild(document.createTextNode(title));
+                item.value = 'show';
+                select.insertBefore(item, select.options[0]);
+                select.selectedIndex = 0;
+            }
+        }
+    }
+}
+//-->
+</script>
+
+<script type="text/javascript">
+var gui_editor_link_href = "/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=edit&editor=gui";
+var gui_editor_link_text = "Editieren (GUI)";
+</script>        
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="Cin3_Project_Proposal_files/common.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="screen" href="Cin3_Project_Proposal_files/screen.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="print" href="Cin3_Project_Proposal_files/print.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="projection" href="Cin3_Project_Proposal_files/projection.css"><!-- css only for MSIE browsers --><!--[if IE]>
+   <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/wiki/modern/css/msie.css">
+<![endif]-->
+
+
+
+
+
+
+<link rel="Start" href="http://www.pipapo.org/pipawiki/StartSeite">
+<link rel="Alternate" title="Wiki Quelltext" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=raw">
+<link rel="Alternate" media="print" title="Druckansicht" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=print">
+<link rel="Up" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo">
+<link rel="Search" href="http://www.pipapo.org/pipawiki/SeiteFinden">
+<link rel="Index" href="http://www.pipapo.org/pipawiki/TitelIndex">
+<link rel="Glossary" href="http://www.pipapo.org/pipawiki/WortIndex">
+<link rel="Help" href="http://www.pipapo.org/pipawiki/HilfeZumFormatieren"></head><body dir="ltr" lang="de">
+
+<div id="header">
+
+
+<form id="searchform" method="get" action="">
+<div>
+<input name="action" value="fullsearch" type="hidden">
+<input name="context" value="180" type="hidden">
+<label style="display: none;" for="searchinput">Suchen:</label>
+<input class="disabled" id="searchinput" name="value" value="" size="20" onfocus="searchFocus(this)" onblur="searchBlur(this)" onkeyup="searchChange(this)" onchange="searchChange(this)" alt="Search" type="text">
+<input disabled="disabled" id="titlesearch" name="titlesearch" value="Titel" alt="Search Titles" type="submit">
+<input disabled="disabled" id="fullsearch" name="fullsearch" value="Text" alt="Search Full Text" type="submit">
+</div>
+</form>
+<script type="text/javascript">
+<!--// Initialize search form
+var f = document.getElementById('searchform');
+f.getElementsByTagName('label')[0].style.display = 'none';
+var e = document.getElementById('searchinput');
+searchChange(e);
+searchBlur(e);
+//-->
+</script>
+
+<ul id="username"><li><a href="http://www.pipapo.org/pipawiki/Ichthyostega" id="userhome" title="Ichthyostega @ Self">Ichthyostega</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=userprefs" id="userprefs">Einstellungen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=logout&amp;logout=logout" id="logout">Abmelden</a></li></ul>
+<div id="locationline">
+
+
+<ul id="pagelocation">
+<li><a href="http://www.pipapo.org/pipawiki/Cinelerra">Cinelerra</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers">Developers</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo">ichthyo</a></li><li><a class="backlink" title="Hier klicken für eine Liste der Seiten, die auf diese verweisen" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=fullsearch&amp;value=linkto%3A%22Cinelerra/Developers/ichthyo/Cin3+Project+Proposal%22&amp;context=180">Cin3 Project Proposal</a></li>
+</ul>
+
+</div>
+
+<ul id="pagetrail">
+<li><a href="http://www.pipapo.org/pipawiki/Ichthyostega">Ichthyostega</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra3">Cinelerra3</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra_woes">Cinelerra woes</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/best_practices">best practices</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal">Cin3 Project Proposal</a></li>
+</ul>
+
+<ul id="navibar">
+<li class="wikilink"><a href="http://www.pipapo.org/pipawiki/StartSeite">StartSeite</a></li><li class="wikilink"><a href="http://www.pipapo.org/pipawiki/Aktuelle%C3%84nderungen">AktuelleÄnderungen</a></li><li class="wikilink"><a href="http://www.pipapo.org/pipawiki/SeiteFinden">SeiteFinden</a></li><li class="wikilink"><a href="http://www.pipapo.org/pipawiki/HilfeInhalt">HilfeInhalt</a></li><li class="current"><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal">Cin3 Project Proposal</a></li>
+</ul>
+
+<div id="pageline"><hr style="display: none;"></div>
+
+<ul class="editbar"><li><a name="texteditlink" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=edit&amp;editor=text">Editieren (Text)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=edit&amp;editor=gui">Editieren (GUI)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=info">Info</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=subscribe">Abonnieren</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=quicklink">Verweis hinzufügen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=AttachFile">Dateianhänge</a></li><li>
+<form class="actionsmenu" method="get" action="">
+<div>
+    
+    <select name="action" onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="show">Weitere Aktionen:</option><option value="raw">Rohform</option>
+<option value="print">Druckansicht</option>
+<option value="RenderAsDocbook">Docbook ausgeben</option>
+<option value="refresh">Cache löschen</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="SpellCheck">Rechtschreibung prüfen</option>
+<option value="LikePages">Ähnliche Seiten</option>
+<option value="LocalSiteMap">ÜbersichtsKarte</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="RenamePage">Seite umbenennen</option>
+<option value="DeletePage">Seite löschen</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="MyPages">Meine Seiten</option>
+<option value="SubscribeUser">Abo für Benutzer</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="Despam">Spam entfernen</option>
+<option value="PackagePages">Seiten paketieren</option>
+    </select>
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('Weitere Aktionen:');
+//-->
+</script>
+</form>
+</li></ul>
+
+</div>
+
+<div id="page" dir="ltr" lang="en">
+<div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><p class="line867">
+</p><h1 id="head-8aeab1ad6e074576ab67e908c594dac0c2a98217">Cinelerra-3 Project Proposal</h1>
+<span class="anchor" id="line-4"></span><p class="line867"><span class="u">May 2007</span>:
+much of this is rather vapourware at the time of this writing. Just,
+there seems to be some momentum in the Cinelerra community at the
+moment. <br>
+ <span class="anchor" id="line-5"></span>And there ist
+the existing codebase. It is huge. It contains lots of know-how. But
+any developer of some experience can easily see that it is the root for
+some of the current problems Cinelerra is struck with. All of this
+problems are rather indirect in nature. To make it clear: the state of
+the current code base is satisfactory, it is well maintained. But it is
+difficult to extend, tedious to analyze and it is lacking the
+infrastructure needed to accomodate the demands users are putting on
+such an application nowadays. If we would just go ahead pragmatically
+and add all the sensible feature requests, like expandable tracks, more
+drag-n-drop, more object-like behaviour of the assets, effects linked
+to clips, sound linked to clips, individual keying of plugin
+parameters, complete user-defineable ordering of the elements in the
+render pipeline, a full-blown dvd-export editor, asset management and
+searching features, transparent proxy editing, meta-clips, support for
+larger projects with multiple timelines, etc -- adding all those
+features <em>will kill the existing Codebase for sure.</em>  <span class="anchor" id="line-6"></span><span class="anchor" id="line-7"></span></p><p class="line874">But
+things are not hopeless. Cinelerra is not alone, other Applications
+have seen this problems, other Applications have advanced. <span class="anchor" id="line-8"></span><span class="anchor" id="line-9"></span></p><ul><li><p class="line862">we should not stick to a programming style that was <em>up to date </em>20 Years ago <span class="anchor" id="line-10"></span></p></li><li><p class="line862">we should utilize all the <em>experience, wisdom and craftmanship </em>gained in the last years by the developer community <span class="anchor" id="line-11"></span></p></li><li><p class="line862">we should rely more heavily on external libs for all things that are <em>not specific to video editing</em> <span class="anchor" id="line-12"></span></p></li><li><p class="line862">we should adopt <em>well proven methods</em> and <em>»best practices«</em> <span class="anchor" id="line-13"></span></p><ul><li><p class="line862">Encapsulation, programming against Interfaces. <a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/best_practices">This means for Cinelerra...</a> <span class="anchor" id="line-14"></span></p></li><li><p class="line862">Decoupling of Components by making them self-contained  <a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/best_practices#head-eded60c0ad33d351c0dd2711c16008190fb39302">(this means..)</a> <span class="anchor" id="line-15"></span></p></li><li><p class="line862">Composition over Inheritance <a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/best_practices#head-6140d5c520ed00cbcb077973a716fad9b23d2635">(more..)</a> <span class="anchor" id="line-16"></span></p></li><li><p class="line862">Strong Typing and the use of Design Patterns <a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/best_practices#head-151eea0df837eadd5e2c771c0d2b93186383f949">(more..)</a> <span class="anchor" id="line-17"></span></p></li><li><p class="line862">Design by Contract and wide use of Assertions <a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/best_practices#head-782a47b9d92651190cf54b7f4583b03a151535c9">(more..)</a> <span class="anchor" id="line-18"></span></p></li><li>Frequent Refacturing combined with a Stable Branch <span class="anchor" id="line-19"></span></li><li><p class="line862">Unit Testing <a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/best_practices#head-6b45f7492671dcb9227aff7d4f8726ece2ea7c69">(more..)</a> <span class="anchor" id="line-20"></span></p></li></ul></li></ul><p class="line867"><br>
+ <span class="anchor" id="line-21"></span><span class="anchor" id="line-22"></span></p><p class="line867"><br>
+ <span class="anchor" id="line-23"></span>
+</p><h2 id="head-10f21f0b1e4492b803d192d9d8470fbcc8f68e08">But won't this be a new Application?</h2>
+<span class="anchor" id="line-24"></span><p class="line862">No, it won't, because we don't want a new application. We want it basically to stay the same.<br>
+ <span class="anchor" id="line-25"></span>The
+concepts embodied into Cinelerra are clean and stright forward. It is
+format-agnostic, quality oriented, targeted at pro work.<br>
+ <span class="anchor" id="line-26"></span>The phillosophy is right. It has good Karma. <img alt=";-)" src="Cin3_Project_Proposal_files/smile4.png" title=";-)" height="15" width="15"> <span class="anchor" id="line-27"></span><span class="anchor" id="line-28"></span></p><p class="line862">So, everything should be done in a manner that doesn't fundamentally break the existing codebase.<br>
+ <span class="anchor" id="line-29"></span>We don't want to start out from scratch, we want a transition and a reworking.<br>
+ <span class="anchor" id="line-30"></span>At every Milestone, there should be a usable and almost feature-complete Application.<br>
+ <span class="anchor" id="line-31"></span><span class="anchor" id="line-32"></span></p><p class="line867">
+</p><h2 id="head-ae85e38976d1be2c7bd29a063f6f3bc3328cabf0">Architecture</h2>
+<span class="anchor" id="line-33"></span><p class="line862">The Current Cinelerra has an Architecture. Well, sort of. There is a backend region (libquicktimehv, libmpeg). <br>
+ <span class="anchor" id="line-34"></span>There are the virtual nodes and plugins of the render engine, and there is the guicast lib with its window and widget classes.<br>
+ <span class="anchor" id="line-35"></span>And thats all of it. <em>Architecture is not a reality at the code level.</em> We should most definitively change this. <span class="anchor" id="line-36"></span><span class="anchor" id="line-37"></span></p><p class="line862">The existing functionaliy should be separated into <span class="u">three layers</span>: Backend, Core, GUI.<br>
+ <span class="anchor" id="line-38"></span>Or -- slightly changed viewpoint -- separated into <span class="u">five independent functional Units</span>: <span class="anchor" id="line-39"></span></p><ol type="1"><li>data handling backend <span class="anchor" id="line-40"></span></li><li>object manipulation (EDLs/cuts/plugin-instances/automation) <span class="anchor" id="line-41"></span></li><li>render engine (render-pipeline/plugins/mixing/playback/rendering) <span class="anchor" id="line-42"></span></li><li>asset management <span class="anchor" id="line-43"></span></li><li>user interface <span class="anchor" id="line-44"></span><span class="anchor" id="line-45"></span></li></ol><p class="line874">Each
+of this units is self-contained as much as possible. They cooperate
+using only well defined and more or less fixed Interfaces. <span class="anchor" id="line-46"></span>Each of this Interfaces builds upon one <em>key abstraction,</em> which should be choosen/designed to be just powerfull enough to encompass <span class="anchor" id="line-47"></span>and
+express all interactions going on at this Interface. For example,
+render engine and data backend are just talking about media <span class="anchor" id="line-48"></span>streams.
+Render engine retrieves playlists from the object manipulation
+component, while this one loads and queries assets (clips, <span class="anchor" id="line-49"></span>whole sessions, effects, plugins) from the asset manager. And the GUI just sends and recieves events from the core engine. <span class="anchor" id="line-50"></span>As a spin off product, most of the components could be usefull as such. The data handling backend and the asset management <span class="anchor" id="line-51"></span>could
+be scriptable, e.g. via python bindings. Object manipulation and render
+engine could work in a headless fashion (commandline client) <span class="anchor" id="line-52"></span><span class="anchor" id="line-53"></span></p><p class="line862">Read more on the proposed <a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra3/Architecture">core Components and Interfaces</a>... <span class="anchor" id="line-54"></span><span class="anchor" id="line-55"></span><span class="anchor" id="line-56"></span></p><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-57"></span>
+</p><h2 id="head-3d76192cd220a2cba4457f3591649dc59e89a28a">Roadmap</h2>
+<span class="anchor" id="line-58"></span><p class="line874">All of this
+sounds ambitious and contradictory to the aforementioned goal of
+allways having a usable and almost complete application. <span class="anchor" id="line-59"></span>But it is doable, serious. And, with the exception of one (final) step, namely rewriting the GUI, it doesn't require excessive <span class="anchor" id="line-60"></span>developer manpower or overly much specialized skills. Why? <em>Because we don't need to re-invent functionallity</em> -- we always have <span class="anchor" id="line-61"></span>a working piece of code and have <em>just</em> to break it out and transform it into the new structures. <span class="anchor" id="line-62"></span><span class="anchor" id="line-63"></span></p><p class="line862">Don't get me wrong: this <em>is</em> a proposal, a draft, sort of brainstorming.<br>
+ <span class="anchor" id="line-64"></span>Just to show that it's feasible, I'll detail on a complete project plan with milestones. <span class="anchor" id="line-65"></span><span class="anchor" id="line-66"></span></p><p class="line867">
+</p><h3 id="head-02271108944219b6a2af2fe9941801f438a0f393">Milestone-1: whetting of tools</h3>
+<span class="anchor" id="line-67"></span><div><table><tbody><tr style="background-color: rgb(255, 255, 224);">  <td style="text-align: right;"><p class="line862">abstract </p></td>
+  <td><p class="line862"> <strong>bring in proper tools and frameworks</strong> </p></td>
+</tr>
+<tr>  <td style="text-align: right;"><span class="anchor" id="line-68"></span><p class="line862"> criteria                    </p></td>
+  <td><p class="line862"> we <em>feel</em> well equipped for the battle <img alt=":)" src="Cin3_Project_Proposal_files/smile.png" title=":)" height="15" width="15"> </p></td>
+</tr>
+<tr>  <td style="text-align: right;"><span class="anchor" id="line-69"></span><p class="line862"> user-visible impact         </p></td>
+  <td><p class="line862"> backported fixes for bugs spotted by the new tools </p></td>
+</tr>
+</tbody></table></div><dl><dt>motivation</dt><dd><span class="anchor" id="line-71"></span>just don't rely solely on common sense and handwork, bring in proven tools and methods. <span class="anchor" id="line-72"></span></dd><dt>description</dt><dd><span class="anchor" id="line-73"></span>some facilities are better to setup beforehand. This includes quite some "chainsaw surgery", <span class="anchor" id="line-74"></span>but we shouldn't get too much into individual technical details. Mostly, it's about selecting <span class="anchor" id="line-75"></span>and integrating library solutions for some of the common problems, like multithreading and locking. <span class="anchor" id="line-76"></span><p class="line862">Further, we need diagnostic tools and a framework for assertions and quality management (<a href="http://www.pipapo.org/pipawiki/NoBug">NoBug</a>, Valgind,...).<br>
+ <span class="anchor" id="line-77"></span>We need an up-to-date, configurable Logging/Reporting System, and we should set up a basic Unit Testing <span class="anchor" id="line-78"></span>framework (at least for the new code to-be-written; it is clear that we can't do Test Driven Developement <span class="anchor" id="line-79"></span>in its pure form). Moreover, any improvements to the build system are welcome, and we should establish a <span class="anchor" id="line-80"></span>framework of GIT branches, build scripts and repos to be able to roll out beta versions to the users <span class="anchor" id="line-81"></span>without much effort. (We can't do TDD, so we need the users, hehe!) <span class="anchor" id="line-82"></span></p></dd><dt>problems</dt><dd><span class="anchor" id="line-83"></span><p class="line862">the
+runtime behaviour of the current Cinelerra app is quite frightening. It
+creates lots and lots of threads, uses a locking scheme obviousely
+broken, and it segfaults on a regular base. <em>We need to stop this.</em> Cinelerra is inteded to be for professional work. With respect to this pretension, the current state is plain ridiculous.  <span class="anchor" id="line-84"></span></p></dd><dt>solution aproach</dt><dd><span class="anchor" id="line-85"></span><p class="line862">Twofold.
+Bring in some tools and spot some of the most obvious problems. Replace
+some of the homebrew solutions with state-of-the-art libraries. Try to
+get some of this backported to Cinelrra-CV. This is to immediately
+prove the usefullness of our undertakings and give our faithfull users
+an immedate value payback.<br> Besides, select some further libraries,
+tools and methods usable only in conjunction with a partial
+reorganization of the code base. This is only preparatory at the moment
+but will give us the ability to get a really reliable codebase, if at
+all we choose to proceed on this path... <span class="anchor" id="line-86"></span></p></dd><dt>goals</dt><dd><span class="anchor" id="line-87"></span><p class="line862">Nothing dramatic. The same code base. Some additional dependencies <img alt=":\" src="Cin3_Project_Proposal_files/ohwell.png" title=":\" height="15" width="15"> , some spotted bugs. <img alt=":-?" src="Cin3_Project_Proposal_files/tongue.png" title=":-?" height="15" width="15"> <br>
+ Maybe having gained some approvement by the Community <span class="anchor" id="line-88"></span><span class="anchor" id="line-89"></span></p></dd></dl><p class="line867"><br>
+ <span class="anchor" id="line-90"></span><span class="anchor" id="line-91"></span></p><p class="line867">
+</p><h3 id="head-4deb678f4a3ddda0b9371751cced3bfd2f25eea4">Milestone-2: laying the foundations</h3>
+<span class="anchor" id="line-92"></span><div><table><tbody><tr style="background-color: rgb(255, 255, 224);">  <td style="text-align: right;"><p class="line862">abstract </p></td>
+  <td><p class="line862"> <strong>design the key abstractions and the data backend</strong> </p></td>
+</tr>
+<tr>  <td style="text-align: right;"><span class="anchor" id="line-93"></span><p class="line862"> criteria                    </p></td>
+  <td><p class="line862"> we can draft all neccessary interfaces and express the main calls in a natural way </p></td>
+</tr>
+<tr>  <td style="text-align: right;"><span class="anchor" id="line-94"></span><p class="line862"> user-visible impact         </p></td>
+  <td><p class="line862"> none. the newly added code is never called. </p></td>
+</tr>
+</tbody></table></div><dl><dt>motivation</dt><dd><span class="anchor" id="line-96"></span><p class="line862">This
+milestone has a bit of "doing more than is needed at the moment". We
+can decide how much we do, but at least we shall try to get the first
+steps right. <em>We really need a positive guideline on what the code should be,</em> before we can tackle the existing code.<br>
+This really matters. I'll tell you why: the existing code isn't broken,
+function-wise. The problem is, it uses mainly outdated and partially
+ill-guided concepts. It tries to achieve features with an excessive
+amount of dilligence and elaboration on details, which could be
+achieved rather effortless by fully <em>encorporating the ideas and concepts</em> which gave rise to all those features (media objects, processing networks, event-driven GUIs) at first place.<br>
+If we don't get the vision clear, we'll end up spending still more
+dilligence for just reimplementing those awry aproach with modern tools
+not at all suited for such programming style. <span class="anchor" id="line-97"></span></p></dd><dt>description</dt><dd><span class="anchor" id="line-98"></span>We
+need some abstraction for the "media objects". This should enable us to
+pass and manipulate those objects in an uniform manner, without being
+tied to the specific properties of the given object. We can (and
+should) borrow the basic ideas from existing libraies. We should
+decide, if we can even use those libraries to do some of the work for
+us. Next, we have to identify "corresponding features" in the existing
+code base. I'm quite content, that we will find it to be quite sensible
+in this respect and that all we have to do is some aligning and
+reordering of methods. (e.g. in the VFrame object) <span class="anchor" id="line-99"></span></dd><dt>problems</dt><dd><span class="anchor" id="line-100"></span><ol type="1"><li>we need a way to access all sorts of media stream content in a uniform way. <span class="anchor" id="line-101"></span></li><li>we need to pass renderable objects from the object manipulation substytem to the core rendering engine <span class="anchor" id="line-102"></span></li><li>we need to represent all sorts of automation data in a generalized manner <span class="anchor" id="line-103"></span></li><li>we
+need to organize assets, which could be raw media, pre-cut clips,
+effects, transitions and possibly more things in future (extensible!) <span class="anchor" id="line-104"></span></li></ol></dd><dt>solution aproach</dt><dd><span class="anchor" id="line-105"></span><ol type="1"><li><p class="line862">build
+upon the key abstraction of a media stream. This abstraction will build
+the front interface for our data backend layer. Behind this
+abstraction, it will most likely continue to use most of HV's media
+accessing code, at least for a long time, maybe forever. This will open
+the possibility of improved caching (and that's the big deal).
+Moreover, we need to solve the problem of representing different color
+models. We need a solution how to write processing code targeted at
+different models in a clean manner. <em>All of this is mandatory, we can't proceed without.</em> <span class="anchor" id="line-106"></span></p></li><li>build
+upon the abstraction of "playlists", i.e. collections of "renderable
+objects". Without this, we can't decouple the rendering engine from the
+representation of EDLs, clips, effects, sessions. We can choose to
+defer the solution of this problem to Milestone-3 <span class="anchor" id="line-107"></span></li><li><p class="line862">I have written the bezier patch, probably this hinders me to get a clear vision here. Any ideas welcome!<br>
+At least, we should replace all of the hand-written, double linked
+lists by standard containers and base the processing at least on
+iterators (or functional programming, i.e. mapping and filtering?).
+This will force us (in a quite natural way) to define a common node
+abstraction. We probably can't do much of this replacement before we
+are at Milestone-5, because the existing code passes references to the
+list pointers over several layers of function calls and can be heavily
+complicated and error prone at places. Cleaning up all of this
+iterating and searching comprises most of the work for Milestone-5. But
+we should develope a prototype and try it out on some collecion-like
+objects we encounter in Milestone-3 (e.g. the plugin sets) <span class="anchor" id="line-108"></span></p></li><li>I
+have not the slightest idea how the asset management works at the
+moment. Maybe we introduce sort of a plugin architecture here too? <span class="anchor" id="line-109"></span></li></ol></dd><dt>goals</dt><dd><span class="anchor" id="line-110"></span>just
+being able to access media streams in a uniform manner and being able
+to write the backend interface, which will encompass all future media
+stream access. Add this code and maybe alredy the interface classes to
+the code base, but don't use it. <span class="anchor" id="line-111"></span><span class="anchor" id="line-112"></span></dd></dl><p class="line867"><br>
+ <span class="anchor" id="line-113"></span><span class="anchor" id="line-114"></span></p><p class="line867">
+</p><h3 id="head-abe87fc792de449432863d1dd1e8a016bf33dd4a">Milestone-3: encountering reality</h3>
+<span class="anchor" id="line-115"></span><div><table><tbody><tr style="background-color: rgb(255, 255, 224);">  <td style="text-align: right;"><p class="line862">abstract </p></td>
+  <td><p class="line862"> <strong>reorganize the core rendering engine</strong> </p></td>
+</tr>
+<tr>  <td style="text-align: right;"><span class="anchor" id="line-116"></span><p class="line862"> criteria                    </p></td>
+  <td><p class="line862"> Cinelerra renders/playbacks same as before, including all effects </p></td>
+</tr>
+<tr>  <td style="text-align: right;"><span class="anchor" id="line-117"></span><p class="line862"> user-visible impact         </p></td>
+  <td><p class="line862"> none (hopefully) </p></td>
+</tr>
+</tbody></table></div><dl><dt>motivation</dt><dd><span class="anchor" id="line-119"></span><p class="line862">the
+rendering pipeline is alredy quite self contained and has rather well
+defined borders, so it is a good candidate to get the first grip at.
+Moreover, it is <em>the</em> reality test par excelance: if our ideas,
+design principles, foundations and abstractions aren't sound, then
+performance and stability will be worse then at current. Quality is
+measurable here. <span class="anchor" id="line-120"></span></p></dd><dt>description</dt><dd><span class="anchor" id="line-121"></span><p class="line862">the rendering pieline consists of processing nodes and works in pull processing mode. We won't change this.<br>
+But we want to remove the "special role" some of the nodes are playing
+at the moment, namely the mask, the camera, the fader, the projector.
+Another central point is the <em>Builder-Pattern</em>:
+the current code is organized vaguely by this pattern, but it is not
+really implemented this way. This causes a mix of several concerns and
+causes the rendering codepath to be polluted with lots of conditional
+tests and decisions which aren't strictly video prcessing related. This
+is again an example of "missing the spirit of the concept": typically
+that's just why you want to apply the Builder pattern. Without that
+incentive, it would be much more transparent to use table-style
+programming.<br>
+So the idea here should be that the augmented object manipulation
+component (i.e. the EDL and such) does the building and delivers a
+completely configured render pipelline (object graph) to the rendering
+engine. To be more precise: it could be a list of render pipelines, one
+for each constantly configured segment of the session. No need to build
+up the objects for every frame. No need to do any color model decisions
+within the inner processing loop and no need to test for objects
+disappearing due to editing activties in the course of playback, not to
+mention handling of specific hardware like BUZZ-support. Just one
+central solution for hot-swapping the render pipeline for one segment
+of the session is needed. So my guess is, finally 3/4 of the code
+presently there will simply disappear. <span class="anchor" id="line-122"></span></p></dd><dt>problems</dt><dd><span class="anchor" id="line-123"></span>the current implementation  <span class="anchor" id="line-124"></span><ol type="a"><li>is rather directly integrated with playback and background rendering <span class="anchor" id="line-125"></span></li><li>the nodes are built up for each frame while rendering <span class="anchor" id="line-126"></span></li><li>what to do with all the existing plugin code <span class="anchor" id="line-127"></span></li></ol></dd><dt>solution aproach</dt><dd><span class="anchor" id="line-128"></span><p class="line862">Introduce a new controller component, the <a class="nonexistent" href="http://www.pipapo.org/pipawiki/RenderManager">RenderManager</a>. Rewrite existing code "out there" to interface directly to the <a class="nonexistent" href="http://www.pipapo.org/pipawiki/RenderManager">RenderManager</a>. This solves (a). Further, introduce as a intermediate means a new <a class="nonexistent" href="http://www.pipapo.org/pipawiki/ProvisoryBuilder">ProvisoryBuilder</a> component, as all of the object manipulation subsystem is nonexistant at the moment. This <a class="nonexistent" href="http://www.pipapo.org/pipawiki/ProvisoyBuilder">ProvisoyBuilder</a>
+behaves identical to the current Cinelerra rendering code: it builds up
+a rendering pipeline for each frame by directly accessing EDL and clip
+objects. But, at least, we alredy use the new data backend functions --
+the newly created render pipeline nodes are cleanly separated from the
+Builder, as well from the backend complexities and they do <em>nothing but rendering</em>. This solves (b).<br>
+ <span class="anchor" id="line-129"></span>For the plugin code, I see two different aproaches at the moment:  <span class="anchor" id="line-130"></span></p><ul><li><p class="line862">we could provide an translation layer located in the so called <a class="nonexistent" href="http://www.pipapo.org/pipawiki/PluginServer">PluginServer</a> (which is no real server, but rather an Adapter)<br>
+ and leave the plugin code alone at the moment <span class="anchor" id="line-131"></span></p></li><li><p class="line862">we could go ahead and adapt all plugins, once and for all. This includes the process_buffer() and the OpenGL variants, <br>
+but would leave alone all plugin guis and all parameter/keyframe management. <span class="anchor" id="line-132"></span></p></li></ul></dd><dt>goals</dt><dd><span class="anchor" id="line-133"></span>All
+of the rendering, playback and EDL manipulation code is working as
+before, with the same usage pattern (including multithreading). <span class="anchor" id="line-134"></span>In
+spite of this, the core rendering engine code (and hopefully the
+processing code in the plugins) is drastically simplified, because we
+have factured out several crosscutting concerns, centralized a good
+bunch of decision logic, ruled out most of the switch-case-blocks
+together with the macro stuff caused by them, as we can now utilize our
+improved data abstractions developed in Milestone-2. If we are clever,
+we will see performance gains due to new memory management
+possibilities (but we shouldn't expect too much here). <span class="anchor" id="line-135"></span><span class="anchor" id="line-136"></span></dd></dl><p class="line867"><br>
+ <span class="anchor" id="line-137"></span><span class="anchor" id="line-138"></span></p><p class="line867">
+</p><h3 id="head-9b3a595b4addcbdb9d11640cd2280b0a4f6273e9">Milestone-4: taking a break</h3>
+<span class="anchor" id="line-139"></span><div><table><tbody><tr style="background-color: rgb(255, 255, 224);">  <td style="text-align: right;"><p class="line862">abstract </p></td>
+  <td><p class="line862"> <strong>switch session file loading and improve asset representation</strong> </p></td>
+</tr>
+<tr>  <td style="text-align: right;"><span class="anchor" id="line-140"></span><p class="line862"> criteria                    </p></td>
+  <td><p class="line862"> new system can handle existing session files and assets, maybe with some improvements </p></td>
+</tr>
+<tr>  <td style="text-align: right;"><span class="anchor" id="line-141"></span><p class="line862"> user-visible impact         </p></td>
+  <td><p class="line862"> ability to use new (switchable) external session representations beside the traditional XML </p></td>
+</tr>
+</tbody></table></div><dl><dt>motivation</dt><dd><span class="anchor" id="line-143"></span>doing some rather simple and isolated improvements, preparing Milestone-5, getting user feedback for Milestone-3 <span class="anchor" id="line-144"></span></dd><dt>description</dt><dd><span class="anchor" id="line-145"></span>X <span class="anchor" id="line-146"></span></dd><dt>problems</dt><dd><span class="anchor" id="line-147"></span>Storing and loading is scattered all over the code, and tangled with the undo/redo and copy/paste functionalities. <span class="anchor" id="line-148"></span></dd><dt>solution aproach</dt><dd><span class="anchor" id="line-149"></span>X <span class="anchor" id="line-150"></span></dd><dt>goals</dt><dd><span class="anchor" id="line-151"></span>New
+Session storage system in place, more possibilities to do format
+conversions, besides that, everything should work as before. <span class="anchor" id="line-152"></span><span class="anchor" id="line-153"></span></dd></dl><p class="line867"><img alt="{X}" src="Cin3_Project_Proposal_files/icon-error.png" title="{X}" height="16" width="16"> <small><span class="u">TODO</span></small> <span class="anchor" id="line-154"></span><br>
+ <span class="anchor" id="line-155"></span><span class="anchor" id="line-156"></span></p><p class="line867">
+</p><h3 id="head-81a326a17aa0f7e80118011f45505c6c690a6af5">Milestone-5: biting the bullet</h3>
+<span class="anchor" id="line-157"></span><div><table><tbody><tr style="background-color: rgb(255, 255, 224);">  <td style="text-align: right;"><p class="line862">abstract </p></td>
+  <td><p class="line862"> <strong>replace object management</strong> </p></td>
+</tr>
+<tr>  <td style="text-align: right;"><span class="anchor" id="line-158"></span><p class="line862"> criteria                    </p></td>
+  <td><p class="line862"> new subsystem can handle <em>all</em> the existing features </p></td>
+</tr>
+<tr>  <td style="text-align: right;"><span class="anchor" id="line-159"></span><p class="line862"> user-visible impact         </p></td>
+  <td><p class="line862"> no functional changes, but better locking/multithreading behaviour<br>
+resulting in improved stability (hopefully) </p></td>
+</tr>
+</tbody></table></div><dl><dt>motivation</dt><dd><span class="anchor" id="line-161"></span><p class="line862">at some point, we need to do the <em>big step</em>
+and introduce common container classes and the standard library.
+Moreover, this core object network needs a slightly augmented structure
+and some improved abstractions, in order to be able to implement all
+those feature requests now lurking in our famous bug tracker since
+years. Also, if we want to implement a fully event-centric GUI at some
+point in the future (Milestone-7), we need centralized and service
+oriented access points to all of this object manipulation, i.e. a real
+client-server aproach. <span class="anchor" id="line-162"></span></p></dd><dt>description</dt><dd><span class="anchor" id="line-163"></span>All
+of the edit session content and state is contained in a structure of
+connected objects, most of this connections beeing of collection-type
+(implemented by double linked lists). A Session is a collection of
+tracks, which in turn contain a collection of edits, pluginsets,
+collections of automation-nodes and keyframes of various types. At the
+moment, this structure is accessed directly from both sides (GUI and
+Render Engine). Further, the cleaned-up structure of the Render Engine
+(Milestone-3) puts a new demand on this object manipulation subsystem:
+it needs to do the building and connection of the render pipeline
+object graph. Quite in line with this are some of the long standing
+feature requests of the users: the ability to link media objects
+(clips, sound and effects) and move them in combination, the ability to
+do individual keying of plugin parameters. Because the performance
+pressure is rather low in this region of the system, we well may think
+of using advanced programming techniques to solve this problems. At the
+moment, I could well imagine to embed some Prolog engine here, or
+something of this sort. At least, we should prepare for the ability to
+do so in the future. Such things are absolutely impossible as long as
+all of the processing is done by directly passing along pointers to
+linked list nodes, or, worse, references to such pointers, it's just
+not the right abstraction level. Rather, there should be augmented
+Asset-Objects which could encompass some layout and association rules.
+Like: "place this plugin below that clip", or "place this keyframe
+sequence relative to that plugin". We really don't need a full-blown
+constraint solver here, but some sort of rule-driven aproach will make
+this things more simple and manageable. <span class="anchor" id="line-164"></span></dd><dt>problems</dt><dd><span class="anchor" id="line-165"></span>currently,
+most operations are done by directly modifying inner object properties
+from outwart in a completely unstructured manner. It's an almost
+intangible, monolithic labyrinth of dependencies. So we need methods of
+breaking out parts and create new separation layers. Moreover, at the
+moment there is overly heavy multithreading, and we want partially to
+get rid of this in the GUI layer. <span class="anchor" id="line-166"></span></dd><dt>solution aproach</dt><dd><span class="anchor" id="line-167"></span><p class="line862">Create a new <a class="nonexistent" href="http://www.pipapo.org/pipawiki/CommandDispatcher">CommandDispatcher</a>-Component
+and (temporarily) introduce a layer of proxy-objects above this. The
+proxy objects can be accessed in a similar manner from the existing
+code (mainly in the GUI layer) to the way the real objects are now
+manipulated directly by the GUI. Of course we have to replace direct
+manipulation of object fileds by getter/setter calls. The proxy objects
+in turn access the new interface on the <a class="nonexistent" href="http://www.pipapo.org/pipawiki/CommandDispatcher">CommandDispatcher</a>,
+which reacts by advising the new (or reworked) media object
+manipulation subsystem to carry out the desired action. The net effect
+is to replace external manipulation by letting the EDL media objects
+themselves provide the desired service, maybe even asynchronousely. <span class="anchor" id="line-168"></span></p></dd><dt>goals</dt><dd><span class="anchor" id="line-169"></span>Not
+sure what the goals should be. Possibly this Milestone will be about
+replacing a good part of the core app. But it is also possible to think
+of it rather as an Adaptation Layer for integrating the new Backend and
+Render Engine, while the "editing part" of the App stays unchanged
+functionallity-wise. <span class="anchor" id="line-170"></span><span class="anchor" id="line-171"></span></dd></dl><p class="line867"><br>
+ <span class="anchor" id="line-172"></span><span class="anchor" id="line-173"></span></p><p class="line867">
+</p><h3 id="head-53e58388cbbc827a3f7694e268945533a6a5bcc0">Milestone-6: harvesting the fruits</h3>
+<span class="anchor" id="line-174"></span><div><table><tbody><tr style="background-color: rgb(255, 255, 224);">  <td style="text-align: right;"><p class="line862">abstract </p></td>
+  <td><p class="line862"> <strong>implement some nice new features based on the augmented structures</strong> </p></td>
+</tr>
+<tr>  <td style="text-align: right;"><span class="anchor" id="line-175"></span><p class="line862"> criteria                    </p></td>
+  <td><p class="line862"> users are happy </p></td>
+</tr>
+<tr>  <td style="text-align: right;"><span class="anchor" id="line-176"></span><p class="line862"> user-visible impact         </p></td>
+  <td><p class="line862"> speed improvements, new features </p></td>
+</tr>
+</tbody></table></div><dl><dt>motivation</dt><dd><span class="anchor" id="line-178"></span>at
+this point, we can start to take profit from all this internal
+reworkings and also to realize the potential of the augmented
+structures. <span class="anchor" id="line-179"></span></dd><dt>description</dt><dd><span class="anchor" id="line-180"></span>The
+most important thing to do here is an improved Cache Manager and an
+more intelligent re-use of (background)rendered frames. If we just
+implement what's possible on top of Cinelerras clear and
+straightforward structure, we can get way ahead of a good bunch of our
+competitors: If we manage to rerender really just the recently changed
+parts of the session and nothing more, a simple aging aproach to the
+cache organization will yield us pre-existing frames ready for playback
+most of the time. I for my part assess this as beeing far more
+important then augmenting hardware acceleration (note: for the
+conventional video editing cinelerra is taylored at. 3D animations or
+virtual reality is quite a different thing) <span class="anchor" id="line-181"></span></dd><dt>problems</dt><dd><span class="anchor" id="line-182"></span>after
+having solved the adaptation problem to the existing code in the data
+backend and in the GUI layer, I don't see any further difficulties.
+Moreover, there is no project dependencies pressure, i.e. we can
+implement what is feasible here and make our users happy. <span class="anchor" id="line-183"></span></dd><dt>goals</dt><dd><span class="anchor" id="line-184"></span><p class="line862">runs like greased lighning, rock stable <img alt=":-?" src="Cin3_Project_Proposal_files/tongue.png" title=":-?" height="15" width="15"> <span class="anchor" id="line-185"></span><span class="anchor" id="line-186"></span></p></dd></dl><p class="line867"><br>
+ <span class="anchor" id="line-187"></span><span class="anchor" id="line-188"></span></p><p class="line867">
+</p><h3 id="head-1cf7b0850d37db76c40dc313492f0272e0740c0b">Milestone-7: getting megalomania</h3>
+<span class="anchor" id="line-189"></span><div><table><tbody><tr style="background-color: rgb(255, 255, 224);">  <td style="text-align: right;"><p class="line862">abstract </p></td>
+  <td><p class="line862"> <strong>a new GUI</strong> </p></td>
+</tr>
+<tr>  <td style="text-align: right;"><span class="anchor" id="line-190"></span><p class="line862"> criteria                    </p></td>
+  <td><p class="line862"> bangs and whistles </p></td>
+</tr>
+<tr>  <td style="text-align: right;"><span class="anchor" id="line-191"></span><p class="line862"> user-visible impact         </p></td>
+  <td><p class="line862"> gigantic </p></td>
+</tr>
+</tbody></table></div><dl><dt>motivation</dt><dd><span class="anchor" id="line-193"></span>gain better usability, be cool <span class="anchor" id="line-194"></span></dd><dt>description</dt><dd><span class="anchor" id="line-195"></span><p class="line862">Starting form the <a class="nonexistent" href="http://www.pipapo.org/pipawiki/CommandDispatcher">CommandDispatcher</a>
+introduced in Milestone-5, rebuild the current GUI using one of the
+existing GUI toolkit sets. Openes the ability to have collapsable
+tracks with sub-tracks for the automation, for displaying keyframes and
+curves for every imaginable parameter, for letting the user directly
+edit connection of the data processing network, for gaining more screen
+real estate and improved usability by tabbed property editing boxes,
+user-defineable key bindings, dockable sub-windows,
+vector-graphic-driven rendering of widgetes, etc., etc., etc. <span class="anchor" id="line-196"></span></p></dd><dt>problems</dt><dd><span class="anchor" id="line-197"></span><p class="line862">a
+great bunch of work. Could be way more then all preceeding Milestones
+together. The problem to decide on the "political correct" GUI
+framework <img alt=";-)" src="Cin3_Project_Proposal_files/smile4.png" title=";-)" height="15" width="15"> <span class="anchor" id="line-198"></span></p></dd><dt>goals</dt><dd><span class="anchor" id="line-199"></span><p class="line862">an application, that's not only advanced, clean and quality oriented in its inner workings,<br>
+but conveyes this properties in the user experience (du you need more marketing fluff?) <span class="anchor" id="line-200"></span><span class="anchor" id="line-201"></span></p></dd></dl><p class="line867"><img alt="{X}" src="Cin3_Project_Proposal_files/icon-error.png" title="{X}" height="16" width="16"> <small><span class="u">TODO</span></small> <span class="anchor" id="line-202"></span><br>
+ <span class="anchor" id="line-203"></span><span class="anchor" id="line-204"></span></p><p class="line867">
+</p><h1 id="head-a8835df623b2dc88a296500bb47da5183b05e634">Comments</h1>
+<span class="anchor" id="line-205"></span><span class="anchor" id="line-206"></span><p class="line874">I'd rather start from scratch and then lets see what we can reuse. Reasons are: <span class="anchor" id="line-207"></span></p><ul><li>Picking up the current codebase into a new design will be hard *at best* probably discuraging and not doable <span class="anchor" id="line-208"></span></li><li>We
+still stick with old undocumented code until we gone over all of it,
+which might be never the case for this project, at some point when
+things are working people get lazy (which is ok for volunteers).
+Starting it in the right fashion, writing specs, docs and tests first
+before starting actual implementation will not suffer from such a
+lazyness <span class="anchor" id="line-209"></span></li><li><p class="line862">We know what we've done, no compromises, no ugly workarounds, no debugging of old code to make it fit, that will safe <strong>much</strong> time. <span class="anchor" id="line-210"></span></p></li><li>There
+is still a lot to resuse. HV put a lot efforts into doing things right,
+say effects, chromakeying, color handling, motion tracker, etc..., this
+are the things we want to reuse. <span class="anchor" id="line-211"></span><p class="line862">-- <a href="http://www.pipapo.org/pipawiki/ct">ct</a> 2007-06-04 01:18:44 <span class="anchor" id="line-212"></span><span class="anchor" id="line-213"></span></p></li></ul><p class="line874">Well, while I agree with the points mentioned by you, I tend to draw a different conclusion: <span class="anchor" id="line-214"></span></p><ul><li>just
+because it is possible (and even has some probability) that this effort
+will cease half-way done, I prefere an aproach which basically aims at
+an working App at every Milestone. <span class="anchor" id="line-215"></span></li><li>Milestone-5
+seems to be the "point-of-no-return", but if we stop erlier, we have at
+least done some substantial improvements for the existing codebase <span class="anchor" id="line-216"></span></li><li>starting from scratch means not having anything (usable) besides the existing Cinelerra 2.x for a long time. <span class="anchor" id="line-217"></span><p class="line862">-- <a href="http://www.pipapo.org/pipawiki/Ichthyostega">Ichthyostega</a> 2007-06-08 02:35:51 <span class="anchor" id="line-218"></span><span class="anchor" id="line-219"></span></p></li></ul><p class="line874">I
+find myself nodding in agreement with Ichthyostega. I think it's
+important that we don't "do a Netscape" or end up with the video editor
+equivalent of Vista. I'd prefer a DragonFlyBSD approach, where the
+codebase is systematically migrated to the new improved architecture.
+Breakages should be minimised - although I think that some temporary
+breakage is inevitable. My idea for a new Cinelerra is: <span class="anchor" id="line-220"></span></p><ul><li>to see something more stable rather than a whole raft of improvements <span class="anchor" id="line-221"></span></li><li>to see code that is easier to modify and enhance. <span class="anchor" id="line-222"></span></li></ul><p class="line874">I
+think being too ambitious is highly likely to lead in failure. What I
+propose is that we identify one key area of Cinelerra that needs
+addressing, and make that the target of Cinelerra 3.0. <span class="anchor" id="line-223"></span></p><ul><li style="list-style-type: none;"><p class="line862">-- <a href="http://www.pipapo.org/pipawiki/MarkCarter">MarkCarter</a> 2008-03-06 05:25:10 <span class="anchor" id="line-224"></span><span class="anchor" id="line-225"></span></p></li></ul><p class="line862">I
+would love to agree, but systematic migration is not always possible or
+desirable. My day job is senior architect/developer for a sizable web
+application. We worked for a long time on a migration plan, trying to
+"shoehorn in" improvements to the codebase, but we found that we were
+spending more time working around the problems than writing new code.
+Finally we started from scratch, using everything we had learned, and
+development is moving <em>much</em> more quickly. <span class="anchor" id="line-226"></span></p><ul><li style="list-style-type: none;"><p class="line862">- <a class="nonexistent" href="http://www.pipapo.org/pipawiki/RobScott">RobScott</a> 2008-02-07 17:30:00 <span class="anchor" id="line-227"></span><span class="anchor" id="line-228"></span></p></li></ul><p class="line862">Yes, that's pretty much the conclusion we reached meanwhile too. Now it is a <em>completely separate project</em> and it's a <em>rewrite</em>.  <span class="anchor" id="line-229"></span>The first three steps remain valid, though (and we are somewhre within step-2 and 3) <span class="anchor" id="line-230"></span></p><ul><li style="list-style-type: none;"><p class="line862">-- <a href="http://www.pipapo.org/pipawiki/Ichthyostega">Ichthyostega</a> 2008-02-07 18:33:18 <span class="anchor" id="line-231"></span><span class="anchor" id="line-232"></span></p></li></ul><span class="anchor" id="bottom"></span></div><p id="pageinfo" class="info" dir="ltr" lang="de">Cinelerra/Developers/ichthyo/Cin3 Project Proposal  (zuletzt geändert am 2008-02-07 18:34:21 durch <span title="??? @ 91.12.47.139[91.12.47.139]">91</span>)</p>
+
+<div id="pagebottom"></div>
+</div>
+
+
+<div id="footer">
+<ul class="editbar"><li><a name="texteditlink" href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=edit&amp;editor=text">Editieren (Text)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=edit&amp;editor=gui">Editieren (GUI)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=info">Info</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=subscribe">Abonnieren</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=quicklink">Verweis hinzufügen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cin3_Project_Proposal?action=AttachFile">Dateianhänge</a></li><li>
+<form class="actionsmenu" method="get" action="">
+<div>
+    
+    <select name="action" onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="show">Weitere Aktionen:</option><option value="raw">Rohform</option>
+<option value="print">Druckansicht</option>
+<option value="RenderAsDocbook">Docbook ausgeben</option>
+<option value="refresh">Cache löschen</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="SpellCheck">Rechtschreibung prüfen</option>
+<option value="LikePages">Ähnliche Seiten</option>
+<option value="LocalSiteMap">ÜbersichtsKarte</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="RenamePage">Seite umbenennen</option>
+<option value="DeletePage">Seite löschen</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="MyPages">Meine Seiten</option>
+<option value="SubscribeUser">Abo für Benutzer</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="Despam">Spam entfernen</option>
+<option value="PackagePages">Seiten paketieren</option>
+    </select>
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('Weitere Aktionen:');
+//-->
+</script>
+</form>
+</li></ul>
+
+<ul id="credits">
+<li><a href="http://moinmoin.wikiwikiweb.de/">MoinMoin Powered</a></li><li><a href="http://www.python.org/">Python Powered</a></li><li><a href="http://validator.w3.org/check?uri=referer">Valid HTML 4.01</a></li>
+</ul>
+
+
+</div>
+<ul id="timings">
+<li>getACL = 0.007s</li>
+<li>load_multi_cfg = 0.000s</li>
+<li>run = 0.389s</li>
+<li>send_page = 0.385s</li>
+<li>send_page_content = 0.128s</li>
+<li>total = 0.399s</li>
+</ul>
+
+</body></html>
