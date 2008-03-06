@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="robots" content="noindex,nofollow"><title>Cinelerra3/DesignProcess/ProcBuilder - Pipapo Wiki</title>
+
+
+<script type="text/javascript" src="ProcBuilder_files/common.js"></script>
+
+<script type="text/javascript">
+<!--// common functions
+
+// We keep here the state of the search box
+searchIsDisabled = false;
+
+function searchChange(e) {
+    // Update search buttons status according to search box content.
+    // Ignore empty or whitespace search term.
+    var value = e.value.replace(/\s+/, '');
+    if (value == '' || searchIsDisabled) { 
+        searchSetDisabled(true);
+    } else {
+        searchSetDisabled(false);
+    }
+}
+
+function searchSetDisabled(flag) {
+    // Enable or disable search
+    document.getElementById('fullsearch').disabled = flag;
+    document.getElementById('titlesearch').disabled = flag;
+}
+
+function searchFocus(e) {
+    // Update search input content on focus
+    if (e.value == 'Suche') {
+        e.value = '';
+        e.className = '';
+        searchIsDisabled = false;
+    }
+}
+
+function searchBlur(e) {
+    // Update search input content on blur
+    if (e.value == '') {
+        e.value = 'Suche';
+        e.className = 'disabled';
+        searchIsDisabled = true;
+    }
+}
+
+function actionsMenuInit(title) {
+    // Initialize action menu
+    for (i = 0; i < document.forms.length; i++) {
+        var form = document.forms[i];
+        if (form.className == 'actionsmenu') {
+            // Check if this form needs update
+            var div = form.getElementsByTagName('div')[0];
+            var label = div.getElementsByTagName('label')[0];
+            if (label) {
+                // This is the first time: remove label and do buton.
+                div.removeChild(label);
+                var dobutton = div.getElementsByTagName('input')[0];
+                div.removeChild(dobutton);
+                // and add menu title
+                var select = div.getElementsByTagName('select')[0];
+                var item = document.createElement('option');
+                item.appendChild(document.createTextNode(title));
+                item.value = 'show';
+                select.insertBefore(item, select.options[0]);
+                select.selectedIndex = 0;
+            }
+        }
+    }
+}
+//-->
+</script>
+
+<script type="text/javascript">
+var gui_editor_link_href = "/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=edit&editor=gui";
+var gui_editor_link_text = "Editieren (GUI)";
+</script>        
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="ProcBuilder_files/common.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="screen" href="ProcBuilder_files/screen.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="print" href="ProcBuilder_files/print.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="projection" href="ProcBuilder_files/projection.css"><!-- css only for MSIE browsers --><!--[if IE]>
+   <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/wiki/modern/css/msie.css">
+<![endif]-->
+
+
+
+
+
+
+<link rel="Start" href="http://www.pipapo.org/pipawiki/StartSeite">
+<link rel="Alternate" title="Wiki Quelltext" href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=raw">
+<link rel="Alternate" media="print" title="Druckansicht" href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=print">
+<link rel="Up" href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess">
+<link rel="Search" href="http://www.pipapo.org/pipawiki/SeiteFinden">
+<link rel="Index" href="http://www.pipapo.org/pipawiki/TitelIndex">
+<link rel="Glossary" href="http://www.pipapo.org/pipawiki/WortIndex">
+<link rel="Help" href="http://www.pipapo.org/pipawiki/HilfeZumFormatieren"></head><body dir="ltr" lang="de">
+
+<div id="header">
+
+
+<form id="searchform" method="get" action="">
+<div>
+<input name="action" value="fullsearch" type="hidden">
+<input name="context" value="180" type="hidden">
+<label style="display: none;" for="searchinput">Suchen:</label>
+<input class="disabled" id="searchinput" name="value" value="" size="20" onfocus="searchFocus(this)" onblur="searchBlur(this)" onkeyup="searchChange(this)" onchange="searchChange(this)" alt="Search" type="text">
+<input disabled="disabled" id="titlesearch" name="titlesearch" value="Titel" alt="Search Titles" type="submit">
+<input disabled="disabled" id="fullsearch" name="fullsearch" value="Text" alt="Search Full Text" type="submit">
+</div>
+</form>
+<script type="text/javascript">
+<!--// Initialize search form
+var f = document.getElementById('searchform');
+f.getElementsByTagName('label')[0].style.display = 'none';
+var e = document.getElementById('searchinput');
+searchChange(e);
+searchBlur(e);
+//-->
+</script>
+
+<ul id="username"><li><a href="http://www.pipapo.org/pipawiki/Ichthyostega" id="userhome" title="Ichthyostega @ Self">Ichthyostega</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=userprefs" id="userprefs">Einstellungen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=logout&amp;logout=logout" id="logout">Abmelden</a></li></ul>
+<div id="locationline">
+
+
+<ul id="pagelocation">
+<li><a href="http://www.pipapo.org/pipawiki/Cinelerra3">Cinelerra3</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess">DesignProcess</a></li><li><a class="backlink" title="Hier klicken für eine Liste der Seiten, die auf diese verweisen" href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=fullsearch&amp;value=linkto%3A%22Cinelerra3/DesignProcess/ProcBuilder%22&amp;context=180">ProcBuilder</a></li>
+</ul>
+
+</div>
+
+<ul id="pagetrail">
+<li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ArchitectureOverview">ArchitectureOverview</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/TodoLists">TodoLists</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess">Cinelerra3/DesignProcess</a></li><li><a href="http://www.pipapo.org/pipawiki/HilfeZuListen">HilfeZuListen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder">ProcBuilder</a></li>
+</ul>
+
+<ul id="navibar">
+<li class="wikilink"><a href="http://www.pipapo.org/pipawiki/StartSeite">StartSeite</a></li><li class="wikilink"><a href="http://www.pipapo.org/pipawiki/Aktuelle%C3%84nderungen">AktuelleÄnderungen</a></li><li class="wikilink"><a href="http://www.pipapo.org/pipawiki/SeiteFinden">SeiteFinden</a></li><li class="wikilink"><a href="http://www.pipapo.org/pipawiki/HilfeInhalt">HilfeInhalt</a></li><li class="current"><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder">ProcBuilder</a></li>
+</ul>
+
+<div id="pageline"><hr style="display: none;"></div>
+<div id="message">
+<p>Danke für die Änderung und die Sorgfalt beim Editieren.</p>
+<div class="buttons"><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=show">Nachricht löschen</a></div>
+
+</div>
+
+<ul class="editbar"><li><a name="texteditlink" href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=edit&amp;editor=text">Editieren (Text)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=edit&amp;editor=gui">Editieren (GUI)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=info">Info</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=subscribe">Abonnieren</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=quicklink">Verweis hinzufügen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=AttachFile">Dateianhänge</a></li><li>
+<form class="actionsmenu" method="get" action="">
+<div>
+    
+    <select name="action" onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="show">Weitere Aktionen:</option><option value="raw">Rohform</option>
+<option value="print">Druckansicht</option>
+<option value="RenderAsDocbook">Docbook ausgeben</option>
+<option value="refresh">Cache löschen</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="SpellCheck">Rechtschreibung prüfen</option>
+<option value="LikePages">Ähnliche Seiten</option>
+<option value="LocalSiteMap">ÜbersichtsKarte</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="RenamePage">Seite umbenennen</option>
+<option value="DeletePage">Seite löschen</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="MyPages">Meine Seiten</option>
+<option value="SubscribeUser">Abo für Benutzer</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="Despam">Spam entfernen</option>
+<option value="PackagePages">Seiten paketieren</option>
+    </select>
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('Weitere Aktionen:');
+//-->
+</script>
+</form>
+</li></ul>
+
+</div>
+
+<div id="page" dir="ltr" lang="en">
+<div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-3"></span><div><p class="line891"></p><p class="line891"></p><p class="line891"></p><table><tbody><tr>  <td><p class="line891"><strong>State</strong></p></td>
+  <td><p class="line891"><em>Idea</em></p></td>
+</tr>
+<tr>  <td><span class="anchor" id="line-7"></span><p class="line891"><strong>Date</strong></p></td>
+  <td>2008-03-06</td>
+</tr>
+<tr>  <td><span class="anchor" id="line-8"></span><p class="line891"><strong>Proposed by</strong></p></td>
+  <td><p class="line891"><a href="http://www.pipapo.org/pipawiki/Ichthyostega">Ichthyostega</a></p></td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-9"></span><span class="anchor" id="line-10"></span><p class="line867"><span class="anchor" id="line-11"></span></p><p class="line867">
+</p><h1 id="head-f3441540450c5dc3e8cf12253e86edaf9737f554">Builder within the Proc-Layer</h1>
+<span class="anchor" id="line-12"></span><p class="line867"><span class="anchor" id="line-13"></span></p><p class="line874">One
+of the core ideas of the Proc-Layer (as being currently implemented by
+Ichthyo) is the use of the Builder-pattern to achieve a separation
+between high-level view and low-level view. <span class="anchor" id="line-14"></span><span class="anchor" id="line-15"></span><span class="anchor" id="line-16"></span></p><p class="line867">
+</p><h2 id="head-c91b73ad070800ef34c8844d313e04336b006d12">Description</h2>
+<span class="anchor" id="line-17"></span><p class="line867"><span class="anchor" id="line-18"></span></p><p class="line874">The
+Proc-Layer differentiates into a high-level view, which models the
+properties of the problem domain (manipulating media objects), and a
+low-level model, which is a network of render nodes and will be
+optimized for processing efficiency. In between sits the Builder, which
+is triggered on all important/relevant changes to the high-level model.
+The Builder inspects the current state of this high-level model and,
+driven by the actual objects and their configuration, creates a
+corresponding representation within the low-level model, which is then
+hot-swapped into the renderer. In the course of this building process,
+all necessary decisions are taken, disabled features and impossible
+connections are detected and left out, and all more elaborate or
+macro-like structures (e.g. meta clips) are broken down into simple
+building blocks, which can be implemented 1:1 by render nodes in the
+low-level model. <span class="anchor" id="line-19"></span><span class="anchor" id="line-20"></span></p><p class="line874">The
+configuration of the high-level model is deliberately very open; the
+builder doesn't impose much limitations, rather he reflects the found
+configuration down into the low-level model using generic rules. <span class="anchor" id="line-21"></span><span class="anchor" id="line-22"></span><span class="anchor" id="line-23"></span></p><p class="line867">
+</p><h4 id="head-3d16a3c4d994df3a47cb9c7034dba42b62d64d18">Tasks</h4>
+<span class="anchor" id="line-24"></span><p class="line867"><span class="anchor" id="line-25"></span></p><p class="line867"><span class="anchor" id="line-26"></span><span class="anchor" id="line-27"></span></p><p class="line867">
+</p><h3 id="head-8bdbcf2ba938ce56a6ebc8ba998b66a49c12ddcf">Pros</h3>
+<span class="anchor" id="line-28"></span><p class="line867"><span class="anchor" id="line-29"></span></p><ul><li>separation, decoupling <span class="anchor" id="line-30"></span></li><li>architectural aproach instead of just hacking away... <span class="anchor" id="line-31"></span><span class="anchor" id="line-32"></span><span class="anchor" id="line-33"></span></li></ul><p class="line867">
+</p><h3 id="head-750e93de52ca1847af70ae7566d65889990839c6">Cons</h3>
+<span class="anchor" id="line-34"></span><p class="line867"><span class="anchor" id="line-35"></span></p><ul><li>increases the overall complexity <span class="anchor" id="line-36"></span></li><li>more work to be done to get a minimal system implemented <span class="anchor" id="line-37"></span><span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span></li></ul><p class="line867"><span class="anchor" id="line-40"></span></p><p class="line867"><span class="anchor" id="line-41"></span><span class="anchor" id="line-42"></span><span class="anchor" id="line-43"></span></p><p class="line867">
+</p><h2 id="head-27ab5e7397492e7efe5c56c00b68ad840ec9cc22">Rationale</h2>
+<span class="anchor" id="line-44"></span><p class="line867"><span class="anchor" id="line-45"></span></p><p class="line874">This design was chosen as a direct consequence of the problems encountered in the Cinelerra-2 codebase. <span class="anchor" id="line-46"></span></p><ul><li>separating this way allows us to take on different viewpoints on what is "good" and "efficient" <span class="anchor" id="line-47"></span><ul><li>in the low-level view simplicity and efficiency of computation is the main criterion <span class="anchor" id="line-48"></span></li><li>whereas in the high-level view a good modeling of the problem domain and maximum flexibility is preferable <span class="anchor" id="line-49"></span></li></ul></li><li><p class="line862">the
+high-level view is taken out of the critical code path, allowing for
+advanced and even experimental technologies without endangering the
+whole application's usability. In the low-level realm, <em>speed</em> is measured in ms, whereas in the high-level domain, speed is rather measured in 100ms <span class="anchor" id="line-50"></span></p></li><li>the
+separation creates distinct interfaces and allows people with very
+different skill sets to work in parallel at the various levels of the
+App. <span class="anchor" id="line-51"></span><span class="anchor" id="line-52"></span><span class="anchor" id="line-53"></span></li></ul><p class="line867"><span class="anchor" id="line-54"></span></p><p class="line867"><span class="anchor" id="line-55"></span><span class="anchor" id="line-56"></span><span class="anchor" id="line-57"></span><span class="anchor" id="line-58"></span></p><p class="line867">
+</p><h1 id="head-e78ac2575ec61b0a9507a9cb06c1bc111185ed8a">Comments</h1>
+<span class="anchor" id="line-59"></span><p class="line867"><span class="anchor" id="line-60"></span></p><p class="line867"><span class="anchor" id="line-61"></span><span class="anchor" id="line-62"></span><span class="anchor" id="line-63"></span></p><p class="line867"></p><hr class="hr1"><p class="line874"> <span class="anchor" id="line-64"></span>Back to <a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess">Cinelerra3/DesignProcess</a> <span class="anchor" id="line-65"></span><span class="anchor" id="bottom"></span></p></div>
+<div id="pagebottom"></div>
+</div>
+
+
+<div id="footer">
+<ul class="editbar"><li><a name="texteditlink" href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=edit&amp;editor=text">Editieren (Text)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=edit&amp;editor=gui">Editieren (GUI)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=info">Info</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=subscribe">Abonnieren</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=quicklink">Verweis hinzufügen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder?action=AttachFile">Dateianhänge</a></li><li>
+<form class="actionsmenu" method="get" action="">
+<div>
+    
+    <select name="action" onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="show">Weitere Aktionen:</option><option value="raw">Rohform</option>
+<option value="print">Druckansicht</option>
+<option value="RenderAsDocbook">Docbook ausgeben</option>
+<option value="refresh">Cache löschen</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="SpellCheck">Rechtschreibung prüfen</option>
+<option value="LikePages">Ähnliche Seiten</option>
+<option value="LocalSiteMap">ÜbersichtsKarte</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="RenamePage">Seite umbenennen</option>
+<option value="DeletePage">Seite löschen</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="MyPages">Meine Seiten</option>
+<option value="SubscribeUser">Abo für Benutzer</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="Despam">Spam entfernen</option>
+<option value="PackagePages">Seiten paketieren</option>
+    </select>
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('Weitere Aktionen:');
+//-->
+</script>
+</form>
+</li></ul>
+
+<ul id="credits">
+<li><a href="http://moinmoin.wikiwikiweb.de/">MoinMoin Powered</a></li><li><a href="http://www.python.org/">Python Powered</a></li><li><a href="http://validator.w3.org/check?uri=referer">Valid HTML 4.01</a></li>
+</ul>
+
+
+</div>
+<ul id="timings">
+<li>antispam = 0.401s</li>
+<li>compile_huge_and_ugly = 0.002s</li>
+<li>getACL = 0.137s</li>
+<li>load_multi_cfg = 0.000s</li>
+<li>parsePageLinks = 0.113s</li>
+<li>run = 1.936s</li>
+<li>send_page = 0.351s</li>
+<li>send_page_content = 0.267s</li>
+<li>total = 2.133s</li>
+</ul>
+
+</body></html>
