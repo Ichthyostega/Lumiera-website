@@ -1,0 +1,34 @@
+Lumiera
+=======
+
+Lumiera is a Free/Open Source NLE application project for Linux developed by the http://cv.cinelerra.org/[CinelerraCV] community. It was born as a rewrite of the Cinelerra codebase called Cinelerra3 but it is now an independent project with its own name.
+
+Lumiera is still in an early stage of development. It is not usable yet.
+
+Development
+-----------
+
+Lumiera is build ground up, starting form the engine core. The core is not tied to the GUI but just interacts with it via clearly defined interfaces. Nothing besides brainstorming has been done for the GUI yet. Ideas are collected on a dedicated http://www.pipapo.org/pipawiki/Lumiera/GuiBrainstorming[pipawiki page].
+
+We use a distributed development model backed by the http://git.or.cz/[git] version control system.
+
+Developers meet monthly on IRC. You can have a look the http://www.pipapo.org/pipawiki/Lumiera/MonthlyMeetings[topics of the next meeting] and to the http://www.pipapo.org/pipawiki/Lumiera/PastMonthlyMeetings[protocols of the past meetings].
+
+Source Code Documentation
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As an introduction you can find information on a http://www.pipapo.org/pipawiki/Lumiera[pipawiki page].
+
+Design documentation can be found in a http://www.lumiera.org/wiki/[TiddlyWiki].
+
+You can browse the code repository with http://www.lumiera.org/gitweb/[webgit].
+
+For the structure of the code look at our http://www.lumiera.org/doxy/[Doxygen documentation]
+
+Contact
+-------
+
+Lumiera has not a dedicated Mailing List yet. You can write to the https://init.linpro.no/mailman/skolelinux.no/listinfo/cinelerra[CinelerraCV mailing list].
+
+Join us on the IRC channel #lumiera at Freenode.
+
