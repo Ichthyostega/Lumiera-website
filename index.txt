@@ -11,7 +11,7 @@ Lumiera is still in an early stage of development. It is not usable yet.
 Development
 -----------
 
-Lumiera is build ground up, starting form the engine core. The core is not tied to the GUI but just interacts with it via clearly defined interfaces. Nothing besides brainstorming has been done for the GUI yet. Ideas are collected on a dedicated http://www.pipapo.org/pipawiki/Lumiera/GuiBrainstorming[pipawiki page].
+Lumiera is being built from the ground up, starting with the engine core. The core is not tied to the GUI but just interacts with it via clearly defined interfaces. Nothing besides brainstorming has been done for the GUI yet. Ideas are collected on a dedicated http://www.pipapo.org/pipawiki/Lumiera/GuiBrainstorming[pipawiki page].
 
 We use a distributed development model backed by the http://git.or.cz/[git] version control system.
 
