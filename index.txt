@@ -1,5 +1,6 @@
-*Website under construction*
-
+----------------------------
+Website under construction
+----------------------------
 
 Lumiera
 -------
@@ -11,7 +12,8 @@ Lumiera is still in an early stage of development. It is not usable yet.
 Development
 -----------
 
-Lumiera is being built from the ground up, starting with the engine core. The core is not tied to the GUI but just interacts with it via clearly defined interfaces. Work on the GUI is just starting out, which makes this a good time to contribute any ideas you might have. Please edit the http://www.pipapo.org/pipawiki/Lumiera/GuiBrainstorming[GUI Brainstorming page].
+Lumiera is being built from the ground up, starting with the engine core. The core is not tied to the GUI but just interacts with it via clearly defined interfaces. +
+Work on the GUI is just starting out, which makes this a good time to contribute any ideas you might have. Please edit the http://www.pipapo.org/pipawiki/Lumiera/GuiBrainstorming[GUI Brainstorming page].
 
 We use a distributed development model backed by the http://git.or.cz/[git] version control system.
 
