@@ -9,6 +9,13 @@ Lumiera is a Free/Open Source NLE application project for Linux developed by the
 
 Lumiera is still in an early stage of development. It is not usable yet.
 
+
+Project objectives
+~~~~~~~~~~~~~~~~~~
+
+To create, as a community, a non linear video editing and compositing FOS application for Linux/Unix/Posix Operating Systems, suitable for professional and quality oriented work, 
+building on common open source video, sound and GUI toolkits and libraries, providing flexibility and a high degree of configurability and full control of all parameters, but at the same time a smooth workflow which scales well to larger and more complicated editing projects. 
+
 Development
 -----------
 
