@@ -1,4 +1,10 @@
-Luniera webisite is built with AsciiDoc and git.
+	LUMIERA WEBSITE
+
+Lumiera webisite is meant to live in uWiki (see http://git.pipapo.org/uWiki.html).
+Waiting for the uWiki to be usable, a temporary website is being built with AsciiDoc and git.
+
+
+	TEMPORARY WEBSITE
 
 The website pages come from TXT files, written in AsciiDoc markup, committed to the website git repository and converted to HTML with an AsciiDoc script. The pages have two external CSS, one for the layout and one for the content.
 
@@ -20,7 +26,7 @@ The full path of the 'post-receive' git hook is:
 /var/www/.git/hooks/post-receive
 
 The full path of the 'build-website.sh' script is:
-/usr/share/doc/asciidoc/examples/website/build-website.sh
+/home/raffa/build-website.sh
 
 The task of the 'build-website.sh' script is to run the asciidoc command to create not just HTML pages but real webpages pointing to external CSS. This script contains the list of TXT files to be converted to HTML webpages.
 
