@@ -1,5 +1,5 @@
 Contact
--------
+=======
 
 Lumiera has not a dedicated Mailing List yet. You can write to the https://init.linpro.no/mailman/skolelinux.no/listinfo/cinelerra[CinelerraCV mailing list].
 
