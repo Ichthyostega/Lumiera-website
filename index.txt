@@ -5,7 +5,6 @@ Lumiera is a Free/Open Source Non-Linear Editing (NLE) application project for L
 It was born as a rewrite of the Cinelerra codebase called Cinelerra3 but it is now an independent project with its own name.
 
 image::SeedlingsByPaulGoyette.png[]
-
 (1)
 
 Lumiera is still in an early stage of development. It is not usable yet.
@@ -17,13 +16,9 @@ Project objectives
 To create, as a community, a non linear video editing and compositing FOSS application for Linux/Unix/Posix Operating Systems, suitable for professional and quality oriented work, 
 building on common open source video, sound and GUI toolkits and libraries, providing flexibility and a high degree of configurability and full control of all parameters, but at the same time a smooth workflow which scales well to larger and more complicated editing projects. 
 
-----------------------------
-Website under construction
-----------------------------
+[icon="note.png"]
+NOTE: (1) Picture: _Seedlings_ by http://www.flickr.com/photos/pgoyette/[Paul Goyette] - http://creativecommons.org/licenses/by-nc-sa/2.0/deed.en[Creative Commons] licensed.
 
-(1) Picture: _Seedlings_ by http://www.flickr.com/photos/pgoyette/[Paul Goyette] - http://creativecommons.org/licenses/by-nc-sa/2.0/deed.en[Creative Commons] licensed.
-
-
-
-
+[icon="warning.png"]
+WARNING: Website under construction
 
