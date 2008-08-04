@@ -10,7 +10,7 @@ Sorry, you can't yet. Lumiera is still in early stage of development.
 When will Lumiera be usable for basic tasks???
 It's very difficult to say. It depends on a lot of things.
 We are really ambitious, which means we care for a lot of advanced stuff up front, so there's a lot of work to do at the back.
-Best hopes are that we can make a first very rudimental integraion (pre alpha release) round the end of this year.
+Best hopes are that we can make a first very rudimental integration (pre alpha release) round the end of this year.
 
 Will Lumiera be using guicast (the Cinelerra GUI library) or will it use one of the more popular libraries like GTK or Qt???
 We won't' use Guicast. Lumiera native interface will be written in GTK, although other interface will be possible.

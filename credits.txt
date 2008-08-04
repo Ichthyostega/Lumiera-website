@@ -1,0 +1,72 @@
+Credits
+
+
+Programming
+
+[verse]
+Rendering engine
+HERMANN VOSSELER
+
+[verse]
+Backend
+CHRISTIAN THAETER
+
+[verse]
+Graphical User Interface
+JOEL HOLDSWORTH
+
+[verse]
+Programming documentation
+MICHAEL PLOUJNIKOV
+ODIN HØRTHE OMDAL
+SIMEON VOELKEL
+
+Architecture
+
+Testing
+
+[verse]
+Server Administration
+CHRISTIAN THAETER
+
+Website
+
+[verse]
+Basic design and content
+RAFFAELLA TRANIELLO
+
+[verse]
+Creative mockup
+FRANCOIS KUBLER
+
+[verse]
+uWiki development
+CHRISTIAN THAETER
+SERGE GIELKENS
+CILLIAN DE ROISTE
+
+[verse]
+Libraries
+GAVL
+LIBBOOST
+GTKMM
+
+[verse]
+Good ideas by
+HERMAN ROBAK
+RICHARD SPINDLER
+
+[verse]
+Naming assistants
+RAFFAELLA TRANIELLO
+CILLIAN DE ROISTE
+ODIN HØRTHE OMDAL
+
+[verse]
+Thanks to
+BURKHARD PLAUM
+RCBARNES
+
+[verse]
+Funded by
+YOU?
