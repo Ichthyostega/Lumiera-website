@@ -1,72 +1,93 @@
- Credits
- ===========
+ Credits & Credits
+ ===================
 
-Programming
+'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
+,Programming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Rendering engine,HERMANN VOSSELER
+Backend,CHRISTIAN THAETER
+Graphical User Interface,JOEL HOLDSWORTH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-[verse]
-Rendering engine
-HERMANN VOSSELER
+'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
+Programming,documentation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+MICHAEL,PLOUJNIKOV
+ODIN, HORTHE OMDAL
+SIMEON, VOELKEL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-[verse]
-Backend
-CHRISTIAN THAETER
+'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
+Good ideas,by
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HERMAN,ROBAK
+RICHARD,SPINDLER
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-[verse]
-Graphical User Interface
-JOEL HOLDSWORTH
+'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
+ ,Libraries
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ,GAVL
+ ,LIBBOOST
+ ,GTKMM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-[verse]
-Programming documentation
-MICHAEL PLOUJNIKOV
-ODIN HØRTHE OMDAL
-SIMEON VOELKEL
+'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
+Thanks,to
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BURKHARD,PLAUM
+ ,RCBARNES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Architecture
+'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
+Architecture,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Testing
+'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
+ ,Testing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-[verse]
-Server Administration
-CHRISTIAN THAETER
+'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
+uWiki, development
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CHRISTIAN,THAETER
+SERGE,GIELKENS
+CILLIAN,DE ROISTE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Website
+'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
+Website,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Basic design and content,RAFFAELLA TRANIELLO
+Creative mockup,FRANCOIS KUBLER
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-[verse]
-Basic design and content
-RAFFAELLA TRANIELLO
+'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
+Server,Administration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CHRISTIAN,THAETER
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-[verse]
-Creative mockup
-FRANCOIS KUBLER
+'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
+Naming,assistants
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RAFFAELLA,TRANIELLO
+CILLIAN,DE ROISTE
+ODIN,HORTHE OMDAL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-[verse]
-uWiki development
-CHRISTIAN THAETER
-SERGE GIELKENS
-CILLIAN DE ROISTE
+'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
+Funded,by
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+YOU,?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-[verse]
-Libraries
-GAVL
-LIBBOOST
-GTKMM
 
-[verse]
-Good ideas by
-HERMAN ROBAK
-RICHARD SPINDLER
 
-[verse]
-Naming assistants
-RAFFAELLA TRANIELLO
-CILLIAN DE ROISTE
-ODIN HØRTHE OMDAL
 
-[verse]
-Thanks to
-BURKHARD PLAUM
-RCBARNES
 
-[verse]
-Funded by
-YOU?
+
