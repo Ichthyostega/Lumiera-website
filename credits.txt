@@ -8,7 +8,6 @@ graphical user interface, JOEL HOLDSWORTH
  			, CLAY BARNES
 processing layer	, HERMANN VOESSLER
 backend 		, CHRISTIAN THAETER
-misc			, NICHOLAS SINNOTT-ARMSTRONG
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -17,6 +16,8 @@ Programming,
 rendering engine,	HERMANN VOSSELER
 backend,		CHRISTIAN THAETER
 graphical user interface, JOEL HOLDSWORTH
+testsuite,		CHRISTIAN THAETER
+	,		NICHOLAS SINNOTT-ARMSTRONG
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
