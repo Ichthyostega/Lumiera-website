@@ -4,24 +4,23 @@ Credits
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Architecture and Design,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Graphical User Interface, JOEL HOLDSWORTH
+graphical user interface, JOEL HOLDSWORTH
  			, CLAY BARNES
-Processing Layer	, HERMANN VOESSLER
-Backend 		, CHRISTIAN THAETER
+processing layer	, HERMANN VOESSLER
+backend 		, CHRISTIAN THAETER
 misc			, NICHOLAS SINNOTT-ARMSTRONG
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Programming,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Rendering engine,	HERMANN VOSSELER
-Backend,		CHRISTIAN THAETER
-Graphical User Interface, JOEL HOLDSWORTH
-
+rendering engine,	HERMANN VOSSELER
+backend,		CHRISTIAN THAETER
+graphical user interface, JOEL HOLDSWORTH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Programming documentation,
+Programming Documentation,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 , MICHAEL PLOUJNIKOV
 , ODIN HORTHE OMDAL
@@ -29,22 +28,22 @@ Programming documentation,
 , MANO STIENEN
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Good ideas by,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-,HERMAN ROBAK
-,RICHARD SPINDLER
-,ROBIN GAREUS
-,PERCY TIGLAO
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//Good Ideas,
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//,HERMAN ROBAK
+//,RICHARD SPINDLER
+//,ROBIN GAREUS
+//,PERCY TIGLAO
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Thanks to,
+Used Software,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 gavl libraries, BURKHARD PLAUM
 boost libraries,
-GTK+ toolkit,
-Lua,
+gtk+ toolkit,
+lua,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -65,8 +64,8 @@ helping hand, CILLIAN DE ROISTE
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Website,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Basic design and content, RAFFAELLA TRANIELLO
-Creative mockup, FRANCOIS KUBLER
+basic design and content, RAFFAELLA TRANIELLO
+creative mockup, FRANCOIS KUBLER
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -76,15 +75,30 @@ Server Administration,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Naming assistants,
+Naming Assistants,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ,RAFFAELLA TRANIELLO
 ,CILLIAN DE ROISTE
 ,ODIN HORTHE OMDAL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+
 //'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Funded by,
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //YOU,?
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Thanks to
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TREE
+IL'DAR AKHMETGALEEV
+ROLAND
+ADAM WILLIAMS
+HERMAN ROBAK
+RICHARD SPINDLER
+ROBIN GAREUS
+PERCY TIGLAO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
