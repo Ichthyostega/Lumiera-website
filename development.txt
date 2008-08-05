@@ -15,7 +15,7 @@ As an introduction you can find information on a http://www.pipapo.org/pipawiki/
 
 Design documentation can be found in a http://www.lumiera.org/wiki/[TiddlyWiki].
 
-You can browse the code repository with http://www.lumiera.org/gitweb/[webgit].
+You can browse the code repository with http://www.lumiera.org/gitweb/[gitweb].
 
 For the structure of the code look at our http://www.lumiera.org/doxy/[Doxygen documentation]
 
