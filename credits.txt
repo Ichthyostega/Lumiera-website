@@ -8,6 +8,7 @@ Graphical User Interface, JOEL HOLDSWORTH
  			, CLAY BARNES
 Processing Layer	, HERMANN VOESSLER
 Backend 		, CHRISTIAN THAETER
+misc			, NICHOLAS SINNOTT-ARMSTRONG
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -16,14 +17,16 @@ Programming,
 Rendering engine,	HERMANN VOSSELER
 Backend,		CHRISTIAN THAETER
 Graphical User Interface, JOEL HOLDSWORTH
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Programming documentation,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-,MICHAEL PLOUJNIKOV
-,ODIN HORTHE OMDAL
-,SIMEON VOELKEL
+, MICHAEL PLOUJNIKOV
+, ODIN HORTHE OMDAL
+, SIMEON VOELKEL
+, MANO STIENEN
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -31,6 +34,8 @@ Good ideas by,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ,HERMAN ROBAK
 ,RICHARD SPINDLER
+,ROBIN GAREUS
+,PERCY TIGLAO
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -78,14 +83,8 @@ Naming assistants,
 ,ODIN HORTHE OMDAL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Funded by,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-YOU,?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-
-
-
+//'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//Funded by,
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//YOU,?
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
