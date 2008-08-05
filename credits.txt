@@ -1,87 +1,85 @@
 Credits
 =======
 
-'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
-,Programming
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Rendering engine,HERMANN VOSSELER
-Backend,CHRISTIAN THAETER
-Graphical User Interface,JOEL HOLDSWORTH
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Architecture and Design,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Graphical User Interface, JOEL HOLDSWORTH
+ 			, CLAY BARNES
+Processing Layer	, HERMANN VOESSLER
+Backend 		, CHRISTIAN THAETER
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
-Programming,documentation
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Programming,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Rendering engine,	HERMANN VOSSELER
+Backend,		CHRISTIAN THAETER
+Graphical User Interface, JOEL HOLDSWORTH
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Programming documentation,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-MICHAEL,PLOUJNIKOV
-ODIN, HORTHE OMDAL
-SIMEON, VOELKEL
+,MICHAEL PLOUJNIKOV
+,ODIN HORTHE OMDAL
+,SIMEON VOELKEL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
-Good ideas,by
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Good ideas by,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-HERMAN,ROBAK
-RICHARD,SPINDLER
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
- ,Libraries
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ,GAVL
- ,LIBBOOST
- ,GTKMM
+,HERMAN ROBAK
+,RICHARD SPINDLER
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
-Thanks,to
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Thanks to,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-BURKHARD,PLAUM
- ,RCBARNES
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
-Architecture,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ,
+gavl libraries, BURKHARD PLAUM
+boost libraries,
+GTK+ toolkit,
+Lua,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
- ,Testing
+
+//'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ,Testing
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ,
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+uWiki,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ,
+idea, CHRISTIAN THAETER
+programming, SERGE GIELKENS
+helping hand, CILLIAN DE ROISTE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
-uWiki, development
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-CHRISTIAN,THAETER
-SERGE,GIELKENS
-CILLIAN,DE ROISTE
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Website,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Basic design and content,RAFFAELLA TRANIELLO
-Creative mockup,FRANCOIS KUBLER
+Basic design and content, RAFFAELLA TRANIELLO
+Creative mockup, FRANCOIS KUBLER
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
-Server,Administration
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Server Administration,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-CHRISTIAN,THAETER
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
-Naming,assistants
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-RAFFAELLA,TRANIELLO
-CILLIAN,DE ROISTE
-ODIN,HORTHE OMDAL
+, CHRISTIAN THAETER
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-'50`50~~~~~~~~~~~~~~~~~~~~~~~~~
-Funded,by
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Naming assistants,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+,RAFFAELLA TRANIELLO
+,CILLIAN DE ROISTE
+,ODIN HORTHE OMDAL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Funded by,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 YOU,?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
