@@ -1,5 +1,3 @@
-include::credits-mini.css[]
-
 Credits
 =======
 
