@@ -34,6 +34,7 @@ MODIFYING THE STYLE
 
 To edit the style of the main part of the page edit 'xhtml11.css'
 To edit the side menu and the banner edit 'layout1.css' and  'layout1.conf'
+To edit the style of the credits page edit credits.css (included as passthroug block at the beginning of credits.txt)
 
 ADDING NEW PAGES
 
