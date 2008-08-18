@@ -1,14 +1,14 @@
+include::credits.css[]
+
 Credits
 =======
-
-include::credits.css[]
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Architecture and Design,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 graphical user interface, JOEL HOLDSWORTH
  			, CLAY BARNES
-processing layer	, HERMANN VOESSLER
+processing layer	, HERMANN VOSSELER
 backend 		, CHRISTIAN THAETER
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -26,8 +26,8 @@ testsuite,		CHRISTIAN THAETER
 Programming Documentation,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 , MICHAEL PLOUJNIKOV
-, ODIN HORTHE OMDAL
-, SIMEON VOELKEL
+, ODIN HØRTHE OMDAL
+, SIMEON VÖLKEL
 , MANO STIENEN
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -61,14 +61,14 @@ uWiki,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 idea, CHRISTIAN THAETER
 programming, SERGE GIELKENS
-helping hand, CILLIAN DE ROISTE
+helping hand, CILLIAN DE RÓISTE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Website,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 basic design and content, RAFFAELLA TRANIELLO
-creative mockup, FRANCOIS KUBLER
+creative mockup, FRANÇOIS KUBLER
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -81,8 +81,8 @@ Server Administration,
 Naming Assistants,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ,RAFFAELLA TRANIELLO
-,CILLIAN DE ROISTE
-,ODIN HORTHE OMDAL
+,CILLIAN DE RÓISTE
+,ODIN HØRTHE OMDAL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
