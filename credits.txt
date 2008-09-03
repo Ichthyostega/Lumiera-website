@@ -9,16 +9,16 @@ Architecture and Design,
 graphical user interface, JOEL HOLDSWORTH
  			, CLAY BARNES
 processing layer	, HERMANN VOSSELER
-backend 		, CHRISTIAN THAETER
+backend 		, CHRISTIAN THÄTER
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Programming,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 rendering engine,	HERMANN VOSSELER
-backend,		CHRISTIAN THAETER
+backend,		CHRISTIAN THÄTER
 graphical user interface, JOEL HOLDSWORTH
-testsuite,		CHRISTIAN THAETER
+testsuite,		CHRISTIAN THÄTER
 	,		NICHOLAS SINNOTT-ARMSTRONG
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -59,7 +59,7 @@ lua,
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 uWiki,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-idea, CHRISTIAN THAETER
+idea, CHRISTIAN THÄTER
 programming, SERGE GIELKENS
 helping hand, CILLIAN DE RÓISTE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -74,7 +74,7 @@ creative mockup, FRANÇOIS KUBLER
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Server Administration,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-, CHRISTIAN THAETER
+, CHRISTIAN THÄTER
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
