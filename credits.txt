@@ -1,7 +1,7 @@
-include::credits.css[]
-
 Credits
 =======
+
+include::credits.css[]
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Architecture and Design,
@@ -42,12 +42,12 @@ Programming Documentation,
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Used Software,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 gavl libraries, BURKHARD PLAUM
 boost libraries,
 gtk+ toolkit,
 lua,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 //'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
