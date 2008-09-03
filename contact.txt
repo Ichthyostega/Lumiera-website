@@ -1,6 +1,7 @@
 Contact
 =======
 
-Lumiera has not a dedicated Mailing List yet. You can write to the https://init.linpro.no/mailman/skolelinux.no/listinfo/cinelerra[CinelerraCV mailing list].
+Lumiera has Mailing List, you can subscribe to it at http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera
+The Mailinglist archives are available at http://lists.lumiera.org/pipermail/lumiera/
 
 Join us on the IRC channel #lumiera at Freenode.
