@@ -8,6 +8,14 @@ We use a distributed development model backed by the http://git.or.cz/[git] vers
 
 Developers meet monthly on IRC. You can have a look the http://www.pipapo.org/pipawiki/Lumiera/MonthlyMeetings[topics of the next meeting] and to the http://www.pipapo.org/pipawiki/Lumiera/PastMonthlyMeetings[protocols of the past meetings].
 
+How to contribute
+-----------------
+
+We want the project being very open. Anyone can just start working on it. Of course he should to communicate what he 
+wants to do before starting so that we can coordinate the things. We are also careful about documentation and code 
+quality, if anyone can just join and leave his contribution must be maintainable by others. That means everything needs 
+to be properly documented and supply tests for the testsuite.
+
 Source Code Documentation
 -------------------------
 
