@@ -31,11 +31,6 @@ Draft
 
 Final
 ~~~~~
-* link:DesignProcess/AllPluginInterfacesAreC[Lumiera/DesignProcess/AllPluginInterfacesAreC]
-* link:DesignProcess/CCodingStyleGuide[Lumiera/DesignProcess/CCodingStyleGuide]
-* link:DesignProcess/CodingStyle[Lumiera/DesignProcess/CodingStyle]
-* link:DesignProcess/DataBackend[Lumiera/DesignProcess/DataBackend]
-* link:DesignProcess/DevelopmentFramework[Lumiera/DesignProcess/DevelopmentFramework]
 
 Dropped
 ~~~~~~~
