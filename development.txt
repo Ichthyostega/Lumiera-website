@@ -8,6 +8,8 @@ We use a distributed development model backed by the http://git.or.cz/[git] vers
 
 Developers meet monthly on IRC. You can have a look the http://www.pipapo.org/pipawiki/Lumiera/MonthlyMeetings[topics of the next meeting] and to the http://www.pipapo.org/pipawiki/Lumiera/PastMonthlyMeetings[protocols of the past meetings].
 
+image::Lumiera_Feeding_The_Baby_Tux_WM.jpg[]
+
 How to contribute
 -----------------
 
