@@ -31,22 +31,14 @@ Programming Documentation,
 , MANO STIENEN
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-//'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//Good Ideas,
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//,HERMAN ROBAK
-//,RICHARD SPINDLER
-//,ROBIN GAREUS
-//,PERCY TIGLAO
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Used Software,
+Used Software and Libraries,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-gavl libraries, BURKHARD PLAUM
 boost libraries,
+gavl libraries,
 gtk+ toolkit,
 lua,
+nobug,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -63,6 +55,13 @@ idea, CHRISTIAN THÄTER
 programming, SERGE GIELKENS
 helping hand, CILLIAN DE RÓISTE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Builddrone,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+idea and implementation, CHRISTIAN THÄTER
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Website,
@@ -85,6 +84,11 @@ Naming Assistants,
 ,ODIN HØRTHE OMDAL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Logo contest,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+,RAFFAELLA TRANIELLO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 //'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -97,11 +101,13 @@ Naming Assistants,
 Thanks to
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ADAM WILLIAMS
+BURKHARD PLAUM
 HERMAN ROBAK
+IL'DAR AKHMETGALEEV
+PERCY TIGLAO
 RICHARD SPINDLER
 ROBIN GAREUS
-PERCY TIGLAO
-TREE
-IL'DAR AKHMETGALEEV
 ROLAND
+THORSTEN WILMS
+TREE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
