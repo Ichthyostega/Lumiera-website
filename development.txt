@@ -18,6 +18,14 @@ wants to do before starting so that we can coordinate the things. We are also ca
 quality, if anyone can just join and leave his contribution must be maintainable by others. That means everything needs 
 to be properly documented and supply tests for the testsuite.
 
+Continous Integration system
+----------------------------
+
+We have our own continous integration system running on the development server. This monitors certain repositories,
+builds the code and runs the testsuite etc. You can look at the current state at http:/builddrone/table.html and its
+root dir (http:/builddrone/) contains the raw build logs too. Builddrone is very much work in progress and we would
+like if anyone helps developing it further.
+
 Source Code Documentation
 -------------------------
 
