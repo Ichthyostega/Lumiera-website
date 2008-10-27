@@ -17,7 +17,7 @@ h1 {
 }
 
 #layout-title {
-	background-image: url("LLContest.png");
+	background-image: url("/LLContest.png");
   background-position: right;
   background-repeat: no-repeat;
   font-family: sans-serif;
