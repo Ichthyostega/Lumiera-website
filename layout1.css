@@ -17,7 +17,10 @@ h1 {
 }
 
 #layout-title {
-	font-family: sans-serif; 
+	background-image: url("LLContest.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  font-family: sans-serif;
 	font-size: 3.5em;
 	font-weight: bold;
   letter-spacing: 0.2em;
