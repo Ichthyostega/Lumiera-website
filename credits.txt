@@ -54,6 +54,7 @@ uWiki,
 idea, CHRISTIAN THÄTER
 programming, SERGE GIELKENS
 helping hand, CILLIAN DE RÓISTE
+asciidoc conversion, FRANCISCO G. RODRIGUEZ
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
