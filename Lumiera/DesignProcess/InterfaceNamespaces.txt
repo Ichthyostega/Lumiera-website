@@ -1,5 +1,5 @@
-Interface Namespaces
-====================
+Design Process : Interface Namespaces
+=====================================
 
 [grid="all"]
 `------------`-----------------------
