@@ -5,7 +5,7 @@ Credits
 <script language="JavaScript">
 function pageScroll() {
     window.scrollBy(0,1); // horizontal and vertical scroll increments
-    scrolldelay = setTimeout('pageScroll()',100); // scrolls every 100 milliseconds
+    scrolldelay = setTimeout('pageScroll()',60); // scrolls every 100 milliseconds
 }
 </script>
 
