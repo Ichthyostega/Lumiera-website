@@ -3,31 +3,53 @@ body {
   margin: 1%;
 }
 
+
 h1 {
   margin-top: 0.5em;
 }
 
 #layout-banner {
+	background-color: black;
+	border-bottom: 3px solid #eeeeee;
+  /*
 	background-color: #008080;
-	  border-bottom: 3px solid #eeeeee;
   color: #7FFFD4;
 	font-family: sans-serif;
 	text-align: left;
-  padding: 0.8em 20px;
+  padding: 0.8em 20px;*/ 
+  background-image: url(/lumieracollage.jpg);
+  height: 240px;
+  background-repeat: repeat-x;
+  background-size: 100px;
+  background-position: center 10px;
 }
 
+#layout-banner div#tagline {
+text-transform: uppercase;
+position: absolute;
+top: 228px;
+width: 100%;
+text-align: center;
+}
+
+#layout-banner div#tagline a {
+color: #00FF00;
+}
 #layout-title {
-	font-family: sans-serif;
+display: none;
+/*	font-family: sans-serif;
 	font-size: 3.5em;
 	font-weight: bold;
   letter-spacing: 0.2em;
-  margin: 0;
+  margin: 0; */
 }
 
 #layout-description {
-  color: white;
+display: none;
+/*  color: white;
 	font-size: 1.2em;
   letter-spacing: 0.1em;
+*/
 }
 
 #layout-menu {
