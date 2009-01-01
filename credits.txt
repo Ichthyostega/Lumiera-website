@@ -18,6 +18,8 @@ function pageScroll() {
 
 include::credits.css[]
 
+image::lumiera_logo.png[align=center]
+
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Architecture and Design,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
