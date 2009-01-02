@@ -67,26 +67,6 @@ idea and implementation, CHRISTIAN THÄTER
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-//'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//Funded by,
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//YOU,?
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Thanks to
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ADAM WILLIAMS
-BURKHARD PLAUM
-HERMAN ROBAK
-IL'DAR AKHMETGALEEV
-PERCY TIGLAO
-RICHARD SPINDLER
-ROBIN GAREUS
-ROLAND
-THORSTEN WILMS
-TREE
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // ,Testing
@@ -162,4 +142,26 @@ SEBASTIAN LOPEZ - SLEEPYMOOSE - SREE KUMAR - STENSONB - SÍLIA MOAN
 THE FURLINATOR - THORSTEN WILMS - TONEDDU2000 - TREE - TW WOODWARD - VELMONT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+
+//'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//Funded by,
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//YOU,?
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Thanks to
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ADAM WILLIAMS
+BURKHARD PLAUM
+HERMAN ROBAK
+IL'DAR AKHMETGALEEV
+PERCY TIGLAO
+RICHARD SPINDLER
+ROBIN GAREUS
+ROLAND
+THORSTEN WILMS
+TREE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
