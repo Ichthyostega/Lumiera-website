@@ -48,6 +48,7 @@ Programming Documentation,
 , MANO STIENEN
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Used Software and Libraries,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -59,53 +60,10 @@ nobug,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-//'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// ,Testing
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// ,
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-uWiki,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-idea, CHRISTIAN THÄTER
-programming, SERGE GIELKENS
-helping hand, CILLIAN DE RÓISTE
-asciidoc conversion, FRANCISCO G. RODRIGUEZ
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Builddrone,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 idea and implementation, CHRISTIAN THÄTER
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Website,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-basic design and content, RAFFAELLA TRANIELLO
-creative mockup, FRANÇOIS KUBLER
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Server Administration,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-, CHRISTIAN THÄTER
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Naming Assistants,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-,RAFFAELLA TRANIELLO
-,CILLIAN DE RÓISTE
-,ODIN HØRTHE OMDAL
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Logo contest,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-,RAFFAELLA TRANIELLO
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -129,3 +87,79 @@ ROLAND
 THORSTEN WILMS
 TREE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ,Testing
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ,
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Server Administration,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+, CHRISTIAN THÄTER
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+uWiki,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+idea, CHRISTIAN THÄTER
+programming, SERGE GIELKENS
+helping hand, CILLIAN DE RÓISTE
+asciidoc conversion, FRANCISCO G. RODRIGUEZ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Website,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+basic design and content, RAFFAELLA TRANIELLO
+creative mockup, FRANÇOIS KUBLER
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Naming Assistants,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+,RAFFAELLA TRANIELLO
+,CILLIAN DE RÓISTE
+,ODIN HØRTHE OMDAL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Logo,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+,ANAMII
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Logo contest,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+,RAFFAELLA TRANIELLO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Logo contestants
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3IO - AKIRAD - ALBERTO ARNOLDI - ALESSANDRO R - ALEXANDER HADJIIVANOV
+ALEXIS SÁNCHEZ - ALFONSO CORONEL - ANDY CIRCUS - ANGELO ALBÈ - ARIANE STOLFI
+ARIMAL - ARTHUR REEDER - BENJAMIN BARRIOS - BLACKLAB - BULL[X] - CARLOS TOBIAS
+CASTRO - CINEPHILIAC - CLAUDIO CASTELLI - DAMOS (MOSILLUS MEDIA)
+DIVINESPECTRUM - FLIPTOPBOX - FUMI - GISLES - ILARIO DE ANGELIS - J. CHAMBERS
+JAIMENIETO - JILT - JOAQUÍN HERRERA GOÁS - JOEL HOLDSWORTH - JONGPAIREZ
+JOSUA - JST - JUARNEZ - KASPERI "CIUU96" KUUSKOSKI - KLIURKA - L B
+LEANDRO RIBEIRO - LOOMANN - LUCKENBG - MARCI - MARCIN DOPIERALSKI
+MARCO SCAPIN - MARKKU - MEIJI - MENDOZA - MEXICORARA - MIKE SMICK
+PABLO LIZARDO - PABLO SUKOVSKY - PINECONECS - PONYCHASER - RAFFA - RAPHA
+RICHARD QUERIN - RIVIERE INFORMATIQUE - ROLAND C. - SAM - SCOTT FRASE
+SEBASTIAN LOPEZ - SLEEPYMOOSE - SREE KUMAR - STENSONB - SÍLIA MOAN
+THE FURLINATOR - THORSTEN WILMS - TONEDDU2000 - TREE - TW WOODWARD - VELMONT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
