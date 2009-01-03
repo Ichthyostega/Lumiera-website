@@ -201,7 +201,7 @@ div.verseblock div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-div.imageblock img { border: 0px solid silver; }
+div.imageblock img { border: 0px solid silver; padding-left: 13%;}
 span.image img { border-style: none; }
 
 dl {
