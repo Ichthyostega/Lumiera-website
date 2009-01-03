@@ -1,18 +1,24 @@
 ++++
 <style type="text/css">
+
 body {
   color: white;
   background-color: black;
 }
-#layout-banner {
-  background-color: black;
-  border-bottom: 0px solid #eeeeee;
-  text-align: center;
+
+#layout-description {
+display: none;
   }
+#layout-title {
+display: none;
+  }
+
+#layout-banner {
+display: none;
+  }
+
 #layout-menu {
-  background-color: black;
-  color:black;
-  border-right: 0px solid #eeeeee;
+display: none;
   }
 
 #layout-menu a:link, #layout-menu a:visited, #layout-menu a:hover {
@@ -39,9 +45,9 @@ div#footer-text {
   float: left;
   padding-bottom: 0.5em;
 }
+
 div#footer-badges {
-  float: right;
-  padding-bottom: 0.5em;
+  display: none;
 }
 
 </style>
