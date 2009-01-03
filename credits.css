@@ -6,13 +6,6 @@ body {
   background-color: black;
 }
 
-#layout-description {
-display: none;
-  }
-#layout-title {
-display: none;
-  }
-
 #layout-banner {
 display: none;
   }
@@ -21,32 +14,12 @@ display: none;
 display: none;
   }
 
-#layout-menu a:link, #layout-menu a:visited, #layout-menu a:hover {
-  color: black;
-  text-decoration: none;
-}
-#layout-menu a:hover {
-	color: black;
-  text-decoration: none;
-}
 h1  {
   border-bottom: 0px;
   color: black;
   }
-div#footer {
-  font-family: sans-serif;
-  font-size: small;
-  border-top: 2px black;
-  padding-top: 0.5em;
-  margin-top: 4.0em;
-}
-div#footer-text {
-  color: black;
-  float: left;
-  padding-bottom: 0.5em;
-}
 
-div#footer-badges {
+div#footer {
   display: none;
 }
 
