@@ -97,6 +97,7 @@ asciidoc conversion, FRANCISCO G. RODRIGUEZ
 Website,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 basic design and content, RAFFAELLA TRANIELLO
+special effects, FRANCISCO G. RODRIGUEZ
 creative mockup, FRANÇOIS KUBLER
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
