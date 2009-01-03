@@ -2,7 +2,7 @@ Credits
 =======
 
 +++++++++++++++++++++++++++++++++++++
-<script language="text/javascript">
+<script type="text/javascript">
 function pageScrollRec() {
     window.scrollBy(0, 1); // horizontal and vertical scroll increment
     setTimeout('pageScrollRec()', 50); // scrolls every 100 milliseconds
