@@ -23,6 +23,12 @@ div#footer {
   display: none;
 }
 
+body > table {
+  position: absolute;
+  left: 50%;
+  margin-left: -400px;
+}
+
 </style>
 ++++
 
