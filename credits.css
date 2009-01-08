@@ -29,6 +29,14 @@ body > table {
   margin-left: -400px;
 }
 
+div#layout-content div#preamble div.sectionbody div.para {
+  text-align: center;
+}
+
+div#preamble {
+  margin-right: auto;
+}
+
 </style>
 ++++
 
