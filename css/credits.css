@@ -1,6 +1,3 @@
-++++
-<style type="text/css">
-
 body {
   color: white;
   background-color: black;
@@ -23,7 +20,7 @@ div#footer {
   display: none;
 }
 
-body > table {
+div#layout-content {
   position: absolute;
   left: 50%;
   margin-left: -400px;
@@ -36,7 +33,4 @@ div#preamble, div.tableblock {
 div#layout-content div#preamble div.sectionbody div.para {
   text-align: center;
 }
-
-</style>
-++++
 
