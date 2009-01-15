@@ -1,8 +1,8 @@
 Lumiera
 =======
 
-Lumiera is a Free/Open Source Non-Linear Video Editing (NLE) application project for Linux developed by the 
-http://cv.cinelerra.org/[CinelerraCV] community. + 
+Lumiera is a Free/Open Source Non-Linear Video Editing (NLE) application project for GNU/Linux developed by the
+http://cv.cinelerra.org/[CinelerraCV] community. +
 It was born as a rewrite of the Cinelerra codebase called Cinelerra3 but it is now an independent project with its own name.
 
 image::SeedlingsByPaulGoyette.png[]
