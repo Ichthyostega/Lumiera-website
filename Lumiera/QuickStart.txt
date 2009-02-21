@@ -1,0 +1,20 @@
+Quickstart
+==========
+
+.We have infos scattered on various levels -- from rather abstract to practical and low-level.
+
+* The project "home" is currently on http://lumiera.org/[Lumiera's Official Site]
+* Besides this wiki, the Core of our project is contained in the GIT repositories.  Within this tree, you'll find a directory with some TiddlyWikis containing the design- and technical documentation.
+ - You can check it out in http://www.lumiera.org/wiki/index.html[this snapshot]
+* You can browse the GIT trees at: http://www.lumiera.org/gitweb/[]
+* We have a http://www.lumiera.org/gitweb?p=LUMIERA;a=summary[Lumiera "Master" GIT repository] automatically tracking the main branches of the lead devs, so the master banch there can be considered _official_
+* The git repositories are located at git://git.lumiera.org/
+* You may want to have a look at our http://www.lumiera.org/wiki/index.html#IRC-Transcripts[project meetings on IRC] (also filed [wiki:self:../../Lumiera/MonthlyMeetings here on pipaWiki])
+* If you are interested how things started out, you'll find a polemic Hermann Vosseler wrote about the old source base, some conclusions and a http://pipapo.org/pipawiki/Cinelerra/Developers/ichthyo/Cinelerra3[first preliminary project plan]
+ - *NOTE*: this pages are from last summer. At the time, we thought to rather do a partial rework the old source base. But by now we are a complete rewrite and have changed the Project Name from *Cinelerra-3* to *Lumiera*
+* The project is in a early stage and things are much in flux. Please feel free to ask more questions. We don't have a complete Architecture overview or Roadmap yet, but it is clear that the new app will have  three Layers (see [wiki:self:Lumiera/DesignProcess/ArchitectureOverview Architecture Overview]):
+ - http://www.lumiera.org/wiki/backend.html[Backend] (written in C, ask Christian Thaeter aka cehteh for details < ct@pipapo.org >)
+ - http://www.lumiera.org/wiki/renderengine.html[Proc-Layer] (written in C++, ask Hermann Vosseler aka Ichthyo for more details < prg@ichthyostega.de >)
+ - http://pipapo.org/pipawiki/Lumiera/GuiBrainstormingReviewed[GUI]. (written using Gtkmm, ask Joel Holdsworth. Also have a look to our Lumiera/GuiBrainstorming)
+* We are also documenting the designs on a higher level in Lumiera/DesignProcess
+* We also have a http://www.pipapo.org/pipawiki/Lumiera/NewbiesTutorials[Beginners tutorials page] (ask Gabriel Rodriguez aka alcarinque <alcarinque.istar@gmail.com>)
