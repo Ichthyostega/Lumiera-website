@@ -1,6 +1,6 @@
 Menu and Shortcuts
 ==================
-:Author: Unknown
+:Author: Simeon Völkel
 :Date: 2008-05-14
 
 
