@@ -41,7 +41,7 @@ c # Lumiera/DesignProcess/OfficialAssemblyLanguage
 c # Lumiera/DesignProcess/ProcBuilder
 # Lumiera/DesignProcess/ProcHighLevelModel
 # Lumiera/DesignProcess/ProcPlacementMetaphor
-# Lumiera/DesignProcess/RenderOptimizer
+c # Lumiera/DesignProcess/RenderOptimizer
 c # Lumiera/DesignProcess/RepositorySetup
 c # Lumiera/DesignProcess/Roadmap-first
 c # Lumiera/DesignProcess/ScriptingLanguage
