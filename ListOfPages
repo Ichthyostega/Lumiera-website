@@ -45,7 +45,7 @@ c # Lumiera/DesignProcess/ProcBuilder
 c # Lumiera/DesignProcess/RepositorySetup
 c # Lumiera/DesignProcess/ScriptingLanguage
 # Lumiera/DesignProcess/SkillsCollection
-# Lumiera/DesignProcess/StreamTypeSystem
+c Lumiera/DesignProcess/StreamTypeSystem
 c # Lumiera/DesignProcess/TagCloudsOnResources
 c Lumiera/DesignProcess/TimelineSequenceOutput
 c Lumiera/DesignProcess/TodoLists
