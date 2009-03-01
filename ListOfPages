@@ -44,13 +44,13 @@ c # Lumiera/DesignProcess/ProcBuilder
 # Lumiera/DesignProcess/RenderOptimizer
 c # Lumiera/DesignProcess/RepositorySetup
 c # Lumiera/DesignProcess/ScriptingLanguage
-# Lumiera/DesignProcess/SkillsCollection
-c Lumiera/DesignProcess/StreamTypeSystem
+c #Lumiera/DesignProcess/SkillsCollection
+c #Lumiera/DesignProcess/StreamTypeSystem
 c # Lumiera/DesignProcess/TagCloudsOnResources
-c Lumiera/DesignProcess/TimelineSequenceOutput
-c Lumiera/DesignProcess/TodoLists
+c # Lumiera/DesignProcess/TimelineSequenceOutput
+c #Lumiera/DesignProcess/TodoLists
 c # Lumiera/DesignProcess/UnitTests Python
-c Lumiera/DesignProcess/UseCases
+c #Lumiera/DesignProcess/UseCases
 c # Lumiera/DesignProcess/time handling
 # Lumiera/DesignProcessTemplate
 # Lumiera/Developers
