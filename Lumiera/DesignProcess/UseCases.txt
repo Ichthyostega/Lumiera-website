@@ -6,9 +6,8 @@
 -------------------------------------
 
 
-== Use Case analysis
-
-Taken for being asciidoced by komputes. Notify komputes if you edit.
+Use Case analysis
+-----------------
 
 The only way to defeat "featuritis" is to build upon a coherent design --
  +
@@ -17,17 +16,20 @@ which in turn relies upon a more or less explicit understanding what the applica
 ''please participate in the discussion. It well may be that everything detailed here is self-evident, but I doubt so. At least the grouping and the omissions reflect sort-of a focus of the project''
 
 
-=== Describing basic Lumiera usage situations
+Describing basic Lumiera usage situations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The fundamental assumption is that the user works on a project, which is reflected in the fact that the user is working on a single session over an extended period of time (several hours to several years). External media will be imported and incorporated into this session, additional media will be created within this session, and finally there is at least one render or export procedure to harvest the results of this work.
 
 
-==== Scenario (1) : Exploring Media
+Scenario (1) : Exploring Media
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Various external media files are opened. You play, cue and examine the media. Tagging, labeling and adding notes. Marking of interesting points and ranges. Possibly breaking down into clips, or at least extract some ranges as clips. Draft arranging the clips, applying some effects to check the result and thus to find out about the viability of the footage. Playback of several media at the same time (several videos, but also video and music). Grouping of assets (media, clips, effects, markers) into folders.
 
 
-==== Scenario (2) : Simple assembly
+Scenario (2) : Simple assembly
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You build up a simple linear cut sequence. Either by
 
@@ -38,7 +40,8 @@ You build up a simple linear cut sequence. Either by
 Sound is either used immediately as-is (the soundtrack attached to the media), or there is a similarly simple, linear music bed. Some people prefer to switch sound off entirely for this kind of work. In any case, the link is either automatic, or rather vague and soft (as music being vaguely correlated)
 
 
-==== Scenario (3) : Augmenting an assembly
+Scenario (3) : Augmenting an assembly
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Without the intention to rework it from scratch, an already existing simple assembly is augmented, beautified and polished, maybe to conform with professional standards. This includes the "rescue" of a somewhat questionable assembly by repairing localized technical problems, but also shortening and re-arranging, and in extreme cases even changing the narrative structure.
 A distinctive property of this usage scenario is that work happens rather in the context of ''tasks'' (passes) -- not so much isolated operations:
@@ -50,7 +53,8 @@ A distinctive property of this usage scenario is that work happens rather in the
  - general polishing may include adding title overlays, fading in and out, adding (typically a single type of) transition(s) in a coherent manner
 
 
-==== Scenario (4) : Compositional work
+Scenario (4) : Compositional work
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Here I define ''compositional work'' as a situation where you deal with multiple more or less independent sequences going on in parallel, similar to a musical score. Frequently, we encounter compositional parts embedded in a otherwise linear work, and often those parts evolve when Scenario (3) is driven to the extreme.
 
@@ -64,7 +68,8 @@ The common distinctive property of all those situations is: objects are embedded
 The working style and thus the tool support necessary for compositional work is completely different to Scenario (3). After an innitial buildup (which often is very systematic), the working profile can be characterized by tweaks to various parameters to be done in-sync at widely separated sites within the session, together with repeated cycles of "do it", "assess the result", "undo all and do some small detail differently". Typically there is the need for much navigation (contrast this to Scenario (3) where you work in "passes")
 
 
-==== Scenario (5) : Working with Sound
+Scenario (5) : Working with Sound
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The degree of integrating sound work is worth discussing. Often, due to limitations in existing tools, sound work is done in separate applications to a large extent. Which in turn forces the whole production into a sequential organisation scheme. First the edit has to be roughly final, and then the sound people can step in. (Of course this is an simplification). To list the common operations:
 
@@ -79,7 +84,8 @@ The degree of integrating sound work is worth discussing. Often, due to limitati
 While clearly some of those tasks are always better done within a dedicated application, the ability to carry out this work partially within the main session and even while the basic edit is still in flux -- may open new artistic possiblilities.
 
 
-==== Scenario (6) : Large Projects
+Scenario (6) : Large Projects
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 At first sight, the operations and the work to be done in large projects is the same as in small ones. But large projects tend to create sort of an additional "layer" on top of the usage scenarios described thus far, which will "kick in" at various places.
 
@@ -92,7 +98,8 @@ At first sight, the operations and the work to be done in large projects is the 
  - you may want to do integration builds, where you add placeholders just for the purpose to get an impression of the work as a whole.
 
 
-==== Scenario (7) : Teamwork
+Scenario (7) : Teamwork
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Several people work on a project.
 
@@ -104,50 +111,47 @@ Several people work on a project.
  - A pen tool could allow to scribble on top of frames or arrangements. An expressive and fast way to leave suggestions about deletions, movements and all other kinds of edits.
 
 
-==== Scenario (8) : Script driven
+Scenario (8) : Script driven
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The application is started ''headless'' (without GUI) and controlled via an API. Either an existing session is loaded, or a new session is
 created and populated. Then, some operations have to be done in a systematic manner, requiring a way to address parts of the session both unambiguously and in a way easy to access and control from a programming environment (you can't just ''see'' the right clip, it needs to be tagged). Finally, there might be an export or render step. A variation of this scenario is the automatic extraction of some informations from an existing project.
 
 
-=== Discussion
+Discussion
+~~~~~~~~~~
+
+.Pros
+* describing such scenarios, even if hypothetical, create an anchor or point of referral for feature/GUI design work to be done in detail
+* relating features to working situations helps to see what is really important and what is rather of technical merrit
+* compiling and discussing this list helps shaping the character of the application as a whole
+* the above compilation relates individual features to a general production process.
+* the goal of this compilation is to be ''fairly complete''
+
+
+.Cons
+* any of those descriptions is artificial
+* sometimes it is better to develop an application technology driven, especially when it is technologically challenging to get it to work properly.
+* having such a large-scale vision may frighten people away which otherwise might jump in and implement some crazy but valuable new feature
+* the listed usage scenarios intend to be ''fairly complete,'' which can be a limitation or even self-deception. Better have an open ended list.
+* the above compilation seems quite conventional and explicitly leaves out some scenarios
+  - networked, distributed scenarios, compound applications
+  - television, life video, !VeeJay-ing
+  - cartoons, animations, game design
 
 
 
-==== Pros
-
- - describing such scenarios, even if hypothetical, create an anchor or point of referral for feature/GUI design work to be done in detail
- - relating features to working situations helps to see what is really important and what is rather of technical merrit
- - compiling and discussing this list helps shaping the character of the application as a whole
- - the above compilation relates individual features to a general production process.
- - the goal of this compilation is to be ''fairly complete''
-
-
-==== Cons
-
- - any of those descriptions is artificial
- - sometimes it is better to develop an application technology driven, especially when it is technologically challenging to get it to work properly.
- - having such a large-scale vision may frighten people away which otherwise might jump in and implement some crazy but valuable new feature
- - the listed usage scenarios intend to be ''fairly complete,'' which can be a limitation or even self-deception. Better have an open ended list.
- - the above compilation seems quite conventional and explicitly leaves out some scenarios
-  * networked, distributed scenarios, compound applications
-  * television, life video, !VeeJay-ing
-  * cartoons, animations, game design
+.Alternatives
+* avoiding a general plan, just sharing a vague general vision
+* just start out with one scenario directly at hand (e.g. the simple assembly) and not worrying about the rest
+* rather then defining those scenarios (which are necessarily hypothetical), rather stick to the operation level. E.g. a use case would be rather "trim a clip"
+* doing a complete state-of-the art UML use case analysis.
+* after having created the foundation, rather stick to an XP approach, i.e. implement, integrate and release small "usage stories"
 
 
 
-==== Alternatives
-
-Several alternatives are conceivable.
- - avoiding a general plan, just sharing a vague general vision
- - just start out with one scenario directly at hand (e.g. the simple assembly) and not worrying about the rest
- - rather then defining those scenarios (which are necessarily hypothetical), rather stick to the operation level. E.g. a use case would be rather "trim a clip"
- - doing a complete state-of-the art UML use case analysis.
- - after having created the foundation, rather stick to an XP approach, i.e. implement, integrate and release small "usage stories"
-
-
-
-==== Rationale
+Rationale
+^^^^^^^^^
 
 Well, after having considered, compiled and written such an concept, altogether avoiding a big picture view of the application is not longer an option. To the other extreme, we neither have the resources, nor the circumstances for doing a rigid and formal analysis. Finally, the XP approach really sounds promising, and it should be clear that it is in no way ruled out. Nothing hinders us to have a detailed vision, but then to implement small usage stories which fit into this vision.
 
@@ -160,9 +164,11 @@ Besides, another consideration. The above compilation builds upon the notion, th
 
 
 
-== Comments
+Comments
+--------
 
-=== Template e.g. for regular TV series
+Template e.g. for regular TV series
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Constraints to fit all contents within fixed timeline, cover topic, select collage of iconic scenes from archived and collected footage.
 Update intro and credit roll for each episode.

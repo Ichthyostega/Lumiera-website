@@ -48,9 +48,9 @@ c # Lumiera/DesignProcess/ScriptingLanguage
 # Lumiera/DesignProcess/StreamTypeSystem
 c # Lumiera/DesignProcess/TagCloudsOnResources
 # Lumiera/DesignProcess/TimelineSequenceOutput
-# Lumiera/DesignProcess/TodoLists
+c Lumiera/DesignProcess/TodoLists
 c # Lumiera/DesignProcess/UnitTests Python
-# Lumiera/DesignProcess/UseCases
+c Lumiera/DesignProcess/UseCases
 c # Lumiera/DesignProcess/time handling
 # Lumiera/DesignProcessTemplate
 # Lumiera/Developers
