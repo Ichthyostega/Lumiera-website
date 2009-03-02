@@ -39,7 +39,7 @@ c # Lumiera/DesignProcess/NoBugFlags
 # Lumiera/DesignProcess/NormalizedDeviceCoordinates
 c # Lumiera/DesignProcess/OfficialAssemblyLanguage
 c # Lumiera/DesignProcess/ProcBuilder
-# Lumiera/DesignProcess/ProcHighLevelModel
+c # Lumiera/DesignProcess/ProcHighLevelModel
 c # Lumiera/DesignProcess/ProcPlacementMetaphor
 c # Lumiera/DesignProcess/RenderOptimizer
 c # Lumiera/DesignProcess/RepositorySetup
