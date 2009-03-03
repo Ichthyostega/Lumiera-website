@@ -1,0 +1,50 @@
+[grid="all"]
+`------------`-----------------------
+*State*         _Idea_
+*Date*          _@DATE@_
+*Proposed by*   link:@USERNAME@[]
+-------------------------------------
+
+
+TITLE
+-----
+
+
+
+Description
+~~~~~~~~~~~
+
+
+
+Tasks
+^^^^^
+
+
+Pros
+^^^^
+
+
+
+Cons
+^^^^
+
+
+
+Alternatives
+^^^^^^^^^^^^
+
+
+
+Rationale
+~~~~~~~~~
+
+
+
+
+
+
+Comments
+--------
+
+
+Back to link:Lumiera/DesignProcess[]

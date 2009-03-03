@@ -10,7 +10,7 @@ c # Lumiera
 # Lumiera/ConfigLoader
 c # Lumiera/DesignProcess
 c # Lumiera/DesignProcess/AllPluginInterfacesAreC
-# Lumiera/DesignProcess/ApplicationStructure
+c # Lumiera/DesignProcess/ApplicationStructure
 c # Lumiera/DesignProcess/ArchitectureOverview
 c # Lumiera/DesignProcess/CCodingStyleGuide
 c # Lumiera/DesignProcess/ClipCatalogingSystem
@@ -53,7 +53,7 @@ c # Lumiera/DesignProcess/TodoLists
 c # Lumiera/DesignProcess/UnitTests Python
 c # Lumiera/DesignProcess/UseCases
 c # Lumiera/DesignProcess/time handling
-# Lumiera/DesignProcessTemplate
+c # Lumiera/DesignProcessTemplate
 # Lumiera/Developers
 # Lumiera/Developers/SimAV
 # Lumiera/Developers/SimAV/German
