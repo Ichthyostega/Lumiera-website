@@ -119,7 +119,7 @@ Then click on _Titles_ for a short list and on _Text_ for a verbose list of page
  
  * If you get an error about section title out of sequence, you need to edit the file and fix it. Make sure you get the correct order of titles (e.g. no level 2 without a level 1 first). See the http://powerman.name/doc/asciidoc#_headers[cheatsheet] to know more.
 
- * Repeat the process of running and fixing untill you can run asciidoc with no errors.
+ * Repeat the process of running and fixing until you can run asciidoc with no errors.
 
  * Make sure the .txt document starts with the document header (required). See the http://powerman.name/doc/asciidoc#_document_header_required[cheatsheet] to know more.
  
@@ -133,6 +133,8 @@ Then click on _Titles_ for a short list and on _Text_ for a verbose list of page
  -------------------------------------
  
  * Open the converted HTML file in Firefox and make sure it is nicely formatted. If you don't like it, tweak the code to make it nicer. You might want to compare the wiki page and your local HTML in two separate Firefox windows.
+
+IMPORTANT: All internal Wiki links are converted to links that point to the old locations at http://www.pipapo.org/. That's wrong, but _leave them alone_. We'll fix them later.
  
 6. Put the file in place and mark it
 ------------------------------------
