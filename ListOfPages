@@ -36,7 +36,7 @@ c # Lumiera/DesignProcess/MasterRepositorySetup
 c # Lumiera/DesignProcess/MistakestoAvoid
 c # Lumiera/DesignProcess/MonthlyDeveloperMeetingOnIRC
 c # Lumiera/DesignProcess/NoBugFlags
-# Lumiera/DesignProcess/NormalizedDeviceCoordinates
+c # Lumiera/DesignProcess/NormalizedDeviceCoordinates
 c # Lumiera/DesignProcess/OfficialAssemblyLanguage
 c # Lumiera/DesignProcess/ProcBuilder
 c # Lumiera/DesignProcess/ProcHighLevelModel
