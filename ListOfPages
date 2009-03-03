@@ -20,7 +20,7 @@ c # Lumiera/DesignProcess/CodingStyle
 c # Lumiera/DesignProcess/DataBackend
 # Lumiera/DesignProcess/DelectusShotEvaluator
 # Lumiera/DesignProcess/DesignParamAutomation
-# Lumiera/DesignProcess/DesignRenderNodesInterface
+c # Lumiera/DesignProcess/DesignRenderNodesInterface
 c # Lumiera/DesignProcess/DevelopmentFramework
 c # Lumiera/DesignProcess/DistributedDevelopmentFramework
 c # Lumiera/DesignProcess/EDLsAreMetaClips
@@ -31,7 +31,7 @@ c # Lumiera/DesignProcess/HowToProceed
 c # Lumiera/DesignProcess/InterfaceNamespaces
 c # Lumiera/DesignProcess/LumieraDesignProcess
 c # Lumiera/DesignProcess/Manifest
-# Lumiera/DesignProcess/MarbleMode
+c # Lumiera/DesignProcess/MarbleMode
 c # Lumiera/DesignProcess/MasterRepositorySetup
 c # Lumiera/DesignProcess/MistakestoAvoid
 c # Lumiera/DesignProcess/MonthlyDeveloperMeetingOnIRC
