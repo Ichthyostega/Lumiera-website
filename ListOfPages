@@ -6,7 +6,7 @@ c # Lumiera
 c # Lumiera/Announcement
 # Lumiera/BrainDump
 c # Lumiera/BrainDump/TestSuite
-# Lumiera/BuildDrone
+c # Lumiera/BuildDrone
 # Lumiera/ConfigLoader
 c # Lumiera/DesignProcess
 c # Lumiera/DesignProcess/AllPluginInterfacesAreC
