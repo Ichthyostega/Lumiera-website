@@ -19,7 +19,7 @@ c # Lumiera/DesignProcess/CodingStyle
 # Lumiera/DesignProcess/CursorConcept
 c # Lumiera/DesignProcess/DataBackend
 # Lumiera/DesignProcess/DelectusShotEvaluator
-# Lumiera/DesignProcess/DesignParamAutomation
+c # Lumiera/DesignProcess/DesignParamAutomation
 c # Lumiera/DesignProcess/DesignRenderNodesInterface
 c # Lumiera/DesignProcess/DevelopmentFramework
 c # Lumiera/DesignProcess/DistributedDevelopmentFramework
