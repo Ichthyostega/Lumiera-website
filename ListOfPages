@@ -24,7 +24,7 @@ c # Lumiera/DesignProcess/DataBackend
 c # Lumiera/DesignProcess/DevelopmentFramework
 c # Lumiera/DesignProcess/DistributedDevelopmentFramework
 c # Lumiera/DesignProcess/EDLsAreMetaClips
-# Lumiera/DesignProcess/FeatureBundle PluggableModules
+c # Lumiera/DesignProcess/FeatureBundle PluggableModules
 c # Lumiera/DesignProcess/GitSubmoduleTransistion
 c # Lumiera/DesignProcess/GlobalInitialization
 c # Lumiera/DesignProcess/HowToProceed
