@@ -1,0 +1,152 @@
+How Does It Work
+----------------
+A donation starts as non-binding _promise_, you should still only promise something you
+want to donate seriously. The _promised_ state just gives some estimate if the goal would be reachable
+or should be withdrawn. At some point when the receiver sees that a _Goal_ becomes realizable he will
+contact you if your promise still holds, You should _acknowledge_ this if you are really prepared to send
+the donation. Finally when the reviewer has collected enough acknowledgements to finish the _Goal_
+he will contact you to send it to him and as soon he received it he will tag your donation as _received_.
+This way will make the process transparent and verifiable to anyone. A Donor might prefer to hide
+his identify behind a pseudonym, only the receiver needs to know the real identity.
+
+When you don't want to deal with maintaining this wiki page it should be enough to contact the potential
+receiver to do it for you. Either via email, private or on the mailing list or on IRC.
+
+Below there are several Donation topics, the first _General Donations_ is little special since it
+doesn't define a _Goal_ or time frame by itself. When you don't care or know how your donation is
+used the best way, then add it there.
+
+After that there are specific _Goals_ put up by Lumiera developers where they explain what they need
+and how/when it should be reached. If you want to direct your donation to a specific _Goal_ then add
+there.
+
+Completed Goals will stay online to be referenced forever (maybe moved to another page) to make this most
+transparent and verifiable.
+
+Note about the states of a goal:
+
+ * *OPEN* still collecting, you can put new promises on it
+ * *CLOSED* the pledge is halted and in further process, don't put new promises on it. When you have a promise on it the receiver will contact you about further proceeding.
+ * *COMPLETED* Goal reached, all completed!
+ * *WITHDRAWN* Goal not reached, Doesn't look realizable
+
+[[TableOfContents]]
+
+
+
+General Donations
+-----------------
+
+[grid="rows"]
+.15`20`25'~~~~~~~~~~~~~~~~~~~~~
+Donor,What,Comment,State
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cehteh ,  100Eur+ ,  For *_real*_ emergencies ,  promised 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+A new Laptop for cehteh (CLOSED)
+--------------------------------
+
+Timeframe,  ASAP
+Subject,  about 900Eur
+
+[grid="rows"]
+.15`20`25'~~~~~~~~~~~~~~~~~~~~~
+Donor,What,Comment,State
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cehteh ,  250Eur+ ,  As much i can currently spend ,  acknowledged 
+raffa  ,  100 Eur ,  money won thanks to Cinelerra ,  promised 
+Velmont  ,  40 Eur ,   ,  promised 
+anewcomb2 ,  50 US ,  Go Lumiera ,  promised 
+goibhniu ,  60 Eur ,   ,  promised 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+distributed
+
+Me (cehteh) needs a new laptop, because my old one got (literally) broken.
+
+A laptop is some very personal thing to me which I usually always take with me,
+it will be used as development machine, which does not imply that it has to be a
+very powerful one (I can compile and test Lumiera remotely on the server or my desktop
+machine)
+
+.This means I have some requirements for it:
+ * Rugged! I take it with me, its not only sitting on the desk.
+ * Lightweight (1.5kg or less)
+ * Small, around 10"-13" class, reasonable high resolution
+ * Good keyboard (I am used to small ones, but it should be still usable)
+ * Cool and quiet
+ * long lasting battery, 5+ hours at least
+ * At least 1GB ram
+ * At (very) least 20GB Disk storage
+ * Good connectivity, Wlan and Ethernet, minimum 2x usb
+
+.Some optional requirements:
+ * Optical Disk
+ * More Ram
+ * Dual core
+ * 64 bit System
+
+.Things I don't need:
+ * No Windows Tax!
+ * Gamers grade graphics
+ * High performance processor
+
+.What machines qualify:
+ * Some *netbooks* like eeepc 901 or competitors would be barely acceptable even when they fail some requirements. This would be the really cheapest way. (around 400-500 Eur, not available in germany yet)
+ * *Zepto Notus A12* looks very good to me:
+   http://uk.zepto.com/Shop/Notebook.aspx?notebookid=971[]
+   Processor power is not more than an eeepc, but keyboard, ruggedness, battery, and bigger display make this one really favorable.
+   This is the one I would aim for. (899Eur)
+ * *Lenovo Thinkpad X300*
+   This one has a *hefty* price tag about 2300Eur, it is an actual dream machine with few compromises (only comes with windows tax). I don't want to burn donations on it, just shown here for reference and if a single donor thinks it might be worth it to make me very happy. (same counts for the Toshiba Portege R500)
+ * *Mac Book Air*
+   also same as with the Thinkpad, but far more compromises. I don't really like it. The only reason to list it here is, when someone wants me to maintain a MacOS X port for Lumiera I need some macos machine. Well I am more happy when someone else cares for MacOS X. (1700Eur)
+ * Are there other machines you know of which fulfill the above specs? please suggest them to me +
+
+.More Laptops 
+  * HP Compaq 2510p looks good (~1350Eur)
+  * Sony VAIO XT (http://www.notebookreview.com/default.asp?newsID=2931&review=VAIO+TX)[]
+
+
+Money transfer can be accepted as: Bank transfer, Western Union, Paypal.
+
+I've ordered a HP Compaq 2510p now, a friend of me ordered the Zepto Notus. So i can get first hand review for both. The HP is just affordable to me and much better equipped. Well if there are some catches I send it back and try another one.
+-- ct 2008-06-23
+
+
+
+A new Laptop for Cinelerra developer heroinewarrior.com (OPEN)
+--------------------------------------------------------------
+
+Timeframe,  ASAP
+Subject,  about $600
+
+[grid="rows"]
+.15`20`25'~~~~~~~~~~~~~~~~~~~~~
+Donor,What,Comment,State
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+raffa,100 Eur,That's a giving back: they are money won thanks to Cinelerra,Promised
+ichthyo,100 Eur, ,Promised
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We wrote most of the software that is copied onto cinelerra.org & need a new laptop too.  If you want to support Cinelerra development, chances of something getting released on cinelerra.org are actually better by donating to the actual developer heroinewarrior.com.  Lumiera is a different project.  Be aware a donation for Cinelerra won't affect that project & a donation to Lumiera won't affect Cinelerra.
+
+
+
+Piksel (OPEN)
+-------------
+
+Timeframe,  until Piksel
+Subject,  Travel and/or Dorm.no/Hotel cost 
+
+[grid="rows"]
+.15`20`25'~~~~~~~~~~~~~~~~~~~~~
+Donor,What,Comment,State
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+KenSentMe,50 Eur,Maybe this can help set up a dev meeting or something,Promised
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Piksel in link:Bergen/Norway[] is a annual Festival for free(libre) Audiovisual Software, Programmers and Artists. Last year few of the Cinelerra/Lumiera developers and community members meet there. So far this year we made no plans made to have an official application or Lumiera developers meeting. Promise some funding here might help to realize it and allow people to attend who otherwise can't.
