@@ -139,9 +139,7 @@ IMPORTANT: All internal Wiki links are converted to links that point to the old 
 6. Put the file in place and mark it
 ------------------------------------
 
- * Once you are happy with the conversion and formatting, open the ListOfPages file and mark your wiki page as converted (c). 
- 
- * Move the final .txt file in the correct folder inside the _Lumiera_ folder of the mob repo.
+ * Once you are happy with the conversion and formatting, move the final .txt file in the correct folder inside the _Lumiera_ folder of the mob repo.
  
  * Delete the source wiki file in the mob folder (the one with no extension).
  
