@@ -1,0 +1,47 @@
+TheW
+====
+
+Rendering when not in cache
+---------------------------
+
+------------------------------------------------------------
+Frontend:    need frame                 got frame
+                 \                        /
+Proc Layer:       \        render        /
+                   \      /      \      /
+Backend:           request        cached
+------------------------------------------------------------
+
+Request satisfied from cache
+----------------------------
+
+------------------------------------------------------------
+Frontend:    need frame   got frame
+                 \          /
+Proc Layer:       \        /
+                   \      /
+Backend:            cached
+------------------------------------------------------------
+
+Comments
+~~~~~~~~
+The above is the current status, but developers might like to consider this
+
+Idea
+
+This situation looks like it should be a (deep) "V". If frontend can ever directly communicate with proc layer then the current representation is possibly valid.
+
+But if all requests from frontend "must" go through backend, then onto proc layer, then the current representation is not the best -  a better representation would be Frontend, Backend, Proc Layer. This would show that proc layer can get on with doing stuff which hasn't been done already (including batch jobs, new renders, and requests from networked pcs), while the backend stores/caches all the already done work that is likely to be needed by the frontend, ready to deliver it on request. The back end just figures out what it hasn't got when asked, and then gets proc layer to create it (within the priority time allocations that proclayer may be working under).
+
+
+------------------------------------------------------------
+Frontend:    need frame                          got frame
+                 \                                 /
+                  \                               /
+                   \                             /
+Backend:        "Get" frame -- (do have) --->  cached     (server up created material)
+                     \                         /
+               (don't have so) "request"      /
+                       \                     /
+Proc Layer:             \--------------->  render         (create new material)
+------------------------------------------------------------
