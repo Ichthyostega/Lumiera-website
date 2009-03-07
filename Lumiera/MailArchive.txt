@@ -1,0 +1,8 @@
+Mail Archive
+============
+
+Links to threads that can be of use for developers and users in the future. Please keep it in blog-sorted manner (newest at the first), and write both the date and a brief description of the thread containing some keywords. Just thread starts, branches, and where the discussion goes interesting.
+
+ * https://init.linpro.no/pipermail/skolelinux.no/cinelerra/2008-April/013917.html[Lumiera Engine] _(17/4 -08)_ A chat about what's expected from the Lumiera Engine, what 'efficiency' means, and how to get there. The rest of the thread https://init.linpro.no/pipermail/skolelinux.no/cinelerra/2008-April/013918.html[is here].
+ * https://init.linpro.no/pipermail/skolelinux.no/cinelerra/2008-April/013871.html[UI for link:Export/Rendering] _(15/4 -08)_ How would a perfect Encoding Tool look like (GUI)?
+ * https://init.linpro.no/pipermail/skolelinux.no/cinelerra/2008-March/013705.html[Getting involved with the GUI] _(30/3 -08)_ Hermann (Ichthyostega) explains the current GUI-situation, and how you can get involved with it.
