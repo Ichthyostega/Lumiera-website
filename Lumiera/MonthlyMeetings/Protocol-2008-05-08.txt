@@ -1,8 +1,10 @@
-Protocol 08-05-2008
-===================
+2008-05-08  Lumiera Dev Meeting
+===============================
+:Author: cehteh
+:Date: 2008-05-15
 
-Participants
-------------
+__Participants__
+
  * cehteh
  * joelholdsworth
  * ichthyo

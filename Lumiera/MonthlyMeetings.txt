@@ -1,9 +1,6 @@
 Monthly Meetings
 ================
-
-:Author:    unknown
-:Email:     unknown
-:Date:      unknown
+:Author: cehteh, Ichthyostega
 
 We conduct regular developer meetings on IRC as described in link:Lumiera/DesignProcess/MonthlyDeveloperMeetingOnIRC[]
 
