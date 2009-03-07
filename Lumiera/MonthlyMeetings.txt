@@ -1,0 +1,31 @@
+Monthly Meetings
+================
+
+:Author:    unknown
+:Email:     unknown
+:Date:      unknown
+
+We conduct regular developer meetings on IRC as described in link:Lumiera/DesignProcess/MonthlyDeveloperMeetingOnIRC[]
+
+This page announces the next meeting. _Feel free to edit the agenda if you want to discuss some topic!_
+
+ * The past monthly meetings including the *protocols* can be found on the link:Lumiera/PastMonthlyMeetings[] page.
+ * If you are doomed to write the protocol, you may have a look at the link:Lumiera/MeetingProtocolTemplate[protocol template].
+ * For general discussions see also the http://lists.lumiera.org/pipermail/lumiera[Lumiera Mailing List]
+
+
+Next Monthly Meeting: Wednesday Feb. 11, 2009 20:00 UTC
+-------------------------------------------------------
+as usual on #lumiera at freenode.net
+
+
+Topics
+~~~~~~
+ * organisational (protocol, agenda, leftovers?)
+ * How to proceed with the Logo
+ * State of the Workflow discussion
+ * link:AsciiDoc[] Day
+ * GSoC
+ * GUI-Integration: Summary and next steps
+ * Design Process: Go through Ideas and Drafts
+ * Next meeting 
