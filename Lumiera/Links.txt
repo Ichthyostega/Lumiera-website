@@ -1,0 +1,277 @@
+Links
+=====
+
+
+Just a chaotic collection for now
+---------------------------------
+
+ * http://schrodinger.sourceforge.net/[]
+ * http://www.openlibraries.org/[]
+ * http://www.piksel.no/pwiki/FrontPage[]
+ * http://www.phash.org/[]
+ * http://lurkertech.com/lg/video-systems/[]
+
+
+Plugins
+-------
+
+ * http://gstreamer.freedesktop.org/documentation/[GStreamer] with http://gstreamer.freedesktop.org/data/doc/gstreamer/head/pwg/html/index.html[plugin writers guide]
+ * http://freeframe.sourceforge.net/[]
+ * http://www.piksel.org/frei0r[]
+ * http://www.piksel.org/videojack[]
+ * http://www.ladspa.org/[]
+ * http://lv2plug.in/[]   LV2 is a simple but extensible successor of http://www.ladspa.org/[LADSPA], intended to address the limitations of LADSPA       which many applications have outgrown.
+ * http://gmerlin.sourceforge.net/plugins.html#plugin_fv[] Gmerlin and Gavl
+
+
+Integrated Library Systems (ILS) - use for clip, media, audio, graphics archives and library management
+-------------------------------------------------------------------------------------------------------
+These ILSs can also be used for any situation where items may be loaned out. e.g. props and gear from store.
+
+ * Kete - http://kete.net.nz/[]
+ * Koha - http://www.koha.org/[]
+ * GreenStone - http://www.greenstone.org/[]
+ * Evergreen - http://open-ils.org/faq.php[]
+ * The Scout Portal Project - http://scout.wisc.edu/Projects/SPT/index.php[]
+
+
+Tools that could be used as possible plugins
+--------------------------------------------
+
+ * CeltX - media project workflow - from concept to product http://www.celtx.com/overview.html[]
+ * Transcriber - create subtext from audio track http://trans.sourceforge.net/en/presentation.php[]
+ * ffmpeg - as video grabber and file format converter  http://doc.gnu-darwin.org/ffmpeg/ffmpeg-doc.html[]  http://sourceforge.net/projects/ffmpeg[]
+
+
+Locations where Lumiera gets talked about
+-----------------------------------------
+
+News releases etc can be sent to these folks to help stir up interest and invite help. A number of these articles link to the GUI Brainstorming page, showing that there much interest in the potential features of the promising new GNU NLE for Linux.
+
+ * Ubuntu Forums "Lumiera" http://ubuntuforums.org/showthread.php?t=764219[]
+ * We're on myspace: http://groups.myspace.com/index.cfm?fuseaction=groups.groupProfile&groupID=107551203&Mytoken=317E0C8D-06EF-4B04-A92C8FE3C9E969B4168718706[]
+ * Planet Ubuntu Forum (nl) http://planet.ubuntu-nl.org/[]
+ * The Source http://www.thesourceshow.org/node/89[]
+ * Linux Videography http://www.linuxvideography.com/lumiera[]
+ * LWN.net "The Lumiera-project is thinking new" http://lwn.net/Articles/282415/[]
+ * OS VIdeo "Lumiera first steps" http://osvideo.constantvzw.org/?p=188[]
+ * FreeSoft News http://freesoftnews.com/archives/6982[]
+ * OpenVideo website by Raffaella Traniello http://www.g-raffa.eu/openvideo.html[] , also help for Cinelerra http://www.g-raffa.eu/Cinelerra/index.html[]
+ * Wikipedia http://en.wikipedia.org/wiki/Cinelerra[]
+ * Rick_777 and the Saya NLE project also discuss Lumiera "New Open Source Video Editor in the works!!! help wanted" http://www.animemusicvideos.org/phpBB/viewtopic.php?t=88611&postdays=0&postorder=asc&start=0[]
+ * Linux Links http://www.linuxlinks.com/Software/Multimedia/Video/Editors/index.shtml[]
+ * Linux.xom "Open source video editing: what we have now and what we need" http://www.linux.com/feature/131342[]
+ * Knol - A Unit of knowledge - "Linux Video Editing" http://knol.google.com/k/jon-schroth/linux-video-editing/2zr16cze3htqa/2#[]
+ * link:VideoHelp[].com "Time to support open source NLE coders" http://forum.videohelp.com/topic352155.html[]
+ * Digital Inspiration http://www.labnol.org/internet/pictures/make-video-slideshows-upload-flickr-photos/2888/[]
+ * ABCLinux (Czechoslovakia) http://www.abclinuxu.cz/zpravicky/cinelerra-cv-prejmenovana-na-lumiera[] and translated into English http://translate.google.co.nz/translate?hl=en&sl=cs&u=http://www.abclinuxu.cz/zpravicky/cinelerra-cv-prejmenovana-na-lumiera&sa=X&oi=translate&resnum=9&ct=result&prev=/search?q=lumiera+video&start=80&hl=en&sa=N[] http://translate.google.co.nz/translate?hl=en&sl=cs&u=http://www.abclinuxu.cz/zpravicky/cinelerra-cv-prejmenovana-na-lumiera&sa=X&oi=translate&resnum=9&ct=result&prev=/search%3Fq%3Dlumiera%2Bvideo%26start%3D80%26hl%3Den%26sa%3DN[]
+ * Master Magazine "Edición de video en GNU/Linux: nace Lumiera"  http://www.mastermagazine.info/articulo/13059.php[] and translated into English http://translate.google.co.nz/translate?u=http://www.mastermagazine.info/articulo/13059.php&sl=es&tl=en&hl=en&ie=UTF-8[] http://translate.google.co.nz/translate?u=http%3A%2F%2Fwww.mastermagazine.info%2Farticulo%2F13059.php&sl=es&tl=en&hl=en&ie=UTF-8[]
+ * Root@Linux "Nace Lumiera" http://www.root-linux.com/2008/06/03/nace-lumiera/[] and translated into English "The Birth of Lumiera" http://translate.google.co.nz/translate?hl=en&sl=es&u=http://www.root-linux.com/2008/06/03/nace-lumiera/&sa=X&oi=translate&resnum=8&ct=result&prev=/search?q=lumiera+video&start=70&hl=en&sa=N[][http://translate.google.co.nz/translate?hl=en&sl=es&u=http://www.root-linux.com/2008/06/03/nace-lumiera/&sa=X&oi=translate&resnum=8&ct=result&prev=/search%3Fq%3Dlumiera%2Bvideo%26start%3D70%26hl%3Den%26sa%3DN][]
+ * IndiWorks "Life after Final Cut Pro" http://indiworks.wordpress.com/2008/04/07/life-after-final-cut-pro/[]
+ * DVXuser http://dvxuser.com/V6/showthread.php?p=1385259[]
+ * SlashDot " What Will Linux Be Capable Of, 3 Years Down the Road?" http://linux.slashdot.org/article.pl?sid=08/08/14/2056229[]
+ * LXer Cinelerra articles http://lxer.com/module/newswire/search.php?search_terms=cinelerra[]
+ * LXer Lumiera articles http://lxer.com/module/newswire/search.php?search_terms=lumiera&submit=LXer+Search[]
+ * Technorati articles including Lumiera http://technorati.com/search/lumiera?authority=a4&language=en[]
+ * Root.CZ (Czechoslovakia) http://vojta.blog.root.cz/2008/03/07/cinelerra-cv-je-nyni-lumiera/[]
+ * can contribute to Video Editor articles at Entirely Open Source http://www.entirelyopensource.com/Video-Editing[]
+
+
+Locations where Lumiera could be talked about
+---------------------------------------------
+
+ * Linux Movies - a site for the Film Industry. It hasn't had any mention of Lumiera as at 30th Jan 2009, but does have comments on Cinelerra. This would give Lumiera direct exposure to a networks in the film industry, and could be used for input and suggestions, canvasing opinion, beta testing, preliminary reviews, etc.  http://www.linuxmovies.org/software.html[]
+ * Wikipedia page on video editors which has a long list. http://en.wikipedia.org/wiki/List_of_video_editing_software[]
+
+Lumiera Project Contributors - Lumiera discussion web sites elsewhere on the Net
+--------------------------------------------------------------------------------
+
+ * Clay Barnes - Lumiera Timeline http://www.hci-matters.com/blog/2008/05/21/lumiera-timeline-first-draft/[]
+ * Joel Holdsworth - Tango Icons for Lumiera http://jimmac.musichall.cz/log/?p=436[]
+ * MichaelPloujnikov http://plouj.com/[]
+ * Thorwil's Blog http://thorwil.wordpress.com/category/lumiera/[]
+ * Sakalli "Introduction to Autodesk Smoke - research for Lumniera workflow and GUI" http://www.notesatlarge.com/?p=33[]
+
+Misc
+----
+
+ * Ardour sync-ing to video tracks http://www.nabble.com/ardour-video-tracks-td18792465.html[]
+ * Cinelerra page for Lumiera Project http://cinelerra.org/docs/wiki/doku.php?id=getinvolved[]
+ * Making Online Movies (mentions Lumiera) - University of Cambridge http://www-h.eng.cam.ac.uk/help/tpl/graphics/movies/movies.html[]
+ * TrollTech QT Open Source Resources http://trolltech.com/downloads/opensource[]
+
+Help and Resources for Project
+------------------------------
+
+ * Donation of Funds http://pledgie.com/campaigns/613[]
+
+
+Use of Lumiera in the Field
+----------------------------
+ * Scanning in Old Films - Harri Kaimio http://www.kaimio.fi/blogs/harri/[]
+
+
+Other Linux Video Editors - FOSS
+--------------------------------
+
+ * KdenLive http://kdenlive.org[]
+ * LiVES Linux Video Editing System http://lives.sourceforge.net/index.php?do=features[]
+ * Kino http://www.kinodv.org/[]
+ * Open Movie Editor http://www.openmovieeditor.org[]
+ * Vivia http://vivia-video.org/[]
+ * Saya (planning stage) (Windows and Linux) GNU needs X11 http://developer.berlios.de/projects/saya/[]   http://sourceforge.net/projects/sayavideoeditor/[]  http://sayavideoeditor.sourceforge.net/[]   http://saya-videoeditor.blogspot.com/[]
+ * Exymen - working on plugins and OSGi  http://www.exymen.org/[]
+
+
+Other Video Editors - are/may not be Free or Linux
+--------------------------------------------------
+
+ * Edius by Canopus http://desktop.thomsongrassvalley.com/products/EDIUSPro/newfeatures.php#newgui[]
+ * Fusion For Linux by EyeOnline http://www.eyeonline.com/Web/EyeonWeb/Products/fusion5/fusion5_linux.aspx[]
+ * HyperEngine (GNU) for MacOS X http://sourceforge.net/projects/hyperengine/#item3rd-1[]
+ * Celluloid (GNU) for MacOS X - AVISynth-based non-linear editor. Built on the new, cross-platform AVISynth 3.0. http://sourceforge.net/projects/celluloid/[]
+ * Mewa Film - free for personal and educational use. commercial use requires annual license. And example of node editing. http://www.mewatools.com/index.html[]
+
+
+Other Video Projects
+--------------------
+
+ * Kaltura online video archive and collaborative editor server http://corp.kaltura.com/solutions/overview#self_serve_video_packages[]  http://en.wikipedia.org/wiki/Kaltura[]  http://www.makeuseof.com/dir/kaltura/[]   http://sourceforge.net/projects/kaltura/[]
+ * Partage online editor, archiver, and streamer http://octune.org/Partage/[]
+ * Hornets Eye - live capture from Firewire or V4L, and image processing with ImageMagick http://sourceforge.net/projects/hornetseye/[]
+ * nvrec - high quality video capture using V4L  http://nvrec.sourceforge.net/[] and http://sourceforge.net/projects/nvrec/[]
+
+
+Lumiera Project sites, community, tool sites
+--------------------------------------------
+ * Chat Stats for FreeNode http://irc.netsplit.de/channels/details.php?room=#lumiera&net=freenode[] http://irc.netsplit.de/channels/details.php?room=%23lumiera&net=freenode[]
+
+
+Video Streamers
+---------------
+
+ * OpenMASH cross platform video multicaster http://www.openmash.org/[]
+ * BIBS Berkeley Internet Broadcasting System http://bmrc.berkeley.edu/bibs/index.html[]
+
+
+Tools for Lumiera project management
+------------------------------------
+ * Bazaar project distributed version control system http://bazaar-vcs.org/[]  . Bazaar comparison with GIT http://bazaar-vcs.org/BzrVsGit[]
+
+
+Stage Lighting interface systems DMX512 and Midi System Control (MSC)
+---------------------------------------------------------------------
+
+ * Q Light Controller - full featured control DMX512 - http://sourceforge.net/projects/qlc/[]  http://qlc.sourceforge.net/index.php?doc=Features[]
+ * Light Up X - full featured control DMX512 - inactive alpha project - (start up again?) http://sourceforge.net/projects/lux#item3rd-1[]
+ * Stage Light Basic - simple features DMX512 controller - http://stagelightbasic.sourceforge.net/[]
+ * Note - there have been a number of programs in the MS Windows environment that are written in Visual Basic. Linux has some visual Basic equivalents, which might be useful for porting some of these. http://members.westnet.com.au/rowanmac/opendmx.html[]
+Hardware Projects for DMX512
+ * several projects including dimmers and servo motors (camera mounts) - http://www.hoelscher-hi.de/hendrik/english/stepper.htm[]
+ * http://users.skynet.be/kristofnys/[]
+ * http://llg.cubic.org/dmx30/[]
+Hardware Interface Systems Open Sound Control - controls many types of devices plugged in to PC - http://opensoundcontrol.org/[]
+
+
+Usability Resources
+-------------------
+
+ * Gnome's usability Project http://live.gnome.org/UsabilityProject[]
+ * Gnomes list of usability resources http://live.gnome.org/UsabilityProject/UsabilityWebsites[]
+ * the Open Usability project http://www.openusability.org/index.php/category/usability-resources/[]
+ * HCI (Human Computer Interface) Bibliography http://www.hcibib.org/[]
+ * Interaction-Design - Encyclopedia/Glossary http://www.interaction-design.org/encyclopedia/[]
+
+
+Longer list of Library systems (catalogs & collections)
+-------------------------------------------------------
+
+ * Koha http://www.koha.org/about-koha/[]
+ * Kete http://kete.net.nz/[]
+ * Greenstone http://www.greenstone.org/[]
+ * Prospero http://bones.med.ohio-state.edu/prospero/[]
+ * Evergreen http://open-ils.org/[]
+ * Open Collections http://www.opencollection.org/[]
+ * Digital Asset Factory http://wiki.bibalex.org/DAFWiki/index.php/Main_Page[]
+ * PMB - PhpMyBibli - http://www.sigb.net/index.php?page=secteurs&id_rubrique=1&lang=fr[] http://en.wikipedia.org/wiki/PhpMyBibli[]
+ * New Gen Lib - http://www.verussolutions.biz/web/[] http://en.wikipedia.org/wiki/NewGenLib[]
+ * Scout Portal Toolkit - http://scout.wisc.edu/Projects/SPT/index.php[]
+
+
+Bug Detection and Use Optimization systems
+------------------------------------------
+
+ * The Cooperative Bug Isolation Project http://www.cs.wisc.edu/cbi/[]
+
+
+Links to LADSPA Audio plugins
+-----------------------------
+
+ * List of links to LADSPA plugins http://www.ladspa.org/[]
+ * http://www.kokkinizita.net/linuxaudio/ladspa/index.html[]
+ * Trigger audio - http://sourceforge.net/projects/ladspa-trigger/[]
+ * TAP plugins - http://tap-plugins.sourceforge.net/[]
+ * DSP - http://quitte.de/dsp/[]
+ * LADSPA, LV@, and DSSI plugins http://dev.drobilla.net/wiki/FreePlugins[]
+
+
+Links to DSSI Audio plugins
+---------------------------
+
+ * The CAPS Audio plugin suite http://www.student.nada.kth.se/~d00-llu/music_dssi.php[]
+ * CLAM - C++ Library for Audio and music http://quitte.de/dsp/caps.html[]
+   - FAQ: http://clam.iua.upf.edu/wikis/clam/index.php/Frequenly_Asked_Questions[]
+
+
+3D modellers and Animators
+--------------------------
+
+ * "Art of Illusion" is a free, open source 3D modelling and rendering studio. It is written entirely in Java, and should be usable on any Java Virtual Machine which is compatible with J2SE 1.4 or later.
+http://www.artofillusion.org/index[]
+http://sourceforge.net/projects/aoi[]
+http://en.wikipedia.org/wiki/Art_of_Illusion[]
+
+
+DVD Authoring Tools
+-------------------
+
+ * QDVD Author .This is a very good linux dvd authoring program. Can make menus and effects easily. Add most types of video file types, and it can automatically convert to the correct format - a real headache saver. http://qdvdauthor.sourceforge.net/[]
+
+
+Cluster Cloud Grid Computing systems
+------------------------------------
+
+ * Zeus Grid or ZGrid - http://sourceforge.net/projects/gczeus[]
+ * openMosix - is a Linux kernel extension for single-system image clustering. Taking n PC boxes, openMosix gives users and applications the illusion of one single computer with n CPUs. openMosix is perfectly scalable and adaptive. The openMosix Project has officially closed as of March 1, 2008, but the code is still available. http://sourceforge.net/projects/openmosix/[]
+ * Sun's Grid Engine - http://gridengine.sunsource.net/[]
+ * Interesting article on Grid Computing using wireless networks. This would allow very flexible on-the-fly reconfiguration of the network and machines that are used. http://www.scribd.com/doc/7524990/Wireless-Grid[]
+
+
+Codecs
+------
+
+ * Dirac - an advanced royalty-free video compression format designed for a wide range of uses, from delivering low-resolution web content to broadcasting HD and beyond, to near-lossless studio editing. Developed by the BBC.  http://diracvideo.org/about_dirac[]   http://diracvideo.org/wiki/FAQ[]   
+Specifications are at http://diracvideo.org/specifications[]
+ * x264 is a free library for encoding H264/AVC video streams. http://www.videolan.org/developers/x264.html[]   http://www.free-codecs.com/download/x264_Video_Codec.htm[]
+ * Xvid free video codec  http://www.xvid.org/Project-Info.46.0.html[]   http://www.xvidcodec.net/[]
+ * DivX    http://labs.divx.com/DivXLinuxCodec[]
+ * TCVP is a video and music player and encoder/transcoder for Unix-like operating systems. features include:
+    - Pipelined design, allowing insertion of filters at any stage.
+    - Automatic selection of demuxers, decoders, and output drivers, based on user-defined order of preference.
+    - Buffering of decoded audio and video for smooth playback.
+    - Multi-threaded: multiple CPUs can be used if present.
+    - Multiple user interfaces. A skin based X11 GUI, a web interface, and a command line interface are included.
+    - Playlist with shuffle and repeat.
+    - Highly configurable.
+    - Transparent networking.
+    - No XML.   
+http://trac.inprovide.com/tcvp[]
+ * Theora is a free and open video compression format from the Xiph.org Foundation. Theora scales from postage stamp to HD resolution, and is considered particularly competitive at low bitrates. It is in the same class as MPEG-4/DiVX, and like the Vorbis audio codec it has lots of room for improvement as encoder technology develops. Good format for streaming, even on low bandwidth. Also of note is that Theora is used by several video streaming software packages (freely available in linux - FOSS) which can use currently available link:IceCast[]2 servers to handle the distribution to clients. So with the readily avfailable technology and low bandwidth requirements, Theora is an ideal format to use for "Live Streaming" . If Lumiera is ever going to be used for "(live ??) broadcasting", then this should seriously be considered. http://www.theora.org/[]
+
+
+Resources for Comparison of Codecs, and OSes and packages that use them
+-----------------------------------------------------------------------
+
+ * Comparison of video codecs http://www.nationmaster.com/encyclopedia/Comparison-of-video-codecs[]
+ * Advanced Video Coding on Linux (DV, Xvid, x264)  http://www.linuxjournal.com/article/9005[]
+ * Video Codecs (a very long list)  http://genesis-kiith.com/alltoavi/doc/manual/misc/codecs.html[]
