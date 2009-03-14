@@ -71,7 +71,6 @@ uWiki,
 idea, CHRISTIAN THÄTER
 programming, SERGE GIELKENS
 helping hand, CILLIAN DE RÓISTE
-asciidoc conversion, FRANCISCO G. RODRIGUEZ
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -128,6 +127,13 @@ SLEEPYMOOSE - SREE KUMAR - STENSONB - SÍLIA MOAN - THE FURLINATOR
 THORSTEN WILMS - TONEDDU2000 - TREE - TW WOODWARD - VELMONT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+.~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+AsciiDoc Transistion
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ANDREAS HERMANN BRAML - BRUCE BERTRAND - FEDE - FRANCISCO G. RODRIGUEZ
+FRANÇOIS KUBLER - KOMPUTES - RAFFAELLA TRANIELLO - WOUTER VERWIJLEN
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 //'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
