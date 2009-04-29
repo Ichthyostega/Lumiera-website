@@ -694,3 +694,4 @@ sich nur automation ändert)
 <SimAV> ok
 
 * ichthyo has quit ("bye bye ...")
+dummy

@@ -26,3 +26,4 @@ on 2/6/2008 Richard Spindler wrote:
  would be "Video Track #1", etc.
 
 image::RichardSpindler.proposal.png[]
+dummy

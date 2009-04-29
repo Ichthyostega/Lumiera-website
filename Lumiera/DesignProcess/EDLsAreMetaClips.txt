@@ -87,3 +87,4 @@ Conclusion
 This Design Entry concerns whether to include such a feature and discusses the general questions when doing so. As we for sure include meta-clip, and so so exactly in the way described here, this proposal is 'final' now.
 
 Back to link:Lumiera/DesignProcess[]
+dummy

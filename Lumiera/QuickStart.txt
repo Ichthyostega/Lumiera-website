@@ -18,3 +18,4 @@ Quickstart
  - http://pipapo.org/pipawiki/Lumiera/GuiBrainstormingReviewed[GUI]. (written using Gtkmm, ask Joel Holdsworth. Also have a look to our Lumiera/GuiBrainstorming)
 * We are also documenting the designs on a higher level in Lumiera/DesignProcess
 * We also have a http://www.pipapo.org/pipawiki/Lumiera/NewbiesTutorials[Beginners tutorials page] (ask Gabriel Rodriguez aka alcarinque <alcarinque.istar@gmail.com>)
+dummy

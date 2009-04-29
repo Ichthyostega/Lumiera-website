@@ -23,4 +23,4 @@ ASCIIDOCED :
 * Lumiera/DesignProcess/CCodingStyleGuide
 * Lumiera/DesignProcess/CodingStyle
 * Lumiera/DesignProcess/DataBackend
-* Lumiera/DesignProcess/DevelopmentFramework
+* Lumiera/DesignProcess/DevelopmentFrameworkdummy

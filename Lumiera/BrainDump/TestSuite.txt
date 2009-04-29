@@ -61,3 +61,4 @@ TEST "should be able to cat testfile" testfile <<END
 =0
 END
 ------------------------------------------------------------
+dummy

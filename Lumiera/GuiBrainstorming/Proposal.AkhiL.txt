@@ -11,3 +11,4 @@ In fall 2007, rather then using an external node editor, AkhiL proposed to do wi
 of effect nodes directly within the timeline. He did the following Mockup:
 
 image::AkhiL.proposal.png[]
+dummy

@@ -78,3 +78,4 @@ Let's say, we need a person volonteering to guide/moderate the selection, going 
  * should have one of the free top level domains (.net, .org)
  * should be compatible with educational institutions (sorry, no pr0nedit :)
  * should not obviously collide with trade marks
+dummy

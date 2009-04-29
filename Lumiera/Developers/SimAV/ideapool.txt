@@ -4,3 +4,4 @@ Ideapool
 link:Lumiera/Developers/SimAV/ideapool[] contains links or short summaries of things i would like to see in Lumiera.
 
 * link:/GUI-distance[] The GUI of Lumiera should be completely independent from the core. Why and how it might be realized is explained here.
+dummy

@@ -288,3 +288,4 @@ The next meeting will be at thuesday 8th may 21:00GMT
 01:33 cehteh we will write a little more sophisticated timecode library 
 01:34 cehteh gmerlin: that should be unified :)
 ----
+dummy

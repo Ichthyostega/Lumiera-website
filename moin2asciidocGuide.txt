@@ -151,3 +151,4 @@ Disable the pre-commit hook with the following command:
 :-)
 
 NOTE: Command line lovers can find some more tips http://lists.lumiera.org/pipermail/lumiera-work/2008-September/000018.html[here].
+dummy

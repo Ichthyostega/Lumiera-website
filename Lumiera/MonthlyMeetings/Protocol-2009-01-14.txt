@@ -120,3 +120,4 @@ Core dev's IRC meetings
 ~~~~~~~~~~~~~~~~~~~~~~~
 cehteh proposes a recurrent core dev meeting, more frequent than the monthly meeting since there is the a lot of stuff ahead that needs communication.
 
+dummy
