@@ -95,4 +95,3 @@ Lumiera, the non linear video editor. Supported parameters:
   -p [ --port ] arg     open renderfarm node at given port (UNIMPLEMENTED)
   -d [ --define ] arg   enter definition into config system (UNIMPLEMENTED)
 ------
-dummy

@@ -145,4 +145,3 @@ The menu items that are specific to track view could be separated out and left a
 
   - Comment: Actually if you look at the state-of-ui you can see that the menu bar will be shown at the top of workspace. We might make it detachable, but actually it's not very useful to be able to attach the menu bar to the sides or bottoms of windows.
 -- link:JoelHoldsworth[] [[DateTime(2008-07-24T16:47:08Z)]]
-dummy

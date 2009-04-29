@@ -149,4 +149,3 @@ after a talk on irc, we decided to do it this way, further work will be document
 
 ''''
 Back to link:Lumiera/DesignProcess[]
-dummy

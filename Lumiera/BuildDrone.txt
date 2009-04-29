@@ -184,4 +184,3 @@ Ideas, not in order
     greps for TODO (with some -A context) and produces a report
  * beautify (asciidoc) reports
  * publish reports, packages etc to the webserver (scp, rsync)
-dummy

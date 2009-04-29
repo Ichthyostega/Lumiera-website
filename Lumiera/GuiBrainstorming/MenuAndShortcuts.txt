@@ -25,4 +25,3 @@ link:Lumiera/GuiBrainstorming/MenuAndShortcuts[] should explain most heavily dis
  * popping up as well on pressing 0 on keyboard
  * use numpad to navigate through the menus
  * all functions can be accessed using this menu
-dummy

@@ -38,4 +38,3 @@ Dropped
 Design Documentation
 --------------------
 For now the design decisions are collected within the link:http://www.lumiera.org/wiki/#DesignDocumentation[TiddlyWiki] which is part of the lumiera repository.
-dummy

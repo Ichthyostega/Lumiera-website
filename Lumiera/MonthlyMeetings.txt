@@ -26,4 +26,3 @@ Topics
  * GUI-Integration: Summary and next steps
  * Design Process: Go through Ideas and Drafts
  * Next meeting 
-dummy

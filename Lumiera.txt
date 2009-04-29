@@ -43,4 +43,3 @@ The git repos are available under the git-url: `git://git.lumiera.org/$NAME` or 
 
 Currently there are some git repos named `git://git.pipapo.org/cinelerra3/$NAME` leftover, we are in progress renaming them.
 
-dummy

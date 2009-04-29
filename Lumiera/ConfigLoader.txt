@@ -601,4 +601,3 @@ anchor:anchor_brainstorm[]Brainstorming
  * support for successive dereferencing foo.bar > baz.barf > blah.boo = final value
  * support for alternatives, query a set of keys, return the first existing
  * provide a @readonly directive which marks a file to be handled readonly (even if writing would be permitted)
-dummy

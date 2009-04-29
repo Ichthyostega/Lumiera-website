@@ -230,4 +230,3 @@ Next meeting
 There were some problems with the meeting schedule. Using the first week of month seems to be problematic. We'll try with second wednesday...
 
 The next meeting is scheduled for '''Wednesday Nov 12 2008 19:30 UTC''' at #lumiera
-dummy

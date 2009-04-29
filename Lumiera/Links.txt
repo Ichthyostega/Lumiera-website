@@ -275,4 +275,3 @@ Resources for Comparison of Codecs, and OSes and packages that use them
  * Comparison of video codecs http://www.nationmaster.com/encyclopedia/Comparison-of-video-codecs[]
  * Advanced Video Coding on Linux (DV, Xvid, x264)  http://www.linuxjournal.com/article/9005[]
  * Video Codecs (a very long list)  http://genesis-kiith.com/alltoavi/doc/manual/misc/codecs.html[]
-dummy

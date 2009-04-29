@@ -12,4 +12,3 @@ I would suppose that the connection between the core and the GUI is achieved usi
  * using *nfs* or *netcat* it should be possible to _disconnect_ the GUI physically from the core, so that even the GUI can be on another Computer than the core, the fileserver, the renderfarm nodes, ...
 
  * the distribution could go even further: Someone(TM) could write a simple splitter / hub / switch to distribute the whole GUI onto different computers on a network. (If Lumiera gets this feature maybe I (SimAV) would write this splitter / hub / switch myself...)
-dummy

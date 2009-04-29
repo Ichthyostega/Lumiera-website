@@ -150,4 +150,3 @@ KenSentMe,50 Eur,Maybe this can help set up a dev meeting or something,Promised
 
 
 Piksel in link:Bergen/Norway[] is a annual Festival for free(libre) Audiovisual Software, Programmers and Artists. Last year few of the Cinelerra/Lumiera developers and community members meet there. So far this year we made no plans made to have an official application or Lumiera developers meeting. Promise some funding here might help to realize it and allow people to attend who otherwise can't.
-dummy

@@ -102,4 +102,3 @@ According to my own editing experiences, both film and sound, the "bringing in m
  
 Another important thing: Do not automatically pop up windows. Creating a new window (even dialog boxes) must always be a consequence an user action. Even error conditions shall _NOT_ pop up an window (with one exception, that is fatal errors which will block the application until resolved). Otherwise the \'error' window shall be some log (perhaps with filtering capabilities) similar to cinelerra, but when an error happens some big red ERROR might blink in the status bar instead and only clicking on that will open the error log. +
 -- link:ct[] [[DateTime(2009-02-01T09:40:08Z)]]
-dummy

@@ -196,4 +196,3 @@ If your curiosity about git is making you nervous, have a look at this http://gi
 :-)
 
 NOTE: Command line lovers can find some more tips http://lists.lumiera.org/pipermail/lumiera-work/2008-September/000018.html[here].
-dummy

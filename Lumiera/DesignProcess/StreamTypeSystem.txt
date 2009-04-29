@@ -113,4 +113,3 @@ Woops fast note, I didn't read this proposal completely yet. Stream types could 
  -- link:ct[] 2008-10-06
 
 Back to link:Lumiera/DesignProcess[]
-dummy

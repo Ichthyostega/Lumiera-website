@@ -72,4 +72,3 @@ Comment
 re "ichthyo asks for help setting up a test/build server" for "Debian"
 
 see "Build Server" at http://www.pipapo.org/pipawiki/Lumiera/GuiBrainstorming?action=edit&editor=gui[]
-dummy

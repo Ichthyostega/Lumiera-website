@@ -105,4 +105,3 @@ for `lumiera_proc_init()` and `lumiera_gui_init()`. Note about the library: i th
   -- link:ct[] [[DateTime(2008-07-26T09:08:11Z)]]
 
 Back to link:Lumiera/DesignProcess[]
-dummy

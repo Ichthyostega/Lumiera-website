@@ -81,4 +81,3 @@ One issue where I always assumed we'd need to define something of this sort is f
 
 
 Back to link:Lumiera/DesignProcess[]
-dummy
