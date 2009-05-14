@@ -18,7 +18,7 @@ wants to do before starting so that we can coordinate the things. We are also ca
 quality, if anyone can just join and leave his contribution must be maintainable by others. That means everything needs 
 to be properly documented and supply tests for the testsuite.
 
-If you want to try building the GUI have a look at our http://www.pipapo.org/pipawiki/Lumiera/NewbiesTutorials[Newbie Tutorial].
+If you want to buil the Lumiera GUI from the git source repository have a look at our http://www.pipapo.org/pipawiki/Lumiera/NewbiesTutorials[Newbie Tutorial].
 
 Continous Integration system
 ----------------------------
