@@ -18,6 +18,9 @@ Programming,
 rendering engine,	HERMANN VOSSELER
 backend,		CHRISTIAN THÄTER
 graphical user interface, JOEL HOLDSWORTH
+library,	        HERMANN VOSSELER
+       ,                CHRISTIAN THÄTER
+       ,                ANTON YAKOVLEV
 testsuite,		CHRISTIAN THÄTER
 	,		NICHOLAS SINNOTT-ARMSTRONG
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -85,6 +88,21 @@ css magician, CILLIAN DE RÓISTE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Public Relations/ Presentations,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+openvideoconference, THOMAS JUDGE
+                   , RAFFAELLA TRANIELLO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Merchandising
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+t-shirts           , RAFFAELLA TRANIELLO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Naming Assistants,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -97,7 +115,9 @@ Naming Assistants,
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Logo,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-,ANAMII
+original design ,ANAMII
+final makeover  ,THORSTEN WILMS
+                ,RAFFAELLA TRANIELLO
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
