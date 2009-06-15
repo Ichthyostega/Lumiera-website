@@ -103,6 +103,36 @@ t-shirts           , RAFFAELLA TRANIELLO
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+IRC Crew
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+akhil           , IL'DAR AKHMETGALEEV
+alcarinque      , FRANCISCO G. RODRIGUEZ
+cehteh          , CHRISTIAN THÄTER
+daitheflu       , FRANÇOIS KUBLER
+dragontamer     , PERCIVAL TIGLAO
+gmerlin         , BURKHARD PLAUM
+goibhniu        , CILLIAN DE RÓISTE
+hermanr         , HERMAN ROBAK
+ichthyo         , HERMANN VOSSELER
+joelholdsworth  , JOEL HOLDSWORTH
+jyakovlev       , ANTON YAKOVLEV
+nasa            , NICHOLAS SINNOTT-ARMSTRONG
+oracle2025      , RICHARD SPINDLER
+plouj           , MICHAEL PLOUJNIKOV
+pseudoruprecht  , ANDREAS HERMANN BRAML
+raevol          , MICKEY LYLE
+raffa           , RAFFAELLA TRANIELLO
+rgareus         , ROBIN GAREUS
+simav           , SIMEON VÖLKEL
+teld            , SERGE GIELKENS
+thorwil         , THORSTEN WILMS
+tvjudge         , THOMAS JUDGE
+velmont         , ODIN HØRTHE OMDAL
+wildhostile     , ROLAND
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Naming Assistants,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
