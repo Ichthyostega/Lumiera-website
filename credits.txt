@@ -110,6 +110,7 @@ akhil           , IL'DAR AKHMETGALEEV
 alcarinque      , FRANCISCO G. RODRIGUEZ
 cehteh          , CHRISTIAN THÄTER
 daitheflu       , FRANÇOIS KUBLER
+daylife         , WOUTER VERWIJLEN
 dragontamer     , PERCIVAL TIGLAO
 gmerlin         , BURKHARD PLAUM
 goibhniu        , CILLIAN DE RÓISTE
@@ -199,7 +200,7 @@ KOMPUTES - RAFFAELLA TRANIELLO - WOUTER VERWIJLEN
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Thanks to
+Special thanks to
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ADAM WILLIAMS
 BURKHARD PLAUM
