@@ -10,6 +10,11 @@ image::SeedlingsByPaulGoyette.png[]
 
 Lumiera is still in an early stage of development. It is not usable yet.
 
+News
+----
+
+include::news.txt[]
+
 
 Project objectives
 ------------------
