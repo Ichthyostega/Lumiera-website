@@ -2,12 +2,10 @@
 Please add new items on the top, comment older/irrelevant items out
 ////
 
-*Sat Jun 20 2009*::
-	Tom gave a presentation on the http://openvideoconference.org/[Open Video Conference]
-	in New York about Lumiera and our goals. Awesome conference.
+*June 19-20 2009*::
+	The Lumiera community is in New York at the http://openvideoconference.org/[Open Video Conference]. Tom gives a presentation about Lumiera and our goals. Awesome conference!
 
 .Future
 
-*22.- 23. Aug 2009*::
-	The Lumiera Team will meet at http://froscon.org/[FrOSCon]. We will have a small
-	information Booth there, hiring developers, and hack a bit in our back room.
+*August 22-23 2009*::
+	The Lumiera Team will meet at http://froscon.org/[FrOSCon]. We will have a small information Booth there, hiring developers, and hack a bit in our back room.

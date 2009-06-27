@@ -91,7 +91,7 @@ css magician, CILLIAN DE RÓISTE
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Public Relations/ Presentations,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-openvideoconference, THOMAS JUDGE
+openvideo conference, THOMAS JUDGE
                    , RAFFAELLA TRANIELLO
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -99,7 +99,7 @@ openvideoconference, THOMAS JUDGE
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Merchandising
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-t-shirts           , RAFFAELLA TRANIELLO
+T-shirts           , RAFFAELLA TRANIELLO
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -149,6 +149,11 @@ Logo,
 original design ,ANAMII
 final makeover  ,THORSTEN WILMS
                 ,RAFFAELLA TRANIELLO
+                ,ODIN HØRTHE OMDAL
+                ,GUILLERMO ESPERTINO
+                ,GRAHAM EVANS
+                ,RICHARD QUERIN
+                ,VICTORSIGMA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -187,9 +192,10 @@ TW WOODWARD - VELMONT
 .~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Asciidoc Transistion
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ANDREAS HERMANN BRAML - BRUCE BERTRAND - FEDE
-FRANCISCO G. RODRIGUEZ - FRANÇOIS KUBLER
-KOMPUTES - RAFFAELLA TRANIELLO - WOUTER VERWIJLEN
+ANDREAS HERMANN BRAML - BRUCE BERTRAND
+FEDERICO BRUNI - FRANCISCO G. RODRIGUEZ
+FRANÇOIS KUBLER - KOMPUTES
+RAFFAELLA TRANIELLO - WOUTER VERWIJLEN
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
