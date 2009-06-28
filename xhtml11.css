@@ -33,7 +33,7 @@ em {
 
 strong {
   font-weight: bold;
-  color: #083194;
+  color: #0F3C3C;
 }
 
 tt {
@@ -131,7 +131,7 @@ div.content { /* Block element content. */
 
 /* Block element titles. */
 div.title, caption.title {
-  color: #527bbd;
+  color: #5F9EA0;
   font-family: sans-serif;
   font-weight: bold;
   text-align: left;
