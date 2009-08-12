@@ -99,14 +99,14 @@ openvideo conference, THOMAS JUDGE
 
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Merchandising
+Merchandising,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 T-shirts           , RAFFAELLA TRANIELLO
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-IRC Crew
+IRC Crew,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 akhil           , IL'DAR AKHMETGALEEV
 alcarinque      , FRANCISCO G. RODRIGUEZ
