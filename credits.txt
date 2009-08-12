@@ -71,9 +71,11 @@ Server Administration,
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 uWiki,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-idea, CHRISTIAN THÄTER
-programming, SERGE GIELKENS
-helping hand, CILLIAN DE RÓISTE
+idea            , CHRISTIAN THÄTER
+programming     , SERGE GIELKENS
+                , MRIDUL KASHATRIA
+                , ROBERT DJUBEK
+helping hand    , CILLIAN DE RÓISTE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -111,6 +113,7 @@ alcarinque      , FRANCISCO G. RODRIGUEZ
 cehteh          , CHRISTIAN THÄTER
 daitheflu       , FRANÇOIS KUBLER
 daylife         , WOUTER VERWIJLEN
+digitalkiwi     , ROBERT DJUBEK
 dragontamer     , PERCIVAL TIGLAO
 gmerlin         , BURKHARD PLAUM
 goibhniu        , CILLIAN DE RÓISTE
@@ -118,6 +121,7 @@ hermanr         , HERMAN ROBAK
 ichthyo         , HERMANN VOSSELER
 joelholdsworth  , JOEL HOLDSWORTH
 jyakovlev       , ANTON YAKOVLEV
+mridkash        , MRIDUL KASHATRIA
 nasa            , NICHOLAS SINNOTT-ARMSTRONG
 oracle2025      , RICHARD SPINDLER
 plouj           , MICHAEL PLOUJNIKOV
