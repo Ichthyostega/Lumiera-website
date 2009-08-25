@@ -1,7 +1,7 @@
 #!/bin/bash
 DEFAULT_CONF=layout1
 
-umask 004
+umask 003
 
 # for every .txt file
 find -name '*.txt' |
