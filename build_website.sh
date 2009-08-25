@@ -4,18 +4,24 @@ DEFAULT_CONF=layout1
 umask 003
 
 # first pass, poor man dependency tracking over all .txt files
+echo -n "finding dependencies "
 find -name '*.txt' |
 	while read file; do
+		echo -n "."
 		sed 's/include::\([^[]*\).*/\1/p;d' "$file" | while read prerequisite; do
 			if [[ "${prerequisite}" -nt "${file}" ]]; then
+				echo -n ":"
 				touch "$file"
 			fi
 		done
 	done
+echo
 
 # second pass for every .txt file
+echo -n "processing files "
 find -name '*.txt' |
 	while read file; do
+		echo -n "."
 		# when the .txt is newer than an existing .html
 		if [[ "$file" -nt "${file%*.txt}.html" ]]; then
 			# use the default config file
@@ -32,8 +38,7 @@ find -name '*.txt' |
 				--attribute=revision="$VERS"  --attribute=date="$DATE" \
 				--conf-file="${conf}" \
 				"$file"
+			echo
 		fi
-
-
 	done
-
+echo
