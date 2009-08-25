@@ -3,7 +3,7 @@ Please add new items on the top, comment older/irrelevant items out
 ////
 
 *August 22-23 2009*::
-	http://froscon.org/[FrOSCon] was a big success, a lot of people where interested in Lumiera!
+	http://froscon.org/[FrOSCon] was a big success, a lot of people where interested in Lumiera! We will sut up videos, photos and stuff soon.
 
 *June 19-20 2009*::
 	The Lumiera community is in New York at the http://openvideoconference.org/[Open Video Conference]. Tom gives a presentation about Lumiera and our goals. Awesome conference!
