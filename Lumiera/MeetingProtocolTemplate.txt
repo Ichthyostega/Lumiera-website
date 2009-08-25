@@ -1,0 +1,67 @@
+2008-10-10 Lumiera Dev Meeting
+==============================
+:Author: Ichthyostega
+:Date: 2008-10-15
+
+Oct 10, 2008 on #lumiera 19:00 - 23:15 UTC +
+
+__Participants__
+
+ * cehteh
+ * ichthyo
+ * joelholdsworth
+ * ...
+ 
+_Protocol written by XXXXX_
+
+
+
+Recurring Topics
+----------------
+Discussion of open http://www.pipapo.org/pipawiki/Lumiera/DesignProcess[design process] drafts.
+
+
+Prop1
+~~~~~
+http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/Prop1[descriptive name]
+Summary what issues are discussed
+..Details..
+
+__Conclusion__: drop it
+
+
+
+Topic 1
+-------
+Summary what is discussed
+
+_''cehteh''_ points out that...
+
+_''joelholdsworth''_ adds....
+
+
+Conclusion
+~~~~~~~~~~
+
+ * do this
+ * do that
+
+
+
+Next meeting
+------------
+
+The next meeting will be at Wednesday XX XX 21:00 UTC
+
+
+''''
+
+
+.Discussion of details
+----
+12:51 cehteh key/value pairs
+12:51 gmerlin not sure about that
+12:51 cehteh i am pretty sure that i want that in lumiera
+
+( shortened and tidied transcript of some interesting detailed discussions )
+----

@@ -1,0 +1,600 @@
+IRC Talks
+=========
+
+link:Cinelerra3/Developers/SimAV/German/TimelineAndFeatureTalkWithIchthyo[] is meant to be a modified log of an IRC talk. 
+
+I (SimAV) have modified the talk to remove typos and make it a slightly more fluent talk. If you want to see the raw log, click here:
+link:Cinelerra3/Developers/SimAV/German/TimelineAndFeatureTalkWithIchthyo/raw[].
+ 
+
+<ichthyo> Das Problem ist, wir sind noch ganz am Anfang, da hängt alles irgendwie mit allem zusammen und es fehlt an allen Ecken und 
+enden.
+
+<SimAV> das seh ich auch
+
+<ichthyo> aber es gibt noch keine so wirklich isolierten Aufgaben
+
+<ichthyo> ist wohl in ein paar Monaten ganz anders...
+
+<ichthyo> also, jetzt nur für mich (im mittleren Layer = C++)
+
+<SimAV> ein paar Monate is lang :-(
+
+<ichthyo> ich wär' durchaus froh, wenn jemand mein Design kritisiert
+
+<SimAV> das muss ich ja erst mal lesen und Englisch is es ja auch noch...
+
+<SimAV> ok, wie soll Multicamsync klappen
+
+<ichthyo> du meinst, Unterstützung für timecode?
+
+<SimAV> (mehrere Kameras zeichenen syncron auf, nachher soll nur noch die Kamera gewechselt werden, keine Schnitte)
+
+<ichthyo> im Profi-Bereich arbeitet man ja praktisch immer mit irgendeinem Timecode (MTC, SMPTE oder ähnlich).
+
+<ichthyo> wenn Cinelerra ein Profi-Programm sein soll, müssen wir das irgendwann unterstützen
+
+<ichthyo> d.h. dann rastet jeder clip automatisch an der richtigen timecode pos ein
+
+<SimAV> ja
+
+<SimAV> Multicamsync funktioniert wie folgt:
+
+<SimAV> man setzt Marker in allen Clips, und l"asst das Programm die Filme so verschieben dass alle Marker auf einander liegen
+
+<SimAV> dann nur noch zwischen den Clips umschalten
+
+<SimAV> ODER:
+
+<SimAV> den Clips einen Timecode-Offset geben, und dann nach den Clip Timecodes "ubereinander legen
+
+<SimAV> wie soll das realisiert werden?
+
+<SimAV> am einfachsten w"are es, wenn man Tracks zusammen gruppieren und nach außen hin als einen Clip ausgeben lassen k"onnte
+
+<ichthyo> ok
+
+<SimAV> also z.B 4 Tracks in denen die 4 Kameras liegen, und dann zeitabh"angig die gezeichte Kamera wechseln
+
+<ichthyo> genau
+
+<SimAV> aber auch die gesamte Clipl"ange ''beschneiden k"onnen''
+
+<SimAV> bzw. L"ucken einf"ugen k"onnen
+
+<ichthyo> ja, wegen all diesen Sachen wollte ich mit meinem Design eben etwas allgemeiner sein
+
+<SimAV> also multi- bild -multi
+
+<SimAV> ok, WIE soll das jetzt gehen?
+
+<SimAV> (im Code)
+
+<SimAV> oder so 
+
+<ichthyo> ich habe mir deshalb das Konzept mit den "Placements" ausgedacht
+
+<ichthyo> ich erklär dir, wie ichs mir gedacht habe....
+
+<ichthyo> Das Problem dabei ist nur: wenn die anderen im Projekt das überzogen oder Schmarrn oder zu abstrakt finden, dann bin ich 
+überstimmt
+
+<SimAV> also ich h"atte gerne eine abstrakte / m"achtige Cin3
+
+<ichthyo> also: normalerweise sagt man, ich habe einen Track und da kommt ein Video und ein Audio Clip rein. Basta
+
+<ichthyo> einfach, anschaulich, versteht auch jeder
+
+<ichthyo> ich sage dagegen
+
+<ichthyo> ich habe "Media Objects"
+
+<ichthyo> und die werden platziert
+
+<SimAV> ok, und Media Objekts sollen wieder Timelines werden?
+
+<ichthyo> MObject = clip, effect, label, transition, metaclip,....
+
+<SimAV> damit man in einem Clip einfach Effekte einbauen kann
+
+<ichthyo> letzteres wollt ich ein bischen anders lösen, aber Moment...
+
+<ichthyo> also, wir haben MObects
+
+<ichthyo> und jetzt sag ich, ich habe /mindestens/ zwei Dimensionen
+
+<ichthyo> (=Freiheitsgrade) in denen die angeordnet werden können:
+
+<ichthyo> nämlich (Zeit, Ausgangsport)
+
+<ichthyo> das mit den "Tracks" stammt aus der guten analogen Zeit, aber ich denke, es ist heute nicht mehr notwendig
+
+<ichthyo> also, Freiheitsgrade, (wie es die Physiker eben so machen)
+
+<SimAV> find ich gut :P
+
+<ichthyo> und ein "Placement" ist ein Objekt, mit dem die Position in diesem (zunächst) 2-dimensionalen Raum festgelegt wird
+
+<ichthyo> der kann jetzt aber noch mehr Dimensionen bekommen.
+
+<ichthyo> z.B. wenn ich einen Mono-Audioclip mit einem Stereo-Ausgabeport verbinde
+
+<ichthyo> dann generiert das eine weitere Dimension, nämlich den PAN auf der Stereobasis
+
+<ichthyo> also muß das System nun das Placement-Ojekt fragen: Placement, kannst du mir etwas über die Pan-Position sagen?
+
+<ichthyo> dagegen wenn ich das gleiche Mono-Sample mit einem Bus für ein 3D-Soundsystem verbinde
+
+<ichthyo> (z.B: Dolby, Wellenfeldysnthese oder mein favorit "ambisonics" http://www.ambisonic.net/)[]
+
+<ichthyo> dann kommen drei Raumdimensionen für die Sound-Position dazu
+
+<ichthyo> und wenn ich dagegen einen Video-Clip mit einem Video-Output mit Alpha-Kanal verbinde, dann generiert mir das eine Layer-Ordnung
+
+<ichthyo> also, soweit so gut, wir haben einen "Konfigurationsraum" mit N Dimensionen
+
+<ichthyo> nun ist der Witz: daß Placement muß das nicht notwendig gleich ganz komplett festlegen
+
+<ichthyo> stattdessen habe ich die Placements so konstruiert, daß sie intern eine Klasse "LocatingPin" verwenden
+
+<ichthyo> also sozusagen "Stecknadel"
+
+<ichthyo> der Default ist natürlich, daß ich einen banalen, absoluten Locating Pin hernehme, der alles festlegt
+
+<ichthyo> aber stattdessen könnte ich das Placement so konfigurieren, daß 
+
+<ichthyo> da z.B. ein link:LocatingPin[] drinnen ist, der sagt: immer an der gleichen Startposition wie Lablel("XYZ")
+
+<ichthyo> und gleichzeitig einen anderen link:LocatingPin[], der sagt "immer auf einem höheren Layer als videoclip('ABC')"
+
+<ichthyo> genauso dann für Effekte, die bekommen auch eine relative Platzierung zu einem Clip und folgen dem dann automatisch
+
+<ichthyo> der Nutzen ist nun: wenn ich mir meine Session so aufbaue, und dann einzelne Clips trimme, sollten alle verbundenen Elemente automatisch korrekt folgen
+
+<ichthyo> und /das/ würde dir z.B. beim Editiern von wirklichem spielfilm stunden und tage an arbeit sparen
+
+<SimAV> macht das FCP nicht so?
+
+<ichthyo> (aber das kann man einem amateur-videofilmer leider nicht klarmachen, das ist mein problem)
+
+<SimAV> mir schon, ich brauch DAS
+
+<ichthyo> ich hab noch nie mit FCP gearbeitet, aber soweit ich weiß, unterstützen die sowas
+
+<SimAV> also AVID sollte das... das muss ich leider verwenden
+
+<SimAV> bis cin3 :P
+
+<ichthyo> :-P
+
+<ichthyo> so, aber jetzt dazu, wie ich mir gedacht habe (und angefangen habe, das zu coden):
+
+<ichthyo> 1: die Session hat nicht eine EDL sondern N EDLs
+
+<SimAV> Wichtig:
+
+<SimAV> ich will unabh"anige timelines
+
+<SimAV> also z.b. 5 timelines in einem Projekt
+
+<ichthyo> 2: jede EDL ist einfach eine Collection von Placements, welche jeweils auf ein MObject zeigen
+
+<SimAV> das ist wohl das 
+
+<ichthyo> ja genau, das ist absolut wichtig
+
+<ichthyo> ein Feature-Film hat ca 50 Szenen, da /muß/ jede in eine eigene Timeline, sonst wirst wahnsinnig
+
+<SimAV> yep
+
+<ichthyo> 3: ich möchte Meta-Clips machen, die den Inhalt einer ganzen EDL darstellen, so daß man eine Master-Timeline bauen kann
+
+<ichthyo> aber merke: bis jetzt hab ich nur gesagt: eine Collection von Placement<MObject>
+
+<ichthyo> mit anderen worten: alles ist möglich
+
+<SimAV> alle Clips sollten Meta Clips sein
+
+<ichthyo> nee:
+
+<ichthyo> clip ist ein interface
+
+<ichthyo> und davon leite ich ab: normaler Clip, Clip mit mehreren Kanälen, Meta Clip
+
+<SimAV> achso..
+
+<SimAV> also ich m"ochte das jeder Filmteil sich auch als Timeline darstellen l"asst
+
+<ichthyo> das verarbeitende System hat keine Ahnung, was für ein konkreter Typ daherkommt
+
+<ichthyo> ...d.h. im UI brauchen wir sowas wie verschiedene Tabs, in denen jeweils eine EDL dargestellt wird
+
+<ichthyo> und mit Doppelklick auf den Metaklip wechseln wir in den Tab der betreffeneden EDL
+
+<SimAV> das kommt alles in den Resources Manager
+
+<ichthyo> du hast den springenden Punkt glaub ich schon verstanden!
+
+<ichthyo> der resources manager spielt eine wichtige rolle
+
+<SimAV> das ist bis jetzt cin2's Achillessehne
+
+<ichthyo> aber erst mal weiter:
+
+<ichthyo> also
+
+<ichthyo> 4: ich habe eine neue, ganz spezielle EDL erfunden, die ich "Fixture" nenne
+
+<ichthyo> die wird grundsätzlich automatisch vom System generiert und kann nicht editiert werden.
+
+<ichthyo> diese Fixture wird automatisch bei allen edit-operationen neu gebaut (sollte in sekundenbruchteilen möglich sein)
+
+<ichthyo> sie enthält:
+
+<ichthyo> - nur die clips und Effekte, etc. die *tatsächlich* gerendert werden
+
+<ichthyo> - und nur sog. "ExplicitPlacement", also placements, auf die eine "solve()" operation angewendet wurde
+
+<ichthyo> d.h. die Fixture ist eine flache Liste, in der alles definit gemacht worden ist. Wahrscheinlich ist sie sogar aufsteigend 
+nach Zeit sortiert
+
+<SimAV> muss die komplet neu gebaut werden, oder kann man die nicht einfach nur "andern lassen?
+
+<SimAV> def. solve()?
+
+<ichthyo> def solve():
+
+<ichthyo> das Placement sagt einfach dem interen link:LocatingPin[].solve() 
+
+<ichthyo> und, die link:LocatingPins[] sind eine Kette, d.h. die reichen das solve() solange weiter, bis ein Ergebnis vorliegt, oder 
+überdeterminiert ist, oder kein link:LocatingPin[] mehr da ist (dann muß ein Default greifen)
+
+<ichthyo> aber das ist implementierungsdetail
+
+<SimAV> aber wichtig
+
+<ichthyo> hauptsache, es gibt so eine solve() funktion, und die liefert ein link:ExplicitPlacement[]-Objekt als Ergebnis
+
+<ichthyo> ja, ist wichtig, aber genauso wichtig, daß man es auf der Design-Ebene ausklammern kann
+
+<ichthyo> deshalb lege ich ja so großen Wert darauf, daß alles über Interfaces läuft
+
+<ichthyo> für ein Interface kannste einen automatischen Test schreiben
+
+<ichthyo> der definiert alle Eigenschaften, und dann kannst das ganze Thema erst mal vergessen und kriegst wieder Kapazität im Hirn frei
+
+<ichthyo> aber zurück
+
+<ichthyo> nachdem wir also die Fixture haben, kommt....
+
+<ichthyo> 5: der Builder
+
+<ichthyo> der builder wendet verschiedene Tools auf die Fixture an und generiert daraus ein Netzwerk von Render-Knoten
+
+<ichthyo> dem Builder ist komplett egal, wie die Placements arbeiten
+
+<ichthyo> er stellt nur Anfragen an das link:ExplicitPlacement[] - Interface
+
+<ichthyo> Im Moment bin ich dabei, die ersten Einzelheiten beim Builder festzulegen.
+
+<ichthyo> Ich weiß schon soviel:
+
+<ichthyo> erst einmal werde ich mir die ganze Fixture in zeitliche Segmente zerlegen, in denen die Konfiguration gleich bleibt (und 
+sich nur Automation ändert)
+
+<ichthyo> also z.B. während der Dauer eines Clips
+
+<SimAV> das sieht schon fast nach avid aus, da gehts "ahnlich zu
+
+<ichthyo> und für jedes dieser Segmente sortiere ich die Clips, die Effekte, und die Port-Verbindungen 
+
+<ichthyo> und baue dann der Reihe nach für jeden eine Render Pipeline
+
+<ichthyo> und dann kommen wir an den Punkt, wo's für die Leute vom Backend interessant wird
+
+<ichthyo> d.h. Cehteh soll von meinem Proc-Layer nur noch einige Exit-Nodes bekommen, aus denen er einzelne Frames heraussaugen kann
+
+<ichthyo> d.h. das Interface der Render-Nodes muß sehr gut mit dem Backend abgestimmt sein
+
+<ichthyo> und da kommen auch die ganzen Format, Plugin,.... - Fragen
+
+<ichthyo> die Render-Nodes sollen auch den Cache unterstützen und einfache Statistik-Fragen beantworten können
+
+<ichthyo> Du hast ja sicher mitbekommen, daß wir neuerdings ziemlich GAVL  favorisieren?
+
+<SimAV> ?
+
+<SimAV> ne?
+
+<ichthyo> das nimmt uns hier viel arbeit ab
+
+<ichthyo> moment....
+
+<ichthyo> siehe http://gmerlin.sourceforge.net/[]  und dort die seite "GAVL"
+
+<ichthyo> das ist ein sehr gut passendes, low-level framework für video und audio
+
+<SimAV> ah
+
+<ichthyo> jetzt fehlt mir noch ein wichtiges Element in meinem Konzept für den mittleren Layer:
+
+<ichthyo> nämlich die (Default)-Konfiguration
+
+<SimAV> f"ur was?
+
+<ichthyo> das ganze wird nämlich erst dann sinnvoll, wenn man nicht für jedes Element diese ganzen komplexen Details (wie Placement) festlegen muß
+
+<ichthyo> stattdessen möchte ich, daß das System in vielen Situationen eine Anfrage stellen kann, z.B. gib mir das Default-Placement für Effekte 
+
+<ichthyo> oder gib mir einen Port für "Audiodaten"
+
+<SimAV> hmm
+
+<ichthyo> und dafür möchte ich letzten endes Prolog einsetzen
+
+<SimAV> was ist prolog?
+
+<ichthyo> d.h. ich möchte einen kleinen YAP Prolog-Interpreter einbetten
+
+<ichthyo> Prolog ist eine logikbasierte Programmiersprache
+
+<ichthyo> in der kann man extrem gut regelbasiertes Wissen ablegen
+
+<SimAV> ok
+
+<ichthyo> Cehteh ist auch ein fan von prolog
+
+<SimAV> ich guck mir mal wikipdia dazu an
+
+<ichthyo> und ich habe das in meinem Job in der Bank schon mehrfach mit extremem Erfolg eingesetzt
+
+<ichthyo> man muß aber wirklich erst einmal einige Wiederstände bei den meisten Leuten überwinden. Heutzutage schreit jeder sofort los "das ist mir zu abstrakt"
+
+<SimAV> auch Mathematiker=
+
+<SimAV> vielleicht solltest du mal in die LMU gehen, zum cin3 entwickeln :P
+
+<ichthyo> tatsächlich ist es nämlich genau umgekehrt: Prolog ist so schon nah an der Problem-Domäne, daß man oftmals Fachleute, die aber keine Programmierer sind
+
+<ichthyo> in Prolog einweisen kann. In der Firma hab ich das gemacht. Nach einem Nachmittag Schulung konnten die ihre Business-Regeln selber pflegen
+
+<SimAV> praktisch!
+
+<ichthyo> und obendrein können sie jetzt mit dem Regel-System etwa 5 mal soviele Geschäfte am Tag abwickeln, wie vorher manuell.
+
+<ichthyo> Aber, das glauben einem erstmal die Chefs nicht
+
+<SimAV> ? davon hab ich keine Ahnung
+
+<ichthyo> da muß man erst mal Überzeugungsarbeit leisten
+
+<ichthyo> zum Glück sieht das im Prinzip Cehteh ähnlich
+
+<SimAV> was?
+
+<ichthyo> das mit Prolog
+
+<SimAV> achso
+
+<ichthyo> ich hab mir neulich mal ein Beispiel aufgeschrieben, wie ich mir die Konfiguration vorstelle:
+
+<SimAV> -v
+
+<ichthyo> nur mal ein Beispiel
+
+<ichthyo> Man hätte folgende Definitionen
+
+
+------------------------------------------------------------
+%-------allgemeine-Konfig----
+
+retrieve(O, Cap) :- find(T), capabilities(Cap).
+retrieve(O, Cap) :- make(T), capabilities(Cap).
+capabilities(Q) :- call(Q).
+
+%---spezielle-Konfig- fürTracks----
+
+stream(T, mpeg) :- type(T, track), type(P, port), retrieve(P, stream(P,mpeg)), place_to(P, T).
+------------------------------------------------------------
+
+<SimAV> pause .P
+
+<ichthyo> mußt jetzt nicht 100% verstehen
+
+<ichthyo> aber die letzte Zeile lautet in natürlicher sprache:
+
+<ichthyo> ein Objekt T hat den stream-typ "mpeg",
+
+<ichthyo> wenn das Objekt den Typ "track" hat,
+
+<ichthyo> es außerdem ein Objekt P gibt mit typ = "port"
+
+<ichthyo> ich außerdem eine Instanz von dem Port-Objekt bekommen kann, das stream-Typ "mpeg" unterstützt
+
+<ichthyo> und ich den Track und den Port verbinden kann
+
+<SimAV>  ok
+
+<ichthyo> das ist prolog-syntax
+
+<ichthyo> ":-" ist die logische Implikation (d.h. der Pfeil zeigt nach links)
+
+<SimAV> aber warum "definierst" du zweimal retrieve?
+
+<ichthyo> und eine Aufzählung bedeutet logisch UND
+
+<ichthyo> warum?  ja warum nicht?
+
+<SimAV> oder ist das keine Def
+
+<ichthyo> doch das ist eine Art Definition
+
+<SimAV> wie unterscheidet Prolog dann beide Defs?
+
+<ichthyo> aber in der Mathematik darf man ja auch mehr als eine Formel für ein Objekt angeben
+
+<SimAV> achso!
+
+<ichthyo> von oben nach unten und von links nach rechts
+
+<ichthyo> d.h. es versucht erst eine Lösung mit dem ersten
+
+<ichthyo> und dann kann Prolog sog. "backtracking", d.h. es kann in einem Entscheidungsbaum alle Verzweigungspunkte finden und der Reihe nach alle Alternativen durchprobieren, wenn der user das wünscht
+
+<SimAV> und wenn diese Gleichung nicht weiter hilft, dann wird die andere def probiert?
+
+<ichthyo> genau
+
+<SimAV> etwa wie die Zeta-definiition?
+
+<ichthyo> also, abgesehen von dieser Auswertungsreihenfolge ist das ganz normale mathematische Logik
+
+* SimAV ist von \zeta und L-Reihen ganz begeistert
+
+<SimAV> ok
+
+<ichthyo> noch ein Detail zur Syntax:
+
+<ichthyo> Symbole, die mit Kleinbuchstaben anfangen, sind definiert
+
+<ichthyo> Symbole, die mit Großbuchstaben anfangen, sind Variablen und wir suchen eine Lösung dafür
+
+<SimAV> ??? ok...
+
+<ichthyo> und diese Funktions-artigen Terme nennt man "Prädikat", d.h. sie stellen immer eine Aussage dar
+
+<ichthyo> "stream(T, mpeg)" = Variable T  "hat-den-stream-typ"  mpeg
+
+<ichthyo> was die einzelnen Prädikate bedeuten, hängt natürlich immer vom jeweiligen Problem ab, aber das ist dem Prolog-Interpreter wurscht
+
+<SimAV> was gibt das zur"uck? true/false oder versucht stream eine L"osung zu finden?
+
+<ichthyo> stream werden wir implementieren
+
+<ichthyo> auf der C-Seite wird dann eine Funktion aufgerufen mit 2 Argumenten
+
+<ichthyo> und die schaut dann in einer interen Datenstruktur nach oder fragt das Backend z.B. nach dem Video-Stromtyp
+
+<ichthyo> und liefert entweder einen Boolean zurück (wenn beide Argumente konstant sind und identisch) oder liefert eine Bindung der Variablen zurück
+
+<SimAV> wie? eine bindung der Variablen?
+
+<SimAV> pointer?
+
+<ichthyo> in prolog nicht
+
+<SimAV> in c schon?
+
+<ichthyo> in der C-Impl. natürlich ein Pointer
+
+<SimAV> ok
+
+<ichthyo> in Prolog ist eine Bindung lediglich eine Äquivalenz "T" == "mpeg"
+
+<ichthyo> eine Lösung einer Anfrage besteht dann entweder aus "No" (es gibt keine Lösung)
+
+<ichthyo> oder aus "Yes" plus eine Menge von Bindungen {T==XXX, P==YYY}
+
+<SimAV> ok
+
+<ichthyo> und wenn ich dann backtracking anstoße, um eine andere Lösung zu suchen, werden auch die Bindungen neu und normalerweise auch anders hergestellt
+
+<ichthyo> aber der springende Punkt ist: der Benutzer kümmert sich nicht darum, wie die Lösung gefunden wird
+
+<ichthyo> der Benutzer definiert nur logisch wahre Regeln, und fragt das System nach Konsequenzen
+
+<ichthyo> daran muß man sich wirklich erstmal gewöhnen
+
+<SimAV> yep
+
+<ichthyo> weil du ja doch in den normalen "imperativen" Programmiersprachen die ganze Zeit damit beschäftigt bist, haarklein festzulegen /wie/ die Berechnungen gemacht werden sollen
+
+<ichthyo> idealerweise interessiere ich mich bei Prolog nicht dafür, wie die Regeln kombiniert worden sind
+
+<ichthyo> (die wirklichkeit ist nicht ganz so schön, aber immer noch schön genug ;-)
+
+<SimAV> ichthyo: kleiner Vorschlag am Rande, sollte man diesen Chat nicht in einem Wiki sichern, vielleicht etwas gefiltert?
+
+<ichthyo> ichweißnichtrecht....
+
+<ichthyo> hab doch bloß drauflosgeredet
+
+<SimAV> warumnichtrecht
+
+<ichthyo> aber, schau einfach mal in unser Design-Wiki! (http://ichthyostega.de/cin3/wiki/renderengine.html)[]
+
+<SimAV> aber f"ur mich is es hilfreich gewesen, und die auf cinelerra.de freuen sich doch eigentlich "uber jedes beigetragene bit
+
+<SimAV> ich versuchs ja, aber das is soooooo viel ungeordnetes, wo man sich erst mal durchk"ampfen muss
+
+<ichthyo> diese Design-Wikis sind natürlich erst mal im GIT-Baum
+
+<SimAV> ok, bin da
+
+<ichthyo> und dann siehtst du rechts ja die Timeline, mit den Seiten, an denen ich zuletzt geschrieben habe
+
+<SimAV> yep
+
+<ichthyo> uups, da fehlt ein Bild....
+
+<ichthyo> moment, mal schnell FTP machen...
+
+<ichthyo> also, jetzt bitte das grüne Wiki reloaden
+
+<ichthyo> dann findest Du auf der seite link:BasicBuildingOperations[]
+
+<ichthyo> eine Skizze, wie ich mir die Verdrahtung vorgestellt habe
+
+<SimAV> warte
+
+<SimAV> ok, da
+
+<ichthyo> das online ist relativ aktuell
+
+<ichthyo> also, interessant könnte sein "http://ichthyostega.de/cin3/wiki/renderengine.html#BasicBuildingOperations[link:BasicBuildingOperatoins[]]" und "http://ichthyostega.de/cin3/wiki/renderengine.html#ConfigRules[ConfigRules]"
+
+<ichthyo> überhaupt habe ich die Tags immer genutzt, also unter dem Tag "http://ichthyostega.de/cin3/wiki/renderengine.html#def[def]" findest du all die Begriffe, die ich mir ausgedacht oder festgelegt habe
+
+<SimAV> updatest du auch das git?
+
+<ichthyo> imprinzipja
+
+<ichthyo> ich hab zwei branches, "master" und "builder"
+
+<ichthyo> natürlich bin ich die meiste Zeit jetzt auf "builder"
+
+<ichthyo> aber "master" soll immer duch den Compiler gehen
+
+<SimAV> ah
+
+<ichthyo> während ich auf den branches schon mal brainstorming mache, oder der Baum nicht compilierbar ist
+
+<ichthyo> (wie z.B. im Moment)
+
+<ichthyo> du, aber jetzt muß ich langsam aufbrechen
+
+<SimAV> wohin?
+
+<ichthyo> jemanden besuchen. Hab gesagt, ich komm so gegen acht :-(
+
+<ichthyo> a bisserl die zeit übersehn
+
+<SimAV> ok, darf ich dieses Gespr"ach in gek"urzter version online stellen?
+
+<ichthyo> ...
+
+<ichthyo> natürlich, kein geheimis
+
+<SimAV> danke !
+
+<SimAV> und bis bald
+
+<SimAV>  / sp"ater
+
+<ichthyo> und: natürlich ist das, was ich so mache ein draft oder ein Entwurf
+
+<ichthyo> also, bis "neulich"
+
+<SimAV> ok
+
+* ichthyo has quit ("bye bye ...")

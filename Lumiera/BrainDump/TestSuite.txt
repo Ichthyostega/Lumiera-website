@@ -1,0 +1,63 @@
+I (cehteh) have a very simple test.sh. (See the mala git repo.)
+
+Basically the build system has to build some test binaries (well, scripts could be used too).
+
+Then the user defines tests in testfiles 000foo.test, 010bar.test, ... which are then run in order by the test.sh.
+
+Syntax is as follows (iirc). Note that these are just bash scripts:
+
+------------------------------------------------------------
+TESTBIN=./sometestprogram
+
+TEST "unique annotatinon" --command --line --options <<END
+expected
+output
+here
+END
+------------------------------------------------------------
+
+This will run "$TESTBIN --command --line --options," probably under valgrind supervision, and diff its output against "expected\noutput\nhere". Note that Valgrind (used in quiet mode) produces bug reports which will make the test fail, as any other unexpected output will do.
+
+
+Problems
+--------
+
+This was just a hack and has some shortcomings: whitespaces in expected output and order of buffered output mixed with unbuffered stdout may cause problems.
+
+
+
+Suggestions
+-----------
+
+Add some tags to the test description, that is:
+
+optional file handle, followed by < or > followed by data
+OR
+hash sign followed by shell command
+OR
+= followed by the expected exit code
+
+
+See the following example:
+
+------------------------------------------------------------
+TESTBIN=/bin/cat
+
+TEST "should not be able to cat the core memory" /dev/mem <<END
+2>cat: /dev/mem: Permission denied
+=1
+END
+
+
+TEST "should be able to cat stdin to stdout" <<END
+<test
+>test
+=0
+END
+
+echo test >testfile
+TEST "should be able to cat testfile" testfile <<END
+>test
+=0
+END
+------------------------------------------------------------
