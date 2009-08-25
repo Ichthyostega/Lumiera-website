@@ -3,18 +3,19 @@ DEFAULT_CONF=layout1
 
 umask 003
 
-# for every .txt file
+# first pass, poor man dependency tracking over all .txt files
 find -name '*.txt' |
 	while read file; do
- 		echo $file
-
-		# first pass, poor man dependency tracking
 		sed 's/include::\([^[]*\).*/\1/p;d' "$file" | while read prerequisite; do
 			if [[ "${prerequisite}" -nt "${file}" ]]; then
 				touch "$file"
 			fi
 		done
+	done
 
+# second pass for every .txt file
+find -name '*.txt' |
+	while read file; do
 		# when the .txt is newer than an existing .html
 		if [[ "$file" -nt "${file%*.txt}.html" ]]; then
 			# use the default config file
@@ -24,6 +25,7 @@ find -name '*.txt' |
 				conf="${file%*.txt}.conf"
 			fi
 			# run asciidoc over it
+	 		echo "asciidocing $file"
 			python /usr/bin/asciidoc --unsafe --backend=xhtml11 \
 				--attribute icons --attribute \
 				iconsdir=./images/icons --attribute=badges \
