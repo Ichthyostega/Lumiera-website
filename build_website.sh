@@ -6,7 +6,15 @@ umask 004
 # for every .txt file
 find -name '*.txt' |
 	while read file; do
-		echo $file
+ 		echo $file
+
+		# first pass, poor man dependency tracking
+		sed 's/include::\([^[]*\).*/\1/p;d' "$file" | while read prerequisite; do
+			if [[ "$prerequisite" -nt "${file}" ]]; then
+				touch "$file"
+			done
+		done
+
 		# when the .txt is newer than an existing .html
 		if [[ "$file" -nt "${file%*.txt}.html" ]]; then
 			# use the default config file
