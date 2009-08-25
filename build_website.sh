@@ -10,9 +10,9 @@ find -name '*.txt' |
 
 		# first pass, poor man dependency tracking
 		sed 's/include::\([^[]*\).*/\1/p;d' "$file" | while read prerequisite; do
-			if [[ "$prerequisite" -nt "${file}" ]]; then
+			if [[ "${prerequisite}" -nt "${file}" ]]; then
 				touch "$file"
-			done
+			fi
 		done
 
 		# when the .txt is newer than an existing .html
