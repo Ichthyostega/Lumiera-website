@@ -2,6 +2,10 @@
 Please add new items on the top, comment older/irrelevant items out
 ////
 
+*September 5 2009*::
+	The page about our link:FrOSCon09/froscon09.html[FrOSCon] appearance is now online, still a bit prelimary
+        we work on it.
+
 *September 4 2009*::
 	A new http://unix.freshmeat.net/projects/nobug[release] of http://lumiera.org/nobug_manual.html[NoBug],
  	our debugging library is out. Lumiera needs this new version from now on. We are on the track for a

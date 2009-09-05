@@ -58,6 +58,7 @@ We are now editing it in Cinelerra to produce a short video that won't tell you 
 
 This "about nothing" video will be on-line soon.
 
+////
 Download
 --------
 
@@ -90,3 +91,4 @@ SVG Logos
 * link:Download/black_poster_A4.svg[Lumiera poster on black, A3]
 * link:Download/white_poster_A4.svg[Lumiera poster on white, A3]
 
+////
