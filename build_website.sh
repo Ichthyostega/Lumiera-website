@@ -37,6 +37,11 @@ find -name '*.txt' |
 				stylesheet="${file%*.txt}.css"
 			fi
 
+                        # asciidoc wants the stylesheet in the local dir, copy it
+                        if [[ ! -e "${file%/*}${stylesheet}" ]]; then
+                                cp "${stylesheet}" "${file%/*}/"
+                        fi
+
 			# run asciidoc over it
 	 		echo "asciidocing $file"
 			python /usr/bin/asciidoc --unsafe --backend=xhtml11 \
