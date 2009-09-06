@@ -23,7 +23,7 @@ find -name '*.txt' |
 	while read file; do
 		echo -n "."
 		# when the .txt is newer than an existing .html
-		if [[ "$file" -nt "${file%*.txt}.html" ]]; then
+		if [[ "$file" -nt "${file%*.txt}.html" || "$1" = "--all" ]]; then
 			# use the default config file
 			conf="${DEFAULT_CONF}.conf"
 			# or if there is a .conf file with the same basename as the .txt file use that instead
