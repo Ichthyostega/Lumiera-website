@@ -4,18 +4,20 @@ DEFAULT_CONF=layout1
 umask 003
 
 # first pass, poor man dependency tracking over all .txt files
-echo -n "finding dependencies "
-find -name '*.txt' |
-	while read file; do
-		echo -n "."
-		sed 's/include::\([^[]*\).*/\1/p;d' "$file" | while read prerequisite; do
-			if [[ "${prerequisite}" -nt "${file}" ]]; then
-				echo -n ":"
-				touch "$file"
-			fi
+if [[ "$1" != "--all" ]]; then
+	echo -n "finding dependencies "
+	find -name '*.txt' |
+		while read file; do
+			echo -n "."
+			sed 's/include::\([^[]*\).*/\1/p;d' "$file" | while read prerequisite; do
+				if [[ "${prerequisite}" -nt "${file}" ]]; then
+					echo -n ":"
+					touch "$file"
+				fi
+			done
 		done
-	done
 echo
+fi
 
 # second pass for every .txt file
 echo -n "processing files "
