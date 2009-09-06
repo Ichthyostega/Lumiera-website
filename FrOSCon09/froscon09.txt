@@ -6,7 +6,7 @@ image:froscon.png[FrOSCon logo]
 The conference
 --------------
 
-On August 22-23 2009 the Lumiera community partecipated to FrOSCon, +
+On August 22-23 2009 the Lumiera community participated to FrOSCon, +
 the 4th German conference on Free Software and Open Source held at the University of Applied Sciences Bonn-Rhine-Sieg.
 
 image:entrance.png["The FrOSCon venue", width=180, link="entrance.png"] image:booth.png["The Lumiera booth", width=180, link="booth.png"] image:entrance2.png["The FrOSCon venue", width=180, link="entrance2.png"]
@@ -18,7 +18,7 @@ The project
 
 image:team.png["A happy Lumiera team", width=550, link="team.png"]
 
-image:Download/white_poster_A4.png["Lumiera", width=180, link="Download/white_poster_A4.png"] image:Download/NoBug-logo.png["NoBug", width=180, link="Download/NoBug-logo.png"] image:uwiki.png["uWiki", width=180, link="uwiki.png"]
+image:white_poster_A4.png["Lumiera", width=180, link="Download/white_poster_A4.png"] image:NoBug-logo.png["NoBug", width=180, link="Download/NoBug-logo.png"] image:uwiki.png["uWiki", width=180, link="uwiki.png"]
 
 An interview
 ------------
