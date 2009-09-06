@@ -30,12 +30,19 @@ find -name '*.txt' |
 			if [[ -e "${file%*.txt}.conf" ]]; then
 				conf="${file%*.txt}.conf"
 			fi
+
+			# same for stylesheet
+			stylesheet="${DEFAULT_CONF}.css"
+			if [[ -e "${file%*.txt}.css" ]]; then
+				stylesheet="${file%*.txt}.css"
+			fi
+
 			# run asciidoc over it
 	 		echo "asciidocing $file"
 			python /usr/bin/asciidoc --unsafe --backend=xhtml11 \
-				--attribute icons --attribute \
-				iconsdir=./images/icons --attribute=badges \
-				--attribute=revision="$VERS"  --attribute=date="$DATE" \
+				--attribute icons --attribute iconsdir=./images/icons \
+				--attribute stylesheet="${stylesheet}" \
+				--attribute=badges \
 				--conf-file="${conf}" \
 				"$file"
 			echo
