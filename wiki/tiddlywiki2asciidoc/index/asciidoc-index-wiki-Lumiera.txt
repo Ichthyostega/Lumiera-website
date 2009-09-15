@@ -1,0 +1,13 @@
+== Wiki Lumiera
+:Author: Ichthyostega
+:Date Created: 200706260506
+:Date Changed: 200810151552
+:Count Changes: 5
+// excludeMissing
+
+NOTE: rewrite this page for uWiki that is git, asciidoc
+
+As the wiki hypertext is located in the Lumiera source tree, all changes will be managed and distributed via <<index-git-notes, git>>. While doing so, you sometimes will have to merge conflicing changes manually in the hypertext source.
+
+ * see how to use the wiki NOTE:LINK -- create a tutorial wiki
+ * see markup (guide syntax) to edit the documents format asciidoc in the wiki NOTE:LINK -- link to site uWiki, link to guide syntax (at any page)

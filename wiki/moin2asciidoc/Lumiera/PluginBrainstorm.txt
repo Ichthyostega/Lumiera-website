@@ -6,7 +6,6 @@ Plugin Brainstorm
 Raw Version
 -----------
 
-
 [cpp]
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 LUMIERA_INTERFACE_DECLARE (interface_descriptor, 0,

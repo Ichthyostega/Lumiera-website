@@ -1,0 +1,11 @@
+== Design Documentation
+:Author: CehTeh
+:Date Created: 200706181207
+:Date Changed: 200707030409
+:Count Changes: 6
+// process policy
+
+* There is a <<index-manifest, manifest>> explaining the vision of the Lumiera project
+* The <<index-Lumiera-design-process, design process>> defines how we work together
+* There is a description how the git repository is set up in <<index-repository-setup, repository setup>>
+* We decided to write code in GNU style, with no tabs (use spaces)

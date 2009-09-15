@@ -1,0 +1,16 @@
+== Git Branches
+:Author: Ichthyostega
+:Date Created: 200706260447
+:Date Changed: 200708120100
+:Count Changes: 13
+// overview git organization
+
+some *interesting branches* at link:http://pipapo.org[PipapoOrg]:
+
+[grid="rows"]
+`60`70`200~~~~
+ ,mirrored,description
+~~~~
+ct#master,ichthyo#master,Lumiera main development line
+ichthyo#scons, ,"<<index-SCons, SCons>>-based build system"
+~~~~

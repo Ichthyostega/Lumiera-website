@@ -1,0 +1,35 @@
+== Lumiera
+:Author: Ichthyostega
+:Date Created: 200706172308
+:Date Changed: 200810151550
+:Count Changes: 46
+// portal
+
+image:draw/LumiLogo.png[] NOTE:LINK
+
+*Lumiera* is the emerging professional non linear video editor for Linux
+
+This is the entry point to documents for design and development.  The documents are in groups that correspond to the parts of the application.  All documents are stored in the +GIT+ as format +asciidoc+, hypertext at this site is generated automatically as documents change.  For the future we plan to create a wiki for anyone to edit these developer documents easily.  That redesign is in process as of 2009 09.
+
+* we maintain (semi-) final design docs in <<index-design-documentation, design documentation>>
+* Things get often worked out on IRC at server +freenode.net+ channel +lumiera+, see <<index-transcripts-developer-meetings, transcripts>> for protocols, logs, and decisions made there
+
+=== Architecture and Subsystems
+see the <<index-architecture-overview, architecture overview>>
+
+* Cehteh works on the <<backend, data backend NOTE:LINK>>
+* Ichthyo focuses mainly on <<renderengine, Edit operations and Builder NOTE:LINK>>
+* Joel builds the Lumiera GUI based on GTK
+* Gmerlin is in charge of link:http://gmerlin.sourceforge.net/gavl.html[GAVL] for processing of video data
+* Some tools which don't fit somewhere else and are used everywhere are put into a <<support_library, Support Library NOTE:LINK>>
+
+=== Coding -- Building -- Testing
+
+.how to organize several aspects of the practical coding...
+* what to do in <<whatInBOUML, BOUML NOTE:LINK>>?
+* how to <<SrcTreeStructure, organize packages, files, includes NOTE:LINK>>?
+* how to organize the executable to be built?
+* what <<index-design-documentation, coding conventions>> to prefer?
+* what <<index-build-system, build system>> to use?
+* various <<index-build-dependencies, build dependencies>>
+* we embrace 'Test Driven Development'.  Description of <<TestSh, Test System NOTE:LINK>> and TestSuite

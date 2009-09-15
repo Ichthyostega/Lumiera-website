@@ -1,0 +1,81 @@
+== Test Suite
+:Author: Ichthyostega
+:Date Created: 200708120254
+:Date Changed: 200708231706
+:Count Changes: 16
+// buildsys organization testsuite
+
+For running the automatic Tests, we use Cehteh's simple <<index-test.sh, test.sh NOTE:LINK>>
+
+This page is a proposal (by Ichthyo) how the various tests could be organized.
+
+* individual 'Testcases' are classes, doing whatsoever and however they see fit.
+* it is up to the individual test classes to take care / handle / isolate themself form any 'dependencies' (similar to the link:http://www.beust.com/weblog/archives/000082.html[philosophy of TestNG])
+* Testcases are 'grouped' together into thematic (Sub)-Testsuites. Each Testcase has an unique ID and can be tagged with several groupIDs
+* for running a 'Testsuite' (=distinct collection of tests) we build an executable linked against the test class objects.
+* moreover, for 'simple Tests', we can build separate stelf-contained executables or even use other scripts.
+* the Testsuite executable provides some command line magic to select individual tests.
+* Top-level Testsuites or 'Test-Collections' for +test.sh+ contain calls to the different (sub)-Suites, together with the expected results/output
+
+=== Internal Testsuite runner
+
+The class +test::Suite+ (+common/test/suite.hpp+) helps building an executable which will run all 'registered' test case objects, or some group of such testcases. Each test case implements a simple interface and thus provides a +run (args)+ function, moreover, it registers itself immediately alongside with his definition; this works by the usual trick of defining a static class object and calling some registration function from the constructor of this static var. See the following 'hello-world' example:
+
+----
+#include <iostream>
+#include "common/test/run.hpp"
+    
+    class HelloWorld_test : public Test
+      {
+        virtual void run(Arg arg) 
+          {
+            greeting();
+          } 
+        
+        void greeting() 
+          { 
+            std::cout << "This is how the world ends...\n"; 
+          }
+      };
+
+    /** Register this test class to be invoked in some test groups (suites) */
+    LAUNCHER (HelloWorld_test, "unit function common");    
+----
+
+.Notes
+* type Arg is +typedef std::vector<string>; & Arg;+
+* this vector may be +size()==0+, which means no comandline args available
+* otherwise arg[0] is always the ID (normally the classname) of the test
+* the following args may contain further arguments passed from system commandline
+* the test can/should produce output that can be checked with Cehteh's +test.sh+
+* the macro +LAUNCHER+ expands to +Launch<HelloWorld_test> run_HelloWorld_test("HelloWorld_test","unit function common");+
+* note the second parameter to the macro (or the Laucher-ctor) is a space-delimited list of group names
+* thus any test can declare itself as belonging to some groups, and we can create a +test::Suite+ for each group if we want.
+
+==== Invoking the testrunner
+
+The class +test::TestOption+ predefines a boost-commandlineparser to support the following optons:
+
+.+./test-components --group <groupID> [testID [arguments...]]+
+[grid="rows"]
+`80`200~~~~
++--help+,options summary
++--group|-g <groupID>+,"build a Testsuite out of all tests from this group. If missing, ALL tests will be included"
++[testID]+,"(optional) one single testcase. If missing, all testcases of the group will be invoked"
++--describe+,print all registered tests to stdout in a format suited for use with test.sh
+~~~~
+
+Further commandline arguments are deliverd to a single testcase only if you specify a +testID+. Otherwise, all commandline arguments remaining after options parsing will be discarded and all tests of the suite will be run with an commandline vector of +size()==0+.
+
+
+=== Conventions for the Buildsystem
+
+To help with automating the build, ichthyo would appreciate to have the following conventions:
+
+* in the +tests+ directory are 
+ - the testdefinitions together with +test.sh+
+ - the test-executables, which should named according to the pattern +test-XXX+
+* below are the source directories for each of the aforementioned test-executables. When such a source directory is named +XXX+, the corresponding executable is +test-XXX+
+* each of the source directories, which actually could be source trees, will be compiled and linked together with the Lumiera core classes and files. Thus, it needs to contain exactly _one_ main(), but by using commandline parameters, one executable can drive a lot of different tests.
+
+as of 18.8.2007, ichthyo has implemented this scheme for the SCons build

@@ -1,0 +1,18 @@
+== AutoTools
+:Author: Ichthyostega
+:Date Created: 200805200609
+:Date Changed: 200805200610
+:Count Changes: 3
+
+autotools 1.10 (as of 5/2008) -- Question: other versions usable too?
+
+The usual procedure, in short:
+
+[source,shell]
+----
+autoreconf -i
+automake
+./configure --enable-alpha
+make
+make check
+----

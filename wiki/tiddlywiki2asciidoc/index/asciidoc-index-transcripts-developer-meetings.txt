@@ -1,0 +1,21 @@
+== Transcripts IRC developer meetings
+:Author: Ichthyostega
+:Date Created: 200708120209
+:Date Changed: 200810151611
+:Count Changes: 12
+// discuss irclog
+
+We keep a protocol or short summary of each important discussion. The summaries of the monthly developer meetings are posted to the Mailinglist and can be found on pipapo.org too
+
+.Developer meetings
+* <<protocol-developer-meeting-20081010, 2008 October 10>>
+* <<protocol-developer-meeting-20080706, 2008 July 6>>
+* <<protocol-developer-meeting-20080605, 2008 June 5>>
+* <<protocol-developer-meeting-20080508, 2008 May 8>>
+* <<protocol-developer-meeting-20080403, 2008 April 3>>
+* <<protocol-developer-meeting-20080306, 2008 March 6>>
+* <<protocol-developer-meeting-20080201, 2008 February 1>>
+* <<protocol-developer-meeting-20070810, 2007 August 10>>
+
+.Specific topics
+* <<log-buffer-allocation-for-render-nodes-200806, 2008 June>> buffer allocation for render nodes

@@ -1,0 +1,14 @@
+== Git Notes
+:Author: MichaelPloujnikov
+:Date Created: 200706181049
+:Date Changed: 200706270308
+:Count Changes: 4
+// note git
+
+I use some GitAliases to make signing and publishing easier.
+
+The +.git+ dir itself is not versioned/distributed since it usually contains site-specific things. Despite this we might want to distribute some maintenance scripts and hooks so I put the default hooks into +admin/git_hooks/+ and users can symlink from +.git/hooks+ them when needed.
+
+For now I hope this approach suffices, maybe we need +admin/git_hooks/$HOOKNAME.$USER+ at some point when it turns out that people want personal hooks.
+
+-- see <<index-git-brances, interesting branches>>

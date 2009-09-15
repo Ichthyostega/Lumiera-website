@@ -1,0 +1,8 @@
+== SrcTree Structure
+:Author: CehTeh
+:Date Created: 200706262157
+:Date Changed: 200706270059
+:Count Changes: 2
+// organization
+
+* add a +DIR_INFO+ file to each marginally important directory. The first line should give a short abstract about this dir (40 characters, not more), following lines can give more precise information. There is a +admin/treeinfo.sh+ script which generates a texual overview of the directory tree.
