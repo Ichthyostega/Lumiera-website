@@ -1,0 +1,20 @@
+== Command
+:Author: Ichthyostega
+:Date Created: 200906072020
+:Date Changed: 200907212316
+:Count Changes: 8
+// def SessionLogic draft
+
+Within Proc-Layer, a Command is the abstract representation of a single operation or a compound of operations mutating the HighLevelModel.
+
+Thus, each command is a *Functor* and a *Closure* (http://en.wikipedia.org/wiki/Command_pattern[command pattern]), allowing commands to be treated uniformly, enqueued in a <<renderengine-ProcDispatcher,dispatcher>>, logged to the SessionStorage and registered with the UndoManager.
+
+Commands are _defined_ using a http://en.wikipedia.org/wiki/Fluent_interface[fluent API], just by providing apropriate functions. Additionally, the Closure necessary for executing a command is built by binding to a set of concrete parameters. After reaching this point, the state of the internal representation could be serialised by plain-C function calls, which is important for integration with the SessionStorage.
+
+-> see CommandDefinition
+
+-> see CommandHandling
+
+-> see CommandLifecycle
+
+-> see CommandUsage

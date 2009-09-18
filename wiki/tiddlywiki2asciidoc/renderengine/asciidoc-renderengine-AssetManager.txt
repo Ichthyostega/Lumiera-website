@@ -1,0 +1,7 @@
+== AssetManager
+:Author: Ichthyostega
+:Date Created: 200709200300
+:Date Changed: 
+:Count Changes: 1
+
+The Asset Manager provides an Interface to some internal Database holding all Assets in the current Session and System state. It may be a real Database at some point (and for the moment it's a Hashtable). Each <<renderengine-Asset,Asset>> is registered automatically with the Asset Manager; it can be queried either by it's _identification tuple_ or by it's unique ID.

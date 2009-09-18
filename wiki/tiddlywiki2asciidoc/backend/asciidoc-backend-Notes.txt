@@ -1,0 +1,27 @@
+== Notes
+:Author: CehTeh
+:Date Created: 200706200107
+:Date Changed: 200706231907
+:Count Changes: 3
+
+How is +FileMetadata+ kept
+
+copying semantics of smart pointers
+
+explain opening/closing files (use() forget()?)
+
+difference between actual files and temporary. does it make sense to have temporary storage on diffent speed disks?
+
+statistics hit/fail max/min/avg timings, hard / soft fails, timing constraints, when is rerendering cheaper than caching?..
+
+adaptive rendering
+
+background rendering
+
+renderfarm
+
+++FrameDescriptor++s and <<backend-Frame, +Frame+>> details, Policies composing frames
+
+Storage and logging of EDL's, unlimited undo, database,...
+
+When to Cache and when not to cache, aka instant +Frame+ reuse

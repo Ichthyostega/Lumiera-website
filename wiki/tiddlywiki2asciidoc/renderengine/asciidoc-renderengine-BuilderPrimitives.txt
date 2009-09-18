@@ -1,0 +1,51 @@
+== BuilderPrimitives
+:Author: Ichthyostega
+:Date Created: 200805210327
+:Date Changed: 200805260332
+:Count Changes: 25
+// impl spec Builder img
+
+While assembling and building up the render engines node network, a small number of primitive building situations is encountered repeatedly. The BuilderToolKit provides a +<<renderengine-BuilderMould, mould>>+ for each of these situations, typically involving parametrisation and the application of a <<renderengine-ProcPatt, processing pattern>>.
+
+The *Lifecycle* of such a mould starts out by arming it with the object references involved into the next building step. After conducting this building step, the resulting render nodes can be found -- depending on the situation -- attached either to the same mould, or to another kind of mould, but in any case ready to be included in the next building step. Thus, _effectively_ the moulds are _used to handle the nodes being built_, due to the fact that the low-level model (nodes to be built) and the high-level model (objects directing what is to be built) are _never connected directly_.
+
+=== List of elementary building situations
+==== inserting an Effect or Plugin
+image::../draw/builder-primitives1.png[]
+The +PipeMould+ is used to chain up the effects attached to a clip (=local pipe) or global pipe (=bus)
+
+* participating: a Pipe and an Effect
+* point of reference: current exit node of the pipe
+* result: Effect appended at the pipe's exit node
+* returns: PipeMould holding onto the new exit node
+
+==== attaching a transition 
+image::../draw/builder-primitives2.png[]
+After having completed N pipe's node chains, a +CombiningMould+ can be used to join them into a <<renderengine-TransitionsHandling, transition>>
+
+* participating: N pipe's exit nodes, transition
+* point of reference: N exit nodes corresponding to (completed) pipes
+* result: transition has been attached with the pipe's exit nodes, new wiring requests created attached to the transition's exit node(s)
+* returns: WiringMould, connected with the created wiring request
+
+Using this mould implicitly 'closes' the involved pipes, which means that we give up any reference to the exit node and can't build any further effect attached to this pipes. Generally speaking, 'exit node' isn't a special kind of node, rather it's a node we are currently holding on. Similarly, there is nothing directly correlated to a pipe within the render nodes network after we are done with building the part of the network corresponding to the pipe; the latter serves rather as a blueprint for building, but isn't an entity in the resulting low-level model.
+Actually, there is [red]+planned+ a more general (and complicated) kind of transition, which can be inserted into N data connections without joining them together into one single output, as the standard transitions do. The CombiningMould can handle this case too by just returning N wiring moulds as a result.
+
+==== building a source connection
+image::../draw/builder-primitives3.png[]
+The +SourceChainMould+ is used as a starting point for any further building, as it results in a local pipe (=clip) rooted at the clip source port. This reflects the fact that the source readers (=media access points) are the _leaf nodes_ in the node graph we are about to build.
+
+* participating: source port of a clip, media access point, <<renderengine-ProcPatt, processing pattern>>
+* point of reference: _none_
+* result: processing pattern has been _executed_, resulting in a chain of nodes from the source reader to the clip source port
+* returns: PipeMould holding onto the new exit node (of a yet-empty pipe)
+
+==== wiring a general connection
+Any wiring (outside the chain of effects within a pipe) is always done from exit nodes to the port of another pipe, requiring an <<renderengine-WiringRequest, wiring request>> already checked and deemed resolvable. Within the +WiringMould+ the actual wiring is conducted, possibly adding a summation node (called 'overlayer' in case of video) and typically a fader element (the specific setup to be used is subject to configuration by processing patterns)
+
+* participating: already verified connection request, providing a Pipe and an exit node; a processing pattern and a Placement
+* points of reference: exit node and (optionally) starting point of a pipe's chain (in case there are already other connections)
+* result: summation node prepended to the port of the pipe, processing pattern has been _executed_ for building the connection from the exit node to the pipe's port, ParamProvider has been setup in <<renderengine-PlacementDerivedDimension, accordance>> to the Placement.
+* returns: PipeMould holding onto the destination pipe's exit node, WiringMould holding onto the port side of the same pipe, i.e. the destination where further connections will insert summation nodes. [red]+TODO how to handle the _empty_-case?+
+
+image::../draw/builder-primitives4.png[]

@@ -1,0 +1,25 @@
+== Prefetch
+:Author: CehTeh
+:Date Created: 200706220043
+:Date Changed: 200706271508
+:Count Changes: 11
+
+There are 2 important points when we want to access data with low latency:
+
+. Since we handle much more data than it will fit into most computers RAM. The data which is backed in files has to be paged in and available when needed. The +Prefetch+ Thread manages page hinting to the kernel (posix_madvise()..)
+. Intermediate <<backend-Frame, +Frame+>>s must eventually be rendered to the cache. The +Backend+ will send +Renderjobs+ to the +Controller+.
+
+Both of these actions are managed by a <<backend-Scheduler, +Scheduler+>>.
+
+Whenever something queries a +Frame+ from the backend it provides hints about what it is doing.
+These hints contain:
+
+* Timing constraints
+ - When will the +Frame+ be needed
+ - could we drop the request if it won't be available (rendered) in-time
+* Priority of this job (as soon as possible, or just in time?)
+* action (Playing forward, playing backward, tweaking, playback speed, recursive rendering of dependent frames)
+
+.Notes
+* The Backend will try to render related frames in groups.
+ - This means that following frames are scheduled with lower priority. Whenever the program really requests them the priority will be adjusted.

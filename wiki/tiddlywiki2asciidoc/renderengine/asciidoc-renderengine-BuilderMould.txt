@@ -1,0 +1,15 @@
+== BuilderMould
+:Author: Ichthyostega
+:Date Created: 200805260248
+:Date Changed: 200805270325
+:Count Changes: 2
+// def
+
+The <<renderengine-Builder,Builder>> uses different kinds of tools for creating a network of render nodes from a given high-level model. When breaking down this (necessarily complex) process into small manageable chunks, we arrive at <<renderengine-BuilderPrimitives,elementary building situations>>. For each of these there is a specialized tool. We denote these tools as 'moulds' because they are a rather passive holder for the objects to be attached and wired up. They are shaped according to the basic form the connections have to follow for each of these basic situations:
+
+* attaching an effect to a pipe
+* combining pipes via a transition
+* starting out a pipe from a source reader
+* general connections from the exit node of a pipe to the port of another pipe
+
+In all those cases, the active part is provided by <<renderengine-ProcPatt,processing patterns>> -- sort of micro programs executed within the context of a given mould: the processing pattern defines the steps to take (in the standard/basic case this is just 'attach'), while the mould holds and provides the location where these steps will operate. Actually, this location is represented as a OperationPoint, provided by the mould and abstracting the details of making multi-channel connections.

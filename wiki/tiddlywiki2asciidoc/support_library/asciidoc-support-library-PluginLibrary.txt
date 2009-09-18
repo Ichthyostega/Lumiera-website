@@ -1,0 +1,108 @@
+== PluginLibrary
+:Author: MichaelPloujnikov
+:Date Created: 200707111329
+:Date Changed: 200707160351
+:Count Changes: 33
+// excludeMissing
+
+=== Lumiera Plugin API
+
+There are only a few functions to manage Plugins. Actually a user requests interfaces. The libraries which implement Plugins are managed transparently.
+
+Interfaces are exported as instances and are not necessary singleton. This means that a single Plugin can export the same interface type several times under different names. The naming rules for interfaces need to be defined elsewhere.
+
+==== opening an Interface
+
+[source,c]
+----
+LumieraInterface
+lumiera_interface_open (const char* plugin,
+                          const char* name,
+                          size_t min_revision);
+----
+
+===== Parameters
+* +plugin+ is the name of the Plugin whose interface to use. Plugins are looked up in $LUMIERA_PLUGIN_PATH, which is a colon separated list of directories, and then in $plugin_install_dir which is the directory where standard plugins get installed when installing Lumiera (example: /usr/local/lib/lumiera/). The name itself can contain slashes, see PluginHierachy for details. It shall not include a library extension (.so). When NULL is passed, an interface from the main application is queried.
+* +name+ is the name of the queried interface.
+* +min_revision+ is the expected minimal size of the interface structure, since interfaces are extended by adding new protos at the end, the size gives a unique value for each new revision.
+
+===== Semantic
+Interfaces can opened multiple times and need to be closed for each call to open.
+
+===== Return
+This function returns a pointer to the requested interface on success or NULL in case of an error. See +lumiera_interface_error+ about handing errors.
+
+==== closing an Interface
+
+[source,c]
+----
+void
+lumiera_interface_close (LumieraInterface self);
+----
+
+===== Parameters
+* +self+ is the handle to the interface to be closed. It is safe to pass NULL. This makes the call just a no-op.
+
+===== Semantic
+The interface handle must not be used after this function is called.
+
+This function always succeeds (or results in undefined behavior when the user passes an illegal parameter)
+
+==== calling functions
+
+Calling function is simply done by dereferencing the interface slots. See HowtoUsePlugin for an example.
+
+==== unload unused plugins
+Plugins which are no longer in use are not automatically unloaded. The user can use this functions to unload the Plugins.
+
+[source,c]
+----
+int
+lumiera_plugin_unload (const char* plugin);
+----
+
+===== Parameters
+* +plugin+ name of the plugin to be unloaded
+
+===== Semantic
+Tries to unload the named plugin. This only works when nothing else uses the Plugin.
+
+===== Return
+Returns 0 on success or the number of active users on failure. See +lumiera_interface_error+ about handing errors.
+
+
+==== expire unused plugins
+
+[source,c]
+----
+void
+lumiera_plugin_expire (time_t age);
+----
+
+===== Parameters
+* +age+ time in seconds when the plugin was last used
+
+===== Semantic
+Calls +lumiera_plugin_unload()+ for each Plugin which has not been used for more than +age+ seconds. This function might be infrequently called by the scheduler to remove things which are not needed (example: once a hour, remove plugins which have not been used for 2 hours).
+
+===== Return
+always succeeds.
+
+==== error handling
+
+[source,c]
+----
+const char*
+lumiera_plugin_error ();
+----
+
+===== Semantic
+Indicate last error, reset error state. Errors are thread local.
+
+===== Return
+Returns a pointer to the most recent error occurred in the plugin loader. This pointer is guaranteed to point to a C string with a unique comparable address. NULL if no error happened.
+
+Note that the error state gets cleared by calling this function. The application may store it temporary for further handling.
+
+==== C++ exceptions
+TODO

@@ -1,0 +1,14 @@
+== BindingMO
+:Author: Ichthyostega
+:Date Created: 200905210144
+:Date Changed: 200907220310
+:Count Changes: 5
+// def design discuss SessionLogic
+
+Sometimes, two entities within the <<renderengine-Session,Session>> are deliberately associated, and this association has to carry some specific mappings between properties or facilities within the entities to be linked together. When this connection isn't just the <<renderengine-Placement,Placement>> of an object, and isn't just a logical or structural relationship either -- then we create an explicit Binding object to be stored into the session.
+
+* When connecting a <<renderengine-EDL,Sequence>> to a certain <<renderengine-Timeline,Timeline>>, we also establish a mapping between the possible media stream channels produced by the sequence and the real output slots found within the timeline.
+* similarly, using a sequence within a <<renderengine-VirtualClip,meta-clip>> requires to remember such a mapping.
+* another example is the root <<renderengine-PlacementScope,scope>>, which (conceptually) is a link between the definition part of the Session and the graph of MObjects, which are the session's contents.
+
+On the implementation side, we use a special kind of MObject, acting as an anchor and providing an unique identity. Like any MObject, actually a placement establishes the connection and the scope, and typically constitutes a nested scope (e.g. the scope of all objects _within_ the sequence to be bound into a timeline)

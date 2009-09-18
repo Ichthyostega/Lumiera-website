@@ -1,0 +1,70 @@
+== PluginInterfaceImplementation
+:Author: CehTeh
+:Date Created: 200707111749
+:Date Changed: 200708140303
+:Count Changes: 11
+// excludeMissing
+
+A Plugin realizes an interface. This means that actual functions are mapped to the correspondending slots in the interface structure.
+
+[source,c]
+----
+LUMIERA_INTERFACE_IMPLEMENT(interface, version, name,
+	/* TODO some hooks here */
+	functionnames...
+);
+----
+
+=== Example
+
+[source,c]
+----
+void
+my_bar_function (void)
+{
+	...
+}
+
+int
+my_baz_function (int i)
+{
+	...
+}
+
+int
+my_new_baz_function (float i)
+{
+	...
+}
+
+LUMIERA_INTERFACE_IMPLEMENT(foo, 1, myfoointerface,
+	/* TODO some hooks here */
+	my_bar_function,
+	my_baz_function
+);
+
+LUMIERA_INTERFACE_IMPLEMENT(foo, 2, myfoointerface,
+	/* TODO some hooks here */
+	my_bar_function,
+	my_new_baz_function
+);
+----
+
+The interface implementations expands to something like:
+
+[source,c]
+----
+struct lumiera_interface_foo_1 myfoointerface_1 =
+{
+	/* TODO header initialization */
+	my_bar_function,
+	my_baz_function
+}
+
+struct lumiera_interface_foo_2 myfoointerface_2 =
+{
+	/* TODO header initialization */
+	my_bar_function,
+	my_new_baz_function
+}
+----

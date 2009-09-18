@@ -1,0 +1,23 @@
+== SafeCLib
+:Author: CehTeh
+:Date Created: 200803281406
+:Date Changed: 200803281413
+:Count Changes: 4
+
+=== Memory allocation
+* +lumiera_malloc()+ Succceeds or dies, no need for error handling.
+
+=== String functions
+Small wrapers and extensions to the string.h functions, handle NULL pointers gracefully.
+* +lumiera_strndup()+ Succceeds or dies, no need for error handling.
+* +lumiera_strncmp()+ +lumiera_streq()+ Optimized comparing same addresses.
+
+=== Round robin temporary buffers
+Provides 64 buffers per thread which are recycled with each use, the idea here is to have fast buffers for temporal data without need for explicit heap management or stack waste.
+
+* +lumiera_tmpbuf_provide ()+ Acquire a temporary buffer. doesn't need to be freed. Stays valid for the next 63 tmpbuf calls.
+
+* +lumiera_tmpbuf_strndup ()+ Duplicate string to a tmpbuf.
+
+* +lumiera_tmpbuf_sprintf ()+ Construct a string in a tmpbuf.
+

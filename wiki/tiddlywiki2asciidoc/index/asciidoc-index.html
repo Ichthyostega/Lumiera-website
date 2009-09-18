@@ -1,0 +1,3625 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.4.5" />
+<title></title>
+<style type="text/css">
+/* Debug borders */
+p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
+/*
+  border: 1px solid red;
+*/
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+tt {
+  color: navy;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  font-family: sans-serif;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+
+div.sectionbody {
+  font-family: serif;
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+span#author {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+span#email {
+}
+span#revnumber, span#revdate, span#revremark {
+  font-family: sans-serif;
+}
+
+div#footer {
+  font-family: sans-serif;
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+div#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+div#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+div#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.tableblock, div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid silver;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid silver;
+  background: #f4f4f4;
+  padding: 0.5em;
+}
+
+div.quoteblock {
+  padding-left: 2.0em;
+  margin-right: 10%;
+}
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock {
+  padding-left: 2.0em;
+  margin-right: 10%;
+}
+div.verseblock > div.content {
+  white-space: pre;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 2px solid silver;
+}
+
+div.exampleblock > div.content {
+  border-left: 2px solid silver;
+  padding: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+@media print {
+  div#footer-badges { display: none; }
+}
+
+div#toctitle {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+/* Workarounds for IE6's broken and incomplete CSS2. */
+
+div.sidebar-content {
+  background: #ffffee;
+  border: 1px solid silver;
+  padding: 0.5em;
+}
+div.sidebar-title, div.image-title {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+}
+
+div.listingblock div.content {
+  border: 1px solid silver;
+  background: #f4f4f4;
+  padding: 0.5em;
+}
+
+div.quoteblock-attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock-content {
+  white-space: pre;
+}
+div.verseblock-attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+
+div.exampleblock-content {
+  border-left: 2px solid silver;
+  padding-left: 0.5em;
+}
+
+/* IE6 sets dynamically generated links as visited. */
+div#toc a:visited { color: blue; }
+</style>
+</head>
+<body>
+<div id="header">
+</div>
+<div class="paragraph"><p><a id="index-architecture-overview"></a></p></div>
+<h2 id="_architecture_overview">Architecture Overview</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>This page intends to capture the lage picture regarding Lumiera&#8217;s Architecture.  This may be a moving target&#8230;</p></div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.lumiera.org/gitweb?p=LUMIERA;f=doc/devel/draw/Lumi.Architecture-1.svg;hb=HEAD">
+<img src="draw/Lumi.Architecture-1.png" alt="draw/Lumi.Architecture-1.png" />
+</a>
+</div>
+</div>
+<div class="paragraph"><p><sub>(click on the above image&#8230;)</sub></p></div>
+<div class="ulist"><div class="title">Description</div><ul>
+<li>
+<p>
+The Application has three Layers: <a href="backend.html">Backend</a>, <a href="renderengine.html">Proc-Layer</a> and GUI
+</p>
+</li>
+<li>
+<p>
+The Application shall be completely functional without GUI (&#8220;headless&#8221;, script-driven)
+</p>
+</li>
+<li>
+<p>
+All IO, media data fetching, processing and bookkeeping falls within the realm of the Backend
+</p>
+</li>
+<li>
+<p>
+All media object manipulation, deciding and configuration is the Proc Layer&#8217;s job
+</p>
+</li>
+<li>
+<p>
+Extensible by plugins on all levels, highly configurable, but not totally componentized (micro kernel) architecture
+</p>
+</li>
+<li>
+<p>
+Strong separation between high-level and low-level areas of the Application
+</p>
+</li>
+<li>
+<p>
+The user/GUI manipulates a <a href="renderengine.html#HighLevelModel">high-level model</a> whereas rendering is based on a corresponding <a href="renderengine.html#OverviewRenderEngine">low-level model</a>
+</p>
+</li>
+<li>
+<p>
+Stored Session (state) is comprised of high-level model, a collection of <a href="renderengine.html#Asset">Assets</a> and accompaning configuration
+</p>
+</li>
+<li>
+<p>
+(possibly) Several storage backends, abstracted out by a common interface
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><a id="index-AutoTools"></a></p></div>
+</div>
+<h2 id="_autotools">AutoTools</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>autotools 1.10 (as of 5/2008)&#8201;&#8212;&#8201;Question: other versions usable too?</p></div>
+<div class="paragraph"><p>The usual procedure, in short:</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>autoreconf -i
+automake
+<span style="color: #990000">.</span>/configure --enable-alpha
+make
+make check</tt></pre></div></div>
+<div class="paragraph"><p><a id="index-build-dependencies"></a></p></div>
+</div>
+<h2 id="_build_dependencies">Build Dependencies</h2>
+<div class="sectionbody">
+<div class="ulist"><div class="title">Building</div><ul>
+<li>
+<p>
+gcc (4.1), glibc6 (2.3), libstdc++6 (4.1)
+</p>
+</li>
+<li>
+<p>
+<a href="#index-build-system">build system</a> dependencies: <a href="#index-SCons">SCons</a> (0.96.90), Python (2.4), pkg-config
+</p>
+</li>
+<li>
+<p>
+<a href="http://gmerlin.sourceforge.net/gavl.html">GAVL</a> (1.0.0)
+</p>
+</li>
+<li>
+<p>
+NoBug for Logging, Tracing, Asserting (can be obtained from <a href="http://www.pipapo.org/pipawiki/NoBug">Pipapo.org</a>)
+</p>
+</li>
+<li>
+<p>
+NoBug needs <a href="#index-valgrind">Valgrind</a> (3.2), execinfo.h and libpthread (&#8201;&#8212;&#8201;glibc)
+</p>
+</li>
+<li>
+<p>
+std::tr1 &amp;mdash; esp. for the former BOOST::shared_ptr (which is now proposed standard)
+</p>
+</li>
+<li>
+<p>
+BOOST <sub>(listed below are the DEBIAN package names)</sub>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+libboost-dev (&gt;=1.34.1-2)
+</p>
+</li>
+<li>
+<p>
+libboost-program-options-dev (&gt;=1.34.1-2)
+</p>
+</li>
+<li>
+<p>
+libboost-program-options1.34.1 (&gt;=1.34.1-2) <strong>NOTE: binary dependency</strong>
+</p>
+</li>
+<li>
+<p>
+libboost-regex-dev (&gt;=1.34.1-2)
+</p>
+</li>
+<li>
+<p>
+libboost-regex1.34.1 (&gt;=1.34.1-2) <strong>binary</strong>
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+for the GUI: gtkmm-2.4 gdl-1.0 libglibmm-2.4 cairomm-1.0 xv
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+libgtkmm-2.4-dev (&gt;=2.8)
+</p>
+</li>
+<li>
+<p>
+libcairomm-1.0-dev (&gt;=0.6.0)
+</p>
+</li>
+<li>
+<p>
+libgdl-lum-dev or libgdl-1-dev (&gt;=2.27.1)
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+libglade2-dev (&gt;=2.6)
+</p>
+</li>
+<li>
+<p>
+libxml2-dev (&gt;=2.6)
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+libglibmm-2.4-dev (&gt;=2.16), requiring glib2.0 (&gt;=2.16) and gthread-2.0 (&gt;=2.12.4)
+</p>
+</li>
+<li>
+<p>
+libxv-dev (&gt;=1.0.2)
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+for rendering the icons: librsvg-2.0
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+librsvg2-dev (&gt;= 2.18)
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="paragraph"><p><em>usually, newer versions are OK</em></p></div>
+<div class="paragraph"><p>boost 1.35 works too.</p></div>
+<div class="paragraph"><p>We use the GNOME Docking Library (GDL) within the Lumiera GTK GUI. As we actively participate in GDL development, we depend on a much more recent version, than most distos provide. We maintain a custom debian package (and source tree of GDL) which builds a <tt>libgdl-lum.so</tt>, in order to avoid side effects on other software. You may grab the tree including the Debian source package structure from <a href="http://git.lumiera.org/gitweb?p=gdl-package;a=shortlog;h=refs/heads/debLumiera">our git</a> and create a binary Debian (or Ubuntu) package. For non-Debian systems, you may use the same build tree just in the standard way (configure, make, make install) to install into <tt>/usr/local/lib/libgdl-lum.so</tt>. Alternatively you may of course always just use a recent snapshot of GDL and build and install it as usual &amp;mdash; but doing so may cause other software on your system to use this bleeding edge version of GDL too.</p></div>
+<div class="ulist"><div class="title">Running</div><ul>
+<li>
+<p>
+&#8230; not running? walking?
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><a id="index-build-system"></a></p></div>
+</div>
+<h2 id="_build_system">Build System</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>July 2007 we agreed to try out several Build Systems in real world usage, to get a better feel on the maintenance costs of each.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#index-SCons">SCons</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#index-AutoTools">AutoTools</a>
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">Used Functionality</div><ul>
+<li>
+<p>
+(re)building with reliable dependency checks
+</p>
+</li>
+<li>
+<p>
+Environment checks (&#8220;configure&#8221;)
+</p>
+</li>
+<li>
+<p>
+Executing self-test suite
+</p>
+</li>
+<li>
+<p>
+Provide central interface for setting switches and configuration options
+</p>
+</li>
+<li>
+<p>
+Installing of some or all created artifacts
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><a id="index-design-documentation"></a></p></div>
+</div>
+<h2 id="_design_documentation">Design Documentation</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+There is a <a href="#index-manifest">manifest</a> explaining the vision of the Lumiera project
+</p>
+</li>
+<li>
+<p>
+The <a href="#index-Lumiera-design-process">design process</a> defines how we work together
+</p>
+</li>
+<li>
+<p>
+There is a description how the git repository is set up in <a href="#index-repository-setup">repository setup</a>
+</p>
+</li>
+<li>
+<p>
+We decided to write code in GNU style, with no tabs (use spaces)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><a id="index-git-aliases"></a></p></div>
+</div>
+<h2 id="_git_aliases">Git Aliases</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>To make the admin/git_hooks/post-commit working add following to your .gitconfig:</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #990000">[</span><span style="font-weight: bold"><span style="color: #0000FF">alias</span></span><span style="color: #990000">]</span>
+        sign <span style="color: #990000">=</span> tag -s -f -m <span style="color: #FF0000">'automatic generated on last commit'</span>
+        publish <span style="color: #990000">=</span> push --all public</tt></pre></div></div>
+<div class="paragraph"><p>these two commands are used by <tt>admin/git-hooks/post-commit</tt></p></div>
+<div class="paragraph"><p><tt>git sign</tt> creates a gpg-signed tag after each commit, named <tt>$~BRANCH_signature</tt> overriding an older tag of the same name. Thus the head revision is always gpg signed (it is not perfect, in some cases like some merges and other things the signature can become unsynced and needs to be fixed manually).</p></div>
+<div class="paragraph"><p><tt>git publish</tt> just sends the commit to some repository which has to be registered with <tt>git remote add public &#8230;</tt>, in case you are working offline this will stuck and timeout, you may break it with ctrl-c, someone may fix it.</p></div>
+<div class="paragraph"><p><a id="index-git-branches"></a></p></div>
+</div>
+<h2 id="_git_branches">Git Branches</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>some <strong>interesting branches</strong> at <a href="http://pipapo.org">PipapoOrg</a>:</p></div>
+<div class="tableblock">
+<table rules="rows"
+frame="hsides"
+cellspacing="0" cellpadding="4">
+<col width="145" />
+<col width="169" />
+<col width="484" />
+<thead>
+  <tr>
+    <th align="left">
+    </th>
+    <th align="left">
+    mirrored
+    </th>
+    <th align="left">
+    description
+    </th>
+  </tr>
+</thead>
+<tbody valign="top">
+  <tr>
+    <td align="left">
+    ct#master
+    </td>
+    <td align="left">
+    ichthyo#master
+    </td>
+    <td align="left">
+    Lumiera main development line
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+    ichthyo#scons
+    </td>
+    <td align="left">
+    </td>
+    <td align="left">
+    <a href="#index-SCons">SCons</a>-based build system
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p><a id="index-git-notes"></a></p></div>
+</div>
+<h2 id="_git_notes">Git Notes</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>I use some GitAliases to make signing and publishing easier.</p></div>
+<div class="paragraph"><p>The <tt>.git</tt> dir itself is not versioned/distributed since it usually contains site-specific things. Despite this we might want to distribute some maintenance scripts and hooks so I put the default hooks into <tt>admin/git_hooks/</tt> and users can symlink from <tt>.git/hooks</tt> them when needed.</p></div>
+<div class="paragraph"><p>For now I hope this approach suffices, maybe we need <tt>admin/git_hooks/$HOOKNAME.$USER</tt> at some point when it turns out that people want personal hooks.</p></div>
+<div class="paragraph"><p>&#8212;&#8201;see <a href="#index-git-brances">interesting branches</a></p></div>
+<div class="paragraph"><p><a id="index-how-to-download-lumiera-sources-and-deliver-changes"></a></p></div>
+</div>
+<h2 id="_how_to_download_the_lumiera_sources_and_deliver_changes">How to download the Lumiera sources and deliver changes</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>This part should explain what you have to do in order to download the sources of Lumiera from pipapo.org. It treats as well how to deliver improvements to cin3 using git. Git is a tool similar to cvs or svn.</p></div>
+<div class="paragraph"><p>The cin3 sources are stored in a git repository. Maybe you have never heard of git before, but i can allay your fears: using git isn&#8217;t that complicated. To download cin3 the very first time you simply have to clone a git-repo from pipapo.org. To do so just type the following in a shell:</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>git clone git<span style="color: #990000">:</span>//git<span style="color: #990000">.</span>pipapo<span style="color: #990000">.</span>org/lumiera/ct YOURCOPY-NAME</tt></pre></div></div>
+<div class="paragraph"><p>This will create a directory named <tt>YOURCOPY-NAME</tt> which contains the whole data of the <tt>lumiera/ct</tt> branch of Lumiera. After having downloaded a cin3-git-repository you can update it by simply typing:</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>cd /your/path/YOURCOPY-NAME
+git pull</tt></pre></div></div>
+<div class="paragraph"><p>If everything went well your copy is now up to date. Pulling is faster than cloning it again and causes less traffic at the server.</p></div>
+<div class="ulist"><div class="title">Tips:</div><ul>
+<li>
+<p>
+NEVER delete a git repository without a permission of a pro.
+</p>
+</li>
+<li>
+<p>
+Check the url.
+</p>
+</li>
+<li>
+<p>
+Install git before calling git
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Now you could compile the source code or improve Lumiera or the documentation. After having done so (let&#8217;s say you have written a patch) you can deliver your changes by:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+At first setting your name and email
+</p>
+</li>
+<li>
+<p>
+Committing your changes
+</p>
+</li>
+<li>
+<p>
+Pushing your local git-repo to a public server
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>git config --global user<span style="color: #990000">.</span>name YOUR-REALNAME
+git config --global user<span style="color: #990000">.</span>email YOUR-EMAIL-ADDRESS
+git commit -m YOUR-DESCRIPTION FILE/TO/COMMIT
+git push git<span style="color: #990000">:</span>//git<span style="color: #990000">.</span>pipapo<span style="color: #990000">.</span>org/lumiera/mob</tt></pre></div></div>
+<div class="paragraph"><p><tt>lumiera/mob</tt> is an anonymous account at pipapo.org where everyone can commit changes.</p></div>
+<div class="paragraph"><p><a id="index-transcripts-developer-meetings"></a></p></div>
+</div>
+<h2 id="_transcripts_irc_developer_meetings">Transcripts IRC developer meetings</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>We keep a protocol or short summary of each important discussion. The summaries of the monthly developer meetings are posted to the Mailinglist and can be found on pipapo.org too</p></div>
+<div class="ulist"><div class="title">Developer meetings</div><ul>
+<li>
+<p>
+<a href="#protocol-developer-meeting-20081010">2008 October 10</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#protocol-developer-meeting-20080706">2008 July 6</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#protocol-developer-meeting-20080605">2008 June 5</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#protocol-developer-meeting-20080508">2008 May 8</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#protocol-developer-meeting-20080403">2008 April 3</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#protocol-developer-meeting-20080306">2008 March 6</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#protocol-developer-meeting-20080201">2008 February 1</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#protocol-developer-meeting-20070810">2007 August 10</a>
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">Specific topics</div><ul>
+<li>
+<p>
+<a href="#log-buffer-allocation-for-render-nodes-200806">2008 June</a> buffer allocation for render nodes
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><a id="protocol-developer-meeting-20070810"></a></p></div>
+</div>
+<h2 id="_protocol_developer_meeting_2007_august_10">Protocol Developer Meeting 2007 August 10</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+maybe let the render graph builder generate a meta language which then is <strong>jit compiled</strong> for each configuration
+</p>
+</li>
+<li>
+<p>
+using smart pointers and factories for objects <strong>and avoid unprotected use of <tt>new</tt> and <tt>delete</tt></strong>, if this wont work because of cycles, we might investigate specialized garbage collectors for specific cases.
+</p>
+</li>
+<li>
+<p>
+format for frames would be likely ffmpeg or such first, finally we see what suits best. We have to provide coverter nodes to convert frame formats for accessing different libraries anyway (ffmpeg, v4l, gstreamer, &#8230;)
+</p>
+</li>
+<li>
+<p>
+we need a pool of worker threads and associated <tt>APIs</tt>
+</p>
+</li>
+<li>
+<p>
+accessing frames has a time (get until..), <strong>unique frame identifier</strong> (see below), policies (what to do when out of time, quality required,..) and hints (recursive dependency, must cache, playback speed and direction, &#8230;)
+</p>
+</li>
+<li>
+<p>
+for each sequence (configuration) each node has a number (monotonic incrementing), a generation counter (increment on each parameter change), a propagation sum (from parent nodes)
+</p>
+</li>
+<li>
+<p>
+frames are identified by their time(frame number) and node number plus generation number and propagation sum. This allows easily to find out when a frame has to be rerendered
+</p>
+</li>
+<li>
+<p>
+no difference between compositor and viewer
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+viewer is just a decoder where a display window attaches
+</p>
+</li>
+<li>
+<p>
+one can have multiple of such display windows
+</p>
+</li>
+<li>
+<p>
+tracks, effects, (things which are nodes in the render graph) can add gui components to the viewer, like masking tools, panning, overlay and other compositor things.
+</p>
+</li>
+<li>
+<p>
+in the render graph we have <strong>attachment points</strong> i.e. <tt>ExitNode-instances</tt>. Display and other output can only be pulled from such <tt>ExitNodes</tt>. Changing just the display or attaching it to another <tt>ExitNode</tt> doesn&#8217;t count as change of the render graph, while reordering or reconfiguring the <tt>ExitNodes</tt> themselves of course <em>is</em> a reconfiguration.
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+tracks are just containers for other nodes
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+they serve a GUI representation (timeline, patchbay, viewer)
+</p>
+</li>
+<li>
+<p>
+they do the mixing of contained things
+</p>
+</li>
+<li>
+<p>
+can be recursive, the GUI represents basically a tree
+</p>
+</li>
+<li>
+<p>
+we need some &#8220;wiring&#8221; abstraction for the GUI to make it a real graph
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+rendering frames, context between frames
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+the proc layer <strong>only queries frames</strong> (by identifier and timeout) the backend tries to serve the best it can do (from cache or let them render)
+</p>
+</li>
+<li>
+<p>
+each render job carries some <strong>quality limit</strong> (as S/N ratio) when previewing or scratching through the project this is used to generate reasonable quality previews
+</p>
+</li>
+<li>
+<p>
+individual processing nodes can use additional state for their calculations&#8230;
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+the node objects themselves should stay stateless, i.e. they shouldn&#8217;t store state internally.
+</p>
+</li>
+<li>
+<p>
+they can use special <strong>context frames</strong>, which are provided and managed by the backend (as opaque data blocks).
+</p>
+</li>
+<li>
+<p>
+they can depend on previous state, i.e request from the backend a previous context frame, the same way as they can request previous media frames from the bakend, but there is no guarantee that the backend will satisfy this request.
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+on the question who decides what to do after a cache miss, we tend to put the decision into the render node (because this seems to be the simpler approach), but still have to work out the details.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><a id="protocol-developer-meeting-20080201"></a></p></div>
+</div>
+<h2 id="_protocol_developer_meeting_2008_february_01">Protocol Developer Meeting 2008 February 01</h2>
+<div class="sectionbody">
+<div class="ulist"><div class="title">21:00 -23:30 GMT on #openvideo, participants:</div><ul>
+<li>
+<p>
+hermanr
+</p>
+</li>
+<li>
+<p>
+cehteh
+</p>
+</li>
+<li>
+<p>
+ichthyo
+</p>
+</li>
+<li>
+<p>
+Dasypus
+</p>
+</li>
+<li>
+<p>
+gmerlin
+</p>
+</li>
+<li>
+<p>
+SimAV
+</p>
+</li>
+<li>
+<p>
+pippin
+</p>
+</li>
+<li>
+<p>
+Plough
+</p>
+</li>
+<li>
+<p>
+Plouj
+</p>
+</li>
+<li>
+<p>
+Velmont
+</p>
+</li>
+</ul></div>
+<h3 id="_discuss_the_open_points_in_a_href_http_www_pipapo_org_pipawiki_lumiera_designprocess_8201_8212_8201_do_http_www_pipapo_org_pipawiki_lumiera_designprocess_8201_8212_8201_do_a_we_need_this_formalism">Discuss the open points in <a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess&#8201;&#8212;&#8201;do">http://www.pipapo.org/pipawiki/Lumiera/DesignProcess&#8201;&#8212;&#8201;do</a> we need this formalism?</h3><div style="clear:left"></div>
+<div class="paragraph"><p>At start of the project last summer, Cehteh made a <a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess">design process proposal NOTE:LINK</a>. We will keeping this up, not for every implementation detail, but for major plans, wishes and design decisions. One point in the agenda of future meetings will be to work through proposals in the queue</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+proposals in the <em>idea</em>; state are not complete, can be just brainstorming or need further discussion. Comments please to the proposal page.
+</p>
+</li>
+<li>
+<p>
+proposals in the <em>draft</em> state are ready for conclusive discussion and will be treated in one of the next meetings
+</p>
+</li>
+<li>
+<p>
+<em>final</em> proposals are either <em>accepted</em> or <em>dropped</em>. We don&#8217;t differentiate the latter, but should write a short note why it was dropped.
+</p>
+</li>
+<li>
+<p>
+if there is need for more or finer grained categories, we&#8217;ll extend the page and the template as needed or provide different views
+</p>
+</li>
+</ul></div>
+<h3 id="_the_development_model">The development model</h3><div style="clear:left"></div>
+<div class="paragraph"><p>We employ a distributed model based on GIT. We want this repository to be as complete as possible, including documentation in embedded TiddlyWikis and Bug reports. Each dev has its own GIT repo, devs are pulling from each other, they are free to cherry pick and try to make the combined version work. Point is that everyone can clone the git, negotiate with the others what s(he) wants to do, and hack on. Every dev signs off his branch with an standardized signature. For small changes we provide a <tt>Mob GIT</tt>, i.e. anonymously pushable git (which is untrusted of course). Cehteh is currently working on a git web frontend which makes the codebase in the mob-repo web-editable like a wiki.</p></div>
+<div class="paragraph"><p>Will we need a stable version or an official branch?  not yet&#8201;&#8212;&#8201;as long as the team is small it will work more painless without. At some point, when the project is more mature, we will define an official branch. Later on we will have automated builds and regression test runs. As we do test-driven development anyways, it&#8217;s just a question of someone setting up all the infrastructure, then we&#8217;ll do it.</p></div>
+<div class="paragraph"><p>Ichthyo proposes a new requirement: all devs should ensure the "master" branch of their respective repositories always passes the compiler and the test suite. Work-In-Progress should be done on branches. Rationale, it is sufficient to pull from the master branches, and you can be sure the version you pulled worked for the originator.</p></div>
+<div class="paragraph"><p>A note on dependencies: it will be hard to target minimal dependencies for such a project, but we shall try not to bloat it unnecessarily. Sometimes it can be sensible to rather re-invent a feature&#8201;&#8212;&#8201;esp. when it fits into the core focus of the project&#8201;&#8212;&#8201;instead of depending on difficult to build and not sufficiently maintained external projects. But we should avoid reinventing things like GUI toolkits.</p></div>
+<div class="paragraph"><p>And, pretty much obvious, we try to stick to modern programming standards. Read: modules have interfaces, interfaces need some (minimal) documentation, and it is not allowed to bypass the interfaces and tangle everything in a wild fashion.</p></div>
+<div class="paragraph"><p>Currently, the project can be separated into three layers, which could evolve into sub-projects: Backend, Proc-Layer, GUI. For each part, the dev most deeply involved and most knowledgeable will take on the sometimes necessary leadership and have the last word in case of quarrels. Currently, Cehteh cares for the Backend and Ichthyo headed for the Proc-Layer. We have postponed any work on the GUI for now and don&#8217;t participate in GUI toolkit discussions. If there is a dev willing to care for the GUI, collect proposals, care for usability and the users needs and finally code it up, then he will the one to decide what toolkit to use.</p></div>
+<div class="paragraph"><p>We plan to make the discussion about GPL v3 a point on the agenda of the next meeting.</p></div>
+<h3 id="_monthly_meetings">Monthly meetings</h3><div style="clear:left"></div>
+<div class="ulist"><ul>
+<li>
+<p>
+make it thursday, not friday
+</p>
+</li>
+<li>
+<p>
+time for now 21:00 GMT&#8201;&#8212;&#8201;if some (potential) participants have problems with this time, please speak up (maybe alternating times?)
+</p>
+</li>
+<li>
+<p>
+write a short status report for each mayor part <em>prior</em> to the meeting (saves us time). Maybe add an TODO list there
+</p>
+</li>
+<li>
+<p>
+go through the open issues for the design process drafts
+</p>
+</li>
+<li>
+<p>
+publish a protocol of each meeting on the (Cinelerra-CV, LibOpenvideo) Mailinglists, in the TiddlyWiki and on pipapo.org
+</p>
+</li>
+<li>
+<p>
+News, Protocols and the agenda of the next meeting can be found at the <a id="pipawiki-page|http://www.pipapo.org/pipawiki/Lumiera/MonthlyMeetings"></a>
+</p>
+</li>
+<li>
+<p>
+next meeting on first Thursday in March (6.3.2008)
+</p>
+</li>
+</ul></div>
+<h3 id="_who_works_on_what_what_are_the_short_term_goals_what_tasks_are_open">Who works on what, what are the short term goals, what tasks are open?</h3><div style="clear:left"></div>
+<div class="paragraph"><p><strong>Ichthyo</strong> works on the processing layer. Current goal is to get the core of the builder fleshed out. Next goal is to create a clip object (dummy), add it to the EDL, hand the EDL over to the builder and let the builder make the first (preliminary) render nodes. (note: left many details for later).</p></div>
+<div class="paragraph"><p>Ichthyo started coding his design draft and things seem to work out as intended. Some Keywords: Have a high-level model and a low level model. The former is comprised of the objects in the Session edited by the user, the latter is a network of completely configured render nodes, employing the same pull model as in Cinelerra-2. In between sits the builder, translating high-level into low-level. This translation is done on demand (not for every frame).</p></div>
+<div class="paragraph"><p>Current state in this part is: basic asset manager is done, asset objects (forming a hierarchy) can be created and will be registered automatically, it is possible to create a <tt>clip-MediaObject</tt> from a media asset (without caring for any details regarding multichannel clips). Some support lib components are written, Session and data holders start up on demand and shutdown cleanly. The test suite is the only interesting executable, and this will remain so for quite some time. Currently writing the first parts of the builder.</p></div>
+<div class="paragraph"><p>Further plans/ideas: Ichthyo is rather determined to embed a Prolog interpreter (YAP Prolog) to handle all sorts of configuration queries in a rule-driven fashion. Things Ichthyo can&#8217;t do in the near future: caring for session loading/saving serialisation plus storage backends, caring for a DB based implementation of the asset manager and integration with production support software, target the scheduler which will receive any edit operations initiated from the GUI.</p></div>
+<div class="paragraph"><p><strong>Cehteh</strong> is currently working on webgit, which is somewhat related inasmuch it will make small contributions to the mob repository much simpler. Previously he started with some foundation and support facilities. He plans to come back to the Backend implementation in about two weeks. The Backend is intended to handle all media (and even meta-)data as generalized frames. The render nodes network created by the Proc-Layer is completely stateless and all data is served from below. While it will be possible to address and access individual data within a frame (e.g. audio samples), frames are the smallest unit for memory and cache management. No plans to use a tiled memory model or to support frames larger than aprox. 20-40% of the available RAM.</p></div>
+<div class="paragraph"><p>Cehteh&#8217;s design plan includes a scheduler to organize the access to the raw data, monitor the timings and prefetch data as needed. This scheduler will be configurable via quality preferences (<em>need realtime</em>, <em>need perfect quality</em>). Further, there will be an elaborate caching scheme trying hard to avoid re-rendering any frames already calculated previously. Temporary data will be backed by files and thus swapped out&#8201;&#8212;&#8201;this swapout and size of temporary data is to be monitored and adjusted according to the current load&#8201;&#8212;&#8201;and all temporary data is kept as most-recent-used cache discipline. Incoming and outgoing footage shall mostly be handled by using mmaped buffers. The rationale is to avoid unnecessary copy from kernel to user space and wasting memory for an additional in-kernel buffer. Writing via a mmapped buffer is little more tricky; there will be a in-place writing which is used for indices and other precalculated data which needs updates, and the processing layer can query write buffers which are actually a small cache/ring and then comited to the file. Basically, mmapping is a clean solution if you can design for it, and it&#8217;s portable (posix).</p></div>
+<div class="paragraph"><p>Things to do: object serialisation backend is sometime on Cehteh&#8217;s schedule, but that&#8217;s ahead and if someone else helps or takes over it would be OK. Even more true for a DB based backend for the asset manager.</p></div>
+<div class="paragraph"><p><strong>Gmerlin</strong> plans to implement grayscale support for GAVL, so the upper layers can store arbitrary data in it.</p></div>
+<div class="paragraph"><p><strong>about multithreading</strong>: since the render nodes are stateless they can be driven in multiple threads (but inter frame dependencies need to be resolved/serialized). Mostly the backend manages threads and does that quite conservatively (compared to Cinelerra-2 which massively creates separate threads for small tasks). Any edit operations initiated from GUI go to a scheduler in the middle layer, which enqueues and effectively serializes operations done to the <em>media objects</em> in the high-level model. The editing operations themselves are <em>not threadsafe</em> by design, they rely on being scheduled correctly. The builder is triggered from this Proc-Layer scheduler and starts in one separate thread, and when done, we swap whole parts of the render nodes network and then the backend can re(start) rendering as needed.</p></div>
+<h3 id="_the_naming_discussion">The naming discussion</h3><div style="clear:left"></div>
+<div class="paragraph"><p>The discussion looks healthy so far&#8230; People can add new proposals on the <a href="http://www.pipapo.org/pipawiki/Lumiera/Names">pipawiki NOTE:LINK</a>. intersting names are still coming in, so we should just let the name-choosing game go on for a while. And, btw, we <em>can</em> depart from beeing similar to Cinelerra ;-)
+Let&#8217;s say, we need a person volonteering to guide/moderate the selection, going over the list and scratching inammprobiate ones. Criteria for good names being:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+should not be an existing project
+</p>
+</li>
+<li>
+<p>
+should be "googleable"
+</p>
+</li>
+<li>
+<p>
+should not be offensive
+</p>
+</li>
+<li>
+<p>
+should have one of the free top level domains (<tt>.net</tt>, <tt>.org</tt>)
+</p>
+</li>
+<li>
+<p>
+should be compatible with educational institutions (sorry, no pr0nedit :)
+</p>
+</li>
+<li>
+<p>
+should not obviously collide with trade marks
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><a id="protocol-developer-meeting-20080306"></a></p></div>
+</div>
+<h2 id="_protocol_developer_meeting_2008_march_06">Protocol Developer Meeting 2008 March 06</h2>
+<div class="sectionbody">
+<div class="ulist"><div class="title">21:00 - 23:30 GMT on #openvideo, participants:</div><ul>
+<li>
+<p>
+hermanr
+</p>
+</li>
+<li>
+<p>
+cehteh
+</p>
+</li>
+<li>
+<p>
+ichthyo
+</p>
+</li>
+<li>
+<p>
+Plouj
+</p>
+</li>
+<li>
+<p>
+SimAV
+</p>
+</li>
+<li>
+<p>
+akirad
+</p>
+</li>
+<li>
+<p>
+_MMA_
+</p>
+</li>
+<li>
+<p>
+rgareus
+</p>
+</li>
+<li>
+<p>
+ddennedy
+</p>
+</li>
+<li>
+<p>
+edrz
+</p>
+</li>
+<li>
+<p>
+anewcomb
+</p>
+</li>
+<li>
+<p>
+gmerlin
+</p>
+</li>
+<li>
+<p>
+oracle2025
+</p>
+</li>
+<li>
+<p>
+gisle
+</p>
+</li>
+</ul></div>
+<h3 id="_commencement">Commencement</h3><div style="clear:left"></div>
+<h4 id="_jobs_for_the_meeting">Jobs for the meeting</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+cehteh writes the protocol
+</p>
+</li>
+<li>
+<p>
+hermanr does chairman
+</p>
+</li>
+</ul></div>
+<h4 id="_recurrences_since_the_last_meeting">Recurrences since the last meeting</h4>
+<div class="paragraph"><p>We concluded there are no leftovers</p></div>
+<h3 id="_go_through_ideas_and_drafts_in_design_process">Go through Ideas and Drafts in design process</h3><div style="clear:left"></div>
+<h4 id="_idea_time_handling">Idea: time_handling</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/time_handling">http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/time_handling</a></p></div>
+<div class="paragraph"><p>Point 1 is superseded by using gavl.</p></div>
+<div class="paragraph"><p>Points 2 and 3 are still valid.</p></div>
+<div class="paragraph"><p><strong>Ichthyo</strong> asked gmerlin if there are any problems according gavl for the points 2 (position of frames) and 3 (position for keyframes and automation). Gmerlin acknowledges that he doesnt see any problems.</p></div>
+<div class="paragraph"><p><strong>Oracle2025</strong> brings interlacing on topic, "are you aware that automations and keyframes could/should also apply to fields?" We agree that this must be handled in interlacing, a frame is a pair of 2 subsequent fields.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Refactor the proposal according to the discussion and work it out, make it draft then. Discuss about it on the next meeting</p></div>
+<h4 id="_idea_unit_tests_in_python">Idea: Unit tests in Python</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/UnitTests_Python">http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/UnitTests_Python</a></p></div>
+<div class="paragraph"><p>We have a testsuite based on cehtehs <tt>test.sh</tt> which superseedes this proposal.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Drop it.</p></div>
+<h4 id="_idea_todo_lists">Idea: Todo Lists</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/TodoLists">http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/TodoLists</a></p></div>
+<div class="paragraph"><p>This Idea is in a very early state an not yet mature.</p></div>
+<div class="paragraph"><p><strong>Cehteh</strong> explains, "I want something which doesn&#8217;t need much human care and i want one big <em>milestones</em> thing and a small <em>mini-task</em> thing." Ichthyo refines this as <em>Roadmap</em> and <em>Near time task list</em>. We agree that this shall not be too strict. There are some ideas floating, like adding this things to the testsuite or use the wiki. Ichthyo shows how he uses the tiddlywiki&#8217;s task macro [NOTE: link removed, tiddlywiki is unused]. He likes it but doubts its usefulness when it is used without guessing the hours/days of work.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+We use the Tiddlywiki task macro thing for now.</p></div>
+<h4 id="_draft_ccodingstyleguide">Draft: CCodingStyleGuide</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/CCodingStyleGuide">http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/CCodingStyleGuide</a></p></div>
+<div class="paragraph"><p>Ichthyo tells that the discussion on the wiki page made this clear now. Cehteh explains that he uses this style with success for diffrent projects. We make clear that this is meant for C, in C++ we use namespaces. Overall we agree that code shall be self-documenting.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Make it final.</p></div>
+<h4 id="_draft_developmentframework">Draft: DevelopmentFramework</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/DevelopmentFramework">http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/DevelopmentFramework</a></p></div>
+<div class="paragraph"><p>Cehteh explains that he will transfer this propoal to a tiddlywiki covering compatibility guides and dependencies. We conclude that this wiki must reflect the actual practice (NoBug, Doxygen, test.sh) despite the proposal is not concrete yet.</p></div>
+<div class="paragraph"><p>A short discussion about build systems came up, we still use autotools and scons in parallel, delaying the decision later. oracle2025 mentioned that scons could be used for development and autotools for release. No decision about that everyone has different opinions. But we agree that it works as is.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Cehteh will make the proposed wiki which shall be maintained to reflect the state and this topic will be finalized by that.</p></div>
+<h4 id="_draft_skills_collection">Draft: Skills Collection</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/SkillsCollection">http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/SkillsCollection</a></p></div>
+<div class="paragraph"><p>This might be only useful if there are more developers working on the project.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Leave in draft state for now.</p></div>
+<h4 id="_draft_architecture_overview">Draft: Architecture Overview</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/ArchitectureOverview">http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/ArchitectureOverview</a></p></div>
+<div class="paragraph"><p>Ichthyo drawn a diagram showing the planned architecture. Cehteh raises concerns about codecs/plugins/effects in backend. After that there was some discussion about details. Cehteh suggests to place plugins in a extra box, gmerlin suggests that plugins don&#8217;t fit into the diagram, there should be filters, sources,..; Followed by some more discussion, showing that we basically agree and understand the design but the drawing needs some refinements.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Good idea, needs some refinements, work in progress.</p></div>
+<h3 id="_call_for_design">Call for Design</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Ichthyo explains that he wants the overall design a bit more formalized. He put this topic on the agenda to remind that we have to work it out in DesignProcess and already started to make some design proposals.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Things need to be worked out in DesignProcess, take a look and review it.</p></div>
+<h3 id="_naming">Naming</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Raffa, Velmont, goibhniu and others collected and managed proposed names past weeks which finally ended in a community voting. Results are at <a href="http://www.cs.cornell.edu/w8/~andru/cgi-perl/civs/results.pl?id=E_9fad0d1d10c23d38">http://www.cs.cornell.edu/w8/~andru/cgi-perl/civs/results.pl?id=E_9fad0d1d10c23d38</a>
+<strong>Lumiera</strong> won, Lumiera.org is free and no one of in this meeting has objections against this name. Velmont offers to register and pay for the lumiera.org domain which will be hosted on our own server (see topic below). Hermanr raises concerns if it is ok when the name is registered on another site and by another person than the server, cehteh explains that he like this distribution where doable and no one other objects. Ichthyo asks about a short name for Lumiera which will be used for C++ namespaces and such kinds. After a short discussion we agree that we use the full name and no abbreviation. We now have to rename the source and the wiki. Anyone renames the sourcecode where he is responsible for. Cehteh will go over the pipapo.org wiki and rename things.</p></div>
+<div class="paragraph"><p>Finally we express our great thanks to the people who put the efforts into the name selection, thanks raffa, Velmont, goibhniu &amp; co.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+<strong>Projectname is Lumiera</strong>, we have a lot things to rename.</p></div>
+<h3 id="_project_server_setup_organization_administration">Project Server, setup, organization, administration</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Some people gathered together and rented a server at <tt>hetzner.de</tt> which will host some free project pages and personal sites. Cehteh is the one who signed for the server and officially respobsible for it.</p></div>
+<div class="paragraph"><p>The server is split into isolated <tt>vservers</tt> which are created as needed. Idea is to work cooperatively to get the best out of its resources.</p></div>
+<div class="paragraph"><p>For our projects (cinelerra.org and lumiera.org) we now need volunteers who help setting it up and administrating things. Velmont offered to help with lumiera.org, hermanr takes care of cinelerra.org, raffa will help with maintaining the webpages. oracle2025 will care for developer chroots, build and test environments. cehteh will make a page on pipapo.org which reflects the current server setup <a href="http://www.pipapo.org/pipawiki/RootServerSetup">http://www.pipapo.org/pipawiki/RootServerSetup</a> . There are still a lot jobs to do!</p></div>
+<div class="paragraph"><p>Cehteh asked about how to manage emergency root access on the host/root server when he is unreachable. There where several suggestions between one root key for all who pay for the server to shared key schemes. We finally agreed that anyone who payed for the server can send a ssh key to ssh to be registered for emergency access.</p></div>
+<div class="paragraph"><p>The concrete server setup will be worked out next days. Ideas are one frontend proxy and a shared nameserver. A shared nameserver, A developer vserver shared between all developers. Maybe a shared mail server.</p></div>
+<div class="paragraph"><p>Hermanr asked about how to handle distribution of large media files. There was some discussion about bittorrent vs http. We concluded to work that out as needed.</p></div>
+<div class="paragraph"><p>In the forthcoming discussion about cehteh stresses that, "it is a public server, if you place confidential information unencrypted on it, its you fault." Ssh keys shall be kept secret by the users but we can&#8217;t enforce policies on those.</p></div>
+<div class="paragraph"><p>Ichthyo asks about how to setup lumiera.org (wiki?), oracle2025 suggests webgit, cehteh explains that webgit isn&#8217;t ready yet but should be useable in a few days (pipapo.org will use that too). Velmont suggest a <em>real</em> website for the time when non-developers want to use it. Git will be set up on lumiera.org the same way as it is currently set up on pipapo.org.</p></div>
+<div class="paragraph"><p>Hermanr asked Velmont about some help moving the bugs.cinelerra.org over, this might be little challenging since it needs an MTA and other things.</p></div>
+<div class="paragraph"><p>Ichthyo asks about keeping the Lumiera project pages on pipapo.org until the server is ready, this is ok.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+ We have our own server which now needs volunteers for maintenance. The projects will slowly move there, until ready Lumiera stays on pipapo.org.</p></div>
+<h3 id="_gpl3_pros_cons_license_rationale">GPL3 pros cons, license rationale</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Ichthyo and cehteh would like to investigate a license change to GPLv3, neither of us has experience with problems this
+might raise. Questions are if we lock us out from potential libraries which are GPLv2 only or lock out possible contributors because of unforeseen patent clauses. The others here thinking that "GPLv2 or later" would be most-compatible. Gmerlin tells that he uses some "GPLv2 only" mplayer code in gavl which is itself "GPLv2 or later". Cehteh explains that "GPLv2 only" code is a problem, where "GPLv2 or later" is not. Ichthyo raises concerns that the Support library may need to be LGPL, cehteh mentions that it would likely be enough if we only apply that to the plugin-loader. After all it turns out that there is a lot of confusion, misunderstanding and interpretation used with licenses and no one of us knows for sure. Finally we conclude that the interpretation and license enforcement is ruled by the copyright owner.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Learn more about GPLv3, use GPLv2 or later and propose to switch to GPLv3 when we are ready to do public beta releases when possible.</p></div>
+<h3 id="_next_meeting">Next meeting</h3><div style="clear:left"></div>
+<div class="paragraph"><p>The next meeting will be at thuesday 3rd april 21:00GMT (if not rescheduled see below).</p></div>
+<div class="paragraph"><p>Ichthyo tells that Martin Ellison wrote he couldn&#8217;t attend because of the time. So again we made a short discussion about changing/alternating timings to allow people in downunder/japan to attend. They have to speak up an make time suggestions.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Next meeting 3rd april 21:00GMT. But Aussies, please speak up if you want the time changed!</p></div>
+<div class="paragraph"><p><a id="protocol-developer-meeting-20080403"></a></p></div>
+</div>
+<h2 id="_protocol_developer_meeting_2008_april_03">Protocol Developer Meeting 2008 April 03</h2>
+<div class="sectionbody">
+<div class="ulist"><div class="title">21:00 - 23:30 GMT on #lumiera, participants:</div><ul>
+<li>
+<p>
+cehteh
+</p>
+</li>
+<li>
+<p>
+gmerlin
+</p>
+</li>
+<li>
+<p>
+hermanr
+</p>
+</li>
+<li>
+<p>
+ichthyo
+</p>
+</li>
+<li>
+<p>
+joelholdsworth
+</p>
+</li>
+<li>
+<p>
+johncoswell
+</p>
+</li>
+<li>
+<p>
+rgareus
+</p>
+</li>
+<li>
+<p>
+sakalli
+</p>
+</li>
+</ul></div>
+<h3 id="_commencement_2">Commencement</h3><div style="clear:left"></div>
+<h4 id="_jobs_for_the_meeting_2">Jobs for the meeting</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+sakalli writes the protocol, ichthyo will help reviewing it
+</p>
+</li>
+</ul></div>
+<h4 id="_recurrences_since_the_last_meeting_2">Recurrences since the last meeting</h4>
+<div class="paragraph"><p>We concluded there are no leftovers and currently no Drafts from the design process to discuss</p></div>
+<h3 id="_call_for_volunteers">Call for volunteers</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Which tasks are to do?  How can we interest people&#8230;?</p></div>
+<div class="paragraph"><p>There was a sense that there are people willing to help but they might need direction or cannot do actual coding. But there is also a lot of tasks that could be done by beginners and non-programmers. These tasks are important and if someone who is not a programmer is willing to take them on that leaves more time for the programmers.</p></div>
+<div class="ulist"><div class="title">Examples of such tasks</div><ul>
+<li>
+<p>
+Protocol writing
+</p>
+</li>
+<li>
+<p>
+maintaining to do lists and isolating tasks
+</p>
+</li>
+<li>
+<p>
+constant code and documentation review
+</p>
+</li>
+<li>
+<p>
+unit/functional testing
+</p>
+</li>
+<li>
+<p>
+header file <tt>task force</tt>&#8201;&#8212;&#8201;some fundamentals discussed by the developers on libopenvideo should find their way into basic .h files
+</p>
+</li>
+<li>
+<p>
+installing and maintaining project tracking and automated builds/tests on the server
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>See <a href="http://www.lumiera.org/wiki/todo.html#Tasks">http://www.lumiera.org/wiki/todo.html#Tasks</a></p></div>
+<div class="paragraph"><p>It was also noted that at current phase some basic development is still needed before we can accommodate a large number of coders doing small tasks and for now we need some subsystem owners. For GUI for example.</p></div>
+<div class="paragraph"><p>To make it easier for beginners to get aquainted with the program it was decided that one <strong>official Lumiera GIT repository</strong> should be established.</p></div>
+<h3 id="_project_announcements_registration">Project announcements/registration</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Freshmeat, Gnu, etc&#8230; any takers?</p></div>
+<div class="paragraph"><p>The discussion was about advertising the project on various sites. There were some concerns raised that it is too early to do too much publicity at the moment. That the right time should be shortly before the first public release. But there is also some value in registering to the project in planning/alpha stage to interest people such as prospective coders. It was noted that the <a href="http://www.linux.com/feature/126441">article on linux.com</a> resulted in a lot of people contacting ichthyo and cehteh. <a href="http://piksel.no/pipermail/piksel/2008-January/003328.html">"I believe in Cinelerra"</a> by Leo Germani also generated a lot of traffic by developers. Some level of presence on mailing lists would be good although not too much just enough to indicate the project is going on.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Volunteer needed to coordinate publicity (not overly urgent, but helpful)</p></div>
+<h3 id="_informal_talk_about_the_gui">Informal talk about the GUI</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Firstly, as SimAV was not able to be present during the meeting a proposal by him was relayed by Ichthyo: GUI and backend should be completely separated and communicate via pipes. It was agreed that the GUI should be detached but some higher level message protocol rather than bare pipes should be used.</p></div>
+<div class="ulist"><div class="title">Some comments</div><ul>
+<li>
+<p>
+cehteh standalone gui is a nice to have, but implementation details have to be worked out
+</p>
+</li>
+<li>
+<p>
+gmerlin Video playback can be separated in a separate X connection
+</p>
+</li>
+<li>
+<p>
+cehteh suggests to start with an conventional, attached gui and just keep it in mind to make it detachable later
+</p>
+</li>
+<li>
+<p>
+rgareus IMHO you want to share memory for the video-frame buffer beween the player and backend&#8201;&#8212;&#8201;with pipes you&#8217;ll go the video-jack way.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong>joelholdsworth</strong> is a new developer in the group and had showed interest in developing the GUI. he stated that he is interested in seeing a GUI that uses popular toolkits and that plays by the standards to create a consistent UI with the rest of the free desktop. For this reason he was advocating using  GTKmm. There was no direct objections to GTKmm. Generally, there seems some preference for GTK. (Note this doesn&#8217;t mean GNOME). Cehteh advocates the idea to use Lua-gtk, i.e. writing the GUI in a clean and lightweight scripting language.</p></div>
+<div class="paragraph"><p>Cario was suggested to be used for implementing the canvas in the timeline view.</p></div>
+<div class="paragraph"><p>The gui should provide a skeleton. Timeline and canvas should be controllable and extensible by plugins. Tracks can be nested. Use tiling windows and dockeable views and tools palettes. For example some configuration within session/renderpipeline may cause some pluggable elements to be added to the gui. A fader or a toggle/icon and so forth. Some plugins might render additional output (e.g. in previews). A video track renders thumbnails, automation curves on top.</p></div>
+<div class="paragraph"><p>Workflow is another important aspect to take into account in the design. A lot of information needs to come from editors and users in the design process.</p></div>
+<div class="ulist"><div class="title">Different thoughts about the workflow</div><ul>
+<li>
+<p>
+Should not make a predefined workflow. Just produce a tool that can be adapted to different workflows. It can be predefined, but should not be fixed.
+</p>
+</li>
+<li>
+<p>
+We dont have the resources to develop a <em>workflow</em> in the formal manner, we will go the <em>propose and comment</em> route.
+</p>
+</li>
+<li>
+<p>
+We should take the best ideas from popular competing products such as Final Cut Pro, AVID, Premiere plus After Effects.
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">Customisation is deemed important. Some points brought up in the discussion</div><ul>
+<li>
+<p>
+sakalli: would be great if we could provide a fcp configuration and a avid configuration besides the default configuration as well. That could lure a lot of users quickly. On the other side, too much flexibility can be be a problem as well.
+</p>
+</li>
+<li>
+<p>
+cehteh: yes .. but such things are prolly costly to setup .. we need volunteers for anything optional
+</p>
+</li>
+<li>
+<p>
+Customization should be possible without recompile, but not too cheap.
+</p>
+</li>
+<li>
+<p>
+There should be a working skeleton or some fixed anchor but gui operations should be bound to a scripting language to achieve customization.
+</p>
+</li>
+<li>
+<p>
+The whole gui in a script with some performance critical widgets coded in C/C++
+</p>
+</li>
+<li>
+<p>
+Some parts should just be customizable, other parts should be kept fixed.
+</p>
+</li>
+<li>
+<p>
+cehteh suggested to start out by making a <em>high level</em> description with no language/toolkit in mind .. what widgets do we need etc and after that to work on the skeleton mockup.
+</p>
+</li>
+<li>
+<p>
+cehteh / hermanr: Lumiera should allow to choose theme independently from desktop .. because what you have as your desktop-theme doesn&#8217;t suit for video editing in many cases &#8230; see ardour
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Ichthyo brings up the role of customization for the middle layer and gives an overview of his plans for the new participants.  He had good experiences with a rule based aproach in various projects. He wants to embed a Prolog interpreter that can answer to "configuration queries".  There is a <tt>builder</tt> component in the middle layer to derive the render nodes graph based on a <em>high level model</em>, which is visible to the user (in the GUI) and based on these configuration queries.</p></div>
+<div class="paragraph"><p>Rationale for using prolog is: The rules are very readable because they rather represent facts and relations, not the way "how dings are done" but the way "how things are related". Example: how to configure some effects when the footage is interlaced. Additionally, we want to have some global swithces, which could control these rules, like "I want maximum quality", or "I want as much as possible set up automatically". The prolog rules are stored in the session and can be editd by advanced users. Of course, there is a set of basic rules. This aspect of customisation isn&#8217;t exactly a GUI issue but it would have consequences for the GUI.</p></div>
+<div class="ulist"><div class="title">Some discussion</div><ul>
+<li>
+<p>
+joelholdsworth: so we just need a way of exposing properties. This is reasonably straightforward when all you want is value, colour, string etc.
+</p>
+</li>
+<li>
+<p>
+rules within the middle layer/session could bind to some properties exposed in the GUI
+</p>
+</li>
+<li>
+<p>
+gmerlin joelholdsworth: Agree, but point out that this can become difficult
+</p>
+</li>
+<li>
+<p>
+cehteh joelholdsworth: skeleton and plugins who attach into some gui areas, so you can add custom widgets
+</p>
+</li>
+<li>
+<p>
+ichthyo: also the ability to attach <em>tags</em> to various objects, so the rules can bind on those tags
+</p>
+</li>
+<li>
+<p>
+cehteh: maybe a standard set of widgets, not really completely custom ones (gmerlin agrees)
+</p>
+</li>
+<li>
+<p>
+joelholdsworth: probably you need to be able to do both well
+</p>
+</li>
+<li>
+<p>
+joelholdsworth in many apps the value/colour/string set works perfectly well, but in luminierra the controls will likely need to be much richer
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">Some brainstorming points about usability</div><ul>
+<li>
+<p>
+We need a realy good bezier widget for all sorts of curves.
+</p>
+</li>
+<li>
+<p>
+Faders that can be grabbed everywhere are nice like  like ardours and Blender faders. Or others which have no big knob
+</p>
+</li>
+<li>
+<p>
+The controls in blender&#8217;s node view would be a good modal to copy (not advocating GL UI, just using widgets and concepts).
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">One extra point</div><ul>
+<li>
+<p>
+we have agreed to make all of the big interfaces between the layers as plain C interfaces, because this is the most widely supported common denominator.
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">Conclusion GUI</div><ul>
+<li>
+<p>
+<strong>joelholdsworth</strong> is now the official GUI maintainer for Lumiera!
+</p>
+</li>
+<li>
+<p>
+sakalli, hermanr, ichthyo announced interest in contributing to discussions about GUI, workflows and usability. gmerlin noted that he knows some gtk secrets and is willing to help out here too.
+</p>
+</li>
+</ul></div>
+<h3 id="_froscon_application">Froscon application</h3><div style="clear:left"></div>
+<div class="paragraph"><p><a href="http://www.froscon.org">Froscon</a> is a small nice german open source exhibition that is very very technical oriented. Cehteh will be there as well as Ichthyo. Question is wether we should have a booth, perhaps together with some other interested media projects. Could ask Richard and the ffmpeg/mplayer people. End of call for papers is in june.</p></div>
+<div class="paragraph"><p>We made no decision about official presence but most likely there will be a developer meeting if nothing else.</p></div>
+<h3 id="_timecode_metadata_discussion">Timecode metadata discussion</h3><div style="clear:left"></div>
+<div class="paragraph"><p>This Discussion started out on the libopenvideo list: The question was wether we agree on one uniform format solution from decoder up to app level regarding timecode. And what this format would be: arithmetic or struct type. Regarding metadata (including type of timecode) the question is if we should work out a rather fixed data format, or go the route towards rather open description records.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Gmerlin does it the way it fits best for within the decoder, and Lumiera uses a more uniform time format for representing timecode in the higher app layers. Conversion functions will be concentrated in a library. Regarding metadata we will investigate further.</p></div>
+<div class="paragraph"><p><em>A (shortended) digest of the timecode and metadata discussion is attached below</em></p></div>
+<h3 id="_next_meeting_2">Next meeting</h3><div style="clear:left"></div>
+<div class="paragraph"><p>The next meeting will be at thursday 8th may 21:00GMT</p></div>
+<h3 id="_timecode_discussion">Timecode discussion</h3><div style="clear:left"></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>12:51 cehteh gmerlin: did you read my last mail about generalization of metadata?
+12:51 cehteh key/value pairs
+12:51 gmerlin not sure about that
+12:51 cehteh i am pretty sure that i want that in lumiera
+12:52 cehteh if gavl does that for us it would be even better
+12:52 gmerlin first of all 2 different things:
+12:52 gmerlin 1. arithmetic &amp;lt;-&amp;gt; struct
+12:53 gmerlin 2. Generic &amp;lt;-&amp;gt; format specific
+12:53 cehteh arithmetic for sure
+12:53 gmerlin On the decoder API side, I want to export ideally only one type
+12:54 gmerlin No no SMPTEXXX and ISO999908098
+12:54 cehteh will that be attached to the frames in a intrusive way?
+12:54 cehteh i rather leave the attaching up to the application
+12:54 gmerlin intrusive?
+12:55 cehteh struct frame { uint64_t timecode; }   vs...
+12:55 cehteh struct frame { struct metadata* something; }
+12:55 cehteh or even vs something done at a api level
+12:56 gmerlin struct lumiera_video_frame { gavl_video_frame_t * f; uint64_t timecode};
+12:56 gmerlin Or add timecodes to gavl_video_frame_t
+12:57 cehteh struct lumiera_video_frame { gavl_video_frame_t * f; struct metadata* timecode_n_stuff; }
+12:57 ichthyo so I support a  struct metadata*
+12:58 cehteh ichthyo: timecodes might not be regular .. they should be optional, but anyways they dont cost when using an arithmetic type
+12:58 cehteh i mean thats the purpose of timecodes .. to tag every frame and dont make assumptions that your footage is perfect
+12:58 ichthyo but a struct metadata* would rather mean to keep it out of basic GAVL and have a libmetadata -- which may be integrated with GAVL -- right?
+12:59 cehteh someome may have stolen a frame :P
+12:59 cehteh thats gmerlins decision ...
+12:59 gmerlin I'm against gavl integration of metadata
+12:59 gmerlin gavl has a clear scope: Number crunching
+01:00 cehteh gmerlin: you somehow have to pass it from the decoder to the application
+01:01 cehteh i would prefer to introduce some sidechannel
+01:01 gmerlin Yes, gmerlin_avdecoder will provide a separate function for getting the next timecode
+01:01 gmerlin bgav_get_next_timecode()
+01:01 cehteh gavl_get_frame (gavl_frame* place the frame here, metadata* place metadata there)
+01:01 gmerlin or: bgav_timecode_from_pts()
+01:03 gmerlin Some higher MXF profiles allow changing timecode parameneters in one stream
+01:06 gmerlin It's sometimes impossible to separate demuxers and codecs
+01:06 gmerlin better have them together in one lib
+01:06 cehteh actually i would like to cache gavls internal states into the backend
+01:08 gmerlin Ok, so timecodes are YYYYMMDDHHMMSSFF as int64_t
+01:08 cehteh the indexing is something i prolly have some words about
+01:09 cehteh timecodes are uint64_t as microseconds
+01:09 cehteh well for lumiera :-P
+01:10 cehteh YYYYMMDDHHMMSSFF as int64_t   isnt that much better than a struct :P
+01:11 ichthyo now, IMHO its mostly up to gmerlin to decide how it fits into GAVL
+01:11 cehteh ack
+01:11 gmerlin Not gavl
+01:11 ichthyo gmerlin?
+01:11 gmerlin gmerlin avdecoder yes.
+01:11 cehteh in lumiera we will use usecs
+01:11 ichthyo yes
+01:12 ichthyo we will have a conversion function somewhere
+01:12 gmerlin And will it include a calendar date?
+01:12 cehteh doing it only once (avdecoder-&amp;gt;usec) makes some sense
+01:12 gmerlin usecs since when?
+01:12 ichthyo either, we get directly usecs from avdecoder, if this fits in for gmerlin,
+01:12 ichthyo or we'll get the format which works best for him and we do the conversion ourselves
+01:12 cehteh defined elsewhere
+01:12 cehteh reel-start or absolute time or whatever
+01:13 ichthyo also, what sort of timecode this was based on (drop frame or not)
+01:13 cehteh gmerlin: thats a important point .. just uint64_t does not suffice
+01:13 cehteh it needs a tag describing what kind of timecode was used
+01:14 cehteh no matter how you encode it
+01:14 cehteh and iirc there are quite some timecodes
+01:14 ichthyo because in this respect richard was right: we need to be able to reprocuce any value 1:1
+01:14 cehteh yep
+01:15 cehteh further i want to be able to convert between any kind of timecode in a fingersnip
+01:15 gmerlin ichthyo: and that's impossible with usecs
+01:15 cehteh gmerlin: its not
+01:15 ichthyo with usecs alone: agreed
+01:16 ichthyo with usecs + metadata it should be possible
+01:16 ichthyo modulo some extreme cases (high speed cams, weeks of footage....)
+01:16 cehteh yes .. you need framerate and other infos depending on the metadata
+01:17 cehteh you need to be careful to do the math right so that inverse functions dont drift
+01:17 gmerlin I'll export something lossless, which repduces MXF, DV and Quicktime timecodes losslessly
+01:17 gmerlin You can then do what you want with them :)
+01:17 cehteh thats why i would like to do it at only *one* place/library .. because its delicate and bugs are easier to spot/fix there
+01:18 ichthyo and then there is some api to get at the additional metadata
+01:18 cehteh yeah
+01:18 ichthyo and beyond that: lets devise a libmetadata
+01:18 cehteh just shove the data over .. YYYYMMDDHHMMSSFF as int64_t would be ok
+01:18 gmerlin Ok.
+01:18 cehteh we make a libmetadata (as part of our support lib)
+01:19 cehteh somewhat independent so that it can be spun out</tt></pre>
+</div></div>
+<h3 id="_about_metadata">About metadata</h3><div style="clear:left"></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>01:19 cehteh gmerlin: well .. how bout other metadata
+01:19 cehteh your decoder needs to pass that too
+01:20 gmerlin like?
+01:20 gmerlin Author, Artist title...
+01:20 cehteh some cameras encode shutter speed, focus, gain control, colour balance
+01:20 cehteh and other things
+01:20 gmerlin Hmmm
+01:20 gmerlin I think MXF exports some of these
+01:21 ichthyo wav files can have additional chunks; whats with flac?
+01:21 gmerlin flac has vorbis metadata
+01:21 ichthyo important for the more modern sound formats
+01:21 cehteh dunno .. just thinkin about pro codecs and raw film metadata
+01:21 ichthyo just wanting to point out: things to come here,
+01:22 ichthyo e.g for sound: what stream is what channel
+01:22 gmerlin Channel locations are handles by gavl
+01:22 gmerlin If you have a multichannel stream
+01:22 cehteh well .. note that there is per-asset metadata you want to pass .. and per frame metadata
+01:22 cehteh maybe even some more undiscovered cases :)
+01:23 cehteh did someone say this is easy??
+01:23 sakalli did any of you watch the video regarding red workflow that i sent to the mailing list? redcode raw holds everyting, asa, wb, etc...  hope lumiera will be able to facilitate that as well.
+01:23 ichthyo at some point I want to be able to support ambisonics
+01:24 ichthyo and maybe some day there will be wave field sysnthesis in more broad use
+01:24 cehteh the codec in the back needs to pass us these things else we cantb handle it
+01:24 gmerlin well, the easiest would be to extend bgav_metadata_t
+01:24 ichthyo rationale is: just be open
+01:24 cehteh gmerlin: maybe we need to investigate this things more, nothing needs to be decided now
+01:24 ichthyo ack
+01:25 cehteh see my key/value metadata proposal .. at some point maybe you make a complete sidechannel just for metadata
+01:25 cehteh decoder stuffs that in on demand and it is passed along with its own api like the bgav_timecode_from_pts()
+01:26 cehteh that way you dont need to touch it more than necessary
+01:26 gmerlin shouldn't that key/value stuff be unified with plugin parameters?
+01:27 cehteh for lumiera, maybe, maybe not
+01:27 ichthyo you mean: you have a common api for describing "values" ?
+01:27 cehteh some plugin parameters are determined by math functions
+01:27 gmerlin You have a key, a type and a value
+01:27 cehteh maybe for caching them
+01:27 cehteh the api might be unified .. but the storage not
+01:28 gmerlin why?
+01:28 ichthyo because any block of data could be in the metadata
+01:28 cehteh metadata which belongs to the frame coming from the decoder is const
+01:28 cehteh plugin parameters are volatile
+01:33 gmerlin One other point (but too late for it now) are audio timecodes. I'll adress that on libopenvideo
+01:33 cehteh we will write a little more sophisticated timecode library
+01:34 cehteh gmerlin: that should be unified :)</tt></pre>
+</div></div>
+<div class="paragraph"><p><a id="protocol-developer-meeting-20080508"></a></p></div>
+</div>
+<h2 id="_protocol_developer_meeting_2008_may_08">Protocol Developer Meeting 2008 May 08</h2>
+<div class="sectionbody">
+<div class="ulist"><div class="title">on #lumiera, participants:</div><ul>
+<li>
+<p>
+cehteh
+</p>
+</li>
+<li>
+<p>
+joelholdsworth
+</p>
+</li>
+<li>
+<p>
+ichthyo
+</p>
+</li>
+<li>
+<p>
+raffa
+</p>
+</li>
+<li>
+<p>
+WesLappy
+</p>
+</li>
+<li>
+<p>
+gmerlin
+</p>
+</li>
+</ul></div>
+<h3 id="_commencement_3">Commencement</h3><div style="clear:left"></div>
+<h4 id="_jobs_for_the_meeting_3">Jobs for the meeting</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+cehteh writes the protocol
+</p>
+</li>
+</ul></div>
+<h3 id="_webpage_infrastructure_maintenance">Webpage-Infrastructure, Maintenance</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Cehteh put this on topic because it&#8217;s really urgent to bring up some infrastructure to manage the information we produce.</p></div>
+<div class="paragraph"><p>The Lumiera pages on pipapo.org were always meant as intermediary solution. Pipapo.org gets much spam on the moinmoin wiki and cehteh expresses that he wants to move pipapo.org to a <a href="http://git.pipapo.org/uWiki.html">new infrastructure based on asciidoc and git NOTE:LINK</a> he created. This system is barely useable and needs lots of work to be completed. It would be nice to use it for Lumiera too, if the others agree. Maintaining and extending (scripting) needs someone who knows shell scripting and doesn&#8217;t need to be done by the core devs freeing their resources to work on Lumiera. Cehteh expresses that none of the people who proposed to help before showed up yet. WesLappy tells he might help (addendum not this week, because he is busy).</p></div>
+<div class="paragraph"><p>Next there was a suggestion by cehteh to convert the tiddlywikis to asciidoc. Ichthyo expresses that he likes the tiddlywikis, Joel mentions that they feel a little odd. Generally we all agree that they have some problems in sense of workflow and merging.</p></div>
+<div class="paragraph"><p>Ichthyo makes the suggestion to keep the tiddlywikis as scrapbook and build up <em>official</em> documentation based on their content in whatever-we-use-then (asciidoc) documentation system. All agree on this approach.</p></div>
+<div class="paragraph"><p>Back to the new wiki, cehteh suggests to make stricter access rules to prevent spam, "There will be a group of <em>Validated</em> people which following rules: only Validated people can edit general content and <em>Validated</em> people can add new people to <em>Validated</em> themselves." That means that we can have a lightweight self-administrating authentication where new people have to be introduced by someone who is already there.</p></div>
+<div class="paragraph"><p>Ichthyo suggests to send a reply to Serge G. who send an introduction to the cinelerra mailing list expressing that he would like to help.</p></div>
+<div class="paragraph"><p>Raffa will take care of content/design as much her time/knowledge permits.</p></div>
+<div class="ulist"><div class="title"><strong>Conclusion</strong></div><ul>
+<li>
+<p>
+We really need someone to help with the webpage scripting.
+</p>
+</li>
+<li>
+<p>
+Documentation needs to be well organized and moved over.
+</p>
+</li>
+<li>
+<p>
+Content of the pipapo.org moinmoin wiki should be moved over.
+</p>
+</li>
+<li>
+<p>
+The new website should be well organized with a nice looking frontpage
+</p>
+</li>
+<li>
+<p>
+All other documentation should be below that
+</p>
+</li>
+</ul></div>
+<h3 id="_whats_pending_in_designprocess">Whats pending in DesignProcess</h3><div style="clear:left"></div>
+<h4 id="_mistakestoavoid">MistakestoAvoid</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/MistakestoAvoid">http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/MistakestoAvoid</a> NOTE:LINK</p></div>
+<div class="paragraph"><p>rick_777 wrote a <tt>MistakestoAvoid</tt> page which explains some possible gotchas. We basically agree with most points there while we already decided to address some things differently than he suggested. One noteable difference is that we do not intent to provide a windows version of Lumiera, which was explained in serveral places. Cehteh added some comments to the page explaining some things.</p></div>
+<div class="paragraph"><p>nothing more to discuss in <em>Ideas</em>, we go over to <em>Drafts</em></p></div>
+<h4 id="_architectureoverview">ArchitectureOverview</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/ArchitectureOverview">http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/ArchitectureOverview</a></p></div>
+<div class="paragraph"><p>Cehteh suggests to put that drawing under version control, as <tt>.fig</tt>. Ichthyo explains that it is already a <tt>.SVG</tt> and that he does not like <tt>.fig</tt>.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+We agree to keep it as <tt>.SVG</tt>, add it to the repository and improve/complete it.</p></div>
+<h4 id="_gitsubmoduletransistion">GitSubmoduleTransistion</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/GitSubmoduleTransistion">http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/GitSubmoduleTransistion</a></p></div>
+<div class="paragraph"><p>Another suggestion made by cehteh is to make managing of subprojects within the sourcetree easier. Joel and ichthyo oppose that it is not really needed now and needs more understanding of git. Ichthyo suggests that the documentation might be separated into its own git, he further explains that the things are not settled yet and we don&#8217;t know if we will some rearrangements and movements of files between modules.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+We transform the documentation to a submodule and see how it works. Other things will be decided much later.</p></div>
+<h4 id="_globalinitialization">GlobalInitialization</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/GlobalInitialization">http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/GlobalInitialization</a></p></div>
+<div class="paragraph"><p>This topic is discussed and agreed on the DesignProcess page already.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+finalize it</p></div>
+<h4 id="_masterrepositorysetup">MasterRepositorySetup</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/MasterRepositorySetup">http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/MasterRepositorySetup</a></p></div>
+<div class="paragraph"><p>Setting up an master repository was decided on the last meeting. cehteh now set one up which also does some automatic, but intended fragile merging from subsystem maintainer branches.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+it updates automatically for the maintainers repo for conflict free fast-forwards
+</p>
+</li>
+<li>
+<p>
+it can always be overridden with explicit pushes
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The others agree on the setup.</p></div>
+<div class="paragraph"><p>Ichthyo stresses that maintainers shall watch that their <tt>master branch</tt> should compile cleanly and pass the testsuite always, test which are not operational should be tagged as PLANNED. We all agree&#8230;</p></div>
+<div class="paragraph"><p>Then a short discussion about building and synchronizing the docs follows. Problem is that docs build in maintainer branches are different for each branch, rsyncing them up to the server will always change a lot of things. We agree that the <em>official</em> docs shall be build from the <tt>LUMIERA/master</tt> repository, preferably on the <tt>devel</tt> vserver which has to be set up.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Make this final, setup build environment in the devel server and build docs there.</p></div>
+<h4 id="_nobugflags">NoBugFlags</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/NoBugFlags">http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/NoBugFlags</a></p></div>
+<div class="paragraph"><p>Defining a debugging control hierarchy. This is work in progress and cehteh explains that he works it out and deploys it, this depends on the GlobalInitialization decided earlier.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+accepted, finish and finalize it.</p></div>
+<h3 id="_further_technical_discussion">Further Technical Discussion</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Ichthyo asks how the GUI will be pulled up. Since he didn&#8217;t attend IRC discussions recently he has no information yet what&#8217;s going on. We explain him that we already made some discussions. Integrate the GUI into the build system probably linked as library, nothing finally decided yet. Communication will go over the plugin/interface facility (Plain C API). This things should be worked out and documented in DesignProcess.</p></div>
+<div class="paragraph"><p>Cehteh made a small tool <tt>./admin/headercheck</tt> which will gradually extended to proof that headers are sufficiently selfstanding.</p></div>
+<h3 id="_progress">Progress</h3><div style="clear:left"></div>
+<div class="paragraph"><p><strong>Cehteh</strong> finished low level file handling and working in mmaping and frameprovider next. When thats finished, the finalization of the Plugin loader and interface definition things is the most urgent thing.</p></div>
+<div class="paragraph"><p><strong>Ichthyo</strong> works on the builder internals and next on some sort of <em>connection manager</em>.</p></div>
+<div class="paragraph"><p><strong>Joel</strong> goes on with GUI programming and integrating it into the source tree next.</p></div>
+<div class="paragraph"><p>Gmerlin and cehteh discuss about how to handle the index files which avdecoder uses internally. cehteh would like to manage them in the Lumiera backend to, because filehandles are a precious resource. Gmerlin explains that this index files are just loaded and kept in memory. So this poses no problem for filehandle exhaustion. We will discuss this further via email.</p></div>
+<div class="paragraph"><p>Cehteh suggests that we should think about some kind of preferences/registry sometime next to store default configs.</p></div>
+<div class="paragraph"><p>Following a discussion about how messages are passed between GUI and core. Generally we will use the interfaces defined by the plugin system. Gmerlin says that he uses message queues in <tt>gmerlin</tt>, Joel requests that a lot of things should be done synchronous and he wants to avoid message queues. Cehteh suggests to use use the scheduler for GUI things too. For the parts where the GUI interacts with the high level proc model ichthyo and joel agree on working something (synchronous) out. Ichthyo stresses that the edit core is not threadsafe by design and relies on the backends scheduler. The underlying builder might sometimes to expensive for synchronous calls (ichthyo plans a rule system there) this needs to be worked out.</p></div>
+<div class="paragraph"><p>Ichthyo explains that the builder needs to detect cycles and check if the high level model is translateable into the low level model (in case plugins git removed and so on). Parts in the render graph which are not doable should be flagged as erroneous but not dropped since one doesn&#8217;t want to loose project information when loading a project on a machine with different installed plugins. In any case it should be possible that the GUI gets immediate synchronous feedback for such things.</p></div>
+<h3 id="_next_meeting_3">Next Meeting</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Next meeting is on thursday 5th June 21:00 UTC</p></div>
+<div class="paragraph"><p><a id="protocol-developer-meeting-20080605"></a></p></div>
+</div>
+<h2 id="_protocol_developer_meeting_2008_june_05">Protocol Developer Meeting 2008 June 05</h2>
+<div class="sectionbody">
+<div class="ulist"><div class="title">21:00 -23:15 UTC on #lumiera, participants:</div><ul>
+<li>
+<p>
+cehteh
+</p>
+</li>
+<li>
+<p>
+ichthyo
+</p>
+</li>
+<li>
+<p>
+joelholdsworth
+</p>
+</li>
+<li>
+<p>
+rcbarnes
+</p>
+</li>
+<li>
+<p>
+raffa
+</p>
+</li>
+</ul></div>
+<h3 id="_commencement_4">Commencement</h3><div style="clear:left"></div>
+<h4 id="_jobs_for_the_meeting_4">Jobs for the meeting</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Ichthyo writes the protocol
+</p>
+</li>
+</ul></div>
+<h4 id="_recurrences_since_the_last_meeting_3">Recurrences since the last meeting</h4>
+<div class="paragraph"><p>Nothing left over.  Seemingly, work is proceeding in all parts of the application.</p></div>
+<h4 id="_agenda">Agenda</h4>
+<div class="paragraph"><p>no urgent topics</p></div>
+<h3 id="_discuss_ideas_and_drafts_in_design_process">Discuss Ideas and Drafts in design process</h3><div style="clear:left"></div>
+<div class="paragraph"><p><em>There are no new design proposals and no proposals that can be finalized.</em></p></div>
+<div class="paragraph"><p>Ichthyo points out that he&#8217;s about to work out the details of some of his proposals, which are currently in <em>idea</em> state. Following that, most of the meeting is spent on discussing the details of two of these proposals.</p></div>
+<h4 id="_idea_design_the_render_nodes_interface">Idea: Design the Render Nodes interface</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/DesignRenderNodesInterface">Design of the render nodes interface NOTE:LINK</a></p></div>
+<div class="paragraph"><p><strong>Cehteh</strong> points out that, as we are in the pre-alpha phase, interfaces may be growing on-demand. Later on, interface versions will be numbered. If needed, we could add a special <em>draft</em> or <em>experimental</em> tag, or, alternatively, use the common numbering scheme, where odd major version numbers denote the development line of an interface.</p></div>
+<div class="paragraph"><p><strong>Ichthyo</strong> agrees, but adds he also meant <em>interface</em> in this proposal in a wider sense, like in "what do we need and require from a processing node". Knowing how generally Lumiera will handle the processing nodes while rendering helps him with defining and implementing the builder</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Currently in work. For now, grow interfaces on demand.</p></div>
+<h4 id="_idea_placement_metaphor_used_within_the_high_level_view_of_proc_layer">Idea: Placement Metaphor used within the high-level view of Proc-Layer</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/ProcPlacementMetaphor">Placement Metaphor in the Proc-Layer NOTE:LINK</a></p></div>
+<div class="paragraph"><p>In the course of the discussion, <strong>Ichthyo</strong> explains the rationale</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+one common mechanism for sticking objects together and putting them into the session
+</p>
+</li>
+<li>
+<p>
+either specify the <em>placement</em>-parameters (time, output destination, track) directly, link to another object&#8217;s parameters, or derive some or all of those values from the context (up the tree of tracks)
+</p>
+</li>
+<li>
+<p>
+ability to build a system of high-level media objects (clips, effects&#8230;) which re-adjust automatically on change
+</p>
+</li>
+<li>
+<p>
+extensible to handle or derive some parameters based on conditions and rules, e.g. for semi-automatic wiring of the output destination based on tags
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong>Joelholdsworth</strong> is concerned that this proposal may go too far and tries to tie things together which aren&#8217;t really connected. While basically it&#8217;s no problem having the time position of a clip either absolute, or derived by a link to another object, he can&#8217;t see a clear benefit of controlling sound pan or video layer order from the placement. Pan, for example, is just an parameter value or interpolated curve, similar to colour correction or gamma adjustment. For the gui, he points out, it&#8217;s probably better to stick to the object metaphor, so start time, output, layer number or sound pan would be properties of the object.</p></div>
+<div class="paragraph"><p>But that&#8217;s exactly what Ichthyo wants to avoid. Obviously, this would be the standard solution employed by most current editing apps, and works reasonably well in average cases. But he is looking for a solution which covers this standard case, but also doesn&#8217;t get into the way when dealing with advanced compositing, working with spatial sound systems (Ambisonics, Wave Field Synthesis) or stereoscopic (3D) video.</p></div>
+<div class="paragraph"><p><em>On the whole, there is no conclusion yet.</em> Certainly, this proposal needs more discussion, parts need to be defined much more clear (esp. the <em>Pro</em> arguments), maybe parts of the functionality should be separated out.</p></div>
+<div class="paragraph"><p>While in this discussion, several aspects of the cooperation of GUI and Proc layer are considered.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+it is not necessary to make all of the Placement proposal visible to the GUI (and the user). Proc layer may as well provide a simplyfied and hard wired API for the most common properties (layer index, pan) and only use this part of the Placement concept for building and wiring the nodes.
+</p>
+</li>
+<li>
+<p>
+the adjustment of objects linked together by a placement can be handled as follows:
+</p>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+GUI notifies Proc of a position/parameter change of one object and gets immediate, synchronous feedback (OK or fail)
+</p>
+</li>
+<li>
+<p>
+Proc detects the other linked objects affected by the change and notifies GUI (both synchronous and asynchronous is possible) to update information regarding those objects
+</p>
+</li>
+<li>
+<p>
+GUI pulls the necessary properties by calling Proc on a per object base.
+</p>
+</li>
+</ol></div>
+</li>
+<li>
+<p>
+as a rule of thumb, GUI &#8592;&#8594; Proc is mostly synchronous, while Backend &#8592;&#8594; GUI is often asynchronous, but there are exceptions from the rule
+</p>
+</li>
+<li>
+<p>
+we have general <em>parameters</em>, which are automatible. These are represented as <em>control data connections between the nodes.</em> We certainly don&#8217;t want to represent some things in this way, though. For example, the in/out points of clips are fixed values.
+</p>
+</li>
+<li>
+<p>
+in Ichthyo&#8217;s concept, the Placement doesn&#8217;t itself provide such parameter values/sources, rather it can be used to <em>find</em> or <em>derive</em> parameter sources.
+</p>
+</li>
+<li>
+<p>
+the node graph is built bottom up, starting at the source, then via the effects attached locally to a clip, further on upwards (directed by the tree of tracks) to be finally connected via global busses to the output ports. Rendering pulls from these output ports.
+</p>
+</li>
+<li>
+<p>
+Joelholdsworth, Cehteh, Ichthyo and Rcbarnes agree that the plain <em>node-editor</em> approach is problematic in the context of a NLE. It shows too much details and fails to capture the temporal aspect. We strive at having node-like features and flexibility, but rather within the timeline.
+</p>
+</li>
+<li>
+<p>
+especially, the topology of the node graph isn&#8217;t constant over the whole timeline. But it&#8217;s the job of the builder in the Proc layer to deal with these complexities, the user shouldn&#8217;t be overwhelmed with all those details.
+</p>
+</li>
+</ul></div>
+<h3 id="_next_meeting_4">Next meeting</h3><div style="clear:left"></div>
+<div class="ulist"><ul>
+<li>
+<p>
+some people in europe complained that 21:00 UTC is too late, esp. with daylight saving
+</p>
+</li>
+<li>
+<p>
+there was the proposal to alternate between the current schedule, and sunday 16:00 UTC
+</p>
+</li>
+<li>
+<p>
+but Joel can&#8217;t attend on sunday afternoon for now
+</p>
+</li>
+<li>
+<p>
+so we settle down on thursday, 16:30
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Next meeting is at Thursday 3.July 2008 16:30 UTC</p></div>
+<div class="paragraph"><p><a id="protocol-developer-meeting-20080706"></a></p></div>
+</div>
+<h2 id="_protocol_developer_meeting_2008_july_06">Protocol Developer Meeting 2008 July 06</h2>
+<div class="sectionbody">
+<div class="ulist"><div class="title">on #lumiera, participants:</div><ul>
+<li>
+<p>
+ichthyo
+</p>
+</li>
+<li>
+<p>
+cehteh
+</p>
+</li>
+<li>
+<p>
+jilt
+</p>
+</li>
+<li>
+<p>
+dmj726
+</p>
+</li>
+<li>
+<p>
+Teld
+</p>
+</li>
+<li>
+<p>
+_nasa_
+</p>
+</li>
+<li>
+<p>
+alcarinque_
+</p>
+</li>
+<li>
+<p>
+MNO
+</p>
+</li>
+<li>
+<p>
+Wescotte
+</p>
+</li>
+<li>
+<p>
+weatherhead
+</p>
+</li>
+</ul></div>
+<h3 id="_commencement_5">Commencement</h3><div style="clear:left"></div>
+<h4 id="_jobs_for_the_meeting_5">Jobs for the meeting</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Teld writes the protocol
+</p>
+</li>
+<li>
+<p>
+dmj726 intends to write the protocol, Teld writes the protocol
+</p>
+</li>
+<li>
+<p>
+ichtyo is chairman
+</p>
+</li>
+<li>
+<p>
+there is no agenda, so this is a freeform meeting
+</p>
+</li>
+</ul></div>
+<h4 id="_recurrences_since_last_meeting">Recurrences since last meeting</h4>
+<div class="paragraph"><p>There are no leftovers</p></div>
+<h3 id="_introduction_of_lumiera">Introduction of Lumiera</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Because there are quite some new participants, an introduction of the project Lumiera is given</p></div>
+<div class="ulist"><div class="title">There are 3 core devs</div><ul>
+<li>
+<p>
+cehteh: backend serving data (from filesystem and so on), manages threads, using C, Posix System programming, maintains autotools and git
+</p>
+</li>
+<li>
+<p>
+ichthyo: proc layer, render graph, in the middle, C++, he maintains scons
+</p>
+</li>
+<li>
+<p>
+joelholdsworth: GUI in C++/Gtkm
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">Other people involved</div><ul>
+<li>
+<p>
+rcbarnes: ui designer and HCI expert
+</p>
+</li>
+<li>
+<p>
+raffa: web content
+</p>
+</li>
+<li>
+<p>
+Simav: gives a hand when and where he can
+</p>
+</li>
+<li>
+<p>
+Teld: web infrastructure
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The foundations of the design are already done but a lot of detail needs to be worked out. cehteh and ichtyo provide a non exhaustive list.</p></div>
+<div class="ulist"><div class="title">cehteh</div><ul>
+<li>
+<p>
+improvement of the testsuite (simple Bash)
+</p>
+</li>
+<li>
+<p>
+start of a worker thread manager (Posix knowledge required)
+</p>
+</li>
+<li>
+<p>
+start of the scheduler (some Posix, good C coding)
+</p>
+</li>
+<li>
+<p>
+runtime profiler (little but advanced Posix realtime programming job)
+</p>
+</li>
+<li>
+<p>
+review of code and documentation
+</p>
+</li>
+<li>
+<p>
+system administration
+</p>
+</li>
+<li>
+<p>
+setup of a build/test environment on the server
+</p>
+</li>
+<li>
+<p>
+setup and maintain postfix/dovecot by a mail administrator
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">ichtyo</div><ul>
+<li>
+<p>
+asset management (keeping track of all media files, captures, clips, scenes)
+</p>
+</li>
+<li>
+<p>
+session loading saving and the issues of compound documents
+</p>
+</li>
+<li>
+<p>
+session structure related issues to be able to Import/Export/Connect via e.g. OSC (Open Sound Control) or JACK
+</p>
+</li>
+<li>
+<p>
+flesh out the more high level &quot;edit operations&quot; and the interface to UNDO
+</p>
+</li>
+<li>
+<p>
+Prolog integration after the first integration round has been reached. The Prolog interpreter will do some of the more advanced configuration (example: if effect XYZ is used, then deinterlace beforehand).
+</p>
+</li>
+<li>
+<p>
+integration with some sort of production support software (like Celtx)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>cehteh emphasizes that Lumiera is an open project, so anybody can jump in where he sees fit as long as he communicates and acknowledges with the persons involved. ichtyo points out that the plugin structure is very important: anything that is not legally completely clean (proprietary), should be factored out into a sister project and be loaded as plugin.</p></div>
+<h3 id="_issues_and_questions_that_come_up">Issues and questions that come up</h3><div style="clear:left"></div>
+<h4 id="_handling_of_config_errors">handling of config errors</h4>
+<div class="paragraph"><p>When the configuration has a syntax error, in 90% of the cases there will be no possibility to do anything sane. Therefore, the config system will be built to log a warning and the user code does not need to care. The user just gets an alert and the application continues to work.</p></div>
+<h4 id="_scripting_language">scripting language</h4>
+<div class="paragraph"><p>There will be a scripting interface. ichtyo does not want scripts everywhere, only at well defined interfaces. That implies also that scripts cannot just do anything, only that what is permitted in a controlled way. The meeting agrees on that. cehteh wants one default language and proposes Lua: light, simple.</p></div>
+<div class="paragraph"><p>Other members suggestions: Python, Ruby, Scheme. However, Python and Ruby are very slow. Scheme has many variants.</p></div>
+<h4 id="_editing_on_small_devices_eeepc">editing on small devices (eeePC)</h4>
+<div class="paragraph"><p>Problem: video editors GUIs are some of the most elaborate and complicated GUIs. However, basic functions consist of only a few buttons. Proxy editing could be a solution. It is decided that it is not a primary goal now. First the basics have to be implemented.</p></div>
+<h4 id="_uwiki">uWiki</h4>
+<div class="paragraph"><p>uWiki is the glue between a markup driver (Asciidoc) and revision control (git). Haserl with Bash is used now. Haserl appears to have problems with conditional includes. Its limits have been reached while prototyping. Lua could very well be a valid replacement. It will be investigated. PHP is rejected because it is not stable and suffers from serious security problems.</p></div>
+<h4 id="_musical_timeline_in_bars_and_beats">musical timeline in bars and beats</h4>
+<div class="paragraph"><p>The questions of syncing and linking things together are already on the core agenda: the so-called placement concept. Discussion is still going on, especially with the GUI developer joelholdsworth. See for detailed information: <a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/ProcPlacementMetaphor">http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/ProcPlacementMetaphor</a> NOTE:LINK</p></div>
+<h3 id="_next_meeting_5">Next meeting</h3><div style="clear:left"></div>
+<div class="paragraph"><p>The next meeting will be held Thursday, 7 August 19:00 UTC</p></div>
+<div class="paragraph"><p><a id="protocol-developer-meeting-20081010"></a></p></div>
+</div>
+<h2 id="_protocol_developer_meeting_2008_october_10">Protocol Developer Meeting 2008 October 10</h2>
+<div class="sectionbody">
+<div class="ulist"><div class="title">19:00 - 23:15 UTC on #lumiera, participants:</div><ul>
+<li>
+<p>
+cehteh
+</p>
+</li>
+<li>
+<p>
+ichthyo
+</p>
+</li>
+<li>
+<p>
+joelholdsworth
+</p>
+</li>
+<li>
+<p>
+alcarinque
+</p>
+</li>
+<li>
+<p>
+KenSentMe
+</p>
+</li>
+<li>
+<p>
+Plouj
+</p>
+</li>
+<li>
+<p>
+raffa
+</p>
+</li>
+<li>
+<p>
+thorwil
+</p>
+</li>
+<li>
+<p>
+Victor_Sigma
+</p>
+</li>
+<li>
+<p>
+wildhostile
+</p>
+</li>
+</ul></div>
+<h3 id="_commencement_6">Commencement</h3><div style="clear:left"></div>
+<h4 id="_jobs_for_the_meeting_6">Jobs for the meeting</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Ichthyo writes the protocol
+</p>
+</li>
+</ul></div>
+<h4 id="_agenda_2">Agenda</h4>
+<div class="paragraph"><p>Not much of a fixed agenda this time.  Agreement to start with the Logo discussion, as this is of general interest, followed by the design drafts and similar dev topics.</p></div>
+<h3 id="_the_lumiera_logo">The Lumiera Logo</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Summary of the situation: discussion regarding a logo for Lumiera is going on sporadically since quite some time. Several people from the community have made proposals. Also, there was discussion about the criteria a logo would have to fulfil. Especially the core devs raised the bar and required quite some professional level of design. On the contrary, several members of the community were concerned that such a demanding attitude will hinder creativity in a domain which is far off from coding. Moreover, many people complained they are really excited about Lumiera and strongly want to participate in some manner, but find it very difficult in the current phase of the project to give any valuable contribution.</p></div>
+<div class="paragraph"><p>This summer, one of the proposals by <a href="http://farm4.static.flickr.com/3060/2927333034_ac94be80ea_b.jpg">Leandro Ribeiro</a> gained some popularity and especially was embraced by two of the core devs, while the GUI core dev wasn&#8217;t convinced and <a href="http://www.pipapo.org/pipawiki/JoelHoldsworth/LogoThoughts">explained his reservation NOTE:LINK</a>. Prior to this meeting some people joined a brainstorming session and came up with <a href="http://www.pipapo.org/pipawiki/Lumiera/Logos?action=AttachFile&amp;do=get&amp;target=combo.png">another proposal NOTE:LINK</a> compiled of several proposals, which could meet the acceptance of the core devs. At the same time, Raffa made an argument for conducting a public contest, similar to the one which gave us the name of Lumiera. The situation for Lumiera is somewhat special. Usually, the community builds when the product is already minimally usable; we can&#8217;t have users for now, but we have a lot of prospective users.</p></div>
+<div class="paragraph"><p>Thus, while basically it would be possible for the core devs to shorten the process by just picking a design which is acceptable for all, maybe after augmenting it a little, several of the arguments articulated this far are in favour of a more formal decision by a contest:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+it would allow for a lot of people to really participate
+</p>
+</li>
+<li>
+<p>
+it could help to shape a general (graphic) style for Lumiera
+</p>
+</li>
+<li>
+<p>
+it could underpin the fact Lumiera indeed is a collaborative effort
+</p>
+</li>
+<li>
+<p>
+it doesn&#8217;t mean additional work for the core devs on the whole
+</p>
+</li>
+<li>
+<p>
+it helps spreading the word
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Then, there is some discussion about the requirements. The core devs are concerned to keep up some quality level, because there is the possibility for the community to embrace a design, but when Lumiera enters the area it is intended to do, the standards of comparison will be different. The GIMP logo can be quoted as a negative example here.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+There will be a Lumiera Logo contest.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+we should further discuss requirements on the Mailinglist until the end of the next week
+</p>
+</li>
+<li>
+<p>
+the <strong>deadline for submissions</strong> will be the next meeting (Nov 12 2008)
+</p>
+</li>
+<li>
+<p>
+then, after a pre-selection phase, the vote shall be conducted prior to the December meeting.
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">Some minimal technical requirements will be enforced</div><ul>
+<li>
+<p>
+the basic sign fits a compact rather quadratic bounding box (like 4:3)
+</p>
+</li>
+<li>
+<p>
+easy to print on various media (on posters, t-shirts, ..)
+</p>
+</li>
+<li>
+<p>
+basically a shape, using only a small number of solid colours (web safe)
+</p>
+</li>
+<li>
+<p>
+should work on different backgrounds, esp. not requiring white background
+</p>
+</li>
+<li>
+<p>
+the design should scale from microscopic size (favicon) up to big posters
+</p>
+</li>
+<li>
+<p>
+vector graphic source is mandatory
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">Besides, we give some artistic guidelines</div><ul>
+<li>
+<p>
+it should be recognisable
+</p>
+</li>
+<li>
+<p>
+it should contain something like a sign, not just "Lumiera" in a fancy font
+</p>
+</li>
+<li>
+<p>
+it should not rely on transparencies, gradients and subtle shades,
+</p>
+</li>
+<li>
+<p>
+it should be viable, possibly work well in different presentation styles, able to be simplified as well as graphically augmented
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Raffa volunteers to help organizing the contest and the voting.</p></div>
+<h3 id="_recurring_topics_design_proposals">Recurring Topics: design proposals</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Discussion of open <a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess">design process NOTE:LINK</a> drafts.</p></div>
+<h4 id="_mistakes_to_avoid">Mistakes to avoid</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/MistakestoAvoid">Mistakes to avoid in the Lumiera Design NOTE:LINK</a></p></div>
+<div class="paragraph"><p>We are carrying this one along since quite some time and we&#8217;d like to get rid of it, either by reworking it or by dropping it as-is. Because it contains a mixture of things
+* we fully agree to 80% of the statements made there, but we think those statements are so very basic and self-evident as to be considered off-topic here. We are aware of the recurring problems with open source video editing. That&#8217;s why we are here.
+* the proposal draws conclusions on two technically substantial points, at which we don&#8217;t agree. And it fails to provide sufficient (technically sound) arguments to prove these statements.</p></div>
+<div class="paragraph"><p>While it is certainly desirable to be cross-platform as much as possible and especially <strong>target Microsoft Windows</strong>, we don&#8217;t see much possibilities with today&#8217;s mainstream technology to build an application which is as technologically demanding as a video editor is. We would end up developing two or even three sister applications, or we are forced to sacrifice performance for portability. When put up to face such options, we have a clear preference to concentrate on a really free and open platform.</p></div>
+<div class="paragraph"><p>While it is certainly desirable to make the application as robust as possible, we don&#8217;t see how <em>using multiple separate processes</em> could help us with this goal <em>without creating major scalability or performance problems</em> due to the use of shared memory. And, yet more important: we don&#8217;t share the basic assumption made in the proposal, namely that video processing is inherently dangerous. We think the basic algorithms involved are sufficiently well-known and understandable to implement them in a sound manner.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Drop it</p></div>
+<div class="paragraph"><p><strong>on the question of separate processes</strong><br />
+The only practical solution would be to separate the GUI. Separating backend and proc-layer doesn&#8217;t make much sense, technically speaking. We re-considered this question. Joelholdsworth (GUI) and Ichthyo (Proc-layer)prefer running the GUI in-process and to avoid the additional hassle with shared memory. Cehteh (backend) doesn&#8217;t care for know and would like to re-discuss it as an option later on. This is somewhat similar to the possibility of running Lumiera distributed over the network, which is a goal, but not an immediate one.</p></div>
+<h4 id="_tag_clouds">Tag Clouds</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/TagCloudsOnResources">Tag clouds on resources NOTE:LINK</a></p></div>
+<div class="paragraph"><p>Tags are considered very important. Meanwhile, we have a much more advanced proposal, which superseeds this one: <a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/DelectusShotEvaluator">"Delectus" NOTE:LINK</a></p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Drop it</p></div>
+<h4 id="_overview_of_lumiera_architecture">Overview of Lumiera Architecture</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/ArchitectureOverview">Architecture Overview NOTE:LINK</a></p></div>
+<div class="paragraph"><p>The purpose of this drawing to give an first impression what subsystem is where and what the names mean. Since discussed last time, Ichthyo re-arranged the plugins as requested and added some details for the backend. Joelholdsworth points out that it&#8217;s OK for him to show the GUI just as a single block here (and of course the GUI has much more internal structure). Cehteh adds that maintaining this drawing surely is a moving target, so we better remove the rendered image and just retain the textual description and link to the source (SVG), which is in GIT.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Accept it, change the image to a link</p></div>
+<h4 id="_edls_as_meta_clips">EDLs as Meta-Clips</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/EDLsAreMetaClips">EDLs are meta-clips NOTE:LINK</a></p></div>
+<div class="paragraph"><p>This is just a high-level proposal, which doesn&#8217;t go into technical details of implementing nested EDLs. It just poses the question, "do we want to treat nested EDLs as being meta-clip?"&#8201;&#8212;&#8201;which we do.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Accepted</p></div>
+<h4 id="_the_builder">The Builder</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/ProcBuilder">Builder in the Proc-Layer NOTE:LINK</a></p></div>
+<div class="paragraph"><p>Similar to the previous one, this is a high-level proposal. It covers the fundamental approach Ichthyo takes within the Proc-Layer. Cehteh adds that he agrees to 98% and the remaining 2% are just matter of favour. Personally, he would have preferred one large graph which gets garbage collected (instead of the segmented graph)</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Accepted</p></div>
+<h4 id="_high_level_model">High-level Model</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/ProcHighLevelModel">Overview of the High-level model within the Proc-Layer NOTE:LINK</a></p></div>
+<div class="paragraph"><p>Cehteh queries if this shouldn&#8217;t be better moved over to the documentation? He is fine with the contents, but it seems to be a bit voluminous for a design proposal. Ichthyo asks to leave it there just for now, as he feels it still needs review.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+leave it for now, maybe retract it from the design proposals and file it as documentation?</p></div>
+<h4 id="_lua_scripting_language">Lua scripting language</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/ScriptingLanguage">use Lua as required scripting language NOTE:LINK</a></p></div>
+<div class="paragraph"><p>All core devs agree with this decision. Joelholdsworth points out that he is fine with Lua, just he didn&#8217;t want to write the GUI in it. Ichthyo adds that Lua is probably the best choice from today&#8217;s mainstream scripting languages, because it is very lightweight. He further points out, that having Lua as <em>required</em> scripting language doesn&#8217;t rule out using other popular languages (Python, Ruby) for scripting. Just they aren&#8217;t required for running Lumiera. Cehteh will have a look at the details as soon as possible, but has currently other more urgent things in the queue. (Plouj shows interest to help here)</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Accepted</p></div>
+<h4 id="_time_handling">Time Handling</h4>
+<div class="paragraph"><p><a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/time_handling">time handling NOTE:LINK</a></p></div>
+<div class="paragraph"><p>A long standing proposal; meanwhile we&#8217;ve decided to build on GAVL, which is now reflected in the text of this proposal too. Ichthyo points out he changed the rounding rule in this proposal from <em>mathematical</em> to <em>floor (x+0.5)</em>. Cehteh asks if we should use a thin library layer on top of gavl, to centralize all the time calculations. There seems to be agreement that this should actually be done <em>on demand</em>. Joelholdsworth sais sometimes he&#8217;d prefer to have a simple raw type to represent time, because it makes calculations much easier. Ichthyo adds that internally (within the layers, but not on interfaces) one could use a thin C++ wrapper with overloaded operators, which is default-convertible to gavl_time.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Accepted</p></div>
+<div class="paragraph"><p>Note: the proposed rigid testsuite for time handling is necessary only when we introduce a wrapper&#8230;</p></div>
+<h4 id="_interface_naming_convention">Interface naming convention</h4>
+<div class="paragraph"><p>See the design proposal <a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess/InterfaceNamespaces">Interface Namespaces NOTE:LINK</a></p></div>
+<div class="paragraph"><p>While working on the plugin loader, <strong>Cehteh</strong> and <strong>nasa</strong> did some brainstorming about a plugin naming scheme and how to get unique interface identifiers. The idea is to use a distinctive prefix, like a condensed organisation domain or email name, or a GPG fingerprint or even a UID, followed by the interface namespace hierarchy. These would be combined into a single identifier (valid C name). The intention is to get non-ambiguous names, yet avoiding the need of a central registry.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Accepted</p></div>
+<div class="paragraph"><p>general Topics</p></div>
+<h3 id="_config_system">Config System</h3><div style="clear:left"></div>
+<div class="paragraph"><p><strong>cehteh</strong> landed the first version of this subsystem and asked for review and testing. Currently it&#8217;s <em>work with no progress</em>, but it is basically usable (you can get values, you can set values by environment variables, but you can&#8217;t persist). It should be augmented on demand, e.g. by adding the support for more value types (value types are a hint how to parse, and link the parsed value to a given C type).</p></div>
+<h3 id="_use_of_namespaces">Use of Namespaces</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Currently there is no clear uniform rule regarding namespaces use. <strong>Joelholdsworth</strong> places his code within <tt>lumiera::gui</tt> and below. He points out that external libs like Cairo, GTK, GLib will bring in their hierarchies and all of Lumiera should comply and put anything below a <tt>lumiera::</tt> root. On the contrary, <strong>Ichthyo</strong> deliberately moved his implementation code away from the central <tt>lumiera::</tt> interface hierarchy into shallow namespaces and avoids nesting. He argues that having all code below <tt>lumiera::</tt> effectively makes this namespace global or forces it to be void of any function; rather he&#8217;d prefer to import every interface explicitly into the implementation namespace. <strong>Cehteh</strong> argues that having a global <tt>lumiera::</tt>, even if empty, would mark a general claim and stand for the uniformity of the project. Generally, there should be some correspondence between folders and namespaces.</p></div>
+<div class="paragraph"><p>No conclusion yet, to be discussed further.</p></div>
+<h3 id="_interface_definition_language">Interface Definition Language</h3><div style="clear:left"></div>
+<div class="paragraph"><p>In his work on the plugin loader, <strong>Cehteh</strong> created a first draft how to export an interface, and calls for review. An example can be found in <a href="http://www.lumiera.org/gitweb?p=lumiera/ct;a=blob;f=tests/backend/test-interfaces.c;h=fb1c4d30a34414767a313d24df60e679c96ad2a7;hb=7323114e77348995ccaf03417136aef7ee332776">tests/backend/test-interfaces.c</a></p></div>
+<div class="paragraph"><p>An interface is a list of <em>slots</em> mapping functions. The interface descriptor is itself realised as interface, an thus can be versioned, extended and specialised. By use of some glue code and macros we create a simple Interface Definition Language</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+after exporting a header with the C interface, including the types to be used&#8230;
+</p>
+</li>
+<li>
+<p>
+<tt>LUMIERA_INTERFACE_DECLARE</tt> creates an interface description (i.e. the official interface)
+</p>
+</li>
+<li>
+<p>
+implementing such an interface can be done in 3 major ways
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<tt>LUMIERA_INTERFACE_INSTANCE</tt> creates an instance on-the-fly (e.g. for descriptors)
+</p>
+</li>
+<li>
+<p>
+<tt>LUMIERA_EXPORT</tt> for defining a table of functions/interfaces to export from the core
+</p>
+</li>
+<li>
+<p>
+<tt>LUMIERA_PLUGIN</tt> for defining an interface table for functions located within a dynlib module (plugin)
+</p>
+</li>
+<li>
+<p>
+besides, with <tt>LUMIERA_INTERFACE_INLINE</tt> you can create a function on-the-fly while <tt>LUMIERA_INTERFACE_MAP</tt> maps onto an existing function directly
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>The plugin loading system cares for mapping the given implementation function to the interface slots. Interfaces from the core need to be registered before they can be used, while for plugins this is done automatically on loading the module. The client code later just calls <tt>interface_open()</tt> and <tt>interface_close()</tt> where it doesn&#8217;t matter anymore if the invoked function is in the core or loaded from an dynlib (plugin); loader, registry and/or plugin-DB shall manage it transparently.</p></div>
+<div class="paragraph"><p>Version numbering starts with 1 and uses minor version numbers for compatible changes and major version numbers for everything that breaks existing asumptions. Version number zero is reserved for experimental work and per definition always the most recent version number.</p></div>
+<div class="paragraph"><p>The system is designed to be very flexible and extensible, but this foundation really needs thorough review.</p></div>
+<div class="paragraph"><p>Joelholdworth expresses some concern regarding the UIDs in octal notation used within the interface description. Cehteh explains they never need to be specified by client code. They are just distinctive IDs and provided for some special case within the plugin loader / serializer. He plans to provide a simple tool which automatically replaces a <tt>$LUIDGEN</tt> with such a <tt>bitstring</tt>. The octal notation was chosen, because it is the most compact albeit portable notation possible in C source code.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+Looks good, agreement by all core devs.  Should be reviewed and investigated in detail to find any hidden problems.</p></div>
+<h3 id="_next_meeting_6">Next meeting</h3><div style="clear:left"></div>
+<div class="paragraph"><p>There were some problems with the meeting schedule. Using the first week of month seems to be problematic. We&#8217;ll try with second wednesday&#8230;</p></div>
+<div class="paragraph"><p>The next meeting is scheduled for Wednesday Nov 12 2008 19:30 UTC at #lumiera</p></div>
+<div class="paragraph"><p><a id="log-buffer-allocation-for-render-nodes-200806"></a></p></div>
+</div>
+<h2 id="_buffer_allocation_for_render_nodes">Buffer Allocation for Render Nodes</h2>
+<div class="sectionbody">
+<div class="ulist"><div class="title">on #lumiera, participants:</div><ul>
+<li>
+<p>
+cehteh
+</p>
+</li>
+<li>
+<p>
+ichthyo
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>[2008-06-05 19:21:21] &lt;cehteh&gt; do you need me? .. i am away if not .. i have no much to say for the today meeting either
+[2008-06-05 19:21:57] &lt;ichthyo&gt; I have one topic I want to discuss with you, cehteh
+[2008-06-05 19:22:07] &lt;ichthyo&gt; but it need not be now, or in the meeting
+[2008-06-05 19:22:07] &lt;cehteh&gt; ok
+[2008-06-05 19:22:24] &lt;ichthyo&gt; it's about allocating processing buffers
+[2008-06-05 19:23:20] &lt;cehteh&gt; the backend will provide them as temporary files/cyclic buffers
+[2008-06-05 19:23:52] &lt;cehteh&gt; its not there yet but in my mind
+[2008-06-05 19:24:11] &lt;ichthyo&gt; haha, same for the builder... it's mostly just in my mind
+[2008-06-05 19:24:42] &lt;cehteh&gt; opened almost like a normal file but giving frame properties instead filename
+[2008-06-05 19:24:56] &lt;cehteh&gt; (there will be a distinct api for that)
+[2008-06-05 19:25:01] &lt;ichthyo&gt; ok
+[2008-06-05 19:25:05] &lt;ichthyo&gt; regarding the buffers: my question is more special
+[2008-06-05 19:25:19] &lt;ichthyo&gt; if you want to cache a frame (intermediary result)
+[2008-06-05 19:25:35] &lt;ichthyo&gt; then I thought we could avoid the copy operation
+[2008-06-05 19:25:44] &lt;ichthyo&gt; I could arrange things accordingly
+[2008-06-05 19:25:46] &lt;cehteh&gt; then the backend creates a backing mmaped file for that maybe manages its size (or do you want to tell how much frames you want to cache?)
+[2008-06-05 19:26:06] &lt;cehteh&gt; yes perfect .. thats what i am planning
+[2008-06-05 19:26:26] &lt;ichthyo&gt; you know, many processing nodes will be able to process &amp;quot;in place&amp;quot;
+[2008-06-05 19:26:34] &lt;ichthyo&gt; but ther are some that can't do this
+[2008-06-05 19:27:44] &lt;ichthyo&gt; so basically each processing function will &amp;quot;see&amp;quot; input frame buffer(s) and output frame buffer(s). but when a node is &amp;quot;in-place-capable&amp;quot;, actually the in and out buffer may point to the same location
+[2008-06-05 19:26:55] &lt;cehteh&gt; basiically all temporary frames with the same properties are allcoated from the same backing file (well maybe 2 caching levels but not important here)
+[2008-06-05 19:27:06] &lt;cehteh&gt; the index give them meaning
+[2008-06-05 19:27:49] &lt;cehteh&gt; do you can query (and lock) a frame by that
+[2008-06-05 19:28:04] &lt;ichthyo&gt; that sounds good
+[2008-06-05 19:28:24] &lt;cehteh&gt; do some inplace editing and then tell the backend &amp;quot;this is now frame N of node X&amp;quot;
+[2008-06-05 19:28:34] &lt;ichthyo&gt; yeah, exactly
+[2008-06-05 19:28:44] &lt;cehteh&gt; (plus a uuid or preferably genertion number)
+[2008-06-05 19:28:39] &lt;ichthyo&gt; basically my Idea was as follows:
+[2008-06-05 19:29:47] &lt;ichthyo&gt; when I know the result will be cached, I'll let the node process into the location of the cache frame, and any node which will /use/ this frame as an input will be wired such that it isn't allowed to modify this frame (which is supposed to be located in the cache)
+[2008-06-05 19:30:45] &lt;cehteh&gt; yes thats managed in the index
+[2008-06-05 19:30:48] &lt;ichthyo&gt; for this to work, I need to &amp;quot;allocate and lock&amp;quot; a location in the cache, and release it when it contains the final processed result
+[2008-06-05 19:31:17] &lt;cehteh&gt; well i try to make no locks there, you query frames which are uniquely identified
+[2008-06-05 19:31:44] &lt;ichthyo&gt; it doesnt need to be a &amp;quot;lock
+[2008-06-05 19:31:55] &lt;ichthyo&gt; just some way to tell that this frame is &amp;quot;under construction&amp;quot;
+[2008-06-05 19:32:01] &lt;cehteh&gt; yes
+[2008-06-05 19:32:14] &lt;cehteh&gt; we thinking the same :)
+[2008-06-05 19:32:57] &lt;cehteh&gt; well problem is when shortly after that another node queries the source frame which got destructed .. thats something the builder needs to avoid, nothing i can do then
+[2008-06-05 19:33:21] &lt;ichthyo&gt; yes, builder will care for that
+[2008-06-05 19:33:41] &lt;ichthyo&gt; I can even tell in advance the maximum number of temporary buffers I need
+[2008-06-05 19:33:51] &lt;cehteh&gt; and it not only needs a under-construcion
+[2008-06-05 19:34:44] &lt;cehteh&gt; there are 2 indices one for source and one for destination
+[2008-06-05 19:35:11] &lt;cehteh&gt; indices will have a pointer to the 'job' working on it i tihnk
+[2008-06-05 19:35:24] &lt;ichthyo&gt; ok
+[2008-06-05 19:35:48] &lt;cehteh&gt; (actually there is a list planed many jobs can read-share an frame)
+[2008-06-05 19:36:40] &lt;cehteh&gt; i would like if I do not need to do *any* checks in that direction ... means the builder delivers clean jobs which dont step on their own foot
+[2008-06-05 19:36:54] &lt;ichthyo&gt; my understanding too
+[2008-06-05 19:37:07] &lt;ichthyo&gt; also, I want the nodes to be freed of any checks
+[2008-06-05 19:37:33] &lt;ichthyo&gt; so they can assume they get a valid buffer pointer to the right sort of buffer
+[2008-06-05 19:37:54] &lt;cehteh&gt; yes thats guranteed
+[2008-06-05 19:37:41] &lt;cehteh&gt; if it fails then we get some hairy bugs ... but checking job dependencies afterwards is costly
+[2008-06-05 19:38:53] &lt;ichthyo&gt; I mean -- I want to prepare everything as much as possible while building, so that all that needs to be &amp;quot;filled in&amp;quot; when starting the processing are the actual buffer locations
+[2008-06-05 19:38:58] &lt;cehteh&gt; *thinkin* prolly easier than it looks
+[2008-06-05 19:39:10] &lt;cehteh&gt; exaxctly
+[2008-06-05 19:39:50] &lt;ichthyo&gt; we can't prepare everything, because, some nodes may include a variable ammount of source frames
+[2008-06-05 19:40:11] &lt;ichthyo&gt; and this number can depend on automation. Classic example is the &amp;quot;time average&amp;quot; video effect
+[2008-06-05 19:39:53] &lt;cehteh&gt; problem is only when the builder generates one node which takes X and in-place generates Y from it
+[2008-06-05 19:40:10] &lt;cehteh&gt; and you have a 2nd node which takes X too
+[2008-06-05 19:40:23] &lt;cehteh&gt; this needs to be serialized somehow
+[2008-06-05 19:41:12] &lt;ichthyo&gt; regarding the problem you mention: I want to exclude/avoid this situation already when building
+[2008-06-05 19:41:35] &lt;cehteh&gt; yes thats what i was thinking .. thats easiest addressed there
+[2008-06-05 19:41:46] &lt;cehteh&gt; and a very ugly bug when it fails :(
+[2008-06-05 19:41:42] &lt;ichthyo&gt; when a node puts its result into a frame located within the cache
+[2008-06-05 19:41:59] &lt;ichthyo&gt; this frame is treated as if it is read-only
+[2008-06-05 19:42:21] &lt;ichthyo&gt; no node depending on this frame will be wired in a way that allows &amp;quot;in-place&amp;quot;
+[2008-06-05 19:42:33] &lt;cehteh&gt; about the time averaging: i plan to hint some dependencies so you can ask for &amp;quot;maybe&amp;quot; or by some priority depending on quality/whatever
+[2008-06-05 19:43:19] &lt;cehteh&gt; where quality should be runtime adjusted by the profiler
+[2008-06-05 19:43:39] &lt;ichthyo&gt; the problem with time averaging is: we don't know how much frames will be averaged at build time, because that's a automatable effect parameter
+[2008-06-05 19:43:47] &lt;cehteh&gt; thats a case where a dependencie might not be fullfilled .. but only on request
+[2008-06-05 19:44:08] &lt;ichthyo&gt; but the &amp;quot;quality&amp;quot; thing sounds like a good idea
+[2008-06-05 19:44:17] &lt;cehteh&gt; yes then split that rendering into 3 passes?
+[2008-06-05 19:44:27] &lt;cehteh&gt; 1st pass : building the graph
+[2008-06-05 19:44:53] &lt;cehteh&gt; 2nd pass: determine dependencies (by inspecting automation)
+[2008-06-05 19:45:00] &lt;cehteh&gt; 3rd pass: do the render
+[2008-06-05 19:45:10] &lt;ichthyo&gt; maybe?
+[2008-06-05 19:45:17] &lt;ichthyo&gt; 1st pass of course is clear
+[2008-06-05 19:45:25] &lt;cehteh&gt; well do you have a better idea?
+[2008-06-05 19:45:49] &lt;cehteh&gt; so far i thought about 2 pass where the dependency analysis was part of the builder
+[2008-06-05 19:46:02] &lt;ichthyo&gt; agreed
+[2008-06-05 19:46:28] &lt;cehteh&gt; but making it three pass shouldnt be a problem or?
+[2008-06-05 19:46:51] &lt;ichthyo&gt; I also thought after having finished the raw graph, I'll do some configuration calldown, e.g. to determine the maximum number of buffers needed
+[2008-06-05 19:46:59] &lt;cehteh&gt; maybe even adaptive 2/3 pass depending on effects ... but maybe that would complicate it unnecessary
+[2008-06-05 19:47:43] &lt;ichthyo&gt; its not really a problem, just need to be aware and work the details out correctlyy
+[2008-06-05 19:47:49] &lt;cehteh&gt; i dont think you need  to count the buffers (not yet, maybe i oversee soemthing)
+[2008-06-05 19:48:08] &lt;cehteh&gt; otherwise the backend should manage that automatically
+[2008-06-05 19:48:18] &lt;ichthyo&gt; yes, I'm fine with that
+[2008-06-05 19:48:46] &lt;ichthyo&gt; just to note, if it helps with the allocation, I /can/ tell the maximum number of buffers needed
+[2008-06-05 19:49:00] &lt;ichthyo&gt; (for a given segment of the graph, of course)
+[2008-06-05 19:49:09] &lt;cehteh&gt; not sure if i overseen something, but i think when needed such a 'configuration calldown' (and optimizing pass) could be added later
+[2008-06-05 19:49:27] &lt;ichthyo&gt; sure
+[2008-06-05 19:49:50] &lt;cehteh&gt; buffers itself doesnt cost .. but if you really need a lot it will cause IO
+[2008-06-05 19:49:57] &lt;cehteh&gt; but that unavoidable anyways
+[2008-06-05 19:50:05] &lt;ichthyo&gt; no no
+[2008-06-05 19:50:19] &lt;cehteh&gt; yes yes
+[2008-06-05 19:50:20] &lt;ichthyo&gt; I'll try to minimize buffer use as much as possible
+[2008-06-05 19:50:24] &lt;cehteh&gt; :)
+[2008-06-05 19:50:30] &lt;cehteh&gt; of course
+[2008-06-05 19:51:00] &lt;cehteh&gt; but there are always some limits on finite machines
+[2008-06-05 19:51:26] &lt;ichthyo&gt; the problematic case are usual rather rare corner cases, but it should handle those flawless, of course
+[2008-06-05 19:51:36] &lt;ichthyo&gt; similar for the size of the buffers
+[2008-06-05 19:51:46] &lt;ichthyo&gt; I dont want Lumiera to clip the image
+[2008-06-05 19:51:49] &lt;ichthyo&gt; as cinelerra does
+[2008-06-05 19:52:04] &lt;ichthyo&gt; e.g. when using the motion tracker
+[2008-06-05 19:52:20] &lt;cehteh&gt; well if you need safe-regions around you need to use biggier frames
+[2008-06-05 19:52:31] &lt;cehteh&gt; but memory requirements grow quadratic!
+[2008-06-05 19:52:46] &lt;ichthyo&gt; the user should NEVER need to set up the processing buffer size, as is necessary in cinelerra
+[2008-06-05 19:52:59] &lt;cehteh&gt; yes agreed
+[2008-06-05 19:53:15] &lt;ichthyo&gt; I don't think we need safe-regions allways,
+[2008-06-05 19:53:31] &lt;ichthyo&gt; but, as e.g. the motion tracking will create automation data in Lumiera
+[2008-06-05 19:53:38] &lt;cehteh&gt; yes only for some effect .. motion tracker doesnt need it
+[2008-06-05 19:53:50] &lt;ichthyo&gt; it means the actual buffer size depends on automation data for a given frame
+[2008-06-05 19:53:56] &lt;cehteh&gt; that just xyr transformation
+[2008-06-05 19:54:35] &lt;cehteh&gt; a blur is something which might require a small safe-region to bleed over the edges
+[2008-06-05 19:54:43] &lt;ichthyo&gt; yes, you are right
+[2008-06-05 19:54:52] &lt;ichthyo&gt; if the motion tracker is wired intelligently
+[2008-06-05 19:55:05] &lt;ichthyo&gt; it doesn't need to move anyting itself
+[2008-06-05 19:55:18] &lt;cehteh&gt; mapping the motion tracker transformation to a destionation might need safe regions
+[2008-06-05 19:55:30] &lt;cehteh&gt; (in case of rotations)
+[2008-06-05 19:55:36] &lt;ichthyo&gt; yes agreed
+[2008-06-05 19:56:16] &lt;cehteh&gt; well temp buffers will be allcocated for frames of the same 'class' i aleready saied that
+[2008-06-05 19:56:50] &lt;cehteh&gt; and i will group these classes so that some similar sizes fall in the same class
+[2008-06-05 19:57:19] &lt;cehteh&gt; that might waste some memory on disk at the end of each frame .. but that doesnt need to be mapped in
+[2008-06-05 19:57:32] &lt;cehteh&gt; the kernel will do that automatically for us
+[2008-06-05 19:57:37] &lt;ichthyo&gt; :)
+[2008-06-05 19:57:59] &lt;cehteh&gt; well mostly .. i need to whip it with the right hints ;)
+[2008-06-05 19:58:10] &lt;ichthyo&gt; :-o</tt></pre>
+</div></div>
+<div class="paragraph"><p><a id="index-Lumiera"></a></p></div>
+</div>
+<h2 id="_lumiera">Lumiera</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><span class="image">
+<img src="draw/LumiLogo.png" alt="draw/LumiLogo.png" />
+</span> NOTE:LINK</p></div>
+<div class="paragraph"><p><strong>Lumiera</strong> is the emerging professional non linear video editor for Linux</p></div>
+<div class="paragraph"><p>This is the entry point to documents for design and development.  The documents are in groups that correspond to the parts of the application.  All documents are stored in the <tt>GIT</tt> as format <tt>asciidoc</tt>, hypertext at this site is generated automatically as documents change.  For the future we plan to create a wiki for anyone to edit these developer documents easily.  That redesign is in process as of 2009 09.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+we maintain (semi-) final design docs in <a href="#index-design-documentation">design documentation</a>
+</p>
+</li>
+<li>
+<p>
+Things get often worked out on IRC at server <tt>freenode.net</tt> channel <tt>lumiera</tt>, see <a href="#index-transcripts-developer-meetings">transcripts</a> for protocols, logs, and decisions made there
+</p>
+</li>
+</ul></div>
+<h3 id="_architecture_and_subsystems">Architecture and Subsystems</h3><div style="clear:left"></div>
+<div class="paragraph"><p>see the <a href="#index-architecture-overview">architecture overview</a></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Cehteh works on the <a href="#backend">data backend NOTE:LINK</a>
+</p>
+</li>
+<li>
+<p>
+Ichthyo focuses mainly on <a href="#renderengine">Edit operations and Builder NOTE:LINK</a>
+</p>
+</li>
+<li>
+<p>
+Joel builds the Lumiera GUI based on GTK
+</p>
+</li>
+<li>
+<p>
+Gmerlin is in charge of <a href="http://gmerlin.sourceforge.net/gavl.html">GAVL</a> for processing of video data
+</p>
+</li>
+<li>
+<p>
+Some tools which don&#8217;t fit somewhere else and are used everywhere are put into a <a href="#support_library">Support Library NOTE:LINK</a>
+</p>
+</li>
+</ul></div>
+<h3 id="_coding_8201_8212_8201_building_8201_8212_8201_testing">Coding&#8201;&#8212;&#8201;Building&#8201;&#8212;&#8201;Testing</h3><div style="clear:left"></div>
+<div class="ulist"><div class="title">how to organize several aspects of the practical coding&#8230;</div><ul>
+<li>
+<p>
+what to do in <a href="#whatInBOUML">BOUML NOTE:LINK</a>?
+</p>
+</li>
+<li>
+<p>
+how to <a href="#SrcTreeStructure">organize packages</a>?
+</p>
+</li>
+<li>
+<p>
+how to organize the executable to be built?
+</p>
+</li>
+<li>
+<p>
+what <a href="#index-design-documentation">coding conventions</a> to prefer?
+</p>
+</li>
+<li>
+<p>
+what <a href="#index-build-system">build system</a> to use?
+</p>
+</li>
+<li>
+<p>
+various <a href="#index-build-dependencies">build dependencies</a>
+</p>
+</li>
+<li>
+<p>
+we embrace <em>Test Driven Development</em>.  Description of <a href="#TestSh">Test System NOTE:LINK</a> and TestSuite
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><a id="index-Lumiera-design-process"></a></p></div>
+</div>
+<h2 id="_lumiera_design_process">Lumiera Design Process</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>A lightweight formalized process how people can add proposals for the Lumiera development.</p></div>
+<h3 id="_description">Description</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Use the Wiki at <a href="#Lumiera/DesignProcess">design process NOTE:LINK</a> to make it easy to add proposals in a well defined manner.</p></div>
+<div class="ulist"><div class="title">I&#8217;d like to introduce a slightly formalized process for the ongoing Lumiera planning</div><ul>
+<li>
+<p>
+Every proposal is instantiated as <em>Idea</em>, the author gives other people the opportunity to review and comment on it with extreme prejudice, while still working out details.
+</p>
+</li>
+<li>
+<p>
+When the the <em>Idea</em> in a proper form and worked out in most details it becomes a <em>Draft</em>. This <em>Draft</em> need to be carefully reviewed, commented, perhaps corrected and rated by the other Developers.
+</p>
+</li>
+<li>
+<p>
+At some point we may decide that a <em>Draft</em> becomes a <em>Final</em> (I leave it open how this decision shall be done for now). <em>Final</em> Documents will be imported into the repository (this wiki, you are reading such a Document right now!).
+</p>
+</li>
+<li>
+<p>
+Sometimes proposals will become dropped for some reason, this is indicated by changing their state to <em>Dropped</em>, they still stay in the system for further reference.
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">Pros</div><ul>
+<li>
+<p>
+simple
+</p>
+</li>
+<li>
+<p>
+flexible
+</p>
+</li>
+<li>
+<p>
+no much rules
+</p>
+</li>
+<li>
+<p>
+persistent and at Final stage well documented process
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">Cons</div><ul>
+<li>
+<p>
+could be abused/vandalized (but wiki can use ACL&#8217;s)
+</p>
+</li>
+<li>
+<p>
+depends on my server, this might be unfavorable or unreliable, ymmv.
+</p>
+</li>
+<li>
+<p>
+will only work if all or almost all involved people agree on this process
+</p>
+</li>
+</ul></div>
+<h3 id="_alternatives">Alternatives</h3><div style="clear:left"></div>
+<div class="paragraph"><p>We could use some forum, Trac, Mailinglist or whatever instead.</p></div>
+<div class="paragraph"><p>Just for Design documentation I would give <a href="http://bouml.free.fr/">Bouml</a> a try. For myself, I am not very fond of UML Design tools, while Bouml looks quite promising and we could maintain the UML model in git repositories which would be more favorable than this centralized wiki. The backside is that this needs even more agreement between the developers, everyone has to install and use Bouml (and learn its usage) and design is constrained by a external tool.</p></div>
+<div class="paragraph"><p>This distributed wiki might be used instead the pipapo.org wiki, investigate that for future.</p></div>
+<h3 id="_rationale">Rationale</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Wiki works. It is simple to use and just flexible enough to handle the task. I don&#8217;t go to install any other software for such tasks on my server. While the design progresses I&#8217;d propose to move our work into git repositories and eventually phase this wiki pages out anyways. I&#8217;d rather like to start out distributed/git right away .. but git gives us only a fine storage layer, for a design process we need some good presentation layer (later when using git and starting the implementation everyones favorite editor serves for that) I have no better ideas yet to solve the presentation problem other than using this wiki (or maybe Bouml).</p></div>
+<div class="paragraph"><p><a id="index-manifest"></a></p></div>
+</div>
+<h2 id="_manifest">Manifest</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>This Proposal describe the general ideas how the community will work together to create Lumiera.</p></div>
+<h3 id="_description_2">Description</h3><div style="clear:left"></div>
+<div class="paragraph"><p>I started with my personal opinions, so far people expressed their commitment with this text.</p></div>
+<h4 id="_background">Background</h4>
+<div class="paragraph"><p>Cinelerra is quite an old project, there is an original version from heroinewarrior.com and a community fork at cinelerra.org. The original author claims that there was no-one producing usable input despite their proposes while cinelerra was in development, and indeed the cinelerra.org community only feeds back the source released by the original author into their SVN repository and maintains few fixes. There is not much development going on. Some people have created new functionality/features from time to time which have rarely been merged into the main repository and maintained by themselves.</p></div>
+<div class="paragraph"><p>The Cinelerra community is a quite loose group of individuals, there is some fluctuation on the developer base and almost all developers have day jobs which restricts their involvement time on the cinelerra project.</p></div>
+<div class="paragraph"><p>Some of these things work quite well, there is an overall friendly relation between the involved people. People who know C++ and have the time to edit the source have satisfactory added their own features. The Mailing-list and the IRC channel is also quite helpful and even new users who ask stupid questions are welcome.</p></div>
+<div class="paragraph"><p>But there are some bad things too. Notably there is not much progress on the community development. Users don&#8217;t benefit from new improvements which other people have made. There is a endlessly growing list of bugs and feature requests, when someone sends a patch to the ML he has to invest quite some time to maintain it until it might be merged. Finally we don&#8217;t know what heroine virtual is working on, until we see his next tarball.</p></div>
+<h3 id="_solution_for_cinelerra3_lumiera">Solution for "Cinelerra3" / Lumiera</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Cinelerra is heroine&#8217;s product, this time we should work together with him to make it pleasant and progressing for anyone.</p></div>
+<div class="paragraph"><p>We are in need of a new development model which is acceptable by all involved people and benefits from the way Cinelerra development worked the years before, without maintaining the bad sides again:</p></div>
+<div class="paragraph"><div class="title">Make it easy to contribute</div><p>Even if it is favorable when we have people which are continuously working on Lumiera / Cinelerra, it&#8217;s a fact that people show up, send a few patches and then disappear. The development model should be prepared for this by:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Good documentation
+</p>
+</li>
+<li>
+<p>
+Well defined design and interfaces
+</p>
+</li>
+<li>
+<p>
+Establish some coding guidelines to make it easy for others maintain code written by others
+</p>
+</li>
+<li>
+<p>
+Prefer known and simple approaches/coding over bleeding edge and highly complex techniques
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><div class="title">Simple access</div><p>We will use a fully distributed development model using git. I&#8217;ll open a anonymous pushable repository which anyone can use to publish his changes.</p></div>
+<div class="paragraph"><div class="title">Freedom to do, or not to do</div><p>The model allows everyone to do as much as he wants. In a free project there is no way to put demands on people. This is good since it&#8217;s easy to join and is open for anyone. The community might expect some responsibility for people maintaining their patches, but at worst, things which don&#8217;t match our expected quality and when there is no one who keeps them up, will be removed. Since we are working in a distributed way with each developer maintaining his own repository and merging from other people, there is no easy way that bad code will leap into the project.</p></div>
+<div class="paragraph"><div class="title">No Rule is better than a Rule which is not engaged</div><p>We have to agree on some rules to make teamwork possible. These rules should be kept to a minimum required and accepted by all involved people. It is vital that we can trust each other on simple things, like properly formatted code or that patches one proposes to merge don&#8217;t break the system etc..</p></div>
+<div class="paragraph"><div class="title">Legal status must be clear</div><p>Lumiera is developed under the GPL, every contributor must acknowledge this. Even when we provide anonymous commits, every non trivial patch should be traceable to the person who made it, GPG signatures would be proper here - details need to be worked out.</p></div>
+<div class="paragraph"><div class="title">All for Lumiera</div><p>The goal is to make the best Linux video editor to date, nothing less. Everyone puts in their best abilities. This project is not the place to blame people for things where they are not profound, help each other, make things right instead of blaming someone. Everyone should rate himself at what he can do best on the project.</p></div>
+<div class="paragraph"><p><a id="index-how-to-GPG"></a></p></div>
+</div>
+<h2 id="_how_to_gnu_privacy_gaurd_gpg">How To: Gnu Privacy Gaurd (GPG)</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>I (cehteh) just paste my configs and give very few hints here, refer to the gpg manpage, the gpg documentation, google or ask on IRC for details. Maybe you improve this.</p></div>
+<div class="paragraph"><p>First of all you need to install gpg and generate your keypair if you don&#8217;t have done that already. generating keys is done with <tt>gpg --gen-key</tt> refer to the manpage for details.</p></div>
+<div class="paragraph"><p>Be very careful that your private key has a <strong>GOOD</strong> passphrase and be kept secret.</p></div>
+<div class="paragraph"><p>Configuration files are in <tt>~/.gnupg</tt></p></div>
+<div class="paragraph"><p>Here are the things I have in my <tt>~/.gnupg/gpg.conf</tt> (there are a lot of comments too, which I leave out here, instead I add some notes as comments)</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>no-greeting
+
+# enter your keyid AC4F4FF4 is mine!
+default-key AC4F4FF4
+
+force-v3-sigs
+
+compress-algo 1
+
+# you can add alternative keyservers
+keyserver hkp://subkeys.pgp.net
+#keyserver blackhole.pca.dfn.de
+
+# to let gpg automatically download public keys from the net, makes usage much easier
+keyserver-options auto-key-retrieve
+
+# using a gpg agent makes usage easier too, but you should only use it on a personal computer
+use-agent</tt></pre>
+</div></div>
+<div class="paragraph"><p>when you want to use the gpg agent you need to add following line to your <tt>~/.bash_profile</tt> to start the agent on login:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>eval $(gpg-agent --daemon)</tt></pre>
+</div></div>
+<div class="paragraph"><p>further you need to add following lines to your <tt>~/.bash_logout</tt> to stop the agent when logging off:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>if test &amp;quot;$GPG_AGENT_INFO&amp;quot;; then
+        kill -TERM $(echo $GPG_AGENT_INFO | sed -s 's/.*:\(.*\):.*/\1/')
+fi</tt></pre>
+</div></div>
+<div class="paragraph"><p>further the gpg agent needs some configuration in <tt>~/.gnupg/gpg-agent.conf</tt>:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>pinentry-program /usr/bin/pinentry-gtk-2
+no-grab
+default-cache-ttl 1209600
+max-cache-ttl 1209600</tt></pre>
+</div></div>
+<div class="paragraph"><p>Note that I am using very long timeouts, refer to the manual about its implications or leave the defaults.</p></div>
+<div class="paragraph"><p><a id="index-repository-setup"></a></p></div>
+</div>
+<h2 id="_repository_setup">Repository Setup</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Here we describe the Directory hierarchy and how the git repository are set up.</p></div>
+<h3 id="_description_3">Description</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Use <tt>./admin/treeinfo.sh</tt> to produce a annotated directory tree like this:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>.                                       : The root dir for the Lumiera project
+./admin                                 : administrative scripts
+./admin/git_hooks                       : git hook scripts
+./build                                 : build dir
+./doc                                   : documentation
+./doc/devel                             : developer documentation, extra sources, doxygen
+./doc/devel/uml                         : Bouml generated HTML doc
+./doc/user                              : user documentation in texinfo
+./oldsrc                                : Cinelerra2 sources, added per case when needed
+./src                                   : every components source in a own subdir here
+./tests                                 : test suite
+./tests/bugs                            : tests against reported bugs
+./uml                                   : uml models, created with bouml
+./uml/lumiera                           : Lumiera UML model
+./wiki                                  : tiddlywiki for semi-persistent documentation</tt></pre>
+</div></div>
+<h3 id="_new_directories">New Directories:</h3><div style="clear:left"></div>
+<div class="paragraph"><p>When you need to add a new mariginally important directory please provides a file named DIR_INFO within this directory. It&#8217;s first line should note the purpose of the directory in a few words (less than 40 characters). The following lines are free form description about the details.</p></div>
+<h3 id="_submodules">Submodules:</h3><div style="clear:left"></div>
+<div class="paragraph"><p>We want to use the new GIT feature of <tt>Superprojects</tt> and <tt>Submodules</tt> when it is ready for general use.
+Then we will transform several subtrees into separate GIT repos which will be linked to from the main
+Project (then called the <tt>Superproject</tt>) as submodules.</p></div>
+<div class="ulist"><div class="title">Pros</div><ul>
+<li>
+<p>
+because its a text-like structure, it is partially self-documenting
+</p>
+</li>
+<li>
+<p>
+GIT is flexible and with the planned submodules it can be separated in chunks of manageable size if necessary
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">Cons</div><ul>
+<li>
+<p>
+can get large and confusing
+</p>
+</li>
+<li>
+<p>
+has no real <em>portal</em> or entrance point for people wanting to join
+</p>
+</li>
+</ul></div>
+<h3 id="_rationale_2">Rationale</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Every important document, draft, text and code (including) prototypes should be checked into
+one SCM (or a set of related SCMs). This repo should be <em>almost everything</em> you need for the
+project. Because we try to use a distributed development model, every dev can/should have
+his own copy and fed his changes back.</p></div>
+<div class="paragraph"><p>This <em>Repository approach</em> avoids the problems of a central infrastructure and helps cut down
+project management time. Basically, every dev is responsible himself for getting every important
+piece of information added into the general view of matters in a consistent way.</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+When appropriate (this proposal becomes a Final) write some conclusions about its process.</p></div>
+<h3 id="_comments">Comments</h3><div style="clear:left"></div>
+<div class="quoteblock">
+<div class="quoteblock-content">
+<div class="paragraph"><p>Basically the structure is just fine.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+maybe add a <em>pastebin</em> somewhere in the dev-documentation area?
+</p>
+</li>
+<li>
+<p>
+i would add the source tree roots at level 2, so we can have several submodules here:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+oldsrc
+</p>
+</li>
+<li>
+<p>
+cin3
+</p>
+</li>
+<li>
+<p>
+prototype
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</div>
+<div class="quoteblock-attribution">
+<em>2007-06-16T23:10:01Z</em><br />
+&#8212; Ichthyostega
+</div></div>
+<div class="quoteblock">
+<div class="quoteblock-content">
+<div class="paragraph"><p>Draft now.</p></div>
+<div class="paragraph"><p>Yes I left source dirs out but this sounds fine, note that with git, there is no problem to reorganize the repo (in contrast to CVS) later. We can fix things afterward when we find better ways.</p></div>
+</div>
+<div class="quoteblock-attribution">
+<em>2007-06-17T17:36:46Z</em><br />
+&#8212; cehteh
+</div></div>
+<div class="quoteblock">
+<div class="quoteblock-content">
+<div class="paragraph"><p>Whats prototype for? won&#8217;t that be better a branch?</p></div>
+</div>
+<div class="quoteblock-attribution">
+<em>2007-06-17T22:04:39Z</em><br />
+&#8212; cehteh
+</div></div>
+<div class="quoteblock">
+<div class="quoteblock-content">
+<div class="paragraph"><p>I just wanted to show there could be additional things beside the main tree (later to be separate submodules). The example was meant as a classical throwaway prototype. But I agree, in our case we just start hacking at the new tree and make feature/tryout/prototype branches&#8230;</p></div>
+<div class="paragraph"><p>The point I wanted to make is: every directory 2 levels deep in the source tree, e.g. <tt>/src/cinelerra3</tt> or <tt>/src/oldsrource</tt> should be a completely self-contained tree which can be built without needing anything of the rest of the repo. Thats an prerequisite for moving to Submodules IMHO. But you seem rather to put the sourcetree-roots 1 level deep. As we have just two trees at the moment (and can easily reorganize), I have no objections against this. The only point I really care is to try to keep the source tree self-contained without any dependencies to the rest of the <em>design GIT</em> (because of this Superprojects-Submodules thing&#8230;)</p></div>
+</div>
+<div class="quoteblock-attribution">
+<em>2007-06-17T23:45:06Z</em><br />
+&#8212; Ichthyostega
+</div></div>
+<div class="quoteblock">
+<div class="quoteblock-content">
+<div class="paragraph"><p>we could make the trees deeper than one level, I didn&#8217;t intended 1-level depth. but also be careful with that not to make it too complex. While I am not sure if we want a complete oldsrc, that just adds weight and confusion for now (lets see). Neither I am fully decided about the hierarchy in <tt>/src</tt> (want <tt>/libs</tt> <tt>/plugins</tt> or <tt>/src/libs</tt> <tt>/src/plugins</tt> or <tt>/src/render/plugins</tt>? name it rather <em>effects</em> than <em>plugins</em>?). While I am quite sure that I want to separate <tt>/oldssrc</tt> and <tt>/src</tt> quite much (in <tt>/src</tt> should only be new stuff or stuff which is carefully reviewed, with know license and author).</p></div>
+</div>
+<div class="quoteblock-attribution">
+<em>2007-06-18T08:38:43Z</em><br />
+&#8212; cehteh
+</div></div>
+<div class="quoteblock">
+<div class="quoteblock-content">
+<div class="paragraph"><p>I made this proposal <em>final</em> now further details are likely better worked out in the git repository (and we already started to define things there) see <tt>./admin/treeinfo.sh</tt></p></div>
+</div>
+<div class="quoteblock-attribution">
+<em>2007-06-27T16:01:52Z</em><br />
+&#8212; cehteh
+</div></div>
+<div class="paragraph"><p><a id="index-SCons"></a></p></div>
+</div>
+<h2 id="_scons">SCons</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><a href="http://www.scons.org">SCons</a> is an <em>alternate build system</em> written in Python and using specific python-scripts for defining the buildprocess. These build scripts, called <tt>SConstruct</tt> and <tt>SConsscript</tt> are indeed <em>definitions</em>, not scripts for <em>doing</em> the build. If you are new to SCons (and familiar with make), you should really read the <a href="http://www.scons.org/doc/0.97/HTML/scons-user/book1.html">Introduction of the users guide</a>, because SCons is quite a different beast then make and the autotools.</p></div>
+<div class="paragraph"><p>To learn how to use SCons and to get a better feeling of its strenghtes and weaknesses, Ichthyo started a SCons based build system for Lumiera in July 2007 and will maintain it for some time parallel to the automake system (maintained by Cehteh). Every build system looks good in theory and has some big advantages, but only in real use one can see how much effort is needed to keep up with the demands of a given project.</p></div>
+<h3 id="_some_notes">some Notes</h3><div style="clear:left"></div>
+<div class="ulist"><ul>
+<li>
+<p>
+we build always in the top level directory
+</p>
+</li>
+<li>
+<p>
+at the moment, we use no separate build directory, rather we place the object files alongside with the sources
+</p>
+</li>
+<li>
+<p>
+but we place the created executables and shared libraries into one <tt>$BINDIR</tt> (configurable in the top level <tt>SConstruct</tt>)
+</p>
+</li>
+<li>
+<p>
+note: for SCons, each file (which is buildable) and each directory (containing buildable files) is on itself a Target.
+</p>
+</li>
+<li>
+<p>
+additionally, we provide some <em>aliases</em>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+build == <tt>$BINDIR</tt>
+</p>
+</li>
+<li>
+<p>
+install places some of the created artifacts into <tt>$DESTDIR</tt>
+</p>
+</li>
+<li>
+<p>
+testcode is an alias for all the executables comprising the testsuite
+</p>
+</li>
+<li>
+<p>
+check == directory <tt>tests</tt> and runs the testsuite
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+run <tt>scons -h</tt> to get additional explanations.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Typically, one would just write the necessary definitions as they come into one global scope. But because the buildscripts are actually Python scripts, ichthyo found it preferable to use some more structuring and break down the code into several python functions and pass all necessary variables as parameters. This may seem overkill at first look, but the Lumiera project is expected to become a large project.</p></div>
+<div class="paragraph"><p>Moreover, one could simply list all needed files or break everything down into a hierarchical build. But instead, we use for most objects a helper function (located in <tt>admin/scons/Buildhelper.py</tt>) called <tt>srcSubtree()</tt>, which will scan a directory tree and add all <tt><em><strong>.c</em>,<em></strong>.cpp</em>,<em>*.cc</em></tt> - files as Object nodes to the build process. Besides that, we use the hierarchical aproach rather reluctantly: at the moment, only the subtree for separate tools and the tests-directory have a separate buildscript. Probably, the subtree for plugins will get one as well at some point in the future.</p></div>
+<div class="paragraph"><p><a id="index-shortcuts"></a></p></div>
+</div>
+<h2 id="_shortcuts">ShortCuts</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>A list of useful Shortcuts, Info, Links</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://www.pipapo.org/pipawiki/Lumiera/DesignProcess">design process NOTE:LINK</a>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><a id="index-SrcTree-structure"></a></p></div>
+</div>
+<h2 id="_srctree_structure">SrcTree Structure</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+add a <tt>DIR_INFO</tt> file to each marginally important directory. The first line should give a short abstract about this dir (40 characters, not more), following lines can give more precise information. There is a <tt>admin/treeinfo.sh</tt> script which generates a texual overview of the directory tree.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><a id="index-test.sh"></a></p></div>
+</div>
+<h2 id="_test_sh">test.sh</h2>
+<div class="sectionbody">
+<h3 id="_the_test_script">The Test Script</h3><div style="clear:left"></div>
+<div class="paragraph"><p>To drive the various tests, we use the script <tt>tests/test.sh</tt>. All tests are run under valgrind control if available unless <tt>VALGRINDFLAGS=DISABLE</tt> is defined.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+The SCons buildsystem will build and run the testcode when executing the target <tt>scons tests</tt>.
+</p>
+</li>
+<li>
+<p>
+This test script is integrated in the automake build and will be used when <tt>make check</tt> is called.
+</p>
+</li>
+</ul></div>
+<h3 id="_options_for_running_the_test_suite">Options for running the Test Suite</h3><div style="clear:left"></div>
+<div class="ulist"><div class="title">One may define <tt>TESTMODE</tt> containing any one of the following strings</div><ul>
+<li>
+<p>
+<tt>FAST</tt> only run tests which failed recently
+</p>
+</li>
+<li>
+<p>
+<tt>FIRSTFAIL</tt> abort the tests at the first failure
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The variable <tt>TESTSUITES</tt> may contain a list of string which are used to select which tests are run. If not given, all available tests are run.</p></div>
+<div class="paragraph"><p>putting this together a very fast check (when using automake) while hacking on the source would look like:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>VALGRINDFLAGS=DISABLE TESTMODE=FAST+FIRSTFAIL make check</tt></pre>
+</div></div>
+<div class="paragraph"><p>This doesn&#8217;t catch all errors, notably not regressions, but is useful to do coarse checks.</p></div>
+<div class="paragraph"><p>Running the testsuite with everything enabled is just:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>make check</tt></pre>
+</div></div>
+<h3 id="_writing_tests">Writing Tests</h3><div style="clear:left"></div>
+<div class="paragraph"><p>Test-Definitons are written in files named <tt>NNname.tests</tt> in the <tt>tests</tt> dir, where NN is a number defining the order of the various test files, <tt>name</tt> should be a descriptive name about whats going to be tested.</p></div>
+<div class="ulist"><div class="title">In a .tests file one has to define following</div><ul>
+<li>
+<p>
+<tt>TESTING &lt;description&gt; &lt;binary&gt;</tt> set the program binary to be tested to &lt;binary&gt;, &lt;description&gt; should be a string which is displayed as header before running following tests
+</p>
+</li>
+<li>
+<p>
+<tt>TEST &lt;description&gt; [optargs] &lt;&lt;END</tt> run the previously set binary with [optargs], &lt;description&gt; is displayed when running this test. A detailed test spec must follow this command and be terminated with <tt>END</tt> on a single line. Test specs can contain following statements:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<tt>in: &lt;line&gt;</tt> send &lt;line&gt; to stdin of the test program
+</p>
+</li>
+<li>
+<p>
+<tt>out: &lt;line&gt;</tt> expect &lt;line&gt; at the stdout of the test program
+</p>
+</li>
+<li>
+<p>
+<tt>err: &lt;line&gt;</tt> expect &lt;line&gt; at the stderr of the test program
+</p>
+</li>
+<li>
+<p>
+<tt>return: &lt;status&gt;</tt> expect &lt;status&gt; as exit status of the program
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>If no <tt>out:</tt> or <tt>err:</tt> is given, stdout and stderr are not considered as part of the test. If no <tt>return:</tt> is given, then 0 is expected.</p></div>
+<h4 id="_numbering_tests">Numbering Tests</h4>
+<div class="paragraph"><p>It needs to be ensured that simpler tests come before more complex ones and that dependant tests come after their dependencies.</p></div>
+<div class="tableblock">
+<table rules="rows"
+frame="hsides"
+cellspacing="0" cellpadding="4">
+<caption class="title">Here is the order suggested</caption>
+<col width="88" />
+<col width="711" />
+<tbody valign="top">
+  <tr>
+    <td align="left">
+    00
+    </td>
+    <td align="left">
+    The test system itself
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+    01..
+    </td>
+    <td align="left">
+    Infrastructure, package consistency etc.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+    10..
+    </td>
+    <td align="left">
+    Basic support library functionality
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+    20..
+    </td>
+    <td align="left">
+    Higher level support library services
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+    30..
+    </td>
+    <td align="left">
+    Backend Unit tests
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+    40..
+    </td>
+    <td align="left">
+    Proc Layer Unit tests
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+    50..
+    </td>
+    <td align="left">
+    User interface Unit tests (Gui, Scripting)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+    60..
+    </td>
+    <td align="left">
+    Unit interaction tests (Backend, Proc, UI, &#8230;)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+    70..
+    </td>
+    <td align="left">
+    Functionality tests on the complete program
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+    80..
+    </td>
+    <td align="left">
+    Reported bugs which can be expressed in a test case
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+    90..
+    </td>
+    <td align="left">
+    Optional tests, example code etc.
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p><a id="index-test-suite"></a></p></div>
+</div>
+<h2 id="_test_suite">Test Suite</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>For running the automatic Tests, we use Cehteh&#8217;s simple <a href="#index-test.sh">test.sh NOTE:LINK</a></p></div>
+<div class="paragraph"><p>This page is a proposal (by Ichthyo) how the various tests could be organized.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+individual <em>Testcases</em> are classes, doing whatsoever and however they see fit.
+</p>
+</li>
+<li>
+<p>
+it is up to the individual test classes to take care / handle / isolate themself form any <em>dependencies</em> (similar to the <a href="http://www.beust.com/weblog/archives/000082.html">philosophy of TestNG</a>)
+</p>
+</li>
+<li>
+<p>
+Testcases are <em>grouped</em> together into thematic (Sub)-Testsuites. Each Testcase has an unique ID and can be tagged with several groupIDs
+</p>
+</li>
+<li>
+<p>
+for running a <em>Testsuite</em> (=distinct collection of tests) we build an executable linked against the test class objects.
+</p>
+</li>
+<li>
+<p>
+moreover, for <em>simple Tests</em>, we can build separate stelf-contained executables or even use other scripts.
+</p>
+</li>
+<li>
+<p>
+the Testsuite executable provides some command line magic to select individual tests.
+</p>
+</li>
+<li>
+<p>
+Top-level Testsuites or <em>Test-Collections</em> for <tt>test.sh</tt> contain calls to the different (sub)-Suites, together with the expected results/output
+</p>
+</li>
+</ul></div>
+<h3 id="_internal_testsuite_runner">Internal Testsuite runner</h3><div style="clear:left"></div>
+<div class="paragraph"><p>The class <tt>test::Suite</tt> (<tt>common/test/suite.hpp</tt>) helps building an executable which will run all <em>registered</em> test case objects, or some group of such testcases. Each test case implements a simple interface and thus provides a <tt>run (args)</tt> function, moreover, it registers itself immediately alongside with his definition; this works by the usual trick of defining a static class object and calling some registration function from the constructor of this static var. See the following <em>hello-world</em> example:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>#include &lt;iostream&gt;
+#include "common/test/run.hpp"
+
+    class HelloWorld_test : public Test
+      {
+        virtual void run(Arg arg)
+          {
+            greeting();
+          }
+
+        void greeting()
+          {
+            std::cout &lt;&lt; "This is how the world ends...\n";
+          }
+      };
+
+    /** Register this test class to be invoked in some test groups (suites) */
+    LAUNCHER (HelloWorld_test, "unit function common");</tt></pre>
+</div></div>
+<div class="ulist"><div class="title">Notes</div><ul>
+<li>
+<p>
+type Arg is <tt>typedef std::vector&lt;string&gt;; &amp; Arg;</tt>
+</p>
+</li>
+<li>
+<p>
+this vector may be <tt>size()==0</tt>, which means no comandline args available
+</p>
+</li>
+<li>
+<p>
+otherwise arg[0] is always the ID (normally the classname) of the test
+</p>
+</li>
+<li>
+<p>
+the following args may contain further arguments passed from system commandline
+</p>
+</li>
+<li>
+<p>
+the test can/should produce output that can be checked with Cehteh&#8217;s <tt>test.sh</tt>
+</p>
+</li>
+<li>
+<p>
+the macro <tt>LAUNCHER</tt> expands to <tt>Launch&lt;HelloWorld_test&gt; run_HelloWorld_test("HelloWorld_test","unit function common");</tt>
+</p>
+</li>
+<li>
+<p>
+note the second parameter to the macro (or the Laucher-ctor) is a space-delimited list of group names
+</p>
+</li>
+<li>
+<p>
+thus any test can declare itself as belonging to some groups, and we can create a <tt>test::Suite</tt> for each group if we want.
+</p>
+</li>
+</ul></div>
+<h4 id="_invoking_the_testrunner">Invoking the testrunner</h4>
+<div class="paragraph"><p>The class <tt>test::TestOption</tt> predefines a boost-commandlineparser to support the following optons:</p></div>
+<div class="tableblock">
+<table rules="rows"
+frame="hsides"
+cellspacing="0" cellpadding="4">
+<caption class="title"><tt>./test-components --group &lt;groupID&gt; [testID [arguments&#8230;]]</tt></caption>
+<col width="228" />
+<col width="571" />
+<tbody valign="top">
+  <tr>
+    <td align="left">
+    <tt>--help</tt>
+    </td>
+    <td align="left">
+    options summary
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+    <tt>--group|-g &lt;groupID&gt;</tt>
+    </td>
+    <td align="left">
+    build a Testsuite out of all tests from this group. If missing, ALL tests will be included
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+    <tt>[testID]</tt>
+    </td>
+    <td align="left">
+    (optional) one single testcase. If missing, all testcases of the group will be invoked
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+    <tt>--describe</tt>
+    </td>
+    <td align="left">
+    print all registered tests to stdout in a format suited for use with test.sh
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>Further commandline arguments are deliverd to a single testcase only if you specify a <tt>testID</tt>. Otherwise, all commandline arguments remaining after options parsing will be discarded and all tests of the suite will be run with an commandline vector of <tt>size()==0</tt>.</p></div>
+<h3 id="_conventions_for_the_buildsystem">Conventions for the Buildsystem</h3><div style="clear:left"></div>
+<div class="paragraph"><p>To help with automating the build, ichthyo would appreciate to have the following conventions:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+in the <tt>tests</tt> directory are
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+the testdefinitions together with <tt>test.sh</tt>
+</p>
+</li>
+<li>
+<p>
+the test-executables, which should named according to the pattern <tt>test-XXX</tt>
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+below are the source directories for each of the aforementioned test-executables. When such a source directory is named <tt>XXX</tt>, the corresponding executable is <tt>test-XXX</tt>
+</p>
+</li>
+<li>
+<p>
+each of the source directories, which actually could be source trees, will be compiled and linked together with the Lumiera core classes and files. Thus, it needs to contain exactly <em>one</em> main(), but by using commandline parameters, one executable can drive a lot of different tests.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>as of 18.8.2007, ichthyo has implemented this scheme for the SCons build</p></div>
+<div class="paragraph"><p><a id="index-wiki-Lumiera"></a></p></div>
+</div>
+<h2 id="_wiki_lumiera">Wiki Lumiera</h2>
+<div class="sectionbody">
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">rewrite this page for uWiki that is git, asciidoc</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>As the wiki hypertext is located in the Lumiera source tree, all changes will be managed and distributed via <a href="#index-git-notes">git</a>. While doing so, you sometimes will have to merge conflicing changes manually in the hypertext source.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+see how to use the wiki NOTE:LINK&#8201;&#8212;&#8201;create a tutorial wiki
+</p>
+</li>
+<li>
+<p>
+see markup (guide syntax) to edit the documents format asciidoc in the wiki NOTE:LINK&#8201;&#8212;&#8201;link to site uWiki, link to guide syntax (at any page)
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p><a id="index-what-use-is-BOUML"></a></p></div>
+</div>
+<h2 id="_what_use_is_bouml">What Use is BOUML?</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The question to find out about is: how much of the coding to do with the help of BOUML. Basically, BOUML is capable to permanently support the coding; you can define all entities, fields and methods in the UML model an just develop the method bodies <em>conventionally</em> with a text editor.</p></div>
+<div class="paragraph"><p><strong>Ichthyo</strong> tends to be sceptical about this approach. While it probably will work, it is questionable if it will result in <strong>good code</strong> the fear is, that this rigid hierarchical structure distracts from the more complex semantical concerns.</p></div>
+<div class="paragraph"><p>Another approach could be to use BOUML just to create the basic structures and from this point on rather utilizing it for technical documentation.</p></div>
+<h3 id="_after_some_use">After some use</h3><div style="clear:left"></div>
+<div class="paragraph"><p>After having used BOUML now (August 07) to some extent, Ichthyo notes down his observation:</p></div>
+<div class="ulist"><div class="title">Assessment</div><ul>
+<li>
+<p>
+it is fast, rock stable and complete up to a medium requirement level.
+</p>
+</li>
+<li>
+<p>
+the drawing functions are just basic and insufficient for corporate level demands, just enough for creating design drafts
+</p>
+</li>
+<li>
+<p>
+I miss real world round trip capabilities. Basically, it works fine as long as BOUML is the primary programming environment
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><div class="title">Benefits</div><p>setting up new Entities together with all relations and the most important operations is very fast and convienient with bouml. You can get a fairly complete and consistent skeleton of some subsystem much more rapidly than when creating classes from templates in a normal IDE</p></div>
+<div class="paragraph"><div class="title">Drawbacks</div><p>For fleshing out more implementation centric parts, it is seriousely lacking expressiveness, as far as C++ is concerned. This is partially due to the nature of UML. As a warning example, look at the source code of BOUML together with it&#8217;s  <em>plugouts</em>. It has about 250kLOC, several thousand source files, most of this caused by duplicating whole class hierarchies, set up in a classificatory manner (which is a big no-no for most modern object oriented programming styles).</p></div>
+<div class="paragraph"><p><strong>Conclusion</strong><br />
+I want to try out the following aproach:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+use it for reasoning about structure
+</p>
+</li>
+<li>
+<p>
+use it for setting up all new major entities
+</p>
+</li>
+<li>
+<p>
+don&#8217;t use it for <em>real programming</em>
+</p>
+</li>
+</ul></div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2009-09-14 19:48:58 EDT
+</div>
+</div>
+</body>
+</html>

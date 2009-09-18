@@ -1,0 +1,46 @@
+== RoadMap
+:Author: Ichthyostega
+:Date Created: 200804011655
+:Date Changed: 200809072300
+:Count Changes: 12
+
+===  Foundations, not really a milestone yet
+
+We need following in a basically working / mockup state:
+
+* GUI
+ - define a outline (most important views and modes)
+ - define the foundations for communicating with the lower layers
+* Proc layer
+ - basic assets, create a clip object _(done)_
+ - interface/stub for ConfigQuery subsystem _(done)_
+ - add simple clip to EDL/Session, invoke builder
+ - build render nodes for very simple session (partly mockups)
+ - preliminary support for composite clips (video+audio)
+* Backend
+ - File backend, caching
+ - Serializer
+ - Scheduler
+* Support Libary
+ - Plugin Loader
+ - Other tools there
+* Infrastructure
+ - Testsuite
+ - Website
+
+==== Next Goals
+
+. Make a <<todo-video-player-mockup, video player mockup>>
+. Integrate a +Version 0.1+ able to
+.. load a simple media
+.. put a clip to the EDL
+.. build the corresponding low-level model
+.. run a render process
+
+===  Second round
+_all rather brainstorming for now, feel free to modify..._
+
+* save and load session
+* integrate YAP Prolog instead of the mock impl
+* load and wire some plugins
+* send output to a window in GUI

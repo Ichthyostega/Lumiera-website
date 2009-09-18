@@ -1,0 +1,26 @@
+== BuilderStructures
+:Author: Ichthyostega
+:Date Created: 200706250734
+:Date Changed: 200906071812
+:Count Changes: 22
+// overview design Builder img
+
+* the MObjects implement _Buildable_
+* each Buildable can 'receive' a Tool object and apply it
+* the different Tool objects are iterated/mapped onto the list of MObjects in the <<renderengine-Timeline,Timeline>>
+* 'Rationale'
+ - the MObject class hierarchy is rather fixed (it is unlikely the we will be adding much new MObject subclasses)
+ - so this design makes it easy to add new Tool subclasses, and within each Tool subclass, all operations on the different MObject classes are grouped together, so it is easy to see what is going on.
+ - a given Tool instance can carry state while being iterated, so we don't need any global (or object-global) variables to hold the result of the build process
+
+This programming technique is often referred to as <<renderengine-VisitorUse,+double dispatch+ or +visitor+>>. We use a specialized library implementation of this pattern -- heavily inspired by the http://loki-lib.sourceforge.net[Loki library]. We use this approach not only for the builder, but also for carrying out operations on the objects in the EDL in a typesafe manner. 
+It is the low level foundation of the actual <<renderengine-BasicBuildingOperations,building operations>> necessary to create render nodes starting from the given high level model. 
+
+image::../uml/fig129285.png["Entities cooperating in the Builder"]
+
+=== Colaborations
+
+While building, the application of such a visiting tool (especially the <<renderengine-PlanningNodeCreatorTool,NodeCreatorTool>>) is embedded into an execution context formed by the BuilderToolFactory providing our BuilderToolKit, the <<renderengine-BuilderAssembler,Assembler>> and <<renderengine-ConManager,connection manager>>. The colaboration of these parts can be seen as the <<renderengine-BuilderMechanics,mechanics of the builder>> -- sort of the _outward view_, contrary to the _invard aspects_ visible when focussing on how the nodes are put together.
+    
+image::../uml/fig128517.png["Colaborations in the Build Process"]
+

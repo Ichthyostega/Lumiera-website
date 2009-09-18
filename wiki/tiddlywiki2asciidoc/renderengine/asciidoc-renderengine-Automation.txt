@@ -1,0 +1,10 @@
+== Automation
+:Author: Ichthyostega
+:Date Created: 200706250751
+:Date Changed: 200906071813
+:Count Changes: 6
+// def img
+
+Automation is treated as a function over time. It is always tied to a specific Parameter (which can thus be variable over the course of the timeline). All details _how_ this function is defined are completely abstracted away. The Parameter uses a ParamProvider to get the value for a given Time (point). Typically, this will use linear or bezier interpolation over a set of keyframes internally. Parameters can be configured to have different value ranges and distribution types (on-off, stepped, continuous, bounded)
+
+image::../uml/fig129669.png["how to implement Automation"]

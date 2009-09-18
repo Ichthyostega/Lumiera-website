@@ -1,0 +1,9 @@
+== Cuckoo
+:Author: CehTeh
+:Date Created: 200803281417
+:Date Changed: 200803281418
+:Count Changes: 2
+
+This hashing gives guaranteed O(1) lookup complexity and amortized O(1) insert and remove complexity. Hash tables by default grow and shrink automatically. It is posible to preallocate entries and turn automatic shrinking off taking out the memory management factors for insert and remove operations. This implementation uses 3 Tables which exponential growing sizes.
+
+Hash table utilization is commonly between 40-80% which gives better memory usage and far better locality than trees.

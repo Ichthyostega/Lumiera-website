@@ -1,0 +1,52 @@
+== CommandDefinition
+:Author: Ichthyostega
+:Date Created: 200906140124
+:Date Changed: 200907220310
+:Count Changes: 10
+// SessionLogic spec draft decision design
+
+Commands can be identified and accessed _by name_ -- consequently there needs to be an internal command registry, including a link to the actual implementing function, thus allowing to re-establish the connection between command and implementing functions when de-serialising a persisted command. To create a command, we need to provide the following informations
+
+* operation function actually implementing the command
+* function to <<renderengine-UndoManager,undo>> the effect of the command
+* function to capture state to be used by UNDO.
+* a set of actual parameters to bind into these functions (closure).
+
+=== Command definition object
+The process of creating a command by providing these building blocks is governed by a CommandDef helper object. According to the http://en.wikipedia.org/wiki/Fluent_interface[fluent definition style], the user is expected to invoke a chain of definition functions, finally leading to the internal registration of the completed command object, which then might be dispatched or persisted. For example
+
+[source,cpp]
+----
+CommandDefinition ("test.command1")
+     .operation (command1::operate)          _ provide the function to be executed as command
+     .captureUndo (command1::capture)        _ provide the function capturing Undo state
+     .undoOperation (command1::undoIt)       _ provide the function which might undo the command
+     .bind (obj, val1,val2)                  _ bind to the actual command parameters (stores command internally)
+     .executeSync();                         _ convenience call, forwarding the Command to dispatch.
+----
+
+=== Operation parameters
+While generally there is _no limitation_ on the number and type of parameters, the set of implementing functions and the +bind(...)+ call are required to match. Inconsistencies will be detected by the compiler. In addition to taking the _same parameters as the command operation,_ the +captureUndo()+ function is required to return (by value) a _memento_ type, which, in case of invoking the +undo()+-function, will be provided as additional parameter. To summarise:
+
+[grid="columns"]
+`90~~~~
+Function
+~~~~
+operation
+captureUndo
+undoOperation
+bind
+~~~~
+
+[grid="rows"]
+`90`150~~~~
+Function,ret(params)
+~~~~
+.90.50.100~~~~
+operation,void,"(P1,..PN)"
+captureUndo,MEM,"(P1,..PN)"
+undoOperation,void,"(P1,..PN,MEM)"
+bind,void,"(P1,..PN)"
+~~~~
+
+Usually, parameters should be passed _by value_ -- with the exception of target object(s), which are typically bound as MObjectRef, causing them to be resolved at commad execution time (late binding).

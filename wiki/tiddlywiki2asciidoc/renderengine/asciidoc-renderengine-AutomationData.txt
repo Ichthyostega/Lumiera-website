@@ -1,0 +1,8 @@
+== AutomationData
+:Author: Ichthyostega
+:Date Created: 200805300105
+:Date Changed: 
+:Count Changes: 2
+// def automation
+
+While generally automation is treated as a function over time, defining and providing such a function requires some _Automation Data._ The actual layout and meaning of this data is deemed an implementation detail of the <<renderengine-ParamProvider, parameter provider>> used, but nevertheless an automation data set has object characteristics within the <<renderengine-EDL,EDL (high-level-model)>>, allowing it to be attached, moved and <<renderengine-Placement,placed>> by the user.

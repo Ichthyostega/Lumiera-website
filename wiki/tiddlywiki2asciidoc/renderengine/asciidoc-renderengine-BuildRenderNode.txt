@@ -1,0 +1,31 @@
+== BuildRenderNode
+:Author: Ichthyostega
+:Date Created: 200805300137
+:Date Changed: 200806030139
+:Count Changes: 12
+// Builder impl
+
+Actually setting up and wiring a <<renderengine-ProcNode,processing node>> involves several issues and is carried out at the lowest level of the build process.
+It is closely related to  -> <<renderengine-NodeOperationProtocol,the way nodes are operated>> and the  -> <<renderengine-RenderMechanics,mechanics of the render process>>
+
+=== object creation
+The Nodes are small polymorphic objects, carrying configuration data, but no state. They are <<renderengine-ManagementRenderNodes,specially allocated>>, and the object creation is accessible by means of the NodeFactory solely. They _must not be deallocated manually._ The decision of what concrete node type to create depends on the actual build situation and is worked out by the combination of <<renderengine-BuilderMould,mould>> and <<renderengine-ProcPatt,processing pattern>> at the current OperationPoint, issuing a call to one of NodeFactory's +operator()+
+
+=== node, plugin and processing function
+Its a good idea to distinguish clearly between those concepts. A plugin is a piece of (possibly external) code we use to carry out operations. We have to _discover its properties and capabilities._ We don't have to discover anything regarding nodes, because we (Lumiera builder and renderengine) are creating, configuring and wiring them to fit the specific purpose. Both are to be distinguished from processing functions, which do the actual calculations on the media data. Every node typically encompasses at least one processing function, which may be an internal function in the node object, a library function from Lumiera or GAVL, or external code loaded from a plugin.
+
+=== node interfaces
+As a consequence of this distinctions, in conjunction with a processing node, we have to deal with three different interfaces
+
+* the 'build interface' is used by the builder to set up and wire the nodes. It can be full blown C++ (including templates)
+* the 'operation interface' is used to run the calculations, which happens in cooperation of Proc-Layer and Backend. So a function-style interface is preferable.
+* the 'inward interface' is accessed by the processing function in the course of the calculations to get at the necessary context, including in/out buffers and param values.
+
+=== wiring data connections
+A node _knows its predecessors, but not its successors._ When being _pulled_ in operation, it can expect to get a frame provider for accessing the in/out buffer locations (some processing functions may be 'in-place capable', but that's only a special case of the former). At this point, the *pull principle* comes into play: the node may request input frames from the frame provider, passing its predecessors as a *continuation*.
+
+With regard to the build process, the wiring of data connections translates into providing the node with its predecessors and preconfiguring the possible continuations. While in the common case, a node has just one input/output and pulls from its predecessor a frame for the same timeline position, the general case can be more contrived. A node may process N buffers in parallel and may require several different time positions for it's input, even at a differing framerate. So the actual source specification is (predNode,time,frameType). The objective of the wiring done in the build process is to factor out the parts known in advance, while in the render process only the variable part need to be filled in. Or to put it differently: wiring builds a higher order function (time)->(continuation), where continuation can be invoked to get the desired input frame.
+
+=== wiring control conections
+In many cases, the parameter values provided by these connections aren't frame based data, rather, the processing function needs a call interface to get the current value (value for a given time), which is provided by the parameter object. Here, the wiring needs to link to the suitable parameter instance, which is located within the high-level model (!). As an additional complication, calculating the actual parameter value may require a context data frame (typically for caching purposes to speed up the interpolation). While these parameter context data frames are completely opaque for the render node, they have to be passed in and out similar to the state needed by the node itself, and the wiring has to prepare for accessing these frames too.
+
