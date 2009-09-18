@@ -15,11 +15,11 @@ For review and proposals the folds are structures as an alternative to one fold 
 
 Actually...not all documents at Tiddlywiki was converted yet, subsequent is a list status of parts:
  index.html  ==  converted
- backend.html == converted partially
- compatibility.html == unconverted
- renderengine.html == unconverted
- support_library.html == unconverted
- todo.html == unconverted
+ backend.html == converted
+ compatibility.html == converted
+ renderengine.html == unconverted -- DO NOT CONVERT -- file is in use, talk with ichthyo
+ support_library.html == converted
+ todo.html == converted
 
 Notes:
  A part is status converted, better to review the documents (files).  

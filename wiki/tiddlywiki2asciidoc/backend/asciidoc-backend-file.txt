@@ -1,7 +1,0 @@
-== File
-:Author: CehTeh
-:Date Created: 200803271035
-:Date Changed: 200803271341
-:Count Changes: 2
-
-File associates a filename with the underlying <<backend-file-descriptor, file descriptor>>. This allows filess which have serveral names (+hardlinks+) to share a underlying backend.
