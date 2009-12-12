@@ -10,6 +10,13 @@ image::SeedlingsByPaulGoyette.png[]
 
 Lumiera is still in an early stage of development. It is not usable yet.
 
+Feeds
+-----
+
+image::feed-icon-28x28.png["RSS Feed",link="http://issues.lumiera.org/timeline?ticket=on&milestone=on&max=5&daysback=90&format=rss"] Trac activity
+
+image::feed-icon-28x28.png["RSS Feed",link="http://rss.gmane.org/gmane.comp.video.lumiera.general"] Mailing list activity
+
 News
 ----
 
