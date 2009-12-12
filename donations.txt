@@ -10,11 +10,15 @@ image::ffis-klein.png[ffis logo]
 
 In October 2009 Lumiera become a project associated with the http://www.ffis.de/[ffis], a German non-profit association for the advancement of Free Software and Free Information. That means ffis can collect donations on our behalf and manange our funds. 
 
-Please, consider donating to the Lumiera project!
-
+For payment methods see the http://www.ffis.de/Verein/donations.html[ffis] donation page.
 If you don't specify and project, your donation will support ffis, Free Software and Free Information.
 
-For payment methods see the http://www.ffis.de/Verein/donations.html[ffis] donation page.
+image::lao.png[Linux audio logo]
+
+Lumiera community is planning a dev meeting at the http://lac.linuxaudio.org/2010/[Linux Audio Conference] - May 1-4 2010, Utrecht, the Netherlands.
+It will be a good opportunity to meet also with other openvideo developers but we need help to cover traveling costs. 
+
+*Please, consider donating to the Lumiera project!*
 
 Thank you!
 
