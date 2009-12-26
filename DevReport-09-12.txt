@@ -1,8 +1,8 @@
 Lumiera Winter Report
 =====================
 
-Summary of coding achievements
-------------------------------
+Summary of coding achievements - December 2009
+----------------------------------------------
 
 After a long silence (in busy times one forgets to update a website) we're ready to letting you know how the Lumiera project is doing. Because, well, there's a lot going on. What you are now reading is the first of our quarterly reports in which we tell about the progressions made in the past three months.
 
