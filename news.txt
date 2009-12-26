@@ -1,7 +1,8 @@
 ////
 Please add new items on the top, comment older/irrelevant items out
 ////
-
+*December 26 2009*::
+	The (German) link:DevReport-09-12.html[Winter Quarterly News] are out!
 *December 12 2009*::
 	You probably haven't noticed that, but a lot of work has been done to improve this website. In fact the development of uWiki has proceeded as far as making this self extensible minimalistic wiki engine actually working, today for the first time. After a time for testing and debugging it will eventually be set up for the Lumiera website. You can http://uwiki.pipapo.org/_uwiki/form/account_create.html[have a look at it], but be aware that currently new users are not  automatically allowed to edit. 
 

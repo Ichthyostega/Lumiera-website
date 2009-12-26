@@ -12,7 +12,7 @@ Lumiera is still in an early stage of development. It is not usable yet.
 
 [icon="Heart-beat.gif"]
 [NOTE]
-.PROJECT HEART-BEAT
+.CHECK THE PROJECT HEARTBEAT AND PULSE
 ==========================================================
 (2)
      
