@@ -2,7 +2,6 @@ Development
 ===========
 
 Lumiera is being built from the ground up, starting with the engine core. The core is not tied to the GUI but just interacts with it via clearly defined interfaces. +
-Work on the GUI is just starting out, which makes this a good time to contribute any ideas you might have. Please edit the http://www.pipapo.org/pipawiki/Lumiera/GuiBrainstorming[GUI Brainstorming page].
 
 We use a distributed development model backed by the http://git.or.cz/[git] version control system.
 
@@ -18,7 +17,7 @@ wants to do before starting so that we can coordinate the things. We are also ca
 quality, if anyone can just join and leave his contribution must be maintainable by others. That means everything needs 
 to be properly documented and supply tests for the testsuite.
 
-If you want to buil the Lumiera GUI from the git source repository have a look at our http://www.pipapo.org/pipawiki/Lumiera/NewbiesTutorials[Newbie Tutorial].
+If you want to build the Lumiera GUI from the git source repository have a look at our http://lumiera.org/Lumiera/NewbiesTutorials[Newbie Tutorial].
 
 Continous Integration system
 ----------------------------
