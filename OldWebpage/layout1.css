@@ -8,15 +8,16 @@ h1 {
 }
 
 #layout-banner {
-	background-color: #73a0c5;
-  color: white;
+	background-color: #008080;
+	  border-bottom: 3px solid #eeeeee;
+  color: #7FFFD4;
 	font-family: sans-serif;
 	text-align: left;
   padding: 0.8em 20px;
 }
 
 #layout-title {
-	font-family: monospace;
+	font-family: sans-serif;
 	font-size: 3.5em;
 	font-weight: bold;
   letter-spacing: 0.2em;
@@ -24,6 +25,7 @@ h1 {
 }
 
 #layout-description {
+  color: white;
 	font-size: 1.2em;
   letter-spacing: 0.1em;
 }
@@ -43,11 +45,11 @@ h1 {
   margin-left: 0.5em;
 }
 #layout-menu a:link, #layout-menu a:visited, #layout-menu a:hover {
-  color: #527bbd;
+  color: #008080;
   text-decoration: none;
 }
 #layout-menu a:hover {
-	color: navy;
+	color: #7FFFD4;
   text-decoration: none;
 }
 #layout-menu #page-source {
@@ -63,3 +65,4 @@ h1 {
   #layout-banner { display: none; }
   #layout-menu { display: none; }
 }
+
