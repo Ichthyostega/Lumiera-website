@@ -38,6 +38,7 @@ find -name '*.txt' |
 				--attribute icons --attribute \
 				iconsdir=./images/icons --attribute=badges \
 				--attribute=revision="$VERS"  --attribute=date="$DATE" \
+				--attribute quirks! \
 				--conf-file="${conf}" \
 				"$file"
 			echo
