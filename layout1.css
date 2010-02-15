@@ -53,10 +53,10 @@ div#layout-menu a:hover {
 	color: navy;
   text-decoration: none;
 }
-div#layout-menu #page-source {
+/* li#page-source {
   border-top: 2px solid silver;
   margin-top: 0.2em;
-}
+} */
 
 div#layout-content {
   margin-left: 1.0em;
