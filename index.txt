@@ -27,6 +27,13 @@ How does this work?
 include::README[]
 
 
+Some useful links
+-----------------
+
+ * http://lists.lumiera.org/pipermail/lumiera/2010-January/001538.html[Website structure v2]
+ * more links coming soon...
+
+
 [icon="warning.png"]
 WARNING: Website under construction
 
