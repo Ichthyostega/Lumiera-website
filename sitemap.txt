@@ -1,0 +1,54 @@
+website map v2
+==============
+
+
+http://lumiera.org/[]
+
+- index.html  -- news
+- project/ 
+  * index.html  -- about
+  * screenshots.html
+  * press.html
+  * donate.html
+  * roadmap.html
+  * credits.html
+  * contact.html
+
+- download.html
+- contribute.html
+- documentation
+
+  * manual.html
+  * white-papers-presentations.html
+  * technical
+  
+  ** index.html
+  ** doxygen
+  ** gui
+  ** proc
+  ** backend
+  
+  * design
+  
+  ** index.html
+  ** gui
+  ** workflow
+  ** model
+  ** engine
+  ** backend
+  ** plugins
+  ** builddrone
+  ** config-loader
+
+- devs-vault
+
+  * index.html
+  * roadmap/
+  * design-process/
+  * devs/
+  * gitweb/
+  * trac-reports/      
+  * next-meeting/
+  * past-protocols/
+          
+useful links  -- 'how to place links, footer? or side? not a page or subsite/ '
