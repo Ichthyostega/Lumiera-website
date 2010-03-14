@@ -1,54 +1,59 @@
-website map v2
-==============
+lumiera site map
+================
 
+.to do
+- autogenerate the site map
 
-http://lumiera.org/[]
+== brief
 
-- index.html  -- news
-- project/ 
-  * index.html  -- about
-  * screenshots.html
-  * press.html
-  * donate.html
-  * roadmap.html
-  * credits.html
-  * contact.html
+the structure is ordered priorally.  each item is listed as a page ( suffix is '.txt' ), a fold ( suffix is '/' ),  or a link / unknown ( annotated ). 
 
-- download.html
-- contribute.html
-- documentation
+as implied in the structure, all pages at lumiera.org start as text '.txt'.  the text files are writ in code that the program +asciidoc+ transforms to hypertext '.html'.
 
-  * manual.html
-  * white-papers-presentations.html
-  * technical
-  
-  ** index.html
-  ** doxygen
-  ** gui
-  ** proc
-  ** backend
-  
-  * design
-  
-  ** index.html
-  ** gui
-  ** workflow
-  ** model
-  ** engine
-  ** backend
-  ** plugins
-  ** builddrone
-  ** config-loader
+== annotate site map
 
-- devs-vault
+the structure is annotated at an item with '    -- text '.
 
-  * index.html
-  * roadmap/
+== index.html
+
+all folds/subfolds ( '/' ) have an initial page that loads ( 'index.html' ).  for brievity, only the first level index.html, or any annoted index.html is written in the site map.
+
+== site map
+
+.http://lumiera.org/[]
+- index.txt    -- news
+- download.txt
+- contribute.txt
+- project/
+  * index.txt    -- about
+  * screenshots.txt
+  * press.txt
+  * donate.txt
+  * roadmap.txt
+  * credits.txt
+  * contact.txt
+- documentation/
+  * media/    -- white papers, presentations, manuals
+  * technical/
+    ** doxygen    -- link to doxygen
+    ** gui/
+    ** proc/
+    ** backend/
+  * design/
+    ** gui/
+		** workflow/
+    ** model/
+    ** engine/
+    ** backend/
+    ** plugins/
+    ** builddrone/
+    ** config-loader/
+- devs-vault/
+  * roadmap    -- link to trac
   * design-process/
-  * devs/
-  * gitweb/
-  * trac-reports/      
+  * devs.txt
+  * gitweb    -- link to git
+  * trac-reports    -- link to trac
   * next-meeting/
   * past-protocols/
-          
-useful links  -- 'how to place links, footer? or side? not a page or subsite/ '
+- links.txt    -- page list of links to related projects
