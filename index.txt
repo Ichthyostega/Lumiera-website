@@ -6,7 +6,7 @@ http://cv.cinelerra.org/[CinelerraCV] community. +
 It was born as a rewrite of the Cinelerra codebase called Cinelerra3 but it is now an independent project with its own name.
 
 image::lumiera_gui_small.png[]
-(1)
+Pre-release screenshot of the Lumiera GUI.
 
 Lumiera is still in an early stage of development. It is not usable yet.
 
@@ -14,7 +14,7 @@ Lumiera is still in an early stage of development. It is not usable yet.
 [NOTE]
 .CHECK THE PROJECT HEARTBEAT AND PULSE
 ==========================================================
-(2)
+(1)
      
 image:feed-icon-28x28.png["RSS Feed",link="http://www.lumiera.org/gitweb?p=LUMIERA;a=rss"] Lumiera Git Master repository RSS Feed
 
@@ -36,8 +36,7 @@ To create, as a community, a non linear video editing and compositing FOSS appli
 building on common open source video, sound and GUI toolkits and libraries, providing flexibility and a high degree of configurability and full control of all parameters, but at the same time a smooth workflow which scales well to larger and more complicated editing projects. 
 
 [icon="note.png"]
-NOTE: (1) Picture: _Seedlings_ by http://www.flickr.com/photos/pgoyette/[Paul Goyette] - http://creativecommons.org/licenses/by-nc-sa/2.0/deed.en[Creative Commons] licensed. + 
-(2) Animated image: http://commons.wikimedia.org/wiki/File:Heart-beat.gif[Heart-beat.gif] by Nevit Dilmen - http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons] licensed.
+NOTE: (1) Animated image: http://commons.wikimedia.org/wiki/File:Heart-beat.gif[Heart-beat.gif] by Nevit Dilmen - http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons] licensed.
 
 [icon="warning.png"]
 WARNING: Website under construction
