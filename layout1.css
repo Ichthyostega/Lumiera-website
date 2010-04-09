@@ -8,7 +8,7 @@ h1 {
 }
 
 #layout-banner {
-	// background-color: #008080;
+	// background-color: #527bbd;
 	background: url(lumiera_logo_small.png) top left no-repeat black;
 
 	 // border-bottom: 3px solid #eeeeee;
@@ -24,7 +24,6 @@ h1 {
 	font-weight: bold;
   letter-spacing: 0.2em;
   margin: 0;
-  display:none;
 }
 
 #layout-description {
@@ -48,7 +47,7 @@ h1 {
   margin-left: 0.5em;
 }
 #layout-menu a:link, #layout-menu a:visited, #layout-menu a:hover {
-  color: #008080;
+  color: #527bbd;
   text-decoration: none;
 }
 #layout-menu a:hover {

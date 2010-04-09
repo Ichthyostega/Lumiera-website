@@ -1,3 +1,7 @@
+
+li {color:red}
+li li {color:green}
+
 /* Debug borders */
 p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
 /*
@@ -10,38 +14,29 @@ body {
 }
 
 a {
-  color: #01796F;
-  text-decoration: none;
-   font-weight: bold;
-}
-
-a:hover {
-  color: #01796F;
+  color: blue;
   text-decoration: underline;
-  font-weight: bold;
 }
-
 a:visited {
-  color: #00A693;
-    font-weight: bold;
+  color: fuchsia;
 }
 
 em {
   font-style: italic;
-  color: #01796F;
+  color: navy;
 }
 
 strong {
   font-weight: bold;
-  color: #0F3C3C;
+  color: #083194;
 }
 
 tt {
-  color: #01796F;
+  color: navy;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #5F9EA0;
+  color: #527bbd;
   font-family: sans-serif;
   margin-top: 1.2em;
   margin-bottom: 0.5em;
@@ -112,11 +107,13 @@ div#footer-badges {
   padding-bottom: 0.5em;
 }
 
-div#preamble,
+div#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
 div.tableblock, div.imageblock, div.exampleblock, div.verseblock,
 div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
 div.admonitionblock {
-  margin-right: 10%;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
 }
@@ -131,7 +128,7 @@ div.content { /* Block element content. */
 
 /* Block element titles. */
 div.title, caption.title {
-  color: #5F9EA0;
+  color: #527bbd;
   font-family: sans-serif;
   font-weight: bold;
   text-align: left;
@@ -158,22 +155,33 @@ div.sidebarblock > div.content {
   padding: 0.5em;
 }
 
-div.listingblock {
-  margin-right: 0%;
-}
 div.listingblock > div.content {
   border: 1px solid silver;
   background: #f4f4f4;
   padding: 0.5em;
 }
 
-div.quoteblock > div.content {
+div.quoteblock {
   padding-left: 2.0em;
+  margin-right: 10%;
 }
-
-div.attribution {
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
   text-align: right;
 }
+
+div.verseblock {
+  padding-left: 2.0em;
+  margin-right: 10%;
+}
+div.verseblock > div.content {
+  white-space: pre;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
 div.verseblock + div.attribution {
   text-align: left;
 }
@@ -182,8 +190,8 @@ div.admonitionblock .icon {
   vertical-align: top;
   font-size: 1.1em;
   font-weight: bold;
-  text-decoration: none;
-  color:  #008080;
+  text-decoration: underline;
+  color: #527bbd;
   padding-right: 0.5em;
 }
 div.admonitionblock td.content {
@@ -196,12 +204,8 @@ div.exampleblock > div.content {
   padding: 0.5em;
 }
 
-div.verseblock div.content {
-  white-space: pre;
-}
-
 div.imageblock div.content { padding-left: 0; }
-div.imageblock img { border: 0px solid silver; padding-left: 13%;}
+div.imageblock img { border: 1px solid silver; }
 span.image img { border-style: none; }
 
 dl {
@@ -212,6 +216,7 @@ dt {
   margin-top: 0.5em;
   margin-bottom: 0;
   font-style: normal;
+  color: navy;
 }
 dd > *:first-child {
   margin-top: 0.1em;
@@ -220,15 +225,31 @@ dd > *:first-child {
 ul, ol {
     list-style-position: outside;
 }
-div.olist > ol {
+ol.arabic {
   list-style-type: decimal;
 }
-div.olist2 > ol {
+ol.loweralpha {
   list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
 }
 
 div.tableblock > table {
-  border: 0px;
+  border: 3px solid #527bbd;
 }
 thead {
   font-family: sans-serif;
@@ -237,21 +258,52 @@ thead {
 tfoot {
   font-weight: bold;
 }
+td > div.verse {
+  white-space: pre;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
 
-div.hlist {
+
+div.hdlist {
   margin-top: 0.8em;
   margin-bottom: 0.8em;
 }
-div.hlist td {
+div.hdlist tr {
   padding-bottom: 15px;
 }
-td.hlist1 {
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
   vertical-align: top;
   font-style: normal;
   padding-right: 0.8em;
+  color: navy;
 }
-td.hlist2 {
+td.hdlist2 {
   vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
 }
 
 @media print {
@@ -283,3 +335,44 @@ div.toclevel4 {
   margin-left: 6em;
   font-size: 0.9em;
 }
+/* Workarounds for IE6's broken and incomplete CSS2. */
+
+div.sidebar-content {
+  background: #ffffee;
+  border: 1px solid silver;
+  padding: 0.5em;
+}
+div.sidebar-title, div.image-title {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+}
+
+div.listingblock div.content {
+  border: 1px solid silver;
+  background: #f4f4f4;
+  padding: 0.5em;
+}
+
+div.quoteblock-attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock-content {
+  white-space: pre;
+}
+div.verseblock-attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+
+div.exampleblock-content {
+  border-left: 2px solid silver;
+  padding-left: 0.5em;
+}
+
+/* IE6 sets dynamically generated links as visited. */
+div#toc a:visited { color: blue; }
