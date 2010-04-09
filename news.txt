@@ -1,11 +1,13 @@
 ////
 Please add new items on the top, comment older/irrelevant items out
 ////
+*April 9 2010*::
+	The link:DevReport-10-04.html[Spring Quarterly News] are out! Read the last development report.
 *January 10 2010*::
 	http://lumiera.org/nobug_manual.html[NoBug] http://unix.freshmeat.net/projects/nobug[version 201001.1] has just been released. This new versions, with lots of improvements (also the support for non-Linux systems) is now a requirement for Lumiera. On the release there are still some pending bugs meant to be shot down in the next few days (just now the testsuite fails). +
 _CALL FOR TESTERS_ - We are looking for people using MacOS, BSD, OpenSolaris or any other variant of a Unix-ish OS (Posix systems for Windows, Cygwin, SFU, ...) available for a short test session over IRC. Volunteers, install _gcc_, _git_, _valgrind_ (if supported) and contact _cehteh_ at #lumiera on Freenode.
 *December 26 2009*::
-	The (German) link:DevReport-09-12.html[Winter Quarterly News] are out! Read the last development report.
+	The link:DevReport-09-12.html[Winter Quarterly News] are out! Read the last development report.
 *December 12 2009*::
 	You probably haven't noticed that, but a lot of work has been done to improve this website. In fact the development of uWiki has proceeded as far as making this self extensible minimalistic wiki engine actually working, today for the first time. After a time for testing and debugging it will eventually be set up for the Lumiera website. You can http://uwiki.pipapo.org/_uwiki/form/account_create.html[have a look at it], but be aware that currently new users are not  automatically allowed to edit. 
 
