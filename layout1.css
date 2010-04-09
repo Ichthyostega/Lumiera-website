@@ -8,12 +8,14 @@ h1 {
 }
 
 #layout-banner {
-	background-color: #008080;
-	  border-bottom: 3px solid #eeeeee;
-  color: #7FFFD4;
+	// background-color: #008080;
+	background: url(lumiera_logo_small.png) top left no-repeat black;
+
+	 // border-bottom: 3px solid #eeeeee;
+  // color: #7FFFD4;
 	font-family: sans-serif;
 	text-align: left;
-  padding: 0.8em 20px;
+  padding: 0.8em 250px;
 }
 
 #layout-title {
@@ -22,6 +24,7 @@ h1 {
 	font-weight: bold;
   letter-spacing: 0.2em;
   margin: 0;
+  display:none;
 }
 
 #layout-description {
