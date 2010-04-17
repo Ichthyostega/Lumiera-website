@@ -1,0 +1,79 @@
+[grid="all"]
+`------------`-----------------------
+*State*         _Idea_
+*Date*          _@DATE@_
+*Proposed by*   link:@USERNAME@[]
+-------------------------------------
+
+
+TITLE
+-----
+give a short summary in one or two sentences here...
+
+
+
+Definitions
+~~~~~~~~~~~
+ Entity-1:: xxx
+
+ Concept-2:: yyy
+
+ Case-3:: zzz
+
+
+Relations/Semantics/Behaviour
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+xxx
+
+More Sub-Topics
+~~~~~~~~~~~~~~~
+
+.Some observations:
+* xx
+* yy
+
+
+Tasks
+^^^^^
+ * aa
+ * bb...
+
+
+Discussion
+~~~~~~~~~~
+
+Pros
+^^^^
+ * I invented it
+
+
+Cons
+^^^^
+ * it's deaf
+
+
+
+Alternatives
+^^^^^^^^^^^^
+ * stop worrying...
+ * learn to love the bomb
+
+
+Rationale
+^^^^^^^^^
+Because it's way cool...
+
+
+
+
+
+Comments
+--------
+
+Conclusion
+~~~~~~~~~~
+* *accepted* / *dropped* by October.2008 developer meeting. 
+
+
+Back to link:Lumiera/DesignProcess[]
