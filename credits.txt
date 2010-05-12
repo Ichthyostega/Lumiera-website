@@ -62,6 +62,15 @@ idea and implementation, CHRISTIAN THÄTER
 
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Workflow design,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+concept		, NIKOLA DUPER
+		, BRIAN RYTEL
+		, MIKE PROVOST
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Server Administration,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 , CHRISTIAN THÄTER
@@ -76,6 +85,7 @@ programming     , SERGE GIELKENS
                 , MRIDUL KASHATRIA
                 , ROBERT DJUBEK
 helping hand    , CILLIAN DE RÓISTE
+		, ANDREW JAMES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -110,6 +120,7 @@ IRC Crew,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 akhil           , IL'DAR AKHMETGALEEV
 alcarinque      , FRANCISCO G. RODRIGUEZ
+BlueJay		, SEBASTIAN INACKER
 cehteh          , CHRISTIAN THÄTER
 daitheflu       , FRANÇOIS KUBLER
 daylife         , WOUTER VERWIJLEN
@@ -222,5 +233,6 @@ ROBIN GAREUS
 ROLAND
 THORSTEN WILMS
 TREE
+FABERMAN
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
