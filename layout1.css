@@ -51,8 +51,8 @@ h1 {
   text-decoration: none;
 }
 #layout-menu a:hover {
-	color: #7FFFD4;
-  text-decoration: none;
+	color: #06F;
+  text-decoration: underline;
 }
 #layout-menu #page-source {
   border-top: 2px solid silver;
