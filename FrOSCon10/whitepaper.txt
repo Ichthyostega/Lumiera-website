@@ -1,0 +1,46 @@
+The Lumiera Project
+===================
+
+Draft of a Lumiera Project White paper, also used for a planned speech at FrOSCon 2010
+
+
+================================================================================
+The Lumiera Project is to write a professional video editor for Linux.
+Editing a feature film or documentary imposes specific challenges, translating
+into the demand to build a more advanced infrastructure, well beyond just
+processing video data. 
+
+================================================================================
+
+Challenges of professional media work
+-------------------------------------
+
+First and second Generation
+---------------------------
+
+Lumiera Architecture
+--------------------
+- three layers, not two
+- script-driven operation
+- orthogonality and configurable operation
+- extensible on all levels
+- language-neutral bindings
+
+Hardware Trends
+---------------
+- resolution still increasing
+- hardware acceleration questionable
+- ubiquitous networking
+- massive parallelism
+
+
+Project and Community
+---------------------
+- users _and_ developers
+- distributed development model
+
+image::Heart-beat.gif[]
+
+
+[icon="warning.png"]
+!! Draft !!
