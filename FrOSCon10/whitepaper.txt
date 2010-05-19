@@ -8,15 +8,26 @@ Draft of a Lumiera Project White paper, also used for a planned speech at FrOSCo
 The Lumiera Project is to write a professional video editor for Linux.
 Editing a feature film or documentary imposes specific challenges, translating
 into the demand to build a more advanced infrastructure, well beyond just
-processing video data. 
+the processing of video data. 
 
 ================================================================================
 
 Challenges of professional media work
 -------------------------------------
++summarise the difference...+
 
 First and second Generation
 ---------------------------
+The first generation of video editing software was driven by the technical challenge
+of getting video playback and computer based processing to work reliably. The first
+proffessional NLEs where competing with the conventional hardware based workflow of
+editing chemical film. Seasoned professionals had to be conviced to give up their
+familiar work environment learn to handle a fundamentally different kind of tooling.
+Somewhat comparable, 10 years later the first generation of video editing software
+for Linux had still to re-create the basic environment for working with video, using
+just open source tools.
+
+Meanwhile we face a different situation...
 
 Lumiera Architecture
 --------------------
@@ -28,7 +39,7 @@ Lumiera Architecture
 
 Hardware Trends
 ---------------
-- resolution still increasing
+- media resolution still increasing
 - hardware acceleration questionable
 - ubiquitous networking
 - massive parallelism
