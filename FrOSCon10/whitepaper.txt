@@ -11,6 +11,38 @@ into the demand to build a more advanced infrastructure, well beyond just
 the processing of video data. 
 
 ================================================================================
+Das Projekt Lumiera entwickelt einen professionellen Video-Editor für Linux.
+Ausgangspunkt sind die besonderen Schwierigkeiten bei Schnitt und Montage eines
+Spiel- oder Dokumentarfilmes, für die existierende OpenSource-Tools nur mäßige
+Unterstützung bieten.
+
+Die technische Herausforderung, Videodaten zuverlässig auf einem PC oder einer
+Workstation zu bearbieten, prägte Video-Schnittsoftware der ersten Generation.
+Zudem mußte die traditionelle Arbeitsweise nachgeahmt, Schneidetisch und
+Magnettonband imitiert werden, um den Übergang zur neuen Computertechnik zu
+erleichtern. Mit einiger Verzögerung übertrug sich dieser Ansatz auf die ersten
+Videobearbeitungs-Lösungen unter Linux, denn zunächst einmal mußten die technischen
+Voraussetzungen geschaffen werden, überhaupt Videodaten einzulesen, zu dekodieren
+und zu verarbeiten.
+
+Ein gegenwärtig neu entwickeltes Schnittsystem, wie Lumiera, kann von ganz anderen
+Voraussetzungen ausgehen. Die bisher dominanten technischen Probleme sind durch
+gute freie Bibliotheken hinreichend abgedeckt und die eigentlichen Erfordernisse
+der Aufgabe können in den Mittelpunkt rücken. Ausgehend von einer Funktionsmächtigkeit,
+wie sie etwa Cinelerra bietet, waren Funktion, Bedienkonzepte und interne Strukturen
+kritisch zu prüfen. Bewährte Ansätze, wie das "pull"-Prinzip und ein Netzwerk von
+Verarbeitungsknoten, wurden konsequent ausgebaut, für problematische Bereiche
+bessere Lösungen gesucht.
+
+Es geht nicht darum, eine Menge neuer Funktionen zu erfinden. Der Kern der Aufgabe
+ist, eine Struktur zu schaffen, die den komplexen Abeitsabläufen in der
+Post-Production eines Filmes entspricht, und sich unmittelbar erkennbaren
+zukünftigen Entwicklungen anpassen läßt. Die Auflösung der Mediendaten wächst,
+die Komplexität der Datenformate nimmt zu, aber auch die Spannbreite der zu unterstüzenden
+Leistungsanforderungen. Aus einem Projekt müssen oft verschiedenste Versionen
+erstellt werden. Lumiera soll absehbaren Hardware-Entwicklungstrends entsprechen
+können. 
+================================================================================
 
 Challenges of professional media work
 -------------------------------------
