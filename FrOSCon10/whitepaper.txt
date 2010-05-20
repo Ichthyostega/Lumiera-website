@@ -1,16 +1,21 @@
 The Lumiera Project
 ===================
+:Author:	Hermann Voßeler
+:Email:	<Ichthyostega@web.de>
+:Date:      May 2010
 
-Draft of a Lumiera Project White paper, also used for a planned speech at FrOSCon 2010
+Draft of a Lumiera Project White Paper, also used for a planned speech at FrOSCon 2010
 
 
-================================================================================
+Abstract
+--------
 The Lumiera Project is to write a professional video editor for Linux.
 Editing a feature film or documentary imposes specific challenges, translating
 into the demand to build a more advanced infrastructure, well beyond just
 the processing of video data. 
 
-================================================================================
+.Summary for the *FrOSCon10*
+************************************************************************************
 Das Projekt Lumiera entwickelt einen professionellen Video-Editor für Linux.
 Ausgangspunkt sind die besonderen Schwierigkeiten bei Schnitt und Montage eines
 Spiel- oder Dokumentarfilmes, für die existierende OpenSource-Tools nur mäßige
@@ -42,11 +47,16 @@ die Komplexität der Datenformate nimmt zu, aber auch die Spannbreite der zu unt
 Leistungsanforderungen. Aus einem Projekt müssen oft verschiedenste Versionen
 erstellt werden. Lumiera soll absehbaren Hardware-Entwicklungstrends entsprechen
 können. 
-================================================================================
+************************************************************************************
+
+WARNING: !! Draft !!
+
 
 Challenges of professional media work
 -------------------------------------
+
 +summarise the difference...+
+
 
 First and second Generation
 ---------------------------
@@ -82,8 +92,8 @@ Project and Community
 - users _and_ developers
 - distributed development model
 
-image::Heart-beat.gif[]
+image::/Heart-beat.gif[]
 
 
-[icon="warning.png"]
-!! Draft !!
+WARNING: !! Draft !!
+
