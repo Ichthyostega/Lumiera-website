@@ -18,35 +18,66 @@ the processing of video data.
 ************************************************************************************
 Das Projekt Lumiera entwickelt einen professionellen Video-Editor für Linux.
 Ausgangspunkt sind die besonderen Schwierigkeiten bei Schnitt und Montage eines
-Spiel- oder Dokumentarfilmes, für die existierende OpenSource-Tools nur mäßige
-Unterstützung bieten.
+Spiel- oder Dokumentarfilmes, für die existierende OpenSource-Werkzeuge nur
+mäßige Unterstützung bieten.
 
 Die technische Herausforderung, Videodaten zuverlässig auf einem PC oder einer
-Workstation zu bearbieten, prägte Video-Schnittsoftware der ersten Generation.
+Workstation zu bearbeiten, prägte Video-Schnittsoftware der ersten Generation.
 Zudem mußte die traditionelle Arbeitsweise nachgeahmt, Schneidetisch und
 Magnettonband imitiert werden, um den Übergang zur neuen Computertechnik zu
 erleichtern. Mit einiger Verzögerung übertrug sich dieser Ansatz auf die ersten
-Videobearbeitungs-Lösungen unter Linux, denn zunächst einmal mußten die technischen
-Voraussetzungen geschaffen werden, überhaupt Videodaten einzulesen, zu dekodieren
-und zu verarbeiten.
+OpenSource-Videobearbeitungs-Lösungen unter Linux, denn zunächst einmal mußten
+die technischen Voraussetzungen geschaffen werden, überhaupt Videodaten einzulesen,
+zu dekodieren und zu verarbeiten.
 
-Ein gegenwärtig neu entwickeltes Schnittsystem, wie Lumiera, kann von ganz anderen
+Lumiera, als ein _gegenwärtig neu entwickeltes_ Schnittsystem, kann von ganz anderen
 Voraussetzungen ausgehen. Die bisher dominanten technischen Probleme sind durch
 gute freie Bibliotheken hinreichend abgedeckt und die eigentlichen Erfordernisse
 der Aufgabe können in den Mittelpunkt rücken. Ausgehend von einer Funktionsmächtigkeit,
-wie sie etwa Cinelerra bietet, waren Funktion, Bedienkonzepte und interne Strukturen
-kritisch zu prüfen. Bewährte Ansätze, wie das "pull"-Prinzip und ein Netzwerk von
-Verarbeitungsknoten, wurden konsequent ausgebaut, für problematische Bereiche
-bessere Lösungen gesucht.
+wie sie etwa Cinelerra bietet, waren Bedienkonzepte und interne Strukturen kritisch
+zu prüfen. Bewährte technische Ansätze, wie das ``pull''-Prinzip und ein Netzwerk
+von Verarbeitungsknoten, wurden konsequent ausgebaut, für problematische
+Bereiche bessere Lösungen gesucht.
 
-Es geht nicht darum, eine Menge neuer Funktionen zu erfinden. Der Kern der Aufgabe
-ist, eine Struktur zu schaffen, die den komplexen Abeitsabläufen in der
-Post-Production eines Filmes entspricht, und sich unmittelbar erkennbaren
-zukünftigen Entwicklungen anpassen läßt. Die Auflösung der Mediendaten wächst,
-die Komplexität der Datenformate nimmt zu, aber auch die Spannbreite der zu unterstüzenden
-Leistungsanforderungen. Aus einem Projekt müssen oft verschiedenste Versionen
-erstellt werden. Lumiera soll absehbaren Hardware-Entwicklungstrends entsprechen
-können. 
+Das Lumiera-Projekt definiert den professionellen Anspruch nicht über eine Menge
+neu zu erfindender Funktionen. Der Kern der Aufgabe ist, eine Struktur zu schaffen,
+die den komplexen Arbeitsabläufen in der Post-Production eines Filmes entspricht.
+Diese Struktur muß sich unmittelbar erkennbaren zukünftigen Entwicklungen anpassen.
+Exemplarisch sei dies an einigen Themenkomplexen verdeutlicht.
+
+Die wünschenswerte Auflösung der Mediendaten wächst immer noch (2k, 4k, 8k), und
+zwar weit stärker, als durch die normale, evolutionäre Leistungssteigerung der
+Hardware kompensiert werden kann. Parallelverarbeitung, Hardware-Unterstützung
+und der Einsatz von Platzhalter-Daten sind geläufige Antworten. Der zuletzt
+genannte Ansatz, das sog. ``Proxy-Editing'', der Einsatz von Platzhalter-Bildern
+in geringerer Auflösung, klingt zunächst weit weniger spektakulär, als die
+Entwicklung von Spezial-Hardware. Auch ist die Umsetzung einigermaßen mühsam,
+denn die gesamte Verarbeitungskette, vom Einlesen der Daten über das Schneiden
+bis zum Rendern (oder Erzeugen einer EDL) muß zuverlässig darauf abgestimmt sein.
+Jedoch ist diese Lösung generisch und erlaubt so auch dem Independent-Filmemacher,
+mit geringem Aufwand Produktionen in hoher Bildqualität.
+
+Neben steigender Maximal-Auflösung fällt vor allem die wachsende Streubreite der
+Anforderungen auf. Oft soll ein Projekt sowohl in hoher und in reduzierter Qualität
+hergestellt werden, mit mehreren Tonsystemen, Untertiteln und auszugsweise für Youtube.
+Ähnliches gilt für die mögliche Unterstützung erweiterter Medien-Technologien, wie
+periphonischer Ton (Ambisonics, Wellenfeldysnthese) oder Stereoskopie. Einbau ``von
+Unterstützung'' in Form einzelner Erweiterungsfunktionen ist nutzlos, sofern nicht
+zuvor schon das Datenmodell, auf dem der Benutzer durch das GUI arbeitet,
+_Format-neutral_ definiert ist. Die Anpassung an spezifische Ausgabeformate kann
+dann halbautomatisch über Regeln erfolgen.
+
+Und so erweist sich die Aufgabe, ein professionelles Schnittsystem zu entwickeln
+nicht so sehr als ein ``number crunching''-Problem. Vielmehr geht es darum, eine
+konsistente Zwischenschicht zu schaffen, welche bestehende Technologien verbindet.
+Dies reicht von einem intelligenten, persistenten Frame-Cache, über einen Scheduler
+paralleler Berechnungs-Jobs, über ein formatneutrales Datenmodell und ein Typsystem
+für Mediendaten, bis zu einer Plug-in-Verwaltung, die zuverlässig mit Versionierung
+und Kompatibilitäten umgehen kann.
+
+Nicht zuletzt aber ist Lumiera ein OpenSource-Projekt, und es ist uns gelungen, eine
+aktive und anregende Community aus Entwicklern, Medienschaffenden, Künstlern und
+Technik-Begeisterten zu versammeln.
 ************************************************************************************
 
 WARNING: !! Draft !!
