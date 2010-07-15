@@ -2,7 +2,7 @@
 Please add new items on the top, comment older/irrelevant items out
 ////
 *April 9 2010*::
-	The link:DevReport-10-04.html[Spring Quarterly News] are out! Read the last development report.
+	The link:DevReport-10-04.html[Spring Quarterly News] are out! Read the latest development report.
 *January 10 2010*::
 	http://lumiera.org/nobug_manual.html[NoBug] http://unix.freshmeat.net/projects/nobug[version 201001.1] has just been released. This new versions, with lots of improvements (also the support for non-Linux systems) is now a requirement for Lumiera. On the release there are still some pending bugs meant to be shot down in the next few days (just now the testsuite fails). +
 _CALL FOR TESTERS_ - We are looking for people using MacOS, BSD, OpenSolaris or any other variant of a Unix-ish OS (Posix systems for Windows, Cygwin, SFU, ...) available for a short test session over IRC. Volunteers, install _gcc_, _git_, _valgrind_ (if supported) and contact _cehteh_ at #lumiera on Freenode.
