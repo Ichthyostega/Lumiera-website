@@ -1,54 +1,62 @@
 body {
 	background-color: white;
-  margin: 1%;
+ 	margin: 1%;
 }
 
 h1 {
-  margin-top: 0.5em;
+	margin-top: 0.5em;
 }
 
 div#layout-banner {
 	background-color: #73a0c5;
-  color: white;
+ 	color: white;
 	font-family: sans-serif;
 	text-align: left;
-  padding: 0.8em 20px;
+  	padding: 0.8em 20px;
 }
 
 div#layout-title {
 	font-family: monospace;
 	font-size: 3.5em;
 	font-weight: bold;
-  letter-spacing: 0.2em;
-  margin: 0;
+ 	letter-spacing: 0.2em;
+ 	margin: 0;
 }
 
 div#layout-description {
 	font-size: 1.2em;
-  letter-spacing: 0.1em;
+  	letter-spacing: 0.1em;
 }
 
 div#layout-menu {
 	background-color: #f4f4f4;
-  border-right: 3px solid #eeeeee;
-  padding-top: 0.8em;
-  padding-left: 20px;
-  padding-right: 0.8em;
-  margin-right: 1.0em;
+  	border-right: 3px solid #eeeeee;
+  	padding-top: 0.8em;
+  	padding-left: 20px;
+  	padding-right: 0.8em;
+  	margin-right: 1.0em;
 	font-size: 1.1em;
 	font-family: sans-serif;
 	font-weight: bold;
- float: left;
+ 	float: left;
 }
-div#layout-menu ul { padding: 0px; margin: 0px; list-style-type: none; }
+
+div#layout-menu ul { 
+	padding: 0px; 
+	margin: 0px; 
+	list-style-type: none; 
+}
+
 div#layout-menu a {
-  line-height: 2em;
-  margin-left: 0.5em;
+  	line-height: 2em;
+  	margin-left: 0.5em;
 }
+
 div#layout-menu a:link, #layout-menu a:visited, #layout-menu a:hover {
   color: #527bbd;
   text-decoration: none;
 }
+
 div#layout-menu a:hover {
 	color: navy;
   text-decoration: none;

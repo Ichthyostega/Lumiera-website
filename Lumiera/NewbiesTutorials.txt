@@ -175,7 +175,7 @@ cd bin
 
 you should see something like (screenshot from 1/2009):
 
-image:http://www.pipapo.org/pipawiki/Lumiera/GuiBrainstorming?action=AttachFile&do=get&target=screenshot090124-resources.jpg[]
+image:gui/images/screenshot090124-resources.jpg[]
 
 
 

@@ -8,7 +8,7 @@ It is served from the git repository http://git.lumiera.org/gitweb?p=website-sta
 ==========================================================
 Thanks for your contributions
 
-image::Heart-beat.gif[]
+image::images/Heart-beat.gif[]
 =========================================================
 
 Existing content

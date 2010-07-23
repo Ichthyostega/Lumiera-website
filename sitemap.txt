@@ -6,9 +6,9 @@ lumiera site map
 
 == brief
 
-the structure is ordered priorally.  each item is listed as a page ( suffix is '.txt' ), a fold ( suffix is '/' ),  or a link / unknown ( annotated ). 
+The structure is ordered by visitor priority.  Each item is listed as a page ( suffix is '.txt' ), a fold ( suffix is '/' ),  or a link / unknown ( annotated ). 
 
-as implied in the structure, all pages at lumiera.org start as text '.txt'.  the text files are writ in code that the program +asciidoc+ transforms to hypertext '.html'.
+as implied in the structure, all pages at lumiera.org start as a text '.txt'.  the text files are writ in code that the program +asciidoc+ transforms to hypertext '.html'.
 
 == annotate site map
 
@@ -21,39 +21,39 @@ all folds/subfolds ( '/' ) have an initial page that loads ( 'index.html' ).  fo
 == site map
 
 .http://lumiera.org/[]
-- index.txt    -- news
-- download.txt
-- contribute.txt
-- project/
-  * index.txt    -- about
-  * screenshots.txt
-  * press.txt
-  * donate.txt
-  * roadmap.txt
-  * credits.txt
-  * contact.txt
-- documentation/
-  * media/    -- white papers, presentations, manuals
-  * technical/
-    ** doxygen    -- link to doxygen
-    ** gui/
-    ** proc/
-    ** backend/
-  * design/
-    ** gui/
-		** workflow/
-    ** model/
-    ** engine/
-    ** backend/
-    ** plugins/
-    ** builddrone/
-    ** config-loader/
-- devs-vault/
-  * roadmap    -- link to trac
-  * design-process/
-  * devs.txt
-  * gitweb    -- link to git
-  * trac-reports    -- link to trac
-  * next-meeting/
-  * past-protocols/
-- links.txt    -- page list of links to related projects
+* index.txt    -- news
+* download.txt
+* contribute.txt
+* project/
+ ** index.txt    -- about
+ ** screenshots.txt
+ ** press.txt
+ ** donate.txt
+ ** roadmap.txt
+ ** credits.txt
+ ** contact.txt
+* documentation/
+ ** media/    -- white papers, presentations, manuals
+ ** technical/
+   *** doxygen    -- link to doxygen
+   *** gui/
+   *** proc/
+   *** backend/
+ ** design/
+   *** gui/
+	**** workflow/
+   *** model/
+   *** engine/
+   *** backend/
+   *** plugins/
+   *** builddrone/
+   *** config-loader/
+* devs-vault/
+ ** roadmap    -- link to trac
+ ** design-process/
+ ** devs.txt
+ ** gitweb    -- link to git
+ ** trac-reports    -- link to trac
+ ** next-meeting/
+ ** past-protocols/
+* links.txt    -- page list of links to related projects

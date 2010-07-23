@@ -8,6 +8,8 @@ Architecture and Design,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 graphical user interface, JOEL HOLDSWORTH
  			, CLAY BARNES
+			, HERMANN VOSSELER
+			, BRIAN RYTEL
 processing layer	, HERMANN VOSSELER
 backend 		, CHRISTIAN THÄTER
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -83,18 +85,23 @@ helping hand    , CILLIAN DE RÓISTE
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Website,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-basic design and content, RAFFAELLA TRANIELLO
-special effects, FRANCISCO G. RODRIGUEZ
-creative mockup, FRANÇOIS KUBLER
-css magician, CILLIAN DE RÓISTE
+basic design    , RAFFAELLA TRANIELLO
+and content     , BRIAN RYTEL
+special effects , FRANCISCO G. RODRIGUEZ
+creative mockup , FRANÇOIS KUBLER
+css 	        , CILLIAN DE RÓISTE
+		, BRIAN RYTEL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Public Relations/ Presentations,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-openvideo conference, THOMAS JUDGE
-                   , RAFFAELLA TRANIELLO
+openvideo conference , THOMAS JUDGE
+                     , RAFFAELLA TRANIELLO
+FrOSCON		, CHRISTIAN THÄTER
+		, HERMANN VOSSELER
+	        , RAFFAELLA TRANIELLO
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -102,6 +109,7 @@ openvideo conference, THOMAS JUDGE
 Merchandising,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 T-shirts           , RAFFAELLA TRANIELLO
+		
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -110,6 +118,7 @@ IRC Crew,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 akhil           , IL'DAR AKHMETGALEEV
 alcarinque      , FRANCISCO G. RODRIGUEZ
+BJMR		, BRIAN RYTEL
 cehteh          , CHRISTIAN THÄTER
 daitheflu       , FRANÇOIS KUBLER
 daylife         , WOUTER VERWIJLEN

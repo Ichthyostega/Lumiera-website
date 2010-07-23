@@ -5,7 +5,7 @@ GUI Brainstorming Reviewed
 
 State of the GUI
 ----------------
-image::GuiBrainstorming/screenshot090124-resources.jpg[image:GUI 2009-01-24]
+image::images/screenshot090124-resources.jpg
 
 Updated 18/01/09
 
@@ -182,7 +182,7 @@ Widgets
 
 * Generalized Fader
 +
-image:GuiBrainstorming/fader.png[image:fader.png]
+image:images/fader.png[fader.png]
 +
 All faders are the same kind of custom widget, that is:
 
