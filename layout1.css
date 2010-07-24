@@ -1,3 +1,32 @@
+@charset "utf-8";
+/* -------- CSS Document -------- */
+/* ------- document layout ------ */
+/*
+CSS for: lumiera.org
+*/
+
+/* 
+css {
+	display:;
+	visibilty:;
+	position:;
+	float:;
+	z-index:;
+	width:x;
+	height:y;
+	margin: top right bottom left;
+	padding: top right bottom left;
+	background: #colors url(foo.png) repeat scroll pos-x pos-y;
+	border: size color style;
+	outline: size color style;
+	font: style variant weight size/lineheight fontface1, fontface2, sans-serif; 
+	text-align:;
+	text-decortation:;
+	
+*/
+
+/* --------  Body  -------- */
+
 body {
 	background-color: white;
  	margin: 1%;
@@ -28,7 +57,13 @@ div#layout-description {
   	letter-spacing: 0.1em;
 }
 
-div#layout-menu {
+div#layout-content {
+  margin-left: 1.0em;
+}
+
+/* --------  Menu  -------- */
+
+/*div#layout-menu {
 	background-color: #f4f4f4;
   	border-right: 3px solid #eeeeee;
   	padding-top: 0.8em;
@@ -60,17 +95,16 @@ div#layout-menu a:link, #layout-menu a:visited, #layout-menu a:hover {
 div#layout-menu a:hover {
 	color: navy;
   text-decoration: none;
-}
+}*/
+
 /* li#page-source {
   border-top: 2px solid silver;
   margin-top: 0.2em;
 } */
 
-div#layout-content {
-  margin-left: 1.0em;
-}
-
 @media print {
   #layout-banner { display: none; }
   #layout-menu { display: none; }
 }
+
+
