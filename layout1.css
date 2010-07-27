@@ -1,11 +1,12 @@
 @charset "utf-8";
 /* -------- CSS Document -------- */
-/* ------- document layout ------ */
 /*
 CSS for: lumiera.org
+CSS function: Site Layout & Menu
 */
 
-/* 
+/* ---  css attributes order, delete unused attributes/values, --- 
+       misc. attributes @ bottom of list or next to related tag
 css {
 	display:;
 	visibilty:;
@@ -16,91 +17,160 @@ css {
 	height:y;
 	margin: top right bottom left;
 	padding: top right bottom left;
-	background: #colors url(foo.png) repeat scroll pos-x pos-y;
+	background: #colors url(deletethisvalue.foo) repeat scroll pos-x pos-y;
 	border: size color style;
 	outline: size color style;
 	font: style variant weight size/lineheight fontface1, fontface2, sans-serif; 
 	text-align:;
-	text-decortation:;
-	
+	text-decoration:;
+}	
 */
 
 /* --------  Body  -------- */
 
-body {
-	background-color: white;
- 	margin: 1%;
-}
-
-h1 {
-	margin-top: 0.5em;
-}
-
 div#layout-banner {
-	background-color: #73a0c5;
+	margin: 5px 5px 0 5px;
+	padding: 0.4em 20px .2em 20px;
+	background: #73a0c5;
+	border-bottom: 10px #A9A38B solid;
  	color: white;
-	font-family: sans-serif;
+	font: sans-serif;
 	text-align: left;
-  	padding: 0.8em 20px;
+  	
 }
 
 div#layout-title {
-	font-family: monospace;
-	font-size: 3.5em;
-	font-weight: bold;
- 	letter-spacing: 0.2em;
- 	margin: 0;
+	display: block;
+	margin: 0;
+	font: bold 3.5em monospace;
+	letter-spacing: 0.15em;
 }
 
 div#layout-description {
-	font-size: 1.2em;
+	display: block;
+	font: 1.2em sans-serif;
   	letter-spacing: 0.1em;
 }
 
-div#layout-content {
-  margin-left: 1.0em;
+#wrapper {
+	display: block;
+	width: 700px;
+	margin: 10px auto 0 5px;
+	background: #C09;
 }
 
-/* --------  Menu  -------- */
+#menu, #layout-content {
+	float: left;
+	width: 500px;
+}
 
-/*div#layout-menu {
-	background-color: #f4f4f4;
-  	border-right: 3px solid #eeeeee;
-  	padding-top: 0.8em;
-  	padding-left: 20px;
-  	padding-right: 0.8em;
-  	margin-right: 1.0em;
-	font-size: 1.1em;
-	font-family: sans-serif;
+#menu{
+	width: 180px;
+	margin: 0 20px 0 0;
+}
+
+#layout-content {
+}
+
+div#footer {
+	margin: 4.0em 0 0 0;
+	padding-top: 0.5em;
+	border-top: 2px silver solid;
+  	font: small sans-serif;
+}
+
+div#footer-text {
+  	float: left;
+  	padding-bottom: 0.5em;
+}
+
+div#footer-badges {
+  	float: right;
+  	padding:0 0 0.5em 0;
+}
+/* --------v  Nav  v-------- */
+
+/* -------- NavToggle ------- */
+label.toggle {
+	display: block;
+	float: left;
+	width: 180px;
+	height:22px;
+	padding: 0 2px 0 0;
+	background: #f4f4f4;
+	border-bottom: 3px #C4BCB0 solid;
+	font: 150%/100% Arial, Helvetica, sans-serif;
+	color: #666;
+	text-align: right;
+	cursor: pointer
+}
+
+#navtop {
+	padding: 0 2px 2px 0;
+	border-top: 3px #C4BCB0 solid;
+}
+
+input.toggle { 
+	display: none;
+}
+input.toggle:checked+ul {
+	display: none; 
+}
+
+/* --------  NavLinks  -------- */
+a.nav {
+	display: inline;
+	float: left;
+	margin: 0 0 0 4px;
+	color: #000;
+	font: 16px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	text-align: left;
+	text-decoration: none;
+}
+
+a.nav:hover{
+	color: #06F;
 	font-weight: bold;
- 	float: left;
+	text-decoration: none;
 }
 
-div#layout-menu ul { 
-	padding: 0px; 
-	margin: 0px; 
-	list-style-type: none; 
+li.subnav>a {
+	display: block;
+	margin: 0 0 0 0;
+	padding: 0 0 0 10px;
+	color: #333;
+	font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif ; 
+	text-decoration: none;
 }
 
-div#layout-menu a {
-  	line-height: 2em;
-  	margin-left: 0.5em;
+/* --------  NavLists  -------- */
+
+ul.subnav {
+	display: block;
+	width: 180px;
+	margin: 0px 0 0px 0px;
+	padding: 2px 0 1px 2px;
+	background: #E1E1D0;
+	font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif; 
+	text-decoration: none;
+	list-style-type: none;
 }
 
-div#layout-menu a:link, #layout-menu a:visited, #layout-menu a:hover {
-  color: #527bbd;
-  text-decoration: none;
+li.subnav {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	border-bottom: 2px #666 inset;
+	text-decoration: none;
+}	
+
+li.subnav:hover {
+	background: #A3A585;
 }
 
-div#layout-menu a:hover {
-	color: navy;
-  text-decoration: none;
-}*/
-
-/* li#page-source {
-  border-top: 2px solid silver;
-  margin-top: 0.2em;
-} */
+/* -------- Other -------- */
+h1#header {
+	margin: -10px 0 0 0;
+}	
 
 @media print {
   #layout-banner { display: none; }
