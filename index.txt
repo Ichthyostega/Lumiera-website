@@ -11,6 +11,16 @@ Thanks for your contributions
 image::images/Heart-beat.gif[]
 =========================================================
 
+What you can do to help
+-----------------------
+
+We need content! This breaks down into two categories:
+
+=======================================================
+ * Writing new content
+ * Reformatting, updating, and moving existing content
+=======================================================
+
 Existing content
 ----------------
 
