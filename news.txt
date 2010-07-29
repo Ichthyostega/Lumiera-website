@@ -2,9 +2,10 @@
 Please add new items on the top, comment older/irrelevant items out
 ////
 *July 29 2010*::
-        As last year we will partipicate at the http://froscon.org/[FrOSCon] in
-        St. Augustin on 20/21th August. Hermann will held a talk about Lumiera
-        at 10:00 on Sunday. When you can make it, we see us there!
+	The Lumiera team will be at the German _Free and Open Source Software 
+	Conference_ (http://froscon.org/[FrOSCon]) in St. Augustin (near Bonn)
+	on August 20-21. Hermann Vosseler (_ichthyo_) will give a talk about Lumiera
+        on Sunday 21 at 10:00. We hope to see you there!
 
 *April 9 2010*::
         The link:DevReport-10-04.html[Spring Quarterly News] are out! Read the
