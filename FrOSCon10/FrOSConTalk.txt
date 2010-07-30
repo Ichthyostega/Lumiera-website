@@ -2,9 +2,9 @@ The Lumiera Project
 ===================
 :Author:	Hermann Voßeler
 :Email:	<Ichthyostega@web.de>
-:Date:      May 2010
+:Date:      Juli 2010
 
-Draft of a Lumiera Project White Paper, also used for a planned speech at FrOSCon 2010
+Entwurf und Gliederung eines Vortrages, der für die FrOSCon 2010 geplant ist.
 
 
 Abstract
@@ -83,8 +83,8 @@ Technik-Begeisterten zu versammeln.
 WARNING: !! Draft !!
 
 
-Challenges of professional media work
--------------------------------------
+Professionelles Medienschaffen
+------------------------------
 
 +summarise the difference...+
 
