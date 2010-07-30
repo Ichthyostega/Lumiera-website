@@ -86,10 +86,52 @@ WARNING: !! Draft !!
 Professionelles Medienschaffen
 ------------------------------
 
-+summarise the difference...+
+Lumiera zielt auf professionellen Video/Filmschnitt. Was heißt hier ``professionell''?
+
+- zunächst der Gegensatz _professionell_ <--> _amateurhaft_
+- _professionell_ heißt nicht notwendig _kommerziell_
+- _professionell_ heißt nicht notwendig _industriell_
+
+-> _professionelle Arbeit steht unter einer *leitenden Hinsicht*_ +
+Diese äußere oder innere leitende Hinsicht bestimmt die Arbeit und das Produkt.
+Für Film- und Medienschaffen ist das heutzutage zumeist die *Wirkung* -- es kann
+aber auch Anderes sein, wie z.B. eine politische Absicht, das Aufzeigen einer Wahrheit,
+oder ein Kunstprinzip.
+
+Werkzeuge und Gerätschaften stehen damit in einem anderen Zusammenhang als für einen Amateur.
 
 
-First and second Generation
+Zuverlässigkeit::
+
+   - vorhersagbare und reproduzierbare Ergebnisse
+   - stabiles Verhalten; Wiederherstellbarkeit nach Fehlern
+
+Qualität::
+
+   - genau definierte Anforderungen über die ganze Verarbeitungskette erhalten
+   - bei Bedarf müssen auch minutiöse Details exakt und zuverlässig kontrollierbar sein
+    
+Effizienz::
+
+   - die in der Praxis elementaren Handgriffe müssen einfach auszuführen sein
+   - auch Spezialbehandlungen müssen in einen glatten Gesamtablauf integriert werden
+   - effektiver Ressourceneinsatz
+    
+Anpassunsfähigkeit::
+
+   - verschiedene Projekt-Arten
+   - verschiedene Arbeits-Stile
+   - unterschiedlich leistungsfähige Hardware
+   - Einzel- und Gruppenarbeit
+
+Dauerhaftigkeit::
+
+   - Projekte können eine erhebliche Laufzeit haben.
+   - durch Anpassungen und Erweiterungen darf keine Arbeit verloren gehen.
+   - keine explizite Abhängigkeit von speziellen Gerätschaften oder Trends
+
+
+Die Pionier-Zeit ist vorbei
 ---------------------------
 The first generation of video editing software was driven by the technical challenge
 of getting video playback and computer based processing to work reliably. The first
@@ -100,7 +142,38 @@ Somewhat comparable, 10 years later the first generation of video editing softwa
 for Linux had still to re-create the basic environment for working with video, using
 just open source tools.
 
-Meanwhile we face a different situation...
+Inzwischen steht außer Frage, daß Filmschnitt- und Montage nur noch in Software erfolgt.
+Die Arbeitsabläufe sind weitgehend fest, das Prizip des "non linear editing" ist etabliert.
+Auch die grundlegenden Technologien zur Computerbasierten Filmaufnahme und Wiedergabe sind
+nur noch Thema für Spezialforschungen. Selbst für einen reinen OpenSource-Ansatz gibt es
+eine ganze Reihe ausgereifter Bibliotheken zum Handhaben der gängigsten Medienformate.
+
+- Es ist an der Zeit, von der Fixierung auf die Basistechnologie freizukommen.
+- Durch das Nachahmen klassisch- analoger Arbeitsabläufe haben wir uns einige unsinnige
+  Einseitigkeiten eingehandelt
+- Gegenstand sollte die professionelle Schnitt- und Medienarbeit sein
+- Es besteht eine Diskrepanz zwichen diesen Anforderungen und den Möglichkeiten bestehender Software
+
+
+Problemstellungen in professionellen Film/Schinittprojekten
+-----------------------------------------------------------
+
+Beispiel 1: Vorschau und Vollauflösung
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Beispiel 2: Tonmontage
+~~~~~~~~~~~~~~~~~~~~~~
+
+Beispiel 3: Erzählstruktur
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Beispiel 4: Varianten und Ausgabeformate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Alle diese Probleme sind aus _rein technologischer Sicht trivial._ Aber sie lassen sich nicht
+einfach als ``features'' an ein bestehendes Programm ``anflanschen''. Vielmehr ist eine handwerklich
+saubere Softwareentwicklung notwendig, um sie auf allen Ebenen zur Geltung zu bringen.
+
 
 Lumiera Architecture
 --------------------
