@@ -101,6 +101,34 @@ oder ein Kunstprinzip.
 Werkzeuge und Gerätschaften stehen damit in einem anderen Zusammenhang als für einen Amateur.
 
 
+Die Pionier-Zeit ist vorbei
+---------------------------
+The first generation of video editing software was driven by the technical challenge
+of getting video playback and computer based processing to work reliably. The first
+proffessional NLEs where competing with the conventional hardware based workflow of
+editing chemical film. Seasoned professionals had to be conviced to give up their
+familiar work environment learn to handle a fundamentally different kind of tooling.
+Somewhat comparable, 10 years later the first generation of video editing software
+for Linux had still to re-create the basic environment for working with video, using
+just open source tools.
+
+Inzwischen steht außer Frage, daß Filmschnitt- und Montage nur noch in Software erfolgt.
+Die Arbeitsabläufe sind weitgehend fest, das Prizip des "non linear editing" ist etabliert.
+Auch die grundlegenden Technologien zur Computerbasierten Filmaufnahme und Wiedergabe sind
+nur noch Thema für Spezialforschungen. Selbst für einen reinen OpenSource-Ansatz gibt es
+eine ganze Reihe ausgereifter Bibliotheken zum Handhaben der gängigsten Medienformate.
+
+- Es ist an der Zeit, von der Fixierung auf die Basistechnologie freizukommen.
+- Durch das Nachahmen klassisch- analoger Arbeitsabläufe haben wir uns einige unsinnige
+  Einseitigkeiten eingehandelt
+- Gegenstand sollte die professionelle Schnitt- und Medienarbeit sein
+- Es besteht immer noch eine Diskrepanz zwichen diesen Anforderungen
+  und den Möglichkeiten bestehender Software
+
+
+Problemstellungen in professionellen Film/Schinittprojekten
+-----------------------------------------------------------
+
 Zuverlässigkeit::
 
    - vorhersagbare und reproduzierbare Ergebnisse
@@ -126,37 +154,10 @@ Anpassunsfähigkeit::
 
 Dauerhaftigkeit::
 
-   - Projekte können eine erhebliche Laufzeit haben.
+   - Projekte können Jahre dauern.
    - durch Anpassungen und Erweiterungen darf keine Arbeit verloren gehen.
    - keine explizite Abhängigkeit von speziellen Gerätschaften oder Trends
 
-
-Die Pionier-Zeit ist vorbei
----------------------------
-The first generation of video editing software was driven by the technical challenge
-of getting video playback and computer based processing to work reliably. The first
-proffessional NLEs where competing with the conventional hardware based workflow of
-editing chemical film. Seasoned professionals had to be conviced to give up their
-familiar work environment learn to handle a fundamentally different kind of tooling.
-Somewhat comparable, 10 years later the first generation of video editing software
-for Linux had still to re-create the basic environment for working with video, using
-just open source tools.
-
-Inzwischen steht außer Frage, daß Filmschnitt- und Montage nur noch in Software erfolgt.
-Die Arbeitsabläufe sind weitgehend fest, das Prizip des "non linear editing" ist etabliert.
-Auch die grundlegenden Technologien zur Computerbasierten Filmaufnahme und Wiedergabe sind
-nur noch Thema für Spezialforschungen. Selbst für einen reinen OpenSource-Ansatz gibt es
-eine ganze Reihe ausgereifter Bibliotheken zum Handhaben der gängigsten Medienformate.
-
-- Es ist an der Zeit, von der Fixierung auf die Basistechnologie freizukommen.
-- Durch das Nachahmen klassisch- analoger Arbeitsabläufe haben wir uns einige unsinnige
-  Einseitigkeiten eingehandelt
-- Gegenstand sollte die professionelle Schnitt- und Medienarbeit sein
-- Es besteht eine Diskrepanz zwichen diesen Anforderungen und den Möglichkeiten bestehender Software
-
-
-Problemstellungen in professionellen Film/Schinittprojekten
------------------------------------------------------------
 
 Beispiel 1: Vorschau und Vollauflösung
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -170,33 +171,39 @@ Beispiel 3: Erzählstruktur
 Beispiel 4: Varianten und Ausgabeformate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Alle diese Probleme sind aus _rein technologischer Sicht trivial._ Aber sie lassen sich nicht
-einfach als ``features'' an ein bestehendes Programm ``anflanschen''. Vielmehr ist eine handwerklich
-saubere Softwareentwicklung notwendig, um sie auf allen Ebenen zur Geltung zu bringen.
+Schlußfolgerung
+~~~~~~~~~~~~~~~
+Alle diese Probleme sind aus _rein technologischer Sicht trivial._ +
+Aber sie lassen sich nicht einfach als ``features'' an ein bestehendes Programm ``anflanschen''.
+Vielmehr ist eine handwerklich saubere Softwareentwicklung notwendig, um sie auf allen Ebenen zur Geltung zu bringen.
+
+*Ein Open-Source-Projekt bietet dafür die besten Voraussetzungen*
 
 
-Lumiera Architecture
---------------------
-- three layers, not two
-- script-driven operation
+Projekt Lumiera
+---------------
+
+Architektur-Entscheidungen
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+- nicht zwei, sondern drei Schichten: Trennung nach Engine, Session und Oberfläche
+- Skriptsteuerung aller Kernfuntkionen möglich
 - orthogonality and configurable operation
 - extensible on all levels
 - language-neutral bindings
 
-Hardware Trends
----------------
+Hardware-Trends
+~~~~~~~~~~~~~~~
 - media resolution still increasing
 - hardware acceleration questionable
 - ubiquitous networking
 - massive parallelism
 
+Community
+~~~~~~~~~
+- wächst von Anfang an in eine Community hinein
+- wir bringen (zukünftige) Benutzer und Entwickler zusammen
+- ``distributed development model''
 
-Project and Community
----------------------
-- users _and_ developers
-- distributed development model
-
-image::/Heart-beat.gif[]
 
 
 WARNING: !! Draft !!
