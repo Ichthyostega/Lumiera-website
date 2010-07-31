@@ -54,14 +54,14 @@ div#layout-description {
 
 #wrapper {
 	display: block;
-	width: 700px;
+	width: 900px;
 	margin: 10px auto 0 5px;
 	background: #C09;
 }
 
 #menu, #layout-content {
 	float: left;
-	width: 500px;
+	width: 700px;
 }
 
 #menu{
