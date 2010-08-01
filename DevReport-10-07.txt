@@ -1,0 +1,39 @@
+Lumiera Summer Report
+=====================
+
+Summary of achievements
+-----------------------
+
+Hermann Vosseler (_ichthyo_) continued with the effort of shaping the Session API,
+the interface which will be used by GUI and scripts to manipulate the session
+contents like clips, tracks, effects and sequences.
+Besides clean-up of placeholder code this involved implementing some library
+facilities for registering an accessing the contained parts in an uniform way.
+
+Moreover, he's currently engaged into the design how to handle the output
+destinations within the session. This is a prerequisite for building a player
+and viewer components or render parts of the session in a flexible way.
+
+Christian Thaeter (_cehteh_) gave nobug a coverage checker and is currently working
+on the backbone of cache and frame indexing, based on a specialised B-tree implementation.
+
+_Lumiera from Outer Space_ is a document that gives an overview of the application 
+design, helping people to understand the ideas behind Lumiera and the tools they 
+will get to work with. It is aimed for workflow designers and anyone who wants to 
+know how Lumiera works in general. The document is still in draft form, but already 
+useful. Read the http://git.lumiera.org/gitweb?p=lumiera/ct;a=blob;f=doc/user/lumiera_from_outer_space/lumiera_from_outer_space.txt;hb=workflow[Asciidoc draft].
+
+Stefan Kangas (_skangas_) and Guram Z. Savinov (_savgur_) joined the dev team!
+_skangas_ is working on GUI, time widget and time handling lib; _savgur_ is investigating 
+jack audio integration with the viewer.
+
+We had some great brainstorming about Transport Controls. One idea stands out: 
+The transport controller GUIs become independent GUI elements that can be attached 
+to the very things you want to control.
+
+Brian Rytel (_BJMR_) launched brainstorming with a little GUI mock-up incorporating 
+the pre-existing GUI ideas already floating around. It was well received, feel free to share your thoughts.
+See the full discussion on the http://lists.lumiera.org/pipermail/lumiera/2010-July/001990.html[Mailing list Archives]. 
+
+_BJMR_ is working on the content and style of the new website. 
+

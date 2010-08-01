@@ -1,0 +1,4 @@
+DesignProcess is dead, long live RFC's
+
+We have a new RFC system which are maintained in the Lumiera source tree, the 
+old DesignProcess documents are imported there.
