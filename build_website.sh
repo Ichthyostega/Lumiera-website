@@ -4,7 +4,7 @@ DEFAULT_CONF=layout1
 umask 003
 
 # first pass, poor man dependency tracking over all .txt files
-if [[ "$1" != "--all" ]]; then
+if [[ ! "$1" ]]; then
 	echo -n "finding dependencies "
 	find -name '*.txt' |
 		while read file; do
@@ -21,11 +21,18 @@ fi
 
 # second pass for every .txt file
 echo -n "processing files "
-find -name '*.txt' |
+case "$1" in
+--all|'')
+	find -name '*.txt'
+	;;
+*)
+	echo "$1"
+	;;
+esac |
 	while read file; do
 		echo -n "."
 		# when the .txt is newer than an existing .html
-		if [[ "$file" -nt "${file%*.txt}.html" || "$1" = "--all" ]]; then
+		if [[ "$file" -nt "${file%*.txt}.html" || "$1" ]]; then
 			# use the default config file
 			conf="${DEFAULT_CONF}.conf"
 			# or if there is a .conf file with the same basename as the .txt file use that instead
