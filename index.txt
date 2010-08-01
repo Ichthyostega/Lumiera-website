@@ -1,46 +1,62 @@
-The new Lumiera website
-=======================
-
-This is the staging area for creating the new Lumiera website in a colaborative fashion. +
-It is served from the git repository http://git.lumiera.org/gitweb?p=website-staging[git://git.lumiera.org/website-staging]
+Lumiera
+=======
 
 
-==========================================================
-Thanks for your contributions
+Welcome to the new Lumiera website being created in a colaborative fashion. +
+It is served from the git repository link:http://git.lumiera.org/gitweb?p=website-staging[git://git.lumiera.org/website-staging]
+
+.Check Lumiera's Pulse:
+========================================================================================================================================================
 
 image::images/Heart-beat.gif[]
-=========================================================
+
+image:{l}/images/feed-icon-28x28.png["RSS Feed",link="http://www.lumiera.org/gitweb?p=LUMIERA;a=rss"] RSS: Lumiera Git Master repository
+
+image:{l}/images/feed-icon-28x28.png["RSS Feed",link="http://issues.lumiera.org/timeline?ticket=on&milestone=on&max=5&daysback=90&format=rss"] RSS: Trac activity
+
+image:{l}/images/feed-icon-28x28.png["RSS Feed",link="http://rss.gmane.org/gmane.comp.video.lumiera.general"] RSS: Mailing list activity
+
+========================================================================================================================================================
 
 What you can do to help
 -----------------------
 
-We need content! This breaks down into two categories:
+Help edit the site! This breaks down into two categories:
 
-=======================================================
- * Writing new content
  * Reformatting, updating, and moving existing content
-=======================================================
+ * Writing new content
+
 
 Existing content
-----------------
+~~~~~~~~~~~~~~~~
 
-To start with, I've moved the existing content of the old website into a link:OldWebpage/[separate subdirectory].
-And I added in the two example +\*.conf+ and  +\*.css+ files from the asciidoc distribution (Debian/Lenny)
+Many pages are adapted from the original site, or from documents in the link:http://git.lumiera.org/gitweb[git] but need editing.
 
- * the results of the *Asciidoc Day* are in Subdirectory link:Lumiera[/Lumiera]
- * the results of the TiddlyWiki asciidocking can be found in link:tiddlywiki2asciidoc/[/tiddlywiki2asciidoc]
+ * The existing content of the old website into a link:{l}/OldWebpage/[separate subdirectory].
+ * The results of the *Asciidoc Day* are in Subdirectory link:{l}/Lumiera[/Lumiera]
+ * The results of the TiddlyWiki asciidoc-ing can be found in link:{l}/tiddlywiki2asciidoc/[/tiddlywiki2asciidoc]
 
+
+New Content
+~~~~~~~~~~~
+Many pages need designing: what they will say, how they will be layed out, should this information be abstract and static or dynamic?
+
+See how the site works below.
+
+One goal for the new site is to keep things open a colaborative, so I'm trying to include summaries and suggestions for each page near the header.
+See: link:{l}/todo.txt[todo.txt] for tasks and completeness, link:{l}/sitemap.txt[sitemap.txt], and link:{l}/quickstart.txt[quickstart.txt] for our Asciidoc formatting conventions. (very simple, we promise) 
 
 How does this work?
--------------------
+~~~~~~~~~~~~~~~~~~~
 
 include::README[]
 
 
 Some useful links
------------------
+~~~~~~~~~~~~~~~~~
 
- * http://lists.lumiera.org/pipermail/lumiera/2010-January/001538.html[Website structure v2]
+ * link:http://lists.lumiera.org/pipermail/lumiera/2010-January/001538.html[Mailing list discussion of structure v2]
+ * 
  * more links coming soon...
 
 
