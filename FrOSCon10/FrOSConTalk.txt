@@ -1,10 +1,10 @@
-The Lumiera Project
-===================
+Projekt Lumiera
+===============
 :Author:	Hermann Voßeler
 :Email:	<Ichthyostega@web.de>
 :Date:      Juli 2010
 
-Entwurf und Gliederung eines Vortrages, der für die FrOSCon 2010 geplant ist.
+Entwurf und Gliederung eines Vortrages für die FrOSCon 2010
 
 
 Abstract
@@ -81,7 +81,6 @@ aktive und anregende Community aus Entwicklern, Medienschaffenden, Künstlern un
 Technik-Begeisterten zu versammeln.
 ************************************************************************************
 
-WARNING: !! Draft !!
 
 
 Professionelles Medienschaffen
@@ -93,8 +92,9 @@ Lumiera zielt auf professionellen Video/Filmschnitt. Was heißt hier ``professio
 - _professionell_ heißt nicht notwendig _kommerziell_
 - _professionell_ heißt nicht notwendig _industriell_
 
--> _professionelle Arbeit steht unter einer *leitenden Hinsicht*_ +
-Diese äußere oder innere leitende Hinsicht bestimmt die Arbeit und das Produkt.
+Professionelle Arbeit steht unter einer leitenden Hinsicht
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Diese äußere oder innere *leitende Hinsicht* bestimmt die Arbeit und das Produkt.
 Für Film- und Medienschaffen ist das heutzutage zumeist die *Wirkung* -- es kann
 aber auch Anderes sein, wie z.B. eine politische Absicht, das Aufzeigen einer Wahrheit,
 oder ein Kunstprinzip.
@@ -104,30 +104,35 @@ Werkzeuge und Gerätschaften stehen damit in einem anderen Zusammenhang als für
 
 Die Pionier-Zeit ist vorbei
 ---------------------------
-The first generation of video editing software was driven by the technical challenge
-of getting video playback and computer based processing to work reliably. The first
-proffessional NLEs where competing with the conventional hardware based workflow of
-editing chemical film. Seasoned professionals had to be conviced to give up their
-familiar work environment learn to handle a fundamentally different kind of tooling.
-Somewhat comparable, 10 years later the first generation of video editing software
-for Linux had still to re-create the basic environment for working with video, using
-just open source tools.
+Anfangs war allein schon die Notwendigkeit einer flüssigen Wiedergabe eine gewaltige technische
+Herausforderung. Die erste Generation computerbasierter Schnittsoftware sah sich in direkter
+Konkurrenz zu einem etablierten Herstellungsprozeß basierend auf elektromechanischen Gerätschaften
+und chemischem Film. Editoren, Regisseure und Kameraleute hatten all ihre Erfahrungen und ihr Handwerk
+auf diesen Geräten erworben und mußten nun dazu bewegt werden, die Handhabung fundamental anders
+konstruierter Gerätschaften zu erlernen. Übertragen auf GNU/Linux und freie Software als Arbeitsumgebung,
+fanden wir zehn Jahre später immer noch eine vergleichbare Pionier-Situation vor. Es galt, überhaupt
+die Grundlagen für Ton- und Bildwiedergabe sicherzustellen und Freie Software als Möglichkeit
+für professionelle Medienarbeit zu etablieren.
 
 Inzwischen steht außer Frage, daß Filmschnitt- und Montage nur noch in Software erfolgt.
-Die Arbeitsabläufe sind weitgehend fest, das Prizip des "non linear editing" ist etabliert.
+Die Arbeitsabläufe sind weitgehend fest, das Prinzip des "non linear editing" ist etabliert.
 Auch sind die Technologien zur computerbasierten Filmaufnahme und Wiedergabe kein grundlegendes
 Problem mehr. Selbst für einen reinen OpenSource-Ansatz gibt es eine ganze Reihe ausgereifter
 Bibliotheken zum Handhaben der gängigsten Medienformate.
 
+
+.Thesen
+************************************************************************************
 - Es ist an der Zeit, von der Fixierung auf die Basistechnologie freizukommen.
-- Durch das Nachahmen klassisch- analoger Arbeitsabläufe haben wir uns einige unsinnige
+- Durch das Nachahmen klassisch- analoger Arbeitsabläufe haben wir uns unsinnige
   Einseitigkeiten eingehandelt
 - Gegenstand sollte die professionelle Schnitt- und Medienarbeit sein
-- Es besteht immer noch eine Diskrepanz zwichen diesen Anforderungen
+- Es besteht immer noch eine Diskrepanz zwischen diesen Anforderungen
   und den Möglichkeiten bestehender Software
+************************************************************************************
 
 
-Problemstellungen in professionellen Film/Schinittprojekten
+Problemstellungen in professionellen Film/Schnittprojekten
 -----------------------------------------------------------
 
 Zuverlässigkeit::
@@ -162,15 +167,15 @@ Dauerhaftigkeit::
 
 Beispiel 1: Vorschau und Vollauflösung
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Die Qualität konventioneller, analoger Bild- und Tonmedien under Studio-Bedinungen setzt
+Die Qualität konventioneller, analoger Bild- und Tonmedien unter Studio-Bedinungen setzt
 enorme Maßstäbe, welche -- darüber sollte kein Zweifel bestehen -- auch heute noch von der
-Digitaltechnik nur mit Mühe erreicht werden kann. Üblicherweise in der Produktion eingesetzte
-Monitore und Sichtgräte bleiben oft weit unter diesen Standards, obwohl sie für den jeweiligen
-Zweck adäquat sind -- es ist nicht notwendig und auch technisch gar nicht machbar, das Rohmaterial
-in voller Auflösung in jedem Produktionsschritt zu verwenden. Allerdings müssen die stattdessen
-eingestzen Platzhalter (``proxy media'') nahtlos integriert sein und dürfen nicht zu Fehleinschätzungen
-oder falsch gewählten Parametern führen. Beispielsweise darf eine anhand des Proxies angelegte Maske
-gegenüber den Originalmaterial nicht versetzt zu liegen kommen.
+Digitaltechnik nur mit Mühe erreicht werden können. Üblicherweise in der Produktion eingesetzte
+Monitore und Sichtgräte bleiben oft weit unter diesen Standards, wiewohl sie für den jeweiligen
+Zweck adäquat sein mögen -- es ist nicht notwendig und auch technisch gar nicht machbar, das
+Rohmaterial in voller Auflösung in jedem Produktionsschritt zu verwenden. Allerdings müssen die
+stattdessen eingesetzten Platzhalter (``proxy media'') nahtlos integriert sein und dürfen nicht zu
+Fehleinschätzungen oder falsch gewählten Parametern führen. Beispielsweise darf eine anhand des
+Proxies angelegte Maske gegenüber den Originalmaterial nicht versetzt zu liegen kommen.
 
 Beispiel 2: Tonmontage
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -183,10 +188,10 @@ Aufmerksamkeit vom Geschehen in der Handlung abzieht.
 
 Beispiel 3: Erzählstruktur
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-In der Analyse eines fertigen Filmes sind Erzählstruktur und Rythmus herausragend feststellbare Merkmale.
+In der Analyse eines fertigen Filmes sind Erzählstruktur und Rhythmus herausragend feststellbare Merkmale.
 Nicht so während der Entstehung des Filmes. Sie lassen sich nur teilweise im Skript vorher festlegen --
 nur zu oft haben die Filmschaffenden nur einen Vorentwurf im Kopf, und es kommt für die Qualität des
-Filmes entscheidend darauf an, die wirklich passende Struktur und den angemessenen Rythmus herauszufinden.
+Filmes entscheidend darauf an, die wirklich passende Struktur und den angemessenen Rhythmus herauszufinden.
 Dazu werden Einstellungen und ganze Szenen umgeordnet, Dialogteile verschoben, Material nachgedreht.
 Da eine Beurteilung nur in einem halbwegs fertiggestellten Schnitt möglich ist, muß der ganze
 komplexe Vorgang in mehrfachen Integrationen durchlaufen werden oder -- besser noch, es 
@@ -194,7 +199,7 @@ sollte der gesamte Schnitt-Aufbau flexibel und anpassbar bleiben.
 
 Beispiel 4: Varianten und Ausgabeformate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Oft hat man nicht ein eiziges, festes ``Endprodukt,'' sondern muß verschiedene Varianten erstellen,
+Oft hat man nicht ein einziges, festes ``Endprodukt,'' sondern muß verschiedene Varianten erstellen,
 etwa eine Lang- und Kurzfassung, Auszüge zur Bewerbung und Promotion, oder auch Ausfertigung in verschiedenen
 Qualitätsstufen, Formaten, Auflösungen.
 
@@ -207,8 +212,6 @@ um sie auf allen Ebenen zur Geltung zu bringen.
 
 *Ein Open-Source-Projekt bietet dafür die besten Voraussetzungen*
 
--- jedenfalls sicher bessere Voraussetzungen, als ein von rücksichtslosem Wettbewerb, ``selling points'',
-Schielen auf den Massenmarkt und maßlos zu knappen Budgets gekennzeichnetes kommerzielles Umfeld.
 
 
 Projekt Lumiera
@@ -238,7 +241,7 @@ Hardware-Trends
 - wir müssen uns auf massive Parallelität einstellen. Diese sinnvoll zu nutzen erfordert 
   grundsätzlich andere Berechnungsmodelle und Applikationsstrukturen als bisher.
   Sowohl die Hardwarebeschleunigung, alsauch zunehmend im Netzwerk verteilte Kapazitäten
-  sollten ehr in diesem Zusammenhang gesehen werden.
+  sollten eher in diesem Zusammenhang gesehen werden.
   
 
 Community
@@ -249,5 +252,4 @@ Community
 
 
 
-WARNING: !! Draft !!
 
