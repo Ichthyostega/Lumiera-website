@@ -12,9 +12,10 @@ Abstract
 The Lumiera Project is to write a professional video editor for Linux.
 Editing a feature film or documentary imposes specific challenges, translating
 into the demand to build a more advanced infrastructure, well beyond just
-the processing of video data. 
+the processing of video data. The talk highlights some of these specific
+problems and the solution approach choosen within Lumiera.
 
-.Summary for the *FrOSCon10*
+.Text für das Programm der *FrOSCon10*
 ************************************************************************************
 Das Projekt Lumiera entwickelt einen professionellen Video-Editor für Linux.
 Ausgangspunkt sind die besonderen Schwierigkeiten bei Schnitt und Montage eines
@@ -114,9 +115,9 @@ just open source tools.
 
 Inzwischen steht außer Frage, daß Filmschnitt- und Montage nur noch in Software erfolgt.
 Die Arbeitsabläufe sind weitgehend fest, das Prizip des "non linear editing" ist etabliert.
-Auch die grundlegenden Technologien zur Computerbasierten Filmaufnahme und Wiedergabe sind
-nur noch Thema für Spezialforschungen. Selbst für einen reinen OpenSource-Ansatz gibt es
-eine ganze Reihe ausgereifter Bibliotheken zum Handhaben der gängigsten Medienformate.
+Auch sind die Technologien zur computerbasierten Filmaufnahme und Wiedergabe kein grundlegendes
+Problem mehr. Selbst für einen reinen OpenSource-Ansatz gibt es eine ganze Reihe ausgereifter
+Bibliotheken zum Handhaben der gängigsten Medienformate.
 
 - Es ist an der Zeit, von der Fixierung auf die Basistechnologie freizukommen.
 - Durch das Nachahmen klassisch- analoger Arbeitsabläufe haben wir uns einige unsinnige
@@ -161,23 +162,53 @@ Dauerhaftigkeit::
 
 Beispiel 1: Vorschau und Vollauflösung
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Die Qualität konventioneller, analoger Bild- und Tonmedien under Studio-Bedinungen setzt
+enorme Maßstäbe, welche -- darüber sollte kein Zweifel bestehen -- auch heute noch von der
+Digitaltechnik nur mit Mühe erreicht werden kann. Üblicherweise in der Produktion eingesetzte
+Monitore und Sichtgräte bleiben oft weit unter diesen Standards, obwohl sie für den jeweiligen
+Zweck adäquat sind -- es ist nicht notwendig und auch technisch gar nicht machbar, das Rohmaterial
+in voller Auflösung in jedem Produktionsschritt zu verwenden. Allerdings müssen die stattdessen
+eingestzen Platzhalter (``proxy media'') nahtlos integriert sein und dürfen nicht zu Fehleinschätzungen
+oder falsch gewählten Parametern führen. Beispielsweise darf eine anhand des Proxies angelegte Maske
+gegenüber den Originalmaterial nicht versetzt zu liegen kommen.
 
 Beispiel 2: Tonmontage
 ~~~~~~~~~~~~~~~~~~~~~~
+Eine adäquat ausgearbeitete Tonspur besteht aus einer Vielzahl an Einzelelementen.
+Es gibt die Aufnahme von der Ton-Angel, manchmal auch von Funkmikros, es gibt Kamera-Ton,
+allgemeine ``Athmo,'' ein Musikbett und Bibliothek-Samples, dazu u.U auch noch nachsynchronisierten
+Dialog und Folleys. All dies zusammen muß in ein nahtloses Ganzes überführt werden, so daß alles
+erkennbar bleibt, Dialoge einwandfrei verständlich sind und kein wahrnehmbarer Bruch die
+Aufmerksamkeit vom Geschehen in der Handlung abzieht.
 
 Beispiel 3: Erzählstruktur
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+In der Analyse eines fertigen Filmes sind Erzählstruktur und Rythmus herausragend feststellbare Merkmale.
+Nicht so während der Entstehung des Filmes. Sie lassen sich nur teilweise im Skript vorher festlegen --
+nur zu oft haben die Filmschaffenden nur einen Vorentwurf im Kopf, und es kommt für die Qualität des
+Filmes entscheidend darauf an, die wirklich passende Struktur und den angemessenen Rythmus herauszufinden.
+Dazu werden Einstellungen und ganze Szenen umgeordnet, Dialogteile verschoben, Material nachgedreht.
+Da eine Beurteilung nur in einem halbwegs fertiggestellten Schnitt möglich ist, muß der ganze
+komplexe Vorgang in mehrfachen Integrationen durchlaufen werden oder -- besser noch, es 
+sollte der gesamte Schnitt-Aufbau flexibel und anpassbar bleiben.
 
 Beispiel 4: Varianten und Ausgabeformate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Oft hat man nicht ein eiziges, festes ``Endprodukt,'' sondern muß verschiedene Varianten erstellen,
+etwa eine Lang- und Kurzfassung, Auszüge zur Bewerbung und Promotion, oder auch Ausfertigung in verschiedenen
+Qualitätsstufen, Formaten, Auflösungen.
 
 Schlußfolgerung
 ~~~~~~~~~~~~~~~
 Alle diese Probleme sind aus _rein technologischer Sicht trivial._ +
-Aber sie lassen sich nicht einfach als ``features'' an ein bestehendes Programm ``anflanschen''.
-Vielmehr ist eine handwerklich saubere Softwareentwicklung notwendig, um sie auf allen Ebenen zur Geltung zu bringen.
+Aber die Lösungen treten in Wechselwirkung, und lassen sich daher nicht einfach als ``features''
+an ein bestehendes Programm ``anflanschen''. Vielmehr ist eine handwerklich saubere Softwareentwicklung notwendig,
+um sie auf allen Ebenen zur Geltung zu bringen.
 
 *Ein Open-Source-Projekt bietet dafür die besten Voraussetzungen*
+
+-- jedenfalls sicher bessere Voraussetzungen, als ein von rücksichtslosem Wettbewerb, ``selling points'',
+Schielen auf den Massenmarkt und maßlos zu knappen Budgets gekennzeichnetes kommerzielles Umfeld.
 
 
 Projekt Lumiera
@@ -187,20 +218,32 @@ Architektur-Entscheidungen
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 - nicht zwei, sondern drei Schichten: Trennung nach Engine, Session und Oberfläche
 - Skriptsteuerung aller Kernfuntkionen möglich
-- orthogonality and configurable operation
-- extensible on all levels
-- language-neutral bindings
+- Orthogonalität, Vermeiden verdeckter Voraussetzungen: wenn innerhalb der klar definierten
+  Möglichkeiten eine Kombination von Elementen oder Einstellungen möglich ist, dann wird sie auch unterstützt.
+- Es gibt einen kohärenten Kern, aber Erweiteiterungen und Plug-ins sind systematisch integriert. 
+- Konfiguration durch Regeln.
+- Entkoppelung von Engine (``low level'') und Session-Modell erlaubt, jeden Bereich auf seinen Zweck hin
+  zu optimieren. Die Objekte in der Session werden nicht direkt gerendert, sondern zunächst in ein
+  Netzwerk von Render-Knoten übersetzt.
 
 Hardware-Trends
 ~~~~~~~~~~~~~~~
-- media resolution still increasing
-- hardware acceleration questionable
-- ubiquitous networking
-- massive parallelism
+- die wünschenswerte Auflösung der Mediendaten wächst immer noch, und zwar auch in der absehbaren Zukunft
+  weit stärker, als durch die Leistungssteigerung durchschnittlicher Hardware kompensiert werden kann.
+  Verarbeitung von Rohmaterial in Vollauflösung geht auch weiterhin an die Leistungsgrenze.
+- strategisch betrachtet, stellt die wachsende Bedeutung der Hardware-Beschleunigung ehr ein zusätzliches
+  Problem dar, als daß sie andere Probleme löst. Man bekommt mehrfache und inkompatible Code-Pfade und
+  Berechnungs-Modelle für die gleichen Operationen, die Standards sind noch im Fluß und die
+  Zukunft einzelner Ansätze ist ungewiß.
+- wir müssen uns auf massive Parallelität einstellen. Diese sinnvoll zu nutzen erfordert 
+  grundsätzlich andere Berechnungsmodelle und Applikationsstrukturen als bisher.
+  Sowohl die Hardwarebeschleunigung, alsauch zunehmend im Netzwerk verteilte Kapazitäten
+  sollten ehr in diesem Zusammenhang gesehen werden.
+  
 
 Community
 ~~~~~~~~~
-- wächst von Anfang an in eine Community hinein
+- das Projekt wächst von Anfang an in eine Community hinein
 - wir bringen (zukünftige) Benutzer und Entwickler zusammen
 - ``distributed development model''
 
