@@ -1,8 +1,9 @@
 lumiera site map
-================
+=================
 
 .to do
 - autogenerate the site map
+- this was partly to build a menu, which was addressed in another way for the time being
 
 == brief
 
@@ -25,35 +26,35 @@ all folds/subfolds ( '/' ) have an initial page that loads ( 'index.html' ).  fo
 * download.txt
 * contribute.txt
 * project/
- ** index.txt    -- about
- ** screenshots.txt
- ** press.txt
- ** donate.txt
- ** roadmap.txt
- ** credits.txt
- ** contact.txt
+** index.txt    -- about
+** screenshots.txt
+** press.txt
+** donate.txt
+** roadmap.txt
+** credits.txt
+** contact.txt
 * documentation/
- ** media/    -- white papers, presentations, manuals
- ** technical/
-   *** doxygen    -- link to doxygen
-   *** gui/
-   *** proc/
-   *** backend/
- ** design/
-   *** gui/
-	**** workflow/
-   *** model/
-   *** engine/
-   *** backend/
-   *** plugins/
-   *** builddrone/
-   *** config-loader/
+** media/    -- white papers, presentations, manuals
+** technical/
+*** doxygen    -- link to doxygen
+*** gui/
+*** proc/
+*** backend/
+** design/
+*** gui/
+**** workflow/
+*** model/
+*** engine/
+*** backend/
+*** plugins/
+*** builddrone/
+*** config-loader/
 * devs-vault/
- ** roadmap    -- link to trac
- ** design-process/
- ** devs.txt
- ** gitweb    -- link to git
- ** trac-reports    -- link to trac
- ** next-meeting/
- ** past-protocols/
+** roadmap    -- link to trac
+** design-process/
+** devs.txt
+** gitweb    -- link to git
+** trac-reports    -- link to trac
+** next-meeting/
+** past-protocols/
 * links.txt    -- page list of links to related projects

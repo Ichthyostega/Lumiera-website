@@ -46,10 +46,11 @@ The cheatsheet is a great reference to have open while editing and shows many mo
 
 To know a lot about AsciiDoc markup see AsciiDoc website at link:http://www.methods.co.nz/asciidoc/[]
 
-I use gedit text editor, built into GNOME. I also use link:https://launchpad.net/asciidoc-gtk-highlight[Asciidoc Syntax Highlighter] to add highlighting like one could with html, script or code.
+I use gedit text editor, bundled with GNOME. I also use link:https://launchpad.net/asciidoc-gtk-highlight[Asciidoc Syntax Highlighter] to add highlighting like one could with html, script or code.
 
 But here is a quick overview of our document style...
 
+CAUTION: If any features are causing problems/not functioning as described, check your code, then let us know!
 
 Headers/Titles & Lists
 ^^^^^^^^^^^^^^^^^^^^^^^
