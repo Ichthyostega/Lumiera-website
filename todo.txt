@@ -11,40 +11,64 @@ The notes here are to keep track of ideas, check for further notes/ideas on the 
 
 .{l}[]
 * index.txt - *Pending*
-** Should contain a brief of the project and its status, a general news-feed (likely at bottom) a 'graphic presence' to connect to visitor, and until complete: info about working on the site
+** Should contain a brief of the project and its status, 
+   a general news-feed (likely at bottom) a 'graphic presence' 
+   and until complete: info about working on the site
 
 * download.txt *Open*
-** Because their is little for anyone other than developers to work with, this page should contain a brief but friendly explanation of project status, and link to appropriate git, and compiling info
+** Because their is little for anyone other than developers to work with, 
+   this page should contain a brief but friendly explanation of project status, 
+   and link to appropriate git, and compiling info
 
 * contribute.txt *Open*
-** Describe the various aspects of the project: design/workflow, back-end/proc/gui coding, website, project tools (scripts, etc), testing, maintenance, propaganda. Point to: link:{l}/documentation/media/newbies-tutorials.html[Newbies Tutorial]  link:http://lumiera.org/gitweb[gitweb] and roadmap, "lumiera from outerspace" etc.
+** Describe the various aspects of the project: design/workflow, back-end/proc/gui 
+   coding, website, project tools (scripts, etc), testing, maintenance, propaganda. 
+   Link to link:{l}/documentation/media/newbies-tutorials.html[Newbies Tutorial]  
+   link:http://lumiera.org/gitweb[gitweb] and roadmap, "lumiera from outerspace" etc.
 
 * project/
 ** index.txt *Open*
-*** Much more in depth information about Lumiera, its concept, where the project/developers came from (ie Cinelerra) what it can/will do, etc. Should reference some existing documents on these subjects.
+*** Much more in depth information about Lumiera, its concept, where the 
+    project/developers came from (ie Cinelerra) what it can/will do, etc. 
+    Should reference some existing documents on these subjects.
 
 ** screenshots.txt *Open*
-*** Fairly self-explanatory, hopefully I or someone else will be able to write a lightbox (see if css-only is possible) for the time being this will be the current place-holder gui
+*** Fairly self-explanatory, hopefully I or someone else will be able to write a 
+    lightbox (see if css-only is possible) for the time being this will be the 
+    current place-holder gui
 
 ** press.txt *Open*
-*** will be the central point for presenting any 'public' news, propaganda, or media. This includes rss, some ML (to be discussed), logos
+*** will be the central point for presenting any 'public' news, propaganda, 
+    or media. This includes rss, some ML (to be discussed), logos
 
 ** donate.txt *Open*
-*** make ffis donation page clear, we need to place a dedicated form or something to make this process easier, as its very confusing (especially if one doesn't speak Deutsch/German)
+*** make ffis donation page clear, we need to place a dedicated form or something 
+    to make this process easier, as its very confusing 
+    (especially if one doesn't speak Deutsch/German)
 
-** roadmap.txt *Pending*
-*** Currently links to the trac roadmap, try to integrate the site wrapper to render the trac page with the header and menu of the main site.
+** roadmap.txt *Complete*
+*** Currently links to the trac roadmap, try to integrate the site wrapper to 
+    render the trac page with the header and menu of the main site.
 
 ** credits.txt *Pending* *Always Open*
-*** This is a fairly well written already, but could use some arranging, and integration with site wrapper. Make sure to add your contributions where appropriate
+*** This is a fairly well written already, but could use some arranging, and 
+    integration with site wrapper. Make sure to add your contributions where appropriate
 
 ** contact.txt *Open*
-Can relate to contact on the current site, but we should include some better centralized information on what contacts will help with what info, etc
+*** Can relate to contact on the current site, but we should include some better 
+    centralized information on what contacts will help with what info, etc
 
-* documentation/ --Until the css 3rd level sub-menus are complete /~foodir/index.txt here should have the links in a bar at top or on the side of the page, **also this segment is in a state of change currently because documentation backend is being work on by the dev team**
+////
+* documentation/ 
+** Until the css 3rd level sub-menus are complete /~foodir/index.txt here should 
+   have the links in a bar at top or on the side of the page, 
+   **also this segment is in a state of change currently because documentation 
+   backend is being work on by the dev team**
 
 ** index.txt *Open*
-*** This a bit of a tricky one. It needs to define and direct users between userdocs, general info (link:{l}/media/[]), technical and design. The index should not be exhaustive, but concise.
+*** This a bit of a tricky one. It needs to define and direct users between 
+    userdocs, general info (link:{l}/media/[]), technical and design. 
+    The index should not be exhaustive, but concise.
 
 ** media/ *Open*
 *** index.txt *Open*
@@ -52,65 +76,91 @@ Can relate to contact on the current site, but we should include some better cen
 
 ** technical/
 *** index.txt *Open* see above, this may not be ready to start work
-**** Needs to point to relevant links, explain what technical documentation is, how to use it, what frame-work/backends we use for tech doc.
+**** Needs to point to relevant links, explain what technical documentation is, 
+     how to use it, what frame-work/backends we use for tech doc.
 
 *** doxygen *Open* 5 minute job
 **** link to doxygen
 
 *** gui/
 **** index.txt *Open*
-***** Should contain overview of docs about the GUI, how it interfaces, its actual coded or pending code portions. Link to relevant sources.
+***** Should contain overview of docs about the GUI, how it interfaces, 
+      its actual coded or pending code portions. Link to relevant sources.
 
 *** proc/
 **** index.txt *Open*
-***** Should contain overview of docs about the proc, how it interfaces, its actual coded or pending code portions. Link to relevant sources. 
+***** Should contain overview of docs about the proc, how it interfaces, 
+      its actual coded or pending code portions. Link to relevant sources. 
 
 *** backend/ 
 **** index.txt *Open*
-***** Should contain overview of docs about the backend, how it interfaces, its actual coded or pending code portions. Link to relevant sources.
+***** Should contain overview of docs about the backend, how it interfaces, 
+      its actual coded or pending code portions. Link to relevant sources.
 
 ** design/
 *** index.txt *Open*
-**** Needs to point to relevant links, explain what design documentation is, how to use it, what frame-work/backends we use for design doc.
+**** Needs to point to relevant links, explain what design documentation is, 
+     how to use it, what frame-work/backends we use for design doc.
 
 *** gui/
 **** index.txt *Open*
-***** Needs to overview the gui and give links & explanation about the current state, accepted design proposals, suggested proposals and how to write and submit new ones
+***** Needs to overview the gui and give links & explanation about the 
+      current state, accepted design proposals, suggested proposals and how to 
+      write and submit new ones
 
 **** workflow/ *Open*
 ***** This is a subset in many ways of the GUI, but isn't about the actual GUI itself 
 
 *** model/
 **** index.txt *Open*
-***** Needs to overview the mdel of lumiera and give links & explanation about the current state, accepted design proposals, suggested proposals and how to write and submit new ones
+***** Needs to overview the mdel of lumiera and give links & explanation about 
+      the current state, accepted design proposals, suggested proposals and 
+      how to write and submit new ones
 
 *** engine/
 **** index.txt *Open*
-***** Needs to overview the proc and give links & explanation about the current state, accepted design proposals, suggested proposals and how to write and submit new ones (sounding familiar?)
+***** Needs to overview the proc and give links & explanation about the 
+      current state, accepted design proposals, suggested proposals and how 
+      to write and submit new ones (sounding familiar?)
 
 *** backend/ *Open*
 **** index.txt
-**** Needs to overview the backend and give links & explanation about the current state, accepted design proposals, suggested proposals and how to write and submit new ones
+**** Needs to overview the backend and give links & explanation about the 
+     current state, accepted design proposals, suggested proposals and how to 
+     write and submit new ones
 
 *** plugins/ *Open*
 **** index.txt
-***** Needs to overview plugins & API and give links & explanation about the current state, accepted design proposals, suggested proposals and how to write and submit new ones
+***** Needs to overview plugins & API and give links & explanation about the 
+      current state, accepted design proposals, suggested proposals and how to 
+      write and submit new ones
 
 *** builddrone/ *Open* --is this design of buiddrone, or should this be elsewhere -BJMR
 
 *** config-loader/ --should this be in gui or workflow? -BJMR
 **** index.txt *Open*
-***** Needs to overview the config-loader and give links & explanation about the current state, accepted design proposals, suggested proposals and how to write and submit new ones
+***** Needs to overview the config-loader and give links & explanation about the 
+      current state, accepted design proposals, suggested proposals and how to 
+      write and submit new ones
+
+////
 
 * devs-vault/
 ** index.txt *Open*
-*** Cover in brief the various aspects of development and send them on their way, should INCLUDE[] the development new-feed (currently news.txt) 
+*** Cover in brief the various aspects of development and send them on their way,
+    should INCLUDE[] the development new-feed (currently news.txt) 
 
-** roadmap *Open* 5 minute job
+** roadmap *Complete*
 *** Currently links to the trac roadmap. (Have link force open in new tab? -BJMR)
 
+////
+
 ** design-process/ *Open*
-*** This like all documentation above is changing, so nothing has been decided here yet
+*** This like all documentation above is changing, 
+    so nothing has been decided here yet make sure to un-comment link in
+    in menu when pending/complete
+
+////
 
 ** devs.txt *Open*
 *** List of developers (contact info?-BJMR) what they are working on more or less.
@@ -118,15 +168,20 @@ Can relate to contact on the current site, but we should include some better cen
 ** gitweb *Complete*
 *** link to link:http://lumiera.org/gitweb[gitweb]
 
-** trac-reports *Open* --edit the menu
+** trac-reports *Complete* --edit the menu
 *** link to trac
 
 ** next-meeting/
 *** index.txt
-**** Document next meeting date/time proposals, and finalized or current time. Also, a short list of what needs to be covered. My intention for the format of this page is to then be modified and converted to recording the discussion during the meeting and what conclusions were arrived at
+**** Document next meeting date/time proposals, and finalized or current time. 
+     Also, a short list of what needs to be covered. My intention for the format 
+     of this page is to then be modified and converted to recording the 
+     discussion during the meeting and what conclusions were arrived at
 
 ** past-protocols/
-*** Generate a tree like the ML of the minutes/summary/logs of past meetings, in the future use the template derived from next-meeting/index.txt to build a summary and links for the meeting
+*** Generate a tree like the ML of the minutes/summary/logs of past meetings, 
+    in the future use the template derived from next-meeting/index.txt to build 
+    a summary and links for the meeting
 
 * links.txt *Pending* *Always Open*
 ** page list of links related to lumiera
@@ -134,9 +189,12 @@ Can relate to contact on the current site, but we should include some better cen
 Design & Technical documents from git, moinmoinwiki(pipao), oldsite, ML
 ------------------------------------------------------------------------
 
-The design documentation is being restructured right now, see the ML and IRC for the discussion on this.
+The design documentation is being restructured right now, 
+see the ML and IRC for the discussion on this.
 
 *When a clearer picture of the doc is reached this will be updated to reflect/explain that*
+
+////
 
 Existing 
 ~~~~~~~~~
@@ -163,4 +221,6 @@ Existing
 * Lumiera/DesignProcess/DataBackend
 * Lumiera/DesignProcess/DevelopmentFramework
 ----------------------------------------------------
+
+////
 
