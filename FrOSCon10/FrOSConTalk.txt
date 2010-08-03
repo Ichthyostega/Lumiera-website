@@ -1,0 +1,255 @@
+Projekt Lumiera
+===============
+:Author:	Hermann Voßeler
+:Email:	<Ichthyostega@web.de>
+:Date:      Juli 2010
+
+Entwurf und Gliederung eines Vortrages für die FrOSCon 2010
+
+
+Abstract
+--------
+The Lumiera Project is to write a professional video editor for Linux.
+Editing a feature film or documentary imposes specific challenges, translating
+into the demand to build a more advanced infrastructure, well beyond just
+the processing of video data. The talk highlights some of these specific
+problems and the solution approach choosen within Lumiera.
+
+.Text für das Programm der *FrOSCon10*
+************************************************************************************
+Das Projekt Lumiera entwickelt einen professionellen Video-Editor für Linux.
+Ausgangspunkt sind die besonderen Schwierigkeiten bei Schnitt und Montage eines
+Spiel- oder Dokumentarfilmes, für die existierende OpenSource-Werkzeuge nur
+mäßige Unterstützung bieten.
+
+Die technische Herausforderung, Videodaten zuverlässig auf einem PC oder einer
+Workstation zu bearbeiten, prägte Video-Schnittsoftware der ersten Generation.
+Zudem mußte die traditionelle Arbeitsweise nachgeahmt, Schneidetisch und
+Magnettonband imitiert werden, um den Übergang zur neuen Computertechnik zu
+erleichtern. Mit einiger Verzögerung übertrug sich dieser Ansatz auf die ersten
+OpenSource-Videobearbeitungs-Lösungen unter Linux, denn zunächst einmal mußten
+die technischen Voraussetzungen geschaffen werden, überhaupt Videodaten einzulesen,
+zu dekodieren und zu verarbeiten.
+
+Lumiera, als ein _gegenwärtig neu entwickeltes_ Schnittsystem, kann von ganz anderen
+Voraussetzungen ausgehen. Die bisher dominanten technischen Probleme sind durch
+gute freie Bibliotheken hinreichend abgedeckt und die eigentlichen Erfordernisse
+der Aufgabe können in den Mittelpunkt rücken. Ausgehend von einer Funktionsmächtigkeit,
+wie sie etwa Cinelerra bietet, waren Bedienkonzepte und interne Strukturen kritisch
+zu prüfen. Bewährte technische Ansätze, wie das ``pull''-Prinzip und ein Netzwerk
+von Verarbeitungsknoten, wurden konsequent ausgebaut, für problematische
+Bereiche bessere Lösungen gesucht.
+
+Das Lumiera-Projekt definiert den professionellen Anspruch nicht über eine Menge
+neu zu erfindender Funktionen. Der Kern der Aufgabe ist, eine Struktur zu schaffen,
+die den komplexen Arbeitsabläufen in der Post-Production eines Filmes entspricht.
+Diese Struktur muß sich unmittelbar erkennbaren zukünftigen Entwicklungen anpassen.
+Exemplarisch sei dies an einigen Themenkomplexen verdeutlicht.
+
+Die wünschenswerte Auflösung der Mediendaten wächst immer noch (2k, 4k, 8k), und
+zwar weit stärker, als durch die normale, evolutionäre Leistungssteigerung der
+Hardware kompensiert werden kann. Parallelverarbeitung, Hardware-Unterstützung
+und der Einsatz von Platzhalter-Daten sind geläufige Antworten. Der zuletzt
+genannte Ansatz, das sog. ``Proxy-Editing'', der Einsatz von Platzhalter-Bildern
+in geringerer Auflösung, klingt zunächst weit weniger spektakulär, als die
+Entwicklung von Spezial-Hardware. Auch ist die Umsetzung einigermaßen mühsam,
+denn die gesamte Verarbeitungskette, vom Einlesen der Daten über das Schneiden
+bis zum Rendern (oder Erzeugen einer EDL) muß zuverlässig darauf abgestimmt sein.
+Jedoch ist diese Lösung generisch und erlaubt so auch dem Independent-Filmemacher,
+mit geringem Aufwand Produktionen in hoher Bildqualität.
+
+Neben steigender Maximal-Auflösung fällt vor allem die wachsende Streubreite der
+Anforderungen auf. Oft soll ein Projekt sowohl in hoher und in reduzierter Qualität
+hergestellt werden, mit mehreren Tonsystemen, Untertiteln und auszugsweise für Youtube.
+Ähnliches gilt für die mögliche Unterstützung erweiterter Medien-Technologien, wie
+periphonischer Ton (Ambisonics, Wellenfeldysnthese) oder Stereoskopie. Einbau ``von
+Unterstützung'' in Form einzelner Erweiterungsfunktionen ist nutzlos, sofern nicht
+zuvor schon das Datenmodell, auf dem der Benutzer durch das GUI arbeitet,
+_Format-neutral_ definiert ist. Die Anpassung an spezifische Ausgabeformate kann
+dann halbautomatisch über Regeln erfolgen.
+
+Und so erweist sich die Aufgabe, ein professionelles Schnittsystem zu entwickeln
+nicht so sehr als ein ``number crunching''-Problem. Vielmehr geht es darum, eine
+konsistente Zwischenschicht zu schaffen, welche bestehende Technologien verbindet.
+Dies reicht von einem intelligenten, persistenten Frame-Cache, über einen Scheduler
+paralleler Berechnungs-Jobs, über ein formatneutrales Datenmodell und ein Typsystem
+für Mediendaten, bis zu einer Plug-in-Verwaltung, die zuverlässig mit Versionierung
+und Kompatibilitäten umgehen kann.
+
+Nicht zuletzt aber ist Lumiera ein OpenSource-Projekt, und es ist uns gelungen, eine
+aktive und anregende Community aus Entwicklern, Medienschaffenden, Künstlern und
+Technik-Begeisterten zu versammeln.
+************************************************************************************
+
+
+
+Professionelles Medienschaffen
+------------------------------
+
+Lumiera zielt auf professionellen Video/Filmschnitt. Was heißt hier ``professionell''?
+
+- zunächst der Gegensatz _professionell_ <--> _amateurhaft_
+- _professionell_ heißt nicht notwendig _kommerziell_
+- _professionell_ heißt nicht notwendig _industriell_
+
+Professionelle Arbeit steht unter einer leitenden Hinsicht
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Diese äußere oder innere *leitende Hinsicht* bestimmt die Arbeit und das Produkt.
+Für Film- und Medienschaffen ist das heutzutage zumeist die *Wirkung* -- es kann
+aber auch Anderes sein, wie z.B. eine politische Absicht, das Aufzeigen einer Wahrheit,
+oder ein Kunstprinzip.
+
+Werkzeuge und Gerätschaften stehen damit in einem anderen Zusammenhang als für einen Amateur.
+
+
+Die Pionier-Zeit ist vorbei
+---------------------------
+Anfangs war allein schon die Notwendigkeit einer flüssigen Wiedergabe eine gewaltige technische
+Herausforderung. Die erste Generation computerbasierter Schnittsoftware sah sich in direkter
+Konkurrenz zu einem etablierten Herstellungsprozeß basierend auf elektromechanischen Gerätschaften
+und chemischem Film. Editoren, Regisseure und Kameraleute hatten all ihre Erfahrungen und ihr Handwerk
+auf diesen Geräten erworben und mußten nun dazu bewegt werden, die Handhabung fundamental anders
+konstruierter Gerätschaften zu erlernen. Übertragen auf GNU/Linux und freie Software als Arbeitsumgebung,
+fanden wir zehn Jahre später immer noch eine vergleichbare Pionier-Situation vor. Es galt, überhaupt
+die Grundlagen für Ton- und Bildwiedergabe sicherzustellen und Freie Software als Möglichkeit
+für professionelle Medienarbeit zu etablieren.
+
+Inzwischen steht außer Frage, daß Filmschnitt- und Montage nur noch in Software erfolgt.
+Die Arbeitsabläufe sind weitgehend fest, das Prinzip des "non linear editing" ist etabliert.
+Auch sind die Technologien zur computerbasierten Filmaufnahme und Wiedergabe kein grundlegendes
+Problem mehr. Selbst für einen reinen OpenSource-Ansatz gibt es eine ganze Reihe ausgereifter
+Bibliotheken zum Handhaben der gängigsten Medienformate.
+
+
+.Thesen
+************************************************************************************
+- Es ist an der Zeit, von der Fixierung auf die Basistechnologie freizukommen.
+- Durch das Nachahmen klassisch- analoger Arbeitsabläufe haben wir uns unsinnige
+  Einseitigkeiten eingehandelt
+- Gegenstand sollte die professionelle Schnitt- und Medienarbeit sein
+- Es besteht immer noch eine Diskrepanz zwischen diesen Anforderungen
+  und den Möglichkeiten bestehender Software
+************************************************************************************
+
+
+Problemstellungen in professionellen Film/Schnittprojekten
+-----------------------------------------------------------
+
+Zuverlässigkeit::
+
+   - vorhersagbare und reproduzierbare Ergebnisse
+   - stabiles Verhalten; Wiederherstellbarkeit nach Fehlern
+
+Qualität::
+
+   - genau definierte Anforderungen über die ganze Verarbeitungskette erhalten
+   - bei Bedarf müssen auch minutiöse Details exakt und zuverlässig kontrollierbar sein
+    
+Effizienz::
+
+   - die in der Praxis elementaren Handgriffe müssen einfach auszuführen sein
+   - auch Spezialbehandlungen müssen in einen glatten Gesamtablauf integriert werden
+   - effektiver Ressourceneinsatz
+    
+Anpassunsfähigkeit::
+
+   - verschiedene Projekt-Arten
+   - verschiedene Arbeits-Stile
+   - unterschiedlich leistungsfähige Hardware
+   - Einzel- und Gruppenarbeit
+
+Dauerhaftigkeit::
+
+   - Projekte können Jahre dauern.
+   - durch Anpassungen und Erweiterungen darf keine Arbeit verloren gehen.
+   - keine explizite Abhängigkeit von speziellen Gerätschaften oder Trends
+
+
+Beispiel 1: Vorschau und Vollauflösung
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Die Qualität konventioneller, analoger Bild- und Tonmedien unter Studio-Bedinungen setzt
+enorme Maßstäbe, welche -- darüber sollte kein Zweifel bestehen -- auch heute noch von der
+Digitaltechnik nur mit Mühe erreicht werden können. Üblicherweise in der Produktion eingesetzte
+Monitore und Sichtgräte bleiben oft weit unter diesen Standards, wiewohl sie für den jeweiligen
+Zweck adäquat sein mögen -- es ist nicht notwendig und auch technisch gar nicht machbar, das
+Rohmaterial in voller Auflösung in jedem Produktionsschritt zu verwenden. Allerdings müssen die
+stattdessen eingesetzten Platzhalter (``proxy media'') nahtlos integriert sein und dürfen nicht zu
+Fehleinschätzungen oder falsch gewählten Parametern führen. Beispielsweise darf eine anhand des
+Proxies angelegte Maske gegenüber den Originalmaterial nicht versetzt zu liegen kommen.
+
+Beispiel 2: Tonmontage
+~~~~~~~~~~~~~~~~~~~~~~
+Eine adäquat ausgearbeitete Tonspur besteht aus einer Vielzahl an Einzelelementen.
+Es gibt die Aufnahme von der Ton-Angel, manchmal auch von Funkmikros, es gibt Kamera-Ton,
+allgemeine ``Athmo,'' ein Musikbett und Bibliothek-Samples, dazu u.U auch noch nachsynchronisierten
+Dialog und Folleys. All dies zusammen muß in ein nahtloses Ganzes überführt werden, so daß alles
+erkennbar bleibt, Dialoge einwandfrei verständlich sind und kein wahrnehmbarer Bruch die
+Aufmerksamkeit vom Geschehen in der Handlung abzieht.
+
+Beispiel 3: Erzählstruktur
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+In der Analyse eines fertigen Filmes sind Erzählstruktur und Rhythmus herausragend feststellbare Merkmale.
+Nicht so während der Entstehung des Filmes. Sie lassen sich nur teilweise im Skript vorher festlegen --
+nur zu oft haben die Filmschaffenden nur einen Vorentwurf im Kopf, und es kommt für die Qualität des
+Filmes entscheidend darauf an, die wirklich passende Struktur und den angemessenen Rhythmus herauszufinden.
+Dazu werden Einstellungen und ganze Szenen umgeordnet, Dialogteile verschoben, Material nachgedreht.
+Da eine Beurteilung nur in einem halbwegs fertiggestellten Schnitt möglich ist, muß der ganze
+komplexe Vorgang in mehrfachen Integrationen durchlaufen werden oder -- besser noch, es 
+sollte der gesamte Schnitt-Aufbau flexibel und anpassbar bleiben.
+
+Beispiel 4: Varianten und Ausgabeformate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Oft hat man nicht ein einziges, festes ``Endprodukt,'' sondern muß verschiedene Varianten erstellen,
+etwa eine Lang- und Kurzfassung, Auszüge zur Bewerbung und Promotion, oder auch Ausfertigung in verschiedenen
+Qualitätsstufen, Formaten, Auflösungen.
+
+Schlußfolgerung
+~~~~~~~~~~~~~~~
+Alle diese Probleme sind aus _rein technologischer Sicht trivial._ +
+Aber die Lösungen treten in Wechselwirkung, und lassen sich daher nicht einfach als ``features''
+an ein bestehendes Programm ``anflanschen''. Vielmehr ist eine handwerklich saubere Softwareentwicklung notwendig,
+um sie auf allen Ebenen zur Geltung zu bringen.
+
+*Ein Open-Source-Projekt bietet dafür die besten Voraussetzungen*
+
+
+
+Projekt Lumiera
+---------------
+
+Architektur-Entscheidungen
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+- nicht zwei, sondern drei Schichten: Trennung nach Engine, Session und Oberfläche
+- Skriptsteuerung aller Kernfuntkionen möglich
+- Orthogonalität, Vermeiden verdeckter Voraussetzungen: wenn innerhalb der klar definierten
+  Möglichkeiten eine Kombination von Elementen oder Einstellungen möglich ist, dann wird sie auch unterstützt.
+- Es gibt einen kohärenten Kern, aber Erweiteiterungen und Plug-ins sind systematisch integriert. 
+- Konfiguration durch Regeln.
+- Entkoppelung von Engine (``low level'') und Session-Modell erlaubt, jeden Bereich auf seinen Zweck hin
+  zu optimieren. Die Objekte in der Session werden nicht direkt gerendert, sondern zunächst in ein
+  Netzwerk von Render-Knoten übersetzt.
+
+Hardware-Trends
+~~~~~~~~~~~~~~~
+- die wünschenswerte Auflösung der Mediendaten wächst immer noch, und zwar auch in der absehbaren Zukunft
+  weit stärker, als durch die Leistungssteigerung durchschnittlicher Hardware kompensiert werden kann.
+  Verarbeitung von Rohmaterial in Vollauflösung geht auch weiterhin an die Leistungsgrenze.
+- strategisch betrachtet, stellt die wachsende Bedeutung der Hardware-Beschleunigung ehr ein zusätzliches
+  Problem dar, als daß sie andere Probleme löst. Man bekommt mehrfache und inkompatible Code-Pfade und
+  Berechnungs-Modelle für die gleichen Operationen, die Standards sind noch im Fluß und die
+  Zukunft einzelner Ansätze ist ungewiß.
+- wir müssen uns auf massive Parallelität einstellen. Diese sinnvoll zu nutzen erfordert 
+  grundsätzlich andere Berechnungsmodelle und Applikationsstrukturen als bisher.
+  Sowohl die Hardwarebeschleunigung, alsauch zunehmend im Netzwerk verteilte Kapazitäten
+  sollten eher in diesem Zusammenhang gesehen werden.
+  
+
+Community
+~~~~~~~~~
+- das Projekt wächst von Anfang an in eine Community hinein
+- wir bringen (zukünftige) Benutzer und Entwickler zusammen
+- ``distributed development model''
+
+
+
+

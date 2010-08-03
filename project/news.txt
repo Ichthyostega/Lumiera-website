@@ -1,34 +1,73 @@
 ////
 Please add new items on the top, comment older/irrelevant items out
 ////
+
+*July 30 2010*::
+	The link:DevReport-10-07.html[Summer Quarterly News] are out! Read the
+        last development report.
+
+*July 29 2010*::
+	The Lumiera team will be at the German _Free and Open Source Software 
+	Conference_ (http://froscon.org/[FrOSCon]) in St. Augustin (near Bonn)
+	on August 20-21. Hermann Vosseler (_ichthyo_) will give a talk about Lumiera
+        on Sunday 21 at 10:00. We hope to see you there!
+
+*April 9 2010*::
+        The link:DevReport-10-04.html[Spring Quarterly News] are out! Read the
+        latest development report.
+
 *January 10 2010*::
-	http://lumiera.org/nobug_manual.html[NoBug] http://unix.freshmeat.net/projects/nobug[version 201001.1] has just been released. This new versions, with lots of improvements (also the support for non-Linux systems) is now a requirement for Lumiera. On the release there are still some pending bugs meant to be shot down in the next few days (just now the testsuite fails). +
-_CALL FOR TESTERS_ - We are looking for people using MacOS, BSD, OpenSolaris or any other variant of a Unix-ish OS (Posix systems for Windows, Cygwin, SFU, ...) available for a short test session over IRC. Volunteers, install _gcc_, _git_, _valgrind_ (if supported) and contact _cehteh_ at #lumiera on Freenode.
+        http://lumiera.org/nobug_manual.html[NoBug]
+        http://unix.freshmeat.net/projects/nobug[version 201001.1] has just
+        been released. This new versions, with lots of improvements (also the
+        support for non-Linux systems) is now a requirement for Lumiera. On the
+        release there are still some pending bugs meant to be shot down in the
+        next few days (just now the testsuite fails). +
+_CALL FOR TESTERS_ - We are looking for people using MacOS, BSD, OpenSolaris or
+ any other variant of a Unix-ish OS (Posix systems for Windows, Cygwin, SFU,
+ ...) available for a short test session over IRC. Volunteers, install _gcc_,
+ _git_, _valgrind_ (if supported) and contact _cehteh_ at #lumiera on Freenode.
+
 *December 26 2009*::
-	The (German) link:DevReport-09-12.html[Winter Quarterly News] are out! Read the last development report.
+        The link:DevReport-09-12.html[Winter Quarterly News] are out! Read the
+        last development report.
+
 *December 12 2009*::
-	You probably haven't noticed that, but a lot of work has been done to improve this website. In fact the development of uWiki has proceeded as far as making this self extensible minimalistic wiki engine actually working, today for the first time. After a time for testing and debugging it will eventually be set up for the Lumiera website. You can http://uwiki.pipapo.org/_uwiki/form/account_create.html[have a look at it], but be aware that currently new users are not  automatically allowed to edit. 
+        You probably haven't noticed that, but a lot of work has been done to
+        improve this website. In fact the development of uWiki has proceeded as
+        far as making this self extensible minimalistic wiki engine actually
+        working, today for the first time. After a time for testing and
+        debugging it will eventually be set up for the Lumiera website. You can
+        http://uwiki.pipapo.org/_uwiki/form/account_create.html[have a look at
+        it], but be aware that currently new users are not  automatically
+        allowed to edit.
 
 *September 5 2009*::
-	The page about our link:froscon09.html[FrOSCon] appearance is now online, still a bit prelimary
-        we work on it.
+        The page about our link:froscon09.html[FrOSCon] appearance is now
+        online, still a bit prelimary we work on it.
 
 *September 4 2009*::
-	A new http://unix.freshmeat.net/projects/nobug[release] of http://lumiera.org/nobug_manual.html[NoBug],
- 	our debugging library is out. Lumiera needs this new version from now on. We are on the track for a
-	production release really soon. Some help for testing and improving the documentation is still needed.
+        A new http://unix.freshmeat.net/projects/nobug[release] of
+        http://lumiera.org/nobug_manual.html[NoBug], our debugging library is
+        out. Lumiera needs this new version from now on. We are on the track
+        for a production release really soon. Some help for testing and
+        improving the documentation is still needed.
 
 *September 3 2009*::
-	Mario from http://www.lxde.org/[LXDE] talked with us at FrSOCon. This interview is now online
-	at http://www.perspektive89.com/2009/lumiera_radio_interview_during_froscon_2009[perspective89] and
-        http://blog.radiotux.de/2009/09/02/interview-ueber-lumiera/[radiotux]. Thanks to Mario and the radiotux team
-	who made this happen.
+        Mario from http://www.lxde.org/[LXDE] talked with us at FrSOCon. This
+        interview is now online at
+        http://www.perspektive89.com/2009/lumiera_radio_interview_during_froscon_2009[perspective89] and
+	http://blog.radiotux.de/2009/09/02/interview-ueber-lumiera/[radiotux].
+	Thanks to Mario and the radiotux team who made this happen.
 
 *August 22-23 2009*::
-	http://froscon.org/[FrOSCon] was a big success, a lot of people where interested in Lumiera! We will show videos, photos and stuff soon.
+        http://froscon.org/[FrOSCon] was a big success, a lot of people where
+        interested in Lumiera! We will show videos, photos and stuff soon.
 
 *June 19-20 2009*::
-	The Lumiera community is in New York at the http://openvideoconference.org/[Open Video Conference]. Tom gives a presentation about Lumiera and our goals. Awesome conference!
+        The Lumiera community is in New York at the
+        http://openvideoconference.org/[Open Video Conference]. Tom gives a
+        presentation about Lumiera and our goals. Awesome conference!
 
 ////
 .Future

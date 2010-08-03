@@ -5,6 +5,9 @@ Lumiera
 Welcome to the new Lumiera website being created in a colaborative fashion. +
 It is served from the git repository link:http://git.lumiera.org/gitweb?p=website-staging[git://git.lumiera.org/website-staging]
 
+image::lumiera_gui_small.png[]
+Pre-release screenshot of the Lumiera GUI.
+
 .Check Lumiera's Pulse:
 ========================================================================================================================================================
 

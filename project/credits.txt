@@ -64,6 +64,15 @@ idea and implementation, CHRISTIAN THÄTER
 
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Workflow design,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+concept		, NIKOLA DUPER
+		, BRIAN RYTEL
+		, MIKE PROVOST
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Server Administration,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 , CHRISTIAN THÄTER
@@ -78,6 +87,7 @@ programming     , SERGE GIELKENS
                 , MRIDUL KASHATRIA
                 , ROBERT DJUBEK
 helping hand    , CILLIAN DE RÓISTE
+		, ANDREW JAMES SWINAMER
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -116,14 +126,17 @@ T-shirts           , RAFFAELLA TRANIELLO
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 IRC Crew,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-akhil           , IL'DAR AKHMETGALEEV
+AkhIL           , IL'DAR AKHMETGALEEV
 alcarinque      , FRANCISCO G. RODRIGUEZ
+andrewjames	, ANDREW JAMES SWINAMER
 BJMR		, BRIAN RYTEL
+BlueJay		, SEBASTIAN INACKER
 cehteh          , CHRISTIAN THÄTER
 daitheflu       , FRANÇOIS KUBLER
 daylife         , WOUTER VERWIJLEN
 digitalkiwi     , ROBERT DJUBEK
 dragontamer     , PERCIVAL TIGLAO
+faberman	, FLORIAN FABERMANN
 gmerlin         , BURKHARD PLAUM
 goibhniu        , CILLIAN DE RÓISTE
 hermanr         , HERMAN ROBAK
@@ -138,9 +151,11 @@ pseudoruprecht  , ANDREAS HERMANN BRAML
 raevol          , MICKEY LYLE
 raffa           , RAFFAELLA TRANIELLO
 rgareus         , ROBIN GAREUS
+savinov		, GURAM Z. SAVINOV
 simav           , SIMEON VÖLKEL
 teld            , SERGE GIELKENS
 thorwil         , THORSTEN WILMS
+tonsofpcs	, ERIC ADLER
 tvjudge         , THOMAS JUDGE
 velmont         , ODIN HØRTHE OMDAL
 wildhostile     , ROLAND
@@ -231,5 +246,6 @@ ROBIN GAREUS
 ROLAND
 THORSTEN WILMS
 TREE
+FLORIAN FABERMANN
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
