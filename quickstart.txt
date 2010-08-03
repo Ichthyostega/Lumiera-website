@@ -50,23 +50,23 @@ Editing Pages in Asciidoc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All the website pages are built with txt files using Asciidoc markup. 
-If you've ever used a wiki markup, Asciidoc is similar.
+If you have used a wiki markup, Asciidoc is similar.
 
 An AsciiDoc cheatsheet: link:http://powerman.name/doc/asciidoc[]
-The cheatsheet is a great reference to have open while editing and shows many 
-more advanced features than covered here.
+The cheatsheet is a great reference to have while editing and shows many 
+advanced features not covered here.
 
-To know a lot about AsciiDoc markup see AsciiDoc website at:
+To know a lot about AsciiDoc markup see AsciiDoc website:
 link:http://www.methods.co.nz/asciidoc/[]
 
 I use gedit text editor, bundled with GNOME. I also use:
- link:https://launchpad.net/asciidoc-gtk-highlight[Asciidoc Syntax Highlighter] 
+link:https://launchpad.net/asciidoc-gtk-highlight[Asciidoc Syntax Highlighter] 
 to add highlighting like one could with html, script or code.
 
 But here is a quick overview of our document style...
 
 CAUTION: If any features are causing problems/not functioning as described, 
-check your code, then let us know!
+check your code/markup, then let us know!
 
 Headers/Titles & Lists
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -90,7 +90,7 @@ Header/Title size 1
 
 Header/Title size 2
 ~~~~~~~~~~~~~~~~~~~~
-^For sub-sections, I use these alot because they aren't huge on screen, 
+^For sub-sections, I use these a lot because they are not huge on screen, 
  but render with a line below in html
 
 Header/Title size 1
@@ -132,7 +132,7 @@ it uses an 'attribute tag' in layout1.conf to replace:
 When the site moves from staging.lumiera.org to the main url, 
 the 'l' attribute will be modified accordingly.
 
-TIP: In your local git repo duplicate layout1.conf, and chage the value of 'l'
+TIP: In your local git repo duplicate layout1.conf, and change the value of 'l'
 
 --------------------------------------------------------------------------------
 l=http://staging.lumiera.org   to:

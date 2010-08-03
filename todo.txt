@@ -15,7 +15,7 @@ The notes here are to keep track of ideas, check for further notes/ideas on the 
    a general news-feed (likely at bottom) a 'graphic presence' 
    and until complete: info about working on the site
 
-* download.txt *Open*
+* download.txt *Pending*
 ** Because their is little for anyone other than developers to work with, 
    this page should contain a brief but friendly explanation of project status, 
    and link to appropriate git, and compiling info

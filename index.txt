@@ -1,13 +1,13 @@
 Lumiera
 =======
 
+Welcome to the new Lumiera website being created in a collaborative fashion. 
 
-Welcome to the new Lumiera website being created in a colaborative fashion. +
 It is served from the git repository 
 link:http://git.lumiera.org/gitweb?p=website-staging[git://git.lumiera.org/website-staging]
 
-image::lumiera_gui_small.png[]
-Pre-release screenshot of the Lumiera GUI.
+.Pre-release Lumiera GUI screenshot
+image:{l}/images/lumiera_gui_small.png["Lumiera GUI current",width=240, link="{l}/images/lumiera_gui_small.png]
 
 .Check Lumiera's Pulse:
 ========================================================================================================================================================
@@ -52,32 +52,41 @@ should this information be abstract and static or dynamic?
 
 See how the site works below.
 
-One goal for the new site is to keep things open a colaborative, so I'm trying 
-to include summaries and suggestions for each page near the header.
-See: link:{l}/todo.txt[todo.txt] for tasks and completeness, 
-link:{l}/sitemap.txt[sitemap.txt], and link:{l}/quickstart.txt[quickstart.txt] 
-for our Asciidoc formatting conventions. (very simple, we promise) 
+One goal for the new site is to keep things open a collaborative, so I'm trying 
+to include summaries and suggestions for each page.
 
 How can I help?
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 For information on how to edit pages and contribute:
-See *quickstart*: link:{l}/quickstart.txt[txt] and link:{l}/quickstart.html[html]
+
+To learn how to edit the Lumiera website and use git and Asciidoc read
+*quickstart*: [link:{l}/quickstart.txt[txt]] and [link:{l}/quickstart.html[html]]
 You should look at the txt primarily, and the html to see how Asciidoc looks in html.
 
 To see what needs to be done:
-See *todo* link:{l}/todo.txt[txt] and link:{l}/todo.html[html]
+
+See *todo* [link:{l}/todo.txt[txt]] and [link:{l}/todo.html[html]]
 The txt has some hidden/commented sections that are in development because of
-Design-Process, if your not familiar with that just take a look at the html.
+Design-Process, if you are not familiar with design-process use the html.
 
 There will also be tickets in trac for certain tasks, so look here:
 link:http://issues.lumiera.org/report/15[trac small/non-coding tasks]
+
+To see how the site is strucured read the
+*sitemap* [link:{l]/sitemap.html[html]] and [link:{l]/sitemap.txt[txt]]
+Note that the todo contains a more detailed and complete version of the actuall
+pages of the site and this is primarily for structure.
 
 Some useful links
 ~~~~~~~~~~~~~~~~~
 
  * link:http://lists.lumiera.org/pipermail/lumiera/2010-January/001538.html[Mailing list discussion of structure v2]
- * 
+ * link:{l}/todo.txt[todo.txt]
+ * link:{l}/quickstart.txt[quickstart.txt]
+ * link:http://git.lumiera.org/gitweb?p=website-staging[gitweb:website-staging]
+ * link:http://issues.lumiera.org/report/15[trac small/non-coding tasks]
+ * link:http://powerman.name/doc/asciidoc[asciidoc cheatsheet]
  * more links coming soon...
 
 

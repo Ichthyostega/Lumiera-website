@@ -1,2 +1,36 @@
 Download
-========
+=========
+
+//// 
+Until end-user functioning builds are available, this page really directs to 
+git, buiddrone 
+////
+
+Current Code
+-------------
+
+Lumiera is a project under active development. The code is in pre-alpha stage, 
+which means that only portions of the necessary modules are functioning.
+
+Luckily, the early GUI design functions are available with a build, which will
+give a feel for the link:{l}/program/screenshots.html[interface].
+
+Get it!
+~~~~~~~~
+
+To learn how to compile Lumiera GUI from git read the: 
+link:{l}/documentation/media/newbies-tutorials.html[Newbies Tutorials]
+
+Review and download current Lumiera code and more from the 
+link:http://www.lumiera.org/gitweb[gitweb]
+
+Related to the project (and used in builds) is NoBug, wihch can be found here:
+link:http://www.lumiera.org/gitweb?p=nobug;a=tree[NoBug gitweb]
+
+For more information on the project look over the
+link:{l}/project/index.html[about Lumiera page].
+
+For in-depth design and technical documentation see the 
+link:{l}/documentation/index.html[documentation section]
+
+
