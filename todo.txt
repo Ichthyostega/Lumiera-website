@@ -2,9 +2,9 @@ To-Do List & Page Notes
 ========================
 
 The todo consists of tasks noted as either:
-* open: not being worked but needs it, feel free to start work on these
-* pending: someone is working on it and/or it's mostly complete
-* complete: basically done, if you feel it needs updating; review any notes first
+* *open*: not being worked but needs it, feel free to start work on these
+* *pending*: someone is working on it and/or it's mostly complete
+* *complete*: basically done, if you feel it needs updating; review any notes first
 
 This todo is built on the link:{l}/sitemap.txt[]
 The notes here are to keep track of ideas, check for further notes/ideas on the page
@@ -27,7 +27,8 @@ The notes here are to keep track of ideas, check for further notes/ideas on the 
    link:http://lumiera.org/gitweb[gitweb] and roadmap, "lumiera from outerspace" etc.
 
 * project/
-** index.txt *Open*
+** index.txt *Pending*
+*** Link-ify page to point to references *open*
 *** Much more in depth information about Lumiera, its concept, where the 
     project/developers came from (ie Cinelerra) what it can/will do, etc. 
     Should reference some existing documents on these subjects.
