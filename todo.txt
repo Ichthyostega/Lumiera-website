@@ -33,14 +33,15 @@ The notes here are to keep track of ideas, check for further notes/ideas on the 
     project/developers came from (ie Cinelerra) what it can/will do, etc. 
     Should reference some existing documents on these subjects.
 
-** screenshots.txt *Open*
-*** Fairly self-explanatory, hopefully I or someone else will be able to write a 
-    lightbox (see if css-only is possible) for the time being this will be the 
-    current place-holder gui
+** screenshots.txt *Pending*
+*** Fairly self-explanatory, I included a couple of past drafts for progress
+*** write a lightbox (see if css-only is possible)
 
 ** press.txt *Open*
 *** will be the central point for presenting any 'public' news, propaganda, 
-    or media. This includes rss, some ML (to be discussed), logos
+    or media. This includes rss, some ML (to be discussed), logos. A new directory
+    to house this content has been made at /project/news/ this was to contain
+    the asciidocs (like news.txt) and content from git that needs cleaner urls.
 
 ** donate.txt *Open*
 *** make ffis donation page clear, we need to place a dedicated form or something 
@@ -59,7 +60,7 @@ The notes here are to keep track of ideas, check for further notes/ideas on the 
 *** Can relate to contact on the current site, but we should include some better 
     centralized information on what contacts will help with what info, etc
 
-////
+
 * documentation/ 
 ** Until the css 3rd level sub-menus are complete /~foodir/index.txt here should 
    have the links in a bar at top or on the side of the page, 
@@ -74,6 +75,8 @@ The notes here are to keep track of ideas, check for further notes/ideas on the 
 ** media/ *Open*
 *** index.txt *Open*
 **** white papers, presentations, manuals, posters etc
+
+////
 
 ** technical/
 *** index.txt *Open* see above, this may not be ready to start work

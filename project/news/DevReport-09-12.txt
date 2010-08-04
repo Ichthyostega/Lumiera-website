@@ -1,0 +1,49 @@
+Lumiera Winter Report
+=====================
+
+Summary of coding achievements - December 2009
+----------------------------------------------
+
+After a long silence (in busy times one forgets to update a website) we're ready to letting you know how the Lumiera project is doing. Because, well, there's a lot going on. What you are now reading is the first of our quarterly reports in which we tell about the progressions made in the past three months.
+
+.So off we go. 
+
+As you might know, the development of Lumiera has been divided into three sections: backend, proc-layer and GUI. Due to circumstances work on the backend and GUI parts have slowed down a bit. +
+For the backend this was caused by the amount of work it took to get http://unix.freshmeat.net/projects/nobug[NoBug] (Lumiera's debugging library, used for logging, diagnosis and detection of misaligned resource handling) and http://uwiki.pipapo.org/[uWiki] (our wiki-engine) up and running.
+
+image:FrOSCon09/uwiki.png["uWiki", width=180, link="uwiki.png"]
+
+uWiki is finally ready to use, though in a very basic shape. It now needs a herd of web developers dedicated to improve it. Andreas Hermann Braml (aka _pseudoruprecht_) already started looking after it. Since uWiki is very modular, contributions can be managed very easily and tasks can be added on demand. Any contributor is welcome (hint hint!).
+
+image:FrOSCon09/NoBug-logo.png["NoBug", width=180, link="Download/NoBug-logo.png"] 
+
+Core programmer Christian Thaeter (aka _cehteh_) is now back working at NoBug. This testsuite has now its own http://lumiera.org/nobug_manual.html[documentation], though still uncompleted; hence the fact that we are looking for volunteers to complete it. The next NoBug release (with a much improved testsuite) will be out soon, as part of the Lumiera development.
+
+Once this is finished (sometime soon) cehteh will continue to work on the backend, which is in the following state:
+
+* Plugin loading and interface system works (but still lacks a lot of features).
+* The config/preferences system is also working in a restricted way, but usable enough for now. Simeon Völkel (aka _SimAV_) is working on improving it.
+* Basic file handling in the backend is working.
+* Thread management is in a mockup, but working state.
+
+Work on the GUI will continue soon too, once developer Joel Holdsworth (aka _Joelholdsworth_) can dedicate some more time to it (he appears to have a busy job). Leaves us with the proc-layer, where some major progression has been booked by core programmer Hermann Vosseler (aka _ichthyo_). After finishing the front-end of the command system, serving to dispatch any operation initiated from GUI (or scripts) cleanly into the Proc-Layer, research in how to connect the proc-layer to the GUI has led to the creation of a system of nested scopes, backed by an index. This PlacementIndex will be used by the Session to keep track of the Placements and the MObjects these Placements refer to. Together, they form the core of the session the user is working with through the GUI. For a more detailed description of these systems and how they work together I refer to the http://lumiera.org/wiki/renderengine.html#PlacementScope[in-depth documentation] that's currently in the Tiddlywiki.
+
+Other great news is that a new core programmer joined the Lumiera project! We welcome Michael Ploujnikov (aka _Plouj_), who already helped the Lumiera project writing programming documentation and who'll now be working on the Thread Pool. + 
+For more information on development you can visit http://lists.lumiera.org/pipermail/lumiera/[the mailing list archives]. Also, take a look at http://issues.lumiera.org/roadmap[the Roadmap].
+
+.So what's up for 2010?
+
+Work on Lumiera will continue at full-speed again. Cehteh will continue to work on the backend, and Ichthyo will first finish the Proc/GUI connection and then change to the "bottom side" of proc-layer to work towards the backend connection. 
+
+image:lao.png[Linux audio logo] image:FrOSCon09/froscon.png["FrOSCon logo", width=180]
+
+Since Lumiera is still underpowered, we're looking into ways of attracting new coders/developers. One of these ways is by visiting conferences, like the past link:froscon09.html[FrOSCon 09]. +
+Currently we're looking into attending the upcoming http://lac.linuxaudio.org/2010/[Linux Audio Conference] (May 1-4, 2010 in Utrecht, The Netherlands), among others.
+
+Furthermore this site at http://lumiera.org[lumiera.org] will be re-structured, so it'll be easier for both new and current developers to find information/documentation about the project. This also includes an improved design and layout.
+
+.That's all for now, folks.
+
+Keep checking http://lumiera.org/[lumiera.org] for updates, join our http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[mailing list] or give us a visit on IRC at #lumiera (Freenode).
+
+

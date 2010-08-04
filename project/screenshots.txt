@@ -1,2 +1,14 @@
 Screenshots
 ===========
+
+.Current GUI
+image:{l}/images/lumiera_gui_small.png[Current Lumiera GUI Screenshot]
+
+Past GUIs
+----------
+
+image:{l}/images/screenshot090124-resources.jpg[Older GUI Screenshot]
+
+image:{l}/documentation/design/gui/images/GtkGUI-0.1.png[Early Gtk GUI]
+
+
