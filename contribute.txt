@@ -55,16 +55,36 @@ please also keep an open mind for suggestions.
 Resources
 ^^^^^^^^^^
 
-The project is built with a git repository running a builddrone. To learn about git 
-you can read the link:{l}/quickstart.html[quickstart-html] link:{l}/quickstart.txt[txt]
-If you want to build the Lumiera GUI from the git source repository have a look at our http://lumiera.org/Lumiera/NewbiesTutorials[Newbie Tutorial].
+The project is built with a git repository running a builddrone. We have our own 
+continuous integration system running on the development server. This monitors 
+certain repositories, builds the code and runs the testsuite etc. You can look 
+at the current state at http:/builddrone/table.html[] and its
+root dir (http:/builddrone/[]) contains the raw build logs too. 
+
+Builddrone is very much work in progress and we would
+like if anyone helps developing it further.
+
+To learn about git you can read the link:{l}/quickstart.html[quickstart-html] 
+link:{l}/quickstart.txt[txt] Note that this is written for the sitework and just 
+an overview of how git works.
+
+Everyone works on his own git, merges with anyone else, at times we decide to 
+accumulate work into a master git.
+
+Build the Lumiera GUI from the git source repository: 
+link:http://lumiera.org/Lumiera/NewbiesTutorials[Newbie Tutorial].
+
+To understand the design of Lumiera visit link:{l}/documentation/design/index.html[Design Documentation]
+For technical information on developed components link:{l}/documentation/technical/index.html[Technical Documentation]
 
 For the structure of the code look at our http://www.lumiera.org/doxy/[Doxygen documentation]
 
+To find, read and claim trac tickets: link:http://issues.lumiera.org/ [Lumiera Trac]
 
-If you want to build the Lumiera GUI from the git source repository have a look at our http://lumiera.org/Lumiera/NewbiesTutorials[Newbie Tutorial].
+Talk to us on IRC: #lumiera @ irc.freenode.net
 
-Everyone works on his own git, merges with anyone else, at times we decide to accumulate work into a master git.
+Join the mailinglist: link:http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[subscribe to it].
+You can also read the http://lists.lumiera.org/pipermail/lumiera/[Mailinglist archives].
 
 [[2]]
 Help with our website and infrastructure
@@ -82,13 +102,81 @@ Some additional help is greatly appreciated with keeping news up-to-date,
 formatting & editing design documentation, and working on the aesthetics of the 
 Lumiera site.
 
+Existing content
+^^^^^^^^^^^^^^^^^
+
+Many pages are adapted from the original site, or from documents in the 
+link:http://git.lumiera.org/gitweb[git] but need editing.
+
+ * The existing content of the old website into a 
+   link:{l}/OldWebpage/[separate subdirectory].
+ * The results of the *Asciidoc Day* are in Subdirectory 
+   link:{l}/Lumiera[/Lumiera]
+ * The results of the TiddlyWiki asciidoc-ing can be found in 
+   link:{l}/tiddlywiki2asciidoc/[/tiddlywiki2asciidoc]
+
+
+New Content
+^^^^^^^^^^^^
+Many pages need designing: what they will say, how they will be laid-out, 
+should this information be abstract and static or dynamic?
+
+See how the site works below.
+
+One goal for the new site is to keep things open a collaborative, so I'm trying 
+to include summaries and suggestions for each page.
+
+How can I help?
+^^^^^^^^^^^^^^^^
+
+For information on how to edit pages and contribute:
+
+To learn how to edit the Lumiera website and use git and Asciidoc read
+*quickstart*: [link:{l}/quickstart.txt[txt]] and [link:{l}/quickstart.html[html]]
+You should look at the txt primarily, and the html to see how Asciidoc looks in html.
+
+To see what needs to be done:
+
+See *todo* [link:{l}/todo.txt[txt]] and [link:{l}/todo.html[html]]
+The txt has some hidden/commented sections that are in development because of
+Design-Process, if you are not familiar with design-process use the html.
+
+There will also be tickets in trac for certain tasks, so look here:
+link:http://issues.lumiera.org/report/15[trac small/non-coding tasks]
+
+To see how the site is strucured read the
+*sitemap* [link:{l]/sitemap.html[html]] and [link:{l]/sitemap.txt[txt]]
+Note that the todo contains a more detailed and complete version of the actuall
+pages of the site and this is primarily for structure.
+
+Some useful links
+^^^^^^^^^^^^^^^^^^
+
+ * link:http://lists.lumiera.org/pipermail/lumiera/2010-January/001538.html[Mailing list discussion of structure v2]
+ * link:{l}/todo.txt[todo.txt]
+ * link:{l}/quickstart.txt[quickstart.txt]
+ * link:http://git.lumiera.org/gitweb?p=website-staging[gitweb:website-staging]
+ * link:http://issues.lumiera.org/report/15[trac small/non-coding tasks]
+ * link:http://powerman.name/doc/asciidoc[asciidoc cheatsheet]
+
 [[3]]
 Contribute to the Lumiera design
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+////
+
+An explanation of design documentation and rfc's is needed here, bjmr has no idea
+what to write
+
+////
+
 [[4]]
 Complete small tasks and favours
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We always have small needs and necessities, please check trac: link:http://issues.lumiera.org/report/15[trac small/non-coding tasks]
+
+And keep up with the mailing list.
 
 ////
 

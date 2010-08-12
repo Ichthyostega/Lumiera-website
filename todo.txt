@@ -10,7 +10,7 @@ This todo is built on the link:{l}/sitemap.txt[]
 The notes here are to keep track of ideas, check for further notes/ideas on the page
 
 .{l}[]
-* index.txt - *Pending*
+* index.txt - *Complete*
 ** Should contain a brief of the project and its status, 
    a general news-feed (likely at bottom) a 'graphic presence' 
    and until complete: info about working on the site
@@ -20,14 +20,12 @@ The notes here are to keep track of ideas, check for further notes/ideas on the 
    this page should contain a brief but friendly explanation of project status, 
    and link to appropriate git, and compiling info
 
-* contribute.txt *Pending*
-** Describe the various aspects of the project: design/workflow, back-end/proc/gui 
-   coding, website, project tools (scripts, etc), testing, maintenance, propaganda. 
-   Link to link:{l}/documentation/media/newbies-tutorials.html[Newbies Tutorial]  
-   link:http://lumiera.org/gitweb[gitweb] and roadmap, "lumiera from outerspace" etc.
+* contribute.txt *Pending* - Needs help in Design Contributions segment!!
+** Present ways of contributing to the project, developing, web, etc. Link to 
+   or provide information on how to do this, and what we expect.
 
 * project/
-** index.txt *Pending*
+** index.txt *Complete*
 *** Link-ify page to point to references *open*
 *** Much more in depth information about Lumiera, its concept, where the 
     project/developers came from (ie Cinelerra) what it can/will do, etc. 
@@ -75,8 +73,6 @@ The notes here are to keep track of ideas, check for further notes/ideas on the 
 ** media/ *Open*
 *** index.txt *Open*
 **** white papers, presentations, manuals, posters etc
-
-////
 
 ** technical/
 *** index.txt *Open* see above, this may not be ready to start work
@@ -147,7 +143,6 @@ The notes here are to keep track of ideas, check for further notes/ideas on the 
       current state, accepted design proposals, suggested proposals and how to 
       write and submit new ones
 
-////
 
 * devs-vault/
 ** index.txt *Open*
