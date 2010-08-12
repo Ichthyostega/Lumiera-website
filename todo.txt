@@ -15,12 +15,12 @@ The notes here are to keep track of ideas, check for further notes/ideas on the 
    a general news-feed (likely at bottom) a 'graphic presence' 
    and until complete: info about working on the site
 
-* download.txt *Pending*
+* download.txt *Complete*
 ** Because their is little for anyone other than developers to work with, 
    this page should contain a brief but friendly explanation of project status, 
    and link to appropriate git, and compiling info
 
-* contribute.txt *Open*
+* contribute.txt *Pending*
 ** Describe the various aspects of the project: design/workflow, back-end/proc/gui 
    coding, website, project tools (scripts, etc), testing, maintenance, propaganda. 
    Link to link:{l}/documentation/media/newbies-tutorials.html[Newbies Tutorial]  
@@ -33,7 +33,7 @@ The notes here are to keep track of ideas, check for further notes/ideas on the 
     project/developers came from (ie Cinelerra) what it can/will do, etc. 
     Should reference some existing documents on these subjects.
 
-** screenshots.txt *Pending*
+** screenshots.txt *Complete*
 *** Fairly self-explanatory, I included a couple of past drafts for progress
 *** write a lightbox (see if css-only is possible)
 

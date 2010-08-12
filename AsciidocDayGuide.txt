@@ -3,7 +3,8 @@ AsciiDoc Day Guide
 
 .How help the Lumiera project as non developer
 
-The task of the day is: + 
+The task of the day is:
+
 to convert all the documents stored on the MoinMoin wiki at Pipapo.org into Asciidoc markup language.
 
 

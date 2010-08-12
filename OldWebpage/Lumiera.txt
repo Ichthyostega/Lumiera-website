@@ -21,6 +21,7 @@ link:Announcement[] send to all developers.
 
 Plan
 ----
+
 The Lumiera design process should be as open as possible, but time consuming lengthy flame wars and design discussions shall be locked out.
 
 Thus working on the design shall be as easy and simple as possible for _Doers_. _Doers_ are defined by the work they do. There is no application or such to join the project. It is completely open to anyone.
@@ -30,6 +31,7 @@ This needs certain knowledge and experience. Anyone may decide if and which part
 
 Idea how to participate
 ~~~~~~~~~~~~~~~~~~~~~~~
+
 We start here on the wiki, short lived communication is done on IRC or per personal email. There is no mailinglist by intention! Long lived decisions are documented in this wiki. Final decisions are added to a tiddlywiki inside the git repository. (You can browse a snapshot of this design tiddlywiki link:http://ichthyostega.de/cin3/wiki/index.html[online here])
 
 Everyone works on his own git, merges with anyone else, at times we decide to accumulate work into a master git. I'll (cehteh) provide git mirroring for people who don't have persistent internet connectivity. People may also decide to mirror at _link:http://repo.or.cz[]_
@@ -37,6 +39,7 @@ Everyone works on his own git, merges with anyone else, at times we decide to ac
 
 Git Repositories
 ----------------
+
 Take a look at link:http://www.pipapo.org/gitweb[] and link:http://www.lumiera.org/gitweb[] there are several Lumiera repositories from different people plus an anonymous committable _mob_ repository which you can readily use to submit patches.
 
 The git repos are available under the git-url: `git://git.lumiera.org/$NAME` or `git://git.pipapo.org/lumiera/$NAME` where name is the actual name of the repo like _ct_, _ichthyo_, _mob_ and so on.
