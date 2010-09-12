@@ -90,83 +90,54 @@ div#footer-badges {
 }
 /* --------v  Nav  v-------- */
 
-/* -------- NavToggle ------- */
-label.toggle {
-	display: block;
-	float: left;
-	width: 180px;
-	height:22px;
-	padding: 0 2px 0 0;
-	background: #f4f4f4;
-	border-bottom: 3px #C4BCB0 solid;
-	font: 150%/100% Arial, Helvetica, sans-serif;
-	color: #666;
-	text-align: right;
-	cursor: pointer
+#menu {
+font: 16px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+padding: 0;
+border-bottom: 3px solid #C4BCB0;
 }
-
-#navtop {
-	padding: 0 2px 2px 0;
-	border-top: 3px #C4BCB0 solid;
+/* main menu items */
+#menu > li {
+border-top: 3px solid #C4BCB0;
+background-color: #F4F4F4;
+padding: 2px 0 0;
+text-indent: 3px;
 }
-
-input.toggle { 
-	display: none;
+#menu > li > span {
+float: right;
+padding: 0 5px;
+cursor: s-resize;
 }
-input.toggle:checked+ul {
-	display: none; 
+#menu a {
+font-weight: normal;
+color: #333;
 }
-
-/* --------  NavLinks  -------- */
-a.nav {
-	display: inline;
-	float: left;
-	margin: 0 0 0 4px;
-	color: #000;
-	font: 16px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	text-align: left;
-	text-decoration: none;
+#menu a:hover {
+text-decoration: none;
+background-color:#ccc;
 }
-
-a.nav:hover{
-	color: #06F;
-	font-weight: bold;
-	text-decoration: none;
+#menu ul a:hover {
+background-color:#A3A585;
 }
-
-li.subnav>a {
-	display: block;
-	margin: 0 0 0 0;
-	padding: 0 0 0 10px;
-	color: #333;
-	font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif ; 
-	text-decoration: none;
+/* all menu items */
+#menu li {
+display: block;
+margin: 0;
 }
-
-/* --------  NavLists  -------- */
-
-ul.subnav {
-	display: block;
-	width: 180px;
-	margin: 0px 0 0px 0px;
-	padding: 2px 0 1px 2px;
-	background: #E1E1D0;
-	font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif; 
-	text-decoration: none;
-	list-style-type: none;
+/* second-level menu */
+#menu ul {
+background-color: #E1E1D0;
+padding: 0;
+margin: 3px 0 0;
 }
-
-li.subnav {
-	margin: 0 0 0 0;
-	padding: 0 0 0 0;
-	border-bottom: 2px #666 inset;
-	text-decoration: none;
-}	
-
-li.subnav:hover {
-	background: #A3A585;
+/* Submenu-items */
+#menu ul > li {
+border-top: 2px solid #ccc;
+text-indent: 0.5em;
+font-size: 14px;
 }
-
+#menu ul > li > a {
+display: block;
+}
 /* -------- Other -------- */
 h1#header {
 	margin: -10px 0 0 0;

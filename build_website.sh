@@ -43,7 +43,7 @@ esac |
 	 		echo "asciidocing $file"
 			python /usr/bin/asciidoc --unsafe --backend=xhtml11 \
 				--attribute icons --attribute \
-				iconsdir=./images/icons --attribute=badges \
+				iconsdir=./images/icons --attribute=badges! \
 				--attribute=revision="$VERS"  --attribute=date="$DATE" \
 				--attribute quirks! \
 				--conf-file="${conf}" \
