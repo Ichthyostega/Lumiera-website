@@ -1,11 +1,16 @@
-#!/usr/bin/env luajit-2.0.0-beta5
+#!/usr/bin/env lua
 
 require "lfs"
 
--- Config
+-- Config functions
 
-interesting_file=".*%.txt$"
-index_file = "index"  -- TODO match index or parent dir name
+function file_filter(name)
+   return name:match("(.*)%.txt$")
+end
+
+function index_file(entry)
+   return entry.name:match("index") or entry.parent.name == entry.name
+end
 
 meta_pattern = "^//(MENU.*): (.*)$"
 
@@ -55,7 +60,12 @@ function discover_dir(dir, state)
          local attr = lfs.symlinkattributes(fullname)
 
          if attr then
-            local name = attr.mode == "directory" and file or file:match("(.*)"..interesting_file)
+            local name
+            if attr.mode == "directory"  then
+               name = file
+            else
+               name = file_filter(file)
+            end
 
             if name then
 
@@ -64,18 +74,20 @@ function discover_dir(dir, state)
                   state.entries[name] = {
                      fullname = fullname,
                      name = name,
-                     type = attr.mode,
+                     type = "directory",
                      parent = state,
+                     meta = {},
                      entries = {}
                   }
                   discover_dir(fullname, state.entries[name])
-               elseif fullname:match(interesting_file) ~= nil then
+               elseif file_filter(fullname) then
                   state.entries[name] = {
                      fullname = fullname,
                      name = name,
-                     type = attr.mode,
+                     meta = {},
                      parent = state
                   }
+                  state.entries[name].type = index_file(state.entries[name]) and "index" or "file"
                end
             end
          end
@@ -112,8 +124,8 @@ function parse_single_file(entry)
 
       local key, value = line:match(meta_pattern)
       if key then
-         if not entry[key] then entry[key] = {} end
-         table.insert(entry[key], value)
+         if not entry.meta[key] then entry.meta[key] = {} end
+         table.insert(entry.meta[key], value)
       end
    end
 end
@@ -121,22 +133,26 @@ end
 
 function set_defaults(entry)
    local defaults
-   if entry.name == index_file then -- TODO interpolation and regex match
+   if entry.type == "index" then
       defaults = index_defaults
    else
       defaults = nonindex_defaults
    end
 
    for key,value in pairs(defaults) do
-      if not entry[key] then
-         entry[key] = value
+      if not entry.meta[key] then
+         entry.meta[key] = value
       end
    end
 end
 
 
 function up_index(entry)
-   -- TODO
+   if entry.type == "index" then
+      entry.parent.meta = entry.meta
+      entry.meta = {}
+      entry.parent.index = entry
+   end
 end
 
 -- collect directory structure, subdirs and interesting files
