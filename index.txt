@@ -1,6 +1,8 @@
 Lumiera
 =======
 
+//MENUTITLE: Home
+
 Welcome to the new Lumiera website being created in a collaborative fashion. 
 
 It is served from the git repository 

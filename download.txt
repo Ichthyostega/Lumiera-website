@@ -6,6 +6,8 @@ Until end-user functioning builds are available, this page really directs to
 git, buiddrone 
 ////
 
+//MENU: on
+
 Current Code
 -------------
 

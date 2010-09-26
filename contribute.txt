@@ -1,6 +1,8 @@
 Contribute
 ==========
 
+//MENU: on
+
 Lumiera is a open source, community developed project, please join in!
 
 The Lumiera project is very open, anyone can start working on it. We do like to 
