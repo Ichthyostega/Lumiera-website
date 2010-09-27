@@ -54,7 +54,7 @@ div#layout-description {
 
 #wrapper {
 	display: block;
-	width: 900px;
+	width: 950px;
 	margin: 10px auto 0 5px;
 	background: #C09;
 }
@@ -67,6 +67,16 @@ div#layout-description {
 #menu{
 	width: 180px;
 	margin: 0 20px 0 0;
+}
+
+iframe#inavi{
+	width: 200px;
+	height: 50em;
+	float: left;
+	border: none;
+	margin: 0 10px 0 0;
+	padding: 0 0;
+/*  	background: #C20; */
 }
 
 #layout-content {
