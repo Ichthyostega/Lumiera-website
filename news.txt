@@ -3,12 +3,12 @@ Please add new items on the top, comment older/irrelevant items out
 ////
 
 *October 15 2010*::
-	Quick Autumn news: Last months the Lumiera community have 
+	*Quick Autumn news*: Last months the Lumiera community have 
 	been busy preparing for conferences. We have been at http://froscon.org/[FrOSCon 2010]
 	with a booth and a talk on Lumiera. You can watch the http://ftp.stw-bonn.de/froscon/2010/hs12/theora/hs12_-_2010-08-22_10:00_-_de_-_lumiera_-_hermann_vosseler.ogv[presentation by Hermann Vosseler]. We have been present at http://www.openvideoconference.org/[OVC] and met the OpenVideo community. + 
-	ichthyo is now back working on integration of some recently finished 
+	_ichthyo_ is now back working on integration of some recently finished 
 	parts into the session. The plan is then to address topics like output 
-	/ jack integration or the builder. cehteh is taking a short leave from 
+	/ jack integration or the builder. _cehteh_ is taking a short leave from the 
 	Lumiera code. We can't wait to have him back!
 	
 *July 30 2010*::
