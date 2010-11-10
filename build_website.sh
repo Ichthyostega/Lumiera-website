@@ -6,7 +6,7 @@ umask 003
 # first pass, poor man dependency tracking over all .txt files
 if [[ ! "$1" ]]; then
 	echo -n "finding dependencies "
-	find -name '*.txt' |
+	find -L -name '*.txt' |
 		while read file; do
 			echo -n "."
 			sed 's/include::\([^[]*\).*/\1/p;d' "$file" | while read prerequisite; do
@@ -23,7 +23,7 @@ fi
 echo -n "processing files "
 case "$1" in
 --all|'')
-	find -name '*.txt'
+	find -L -name '*.txt'
 	;;
 *)
 	echo "$1"
