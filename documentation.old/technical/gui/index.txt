@@ -1,7 +1,0 @@
-Technical Documentation: GUI
-============================
-
-
-[icon="warning.png"]
-WARNING: Website under construction
-

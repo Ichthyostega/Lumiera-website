@@ -1,7 +1,0 @@
-Lumiera Builddrone
-==================
-
-
-[icon="warning.png"]
-WARNING: Website under construction
-
