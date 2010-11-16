@@ -2,7 +2,7 @@
 /* -------- CSS Document -------- */
 /*
 CSS for: lumiera.org
-CSS function: Site Layout & Menu
+CSS function: Site Layout
 */
 
 /* ---  css attributes order, delete unused attributes/values, --- 
@@ -69,6 +69,7 @@ div#layout-description {
 	margin: 0 20px 0 0;
 }
 
+/* container for navigation menu */
 iframe#inavi{
 	width: 200px;
 	height: 50em;
@@ -82,6 +83,7 @@ iframe#inavi{
 #layout-content {
 }
 
+/* ---- footer ---- */
 div#footer {
 	margin: 4.0em 0 0 0;
 	padding-top: 0.5em;
@@ -98,56 +100,8 @@ div#footer-badges {
   	float: right;
   	padding:0 0 0.5em 0;
 }
-/* --------v  Nav  v-------- */
 
-#menu {
-font: 16px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-padding: 0;
-border-bottom: 3px solid #C4BCB0;
-}
-/* main menu items */
-#menu > li {
-border-top: 3px solid #C4BCB0;
-background-color: #F4F4F4;
-padding: 2px 0 0;
-text-indent: 3px;
-}
-#menu > li > span {
-float: right;
-padding: 0 5px;
-cursor: s-resize;
-}
-#menu a {
-font-weight: normal;
-color: #333;
-}
-#menu a:hover {
-text-decoration: none;
-background-color:#ccc;
-}
-#menu ul a:hover {
-background-color:#A3A585;
-}
-/* all menu items */
-#menu li {
-display: block;
-margin: 0;
-}
-/* second-level menu */
-#menu ul {
-background-color: #E1E1D0;
-padding: 0;
-margin: 3px 0 0;
-}
-/* Submenu-items */
-#menu ul > li {
-border-top: 2px solid #ccc;
-text-indent: 0.5em;
-font-size: 14px;
-}
-#menu ul > li > a {
-display: block;
-}
+
 /* -------- Other -------- */
 h1#header {
 	margin: -10px 0 0 0;

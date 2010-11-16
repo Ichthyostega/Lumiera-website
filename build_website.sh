@@ -1,5 +1,5 @@
 #!/bin/bash
-DEFAULT_CONF=layout1
+DEFAULT_CONF=page
 
 umask 003
 
