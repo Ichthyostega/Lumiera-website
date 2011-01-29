@@ -1,20 +1,40 @@
 Lumiera
 =======
 
-//MENUTITLE: Home
+++++
+<table rules="none"
+width="100%"
+frame="void"
+cellspacing="0" cellpadding="4">
+<col width="50%" />
+<col width="50%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table"><span class="image">
+<img src="lumiera_gui_small.png" alt="ui_screenshot" />
+</span></p></td>
+<td align="left" valign="top"><p class="table">Lumiera is a Free/Open Source Non-Linear Video Editing (NLE) application project for GNU/Linux developed by the
+<a href="http://cv.cinelerra.org/">CinelerraCV</a> community.<br />
 
-Welcome to the new Lumiera website being created in a collaborative fashion. 
+It was born as a rewrite of the Cinelerra codebase called Cinelerra3 but it is now an independent project with its own name.</p>
+<p class="table">This website is under construction, its various section still need content and you are welcome to help us :
+It is served from the git repository
+<a href="http://git.lumiera.org/gitweb?p=website-staging">git://git.lumiera.org/website-staging</a></p>
+<p class="table"><div class="title">Project objectives</div>
+To create, as a community, a non linear video editing and compositing FOSS application for Linux/Unix/Posix Operating Systems,
+ suitable for professional and quality oriented work, building on common open source video, sound and GUI toolkits and libraries,
+ providing flexibility and a high degree of configurability and full control of all parameters,
+ but at the same time a smooth workflow which scales well to larger and more complicated editing projects.</p></td>
+</tr>
+</tbody>
+</table>
+++++
 
-It is served from the git repository 
-link:http://git.lumiera.org/gitweb?p=website-staging[git://git.lumiera.org/website-staging]
+include::news.txt[]
 
-.Pre-release Lumiera GUI screenshot
-image:{l}/images/lumiera_gui_small.png["Lumiera GUI current",width=240, link="{l}/images/lumiera_gui_small.png]
 
-.Check Lumiera's Pulse:
-========================================================================================================================================================
-
-image::images/Heart-beat.gif[]
+Check Lumiera's Pulse:
+-----------------------
 
 image:{l}/images/feed-icon-28x28.png["RSS Feed",link="http://www.lumiera.org/gitweb?p=LUMIERA;a=rss"] RSS: Lumiera Git Master repository
 
@@ -22,7 +42,6 @@ image:{l}/images/feed-icon-28x28.png["RSS Feed",link="http://issues.lumiera.org/
 
 image:{l}/images/feed-icon-28x28.png["RSS Feed",link="http://rss.gmane.org/gmane.comp.video.lumiera.general"] RSS: Mailing list activity
 
-========================================================================================================================================================
 
 What you can do to help
 -----------------------
@@ -36,6 +55,4 @@ Go to: link:{l}/contribute.html[Contribute] and
 click "Help with website & infrastructure"
 
 
-[icon="warning.png"]
-WARNING: Website under construction
 
