@@ -4,4 +4,5 @@ Press
 Past press
 ----------
 
+2009-09-02 http://perspektive89.com/blogtags/tuxradio[Radio Tux: Lumiera Radio Interview during FROSCON 2009]
 2008-02-06 http://www.linux.com/archive/feature/126441[linux.com: Cinelerra community forks the video editor]
