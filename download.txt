@@ -22,12 +22,10 @@ Get it!
 ~~~~~~~~
 
 To learn how to compile Lumiera from source read the
-link:{l}/documentation/user/tutorials/building.html[Building Lumiera +
-from source tutorial].
+link:{l}/documentation/user/tutorials/building.html[Building Lumiera from source tutorial].
 
 Review and download current Lumiera code and more from our plentiful
-Git repositories, link:http://www.lumiera.org/gitweb[browsable online +
-here].
+Git repositories, link:http://www.lumiera.org/gitweb[browsable online here].
 
 Related to the project (and used in builds) is NoBug, which can be found here:
 link:http://www.lumiera.org/gitweb?p=nobug;a=tree[NoBug gitweb]
