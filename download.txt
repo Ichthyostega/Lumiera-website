@@ -3,7 +3,7 @@ Download
 
 //// 
 Until end-user functioning builds are available, this page really directs to 
-git, builddrone 
+git, builddrone
 ////
 
 //MENU: on
@@ -22,10 +22,11 @@ Get it!
 ~~~~~~~~
 
 To learn how to compile Lumiera from source read the
-link:{l}/documentation/user/tutorials/index.txt[Build Tutorials]
+link:{l}/documentation/user/tutorials/building.html[Building Lumiera +
+from source tutorial].
 
 Review and download current Lumiera code and more from our plentiful
-Git repositories, link:http://www.lumiera.org/gitweb[browsable online
+Git repositories, link:http://www.lumiera.org/gitweb[browsable online +
 here].
 
 Related to the project (and used in builds) is NoBug, which can be found here:
@@ -36,5 +37,3 @@ link:{l}/project/index.html[About Lumiera page].
 
 For in-depth design and technical documentation please see the
 link:{l}/documentation/index.html[Documentation section].
-
-
