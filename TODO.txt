@@ -1,5 +1,22 @@
 = TODO for website =
 
+On Sat Feb 12, 2011, SvenL, skangas and ichthyo met on IRC #lumiera and reviewed
+the current state of the staging website, which is expected to become the new
+Lumiera website on 1st of March. Below is the list of TODOs we collected.
+
+For putting together this list, we used http://lumiera.pastebin.com/Au3EAc2f[lumiera.pastebin.com] +
+From now on, it is checked into the root of the staging repository.
+For coordination of work:
+
+- look into IRC
+- mark done work as DONE in this list below and push it to the staging repo
+- if in doubt, just post a mail to the mailinglist
+
+'''''''''''''''''''''''''''''''''
+
+== toplevel and general issues ==
+
+
 * developers page: short list taken from credits
 * cedits
 
