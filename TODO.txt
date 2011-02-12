@@ -1,0 +1,63 @@
+= TODO for website =
+
+* developers page: short list taken from credits
+* cedits
+
+  - get the "credits" up-to date
+  - bring CSS for credits back
+  - maybe update to new table syntax
+  
+* polish frontpage / tweak CSS
+
+  - link to About Lumiera
+
+* all pages:
+
+  - set background colour explicittly
+  - create a footer with important links and contact
+
+== Project menu ==
+* about is fine, just add link to "history corner"
+* screenshots: use a thumbnail
+* donate:
+ 
+  - move page from old website in
+  - bring it up to date, that is delete the mention of last year's conferences ;-)
+
+* press:
+
+  - some content interesting for press folks. Or at least some interesting links
+  - link to some existing coverage on the press, like the TuxRadio, or the very 
+    old article commenting the project start? http://www.linux.com/archive/feature/126441
+
+== Documentation ==
+mostly ok-ish for the launch.
+Yet we discovered, that we need a tutorial section, and decided to put that below
++documentation/user/tutorials+. Besides, very technical tips and tricks and howtos
+can be put into +documentation/technical/howto+. Details about build dependencies
+could go into +documentation/technical/build+
+
+== Download menu ==
+
+* fix broken link
+* better wording
+
+== Contribute page ==
+
+* check content
+* add a paragraph about joining the mailinglist and put that paragraph at the top
+* maybe move the "become a developer" to the bottom?
+* collect all the scattered *Tutorial* pages and move them to documentation/user/tutorials
+
+== Devs vault ==
+
+* index page: shortly describe what it is: collection of resources relevant for active coders
+* as stated above: the active coders get a short entry each on the developers page. later that could be
+  an image or some additional voloutary information, just to give the names a "face"
+* design process: explain the RfC. We've pasted the description from the old design process page
+  but we still need to describe how Cehteh's new admin/rfc.script works. Well.. almsot self-explanatory
+* meeting: short description of the purpose of our monthly meetings
+  +
+  see http://staging.lumiera.org/Lumiera/MonthlyMeetings.txt and http://staging.lumiera.org/documentation/devel/rfc/MonthlyDeveloperMeetingOnIRC.txt
+
+* meeting protocols: move in: http://staging.lumiera.org/Lumiera/PastMonthlyMeetings.txt
