@@ -1,2 +1,7 @@
 Press
 =====
+
+Past press
+----------
+
+2008-02-06 http://www.linux.com/archive/feature/126441[linux.com: Cinelerra community forks the video editor]
