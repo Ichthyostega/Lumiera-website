@@ -11,7 +11,7 @@ cellspacing="0" cellpadding="4">
 <tbody>
 <tr>
 <td align="left" valign="top"><p class="table"><span class="image">
-<img src="lumiera_gui_small.png" alt="ui_screenshot" />
+<img src="http://lumiera.org/lumiera_gui_small.png" alt="ui_screenshot" />
 </span></p></td>
 <td align="left" valign="top"><p class="table">Lumiera is a Free/Open Source Non-Linear Video Editing (NLE) application project for GNU/Linux developed by the
 <a href="http://cv.cinelerra.org/">CinelerraCV</a> community.<br />
@@ -30,7 +30,12 @@ To create, as a community, a non linear video editing and compositing FOSS appli
 </table>
 ++++
 
+
+News:
+-----
+
 include::news.txt[]
+link:old_news.html[Older News]
 
 
 Check Lumiera's Pulse:
