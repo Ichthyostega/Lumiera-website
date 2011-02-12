@@ -1,8 +1,10 @@
 Media Documentation
 ===================
 
-white papers
-presentations
-posters
-slides
-handouts
+Here you will eventually find:
+
+* White Papers
+* link:presentations.html[Presentations]
+* Posters
+* Slides
+* Handouts

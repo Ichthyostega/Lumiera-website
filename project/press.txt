@@ -1,6 +1,16 @@
 Press
 =====
 
+Presentations
+-------------
+
+Hermann Vosseler at FrOSCon 2010
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Hermann Vosseler presented our project at the FrOSCon 2010 conference.
+The presentation is unfortunately only available in German.
+(link:http://programm.froscon.org/2010/attachments/126_Lumiera.FrOSCon-Vortrag.pdf[slides], link:http://ftp.stw-bonn.de/froscon/2010/hs12/theora/hs12_-_2010-08-22_10%3A00_-_de_-_lumiera_-_hermann_vosseler.ogv[video])
+
 Past press
 ----------
 
