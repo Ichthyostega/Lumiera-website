@@ -14,6 +14,8 @@ The presentation is unfortunately only available in German.
 Past press
 ----------
 
-2010-11-06 http://www.slashcam.de/news/single/Lumiera-setzt-auf-professionellen-Unterbau-8702.html[Lumiera setzt auf professionellen Unterbau (DE)] +
-2009-09-02 http://perspektive89.com/blogtags/tuxradio[Radio Tux: Lumiera Radio Interview during FROSCON 2009] +
+2010-11-06 http://www.slashcam.de/news/single/Lumiera-setzt-auf-professionellen-Unterbau-8702.html[Lumiera setzt auf professionellen Unterbau (DE)]
+
+2009-09-02 http://perspektive89.com/blogtags/tuxradio[Radio Tux: Lumiera Radio Interview during FROSCON 2009]
+
 2008-02-06 http://www.linux.com/archive/feature/126441[linux.com: Cinelerra community forks the video editor]
