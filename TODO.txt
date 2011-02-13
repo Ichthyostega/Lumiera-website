@@ -21,7 +21,6 @@ For coordination of work:
 * cedits
 
   - get the "credits" up-to date
-  - bring CSS for credits back
   - maybe update to new table syntax
   
 * polish frontpage / tweak CSS
