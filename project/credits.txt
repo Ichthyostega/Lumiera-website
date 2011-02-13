@@ -1,7 +1,7 @@
 Credits
 =======
 
-image:lumiera_logo.png[]
+image:{img}/lumiera_logo.png[]
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Architecture and Design,
