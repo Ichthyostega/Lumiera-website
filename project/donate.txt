@@ -1,26 +1,27 @@
 DONATIONS
 =========
 
-image::piggy.png[]
+image:{img}/piggy.png[Piggy Bank]
 
 Lumiera is a volunteer project, funded by the community.
-Since Lumiera has not a community of users yet, expenses are paid by the handfull of people devoted to developing and supporting Lumiera. They give their time for free but also have to pay for server hosting, travel and accomodation for openvideo meetings, t-shirts, posters, leaflets and other paper documentation of the project.
 
-image::ffis-klein.png[ffis logo]
+Since Lumiera does not have a community of users yet, expenses are paid by the
+handful of people devoted to developing and supporting Lumiera. They give their
+time for free but also have to pay for server hosting, travel and accommodation
+for open video meetings, t-shirts, posters, leaflets and other paper
+documentation of the project.
 
-In October 2009 Lumiera became a project associated with the http://www.ffis.de/[ffis], a german non-profit association for the advancement of Free Software and Free Information. Especially, ffis can collect donations on our behalf and manange our funds.
+image:{img}/ffis-klein.png[ffis Logo]
 
-For payment methods see the http://www.ffis.de/Verein/donations.html[ffis] donation page.
-If you don't specify any project, your donation will generally support ffis, Free Software and Free Information.
+Since October 2009, Lumiera has been associated with the
+http://www.ffis.de/[ffis], a German non-profit association for the advancement
+of Free Software and Free Information. Notably, ffis can collect donations on
+our behalf and manage our funds.
 
-image::lao.png[Linux audio logo]
-
-Lumiera community is planning a dev meeting at the http://lac.linuxaudio.org/2010/[Linux Audio Conference] - May 1-4 2010, Utrecht, the Netherlands.
-It will be a good opportunity to meet also with other openvideo developers but we need help to cover traveling costs. 
+For payment methods see the http://www.ffis.de/Verein/donations.html[ffis donation page].
+If you do not specify any project, your donation will support ffis, Free
+Software and Free Information in general.
 
 *Please, consider donating to the Lumiera project!*
 
 Thank you!
-
-
-
