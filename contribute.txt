@@ -18,7 +18,7 @@ The are many ways to help the Lumiera project:
  * <<2,Help with website & infrastructure>>
  * <<3,Contribute to the Lumiera Design>>
  * <<4,Do little tasks & favours as they come up>>
- * link:{l}/donate.html[Donate!]
+ * link:{l}/project/donate.html[Donate!]
 =====================================================
 
 [[1]]
@@ -29,7 +29,7 @@ Lumiera is an open project, you don't need and application, you can start
 working now.
 
 There are portions of the project that need a lot of specific knowledge and 
-experience. Because everyone has different specialities (and likes) we work 
+experience. Because everyone has different specialties (and likes) we work 
 together to cover the project's necessities. When you join Lumiera, let us know 
 your interests and expertise, there is something for everyone here.
 
@@ -43,12 +43,12 @@ complicated, or the documentation misses something important.
 Open Source Attitude
 ^^^^^^^^^^^^^^^^^^^^^
 
-While there is some tedious work to do (coding, documenting your work, git) 
-please commit to interfere with the work by your actions (or inactions). We are 
-careful with documentation and code quality, you're free to contribute but make 
-sure your contributions are maintainable and understandable to others. 
+While there is some tedious work to do (coding, documenting your work, git)
+please commit to interfere with the work by your actions (or inactions). We are
+careful with documentation and code quality, you're free to contribute but make
+sure your contributions are maintainable and understandable to others.
 
-So, *Think First*. If something is unclear, ask us personally (irc, e-mail). 
+So, *Think First*. If something is unclear, ask us personally (irc, email). 
 Very often any issues can be resolved right there. Many ideas are well-thought 
 out at this point in the project try to read our discussions and reasoning about 
 how we go there. If you still don't understand, ask. Just as we are open to ideas 
@@ -59,7 +59,7 @@ Resources
 
 The project is built with a git repository running a builddrone. We have our own 
 continuous integration system running on the development server. This monitors 
-certain repositories, builds the code and runs the testsuite etc. You can look 
+certain repositories, builds the code and runs the test suite etc. You can look 
 at the current state at http:/builddrone/table.html[] and its
 root dir (http:/builddrone/[]) contains the raw build logs too. 
 
@@ -77,6 +77,7 @@ Build the Lumiera GUI from the git source repository:
 link:http://lumiera.org/Lumiera/NewbiesTutorials[Newbie Tutorial].
 
 To understand the design of Lumiera visit link:{l}/documentation/design/index.html[Design Documentation]
+
 For technical information on developed components link:{l}/documentation/technical/index.html[Technical Documentation]
 
 For the structure of the code look at our http://www.lumiera.org/doxy/[Doxygen documentation]
@@ -125,8 +126,8 @@ should this information be abstract and static or dynamic?
 
 See how the site works below.
 
-One goal for the new site is to keep things open a collaborative, so I'm trying 
-to include summaries and suggestions for each page.
+One goal for the new site is to keep things open and collaborative, so I'm
+trying to include summaries and suggestions for each page.
 
 How can I help?
 ^^^^^^^^^^^^^^^^
@@ -147,8 +148,9 @@ There will also be tickets in trac for certain tasks, so look here:
 link:http://issues.lumiera.org/report/15[trac small/non-coding tasks]
 
 To see how the site is strucured read the
-*sitemap* [link:{l]/sitemap.html[html]] and [link:{l]/sitemap.txt[txt]]
-Note that the todo contains a more detailed and complete version of the actuall
+*sitemap* [link:{l}/sitemap.html[html]] and [link:{l}/sitemap.txt[txt]]
+
+Note that the todo contains a more detailed and complete version of the actual
 pages of the site and this is primarily for structure.
 
 Some useful links
