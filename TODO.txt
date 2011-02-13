@@ -18,9 +18,10 @@ For coordination of work:
 
 
 * developers page: short list taken from credits
-* cedits
+* credits
 
   - get the "credits" up-to date
+  - DONE bring CSS for credits back
   - maybe update to new table syntax
   
 * polish frontpage / tweak CSS
@@ -43,6 +44,9 @@ For coordination of work:
 * press:
 
   - some content interesting for press folks. Or at least some interesting links
+  - DONE link to some existing coverage on the press, like the TuxRadio, or the very 
+    old article commenting the project start? http://www.linux.com/archive/feature/126441
+
 
 == Documentation ==
 mostly ok-ish for the launch.
