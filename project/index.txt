@@ -47,38 +47,24 @@ and "perspectives" that arrange GUI elements for specific video tasks.
 Project History
 ~~~~~~~~~~~~~~~~
 
-There are many GNU/Linux applications for advanced media creation 
-(GIMP, Blender & Ardour jump to mind), however there are very few video editing 
-projects of a similar level.
+There are many GNU/Linux applications for advanced media creation (GIMP, Blender
+& Ardour comes to mind), however there are very few video editing projects of a
+similar level.
 
 This came to the attention of several CinelerraCV community members. While
-Cinelerra is the most advanced open-source NLE currently available, it has many 
+Cinelerra is the most advanced open-source NLE currently available, it has many
 design compromises, and is not developed in a community fashion.
 
-To address many of these issues, originally a code-base re-write of Cinelerra was
-proposed, to be called Cinelerra3. Because of many unique design ideas by the 
-developers, a new project was born, Lumiera.
+To address many of these issues, originally a code-base re-write of Cinelerra
+was proposed, to be called Cinelerra3. Because of many unique design ideas by
+the developers, a new project was born, Lumiera.
 
-Since then, Lumiera has gone through active design & planning, creation of 
-project resources, and is now in active development of the core. Work has also 
-been done on the GUI as can be seen in link:{l}/project/screenshots.html[screenshots].
+Since then, Lumiera has gone through active design & planning, creation of
+project resources, and is now in active development of the core. Work has also
+been done on the GUI as can be seen in
+link:{l}/project/screenshots.html[screenshots].
 
-Currently, Lumiera is updating many of its web resources for increased openness, 
-accessibility and to promote involvement in both development and community. We 
-are always interested in design thoughts and developers, see 
+Currently, Lumiera is updating many of its web resources for increased openness,
+accessibility and to promote involvement in both development and community. We
+are always interested in design thoughts and developers, see
 link:{l}/contribute.html[Contribute] for more information.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

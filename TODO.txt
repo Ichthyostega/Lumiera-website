@@ -38,8 +38,8 @@ For coordination of work:
 * screenshots: use a thumbnail
 * donate:
  
-  - move page from old website in
-  - bring it up to date, that is delete the mention of last year's conferences ;-)
+  - *DONE*: move page from old website in
+  - *DONE*: bring it up to date, that is delete the mention of last year's conferences ;-)
 
 * press:
 
