@@ -1,5 +1,6 @@
 ////
-Please add new items on the top, comment older/irrelevant items out
+Please add new items on the top, move older items to old_news.txt
+Comment irrelevant stuff out
 ////
 
 *October 15 2010*::
@@ -43,16 +44,6 @@ _CALL FOR TESTERS_ - We are looking for people using MacOS, BSD, OpenSolaris or
 *December 26 2009*::
         The link:DevReport-09-12.html[Winter Quarterly News] are out! Read the
         last development report.
-
-*December 12 2009*::
-        You probably haven't noticed that, but a lot of work has been done to
-        improve this website. In fact the development of uWiki has proceeded as
-        far as making this self extensible minimalistic wiki engine actually
-        working, today for the first time. After a time for testing and
-        debugging it will eventually be set up for the Lumiera website. You can
-        http://uwiki.pipapo.org/_uwiki/form/account_create.html[have a look at
-        it], but be aware that currently new users are not  automatically
-        allowed to edit.
 
 ////
 .Future

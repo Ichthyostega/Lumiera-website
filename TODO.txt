@@ -9,8 +9,8 @@ From now on, it is checked into the root of the staging repository.
 For coordination of work:
 
 - look into IRC
-- mark done work as DONE in this list below and push it to the staging repo
-- if in doubt, just post a mail to the mailinglist
+- mark done work as DONE in this list below and push it to the staging repository
+- if in doubt, just post a mail to the mailing list
 
 '''''''''''''''''''''''''''''''''
 
@@ -24,13 +24,13 @@ For coordination of work:
   - *DONE*: bring CSS for credits back
   - maybe update to new table syntax
   
-* polish frontpage / tweak CSS
+* polish front page / tweak CSS
 
   - link to About Lumiera
 
 * all pages:
 
-  - set background colour explicittly
+  - set background colour explicitly
   - create a footer with important links and contact
 
 == Project menu ==
@@ -63,7 +63,7 @@ could go into +documentation/technical/build+
 == Contribute page ==
 
 * check content
-* add a paragraph about joining the mailinglist and put that paragraph at the top
+* add a paragraph about joining the mailing list and put that paragraph at the top
 * maybe move the "become a developer" to the bottom?
 * collect all the scattered *Tutorial* pages and move them to documentation/user/tutorials
 
@@ -71,9 +71,9 @@ could go into +documentation/technical/build+
 
 * index page: shortly describe what it is: collection of resources relevant for active coders
 * as stated above: the active coders get a short entry each on the developers page. later that could be
-  an image or some additional voloutary information, just to give the names a "face"
+  an image or some additional voluntary information, just to give the names a "face"
 * design process: explain the RfC. We've pasted the description from the old design process page
-  but we still need to describe how Cehteh's new admin/rfc.script works. Well.. almsot self-explanatory
+  but we still need to describe how Cehteh's new admin/rfc.script works. Well.. almost self-explanatory
 * *STARTED*: meeting: short description of the purpose of our monthly meetings
   +
   see http://staging.lumiera.org/Lumiera/MonthlyMeetings.txt and http://staging.lumiera.org/documentation/devel/rfc/MonthlyDeveloperMeetingOnIRC.txt

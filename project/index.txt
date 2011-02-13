@@ -17,22 +17,22 @@ What is Lumiera?
 Lumiera is a Free-Open Source Non-Linear Editing (NLE) application in active 
 development by the Lumiera community.
 
-NLE's are video editing applications that work non-destructively (ie don't modify
+NLE's are video editing applications that work non-destructively (i.e. do not modify
 the source media) and can access and edit any portion of the project instantaneously.
 
-Lumiera is designed to be an advanced NLE, it will have extensive technical and
+Lumiera is designed to be an advanced NLE. It will have extensive technical and
 creative tools, and the architecture to expand its tool-sets. The application is 
 developed to be highly modular, future-adaptable, and open.
 
 Some select design elements from Lumiera include: advanced memory and media management, 
-optimised & customizable GUI, innovative track grouping/nesting, and timecode support.
+optimised & customizable GUI, innovative track grouping/nesting, and time code support.
 
 How it works
 ~~~~~~~~~~~~~
 
-NLE's can be demanding of hardware systems, and have specific requirements for 
-the application functions and media handling. Lumiera is developed from the 
-ground up, beginning with the the core. It is designed so the core of the 
+NLE's can be demanding of hardware systems, and have specific requirements for
+the application functions and media handling. Lumiera is developed from the
+ground up, beginning with the core. It is designed so the core of the
 application is not tied to the GUI, and can operate independently.
 
 The core consists of a backend (low-level) and proc-layer (mid-level). Because of 
@@ -61,7 +61,7 @@ developers, a new project was born, Lumiera.
 
 Since then, Lumiera has gone through active design & planning, creation of 
 project resources, and is now in active development of the core. Work has also 
-been done on the GUI as can be seen in link:{l}/screenshots.html[screenshots].
+been done on the GUI as can be seen in link:{l}/project/screenshots.html[screenshots].
 
 Currently, Lumiera is updating many of its web resources for increased openness, 
 accessibility and to promote involvement in both development and community. We 

@@ -5,7 +5,7 @@ Is Lumiera a fork of Cinelerra???
 No. Lumiera is a complete rewrite. Not a single line of Cinelerra code is now used in Lumiera. The project was first called Cinelerra3 because it was born in the Cinelerra Community.
 
 How can I try Lumiera???
-Sorry, you can't yet. Lumiera is still in early stage of development.
+Sorry, you can't yet. Lumiera is still in the early stages of development.
 
 When will Lumiera be usable for basic tasks???
 It's very difficult to say. It depends on a lot of things.
@@ -13,6 +13,6 @@ We are really ambitious, which means we care for a lot of advanced stuff up fron
 Best hopes are that we can make a first very rudimental integration (pre alpha release) round the end of this year.
 
 Will Lumiera be using guicast (the Cinelerra GUI library) or will it use one of the more popular libraries like GTK or Qt???
-We won't' use Guicast. Lumiera native interface will be written in GTK, although other interface will be possible.
+We won't' use Guicast. Lumiera native interface will be written in GTK, although other interfaces will be possible.
 
 

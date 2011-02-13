@@ -3,7 +3,7 @@ Contact
 
 Lumiera has the mailing list
 http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[lumiera@lists.lumiera.org]
-for general discussion. The mailing list archives are available
+for general discussions. The mailing list archives are available
 http://lists.lumiera.org/pipermail/lumiera/[here].
 
-You can also find many of us in the IRC channel #lumiera at Freenode.
+You may also find many of us in the IRC channel #lumiera at http://freenode.net/[Freenode].
