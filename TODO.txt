@@ -21,7 +21,7 @@ For coordination of work:
 * credits
 
   - get the "credits" up-to date
-  - DONE bring CSS for credits back
+  - *DONE*: bring CSS for credits back
   - maybe update to new table syntax
   
 * polish frontpage / tweak CSS
@@ -44,7 +44,7 @@ For coordination of work:
 * press:
 
   - some content interesting for press folks. Or at least some interesting links
-  - DONE link to some existing coverage on the press, like the TuxRadio, or the very 
+  - *DONE*: link to some existing coverage on the press, like the TuxRadio, or the very 
     old article commenting the project start? http://www.linux.com/archive/feature/126441
 
 
@@ -57,8 +57,8 @@ could go into +documentation/technical/build+
 
 == Download menu ==
 
-* fix broken link
-* better wording
+* *DONE*: fix broken link
+* *DONE*: better wording
 
 == Contribute page ==
 
@@ -74,8 +74,8 @@ could go into +documentation/technical/build+
   an image or some additional voloutary information, just to give the names a "face"
 * design process: explain the RfC. We've pasted the description from the old design process page
   but we still need to describe how Cehteh's new admin/rfc.script works. Well.. almsot self-explanatory
-* meeting: short description of the purpose of our monthly meetings
+* *STARTED*: meeting: short description of the purpose of our monthly meetings
   +
   see http://staging.lumiera.org/Lumiera/MonthlyMeetings.txt and http://staging.lumiera.org/documentation/devel/rfc/MonthlyDeveloperMeetingOnIRC.txt
 
-* meeting protocols: move in: http://staging.lumiera.org/Lumiera/PastMonthlyMeetings.txt
+* *DONE*: meeting protocols: move in: http://staging.lumiera.org/Lumiera/PastMonthlyMeetings.txt
