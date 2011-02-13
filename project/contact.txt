@@ -1,7 +1,9 @@
 Contact
 =======
 
-Lumiera has a Mailing List, you can http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[subscribe to it].
-You can also check out the http://lists.lumiera.org/pipermail/lumiera/[Mailinglist archives].
+Lumiera has the mailing list
+http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[lumiera@lists.lumiera.org]
+for general discussion. The mailing list archives are available
+http://lists.lumiera.org/pipermail/lumiera/[here].
 
-Join us on the IRC channel #lumiera at Freenode.
+You can also find many of us in the IRC channel #lumiera at Freenode.
