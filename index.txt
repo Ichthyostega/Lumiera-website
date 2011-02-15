@@ -1,6 +1,8 @@
 Lumiera
 =======
 
+image:http://lumiera.org/lumiera_gui_small.png[Lumiera_screenshot]
+
 ++++
 <table rules="none"
 width="100%"
@@ -10,16 +12,13 @@ cellspacing="0" cellpadding="4">
 <col width="50%" />
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><span class="image">
-<img src="http://lumiera.org/lumiera_gui_small.png" alt="ui_screenshot" />
-</span></p></td>
 <td align="left" valign="top"><p class="table">Lumiera is a Free/Open Source Non-Linear Video Editing (NLE) application project for GNU/Linux developed by the
 <a href="http://cv.cinelerra.org/">CinelerraCV</a> community.<br />
-
-It was born as a rewrite of the Cinelerra codebase called Cinelerra3 but it is now an independent project with its own name.</p>
+It was born as a rewrite of the Cinelerra codebase called Cinelerra3 but it is now an independent project with its own name.<br /><a href="project/index.html">Read more about Lumiera</a></p>
 <p class="table">This website is under construction, its various section still need content and you are welcome to help us :
 It is served from the git repository
-<a href="http://git.lumiera.org/gitweb?p=website-staging">git://git.lumiera.org/website-staging</a></p>
+<a href="http://git.lumiera.org/gitweb?p=website-staging">git://git.lumiera.org/website-staging</a></p></td>
+<td align="left" valign="top"><p class="table"></p>
 <p class="table"><div class="title">Project objectives</div>
 To create, as a community, a non linear video editing and compositing FOSS application for Linux/Unix/Posix Operating Systems,
  suitable for professional and quality oriented work, building on common open source video, sound and GUI toolkits and libraries,
@@ -29,7 +28,6 @@ To create, as a community, a non linear video editing and compositing FOSS appli
 </tbody>
 </table>
 ++++
-
 
 News:
 -----

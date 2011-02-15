@@ -17,7 +17,7 @@ For coordination of work:
 == toplevel and general issues ==
 
 
-* developers page: short list taken from credits
+* *DONE*: developers page: short list taken from credits
 * credits
 
   - get the "credits" up-to date
@@ -26,7 +26,7 @@ For coordination of work:
   
 * polish front page / tweak CSS
 
-  - link to About Lumiera
+  - *DONE*: link to About Lumiera
 
 * all pages:
 
