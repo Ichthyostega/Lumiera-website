@@ -30,7 +30,6 @@ PROGNAME      = 'menugen'
 TREE_ROOT     = 'root'
 #------------CONFIGURATION-----------------------------
 
-timezoneParser_Re = re.compile(r"\s*([+\-]?0\d00)")
 
 
 
@@ -47,13 +46,21 @@ def addPredefined():
     
     Node('Design').linkChild('GUI')
     Node('Workflow').linkParent('Design')
-
+    Node('Roadmap').linkParent('Project')
+    
+    root.linkChild('Devs Vault').linkChild('Roadmap')
+    
+    tech = Node('Documentation/Technical')
+    tech.linkChild('GUI')
+    tech.linkChild('Proc')
+    tech.linkChild('Backend')
+    
 
 
 
 # -----------parse-cmdline----------------------------
 def parseAndDo():
-
+    
     usage = "usage: %prog [options] [directory]"
     
     parser = OptionParser(usage=usage, version="%s %1.2f" % (PROGNAME,PROGVER)) 
@@ -195,10 +202,13 @@ def discoverPages (startdir):
 
 
 
+
 ##################### Output Generation ##########################
 
 def dumpTables():
+    print '\nMenu Tree:\n'
     walkMenuTree (Dumper())
+    print '(end)Menu Tree\n\n'
 
 
 def generateTextMenu():
@@ -210,7 +220,8 @@ def generateAsciidocMenu():
 
 
 def walkMenuTree (tool, subTree = Node(TREE_ROOT)):
-    ''' Tree visitation '''
+    ''' Tree visitation
+    '''
     if not subTree.children:
         tool.treatLeaf (subTree)
     else:
@@ -218,6 +229,7 @@ def walkMenuTree (tool, subTree = Node(TREE_ROOT)):
         for child in subTree.children:
             walkMenuTree (tool, child)
         tool.treatPostfix (subTree)
+
 
 
 class TextFormatter:
