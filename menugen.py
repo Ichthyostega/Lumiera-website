@@ -21,7 +21,7 @@ import sys
 import types
 from os import path
 from optparse import OptionParser
-
+import string
 import menuformat
 #from subprocess import Popen, PIPE
 
@@ -40,22 +40,23 @@ def addPredefined():
         which can then be extended by values extracted from individual pages.
     '''
     root = Node(TREE_ROOT, label='Lumiera')
-    proj = root.linkChild('Project')
-    doc  = root.linkChild('Documentation')
+    proj = root.linkChild('project')
+    doc  = root.linkChild('documentation')
     
-    doc.linkChild('Design')
-    doc.linkChild('Technical')
+    doc.linkChild('design')
+    doc.linkChild('technical')
     
-    Node('Design').linkChild('GUI')
-    Node('Workflow').linkParent('Design')
-    Node('Roadmap').linkParent('Project')
+    Node('design').linkChild('gui')
+    Node('workflow').linkParent('design')
+    Node('Roadmap').linkParent('project')
     
-    root.linkChild('Devs Vault').linkChild('Roadmap')
+    root.linkChild('devs-vault').linkChild('Roadmap')
+    Node('devs-vault').linkChild('devs')
     
-    tech = Node('Documentation/Technical')
-    tech.linkChild('GUI')
-    tech.linkChild('Proc')
-    tech.linkChild('Backend')
+    tech = Node('documentation/technical')
+    tech.linkChild('technical/gui')
+    tech.linkChild('technical/proc')
+    tech.linkChild('technical/backend')
     
 
 
@@ -80,13 +81,14 @@ def parseAndDo():
     
     (options, args) = parser.parse_args()
     
+    global startdir
     if len(args) >= 1:
         startdir = args[0]
     else:
         startdir = '.'
     if len(args) > 1:
         __warn('additional arguments "%s" ignored.' % args[1:])
-    if not (options.debug or options.text or options.asciidoc):
+    if not (options.debug or options.text or options.webpage):
         __warn('no output generation option specified.')
     
     
@@ -148,8 +150,9 @@ class Node(object):
     
     def __init__(self, id, **args):
         if not self._isInit():
-            self.id = id
-            self.label = id
+            self.id = normaliseComponentId(id)
+            self.url = None
+            self.label = self.id
             self.parents = []
             self.children = []
         self.__dict__.update(args)
@@ -175,6 +178,7 @@ class Node(object):
             parent.children.append(self)
         return parent
     
+    
     def matches (self, nodeKey):
         ''' decide if this node is equivalent to the given nodeKey.
             That is, either the key is our own ID, or it matches some
@@ -185,15 +189,53 @@ class Node(object):
         return (self.id == nodeKey or 
                 ('/' in nodeKey and self.menuPath().endswith(nodeKey)))
     
+    
     def menuPath(self):
         ''' constructs the path within the menu, starting with this node as leaf '''
         if self.parents:
             return self.parents[0].menuPath() + '/' + self.id
         else:
             return self.id
+    
+    
+    def getUrl(self):
+        ''' generate an URL suitable for accessing this entry.
+            Pages in-tree are given as site-absolute URL, while
+            external URLs are passed literally
+        '''
+        return self.url or normaliseLocalURL(self.menuPath())
 
 
+### Helpers
 
+def normaliseComponentId(id):
+    p = id.rfind('/')
+    if 0 <= p :
+        id = id[p+1:]
+    return id
+        
+
+def normaliseLocalURL(url):
+    if url.startswith('root'):
+        url = url[4:]
+    if url.startswith('/'):
+        url = url[1:]
+    root = path.abspath(startdir)
+    file = path.join(root, url)
+    if path.isdir(file):
+        file = path.join(file,'index.html')
+        if path.isfile(file):
+            url += "/index.html"
+    if not path.exists(file):
+        if path.isfile(file+'.html'):
+            url += '.html'
+        else:
+            __warn('not found: '+file)
+            
+    if not url.startswith('/'):
+        url = '/'+url
+    return url
+    
 
 
 
@@ -209,7 +251,7 @@ def discoverPages (startdir):
 ##################### Output Generation ##########################
 
 def dumpTables():
-    print '\nMenu Tree:\n%s'
+    print '\nMenu Tree:\n'
     print walkMenuTree (Dumper())
     print '(end)Menu Tree\n\n'
 
@@ -247,6 +289,7 @@ class Formatter:
     def __init__(self):
         self.level = 0
         self.output = []
+        self.formatters = {}
     
     def __str__(self):
         return '\n'.join (self.output)
@@ -254,8 +297,13 @@ class Formatter:
     # Subclasse have to define:
     # INDENT, LEAF, PRE_SUB, POST_SUB and the showNode() method
     
-    def format(self, text):
-        return self.level * self.INDENT + text
+    def format(self, template, **vars):
+        engine = self.formatters.get(template)
+        if not engine:
+            engine = string.Template(template)
+            self.formatters[template] = engine
+        renderedText = engine.substitute(vars)
+        return self.level * self.INDENT + renderedText
     
     def show(self, formattedData):
         self.output.append(formattedData)
@@ -269,7 +317,7 @@ class Formatter:
     
     def treatPostfix(self, node):
         self.level -=1
-        self.show (self.format(self.POST_SUB))
+        self.show (self.format(self.POST_SUB, ID=node.id))
 
 
 
@@ -280,8 +328,8 @@ class TextFormatter(Formatter):
     PRE_SUB  =' +- |'
     POST_SUB ='    |____________'
     
-    def showNode(self, kind, node):
-        self.show (self.format ('%s %s' % (kind, node.label)))
+    def showNode(self, template, node):
+        self.show (self.format (template+' '+node.label))
 
 
 
@@ -289,14 +337,15 @@ class Dumper(Formatter):
     
     INDENT   ='\t'
     LEAF     ='Leaf'   
-    PRE_SUB  ='Sub'
-    POST_SUB ='----'
+    PRE_SUB  ='Sub_'
+    POST_SUB ='--(end)$ID----------\n'
     
     
     def showNode(self, kind, node):
         self.show (self.format ('%s: "%s"' % (kind, node.id)))
+        self.show (self.format ('....: url='+node.getUrl()))
         if (node.label != node.id):
-            self.show (self.format ('....: label='+str(node.label)))
+            self.show (self.format ('....: label='+node.label))
 
 
 
@@ -313,11 +362,11 @@ class Dumper(Formatter):
 #
 def __err(text):
     print "--ERROR-------------------------"
-    print text
+    print >> sys.stderr, text
     sys.exit(255)
 
 def __warn(text):
-    print "--WARNING--   " + str(text)
+    print >> sys.stderr, "--WARNING--   " + str(text)
 
 def __exerr(text):
     ######DEBUG raise sys.exc_type,sys.exc_value

@@ -31,11 +31,11 @@ import menugen
 menuTemplate = '''
 HEAD
 <script>
-    $menuScript
+$menuScript
 </script>
 
 <body>
-    $menuBody
+$menuBody
 </body>
 '''
 
@@ -54,28 +54,30 @@ def generateHTML(buildingBlocks):
 class HtmlGenerator(menugen.Formatter):
     
     INDENT   ='    '
-    LEAF     ='<li><a href="%s" target="_top" >%s</li>'   
-    PRE_SUB  ='<li><a href="%s" target="_top" class="nav">%s</li><ul>'
-    POST_SUB ='</ul>'
+    LEAF     ='<li id="$ID"><a href="$URL" target="_top" >$LABEL</li>'   
+    PRE_SUB  ='<li><a href="$URL" target="_top" >$LABEL <ul id="$ID">'
+    POST_SUB ='</ul></li>'
     
     
     def showNode(self, template, node):
-        url = 'TODO/'+node.id
-        label = node.label
-        self.show (self.format (template % (url,label)))
+        self.show (self.format (template,
+                                 ID=node.menuPath(),
+                                 URL=node.getUrl(),
+                                 LABEL=node.label))
 
 
 
 class ScriptGenerator(menugen.Formatter):
     
     INDENT   ='    '
-    LEAF     ='menuTable.addNode (id="%s", url="%s")'   
-    PRE_SUB  ='menuTable.addSubMenu (id="%s", url="%s")'
-    POST_SUB ='//(end)'
+    LEAF     ='menuTable.addNode (id="$ID", url="$URL")'   
+    PRE_SUB  ='menuTable.addSubMenu (id="$ID", url="$URL")'
+    POST_SUB ='//(end $ID)'
     
     
     def showNode(self, template, node):
-        url = 'TODO/'+node.id
-        self.show (self.format (template % (node.id, url)))
+        self.show (self.format (template,
+                                 ID=node.menuPath(),
+                                 URL=node.getUrl()))
 
 
