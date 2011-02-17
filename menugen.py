@@ -21,6 +21,8 @@ import sys
 import types
 from os import path
 from optparse import OptionParser
+
+import menuformat
 #from subprocess import Popen, PIPE
 
 
@@ -73,8 +75,8 @@ def parseAndDo():
                      ,help="diagnostic dump of internal datastructures")
     parser.add_option("-t", "--text",          action="store_true"
                      ,help="output textual representation of the menu")
-    parser.add_option("-a", "--asciidoc",      action="store_true"
-                     ,help="output menu as asciidoc bulleted list")
+    parser.add_option("-w", "--webpage",       action="store_true"
+                     ,help="generate active menu webpage (HTML)")
     
     (options, args) = parser.parse_args()
     
@@ -95,8 +97,8 @@ def parseAndDo():
         discoverPages(startdir)
     if options.debug:
         dumpTables()
-    if options.asciidoc:
-        generateAsciidocMenu()
+    if options.webpage:
+        generateHtmlMenu()
     elif options.text:
         generateTextMenu()
     
@@ -154,8 +156,9 @@ class Node(object):
     
     def _isInit(self): return 'id' in self.__dict__
     
-    def __repr__(self):
-        return 'Node(%s)' % self.id
+    def __repr__(self): return 'Node(%s)' % self.id
+    
+    def __iter__(self): return self.children.__iter__() 
     
     
     def linkChild (self, childId):
@@ -206,17 +209,22 @@ def discoverPages (startdir):
 ##################### Output Generation ##########################
 
 def dumpTables():
-    print '\nMenu Tree:\n'
-    walkMenuTree (Dumper())
+    print '\nMenu Tree:\n%s'
+    print walkMenuTree (Dumper())
     print '(end)Menu Tree\n\n'
 
 
 def generateTextMenu():
-    walkMenuTree (TextFormatter())
+    print walkMenuTree (TextFormatter())
 
 
-def generateAsciidocMenu():
-    __warn("generateAsciidocMenu()")
+def generateHtmlMenu():
+    from menuformat import HtmlGenerator, ScriptGenerator, generateHTML
+    
+    buildingBlocks = {'menuBody'  : walkMenuTree(HtmlGenerator())
+                     ,'menuScript': walkMenuTree(ScriptGenerator())
+                     }
+    print generateHTML(buildingBlocks)
 
 
 def walkMenuTree (tool, subTree = Node(TREE_ROOT)):
@@ -226,27 +234,31 @@ def walkMenuTree (tool, subTree = Node(TREE_ROOT)):
         tool.treatLeaf (subTree)
     else:
         tool.treatPrefix (subTree)
-        for child in subTree.children:
+        for child in subTree:
             walkMenuTree (tool, child)
         tool.treatPostfix (subTree)
+    
+    return tool
 
 
 
-class TextFormatter:
+class Formatter:
     
     def __init__(self):
         self.level = 0
+        self.output = []
     
-    INDENT   ='    |'
-    LEAF     =' +-'
-    PRE_SUB  =' +- |'
-    POST_SUB ='    |____________'
+    def __str__(self):
+        return '\n'.join (self.output)
     
-    def show(self, text):
-        print self.level * self.INDENT + text
+    # Subclasse have to define:
+    # INDENT, LEAF, PRE_SUB, POST_SUB and the showNode() method
     
-    def showNode(self, kind, node):
-        self.show ('%s %s' % (kind, node.label))
+    def format(self, text):
+        return self.level * self.INDENT + text
+    
+    def show(self, formattedData):
+        self.output.append(formattedData)
     
     def treatLeaf(self, node):
         self.showNode(self.LEAF, node)
@@ -257,14 +269,23 @@ class TextFormatter:
     
     def treatPostfix(self, node):
         self.level -=1
-        self.show(self.POST_SUB)
+        self.show (self.format(self.POST_SUB))
 
 
 
-class Dumper(TextFormatter):
+class TextFormatter(Formatter):
     
-    def __init__(self):
-        TextFormatter.__init__(self)
+    INDENT   ='    |'
+    LEAF     =' +-'
+    PRE_SUB  =' +- |'
+    POST_SUB ='    |____________'
+    
+    def showNode(self, kind, node):
+        self.show (self.format ('%s %s' % (kind, node.label)))
+
+
+
+class Dumper(Formatter):
     
     INDENT   ='\t'
     LEAF     ='Leaf'   
@@ -273,9 +294,12 @@ class Dumper(TextFormatter):
     
     
     def showNode(self, kind, node):
-        self.show ('%s: "%s"' % (kind, node.id))
+        self.show (self.format ('%s: "%s"' % (kind, node.id)))
         if (node.label != node.id):
-            self.show ('....: label='+str(node.label))
+            self.show (self.format ('....: label='+str(node.label)))
+
+
+
 
 
 
