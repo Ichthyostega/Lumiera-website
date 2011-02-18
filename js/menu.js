@@ -1,11 +1,38 @@
 
+function markPageInMenu(url)
+  {
+    if (!url) url = document.location.href
+    path = extractPathFromURL(url)
+    menuDoc = getMenuIFrameContent()
+    if (menuDoc)
+      menuDoc.menuTable.select(path)
+  }
+
+
+function extractPathFromURL(url)
+  {
+    hostPrefixRE = new RegExp('^((?:f|ht)tp(?:s)?\://([^/]+))?([^\?]+)(.*)', 'im');
+    result = url.match(hostPrefixRE)
+    if (result)
+      return result[3].toString()
+    else
+      return ""
+  }
+
+
+function getMenuIFrameContent()
+  {
+    d = document;
+    iFrame = d.frames ? d.frames['inavi'] : d.getElementById('inavi');
+    return iFrame.contentWindow 
+  }
 
 function getMenuRoot()
   {
     return document.getElementById('menu')
   }
 
-NOP = function() { }
+
 
 function addCSSClass (elm, classID)
   {
@@ -52,6 +79,10 @@ function blockVisibility (elm, operation)
 //  alert("expand("+elm.id+")")
 //  alert("collapse("+elm.id+")")
   }
+
+
+
+NOP = function() { }
 
 
 function MenuNode(id, parent, isSubmenu)

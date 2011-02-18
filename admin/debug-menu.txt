@@ -17,14 +17,7 @@ This page is used to check, develop and debug the menu handling scripts.
 
 function simulateActivation() {
   url = document.forms['menuDebugger'].testUrl.value
-  
-	d = document;
-	f = d.frames ? d.frames['inavi'] : d.getElementById('inavi');
-	mf = f.contentWindow 
-	
-	if (mf){
-		mf.menuTable.select(url)
-	}
+  markPageInMenu(url)
 }
 </script>
 +++++++++++++++++++++++++++++
