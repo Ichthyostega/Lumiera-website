@@ -103,6 +103,8 @@ function MenuNode(id, parent, isSubmenu)
       {
         this.markActive = NOP
         this.unmark     = NOP
+        this.expand     = NOP
+        this.collapse   = NOP
       }
   }
 
@@ -110,13 +112,15 @@ function MenuNode(id, parent, isSubmenu)
 var menuTable = {}
 
 menuTable.index = { }
-menuTable.current = null
+menuTable.current = [ ]
 
 menuTable.addNode = function(id,url,parent, isSubmenu) 
   {
     parentEntry = this.index[parent]
-    this.index[url] = new MenuNode(id,parentEntry, isSubmenu)
-  }
+    node = new MenuNode(id,parentEntry, isSubmenu)
+    this.index[url] = node
+    this.current.push(node) // new nodes are marked as "current",
+  }                        //  causing them to be collapsed on next selection
 
 menuTable.select = function(url)
   {
@@ -124,11 +128,11 @@ menuTable.select = function(url)
     element = this.index[url]
     if (element)
       {
-        if (this.current) {
-//        alert("vorheriges.unmark()")
-          this.current.unmark()
+        while (0 < this.current.length) {
+          old = this.current.pop()
+          old.unmark()
         }
-        this.current = element
+        this.current.push (element)
         element.markActive()
       }
   }
