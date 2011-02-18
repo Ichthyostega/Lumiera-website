@@ -28,15 +28,32 @@ import menugen
 #------------CONFIGURATION-----------------------------
 
 
-menuTemplate = '''
-HEAD
-<script>
+menuTemplate = '''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="expires" content="0">
+<title>Navigation</title>
+<link rel="stylesheet" href="/xhtml11.css" type="text/css" />
+<link rel="stylesheet" href="/page.css" type="text/css" />
+<link rel="stylesheet" href="/menu.css" type="text/css" />
+<script type="text/javascript" src="/js/menu.js"></script>
+</head>
+
+<body>
+<ul id='menu'>
+$menuBody
+</ul>
+
+<script type="text/javascript">
+// Generated Script allowing to mark menu entries as selected
 $menuScript
 </script>
 
-<body>
-$menuBody
 </body>
+</html>
 '''
 
 def generateHTML(buildingBlocks):
@@ -54,8 +71,8 @@ def generateHTML(buildingBlocks):
 class HtmlGenerator(menugen.Formatter):
     
     INDENT   ='    '
-    LEAF     ='<li id="$ID"><a href="$URL" target="_top" >$LABEL</li>'   
-    PRE_SUB  ='<li><a href="$URL" target="_top" >$LABEL <ul id="$ID">'
+    LEAF     ='<li id="$ID"><a href="$URL" target="_top" >$LABEL</a></li>'   
+    PRE_SUB  ='<li class="submenu"><a href="$URL" target="_top" >$LABEL</a>  <ul id="$ID">'
     POST_SUB ='</ul></li>'
     
     
@@ -70,14 +87,15 @@ class HtmlGenerator(menugen.Formatter):
 class ScriptGenerator(menugen.Formatter):
     
     INDENT   ='    '
-    LEAF     ='menuTable.addNode (id="$ID", url="$URL")'   
-    PRE_SUB  ='menuTable.addSubMenu (id="$ID", url="$URL")'
+    LEAF     ="menuTable.addNode ('$ID', '$URL', '$PARENT')"   
+    PRE_SUB  ="menuTable.addNode ('$ID', '$URL', '$PARENT', isSubmenu=true)"
     POST_SUB ='//(end $ID)'
     
     
     def showNode(self, template, node):
         self.show (self.format (template,
                                  ID=node.menuPath(),
-                                 URL=node.getUrl()))
+                                 URL=node.getUrl(),
+                                 PARENT=node.getParentUrl()))
 
 

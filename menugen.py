@@ -204,6 +204,15 @@ class Node(object):
             external URLs are passed literally
         '''
         return self.url or normaliseLocalURL(self.menuPath())
+    
+    
+    def getParentUrl(self):
+        if self.parents:
+            return self.parents[0].getUrl()
+        else:
+            return ''
+
+
 
 
 ### Helpers

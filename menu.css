@@ -15,11 +15,10 @@ padding: 0;
 border-bottom: 3px solid #C4BCB0;
 }
 /* main menu items */
-#menu > li {
+#menu li.submenu {
 border-top: 3px solid #C4BCB0;
 background-color: #F4F4F4;
 padding: 2px 0 0;
-text-indent: 3px;
 }
 #menu > li > span {
 float: right;
@@ -69,5 +68,8 @@ font-size: 14px;
 }
 #menu ul > li > a {
 display: block;
+}
+#menu .current {
+background-color: red;
 }
 

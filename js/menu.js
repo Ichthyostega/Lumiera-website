@@ -1,6 +1,139 @@
 var m = [];
 var opened = [];
 
+function klickmi() {
+  url = document.forms['trostForm'].testUrl.value
+  
+	d = document;
+	f = d.frames ? d.frames['inavi'] : d.getElementById('inavi');
+	mf = f.contentWindow 
+	
+	if (mf){
+		mf.menuTable.select(url)
+	}
+}
+
+function testMe(text) {
+	alert(text)
+	mu = document.getElementById('menu')
+	if (mu) {
+		mu.style.display = 'none'
+	}
+}
+
+function getMenuRoot()
+  {
+    return document.getElementById('menu')
+  }
+
+NOP = function() { }
+
+function addCSSClass (elm, classID)
+  {
+    clzz = elm.className
+//  alert("addCSSClass: clzz="+clzz+'|| indexOf='+clzz.indexOf(classID))
+    if (-1 == clzz.indexOf(classID))
+      {
+//      alert("inne")
+        clzz += ' '+classID
+        elm.className = clzz
+      }
+//  alert("addCSSClass: clzz="+clzz)
+  }
+
+function removeCSSClass (elm, classID)
+  {
+    clzz = elm.className
+//  alert("removeCSS clzz="+clzz+"||")
+    if (clzz && -1 < clzz.indexOf (classID))
+      {
+        clzz = clzz.replace(classID,'')
+//      alert("drinne clzz="+clzz)
+        elm.className = clzz
+      }
+  }
+
+function expand (elm)
+  {
+//  alert("expand("+elm.id+")")
+    elm.style.display = 'block'
+  }
+
+function collapse (elm)
+  {
+//  alert("collapse("+elm.id+")")
+    elm.style.display = 'none'
+  }
+
+
+function MenuNode(id, parent, isSubmenu)
+  {
+    this.elm = document.getElementById(id)
+    this.isSubmenu = isSubmenu
+    this.parent = parent
+    
+    this.markActive = function()
+      {
+        this.expand()
+        addCSSClass (this.elm, 'current')
+      }
+    
+    this.unmark = function()
+      {
+        removeCSSClass (this.elm, 'current')
+        this.collapse()
+      }
+    
+    this.expand = function()
+      {
+        if (this.parent)
+            this.parent.expand()
+        expand(this.elm)
+      }
+    
+    this.collapse = function()
+      {
+        if (this.isSubmenu)
+          collapse(this.elm)
+        if (this.parent)
+          this.parent.collapse()
+      }
+    
+    if (!this.elm)
+      {
+        this.markActive = NOP
+        this.unmark     = NOP
+      }
+  }
+
+
+var menuTable = {}
+
+menuTable.index = { }
+menuTable.current = null
+
+menuTable.addNode = function(id,url,parent, isSubmenu) 
+  {
+    parentEntry = this.index[parent]
+    this.index[url] = new MenuNode(id,parentEntry, isSubmenu)
+  }
+
+menuTable.select = function(url)
+  {
+//  alert("select "+url)
+    element = this.index[url]
+    if (element)
+      {
+        if (this.current) {
+//        alert("vorheriges.unmark()")
+          this.current.unmark()
+        }
+        this.current = element
+        element.markActive()
+      }
+  }
+
+/*
 function hide_submenus() {
   m = document.getElementById("menu").children;
 
@@ -85,3 +218,4 @@ function getCookie(c_name) {
 }
 
 window.onload = hide_submenus;
+*/
