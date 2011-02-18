@@ -1,0 +1,32 @@
+Debug the Menu
+==============
+
+//MENU: off
+
+
+This page is used to check, develop and debug the menu handling scripts.
+
+[pass]
++++++++++++++++++++++++++++++
+<form id="menuDebugger" >
+  <input type="text" name="testUrl" size="40" value="/documentation/technical/index.html" />
+  <input type="button" onclick="simulateActivation()" value="simulate: activate this page" />
+</form>
+
+<script type="text/javascript">
+
+function simulateActivation() {
+  url = document.forms['menuDebugger'].testUrl.value
+  
+	d = document;
+	f = d.frames ? d.frames['inavi'] : d.getElementById('inavi');
+	mf = f.contentWindow 
+	
+	if (mf){
+		mf.menuTable.select(url)
+	}
+}
+</script>
++++++++++++++++++++++++++++++
+
+WARN for the lumi hackers only
