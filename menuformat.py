@@ -14,18 +14,9 @@
 #####################################################################
 
 
-#import os
-#import re
-#import sys
-#import types
-#from os import path
-#from optparse import OptionParser
-#from subprocess import Popen, PIPE
 import string
 import menugen
 
-#------------CONFIGURATION-----------------------------
-#------------CONFIGURATION-----------------------------
 
 
 menuTemplate = '''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
@@ -74,7 +65,7 @@ def expandButtonHTML(id):
 class HtmlGenerator(menugen.Formatter):
     
     INDENT   ='    '
-    LEAF     ='<li id="$ID"><a href="$URL" target="_top" >$LABEL</a></li>'   
+    LEAF     ='<li id="$ID"><a href="$URL" target="_top" >$LABEL</a></li>'
     PRE_SUB  ='<li class="submenu"><a href="$URL" target="_top" >$LABEL</a>  $EXPANDBUTTON <ul id="$ID">'
     POST_SUB ='</ul></li>'
     
@@ -92,7 +83,7 @@ class HtmlGenerator(menugen.Formatter):
 class ScriptGenerator(menugen.Formatter):
     
     INDENT   ='    '
-    LEAF     ="menuTable.addNode ('$ID', '$URL', '$PARENT')"   
+    LEAF     ="menuTable.addNode ('$ID', '$URL', '$PARENT')"
     PRE_SUB  ="menuTable.addNode ('$ID', '$URL', '$PARENT', isSubmenu=true)"
     POST_SUB ='//(end $ID)'
     
