@@ -24,7 +24,10 @@ function getMenuIFrameContent()
   {
     d = document;
     iFrame = d.frames ? d.frames['inavi'] : d.getElementById('inavi');
-    return iFrame.contentWindow 
+    if (iFrame)
+      return iFrame.contentWindow
+    else
+      return null
   }
 
 function getMenuRoot()
