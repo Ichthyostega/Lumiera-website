@@ -1,25 +1,4 @@
-var m = [];
-var opened = [];
 
-function klickmi() {
-  url = document.forms['trostForm'].testUrl.value
-  
-	d = document;
-	f = d.frames ? d.frames['inavi'] : d.getElementById('inavi');
-	mf = f.contentWindow 
-	
-	if (mf){
-		mf.menuTable.select(url)
-	}
-}
-
-function testMe(text) {
-	alert(text)
-	mu = document.getElementById('menu')
-	if (mu) {
-		mu.style.display = 'none'
-	}
-}
 
 function getMenuRoot()
   {
@@ -53,16 +32,25 @@ function removeCSSClass (elm, classID)
       }
   }
 
-function expand (elm)
+function blockVisibility (elm, operation)
   {
+    if (!elm) return
+    if ('expand' == operation)
+      newSetting = 'block'
+    else
+    if ('collapse' == operation)
+      newSetting = 'none'
+    else
+      {
+        currentState = elm.style.display
+        if (!currentState || 'none' == currentState)
+             newSetting = 'block'
+        else newSetting = 'none'
+      }
+    elm.style.display = newSetting
+//  alert("blockVisibility "+elm.id+" new:"+newSetting)
 //  alert("expand("+elm.id+")")
-    elm.style.display = 'block'
-  }
-
-function collapse (elm)
-  {
 //  alert("collapse("+elm.id+")")
-    elm.style.display = 'none'
   }
 
 
@@ -88,23 +76,34 @@ function MenuNode(id, parent, isSubmenu)
       {
         if (this.parent)
             this.parent.expand()
-        expand(this.elm)
+        blockVisibility (this.elm, 'expand')
       }
     
     this.collapse = function()
       {
         if (this.isSubmenu)
-          collapse(this.elm)
+          blockVisibility (this.elm, 'collapse')
         if (this.parent)
           this.parent.collapse()
       }
     
-    if (!this.elm)
+    this.toggleExpand = function()
+      {
+        if (this.isSubmenu)
+          blockVisibility (this.elm, 'toggle')
+      }
+    
+    if (this.elm) // ensure initial state
+      {
+        blockVisibility (this.elm, 'expand')
+      }
+    else
       {
         this.markActive = NOP
         this.unmark     = NOP
         this.expand     = NOP
         this.collapse   = NOP
+        this.toggleExpand=NOP
       }
   }
 
@@ -118,6 +117,7 @@ menuTable.addNode = function(id,url,parent, isSubmenu)
   {
     parentEntry = this.index[parent]
     node = new MenuNode(id,parentEntry, isSubmenu)
+    this.index[id] = node
     this.index[url] = node
     this.current.push(node) // new nodes are marked as "current",
   }                        //  causing them to be collapsed on next selection
@@ -137,7 +137,20 @@ menuTable.select = function(url)
       }
   }
 
+menuTable.toggle = function(id)
+  {
+    node = this.index[id]
+    if (node)
+      node.toggleExpand()
+  }
+
 /*
+
+var m = [];
+var opened = [];
+
+
+
 function hide_submenus() {
   m = document.getElementById("menu").children;
 

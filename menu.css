@@ -20,8 +20,11 @@ border-top: 3px solid #C4BCB0;
 background-color: #F4F4F4;
 padding: 2px 0 0;
 }
-#menu > li > span {
+/* expand buttons */
+#menu  .expand_button {
 float: right;
+font-size: 8px;
+text-indent: 0;
 padding: 0 5px;
 cursor: s-resize;
 }

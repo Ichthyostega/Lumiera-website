@@ -56,6 +56,7 @@ $menuScript
 </html>
 '''
 
+
 def generateHTML(buildingBlocks):
     ''' instantiate the menu template,
         thereby expanding the placeholders
@@ -65,6 +66,8 @@ def generateHTML(buildingBlocks):
     return engine.substitute(buildingBlocks)
 
 
+def expandButtonHTML(id):
+    return '<span class="expand_button" onclick="menuTable.toggle(\'%s\')">+</span>' % id
 
 
 
@@ -72,15 +75,17 @@ class HtmlGenerator(menugen.Formatter):
     
     INDENT   ='    '
     LEAF     ='<li id="$ID"><a href="$URL" target="_top" >$LABEL</a></li>'   
-    PRE_SUB  ='<li class="submenu"><a href="$URL" target="_top" >$LABEL</a>  <ul id="$ID">'
+    PRE_SUB  ='<li class="submenu"><a href="$URL" target="_top" >$LABEL</a>  $EXPANDBUTTON <ul id="$ID">'
     POST_SUB ='</ul></li>'
     
     
     def showNode(self, template, node):
+        nodeID = node.menuPath()
         self.show (self.format (template,
-                                 ID=node.menuPath(),
+                                 ID=nodeID,
                                  URL=node.getUrl(),
-                                 LABEL=node.label))
+                                 LABEL=node.label,
+                                 EXPANDBUTTON=expandButtonHTML(nodeID)))
 
 
 
