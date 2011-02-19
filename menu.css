@@ -73,6 +73,14 @@ text-indent: 1.5em;
 #menu ul ul ul {
 text-indent: 2em;
 }
+/* level-5 indentation */
+#menu ul ul ul ul {
+text-indent: 2.33em;
+}
+/* level-6 indentation */
+#menu ul ul ul ul ul{
+text-indent: 2.66em;
+}
 
 /* Submenu-items */
 #menu ul > li {
