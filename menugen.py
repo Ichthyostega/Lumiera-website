@@ -58,6 +58,10 @@ def addPredefined():
     tech.linkChild('technical/proc')
     tech.linkChild('technical/backend')
     
+    proj.prependChild ('screenshots')\
+        .putChildAfter('press', 'end')\
+        .putChildAfter('faq', refPoint=Node('screenshots'))
+    
 
 
 
@@ -140,13 +144,18 @@ class Node(object):
     
     def __new__(type, id, **args):
         ''' Factory function for nodes: retrieve existing or create new '''
-        assert id
+        if not id:
+            return None # neutral
+        if isinstance(id, Node):
+            return id   # idempotent
+        
         assert isinstance(id, basestring)
         node = Node.index.find(id)
         if node == None:
             node = object.__new__(type)
             Node.index.add(id,node)
         return node
+    
     
     def __init__(self, id, **args):
         if not self._isInit():
@@ -155,16 +164,55 @@ class Node(object):
             self.label = self.id
             self.parents = []
             self.children = []
+            self.placements = []
+            self._active = True
         self.__dict__.update(args)
     
-    def _isInit(self): return 'id' in self.__dict__
+    def _isInit(self):
+        return 'id' in self.__dict__
     
-    def __repr__(self): return 'Node(%s)' % self.id
+    def __str__(self):
+        return 'Node(%s)' % self.id
     
-    def __iter__(self): return self.children.__iter__() 
+    def enabled(self, yes=True):
+        self._active = yes
+    
+    
+    def __iter__(self):
+        ''' this is the main access interface:
+            after the menu tree has been populated,
+            the output generation will walk the tree
+            by visiting each node and recursing down.
+            @note invoking this method for the first time
+                  will execute any stored placement and
+                  processing constraints and specifications,
+                  thus bringing the menu into final shape
+        '''
+        for placementSpec in self.placements:
+            placementSpec.execute (self)
+        self.placements = []
+        return self.children.__iter__()
+    
+    def preprocess(self):
+        ''' used by directory discovery / file parsing '''
+        for placementSpec in self.placements:
+            placementSpec.preprocess (self)
+    
+    
+    def __getattr__(self, methodID):
+        ''' enable DSL-style use of Node instances.
+            When invoking an unknown method, we'll try
+            all currently registered Placement spec handlers.
+            The first one able to handle that method will create
+            a Placement/Postprocessing entry, which will be stored
+            to be applied later, before fetching the children.
+        '''
+        return Placement.maybeInvoke (self, methodID)
+    
     
     
     def linkChild (self, childId):
+        if not self._active: return None
         child = Node(childId)
         if not child in self.children:
             self.children.append(child)
@@ -172,11 +220,20 @@ class Node(object):
         return child
     
     def linkParent (self, parentId):
+        if not self._active: return None
         parent = Node(parentId)
         if not parent in self.parents:
             self.parents.append(parent)
             parent.children.append(self)
         return parent
+    
+    def detach(self):
+        ''' detach node from menu tree '''
+        for parent in self.parents:
+            parent.children.remove(self)
+        self.parents = []
+        self.children = []
+        self._active = False
     
     
     def matches (self, nodeKey):
@@ -215,7 +272,7 @@ class Node(object):
 
 
 
-### Helpers
+### Helpers for ID / URL handling
 
 def normaliseComponentId(id):
     p = id.rfind('/')
@@ -245,6 +302,252 @@ def normaliseLocalURL(url):
         url = '/'+url
     return url
     
+
+
+
+##################### Attachment Control #########################
+
+class Placement(object):
+    ''' baseclass for specifications
+        to control if and how some entries are
+        to be included into the generated menu tree.
+        Concrete Placement subclasses are (post)processing Instructions
+        They are either picked up by parsing a textual spec in Asciidoc page,
+        or by invoking a suitable method on an existing Node instance, e.g.
+        in the #addPredefined() function (internal DSL style).
+        Each Node instance may collect a list of individual Placement specs.
+        Typical examples being to sort the children, place an entry at a
+        specific point, or disable recursion or menu generation alltogether.
+    '''
+    handlers = [] # List of all usable kinds of Placement specs (Subclasses)
+    
+    def preprocess(self,node): pass
+    def execute(self, node):                   __err("abstract") # make this placement spec effective on the given node 
+    def acceptVerb(self, methodID, *arg,**kw): __err("abstract") # try to accept a method invocation to yield a placement
+    def acceptDSL(self, specificationTextLine):__err("abstract") # try to accept a textual spec from a file to be parsed
+    
+    @staticmethod
+    def maybeParse (specification):
+        ''' try to find a suitable Placement subclass (handler),
+            which is able to accept the given DSL text line
+        '''
+        for handler in Placement.handlers:
+            try:
+                placement = apply(handler).acceptDSL(specification)
+                if placement:
+                    return placement
+            except: pass
+        return None
+    
+    @staticmethod
+    def maybeInvoke (targetNode, methodID):
+        ''' @return functor to build the first suitable Placement subclass (handler),
+            which is able to process the given method call with the concrete arguments
+        '''
+        def tryVerb (*arg,**kw):
+            for handler in Placement.handlers:
+                try:
+                    placement = apply(handler).acceptVerb(methodID, *arg,**kw)
+                    if placement:
+                        targetNode.placements.append(placement)
+                        return targetNode
+                except: pass
+            print_warning('DSL-method "%s" not applicable for %s' % (methodID,targetNode))
+            return None
+        
+        return tryVerb
+
+
+
+
+class PlaceChildAfter(Placement):
+    ''' concrete child placement specification,
+        denoting that a given child has to be placed at a
+        specific point in the list of the child nodes (sub menu entries)
+        of the menu entry currently in question. The position is given
+        by mentioning another child, after which to place the entry.
+        Alternatively, this placement spec may also be used to put
+        a child node at the start of the list
+    '''
+    
+    def __init__(self):
+        self.refPoint = None
+        self.childToPlace = None
+    
+    def __repr__(self):
+        return '|child %s after %s|' % (self.childToPlace,self.refPoint)
+    
+    def execute(self, node):
+        ''' This placement expresses an child ordering constraint
+            Do what needs to be done to the children of the given node,
+            in order to fulfill this constraint.
+            @note no ref point -> prepend child
+            @note ref point not found -> append child
+        '''
+        assert node
+        assert self.childToPlace
+        node.linkChild(self.childToPlace)
+        node.children.remove (self.childToPlace)
+        if not self.refPoint:
+            insertPoint = 0
+        elif self.refPoint and self.refPoint in node.children:
+            insertPoint = 1 + node.children.index (self.refPoint)
+        else:
+            insertPoint = len(node.children)
+        node.children.insert (insertPoint, self.childToPlace)
+    
+    
+    def acceptVerb(self, methodID, child, refPoint=None):
+        ''' when invoked as DSL method with the given parameters,
+            try to configure this child placement constraint such
+            as to reflect the given placement wish
+            @return this constraint or None, if the DSL method name
+                    or the concrete parameters are not suitable
+        '''
+        if 'putChildAfter' == methodID and child:
+            self.childToPlace = Node(child)
+            self.refPoint = Node(refPoint)
+            return self
+        if ('putChildFirst' == methodID or
+            'prependChild' == methodID ) and child:
+            self.childToPlace = Node(child)
+            self.refPoint = None
+            return self
+        else:
+            return None
+    
+    
+    def acceptDSL(self, specificationTextLine):
+        ''' try to parse the spec into a child ordering constraint.
+            @return this constraint, suitably configured, or None
+        '''
+        match = childAfter_RE.search (specificationLine)
+        if (match):
+            self.childToPlace = Node (match.group(2))
+            self.refPoint     = Node (match.group(3))
+            assert self.childToPlace
+            return self
+        match = childPrepend_RE.search (specificationLine)
+        if (match):
+            self.childToPlace = Node (match.group(2))
+            self.refPoint     = None
+            assert self.childToPlace
+            return self
+        else:
+            return None
+
+
+# DSL Parsing...
+quote_ = r'[\'\"]'
+s__    = r'\s+' 
+node__ = s__+quote_ + r'(\w[\w\s\-\.]*)' + quote_+s__
+
+attach_child_after_ = r'(attach|put)?\s+child'+node__+r'after'+node__
+prepend_child_      = r'prepend\s+(child)?'+node__
+
+childAfter_RE   = re.compile (attach_child_after_, re.IGNORECASE)
+childPrepend_RE = re.compile (prepend_child_,      re.IGNORECASE)
+
+
+
+
+
+
+class SortChildren(Placement):
+    
+    def __repr__(self):
+        return '|sort children|'
+    
+    def execute(self, node):
+        ''' when applied, sort the child nodes alphabetically
+        '''
+        assert node
+        node.children.sort(key = lambda child: child.label.lower())
+    
+    
+    def acceptVerb(self, methodID):
+        if 'sortChildren' == methodID:
+            return self
+        else:
+            return None
+    
+    
+    def acceptDSL(self, specificationTextLine):
+        match = sortChildren_RE.search (specificationLine)
+        if (match):
+            return self
+        else:
+            return None
+
+
+sortChildren_   = r'sort(\s+children)?'
+sortChildren_RE = re.compile (sortChildren_, re.IGNORECASE)
+
+
+
+
+
+class EnableEntry(Placement):
+    
+    def __init__(self):
+        self.on = None
+        self.detach = False
+    
+    def __repr__(self):
+        return '|enable=%s detach=%s|' % (self.on,self.detach)
+    
+    def preprocess(self, node):
+        assert node
+        node.enabled(self.on)
+        if self.detach: node.detach()
+    
+    def execute(self, node):
+        assert node
+        assert None != self.on
+        if self.detach: node.detach()
+    
+    
+    def acceptVerb(self, methodID):
+        if 'detach' == methodID:
+            self.on = False
+            self.detach = True
+            return self
+        # note: class Node has an 'enabled' method, which can be invoked directly.
+        #       But this method only toggles activity, but doesn't detach
+        else:
+            return None
+    
+    
+    def acceptDSL(self, specificationTextLine):
+        match = activateNode_RE.search (specificationLine)
+        if (match):
+            if match.group(1):
+                self.on = True
+                self.detach = False
+            else:
+                self.on = False
+            return self
+        match = detachNode_RE.search (specificationLine)
+        if (match):
+            self.on = False
+            self.detach = True
+        else:
+            return None
+
+
+activateNode_   = r'(on|active|activate)|(off|disable|deactivate)'
+detachNode_     = r'detach'
+
+activateNode_RE = re.compile (activateNode_, re.IGNORECASE)
+detachNode_RE   = re.compile (detachNode_,   re.IGNORECASE)
+
+
+
+### Define all usable Placement kinds:
+Placement.handlers += [PlaceChildAfter
+                      ,SortChildren
+                      ,EnableEntry
+                      ]
 
 
 
@@ -373,13 +676,16 @@ def __err(text):
     print "--ERROR-------------------------"
     print >> sys.stderr, text
     sys.exit(255)
+    
+def __exerr(text):
+    ######DEBUG raise sys.exc_type,sys.exc_value
+    __err(text + ": »%s« (%s)" % (sys.exc_type,sys.exc_value))
 
 def __warn(text):
     print >> sys.stderr, "--WARNING--   " + str(text)
 
-def __exerr(text):
-    ######DEBUG raise sys.exc_type,sys.exc_value
-    __err(text + ": »%s« (%s)" % (sys.exc_type,sys.exc_value))
+print_warning = __warn
+
 
 
 if __name__ == "__main__":
