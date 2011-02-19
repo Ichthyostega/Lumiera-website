@@ -22,14 +22,17 @@ import types
 from os import path
 from optparse import OptionParser
 import string
-import menuformat
-#from subprocess import Popen, PIPE
+
+import menuformat   # defines specific HTML to generate
 
 
 #------------CONFIGURATION-----------------------------
-PROGVER       = 0.1
-PROGNAME      = 'menugen'
-TREE_ROOT     = 'root'
+PROGVER      = 0.1
+PROGNAME     = 'menugen'
+TREE_ROOT    = 'root'
+INDEX_NAME   = 'index'
+SRC_FILE_EXT = '.txt'
+WEBPAGE_EXT  = '.html'
 #------------CONFIGURATION-----------------------------
 
 
@@ -58,9 +61,9 @@ def addPredefined():
     tech.linkChild('technical/proc')
     tech.linkChild('technical/backend')
     
-    proj.prependChild ('screenshots')\
-        .putChildAfter('press', 'end')\
-        .putChildAfter('faq', refPoint=Node('screenshots'))
+    proj.prependChild ('screenshots')
+    proj.putChildAfter('press', 'end')
+    proj.putChildAfter('faq', refPoint=Node('screenshots'))
     
 
 
@@ -109,6 +112,100 @@ def parseAndDo():
         generateTextMenu()
     
     sys.exit(0)
+
+
+
+##################### Parsing and Discovery ######################
+
+def discoverPages (startdir):
+    startdir = path.abspath(startdir)
+    __warn("discoverPages(%s)" % startdir)
+    discoverLocation (startdir)
+
+
+def discoverLocation(loc, parent=None):
+    file = findSource (loc)
+    node = scanSource (loc, file, parent)
+    for child in discoverChildren(node, loc):
+        discoverLocation (child, parent=node)
+
+
+isDir  = lambda p: p and path.isdir(p)  and os.access(p,os.R_OK)
+isFile = lambda p: p and path.isfile(p) and os.access(p,os.R_OK)
+
+nameID = lambda p: p and path.splitext(path.basename(p))[0]
+
+
+########################
+### Discovery strategies
+
+def findSource (loc):
+    ''' strategy to find a relevant source file
+        corresponding to the given path location
+    '''
+    if isDir(loc):
+        nodeID = path.basename(loc)
+        sourceFile = findSource (path.join(loc,INDEX_NAME)) # try name/index.txt
+        if isFile(sourceFile):
+            return sourceFile
+        sourceFile = findSource (path.join(loc,nodeID))     # try name/name.txt
+        if isFile(sourceFile):
+            return sourceFile
+    (base,ext) = path.splitext(loc)
+    sourceFile = base+SRC_FILE_EXT                          # try name.txt
+    if isFile(sourceFile):
+        return sourceFile
+    else:
+        return None
+
+
+def discoverChildren(node, currentLocation):
+    ''' get possible child locations to scan.
+        Decision where to search is delegated to the Node
+    '''
+    def findPossibleChildren():
+        if node:
+            loc = node.childSearchLocation(currentLocation)
+            if loc and isDir(loc):
+                currentBase = nameID(currentLocation)
+                for entry in os.listdir(loc):
+                    entry = nameID(entry)
+                    if INDEX_NAME  ==entry: continue        # skip name/index.txt
+                    if currentBase ==entry: continue        # skip name/name.txt
+                    candidate = path.join(loc,entry)
+                    if candidate:
+                        yield candidate
+    
+    uniqueChildSourcefiles = set (findPossibleChildren())
+    return uniqueChildSourcefiles;
+
+
+def discoverChildrenRecursively(location):
+    ''' strategy how to proceed from a given location
+        to find possible child menu entries. Should
+        return None to stop recursive descent '''
+    if not isDir(location):
+        return None
+    else:
+        return location
+
+
+
+
+
+def scanSource (location, file, parentNode):
+    ''' scan the Asciidoc source text
+        for Menu specs embedded in comments.
+        Translate these into Node invocations
+    '''
+    nodeID = nameID(location)
+    if parentNode:
+        nodeID = path.join(parentNode.menuPath(), nodeID)
+    node = Node(nodeID)
+    __warn('would scan "%s" \t--> %s \t as child of %s' % (file, node, parentNode))
+    return node
+    
+
 
 
 
@@ -166,6 +263,7 @@ class Node(object):
             self.children = []
             self.placements = []
             self._active = True
+            self._childDiscoveryStrategy = discoverChildrenRecursively
         self.__dict__.update(args)
     
     def _isInit(self):
@@ -247,6 +345,13 @@ class Node(object):
                 ('/' in nodeKey and self.menuPath().endswith(nodeKey)))
     
     
+    def childSearchLocation(self, location):
+        ''' @return directory where child nodes may be dicovered,
+            possibly relative to the current discovery location.
+            None if automatic child discovery is suppressed '''
+        return self._childDiscoveryStrategy (location)
+    
+    
     def menuPath(self):
         ''' constructs the path within the menu, starting with this node as leaf '''
         if self.parents:
@@ -282,19 +387,20 @@ def normaliseComponentId(id):
         
 
 def normaliseLocalURL(url):
-    if url.startswith('root'):
+    if url.startswith(TREE_ROOT):
         url = url[4:]
     if url.startswith('/'):
         url = url[1:]
     root = path.abspath(startdir)
     file = path.join(root, url)
     if path.isdir(file):
-        file = path.join(file,'index.html')
+        IndexHTML = INDEX_NAME+WEBPAGE_EXT
+        file = path.join(file,IndexHTML)
         if path.isfile(file):
-            url += "/index.html"
+            path.join (url, IndexHTML)
     if not path.exists(file):
-        if path.isfile(file+'.html'):
-            url += '.html'
+        if path.isfile(file+WEBPAGE_EXT):
+            url += WEBPAGE_EXT
         else:
             __warn('not found: '+file)
             
@@ -548,15 +654,6 @@ Placement.handlers += [PlaceChildAfter
                       ,SortChildren
                       ,EnableEntry
                       ]
-
-
-
-##################### Parsing and Discovery ######################
-
-def discoverPages (startdir):
-    startdir = path.abspath(startdir)
-    __warn("discoverPages(%s)" % startdir)
-
 
 
 
