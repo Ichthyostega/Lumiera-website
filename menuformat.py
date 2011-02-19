@@ -18,6 +18,10 @@ import string
 import menugen
 
 
+#------------CONFIGURATION-----------------------------
+ENTRY_LENGTH = 17
+#------------CONFIGURATION-----------------------------
+
 
 menuTemplate = '''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
     "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
@@ -60,22 +64,35 @@ def generateHTML(buildingBlocks):
 def expandButtonHTML(id):
     return '<span class="expand_button" onclick="menuTable.toggle(\'%s\')">+</span>' % id
 
+def menuEntryText(node):
+    label = node.label
+    if not label or len(label) > ENTRY_LENGTH:
+        hover = 'title="%s"' % label
+        label = menugen.titleFormatted(node.id)
+        if len(label) > ENTRY_LENGTH:
+            label = label[:ENTRY_LENGTH-3]+'...'
+    else:
+        hover = ''
+    return (label, hover)
+        
 
 
 class HtmlGenerator(menugen.Formatter):
     
     INDENT   ='    '
-    LEAF     ='<li id="$ID"><a href="$URL" target="_top" >$LABEL</a></li>'
-    PRE_SUB  ='<li class="submenu"><a href="$URL" target="_top" >$LABEL</a>  $EXPANDBUTTON <ul id="$ID">'
+    LEAF     ='<li id="$ID"><a href="$URL" target="_top" $HOVER >$LABEL</a></li>'
+    PRE_SUB  ='<li class="submenu"><a href="$URL" target="_top" $HOVER >$LABEL</a>  $EXPANDBUTTON <ul id="$ID">'
     POST_SUB ='</ul></li>'
     
     
     def showNode(self, template, node):
         nodeID = node.menuPath()
+        (visibleTxt, hover) = menuEntryText(node)
         self.show (self.format (template,
                                  ID=nodeID,
                                  URL=node.getUrl(),
-                                 LABEL=node.label,
+                                 LABEL=visibleTxt,
+                                 HOVER=hover,
                                  EXPANDBUTTON=expandButtonHTML(nodeID)))
 
 

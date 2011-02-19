@@ -221,7 +221,7 @@ def scanSource (location, srcFile, parentNode):
         nodeID = nameID(location)
         nodeID = path.join(parentNode.menuPath(), nodeID)
     node = Node(nodeID)
-    __warn('scan "%s" \t--> %s \t as child of %s' % (srcFile, node, parentNode))
+    
     assert isFile(srcFile)
     srcTxt = file(srcFile)
     title = findTitle(srcTxt)
@@ -312,7 +312,7 @@ class Node(object):
         if not self._isInit():
             self.id = normaliseComponentId(id)
             self.url = None
-            self.label = self.id.capitalize()
+            self.label = titleFormatted(self.id)
             self.parents = []
             self.children = []
             self.placements = []
@@ -471,7 +471,19 @@ def normaliseLocalURL(url):
     if not url.startswith('/'):
         url = '/'+url
     return url
-    
+
+
+def titleFormatted(nameID):
+    nameID = nameID.strip()
+    if nameID.islower():
+        nameID = nameID.capitalize()
+    else:
+        # break 'CamelCase' words apart
+        nameID = camelCase_RE.sub(r'\1 \2', nameID)
+    return nameID
+
+camelCase_RE = re.compile(r'([a-z])([A-Z])')
+
 
 
 
