@@ -33,6 +33,7 @@ TREE_ROOT    = 'root'
 INDEX_NAME   = 'index'
 SRC_FILE_EXT = '.txt'
 WEBPAGE_EXT  = '.html'
+menuSpec_RE  = re.compile(r'^//\s*MENU\s*:\s*', re.IGNORECASE)
 #------------CONFIGURATION-----------------------------
 
 
@@ -119,7 +120,6 @@ def parseAndDo():
 
 def discoverPages (startdir):
     startdir = path.abspath(startdir)
-    __warn("discoverPages(%s)" % startdir)
     discoverLocation (startdir)
 
 
@@ -170,6 +170,7 @@ def discoverChildren(node, currentLocation):
                 currentBase = nameID(currentLocation)
                 for entry in os.listdir(loc):
                     entry = nameID(entry)
+                    if not entry          : continue        # skip hidden files
                     if INDEX_NAME  ==entry: continue        # skip name/index.txt
                     if currentBase ==entry: continue        # skip name/name.txt
                     candidate = path.join(loc,entry)
@@ -193,18 +194,58 @@ def discoverChildrenRecursively(location):
 
 
 
-def scanSource (location, file, parentNode):
+def scanSource (location, srcFile, parentNode):
     ''' scan the Asciidoc source text
         for Menu specs embedded in comments.
         Translate these into Node invocations
+        @note various Placement subclasses perform
+              the actual parsing and manipulations. 
     '''
-    nodeID = nameID(location)
-    if parentNode:
+    if not (srcFile and location): return None
+    if not parentNode:
+        nodeID = TREE_ROOT     # first Node encountered is /root by definition
+    else:
+        nodeID = nameID(location)
         nodeID = path.join(parentNode.menuPath(), nodeID)
     node = Node(nodeID)
-    __warn('would scan "%s" \t--> %s \t as child of %s' % (file, node, parentNode))
-    return node
+    __warn('scan "%s" \t--> %s \t as child of %s' % (srcFile, node, parentNode))
+    assert isFile(srcFile)
+    srcTxt = file(srcFile)
+    title = findTitle(srcTxt)
+    if title: node.label = title
+    for spec in extractMenuSpecs(srcTxt):
+        ok = Placement.maybeParse (node, spec)
+        if not ok:
+            __warn('Source "%s":\t ignoring MENU: %s' % (nodeID, spec))
     
+    # attach to menu if enabled
+    node.preprocess()
+    node.linkParent(parentNode)
+    return node
+
+
+def findTitle(srcFile):
+    assert not srcFile.closed
+    srcFile.seek(0)
+    title = None
+    for line in srcFile:
+        if not title:
+            title = line.strip()      # search first nonempty line
+        elif line.startswith('=' * (len(title)-1)):
+            return title              # immediately followed by '====....'
+        else:
+            return None               # everything else is invalid
+
+
+def extractMenuSpecs(srcFile):
+    assert not srcFile.closed
+    srcFile.seek(0)
+    for line in srcFile:
+        match = menuSpec_RE.match (line)
+        if (match):
+            yield line[match.end():].strip()
+
+
 
 
 
@@ -258,7 +299,7 @@ class Node(object):
         if not self._isInit():
             self.id = normaliseComponentId(id)
             self.url = None
-            self.label = self.id
+            self.label = self.id.capitalize()
             self.parents = []
             self.children = []
             self.placements = []
@@ -286,15 +327,22 @@ class Node(object):
                   processing constraints and specifications,
                   thus bringing the menu into final shape
         '''
-        for placementSpec in self.placements:
-            placementSpec.execute (self)
-        self.placements = []
+        self._applyPlacementSpecs()
         return self.children.__iter__()
+    
+    def hasChildren(self): 
+        self._applyPlacementSpecs()
+        return 0 < len(self.children)
     
     def preprocess(self):
         ''' used by directory discovery / file parsing '''
         for placementSpec in self.placements:
             placementSpec.preprocess (self)
+    
+    def _applyPlacementSpecs(self):
+        for placementSpec in self.placements:
+            placementSpec.execute (self)
+        self.placements = []
     
     
     def __getattr__(self, methodID):
@@ -312,7 +360,7 @@ class Node(object):
     def linkChild (self, childId):
         if not self._active: return None
         child = Node(childId)
-        if not child in self.children:
+        if child and not child in self.children:
             self.children.append(child)
             child.parents.append(self)
         return child
@@ -320,7 +368,7 @@ class Node(object):
     def linkParent (self, parentId):
         if not self._active: return None
         parent = Node(parentId)
-        if not parent in self.parents:
+        if parent and not parent in self.parents:
             self.parents.append(parent)
             parent.children.append(self)
         return parent
@@ -341,8 +389,12 @@ class Node(object):
             Typically this is used to retrieve an existing node by symbolic ID,
             using the Node('id') constructor notation
         '''
-        return (self.id == nodeKey or 
-                ('/' in nodeKey and self.menuPath().endswith(nodeKey)))
+        if not nodeKey: return False
+        if self.id == nodeKey: return True
+        mPath = self.menuPath()
+        return ('/' in nodeKey
+               and (   mPath.endswith(nodeKey))
+                    or nodeKey.endswith(mPath))
     
     
     def childSearchLocation(self, location):
@@ -380,10 +432,7 @@ class Node(object):
 ### Helpers for ID / URL handling
 
 def normaliseComponentId(id):
-    p = id.rfind('/')
-    if 0 <= p :
-        id = id[p+1:]
-    return id
+    return nameID(id)
         
 
 def normaliseLocalURL(url):
@@ -392,17 +441,21 @@ def normaliseLocalURL(url):
     if url.startswith('/'):
         url = url[1:]
     root = path.abspath(startdir)
-    file = path.join(root, url)
-    if path.isdir(file):
+    location = path.join(root, url)
+    if path.isdir(location):
         IndexHTML = INDEX_NAME+WEBPAGE_EXT
-        file = path.join(file,IndexHTML)
+        file = path.join(location,IndexHTML)
         if path.isfile(file):
-            path.join (url, IndexHTML)
-    if not path.exists(file):
-        if path.isfile(file+WEBPAGE_EXT):
+            url = path.join (url, IndexHTML)
+        IndexHTML = path.basename(location)+WEBPAGE_EXT
+        file = path.join(location,IndexHTML)
+        if path.isfile(file):
+            url = path.join (url, IndexHTML)
+    if not path.exists(location):
+        if path.isfile(location+WEBPAGE_EXT):
             url += WEBPAGE_EXT
         else:
-            __warn('not found: '+file)
+            __warn('not found: '+location)
             
     if not url.startswith('/'):
         url = '/'+url
@@ -433,7 +486,7 @@ class Placement(object):
     def acceptDSL(self, specificationTextLine):__err("abstract") # try to accept a textual spec from a file to be parsed
     
     @staticmethod
-    def maybeParse (specification):
+    def maybeParse (targetNode, specification):
         ''' try to find a suitable Placement subclass (handler),
             which is able to accept the given DSL text line
         '''
@@ -441,8 +494,11 @@ class Placement(object):
             try:
                 placement = apply(handler).acceptDSL(specification)
                 if placement:
-                    return placement
-            except: pass
+                    targetNode.placements.append(placement)
+                    return targetNode
+            except:
+                print_warning("»%s« (%s)" % (sys.exc_type,sys.exc_value))
+                pass
         return None
     
     @staticmethod
@@ -527,16 +583,22 @@ class PlaceChildAfter(Placement):
         ''' try to parse the spec into a child ordering constraint.
             @return this constraint, suitably configured, or None
         '''
-        match = childAfter_RE.search (specificationLine)
+        match = childAfter_RE.search (specificationTextLine)
         if (match):
             self.childToPlace = Node (match.group(2))
             self.refPoint     = Node (match.group(3))
             assert self.childToPlace
             return self
-        match = childPrepend_RE.search (specificationLine)
+        match = childPrepend_RE.search (specificationTextLine)
         if (match):
-            self.childToPlace = Node (match.group(2))
+            self.childToPlace = Node (match.group(3))
             self.refPoint     = None
+            assert self.childToPlace
+            return self
+        match = childAppend_RE.search (specificationTextLine)
+        if (match):
+            self.childToPlace = Node (match.group(3))
+            self.refPoint     = 'atEnd'
             assert self.childToPlace
             return self
         else:
@@ -544,14 +606,16 @@ class PlaceChildAfter(Placement):
 
 
 # DSL Parsing...
-quote_ = r'[\'\"]'
-s__    = r'\s+' 
+quote_ = r'[\'\"]?'
+s__    = r'\s*' 
 node__ = s__+quote_ + r'(\w[\w\s\-\.]*)' + quote_+s__
 
-attach_child_after_ = r'(attach|put)?\s+child'+node__+r'after'+node__
-prepend_child_      = r'prepend\s+(child)?'+node__
+attach_child_after_ = r'((attach|put)\s+)?child'+node__+r'after'+node__
+prepend_child_      = r'prepend(\s+child)?'+node__
+append_child_       = r'((append|attach)\s+)?child'+node__
 
 childAfter_RE   = re.compile (attach_child_after_, re.IGNORECASE)
+childAppend_RE  = re.compile (append_child_,       re.IGNORECASE)
 childPrepend_RE = re.compile (prepend_child_,      re.IGNORECASE)
 
 
@@ -579,7 +643,7 @@ class SortChildren(Placement):
     
     
     def acceptDSL(self, specificationTextLine):
-        match = sortChildren_RE.search (specificationLine)
+        match = sortChildren_RE.search (specificationTextLine)
         if (match):
             return self
         else:
@@ -625,7 +689,7 @@ class EnableEntry(Placement):
     
     
     def acceptDSL(self, specificationTextLine):
-        match = activateNode_RE.search (specificationLine)
+        match = activateNode_RE.search (specificationTextLine)
         if (match):
             if match.group(1):
                 self.on = True
@@ -633,7 +697,7 @@ class EnableEntry(Placement):
             else:
                 self.on = False
             return self
-        match = detachNode_RE.search (specificationLine)
+        match = detachNode_RE.search (specificationTextLine)
         if (match):
             self.on = False
             self.detach = True
@@ -681,7 +745,7 @@ def generateHtmlMenu():
 def walkMenuTree (tool, subTree = Node(TREE_ROOT)):
     ''' Tree visitation
     '''
-    if not subTree.children:
+    if not subTree.hasChildren():
         tool.treatLeaf (subTree)
     else:
         tool.treatPrefix (subTree)
