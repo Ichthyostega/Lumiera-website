@@ -3,7 +3,7 @@ Contribute
 
 //MENU: on
 
-Lumiera is a open source, community developed project, please join in!
+Lumiera is an open source, community developed project, please join in!
 
 The Lumiera project is very open, anyone can start working on it. We do like to 
 hear from you about what you would like to do so we can coordinate tasks. 
@@ -14,80 +14,24 @@ How can you help?
 The are many ways to help the Lumiera project:
 
 =====================================================
- * <<1,Become a developer>>
+ * <<1,Join & contribute to the Mailing List>>
  * <<2,Help with website & infrastructure>>
- * <<3,Contribute to the Lumiera Design>>
- * <<4,Do little tasks & favours as they come up>>
+ * <<3,Do little tasks & favours as they come up>>
+ * <<4,Contribute to the Lumiera Design>>
+ * <<5,Become a developer>>
  * link:{l}/project/donate.html[Donate!]
 =====================================================
 
 [[1]]
-Become a Developer
-~~~~~~~~~~~~~~~~~~~
+Join and contribute to the Mailing List
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Lumiera is an open project, you don't need and application, you can start 
-working now.
-
-There are portions of the project that need a lot of specific knowledge and 
-experience. Because everyone has different specialties (and likes) we work 
-together to cover the project's necessities. When you join Lumiera, let us know 
-your interests and expertise, there is something for everyone here.
-
-Beginners
-^^^^^^^^^^
-
-Beginners are welcome! Lumiera is a good project to gain knowledge and experience 
-with. Also, we need the people who can let us know when something is too 
-complicated, or the documentation misses something important.
-
-Open Source Attitude
-^^^^^^^^^^^^^^^^^^^^^
-
-While there is some tedious work to do (coding, documenting your work, git)
-please commit to interfere with the work by your actions (or inactions). We are
-careful with documentation and code quality, you're free to contribute but make
-sure your contributions are maintainable and understandable to others.
-
-So, *Think First*. If something is unclear, ask us personally (irc, email). 
-Very often any issues can be resolved right there. Many ideas are well-thought 
-out at this point in the project try to read our discussions and reasoning about 
-how we go there. If you still don't understand, ask. Just as we are open to ideas 
-please also keep an open mind for suggestions.
-
-Resources
-^^^^^^^^^^
-
-The project is built with a git repository running a builddrone. We have our own 
-continuous integration system running on the development server. This monitors 
-certain repositories, builds the code and runs the test suite etc. You can look 
-at the current state at http:/builddrone/table.html[] and its
-root dir (http:/builddrone/[]) contains the raw build logs too. 
-
-Builddrone is very much work in progress and we would
-like if anyone helps developing it further.
-
-To learn about git you can read the link:{l}/quickstart.html[quickstart-html] 
-link:{l}/quickstart.txt[txt] Note that this is written for the sitework and just 
-an overview of how git works.
-
-Everyone works on his own git, merges with anyone else, at times we decide to 
-accumulate work into a master git.
-
-Build the Lumiera GUI from the git source repository: 
-link:http://lumiera.org/Lumiera/NewbiesTutorials[Newbie Tutorial].
-
-To understand the design of Lumiera visit link:{l}/documentation/design/index.html[Design Documentation]
-
-For technical information on developed components link:{l}/documentation/technical/index.html[Technical Documentation]
-
-For the structure of the code look at our http://www.lumiera.org/doxy/[Doxygen documentation]
-
-To find, read and claim trac tickets: link:http://issues.lumiera.org/ [Lumiera Trac]
-
-Talk to us on IRC: #lumiera @ irc.freenode.net
-
-Join the mailinglist: link:http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[subscribe to it].
+The mailing list is very active. Everybody is welcome here, that is what the developers use for technical discussion
+ but we encourage you to subscribe, follow and use it for bringing proposals, technical or user-level questions and any kind of request concerning Lumiera.
+You can link:http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[subscribe to the Mailing List].
 You can also read the http://lists.lumiera.org/pipermail/lumiera/[Mailinglist archives].
+To talk with us in realtime you can visit our IRC channel, simplly join #lumiera on irc.freenode.net
+
 
 [[2]]
 Help with our website and infrastructure
@@ -164,17 +108,6 @@ Some useful links
  * link:http://powerman.name/doc/asciidoc[asciidoc cheatsheet]
 
 [[3]]
-Contribute to the Lumiera design
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-////
-
-An explanation of design documentation and rfc's is needed here, bjmr has no idea
-what to write
-
-////
-
-[[4]]
 Complete small tasks and favours
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -182,7 +115,83 @@ We always have small needs and necessities, please check trac: link:http://issue
 
 And keep up with the mailing list.
 
+[[4]]
+Contribute to the Lumiera design
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The design of Lumiera is being documented, see the related section of the documentation : link:{l}/documentation/design/index.html
+We base the development of the design on RfCs, these originally are proposals by developers that then become accepted or not.
+link:{l}/documentation/devel/rfc.html[Read more about our RfC system].
+
+[[5]]
+Become a Developer
+~~~~~~~~~~~~~~~~~~~
+
+Lumiera is an open project, you don't need an application, you can start 
+working now.
+
+There are portions of the project that need a lot of specific knowledge and 
+experience. Because everyone has different specialties (and likes) we work 
+together to cover the project's necessities. When you join Lumiera, let us know 
+your interests and expertise, there is something for everyone here.
+
+Beginners
+^^^^^^^^^^
+
+Beginners are welcome! Lumiera is a good project to gain knowledge and experience 
+with. Also, we need the people who can let us know when something is too 
+complicated, or the documentation misses something important.
+
+Open Source Attitude
+^^^^^^^^^^^^^^^^^^^^^
+
+While there is some tedious work to do (coding, documenting your work, git)
+please commit to interfere with the work by your actions (or inactions). We are
+careful with documentation and code quality, you're free to contribute but make
+sure your contributions are maintainable and understandable to others.
+
+So, *Think First*. If something is unclear, ask us personally (irc, email). 
+Very often any issues can be resolved right there. Many ideas are well-thought 
+out at this point in the project try to read our discussions and reasoning about 
+how we go there. If you still don't understand, ask. Just as we are open to ideas 
+please also keep an open mind for suggestions.
+
+Resources
+^^^^^^^^^^
+
+The project is built with a git repository running a builddrone. We have our own 
+continuous integration system running on the development server. This monitors 
+certain repositories, builds the code and runs the test suite etc. You can look 
+at the current state at http:/builddrone/table.html[] and its
+root dir (http:/builddrone/[]) contains the raw build logs too. 
+
+Builddrone is very much work in progress and we would
+like if anyone helps developing it further.
+
+To learn about git you can read the link:{l}/quickstart.html[quickstart-html] 
+link:{l}/quickstart.txt[txt] Note that this is written for the sitework and just 
+an overview of how git works.
+
+Everyone works on his own git, merges with anyone else, at times we decide to 
+accumulate work into a master git.
+
+Build the Lumiera GUI from the git source repository: 
+link:http://lumiera.org/Lumiera/NewbiesTutorials[Newbie Tutorial].
+
+To understand the design of Lumiera visit link:{l}/documentation/design/index.html[Design Documentation]
+
+For technical information on developed components link:{l}/documentation/technical/index.html[Technical Documentation]
+
+For the structure of the code look at our http://www.lumiera.org/doxy/[Doxygen documentation]
+
 ////
+
+To find, read and claim trac tickets: link:http://issues.lumiera.org/[Lumiera Trac]
+
+Talk to us on IRC: #lumiera @ irc.freenode.net
+
+Join the mailinglist: link:http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[subscribe to it].
+You can also read the http://lists.lumiera.org/pipermail/lumiera/[Mailinglist archives].
 
 
 

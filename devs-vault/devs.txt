@@ -16,10 +16,13 @@ Joel Holdsworth
 .Library
 
 Hermann Vosseler +
+
 Christian Thäter +
+
 Anton Yakovlev +
 
 .Testsuite
 
 Christian Thäter +
+
 Nicholas Sinnott-Armstrong +

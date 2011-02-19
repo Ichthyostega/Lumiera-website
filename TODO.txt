@@ -62,9 +62,9 @@ could go into +documentation/technical/build+
 
 == Contribute page ==
 
-* check content
-* add a paragraph about joining the mailing list and put that paragraph at the top
-* maybe move the "become a developer" to the bottom?
+* *DONE*: check content
+* *DONE*: add a paragraph about joining the mailing list and put that paragraph at the top
+* *DONE*: maybe move the "become a developer" to the bottom?
 * collect all the scattered *Tutorial* pages and move them to documentation/user/tutorials
 
 == Devs vault ==
