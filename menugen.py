@@ -143,22 +143,32 @@ def findSource (loc):
     ''' strategy to find a relevant source file
         corresponding to the given path location
     '''
+    return buildFilename (loc, SRC_FILE_EXT)
+
+
+def buildFilename (loc, FILE_EXT):
+    ''' strategy to build acceptable file names,
+        especially handling directory index files
+        @param FILE_EXT: extension to require on files 
+        @return: an existing file or index file
+    '''
     if isDir(loc):
-        nodeID = path.basename(loc)
-        sourceFile = findSource (path.join(loc,INDEX_NAME)) # try name/index.txt
-        if isFile(sourceFile):
-            return sourceFile
-        sourceFile = findSource (path.join(loc,nodeID))     # try name/name.txt
-        if isFile(sourceFile):
-            return sourceFile
+        IndexFile = INDEX_NAME+FILE_EXT
+        filePath = path.join(loc,IndexFile)  # try name/index.EXT
+        if isFile(filePath):
+            return filePath
+        IndexFile = nameID(loc)+FILE_EXT
+        filePath = path.join(loc,IndexFile)  # try name/name.EXT
+        if isFile(filePath):
+            return filePath
     (base,ext) = path.splitext(loc)
-    sourceFile = base+SRC_FILE_EXT                          # try name.txt
-    if isFile(sourceFile):
-        return sourceFile
+    filePath = base+FILE_EXT                 # try name.EXT
+    if isFile(filePath):
+        return filePath
     else:
         return None
 
-
+    
 def discoverChildren(node, currentLocation):
     ''' get possible child locations to scan.
         Decision where to search is delegated to the Node
@@ -189,6 +199,9 @@ def discoverChildrenRecursively(location):
         return None
     else:
         return location
+
+
+
 
 
 
@@ -440,23 +453,21 @@ def normaliseLocalURL(url):
         url = url[4:]
     if url.startswith('/'):
         url = url[1:]
+    
     root = path.abspath(startdir)
     location = path.join(root, url)
-    if path.isdir(location):
-        IndexHTML = INDEX_NAME+WEBPAGE_EXT
-        file = path.join(location,IndexHTML)
-        if path.isfile(file):
-            url = path.join (url, IndexHTML)
-        IndexHTML = path.basename(location)+WEBPAGE_EXT
-        file = path.join(location,IndexHTML)
-        if path.isfile(file):
-            url = path.join (url, IndexHTML)
-    if not path.exists(location):
-        if path.isfile(location+WEBPAGE_EXT):
-            url += WEBPAGE_EXT
+    filename = buildFilename(location, WEBPAGE_EXT)
+    if not filename:
+        __warn('unable to resolve(%s): %s' % (WEBPAGE_EXT,url))
+    else:
+        if isDir(location):
+            urlPath = url
+            urlName = path.basename(filename)
         else:
-            __warn('not found: '+location)
-            
+            (urlPath, _) = path.split(url)
+            (_, urlName) = path.split(filename)
+        url = path.join (urlPath,urlName)
+        
     if not url.startswith('/'):
         url = '/'+url
     return url
