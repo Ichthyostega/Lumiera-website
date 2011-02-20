@@ -1,13 +1,6 @@
 Developers
 ==========
 
-// Menu :  include ../documentation/devel/rfc.txt , ../documentation/devel/rfc
-//MeNu    : exclude DataBackend, DevelopmentFramework, DistributedDevelopmentFramework 
-
-//MeNu    : exclude EDLsAreMetaClips exclude GloballInitialization, HowToProceed  exclude InterfaceNamespaces
-//MENU:excludeArchitectureOverview
-//MENU:exclude MonthlyDeveloperMeetingOnIRC, ProcBuilder
-
 .Rendering engine
 
 Hermann Vosseler

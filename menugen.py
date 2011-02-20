@@ -67,10 +67,8 @@ def addPredefined():
     proj.putChildLast ('press')
     proj.putChildAfter('faq', refPoint=Node('screenshots'))
     
-    root.detach()
-    root.enabled()
-    root.discover(excludes='LumieraDesignProcess Manifest NoBugFlags murks'.split()
-                 ,includes=['devs-vault'])
+    proj.link('http://issues.lumiera.org/roadmap', label="Roadmap (Trac)")
+    Node('rfc').sortChildren()
 
 
 
@@ -608,7 +606,6 @@ class Placement(object):
                     return targetNode
             except:
                 print_warning("»%s« (%s)" % (sys.exc_type,sys.exc_value))
-                pass
         return None
     
     @staticmethod
@@ -723,15 +720,72 @@ class PlaceChildAfter(Placement):
 # DSL Parsing...
 quote_ = r'[\'\"]?'
 s__    = r'\s*' 
-node__ = s__+quote_ + r'(\w[\w\s\-\.]*)' + quote_+s__
+nodeID_= s__+quote_ + r'(\w[\w\/\-\.]*)' + quote_+s__
 
-attach_child_after_ = r'((attach|put)\s+)?child'+node__+r'after'+node__
-prepend_child_      = r'prepend(\s+child)?'+node__
-append_child_       = r'((append|attach)\s+)?child'+node__
+attach_child_after_ = r'((attach|put)\s+)?child'+nodeID_+r'after'+nodeID_
+prepend_child_      = r'prepend(\s+child)?'+nodeID_
+append_child_       = r'((append|attach)\s+)?child'+nodeID_
 
 childAfter_RE   = re.compile (attach_child_after_, re.IGNORECASE)
 childAppend_RE  = re.compile (append_child_,       re.IGNORECASE)
 childPrepend_RE = re.compile (prepend_child_,      re.IGNORECASE)
+
+
+
+
+
+
+class AttachExternalLink(Placement):
+    
+    def __init__(self):
+        self.subID = None
+        self.label = None
+        self.url = None
+    
+    def __repr__(self):
+        return '|attach "%s" -->%s|' % (self.subID,self.url)
+    
+    def execute(self, node):
+        assert node
+        assert self.url
+        if not self.subID:
+            self.subID = nameID(self.url)
+        if not self.label:
+            self.label = titleFormatted(self.subID)
+        
+        nodeID = path.join(node.id, self.subID)
+        newNode = Node(nodeID, label=self.label, url=self.url)
+        node.linkChild(newNode)
+    
+    
+    def acceptVerb(self, methodID, url, id=None, label=None):
+        if methodID in ['link', 'attachLink']:
+            self.url = url
+            self.subID = id
+            self.label = label
+            return self
+        else:
+            return None
+    
+    
+    def acceptDSL(self, specificationTextLine):
+        match = externalLink_RE.search (specificationTextLine)
+        if (match):
+            self.subID = match.group(1)
+            self.url   = match.group(2)
+            self.label = match.group(3)
+            return self
+        else:
+            return None
+
+
+
+nodeSpec_       = r'(?:(?:child|node)'+nodeID_+')?'               # optional nodeID in group(1)
+urlSpec_        = r'([^\s\[]+)'                                   # mandatory url/path in group(2)
+labelSpec_      = r'\[([^\]]*)\]'                                 # label in [] as group(3) 
+externalLink_   = nodeSpec_+'link:'+urlSpec_+labelSpec_+r'\s*$'   # id-url-label + only whitespace to line end
+
+externalLink_RE = re.compile (externalLink_, re.IGNORECASE)
 
 
 
@@ -891,8 +945,9 @@ listSplitter_RE  = re.compile (listDelim_)
 
 
 ### Define all usable Placement kinds:
-Placement.handlers += [PlaceChildAfter
+Placement.handlers += [AttachExternalLink
                       ,RedirectDiscovery
+                      ,PlaceChildAfter
                       ,SortChildren
                       ,EnableEntry
                       ]
