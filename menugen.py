@@ -70,7 +70,7 @@ def addPredefined():
     root.detach()
     root.enabled()
     root.discover(excludes='LumieraDesignProcess Manifest NoBugFlags murks'.split()
-                 ,includes='documentation/devel/rfc devs-vault'.split())
+                 ,includes=['devs-vault'])
 
 
 
@@ -182,7 +182,14 @@ def stripPrefix (loc,prefix):
             loc = loc[1:]
     return loc
 
-    
+
+def navigateRelative(location, relPath):
+    fullpath = expandRoot(location)
+    if not isDir(fullpath):
+        location = path.dirname(location)
+    return path.join(location, relPath)
+
+
 def findSource (loc):
     ''' strategy to find a relevant source file
         corresponding to the given path location
@@ -230,15 +237,17 @@ def discoverChildrenRecursively(location):
     ''' strategy how to proceed from a given location
         to find possible child menu entries. Should
         return None to stop recursive descent '''
-    dir = expandRoot(location)
-    if isDir(dir):
+    target = expandRoot(location)
+    if isDir(target):
         currentBase = nameID(location)
-        for entry in os.listdir(dir):
+        for entry in os.listdir(target):
             eID = nameID(entry)
             if not eID          : continue      # skip hidden files
             if INDEX_NAME  ==eID: continue      # skip name/index.txt
             if currentBase ==eID: continue      # skip name/name.txt
             yield path.join(location,eID)
+    elif isFile(target):
+        yield path.join(path.dirname(target), nameID(target))
 
 
 class DiscoveryRedirect:
@@ -262,7 +271,7 @@ class DiscoveryRedirect:
             - the bare name of all results found there
               are checked against our excludes
         '''
-        prependLocation = lambda relPath: path.join(location, relPath)
+        prependLocation = lambda relPath: navigateRelative(location, relPath)
         buildSubIter = lambda loc: ifilter(self.excludesFilter,
                                            discoverChildrenRecursively(loc))
         toSearch = map(prependLocation, self.includes or [''])
@@ -857,7 +866,7 @@ class RedirectDiscovery(Placement):
     def acceptDSL(self, specificationTextLine):
         for match in discoverySpec_RE.finditer (specificationTextLine):
             tokens = match.group(2)
-            tokens = re.split('\W+',tokens)
+            tokens = listSplitter_RE.split(tokens)
             if 'include' == match.group(1):
                 self.includes += tokens
             else:
@@ -869,9 +878,13 @@ class RedirectDiscovery(Placement):
             return None  # fail, maybe try other Placement spec
 
 
-tokenList_       = r'(\w+(?:\s*,\s*\w+)*)'
-discoverySpec_   = r'(include|exclude)\s*'+tokenList_
+pathToken_       = r'[\w\./]+'
+listDelim_       = r'\s*,\s*'
+tokenList_       = '('+pathToken_+'(?:'+listDelim_+pathToken_+')*)'
+discoverySpec_   = r'(include|exclude)\s+'+tokenList_
+
 discoverySpec_RE = re.compile (discoverySpec_, re.IGNORECASE)
+listSplitter_RE  = re.compile (listDelim_)
 
 
 
@@ -879,9 +892,9 @@ discoverySpec_RE = re.compile (discoverySpec_, re.IGNORECASE)
 
 ### Define all usable Placement kinds:
 Placement.handlers += [PlaceChildAfter
+                      ,RedirectDiscovery
                       ,SortChildren
                       ,EnableEntry
-                      ,RedirectDiscovery
                       ]
 
 
