@@ -19,9 +19,10 @@ import os
 import re
 import sys
 import types
+import string
 from os import path
 from optparse import OptionParser
-import string
+from itertools import ifilter,chain
 
 import menuformat   # defines specific HTML to generate
 
@@ -63,9 +64,14 @@ def addPredefined():
     tech.linkChild('technical/backend')
     
     proj.prependChild ('screenshots')
-    proj.putChildAfter('press', 'end')
+    proj.putChildLast ('press')
     proj.putChildAfter('faq', refPoint=Node('screenshots'))
     
+    root.detach()
+    root.enabled()
+    root.discover(excludes='LumieraDesignProcess Manifest NoBugFlags murks'.split()
+                 ,includes='documentation/devel/rfc devs-vault'.split())
+
 
 
 
@@ -234,6 +240,41 @@ def discoverChildrenRecursively(location):
             if currentBase ==eID: continue      # skip name/name.txt
             yield path.join(location,eID)
 
+
+class DiscoveryRedirect:
+    ''' functor object to be used for discovering children.
+        like the simple #discoverChildrenRecursively strategy,
+        it it will be attached to a node to be used when discovering
+        possible sub-menu entries. But here this discovery can be
+        parametised with relative paths to include and names to filter
+    '''
+    def __init__(self, includes=[], excludes=[]):
+        filter = lambda loc: not nameID(loc) in excludes
+        self.excludesFilter = filter
+        self.includes = includes
+    
+    def __call__(self, location):
+        ''' when invoked to discover a start location,
+            apply our includes and excludes relative to that
+            location and yield an iterator for possible children
+            - each of our includes is appended in turn to the
+              given location to form a new place to explore
+            - the bare name of all results found there
+              are checked against our excludes
+        '''
+        prependLocation = lambda relPath: path.join(location, relPath)
+        buildSubIter = lambda loc: ifilter(self.excludesFilter,
+                                           discoverChildrenRecursively(loc))
+        toSearch = map(prependLocation, self.includes or [''])
+        sources = map(buildSubIter, toSearch)
+        return chain(*sources)
+    
+    
+    def chain(self, includes=[], excludes=[]):
+        prevFilter = self.excludesFilter
+        newfilter = lambda loc: not nameID(loc) in excludes and prevFilter(loc)
+        self.excludesFilter = newfilter
+        self.includes += includes
 
 
 
@@ -635,6 +676,11 @@ class PlaceChildAfter(Placement):
             self.childToPlace = Node(child)
             self.refPoint = None
             return self
+        if ('putChildLast' == methodID or
+            'appendChild' == methodID ) and child:
+            self.childToPlace = Node(child)
+            self.refPoint = 'atEnd'
+            return self
         else:
             return None
     
@@ -773,10 +819,69 @@ detachNode_RE   = re.compile (detachNode_,   re.IGNORECASE)
 
 
 
+
+
+class RedirectDiscovery(Placement):
+    ''' this placement spec instructs the node
+        to serach for children at specific places ('includes')
+        or to exclude some of the discovered children
+    '''
+    
+    def __init__(self):
+        self.includes = []
+        self.excludes = []
+    
+    def __repr__(self):
+        return '|discover from %s without %s|' % (self.includes,self.excludes)
+    
+    def preprocess(self, node):
+        strategy = node._childDiscoveryStrategy
+        if isinstance(strategy, DiscoveryRedirect):
+            strategy.chain(self.includes, self.excludes)
+        else:
+            strategy = DiscoveryRedirect(self.includes, self.excludes)
+        node._childDiscoveryStrategy = strategy 
+    
+    def execute(self, node): pass
+    
+    
+    def acceptVerb(self, methodID, includes=[], excludes=[]):
+        if 'discover' == methodID:
+            self.includes=includes
+            self.excludes=excludes
+            return self
+        else:
+            return None
+    
+    
+    def acceptDSL(self, specificationTextLine):
+        for match in discoverySpec_RE.finditer (specificationTextLine):
+            tokens = match.group(2)
+            tokens = re.split('\W+',tokens)
+            if 'include' == match.group(1):
+                self.includes += tokens
+            else:
+                self.excludes += tokens
+        
+        if self.includes or self.excludes:
+            return self  # successfully parsed
+        else:
+            return None  # fail, maybe try other Placement spec
+
+
+tokenList_       = r'(\w+(?:\s*,\s*\w+)*)'
+discoverySpec_   = r'(include|exclude)\s*'+tokenList_
+discoverySpec_RE = re.compile (discoverySpec_, re.IGNORECASE)
+
+
+
+
+
 ### Define all usable Placement kinds:
 Placement.handlers += [PlaceChildAfter
                       ,SortChildren
                       ,EnableEntry
+                      ,RedirectDiscovery
                       ]
 
 
@@ -869,7 +974,7 @@ class TextFormatter(Formatter):
 class Dumper(Formatter):
     
     INDENT   ='\t'
-    LEAF     ='Leaf'   
+    LEAF     ='Leaf'
     PRE_SUB  ='Sub_'
     POST_SUB ='--(end)$ID----------\n'
     
@@ -899,7 +1004,6 @@ def __err(text):
     sys.exit(255)
     
 def __exerr(text):
-    ######DEBUG raise sys.exc_type,sys.exc_value
     __err(text + ": »%s« (%s)" % (sys.exc_type,sys.exc_value))
 
 def __warn(text):
