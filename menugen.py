@@ -52,9 +52,9 @@ def addPredefined():
     
     Node('design').linkChild('gui')
     Node('workflow').linkParent('design')
-    Node('Roadmap').linkParent('project')
+    Node('roadmap').linkParent('project')
     
-    root.linkChild('devs-vault').linkChild('Roadmap')
+    root.linkChild('devs-vault').linkChild('roadmap')
     Node('devs-vault').linkChild('devs')
     
     tech = Node('documentation/technical')
@@ -94,6 +94,7 @@ def parseAndDo():
         startdir = args[0]
     else:
         startdir = '.'
+    startdir = path.abspath(startdir)
     if len(args) > 1:
         __warn('additional arguments "%s" ignored.' % args[1:])
     if not (options.debug or options.text or options.webpage):
@@ -119,8 +120,11 @@ def parseAndDo():
 ##################### Parsing and Discovery ######################
 
 def discoverPages (startdir):
-    startdir = path.abspath(startdir)
-    discoverLocation (startdir)
+    if not isDir(startdir):
+        __err('unable to scan/discover contents: '+
+              '"%s" is not an accessable directory' % startdir)
+    
+    discoverLocation (TREE_ROOT)
 
 
 def discoverLocation(loc, parent=None):
@@ -128,6 +132,7 @@ def discoverLocation(loc, parent=None):
     node = scanSource (loc, file, parent)
     for child in discoverChildren(node, loc):
         discoverLocation (child, parent=node)
+
 
 
 isDir  = lambda p: p and path.isdir(p)  and os.access(p,os.R_OK)
@@ -139,6 +144,39 @@ nameID = lambda p: p and path.splitext(path.basename(p))[0]
 ########################
 ### Discovery strategies
 
+def expandRoot (loc):
+    ''' expand a relative path
+        starting with the TREE_ROOT token.
+        @return: absolute path based on the global startdir
+    '''
+    global startdir
+    if (loc and loc.startswith(TREE_ROOT)):
+        return path.join(startdir, stripPrefix(loc,TREE_ROOT))
+    else:
+        return loc
+
+
+def relativeRoot (loc):
+    global startdir
+    if not loc: return TREE_ROOT
+    if loc.startswith(TREE_ROOT): return loc
+    if not path.isabs(loc):
+        loc = path.join(startdir, loc)
+    
+    loc = path.normpath(loc)
+    assert loc.startswith(startdir)
+    loc = stripPrefix(loc, startdir)
+    return path.join (TREE_ROOT, loc)
+
+
+def stripPrefix (loc,prefix):
+    if loc and loc.startswith(prefix):
+        loc = loc[len(prefix):]
+        if loc.startswith('/'):
+            loc = loc[1:]
+    return loc
+
+    
 def findSource (loc):
     ''' strategy to find a relevant source file
         corresponding to the given path location
@@ -149,9 +187,11 @@ def findSource (loc):
 def buildFilename (loc, FILE_EXT):
     ''' strategy to build acceptable file names,
         especially handling directory index files
+        @param loc: filename or location to search 
         @param FILE_EXT: extension to require on files 
         @return: an existing file or index file
     '''
+    loc = expandRoot(loc)
     if isDir(loc):
         IndexFile = INDEX_NAME+FILE_EXT
         filePath = path.join(loc,IndexFile)  # try name/index.EXT
@@ -173,32 +213,26 @@ def discoverChildren(node, currentLocation):
     ''' get possible child locations to scan.
         Decision where to search is delegated to the Node
     '''
-    def findPossibleChildren():
-        if node:
-            loc = node.childSearchLocation(currentLocation)
-            if loc and isDir(loc):
-                currentBase = nameID(currentLocation)
-                for entry in os.listdir(loc):
-                    entry = nameID(entry)
-                    if not entry          : continue        # skip hidden files
-                    if INDEX_NAME  ==entry: continue        # skip name/index.txt
-                    if currentBase ==entry: continue        # skip name/name.txt
-                    candidate = path.join(loc,entry)
-                    if candidate:
-                        yield candidate
+    if not node: return []
     
-    uniqueChildSourcefiles = set (findPossibleChildren())
-    return uniqueChildSourcefiles;
+    candidates = node.childDiscovery(currentLocation)
+    uniqueChildren = set (candidates)
+    return uniqueChildren;
 
 
 def discoverChildrenRecursively(location):
     ''' strategy how to proceed from a given location
         to find possible child menu entries. Should
         return None to stop recursive descent '''
-    if not isDir(location):
-        return None
-    else:
-        return location
+    dir = expandRoot(location)
+    if isDir(dir):
+        currentBase = nameID(location)
+        for entry in os.listdir(dir):
+            eID = nameID(entry)
+            if not eID          : continue      # skip hidden files
+            if INDEX_NAME  ==eID: continue      # skip name/index.txt
+            if currentBase ==eID: continue      # skip name/name.txt
+            yield path.join(location,eID)
 
 
 
@@ -231,9 +265,15 @@ def scanSource (location, srcFile, parentNode):
         if not ok:
             __warn('Source "%s":\t ignoring MENU: %s' % (nodeID, spec))
     
+    # establish webpage path
+    webpage = buildFilename(location, WEBPAGE_EXT)
+    if not webpage:
+        __warn('unable to resolve(%s): %s' % (WEBPAGE_EXT,location))
+        webpage = srcFile
+    
     # attach to menu if enabled
+    node.establishPosition (parentNode, webpage)
     node.preprocess()
-    node.linkParent(parentNode)
     return node
 
 
@@ -317,6 +357,7 @@ class Node(object):
             self.children = []
             self.placements = []
             self._active = True
+            self._relativePath = None
             self._childDiscoveryStrategy = discoverChildrenRecursively
         self.__dict__.update(args)
     
@@ -395,6 +436,19 @@ class Node(object):
         self._active = False
     
     
+    def establishPosition (self,parent,webpage):
+        ''' define the primary coordinates of this menu entry.
+            @param parent: primary parent, defining the menuPath 
+            @param webpage: used to form the in-tree URL
+        '''
+        parent = self.linkParent(parent)
+        if parent:
+            self.parents.remove (parent)
+            self.parents.insert(0, parent)
+        if webpage:
+            self._relativePath = relativeRoot(webpage)
+    
+    
     def matches (self, nodeKey):
         ''' decide if this node is equivalent to the given nodeKey.
             That is, either the key is our own ID, or it matches some
@@ -410,10 +464,10 @@ class Node(object):
                     or nodeKey.endswith(mPath))
     
     
-    def childSearchLocation(self, location):
-        ''' @return directory where child nodes may be dicovered,
-            possibly relative to the current discovery location.
-            None if automatic child discovery is suppressed '''
+    def childDiscovery(self, location):
+        ''' @param location: current starting point to find children 
+            @return iterator yielding possible child nodes to discover,
+        '''
         return self._childDiscoveryStrategy (location)
     
     
@@ -430,7 +484,7 @@ class Node(object):
             Pages in-tree are given as site-absolute URL, while
             external URLs are passed literally
         '''
-        return self.url or normaliseLocalURL(self.menuPath())
+        return self.url or normaliseLocalURL(self._relativePath or self.menuPath())
     
     
     def getParentUrl(self):
@@ -451,23 +505,6 @@ def normaliseComponentId(id):
 def normaliseLocalURL(url):
     if url.startswith(TREE_ROOT):
         url = url[4:]
-    if url.startswith('/'):
-        url = url[1:]
-    
-    root = path.abspath(startdir)
-    location = path.join(root, url)
-    filename = buildFilename(location, WEBPAGE_EXT)
-    if not filename:
-        __warn('unable to resolve(%s): %s' % (WEBPAGE_EXT,url))
-    else:
-        if isDir(location):
-            urlPath = url
-            urlName = path.basename(filename)
-        else:
-            (urlPath, _) = path.split(url)
-            (_, urlName) = path.split(filename)
-        url = path.join (urlPath,urlName)
-        
     if not url.startswith('/'):
         url = '/'+url
     return url
