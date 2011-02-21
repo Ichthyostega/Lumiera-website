@@ -48,26 +48,40 @@ def addPredefined():
     proj = root.linkChild('project')
     doc  = root.linkChild('documentation')
     
+    root.linkChild('download')
+    root.linkChild('contribute')
+    
+    vault = root.linkChild(Node('devs-vault', label="Dev's Vault"))
+    
+    root.enabled(False)   # suppress adding any further children
+    
+    # explicitly recurse into the following subdirectories
+    root.discover(includes='project documentation download contribute devs-vault'.split())
+    
+    proj.linkChild ('screenshots')
+    proj.linkChild ('faq')
+    proj.linkChild ('press')
+    proj.linkChild ('donate')
+    proj.linkChild ('roadmap')
+    proj.linkChild ('credits')
+    proj.linkChild ('contact')
+    
+    vault.linkChild('roadmap')
+    vault.linkChild('devs')
+    
+    doc.linkChild('user')
     doc.linkChild('design')
     doc.linkChild('technical')
     
-    Node('design').linkChild('gui')
-    Node('workflow').linkParent('design')
-    Node('roadmap').linkParent('project')
     
-    root.linkChild('devs-vault').linkChild('roadmap')
-    Node('devs-vault').linkChild('devs')
+    # make the 'media' subdir appear below root/documentation
+    # note root is disabled, thus the discovery won't add 'media' as child of root
+    root.discover(includes=['media'])
+    doc.putChildAfter(child='root/media', refPoint='user')
     
-    tech = Node('documentation/technical')
-    tech.linkChild('technical/gui')
-    tech.linkChild('technical/proc')
-    tech.linkChild('technical/backend')
-    
-    proj.prependChild ('screenshots')
-    proj.putChildLast ('press')
-    proj.putChildAfter('faq', refPoint=Node('screenshots'))
-    
+    # define external links
     proj.link('http://issues.lumiera.org/roadmap', label="Roadmap (Trac)")
+    
     Node('rfc').sortChildren()
 
 

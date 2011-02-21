@@ -1,7 +1,7 @@
 Developers Vault
 ================
 
-// Menu :  include .
-// Menu :  include ../documentation/devel/rfc.txt
+// Menu :  include dir .
+// Menu :  include ../documentation/devel/rfc
 
 
