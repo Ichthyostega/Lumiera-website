@@ -255,33 +255,40 @@ class DiscoveryRedirect:
         possible sub-menu entries. But here this discovery can be
         parametised with relative paths to include and names to filter
     '''
-    def __init__(self, includes=[], excludes=[]):
+    def __init__(self, includes=[], excludes=[], srcdirs=[]):
         filter = lambda loc: not nameID(loc) in excludes
         self.excludesFilter = filter
         self.includes = includes
+        self.srcdirs = srcdirs
     
     def __call__(self, location):
         ''' when invoked to discover a start location,
             apply our includes and excludes relative to that
             location and yield an iterator for possible children
-            - each of our includes is appended in turn to the
+            - each of our srcdirs is appended in turn to the
               given location to form a new place to explore
+            - the includes are immediately treated as chilrden
             - the bare name of all results found there
               are checked against our excludes
         '''
+        if not (self.srcdirs or self.includes):
+            self.srcdirs = ['.']
         prependLocation = lambda relPath: navigateRelative(location, relPath)
-        buildSubIter = lambda loc: ifilter(self.excludesFilter,
+        buildSubIter = lambda loc: ifilter(self.excludesFilter, [loc])
+        buildDirIter = lambda loc: ifilter(self.excludesFilter,
                                            discoverChildrenRecursively(loc))
-        toSearch = map(prependLocation, self.includes or [''])
-        sources = map(buildSubIter, toSearch)
+        toRetrieve = map(prependLocation, self.srcdirs )
+        toInclude = map(prependLocation, self.includes )
+        sources = map(buildDirIter, toRetrieve) + map(buildSubIter, toInclude)
         return chain(*sources)
     
     
-    def chain(self, includes=[], excludes=[]):
+    def chain(self, includes=[], excludes=[], srcdirs=[]):
         prevFilter = self.excludesFilter
         newfilter = lambda loc: not nameID(loc) in excludes and prevFilter(loc)
         self.excludesFilter = newfilter
         self.includes += includes
+        self.srcdirs  += srcdirs
 
 
 
@@ -464,7 +471,7 @@ class Node(object):
         child = Node(childId)
         if child and not child in self.children:
             self.children.append(child)
-            child.parents.append(self)
+            child.linkParent(self)
         return child
     
     def linkParent (self, parentId):
@@ -472,7 +479,7 @@ class Node(object):
         parent = Node(parentId)
         if parent and not parent in self.parents:
             self.parents.append(parent)
-            parent.children.append(self)
+            parent.linkChild(self)
         return parent
     
     def detach(self):
@@ -925,40 +932,48 @@ class RedirectDiscovery(Placement):
     def __init__(self):
         self.includes = []
         self.excludes = []
+        self.srcdirs  = []
     
     def __repr__(self):
-        return '|discover from %s without %s|' % (self.includes,self.excludes)
+        return '|discover %s (+%s) without %s|' % (self.includes,self.srcdirs,self.excludes)
     
     def preprocess(self, node):
         strategy = node._childDiscoveryStrategy
         if isinstance(strategy, DiscoveryRedirect):
-            strategy.chain(self.includes, self.excludes)
+            strategy.chain(self.includes, self.excludes, self.srcdirs)
         else:
-            strategy = DiscoveryRedirect(self.includes, self.excludes)
+            strategy = DiscoveryRedirect(self.includes, self.excludes, self.srcdirs)
         node._childDiscoveryStrategy = strategy 
     
     def execute(self, node): pass
     
     
-    def acceptVerb(self, methodID, includes=[], excludes=[]):
+    def acceptVerb(self, methodID, includes=[], excludes=[], srcdirs=[]):
         if 'discover' == methodID:
             self.includes=includes
             self.excludes=excludes
+            self.srcdirs =srcdirs
             return self
         else:
             return None
     
     
     def acceptDSL(self, specificationTextLine):
-        for match in discoverySpec_RE.finditer (specificationTextLine):
-            tokens = match.group(2)
+        match = pullSrcDirSpec_RE.search (specificationTextLine)
+        if (match):
+            tokens = match.group(1)
             tokens = listSplitter_RE.split(tokens)
-            if 'include' == match.group(1):
-                self.includes += tokens
-            else:
-                self.excludes += tokens
+            self.srcdirs += tokens
+        else:
+            for match in discoverySpec_RE.finditer (specificationTextLine):
+                tokens = match.group(2)
+                tokens = listSplitter_RE.split(tokens)
+                if 'include' == match.group(1):
+                    self.includes += tokens
+                else:
+                    self.excludes += tokens
         
-        if self.includes or self.excludes:
+        if self.includes or self.excludes or self.srcdirs:
             return self  # successfully parsed
         else:
             return None  # fail, maybe try other Placement spec
@@ -968,8 +983,10 @@ pathToken_       = r'[\w\./]+'
 listDelim_       = r'\s*,\s*'
 tokenList_       = '('+pathToken_+'(?:'+listDelim_+pathToken_+')*)'
 discoverySpec_   = r'(include|exclude)\s+'+tokenList_
+pullSrcDirSpec_  = r'include\s*dirs?\s+'+tokenList_
 
 discoverySpec_RE = re.compile (discoverySpec_, re.IGNORECASE)
+pullSrcDirSpec_RE= re.compile (pullSrcDirSpec_, re.IGNORECASE)
 listSplitter_RE  = re.compile (listDelim_)
 
 
