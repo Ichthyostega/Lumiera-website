@@ -1,6 +1,8 @@
 #!/bin/bash
 DEFAULT_CONF=page
 
+run_menugen=no
+
 umask 003
 
 # first pass, poor man dependency tracking over all .txt files
@@ -49,6 +51,18 @@ esac |
 				--conf-file="${conf}" \
 				"$file"
 			echo
+
+			run_menugen=yes
 		fi
 	done
 echo
+
+if [[ $run_menugen=yes ]]; then
+	echo "regenerate menus"
+	./menugen.py -p -s -w >menu.html.tmp
+	if cmp -s menu.html.tmp menu.html; then
+		rm menu.html.tmp
+	else
+		mv menu.html.tmp menu.html
+	fi
+fi
