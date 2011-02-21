@@ -792,6 +792,38 @@ externalLink_RE = re.compile (externalLink_, re.IGNORECASE)
 
 
 
+class DefineLabel(Placement):
+    
+    def __init__(self):
+        self.label = None
+        
+    def __repr__(self):
+        return '|pageLabel "%s"|' % self.label
+    
+    def preprocess(self,node):
+        assert node
+        if self.label: node.label = self.label
+        
+    def execute(self, node): pass
+    def acceptVerb(self, _): return None
+    
+    def acceptDSL(self, specificationTextLine):
+        match = labelSpec_RE.search (specificationTextLine)
+        if (match):
+            self.label = match.group(1).strip()
+            return self
+        else:
+            return None
+
+
+labelSpec_   = r'(?:label|title)\s+(.+)'
+labelSpec_RE = re.compile (labelSpec_, re.IGNORECASE)
+
+
+
+
+
+
 class SortChildren(Placement):
     
     def __repr__(self):
@@ -949,6 +981,7 @@ Placement.handlers += [AttachExternalLink
                       ,RedirectDiscovery
                       ,PlaceChildAfter
                       ,SortChildren
+                      ,DefineLabel
                       ,EnableEntry
                       ]
 

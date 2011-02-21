@@ -15,5 +15,4 @@ Best hopes are that we can make a first very rudimental integration (pre alpha r
 Will Lumiera be using guicast (the Cinelerra GUI library) or will it use one of the more popular libraries like GTK or Qt???
 We won't' use Guicast. Lumiera native interface will be written in GTK, although other interfaces will be possible.
 
-// Menu :   child credits
-// Menu :   link:http://urgs.org/ohWeh[]
+

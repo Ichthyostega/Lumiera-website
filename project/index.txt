@@ -1,7 +1,7 @@
 About Lumiera
 ==============
 
-//MENUTITLE: Project
+//MENU: label Project
 
 ////
 While the homepage gives an intro to the project website, this should give more 
