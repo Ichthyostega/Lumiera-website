@@ -31,7 +31,7 @@ case "$1" in
 	echo "$1"
 	;;
 esac |
-	while read file; do
+	{ while read file; do
 		echo -n "."
 		# when the .txt is newer than an existing .html
 		if [[ "$file" -nt "${file%*.txt}.html" || "$1" ]]; then
@@ -55,14 +55,16 @@ esac |
 			run_menugen=yes
 		fi
 	done
+	if [[ $run_menugen=yes ]]; then
+		./menugen.py -p -s -w >menu.html.tmp
+		if cmp -s menu.html.tmp menu.html; then
+			rm menu.html.tmp
+		else
+			echo
+			echo "regenerate menus"
+			mv menu.html.tmp menu.html
+		fi
+	fi
+	}
 echo
 
-if [[ $run_menugen=yes ]]; then
-	echo "regenerate menus"
-	./menugen.py -p -s -w >menu.html.tmp
-	if cmp -s menu.html.tmp menu.html; then
-		rm menu.html.tmp
-	else
-		mv menu.html.tmp menu.html
-	fi
-fi
