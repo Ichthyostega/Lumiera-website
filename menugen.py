@@ -195,11 +195,14 @@ def stripPrefix (loc,prefix):
     return loc
 
 
-def navigateRelative(location, relPath):
-    fullpath = expandRoot(location)
-    if not isDir(fullpath):
-        location = path.dirname(location)
-    return path.join(location, relPath)
+def navigateRelative(location, subPath):
+    if path.isabs(subPath) or subPath.startswith(TREE_ROOT):
+        return expandRoot(subPath)    # use subPath as absolute path
+    else:
+        fullpath = expandRoot(location)
+        if not isDir(fullpath):
+            location = path.dirname(location)
+        return path.join(location, subPath)
 
 
 def findSource (loc):
