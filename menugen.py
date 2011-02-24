@@ -718,8 +718,8 @@ class PlaceChildAfter(Placement):
         '''
         match = childAfter_RE.search (specificationTextLine)
         if (match):
-            self.childToPlace = Node (match.group(2))
-            self.refPoint     = Node (match.group(3))
+            self.childToPlace = Node (match.group(3))
+            self.refPoint     = Node (match.group(4))
             assert self.childToPlace
             return self
         match = childPrepend_RE.search (specificationTextLine)
