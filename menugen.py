@@ -70,14 +70,13 @@ def addPredefined():
     vault.linkChild('devs')
     
     doc.linkChild('user')
+    doc.linkChild('media')
     doc.linkChild('design')
     doc.linkChild('technical')
     
-    
     # make the 'media' subdir appear below root/documentation
-    # note root is disabled, thus the discovery won't add 'media' as child of root
-    root.discover(includes=['media'])
-    doc.putChildAfter(child='root/media', refPoint='user')
+    doc.discover(includes=[TREE_ROOT+'/media'])
+    doc.discover(includes='user design technical'.split())
     
     # define external links
     proj.link('http://issues.lumiera.org/roadmap', label="Roadmap (Trac)")
