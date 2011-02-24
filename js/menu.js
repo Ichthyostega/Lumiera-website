@@ -199,6 +199,8 @@ menuTable.addNode = function(id,url,parent, isSubmenu)
 menuTable.select = function(url)
   {
     element = this.index[url]
+    if (!element && /\/$/.test(url)) // maybe an directory index?
+      element = this.index[url+'index.html']
     if (element)
       {
         while (0 < this.current.length) {
