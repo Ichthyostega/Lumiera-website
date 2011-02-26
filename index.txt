@@ -1,7 +1,7 @@
 Lumiera
 =======
 
-image:http://lumiera.org/lumiera_gui_small.png[Lumiera_screenshot]
+image:{img}/lumiera_gui_small.png[Lumiera_screenshot]
 
 ++++
 <table rules="none"
@@ -32,8 +32,8 @@ To create, as a community, a non linear video editing and compositing FOSS appli
 News:
 -----
 
-include::news.txt[]
-link:old_news.html[Older News]
+include::project/news/news.txt[]
+link:/project/news/old_news.html[Older News]
 
 
 Check Lumiera's Pulse:
