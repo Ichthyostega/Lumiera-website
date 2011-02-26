@@ -747,7 +747,7 @@ nodeID_= s__+quote_ + r'(\w[\w\/\-\.]*)' + quote_+s__
 
 attach_child_after_ = r'((attach|put)\s+)?child'+nodeID_+r'after'+nodeID_
 prepend_child_      = r'prepend(\s+child)?'+nodeID_
-append_child_       = r'((append|attach)\s+)?child'+nodeID_
+append_child_       = r'((append|attach)\s+)?child\s+'+nodeID_
 
 childAfter_RE   = re.compile (attach_child_after_, re.IGNORECASE)
 childAppend_RE  = re.compile (append_child_,       re.IGNORECASE)
@@ -849,6 +849,9 @@ labelSpec_RE = re.compile (labelSpec_, re.IGNORECASE)
 
 class SortChildren(Placement):
     
+    def __init__(self):
+        self.ascending = True
+    
     def __repr__(self):
         return '|sort children|'
     
@@ -856,7 +859,7 @@ class SortChildren(Placement):
         ''' when applied, sort the child nodes alphabetically
         '''
         assert node
-        node.children.sort(key = lambda child: child.label.lower())
+        node.children.sort(key = lambda child: child.label.lower(), reverse = not self.ascending)
     
     
     def acceptVerb(self, methodID):
@@ -869,12 +872,16 @@ class SortChildren(Placement):
     def acceptDSL(self, specificationTextLine):
         match = sortChildren_RE.search (specificationTextLine)
         if (match):
+            direction = match.group(1) or ''
+            direction = direction.lower()
+            if direction.startswith('desc') or direction.startswith('reverse'):
+                self.ascending = False
             return self
         else:
             return None
 
 
-sortChildren_   = r'sort(\s+children)?'
+sortChildren_   = r'sort(?:\s+children)?(?:\s+(ascending|asc|descending|desc|reverse|reversed))?'
 sortChildren_RE = re.compile (sortChildren_, re.IGNORECASE)
 
 
