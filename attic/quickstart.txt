@@ -169,7 +169,7 @@ the header in link:/layout1.conf to understand the configuration of
 site elements, and then move on from there.
 
 Styling for how Asciidoc markup appears in the #layout-content area of the page 
-is in link:/css/xhtml11.css[]
+is in link:/css/asciidoc.css[]
 Use this to change fonts & colors, link decoration, spacing, etc.
 
 * To edit the style of the credits page edit link:/project/credits.css[] 

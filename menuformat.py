@@ -31,7 +31,7 @@ menuTemplate = '''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="expires" content="0">
 <title>Navigation</title>
-<link rel="stylesheet" href="/css/xhtml11.css" type="text/css" />
+<link rel="stylesheet" href="/css/asciidoc.css" type="text/css" />
 <link rel="stylesheet" href="/css/page.css" type="text/css" />
 <link rel="stylesheet" href="/css/menu.css" type="text/css" />
 <script type="text/javascript" src="/js/menu.js"></script>
