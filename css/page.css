@@ -28,6 +28,11 @@ css {
 
 /* --------  Body  -------- */
 
+body {
+	background: #F4EFDC;
+}
+
+
 div#layout-banner {
 	margin: 5px 5px 0 5px;
 	padding: 0.4em 20px .2em 20px;
