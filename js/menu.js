@@ -40,7 +40,7 @@ function markPageInMenu(url)
 
 function extractPathFromURL(url)
   {
-    hostPrefixRE = new RegExp('^((?:f|ht)tp(?:s)?\://([^/]+))?([^\?]+)(.*)', 'im');
+    hostPrefixRE = new RegExp('^((?:f|ht)tp(?:s)?\://([^/]+))?([^\?#]+)(.*)', 'im');
     result = url.match(hostPrefixRE)
     if (result)
       return result[3].toString()
