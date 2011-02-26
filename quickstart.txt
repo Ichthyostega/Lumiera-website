@@ -156,7 +156,7 @@ Design and Style Editing
 
 The style breaks down as this:
 
-Layout of the html-page elements are in link:/layout1.css[] & 
+Layout of the html-page elements are in link:/css/page.css[] & 
 link:/layout1.conf[], which are used by the build_website.sh.
 
 At present, there should be little reason to edit the html in the '.conf' file, 
@@ -169,7 +169,7 @@ the header in link:/layout1.conf to understand the configuration of
 site elements, and then move on from there.
 
 Styling for how Asciidoc markup appears in the #layout-content area of the page 
-is in link:/xhtml11.css[]
+is in link:/css/xhtml11.css[]
 Use this to change fonts & colors, link decoration, spacing, etc.
 
 * To edit the style of the credits page edit link:/project/credits.css[] 
