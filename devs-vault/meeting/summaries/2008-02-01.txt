@@ -1,6 +1,8 @@
-2008-02-01 Lumiera Dev Meeting on #openvideo
-============================================
-:Date: 2008-02-03
+Initial Lumiera Developers Meeting
+==================================
+:Date: 2008-02-01
+
+//Menu: label 2008-02-01  the first Lumiera Developers Meeting 
 
 __Participants__
 

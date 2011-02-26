@@ -1,9 +1,9 @@
-2009-01-14 Lumiera Dev Meeting
-==============================
-:Author: Raffaella Traniello, goibhniu
+2009-01-14 Lumiera Developers Meeting
+=====================================
+:Author: Raffaella_Traniello_and_Goibhniu
 :Date: 2009-02-25
 
-Jan 14, 2009 on #lumiera 20:00 - ..:.. UTC +
+Jan 14, 2009 on #lumiera starting 20:00 UTC
 
 
 __Participants__

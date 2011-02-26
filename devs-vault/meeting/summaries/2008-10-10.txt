@@ -1,5 +1,5 @@
-2008-10-10 Lumiera Dev Meeting
-==============================
+2008-10-10 Lumiera Developers Meeting
+=====================================
 :Author: Ichthyo
 :Date: 2008-10-15
 

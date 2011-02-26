@@ -1,5 +1,5 @@
-2008-09-03 Lumiera Dev Meeting
-==============================
+2008-09-03 Lumiera Developers Meeting
+=====================================
 :Author: Joel Holdsworth
 :Date: 2008-09-05
 

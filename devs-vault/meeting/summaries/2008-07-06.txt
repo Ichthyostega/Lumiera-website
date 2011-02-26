@@ -1,5 +1,5 @@
-2008-07-06 Lumiera Dev Meeting
-==============================
+2008-07-06 Lumiera Developers Meeting
+=====================================
 :Author: Teld
 :Date: 2008-08-10
 

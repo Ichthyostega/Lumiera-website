@@ -1,5 +1,5 @@
-2008-05-08  Lumiera Dev Meeting
-===============================
+2008-05-08  Lumiera Developers Meeting
+======================================
 :Author: cehteh
 :Date: 2008-05-15
 

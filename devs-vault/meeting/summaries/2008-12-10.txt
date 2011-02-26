@@ -1,5 +1,5 @@
-2008-12-10 Lumiera Dev Meeting
-==============================
+2008-12-10 Lumiera Developers Meeting
+=====================================
 :Author: Teld
 :Date: 2009-01-12
 
