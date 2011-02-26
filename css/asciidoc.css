@@ -184,7 +184,11 @@ span#email {
 }
 
 span#revision {
-  	font-family: sans-serif;
+    font-family: sans-serif;
+}
+
+span#page_date {
+    font-size: smaller;
 }
 
 /* -------- Links -------- */

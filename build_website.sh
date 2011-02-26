@@ -44,12 +44,13 @@ esac |
 			# run asciidoc over it
 	 		echo "asciidocing $file"
 			python /usr/bin/asciidoc --unsafe --backend=xhtml11 \
-				--attribute icons --attribute \
-				iconsdir=./images/icons --attribute=badges! \
-				--attribute=revision="$VERS"  --attribute=date="$DATE" \
-				--attribute quirks! \
+				--attribute icons --attribute=iconsdir=./images/icons \
+				--attribute=badges! --attribute quirks! \
 				--conf-file="${conf}" \
 				"$file"
+			#	
+			# note we did set	--attribute=revision="$VERS"  --attribute=date="$DATE" 
+			# IMHO it is better to use the date hard wired in the documents (2/11, Ichthyo)
 			echo
 
 			run_menugen=yes
