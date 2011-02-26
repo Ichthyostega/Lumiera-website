@@ -1,5 +1,5 @@
-Past Protocols
-==============
+Past Meetings
+=============
 
 14 Jan 2009
 -----------
@@ -13,9 +13,9 @@ Topics
  * Getting the \'non-coders' community to help
  * Possible GUI-Integration: Display a frame?
 
-Summary/Protocol
-^^^^^^^^^^^^^^^^
- * link:protocol-2009-01-14.html[Protocol (written by raffa)]
+Summary
+^^^^^^^
+ * link:2009-01-14.html[Summary (written by raffa)]
 
 
 
@@ -32,9 +32,9 @@ Topics
  * GUI/Proc Interface and collaboration
  * Threading questions regarding gtk-main and main()
 
-Summary/Protocol
-^^^^^^^^^^^^^^^^
- * link:protocol-2008-12-10.html[Protocol (written by Teld)]
+Summary
+^^^^^^^
+ * link:2008-12-10.html[Summary (written by Teld)]
 
 
 
@@ -53,8 +53,8 @@ Topics
  * Include dir and namespaces
  * build system, plugin tree
 
-Summary/Protocol
-^^^^^^^^^^^^^^^^
+Summary
+^^^^^^^
 _(missing)_
 
 
@@ -79,9 +79,9 @@ Topics
  * Use of Namespaces
  * Interface Definition Language
 
-Summary/Protocol
-^^^^^^^^^^^^^^^^
- * link:protocol-2008-10-10.html[Protocol (written by Ichthyo)]
+Summary
+^^^^^^^
+ * link:2008-10-10.html[Summary (written by Ichthyo)]
 
 
 
@@ -97,8 +97,8 @@ Topics
  * Lumiera-work Mailinglist (for TODOs)
  * About Website transition plan
 
-Summary/Protocol
-^^^^^^^^^^^^^^^^
+Summary
+^^^^^^^
 _(missing)_
 
 
@@ -114,8 +114,8 @@ Topics
  * Scripting language plans
  * GUI brainstorming page
 
-Summary/Protocol
-^^^^^^^^^^^^^^^^
+Summary
+^^^^^^^
 _(missing)_
 
 
@@ -134,9 +134,9 @@ Topics
  * uWiki. 
  * 'musical' timeline in bars and beats
 
-Summary/Protocol
-^^^^^^^^^^^^^^^^
- * link:protocol-2008-07-06.html[Protocol (written by Teld)]
+Summary
+^^^^^^^
+ * link:2008-07-06.html[Summary (written by Teld)]
 
 
 
@@ -151,9 +151,9 @@ Topics
    - processing node interface
    - Placement concept 
 
-Summary/Protocol
-^^^^^^^^^^^^^^^^
- * link:protocol-2008-06-06.html[Protocol (written by ichthyo)]
+Summary
+^^^^^^^
+ * link:2008-06-06.html[Summary (written by ichthyo)]
 
 
 
@@ -167,9 +167,9 @@ Topics
  * Go through Ideas and Drafts in design process
  * Website infrastructure
 
-Summary/Protocol
-^^^^^^^^^^^^^^^^
- * link:protocol-2008-05-08.html[Protocol (written by cehteh)]
+Summary
+^^^^^^^
+ * link:2008-05-08.html[Summary (written by cehteh)]
 
 
 
@@ -187,9 +187,9 @@ Topics
  * froscon application (linux multimedia booth?)
  * timecode-metadata discussion: convert to arithmetic time type early or late?
 
-Summary/Protocol
-^^^^^^^^^^^^^^^^
- * link:protocol-2008-04-03.html[Protocol (written by sakalli)]
+Summary
+^^^^^^^
+ * link:2008-04-03.html[Summary (written by sakalli)]
 
 
 
@@ -210,9 +210,9 @@ Topics
  * Project Server, setup, organization, administration
  * GPL3 pros cons, license rationale
 
-Summary/Protocol
-^^^^^^^^^^^^^^^^
- * link:protocol-2008-03-06.html[Protocol (written by cehteh)]
+Summary
+^^^^^^^
+ * link:2008-03-06.html[Summary (written by cehteh)]
 
 
 
@@ -229,6 +229,6 @@ Topics
  * Introduce the development model
  * How to handle the regular meetings in future (day, time, where to put summaries)
 
-Summary/Protocol
-^^^^^^^^^^^^^^^^
- * link:protocol-2008-02-01.html[Protocol (written by Ichthyo)]
+Summary
+^^^^^^^
+ * link:2008-02-01.html[Summary (written by Ichthyo)]

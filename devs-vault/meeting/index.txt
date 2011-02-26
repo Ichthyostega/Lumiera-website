@@ -1,14 +1,14 @@
 Monthly Meetings
 ================
 
-We regularly conduct developer meetings on IRC.  The meetings take place in the
-IRC channel #lumiera at Freenode.
+We regularly conduct developer meetings.  The meetings take place in the IRC
+channel #lumiera at Freenode.
 
 This page announces the next meeting. _Feel free to suggest any topic you would like to discuss!_
 
- * The *protocols* for past meetings can be found link:{l}/devs-vault/protocol/index.html[here].
+ * *Summaries* of past meetings can be found link:{l}/devs-vault/meeting/summaries/index.html[here].
 
- * If you have been volunteered to write the protocol, you might want to have a look at the link:#[protocol template].
+ * If you have been volunteered to write a summary, you might want to have a look at the link:#[summary template].
 
  * For general discussions, see also the http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[mailing list].
 
