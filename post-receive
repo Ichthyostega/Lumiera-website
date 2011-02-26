@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# An example hook script for the post-receive event
+# Hook script to rebuild the website after a git push
 #
 # This script is run after receive-pack has accepted a pack and the
 # repository has been updated.  It is passed arguments in through stdin
@@ -12,11 +12,13 @@
 # see contrib/hooks/ for an sample, or uncomment the next line (on debian)
 #
 
+#
+# WARNING: this script needs to be placed into .git/hooks 
+#          and be made executable.
+#
 
-#. /usr/share/doc/git-core/contrib/hooks/post-receive-email
 
-
-# the following checking the current HEAD out
+# after receiving changes, check the current HEAD out
 umask 0002
 cd $GIT_DIR/..
 unset GIT_DIR
