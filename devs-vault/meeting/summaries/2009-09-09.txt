@@ -1,5 +1,5 @@
-2009-9-9 Lumiera Dev Meeting
-============================
+2009-09-09 Lumiera Dev Meeting
+==============================
 Raffaella_Traniello_and_Hermann_Voßeler <prg@ichthyostega.de>
 
 Sep 9, 2009 on +#lumiera+ +
