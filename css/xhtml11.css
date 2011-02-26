@@ -44,7 +44,7 @@ div.content { /* Block element content. */
 /* Block element titles. */
 div.title, caption.title {
 	margin: 1em 0 .5em 0;
-  	color: #5F9EA0;
+  	color: #6D86A6;
   	font: bold sans-serif;
   	text-align: left;
 }
@@ -125,7 +125,7 @@ div.hlist {
 
 h1, h2, h3, h4, h5, h6 {
 	margin: 10px 0 .5em 0;
-  	color: #5F9EA0;
+  	color: #6D86A6;
   	font: sans-serif;
   	line-height: 1.3;
 }
@@ -152,16 +152,16 @@ p {
 
 em {
   	font-style: italic;
-  	color: #01796F;
+  	color: #475F6A;
 }
 
 strong {
   	font-weight: bold;
-  	color: #0F3C3C;
+  	color: #323B4A;
 }
 
 tt {
-  	color: #01796F;
+  	color: #475F6A;
 }
 
 
@@ -175,7 +175,7 @@ pre {
 }
 
 span#author {
-  	color: #527bbd;
+  	color: #475F6A;
 	font: bold 1.1em sans-serif;
 }
 
@@ -190,19 +190,19 @@ span#revision {
 /* -------- Links -------- */
 
 a {
-  	color: #0179AF;
+  	color: #3D5278;
   	text-decoration: none;
    	font-weight: bold;
 }
 
 a:hover {
- 	color: #0179AF;
+ 	color: #4E5E78;
   	text-decoration: underline;
   	font-weight: bold;
 }
 
 a:visited {
-  	color: #00A693;
+  	color: #4E5E78;
     font-weight: bold;
 }
 
