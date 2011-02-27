@@ -44,7 +44,7 @@ esac |
 			# run asciidoc over it
 	 		echo "asciidocing $file"
 			python /usr/bin/asciidoc --unsafe --backend=xhtml11 \
-				--attribute icons --attribute=iconsdir=./images/icons \
+				--attribute icons --attribute=iconsdir=/images/asciidoc \
 				--attribute=badges! --attribute quirks! \
 				--conf-file="${conf}" \
 				"$file"
