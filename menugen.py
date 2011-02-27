@@ -44,7 +44,7 @@ def addPredefined():
     ''' populate the menu with a set of basic nodes createing a backbone,
         which can then be extended by values extracted from individual pages.
     '''
-    root = Node(TREE_ROOT, label='Lumiera')
+    root = Node(TREE_ROOT, label='Lumiera.org')
     proj = root.linkChild('project')
     doc  = root.linkChild('documentation')
     
