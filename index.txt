@@ -3,37 +3,41 @@ Lumiera
 
 image:{img}/lumiera_gui_small.png[Lumiera_screenshot]
 
-++++
-<table rules="none"
-width="100%"
-frame="void"
-cellspacing="0" cellpadding="4">
-<col width="50%" />
-<col width="50%" />
-<tbody>
-<tr>
-<td align="left" valign="top"><p class="table">Lumiera is a Free/Open Source Non-Linear Video Editing (NLE) application project for GNU/Linux developed by the
-<a href="http://cv.cinelerra.org/">CinelerraCV</a> community.<br />
-It was born as a rewrite of the Cinelerra codebase called Cinelerra3 but it is now an independent project with its own name.<br /><a href="project/index.html">Read more about Lumiera</a></p>
-<p class="table">This website is under construction, its various section still need content and you are welcome to help us :
-It is served from the git repository
-<a href="http://git.lumiera.org/gitweb?p=website-staging">git://git.lumiera.org/website-staging</a></p></td>
-<td align="left" valign="top"><p class="table"></p>
-<p class="table"><div class="title">Project objectives</div>
-To create, as a community, a non linear video editing and compositing FOSS application for Linux/Unix/Posix Operating Systems,
- suitable for professional and quality oriented work, building on common open source video, sound and GUI toolkits and libraries,
- providing flexibility and a high degree of configurability and full control of all parameters,
- but at the same time a smooth workflow which scales well to larger and more complicated editing projects.</p></td>
-</tr>
-</tbody>
-</table>
-++++
+.Project objectives
+***************************************************************************************************
+To create, as a community, a non linear video editing and compositing FOSS application
+for Linux/Unix/Posix Operating Systems, suitable for professional and quality oriented work,
+building on common open source video, sound and GUI toolkits and libraries, providing flexibility
+and a high degree of configurability and full control of all parameters, but at the same time
+a smooth workflow which scales well to larger and more complicated editing projects.
+***************************************************************************************************
+
+Lumiera is a Free/Open Source Non-Linear Video Editing (NLE) application project for GNU/Linux
+
+It was born as a rewrite of the link:http://cv.cinelerra.org/[CinelerraCV] codebase, + 
+but developed later into an independent project with its own name.
+The application is still in an pre-alpha state and not usable for normal work.
+
+-> link:/project/index.html[Read more about the Lumiera Project]
+
+....
+
+
+
+....
 
 News:
 -----
 
 include::project/news/news.txt[]
-link:/project/news/old_news.html[Older News]
+
+'''''''
+-> link:/project/news/old_news.html[Older News]
+....
+
+
+
+....
 
 
 Check Lumiera's Pulse:
@@ -44,18 +48,5 @@ image:{l}/images/feed-icon-28x28.png["RSS Feed",link="http://www.lumiera.org/git
 image:{l}/images/feed-icon-28x28.png["RSS Feed",link="http://issues.lumiera.org/timeline?ticket=on&milestone=on&max=5&daysback=90&format=rss"] RSS: Trac activity
 
 image:{l}/images/feed-icon-28x28.png["RSS Feed",link="http://rss.gmane.org/gmane.comp.video.lumiera.general"] RSS: Mailing list activity
-
-
-What you can do to help
------------------------
-
-Help edit the site! This breaks down into two categories:
-
- * Reformatting, updating, and moving existing content
- * Writing new content
-
-Go to: link:{l}/contribute.html[Contribute] and 
-click "Help with website & infrastructure"
-
 
 
