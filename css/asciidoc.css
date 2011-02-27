@@ -39,8 +39,7 @@ div.sectionbody {
 
 div#preamble,
 div.tableblock, div.imageblock, div.exampleblock, div.verseblock,
-div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
-div.admonitionblock {
+div.quoteblock, div.literalblock, div.listingblock {
     margin: 1.5em 10% 1.5em 0;
 }
 
@@ -76,12 +75,6 @@ div.content+div.title {
     margin-top: 0.0em;
 }
 
-div.sidebarblock>div.content {
-    padding: 0.5em;
-    background: #ffffee;
-    border: 1px solid silver;
-}
-
 div.listingblock {
     margin-right: 0%;
 }
@@ -103,6 +96,20 @@ div.attribution {
 div.verseblock+div.attribution {
     text-align: left;
 }
+
+
+div.sidebarblock {
+    float:right;
+    width: 50ex;
+    margin: 1.5em -30ex 1.5em 2ex;
+    border: 1px solid #84404E;"
+}
+div.sidebarblock>div.content {
+    padding: 0.5em 1em;
+    background: #ffffee;
+    border: 1px solid silver;
+}
+
 
 div.admonitionblock .icon {
     padding-right: 0.5em;
