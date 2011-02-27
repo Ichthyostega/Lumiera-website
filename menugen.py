@@ -81,8 +81,6 @@ def addPredefined():
     
     # define external links
     proj.link('http://issues.lumiera.org/roadmap', label="Roadmap (Trac)")
-    
-    Node('rfc').sortChildren()
 
 
 

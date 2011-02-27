@@ -1,15 +1,15 @@
 Developers Vault
 ================
 
-This section of the website contains informations and resources for the link:{l}/devs-vault/devs.html[active developers] of the project.
-The content here may not be what you are looking for if you are a user.
-Go to the link::http://www.lumiera.org/gitweb[Gitweb] of Lumiera.
-
 // Menu :  include dir .
-// Menu :  include ../documentation/devel/rfc
+// Menu :  include ../documentation/devel/rfc.txt
 
 // Menu :  put child 'roadmap' after 'devs'
 // Menu :  put child 'rfc' after 'roadmap'
 
 
-CAUTION: to be written
+
+This section of the website contains informations and resources for the link:{l}/devs-vault/devs.html[active developers] of the project.
+The content here may not be what you are looking for if you are a user.
+Go to the link::http://www.lumiera.org/gitweb[Gitweb] of Lumiera.
+
