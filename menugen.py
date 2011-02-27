@@ -731,7 +731,7 @@ class PlaceChildAfter(Placement):
             return self
         match = childPrepend_RE.search (specificationTextLine)
         if (match):
-            self.childToPlace = Node (match.group(3))
+            self.childToPlace = Node (match.group(1))
             self.refPoint     = None
             assert self.childToPlace
             return self
@@ -751,7 +751,7 @@ s__    = r'\s*'
 nodeID_= s__+quote_ + r'(\w[\w\/\-\.]*)' + quote_+s__
 
 attach_child_after_ = r'((attach|put)\s+)?child'+nodeID_+r'after'+nodeID_
-prepend_child_      = r'prepend(\s+child)?'+nodeID_
+prepend_child_      = r'prepend(?:\s+child)?'+nodeID_
 append_child_       = r'((append|attach)\s+)?child\s+'+nodeID_
 
 childAfter_RE   = re.compile (attach_child_after_, re.IGNORECASE)
