@@ -331,7 +331,8 @@ def scanSource (location, srcFile, parentNode):
     assert isFile(srcFile)
     srcTxt = file(srcFile)
     title = findTitle(srcTxt)
-    if title: node.label = title
+    if title and node.hasNoLabel():
+        node.label = title
     for spec in extractMenuSpecs(srcTxt):
         ok = Placement.maybeParse (node, spec)
         if not ok:
@@ -441,6 +442,9 @@ class Node(object):
     
     def enabled(self, yes=True):
         self._active = yes
+    
+    def hasNoLabel(self):
+        return self.label == titleFormatted(self.id)
     
     
     def __iter__(self):
