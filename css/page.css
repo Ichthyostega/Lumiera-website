@@ -90,21 +90,19 @@ iframe#inavi{
 
 /* ---- footer ---- */
 div#footer {
-	margin: 4.0em 0 0 0;
-	padding-top: 0.5em;
-	border-top: 2px silver solid;
-  	font: small sans-serif;
+	margin: 4em 0 0 0;
+	border-top: 12px #7097BF solid;
+    background: #A9A38B;
+    border-bottom: 2px #7097BF solid;
 }
 
 div#footer-text {
-  	float: left;
-  	padding-bottom: 0.5em;
+	padding-top: 0.5ex;
+  	padding-bottom: 1.5em;
+  	font: small sans-serif;
+    color: white;
 }
 
-div#footer-badges {
-  	float: right;
-  	padding:0 0 0.5em 0;
-}
 
 
 /* -------- Other -------- */
