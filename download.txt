@@ -1,14 +1,15 @@
-Download
-=========
+Build and install Lumiera
+=========================
+:Date: 2/2011
 
-//MENU: label Download / Install
+//MENU: label Build / Install
 
 
-Current Code
--------------
+Development Version
+-------------------
 
-Lumiera is currently under active development.  We are in a pre-alpha
-stage, meaning that the software is not usable yet.
+Lumiera is currently under active development. +
+We are in a pre-alpha stage, meaning that the software is *not usable yet*.
 
 However, we have an early GUI draft in place which might give a feel
 for what the interface could look like.  It is available for end-user
@@ -18,17 +19,21 @@ experimentation now, but you need to _build_ it first.
 Build it, try it!
 ~~~~~~~~~~~~~~~~~
 
-To learn how to compile Lumiera from source read the
-link:{l}/documentation/user/tutorials/building.html[Building Lumiera from source tutorial].
-
-Review and download current Lumiera code and more from our plentiful
+We use a distributed infrastructure based on *Git* repositories.
+To learn how to compile Lumiera from source, you might want to read our tutorial
+link:{l}/documentation/user/tutorials/building.html[»Building Lumiera from source«].
+Browse, review and download current Lumiera code and more from our various
 Git repositories, link:http://www.lumiera.org/gitweb[browsable online here].
 
-Related to the project (and used in builds) is NoBug, which can be found here:
-link:http://www.lumiera.org/gitweb?p=nobug;a=tree[NoBug gitweb]
-
-You can find more more information about the project on the 
-link:{l}/project/index.html[About Lumiera page].
-
+You can find more information about the project on the 
+link:{l}/project/index.html[About Lumiera page]. +
 For in-depth design and technical documentation please see the
 link:{l}/documentation/index.html[Documentation section].
+
+
+Contribute
+~~~~~~~~~~
+Lumiera is an ambitious project -- to reach our goals we need your help.
+Even if you're not a coder, there are various ways you could
+link:{l}/contribute.html[help the project].
+

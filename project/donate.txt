@@ -1,6 +1,8 @@
 DONATIONS
 =========
 
+//Menu: label Donate
+
 image:{img}/piggy.png[Piggy Bank]
 
 Lumiera is a volunteer project, funded by the community.
