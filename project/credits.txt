@@ -7,7 +7,6 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 Architecture and Design,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 graphical user interface, JOEL HOLDSWORTH
-                  , CLAY BARNES
                   , HERMANN VOSSELER
                   , BRIAN RYTEL
 processing layer  , HERMANN VOSSELER
@@ -17,8 +16,9 @@ backend           , CHRISTIAN THÄTER
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Programming,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-rendering engine,   HERMANN VOSSELER
-backend,            CHRISTIAN THÄTER
+rendering engine  , HERMANN VOSSELER
+backend           , CHRISTIAN THÄTER
+                  , MICHAEL PLOUJNIKOV
 graphical user interface, JOEL HOLDSWORTH
                   , STEFAN KANGAS
 library           , HERMANN VOSSELER
@@ -31,6 +31,8 @@ testsuite         , CHRISTIAN THÄTER
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Programming Documentation,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+, CHRISTIAN THÄTER
+, HERMANN VOSSELER
 , MICHAEL PLOUJNIKOV
 , ODIN HØRTHE OMDAL
 , SIMEON VÖLKEL
@@ -74,6 +76,22 @@ concept      , BRIAN RYTEL
 
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Website,
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+basic design    , RAFFAELLA TRANIELLO
+and content     , BRIAN RYTEL
+                , SIMON LARCHER
+                , STEFAN KANGAS
+special effects , FRANCISCO G. RODRIGUEZ
+creative mockup , FRANÇOIS KUBLER
+navigation menu , HERMANN VOSSELER
+css             , CILLIAN DE RÓISTE
+                , BRIAN RYTEL
+                , HERMANN VOSSELER
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Server Administration,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 , CHRISTIAN THÄTER
@@ -91,21 +109,6 @@ helping hand    , CILLIAN DE RÓISTE
                 , ANDREW JAMES SWINAMER
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Website,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-basic design    , RAFFAELLA TRANIELLO
-and content     , BRIAN RYTEL
-                , SIMON LARCHER
-special effects , FRANCISCO G. RODRIGUEZ
-creative mockup , FRANÇOIS KUBLER
-navigation menu , HERMANN VOSSELER
-css             , CILLIAN DE RÓISTE
-                , BRIAN RYTEL
-                , HERMANN VOSSELER
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 '`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
