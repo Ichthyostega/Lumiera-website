@@ -20,6 +20,7 @@ Programming,
 rendering engine,	HERMANN VOSSELER
 backend,		CHRISTIAN THÄTER
 graphical user interface, JOEL HOLDSWORTH
+				, STEFAN KANGAS
 library,	        HERMANN VOSSELER
        ,                CHRISTIAN THÄTER
        ,                ANTON YAKOVLEV
@@ -97,6 +98,7 @@ Website,
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 basic design    , RAFFAELLA TRANIELLO
 and content     , BRIAN RYTEL
+				, SIMON LARCHER
 special effects , FRANCISCO G. RODRIGUEZ
 creative mockup , FRANÇOIS KUBLER
 css 	        , CILLIAN DE RÓISTE
@@ -131,12 +133,14 @@ alcarinque      , FRANCISCO G. RODRIGUEZ
 andrewjames	, ANDREW JAMES SWINAMER
 BJMR		, BRIAN RYTEL
 BlueJay		, SEBASTIAN INACKER
+bsemrad		, BRIAN SEMRAD
 cehteh          , CHRISTIAN THÄTER
 daitheflu       , FRANÇOIS KUBLER
 daylife         , WOUTER VERWIJLEN
 digitalkiwi     , ROBERT DJUBEK
 dragontamer     , PERCIVAL TIGLAO
 faberman	, FLORIAN FABERMANN
+fsiddi		, FRANCESCO SIDDI
 gmerlin         , BURKHARD PLAUM
 goibhniu        , CILLIAN DE RÓISTE
 hermanr         , HERMAN ROBAK
@@ -153,6 +157,9 @@ raffa           , RAFFAELLA TRANIELLO
 rgareus         , ROBIN GAREUS
 savinov		, GURAM Z. SAVINOV
 simav           , SIMEON VÖLKEL
+skangas			, STEFAN KANGAS
+steroeb			, STEFAN RÖBEN
+SvenL			, SIMON LARCHER
 teld            , SERGE GIELKENS
 thorwil         , THORSTEN WILMS
 tonsofpcs	, ERIC ADLER

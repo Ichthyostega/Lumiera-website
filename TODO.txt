@@ -30,8 +30,8 @@ For coordination of work:
 
 * all pages:
 
-  - set background colour explicitly
-  - create a footer with important links and contact
+  - *2nd STEP*: set background colour explicitly
+  - *2nd STEP*: create a footer with important links and contact
 
 == Project menu ==
 * about is fine, just add link to "history corner"
@@ -69,8 +69,8 @@ could go into +documentation/technical/build+
 
 == Devs vault ==
 
-* index page: shortly describe what it is: collection of resources relevant for active coders
-* as stated above: the active coders get a short entry each on the developers page. later that could be
+* *DONE*: index page: shortly describe what it is: collection of resources relevant for active coders
+* *DONE(to fill later)*: as stated above: the active coders get a short entry each on the developers page. later that could be
   an image or some additional voluntary information, just to give the names a "face"
 * design process: explain the RfC. We've pasted the description from the old design process page
   but we still need to describe how Cehteh's new admin/rfc.script works. Well.. almost self-explanatory
