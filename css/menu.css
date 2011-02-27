@@ -1,95 +1,105 @@
 @charset "utf-8";
+
 /* -------- CSS Document -------- */
 /*
-CSS for: lumiera.org
-CSS function: Navigation Menu
-*/
-
+ * Lumiera.org Stylesheet
+ *
+ * for: Navigation Menu
+ */
 
 
 /* --------v  Menu  v-------- */
-
 #menu {
-font: 16px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-padding: 0;
-border-bottom: 3px solid #C4BCB0;
+    font: 16px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    padding: 0;
+    border-bottom: 3px solid #C4BCB0;
 }
+
 /* main menu items */
 #menu li.submenu {
-border-top: 3px solid #C4BCB0;
-background-color: #F4F4F4;
-padding: 2px 0 0;
+    border-top: 3px solid #C4BCB0;
+    background-color: #F4F4F4;
+    padding: 2px 0 0;
 }
+
 /* second-level menu */
 #menu ul {
-background-color: #E1E1D0;
-padding: 0;
-margin: 3px 0 0;
+    background-color: #E1E1D0;
+    padding: 0;
+    margin: 3px 0 0;
 }
+
 /* expand buttons */
 #menu  .expand_button {
-float: right;
-font-size: 8px;
-text-indent: 0;
-padding: 0 5px;
-cursor: s-resize;
-border: 1px solid #D9E6F6;
-background: white;
+    float: right;
+    font-size: 8px;
+    text-indent: 0;
+    padding: 0 5px;
+    cursor: s-resize;
+    border: 1px solid #D9E6F6;
+    background: white;
 }
+
 #menu a {
-font-weight: normal;
-color: #333;
+    font-weight: normal;
+    color: #333;
 }
+
 #menu a:hover {
-text-decoration: none;
-background-color:#ccc;
+    text-decoration: none;
+    background-color: #ccc;
 }
+
 #menu ul a:hover {
-background-color:#A3A585;
+    background-color: #A3A585;
 }
 
 /* Current menu entry highlight */
-#menu ul .current,
-#menu ul .current li {
-	background-color: #D9E6F6;
+#menu ul .current,#menu ul .current li {
+    background-color: #D9E6F6;
 }
+
 #menu .current a {
-color: #1B3799;
+    color: #1B3799;
 }
 
 /* all menu items */
 #menu li {
-display: block;
-margin: 0;
+    display: block;
+    margin: 0;
 }
 
 /* level-2 indentation */
 #menu ul {
-text-indent: 0.5em;
+    text-indent: 0.5em;
 }
+
 /* level-3 indentation */
 #menu ul ul {
-text-indent: 1.5em;
+    text-indent: 1.5em;
 }
+
 /* level-4 indentation */
 #menu ul ul ul {
-text-indent: 2em;
+    text-indent: 2em;
 }
+
 /* level-5 indentation */
 #menu ul ul ul ul {
-text-indent: 2.33em;
+    text-indent: 2.33em;
 }
+
 /* level-6 indentation */
-#menu ul ul ul ul ul{
-text-indent: 2.66em;
+#menu ul ul ul ul ul {
+    text-indent: 2.66em;
 }
 
 /* Submenu-items */
-#menu ul > li {
-border-top: 2px solid #ccc;
-font-size: 14px;
-}
-#menu ul > li > a {
-display: block;
+#menu ul>li {
+    border-top: 2px solid #ccc;
+    font-size: 14px;
 }
 
+#menu ul>li>a {
+    display: block;
+}

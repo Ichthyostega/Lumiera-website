@@ -1,118 +1,100 @@
 @charset "utf-8";
+
 /* -------- CSS Document -------- */
 /*
-CSS for: lumiera.org
-CSS function: Site Layout
-*/
+ * Lumiera.org Stylesheet
+ *
+ * for: general page layout
+ */
+ 
 
-/* ---  css attributes order, delete unused attributes/values, --- 
-       misc. attributes @ bottom of list or next to related tag
-css {
-	display:;
-	visibilty:;
-	position:;
-	float:;
-	z-index:;
-	width:x;
-	height:y;
-	margin: top right bottom left;
-	padding: top right bottom left;
-	background: #colors url(deletethisvalue.foo) repeat scroll pos-x pos-y;
-	border: size color style;
-	outline: size color style;
-	font: style variant weight size/lineheight fontface1, fontface2, sans-serif; 
-	text-align:;
-	text-decoration:;
-}	
-*/
 
 /* --------  Body  -------- */
-
 body {
-	background: #F4EFDC;
+    background: #F4EFDC;
 }
 
-
 div#layout-banner {
-	margin: 5px 5px 0 5px;
-	padding: 0.4em 20px .2em 20px;
-	background: #7097BF;
-	border-bottom: 9px #A9A38B solid;
- 	color: white;
-	font: sans-serif;
-	text-align: left;
-  	
+    margin: 5px 5px 0 5px;
+    padding: 0.4em 20px .2em 20px;
+    background: #7097BF;
+    border-bottom: 9px #A9A38B solid;
+    color: white;
+    font: sans-serif;
+    text-align: left;
 }
 
 div#layout-title {
-	display: block;
-	margin: 0;
-	font: bold 3.5em monospace;
-	letter-spacing: 0.15em;
+    display: block;
+    margin: 0;
+    font: bold 3.5em monospace;
+    letter-spacing: 0.15em;
 }
 
 div#layout-description {
-	display: block;
-	font: 1.2em sans-serif;
-  	letter-spacing: 0.1em;
+    display: block;
+    font: 1.2em sans-serif;
+    letter-spacing: 0.1em;
 }
 
 #wrapper {
-	display: block;
-	width: 950px;
-	margin: 10px auto 0 5px;
-	background: #C09;
+    display: block;
+    width: 950px;
+    margin: 10px auto 0 5px;
+    background: #C09;
 }
 
-#menu, #layout-content {
-	float: left;
-	width: 700px;
+#menu,#layout-content {
+    float: left;
+    width: 700px;
 }
 
-#menu{
-	width: 180px;
-	margin: 0 20px 0 0;
+#menu {
+    width: 180px;
+    margin: 0 20px 0 0;
 }
 
 /* container for navigation menu */
-iframe#inavi{
-	width: 200px;
-	height: 50em;
-	float: left;
-	border: none;
-	margin: 0 10px 0 0;
-	padding: 0 0;
-/*  	background: #C20; */
+iframe#inavi {
+    width: 200px;
+    height: 50em;
+    float: left;
+    border: none;
+    margin: 0 10px 0 0;
+    padding: 0 0;
+    /*    background: #C20; */
 }
 
 #layout-content {
+    
 }
 
 /* ---- footer ---- */
 div#footer {
-	margin: 4em 0 0 0;
-	border-top: 12px #7097BF solid;
+    margin: 4em 0 0 0;
+    border-top: 12px #7097BF solid;
     background: #A9A38B;
     border-bottom: 2px #7097BF solid;
 }
 
 div#footer-text {
-	padding-top: 0.5ex;
-  	padding-bottom: 1.5em;
-  	font: small sans-serif;
+    padding-top: 0.5ex;
+    padding-bottom: 1.5em;
+    font: small sans-serif;
     color: white;
 }
 
-
-
 /* -------- Other -------- */
-h1#header {
-	margin: -10px 0 0 0;
-}	
-
-@media print {
-  #layout-banner { display: none; }
-  #layout-menu { display: none; }
+h1
+#header {
+    margin: -10 px 0 0 0;
 }
 
-
+@media print {
+    #layout-banner {
+        display: none;
+    }
+    #layout-menu {
+        display: none;
+    }
+}
