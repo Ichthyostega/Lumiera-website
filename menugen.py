@@ -182,7 +182,9 @@ def relativeRoot (loc):
         loc = path.join(startdir, loc)
     
     loc = path.normpath(loc)
-    assert loc.startswith(startdir)
+    if not loc.startswith(startdir):
+        __err('unable to establish page URL: '
+             +'Location %s is outside webroot %s' %(loc, startdir))
     loc = stripPrefix(loc, startdir)
     return path.join (TREE_ROOT, loc)
 
