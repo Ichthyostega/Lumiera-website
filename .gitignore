@@ -1,7 +1,10 @@
 git
 wiki
-raffas_test
+doxy
+static
+gitweb.css
 *.html
 *.pyc
 .*
 *~
+
