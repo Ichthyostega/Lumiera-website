@@ -2,10 +2,16 @@ Developers Vault
 ================
 
 // Menu :  include dir .
-// Menu :  include ../documentation/devel/rfc.txt
+// Menu :  include root/documentation/devel/report
+// Menu :  include root/documentation/devel/rfc.txt
 
+// Menu :  prepend child 'devs'
 // Menu :  put child 'roadmap' after 'devs'
-// Menu :  put child 'rfc' after 'roadmap'
+// Menu :  append child 'gitweb
+// Menu :  append child 'report'
+// Menu :  append child 'rfc'
+// Menu :  append child 'meeting'
+// Menu :  append child 'links'
 
 
 

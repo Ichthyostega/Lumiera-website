@@ -61,11 +61,13 @@ def addPredefined():
     
     proj.linkChild ('screenshots')
     proj.linkChild ('faq')
+    proj.linkChild ('news')
     proj.linkChild ('press')
     proj.linkChild ('donate')
     proj.linkChild ('roadmap')
-    proj.linkChild ('credits')
+    proj.linkChild ('background')
     proj.linkChild ('contact')
+    proj.linkChild ('credits')
     
     vault.linkChild('roadmap')
     vault.linkChild('devs')
@@ -81,6 +83,7 @@ def addPredefined():
     
     # define external links
     proj.link('http://issues.lumiera.org/roadmap', label="Roadmap (Trac)")
+    vault.link('http://www.lumiera.org/gitweb',    label="Gitweb")
 
 
 

@@ -2,12 +2,10 @@ About Lumiera
 ==============
 
 //MENU: label Project
+//
+//Note order of top level menu entries is setup statically in menugen.py
 
-////
-While the homepage gives an intro to the project website, this should give more 
-detail about the origins, intentions, and state of Lumiera. This should not get 
-into to much design or technical, that should be /documentation/design....
-////
+
 
 The Emerging NLE for GNU/Linux
 
