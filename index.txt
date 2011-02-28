@@ -5,7 +5,7 @@ image:{img}/lumiera_gui_small.png[Lumiera_screenshot]
 
 .Project objectives
 ***************************************************************************************************
-To create, as a community, a non linear video editing and compositing FOSS application
+To create, as a community, a non-linear video editing and compositing FOSS application
 for Linux/Unix/Posix Operating Systems, suitable for professional and quality oriented work,
 building on common open source video, sound and GUI toolkits and libraries, providing flexibility
 and a high degree of configurability and full control of all parameters, but at the same time
