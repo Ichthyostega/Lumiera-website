@@ -14,9 +14,9 @@ How can you help?
 The are many ways to help the Lumiera project:
 
 =====================================================
- * <<1,Join & contribute to the Mailing List>>
- * <<2,Help with website & infrastructure>>
- * <<3,Do little tasks & favours as they come up>>
+ * <<1,Join and contribute to the Mailing List>>
+ * <<2,Help with website and infrastructure>>
+ * <<3,Do little tasks and favours as they come up>>
  * <<4,Contribute to the Lumiera Design>>
  * <<5,Become a developer>>
  * link:{l}/project/donate.html[Donate!]
@@ -48,7 +48,7 @@ The Lumiera website is designed to 'live' through uWiki, which will provide a we
 interface to edit the whole site. uWiki is in development and needs some attention. 
 
 Some additional help is greatly appreciated with keeping news up-to-date, 
-formatting & editing design documentation, and working on the aesthetics of the 
+formatting and editing design documentation, and working on the aesthetics of the 
 Lumiera site.
 
 Existing content
