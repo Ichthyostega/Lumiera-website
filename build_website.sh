@@ -1,6 +1,8 @@
 #!/bin/bash
 DEFAULT_CONF=page
 
+GROUP=git
+
 run_menugen=no
 
 umask 003
@@ -8,7 +10,7 @@ umask 003
 # first pass, poor man dependency tracking over all .txt files
 if [[ ! "$1" ]]; then
 	echo -n "finding dependencies "
-	find -L -name '*.txt' |
+	find -L -name '*.txt' -group "$GROUP" |
 		while read file; do
 			echo -n "."
 			sed 's/include::\([^[]*\).*/\1/p;d' "$file" | while read prerequisite; do
@@ -25,7 +27,7 @@ fi
 echo -n "processing files "
 case "$1" in
 --all|'')
-	find -L -name '*.txt'
+	find -L -name '*.txt' -group "$GROUP"
 	;;
 *)
 	echo "$1"
@@ -34,7 +36,7 @@ esac |
 	{ while read file; do
 		echo -n "."
 		# when the .txt is newer than an existing .html
-		if [[ "$file" -nt "${file%*.txt}.html" || "$1" ]]; then
+		if [[ -w . && "$file" -nt "${file%*.txt}.html" || "$1" ]]; then
 			# use the default config file
 			conf="${DEFAULT_CONF}.conf"
 			# or if there is a .conf file with the same basename as the .txt file use that instead
@@ -48,8 +50,8 @@ esac |
 				--attribute=badges! --attribute quirks! \
 				--conf-file="${conf}" \
 				"$file"
-			#	
-			# note we did set	--attribute=revision="$VERS"  --attribute=date="$DATE" 
+			#
+			# note we did set	--attribute=revision="$VERS"  --attribute=date="$DATE"
 			# IMHO it is better to use the date hard wired in the documents (2/11, Ichthyo)
 			echo
 
