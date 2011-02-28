@@ -1,2 +1,8 @@
 User-agent: *
-Disallow: /
+Disallow: /git/
+Disallow: /gitweb/
+Disallow: /static/
+Disallow: /admin/
+Disallow: /attic/
+Disallow: /doxy/
+
