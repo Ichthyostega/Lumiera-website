@@ -62,7 +62,6 @@ project resources, and is now in active development of the core. Work has also
 been done on the GUI as can be seen in
 link:{l}/project/screenshots.html[screenshots].
 
-Currently, Lumiera is updating many of its web resources for increased openness,
-accessibility and to promote involvement in both development and community. We
-are always interested in design thoughts and developers, see
-link:{l}/contribute.html[Contribute] for more information.
+-> read more about the link:background/history[Project History]
+
+

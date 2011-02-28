@@ -1,0 +1,29 @@
+Lumiera Project: Background
+===========================
+:Author: Ichthyostega
+:Date: 3/2011
+
+//MENU: label more about...
+
+
+CAUTION: more contents to be added soon
+
+This page contains a collection of generally interesting background
+informations -- usually things _the insiders_ know already, but which
+might be helpful for new people to understand the rationale and
+the specific decisions taken within the project.
+
+-> see also the link:/documentation/user/[User documentation] and 
+link:/documentation/user/tutorials[Tutorials]
+
+
+About the history
+-----------------
+As with many open source projects, it is difficult to determine the
+absolute beginnings precisely. There was no ``kick off'' meeting with
+some people to decide ``now we'll start writing a video editing software''.
+Rather, the initiators of the project were all suffering from some well-known
+problems when using link:http://cinelerra.org[Cinelerra]...
+
+-> link:history[read more about the project history]
+
