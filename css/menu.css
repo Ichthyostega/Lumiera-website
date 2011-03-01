@@ -22,12 +22,20 @@
     padding: 2px 0 0;
 }
 
+/* Submenu-items */
+#menu ul>li {
+    border-top: 2px solid #CFC5B2;
+    font-size: 14px;
+}
+
 /* second-level menu */
 #menu ul {
-    background-color: #E1E1D0;
-    padding: 0;
+    border-top: 1px solid #CFC5B2;
+    background-color: #E1DED0;
     margin: 3px 0 0;
+    padding: 0;
 }
+
 
 /* expand buttons */
 #menu  .expand_button {
@@ -87,11 +95,6 @@
     text-indent: 2.66em;
 }
 
-/* Submenu-items */
-#menu ul>li {
-    border-top: 2px solid #ccc;
-    font-size: 14px;
-}
 
 #menu ul>li>a {
  /* nothing special */
@@ -102,8 +105,9 @@
 #menu li.current {
     background-color: #D9E6F6;
 }
-#menu .submenu.current > ul {
-    border-top: 3px solid #D9E6F6;
+#menu .submenu.current > ul > li {
+    background-color: #F4F4F4;
+    border-top-color: #CED5DE;
 }
 #menu .current a {
     color: #1B3799;
@@ -114,3 +118,10 @@
 #menu .collapsed > ul {
    display: none;
 }
+#menu li.submenu.collapsed {
+    border-top: 2px solid #CFC5B2;
+    background-color: #E1DED0;
+    padding: 0;
+    font-size: 14px;
+}/* style them like normal entries */
+
