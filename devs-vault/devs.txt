@@ -1,28 +1,41 @@
 Developers
 ==========
 
-.Rendering engine
 
-Hermann Vosseler
+//
+// Note: here we mention all those developers,
+// which -- arccording to the code stats --
+// contributed significantly to the core coding
+//
 
-.Backend
 
-Christian Thäter
+_cehteh_::
+  *Christian Thäter* +
+  Backend, Library, Infrastructure
+  
+_ichthyo_::
+  *Hermann Vosseler* +
+  Model, Renderengine, Architecture
+  
+_joelholdsworth_::
+  *Joel Holdsworth* +
+  GTK Gui -- (left 2009)
 
-.Graphical User Interface
+_plouj_::
+  *Michael Ploujnikov* +
+  Threadpool, Library
 
-Joel Holdsworth
+_simAV_::
+  *Simeon Voelkel* +
+  Config parser
 
-.Library
+_skangas_::
+  *Stefan Kangas* +
+  GUI, Timecode
 
-Hermann Vosseler +
+....
 
-Christian Thäter +
 
-Anton Yakovlev +
 
-.Testsuite
-
-Christian Thäter +
-
-Nicholas Sinnott-Armstrong +
+....
+~see also -> link:http://www.ohloh.net/p/lumiera/contributors[code stats at +ohloh.net+]~
