@@ -81,7 +81,7 @@ class HtmlGenerator(menugen.Formatter):
     
     INDENT   ='    '
     LEAF     ='<li id="$ID"><a href="$URL" target="_top" $HOVER >$LABEL</a></li>'
-    PRE_SUB  ='<li class="submenu"><a href="$URL" target="_top" $HOVER >$LABEL</a>  $EXPANDBUTTON <ul id="$ID">'
+    PRE_SUB  ='<li id="$ID" class="submenu"><a href="$URL" target="_top" $HOVER >$LABEL</a>  $EXPANDBUTTON <ul>'
     POST_SUB ='</ul></li>'
     
     

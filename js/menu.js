@@ -83,29 +83,36 @@ function addCSSClass (elm, classID)
 function removeCSSClass (elm, classID)
   {
     clzz = elm.className
-    if (clzz && -1 < clzz.indexOf (classID))
+    if (hasClass (clzz, classID))
       {
         clzz = clzz.replace(classID,'')
         elm.className = clzz
       }
   }
 
+function hasClass (classDef, classID)
+  {
+    return classDef && -1 < classDef.indexOf (classID)
+  }
+
+
 function blockVisibility (elm, operation)
   {
     if (!elm) return
     if ('expand' == operation)
-      newSetting = 'block'
+      showExpanded = true
     else
     if ('collapse' == operation)
-      newSetting = 'none'
+      showExpanded = false
     else
       {
-        currentState = elm.style.display
-        if (!currentState || 'none' == currentState)
-             newSetting = 'block'
-        else newSetting = 'none'
+        currentState = elm.className
+        showExpanded = hasClass(currentState, 'collapsed')
       }
-    elm.style.display = newSetting
+    if (showExpanded)
+      removeCSSClass (elm, 'collapsed')
+    else
+      addCSSClass (elm, 'collapsed')
   }
 
 
