@@ -870,8 +870,9 @@ class SortChildren(Placement):
         node.children.sort(key = lambda child: child.label.lower(), reverse = not self.ascending)
     
     
-    def acceptVerb(self, methodID):
+    def acceptVerb(self, methodID, reverse=False):
         if 'sortChildren' == methodID:
+            self.ascending = not reverse
             return self
         else:
             return None
