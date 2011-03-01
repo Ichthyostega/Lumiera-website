@@ -15,7 +15,47 @@ Developers Vault
 
 
 
-This section of the website contains informations and resources for the link:{l}/devs-vault/devs.html[active developers] of the project.
-The content here may not be what you are looking for if you are a user.
-Go to the link::http://www.lumiera.org/gitweb[Gitweb] of Lumiera.
+This section of the website contains informations and resources for the link:{l}/devs-vault/devs.html[active developers]
+of the project. The content here may not be what you are looking for if you are a user.
+
+Repositories
+------------
+The Lumiera sourcecode is maintained in a distributed fashion through a set of Git repositories.
+Each developer has his own repository, but usually developers are working on the same branches;
+e.g. you'll certainly find the _master_ branch in each repository. We're fairly liberal when
+it comes to giving people an account on +git.lumiera.org+, to allow publishing the individual
+developer's work to public repositories. Just ask, maybe explain a bit what you intend to do. +
+-> browse our repositories online via link:http://git.lumiera.org/gitweb[Gitweb]
+
+Repository usage pattern
+~~~~~~~~~~~~~~~~~~~~~~~~
+Developers work locally using Git repositories on their private PC. As a rule: check in often,
+publish frequently. Each developer can _pull_ from every repository, but has the right to _push_
+just to his own public repository at  +git.lumiera.org+. The ongoing work happens on dedicated
+branches. Developers might collaborate by using the same branches. Every working pattern is
+possible -- just acknowledge with the others what you're doing.
+
+Eventually, changes and additions get picked up and reviewed by the core developer responsible
+for the layer or part of the application in question. This way, code gets merged to the master
+branch and pushed to the Lumiera master repository finally. Code seriously breaking existing
+unit or integration tests will be kept on hold, until problems are sorted out.
+
+.Mob repository
+For small changes, and for the first contributions, there is a _mob repository_ which is
+pushable by everyone. Just clone master, do your changes and push to `git://git.lumiera.org/lumiera/mob`
+
+
+IRC Developer meetings
+----------------------
+We try to ``meet'' at least once every month in our IRC channel +#lumiera+ on Freenode.net +
+Depending on the number of participants and topics to discuss, these meetings are more formal
+or informal. 'Everyone is welcome'  -> more about link:meeting[dev meetings].
+
+Design proposals
+~~~~~~~~~~~~~~~~
+For proposals, design plans and basically everything requiring some kind of discussion and agreement,
+we have the more formalised *Design Process*: Everyone can write an RfC, using our standard template.
+Typically we expect each proponent to participate in some way in the implementation of such a proposal.
+These RfC entries will be discussed at the developer meetings and finally accepted or rejected.
+
 
