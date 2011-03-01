@@ -26,12 +26,12 @@ The are many ways to help the Lumiera project:
 Join and contribute to the Mailing List
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The mailing list is very active. Everyone is welcome! It is used by the
-developers for technical discussion but we encourage you to subscribe, follow
-and use it for bringing proposals, technical or user-level questions and any
+The mailing list is the central information hub of the project. Everyone is welcome! +
+It is used by the developers for technical discussion but we encourage you to subscribe,
+follow and use it for bringing proposals, technical or user-level questions and any
 kind of request concerning Lumiera.  You can
 link:http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[subscribe to the mailing list]
-or http://lists.lumiera.org/pipermail/lumiera/[browse the archives online].
+or link:http://news.gmane.org/gmane.comp.video.lumiera.general[browse the archives online].
 To talk with us in real time you can visit our IRC channel #lumiera on Freenode.
 
 

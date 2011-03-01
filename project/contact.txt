@@ -4,12 +4,23 @@ Contact
 Mailing List
 ------------
 
-Lumiera has the mailing list
-http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[lumiera@lists.lumiera.org]
-for general discussions. The mailing list archives are available
-http://lists.lumiera.org/pipermail/lumiera/[here].
+For all kinds of questions, proposals, general as well as technical questions, the
+link:http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[lumiera@lists.lumiera.org] Mailing List
+is the right location. Deliberately, this list is both for coders and (prospective) users.
+Non-members may post (without link:http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[subscribing]),
+but such messages will be moderated.
+
+ * our own mailing list archives are available http://lists.lumiera.org/pipermail/lumiera/[on our server].
+ * the list is bridged to link:http://dir.gmane.org/gmane.comp.video.lumiera.general[Gmane.org], which
+   gives you several alternative styles of following the list, e.g. in 
+   link:http://blog.gmane.org/gmane.comp.video.lumiera.general[blog style] or using your favorite reader
+   via the good old link:nntp://news.gmane.org/gmane.comp.video.lumiera.general[News:] protocol.
+   
 
 IRC
 ---
 
-You may find many of us in the IRC channel #lumiera at http://freenode.net/[Freenode].
+Usually, chances are that you may find some of us hanging out in the IRC channel +#lumiera+ at http://freenode.net/[Freenode].
+Thats also where we do our link:/devs-vault/meeting[monthly developers meeting].
+If unfamiliar with IRC, you may try out freenode's link:http://webchat.freenode.net/[webchat interface]
+
