@@ -1,0 +1,23 @@
+Lumiera Autumn Report
+=====================
+:Date: October 2010
+
+//Menu: label 10.10 Dev Report
+
+
+.Just a short summary this time....
+Last months the Lumiera community has been busy preparing for conferences.
+We have been at link:http://froscon.org/[FrOSCon 2010] with a booth and a 
+link:http://programm.froscon.org/2010/events/551.de.html[talk on Lumiera].
+You might want to watch the http://ftp.stw-bonn.de/froscon/2010/hs12/theora/hs12%5F-%5F2010-08-22%5F10%3A00%5F-%5Fde%5F-%5Flumiera%5F-%5Fhermann%5Fvosseler.ogv[video (in German)] from Ichthyo's presentation.
+
+Besides, we have been present at link:http://www.openvideoconference.org/[OVC] and met the OpenVideo community. +
+After an intermission caused by other duties, _ichthyo_ is now back working
+on integration of some recently finished parts into the session. The plan
+is then to address topics like output / Jack integration or the builder.
+
+During the next months, _cehteh_ is taking a short leave from Lumiera coding.
+We can't wait to have him back!
+
+
+
