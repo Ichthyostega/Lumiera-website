@@ -84,6 +84,10 @@ def addPredefined():
     # define external links
     proj.link('http://issues.lumiera.org/roadmap', label="Roadmap (Trac)")
     vault.link('http://www.lumiera.org/gitweb',    label="Gitweb")
+    
+    # ordering of news entries
+    Node('news').sortChildren(reverse=True) \
+                .putChildLast('old_news')
 
 
 
@@ -870,8 +874,9 @@ class SortChildren(Placement):
         node.children.sort(key = lambda child: child.label.lower(), reverse = not self.ascending)
     
     
-    def acceptVerb(self, methodID):
+    def acceptVerb(self, methodID, reverse=False):
         if 'sortChildren' == methodID:
+            self.ascending = not reverse
             return self
         else:
             return None
