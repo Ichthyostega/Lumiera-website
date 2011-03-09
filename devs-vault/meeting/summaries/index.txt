@@ -1,8 +1,44 @@
 Past Meetings
 =============
 
+Not all meetings gets summarized on this page. For example, there are no meeting
+summaries at all available for 2010. This only means that there were not enough
+things that needed deciding/documenting during these meetings to warrant someone
+spending time on the task of writing a summary.
+
+Anyone interested in Lumiera development is also encouraged to read mailing list
+archives and other documentation.
+
 //Menu: sort children descending
 
+9 Mar 2011
+----------
+
+Topics
+~~~~~~
+ * The New Website
+ * IRC Logs
+ * VoIP discussions over Mumble?
+ * Version numbering
+
+Summary
+^^^^^^^
+ * link:2011-03-09.html[Summary (written by Stefan Kangas)]
+
+9 Sep 2009
+----------
+
+Topics
+~~~~~~
+ * FrOSCon
+ * Funding
+ * Website
+ * Ticket Query Clean-up
+ * Coding
+
+Summary
+^^^^^^^
+ * link:2009-09-09.html[Summary (written by raffa and Ichthyo)]
 
 14 Jan 2009
 -----------
