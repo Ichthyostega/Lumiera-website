@@ -3,7 +3,7 @@ Lumiera Developers Meeting
 :Author: Stefan Kangas
 :Date: 2011-03-09
 
-March 9, 2011 on +#lumiera+
+March 9, 2011 on +#lumiera+ +
 ^20:00 GMT - 23:30 GMT^
 
 //Menu: label 2011-03-09 
