@@ -10,11 +10,12 @@ March 9, 2011 on +#lumiera+ +
 
 __Participants__
 
-* Francesco Siddi (fsiddi)
 * Christian Thaeter (cehteh)
-* Odin Hørthe Omdal (Velmont)
+* Francesco Siddi (fsiddi)
 * Hermann Voßeler (ichthyo)
+* Odin Hørthe Omdal (Velmont)
 * Raffaella Traniello (raffa)
+* Stefan Kangas (skangas)
 
 The New Website
 ---------------
