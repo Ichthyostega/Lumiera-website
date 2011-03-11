@@ -10,7 +10,7 @@ umask 003
 # first pass, poor man dependency tracking over all .txt files
 if [[ ! "$1" ]]; then
 	echo -n "finding dependencies "
-	find -L -name '*.txt' -group "$GROUP" |
+	find -L . -name '*.txt' -group "$GROUP" |
 		while read file; do
 			echo -n "."
 			sed 's/include::\([^[]*\).*/\1/p;d' "$file" | while read prerequisite; do
@@ -27,7 +27,7 @@ fi
 echo -n "processing files "
 case "$1" in
 --all|'')
-	find -L -name '*.txt' -group "$GROUP"
+	find -L . -name '*.txt' -group "$GROUP"
 	;;
 *)
 	echo "$1"
@@ -45,7 +45,7 @@ esac |
 			fi
 			# run asciidoc over it
 	 		echo "asciidocing $file"
-			python /usr/bin/asciidoc --unsafe --backend=xhtml11 \
+			asciidoc --unsafe --backend=xhtml11 \
 				--attribute icons --attribute=iconsdir=/images/asciidoc \
 				--attribute=badges! --attribute quirks! \
 				--conf-file="${conf}" \
