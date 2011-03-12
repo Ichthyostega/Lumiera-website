@@ -1,27 +1,46 @@
 #!/bin/bash
 DEFAULT_CONF=page
-
-GROUP=git
+GROUP=$(find -L index.txt -printf "%g")
+umask 003
 
 run_menugen=no
 
-umask 003
 
 # first pass, poor man dependency tracking over all .txt files
 if [[ ! "$1" ]]; then
 	echo -n "finding dependencies "
-	find -L . -name '*.txt' -group "$GROUP" |
-		while read file; do
-			echo -n "."
-			sed 's/include::\([^[]*\).*/\1/p;d' "$file" | while read prerequisite; do
-				if [[ "${prerequisite}" -nt "${file}" ]]; then
-					echo -n ":"
-					touch "$file"
+
+	loop=1
+	while [[ $loop = 1 ]]; do
+		loop=0
+		find -L . -name '*.txt' -group "$GROUP" |
+			{
+				while read file; do
+					echo -n "."
+					# check for includes
+					sed 's/include::\([^[]*\).*/\1/p;d' "$file" | while read prerequisite; do
+						if [[ "${prerequisite}" -nt "${file}" ]]; then
+							echo -n ":"
+							touch "$file"
+							loop=1
+						fi
+					done
+					# check for 'sys' commands
+					if grep 'sys[23]\?:*\[.*\]' "$file" >/dev/null; then
+						echo -n "+"
+						touch "$file"
+					fi
+				done
+				if [[ $loop = 1 ]]; then
+					false
 				fi
-			done
-		done
+			}
+
+		loop=$?
+	done
 echo
 fi
+
 
 # second pass for every .txt file
 echo -n "processing files "
@@ -30,7 +49,9 @@ case "$1" in
 	find -L . -name '*.txt' -group "$GROUP"
 	;;
 *)
-	echo "$1"
+	for file in "$@"; do
+		echo "$file"
+	done
 	;;
 esac |
 	{ while read file; do
