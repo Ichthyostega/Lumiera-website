@@ -1,6 +1,7 @@
 #!/bin/bash
 DEFAULT_CONF=page
 GROUP=$(find -L index.txt -printf "%g")
+CONCURRENCY_LEVEL=${CONCURRENCY_LEVEL:-3}
 umask 003
 
 run_menugen=no
@@ -54,8 +55,10 @@ case "$1" in
 	done
 	;;
 esac |
-	{ while read file; do
-		echo -n "."
+	{
+	echo >.todo.$$
+	while read file; do
+		echo -n "." >&2
 		# when the .txt is newer than an existing .html
 		if [[ -w . && "$file" -nt "${file%*.txt}.html" || "$1" ]]; then
 			# use the default config file
@@ -65,21 +68,26 @@ esac |
 				conf="${file%*.txt}.conf"
 			fi
 			# run asciidoc over it
-	 		echo "asciidocing $file"
-			asciidoc --unsafe --backend=xhtml11 \
-				--attribute icons --attribute=iconsdir=/images/asciidoc \
-				--attribute=badges! --attribute quirks! \
-				--conf-file="${conf}" \
-				"$file"
+	 		echo "asciidocing $file" >&2
+			printf "%q " --unsafe --backend=xhtml11 \
+					--attribute icons --attribute=iconsdir=/images/asciidoc \
+					--attribute=badges! --attribute quirks! \
+					--conf-file="${conf}" \
+					"$file" >>.todo.$$
+ 			echo >>.todo.$$
 			#
 			# note we did set	--attribute=revision="$VERS"  --attribute=date="$DATE"
 			# IMHO it is better to use the date hard wired in the documents (2/11, Ichthyo)
-			echo
+			echo >&2
 
 			run_menugen=yes
 		fi
 	done
-	if [[ $run_menugen=yes ]]; then
+
+	xargs -P $CONCURRENCY_LEVEL -n 10 -a .todo.$$ asciidoc
+	rm .todo.$$
+
+	if [[ $run_menugen = yes ]]; then
 		./menugen.py -p -s -w >menu.html.tmp
 		if cmp -s menu.html.tmp menu.html; then
 			rm menu.html.tmp
