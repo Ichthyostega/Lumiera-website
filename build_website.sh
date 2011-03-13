@@ -84,7 +84,7 @@ esac |
 		fi
 	done
 
-	xargs -P $CONCURRENCY_LEVEL -n 10 -a .todo.$$ asciidoc
+	xargs -P $CONCURRENCY_LEVEL -r -n 10 -a .todo.$$ asciidoc
 	rm .todo.$$
 
 	if [[ $run_menugen = yes ]]; then
