@@ -4,6 +4,8 @@ Build and install Lumiera
 
 //MENU: label Build / Install
 
+//MENU: include root/debian
+
 
 Development Version
 -------------------
@@ -13,7 +15,17 @@ We are in a pre-alpha stage, meaning that the software is *not usable yet*.
 
 However, we have an early GUI draft in place which might give a feel
 for what the interface could look like.  It is available for end-user
-experimentation now, but you need to _build_ it first.
+experimentation now, but usually you need to _build_ it first.
+
+Lumiera Debian package
+~~~~~~~~~~~~~~~~~~~~~~
+Some of the Lumeira core developers use Debian/stable as a reference system for
+development. This has the nice side effect that we'll provide debian source and
+binary packages to reflect the ongoing development. Since Ubuntu is based on
+debian, the plan is to extend this gradually to some Ubuntu distributions as well.
+
+For now: if you're using a Debian/Lenny based system on AMD64 _(Doh!)_
+you might want to try out our link:/debian[Debian depot for apt-get]
 
 
 Build it, try it!
