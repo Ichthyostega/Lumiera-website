@@ -5,6 +5,7 @@ Build and install Lumiera
 //MENU: label Build / Install
 
 //MENU: include root/debian
+//MENU: prepend child root/documentation/user/tutorials/building
 
 
 Development Version
@@ -42,13 +43,16 @@ Build it, try it!
 We use a distributed infrastructure based on *Git* repositories.
 To learn how to compile Lumiera from source, you might want to read our tutorial
 link:{l}/documentation/user/tutorials/building.html[»Building Lumiera from source«].
-Browse, review and download current Lumiera code and more from our various
-Git repositories, link:http://www.lumiera.org/gitweb[browsable online here].
 
-You can find more information about the project on the 
-link:{l}/project/index.html[About Lumiera page]. +
-For in-depth design and technical documentation please see the
-link:{l}/documentation/index.html[Documentation section].
+Additional informations
+
+- Browse, review and download current Lumiera code and more from our various
+  Git repositories, link:http://www.lumiera.org/gitweb[browsable online here].
+- You can find more information about the project on the 
+  link:{l}/project/index.html[About Lumiera page].
+- For in-depth design and technical documentation and further tutorials
+  please see the link:{l}/documentation/index.html[Documentation section].
+
 
 
 Contribute
