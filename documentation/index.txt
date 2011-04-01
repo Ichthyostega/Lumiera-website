@@ -1,0 +1,11 @@
+= Documentation =
+
+WARNING: This is just a placeholder page
+
+On the Live-Website, the +documentation/+ subdirectory is served from another
+Git repository (the ``documentation'' repository). Now, if we start building the
+new page layout, this would cause the documentation files of the live website
+*already be rendered with the new layout*, which is certainly not intended...
+
+
+

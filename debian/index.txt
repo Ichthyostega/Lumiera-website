@@ -1,0 +1,12 @@
+= Debian Depot =
+
+WARNING: This is just a placeholder page
+
+On the Live-Website, the +debian/+ subdirectory is served separately from
+the webiste Git repository, and is used to store debian packages.
+
+Now, if we start building the new page layout, this might interfer with
+this purpose and maybe mess up some files....
+
+
+
