@@ -22,30 +22,28 @@ import menugen
 ENTRY_LENGTH = 17
 #------------CONFIGURATION-----------------------------
 
-
 menuTemplate = '''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
     "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta http-equiv="expires" content="0">
-<title>Navigation</title>
-<link rel="stylesheet" href="/css/asciidoc.css" type="text/css" />
-<link rel="stylesheet" href="/css/page.css" type="text/css" />
-<link rel="stylesheet" href="/css/menu.css" type="text/css" />
-<script type="text/javascript" src="/js/menu.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="expires" content="0" />
+	<title>Navigation</title>
+	<link rel="stylesheet" href="/css/asciidoc.css" type="text/css" />
+	<link rel="stylesheet" href="/css/page.css" type="text/css" />
+	<link rel="stylesheet" href="/css/menu.css" type="text/css" />
+	<link rel="stylesheet" href="/css/jquery.treeview.css" type="text/css" />
+	
+	<script type="text/javascript" src="/js/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="/js/jquery.treeview.js"></script>
+	<script type="text/javascript" src="/js/jquery.treeview.setup.js"></script>
 </head>
 
 <body>
-<ul id='menu'>
-$menuBody
-</ul>
-
-<script type="text/javascript">
-// Generated Script allowing to mark menu entries as selected
-$menuScript
-</script>
+	<ul id="menu_v" class="treeview-famfamfam">
+		$menuBody
+	</ul>
 
 </body>
 </html>
@@ -80,8 +78,8 @@ def menuEntryText(node):
 class HtmlGenerator(menugen.Formatter):
     
     INDENT   ='    '
-    LEAF     ='<li id="$ID"><a href="$URL" target="_top" $HOVER >$LABEL</a></li>'
-    PRE_SUB  ='<li id="$ID" class="submenu"><a href="$URL" target="_top" $HOVER >$LABEL</a>  $EXPANDBUTTON <ul>'
+    LEAF     ='<li><a href="$URL" target="_top">$LABEL</a></li>'
+    PRE_SUB  ='<li><a href="$URL" target="_top">$LABEL</a><ul>'
     POST_SUB ='</ul></li>'
     
     

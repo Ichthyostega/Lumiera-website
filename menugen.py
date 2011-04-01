@@ -41,7 +41,7 @@ menuSpec_RE  = re.compile(r'^//\s*MENU\s*:\s*', re.IGNORECASE)
 
 
 def addPredefined():
-    ''' populate the menu with a set of basic nodes createing a backbone,
+    ''' populate the menu with a set of basic nodes creating a backbone,
         which can then be extended by values extracted from individual pages.
     '''
     root = Node(TREE_ROOT, label='Lumiera.org')
