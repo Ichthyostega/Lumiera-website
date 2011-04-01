@@ -7,6 +7,30 @@ umask 003
 run_menugen=no
 
 
+function additionalAttributes() {
+	# some hard wired additional document attributes
+	# depending on the source document name $1
+	case "$1" in
+	./index.txt|./documentation/index.txt)
+		echo -n " --attribute=index-only "
+		;;
+	*)
+		echo -n " --attribute=index-only! "
+	esac
+	#
+	# all documents in this list will be rendered with page-toplevel.template....
+	case "$1" in
+	./contribute.txt|./download.txt|./index.txt|\
+	./project/index.txt|./project/faq.txt|./project/press.txt|\
+	./project/donate.txt|./project/roadmap.txt|./project/contact.txt)
+		echo -n " --attribute=template=toplevel "
+		;;
+	*)
+		echo -n " --attribute=template! "
+	esac
+}
+
+
 # first pass, poor man dependency tracking over all .txt files
 if [[ ! "$1" ]]; then
 	echo -n "finding dependencies "
@@ -70,6 +94,7 @@ esac |
 			# run asciidoc over it
 	 		echo "asciidocing $file" >&2
 			printf "%q " --unsafe --backend=xhtml11 \
+					$(additionalAttributes $file) \
 					--attribute icons --attribute=iconsdir=/images/asciidoc \
 					--attribute=badges! --attribute quirks! \
 					--conf-file="${conf}" \
@@ -84,7 +109,7 @@ esac |
 		fi
 	done
 
-	xargs -P $CONCURRENCY_LEVEL -r -n 10 -a .todo.$$ asciidoc
+	xargs -P $CONCURRENCY_LEVEL -r -n 12 -a .todo.$$ asciidoc
 	rm .todo.$$
 
 	if [[ $run_menugen = yes ]]; then
