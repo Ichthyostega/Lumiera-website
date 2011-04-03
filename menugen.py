@@ -68,6 +68,7 @@ def addPredefined():
     proj.linkChild ('background')
     proj.linkChild ('contact')
     proj.linkChild ('credits')
+    proj.linkChild ('legal')
     
     vault.linkChild('roadmap')
     vault.linkChild('devs')

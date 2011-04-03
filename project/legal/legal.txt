@@ -1,0 +1,77 @@
+Legal & License
+===============
+:Date: 2011
+
+//Menu: label License
+
+Lumiera is free software, available under the terms and conditions of the
+GNU General Public License *GPL v2 or above*. GPL is a free, _copyleft_ license
+for software and other kinds of works.
+
+== About the source code License ==
+
+The licenses for most software and other practical works are designed to take
+away your freedom to share and change the works. By contrast, the GNU General
+Public License is intended to guarantee your freedom to share and change all
+versions of a program -- to make sure it remains free software for all its users.
+
+When we speak of free software, we are referring to _freedom,_ not _price._ The
+General Public License was designed to make sure that you have the freedom to
+distribute copies of free software (and charge for them if you wish), that you
+receive source code or can get it if you want it, that you can change the
+software or use pieces of it in new free programs, and that you know you
+can do these things.
+
+To protect your rights, we need to prevent others from denying you these rights
+or asking you to surrender the rights. Therefore, you have _certain
+responsibilities_ if you distribute copies of the software, or if you modify it:
+responsibilities to respect the freedom of others. For example, if you
+distribute copies of such a program, whether gratis or for a fee, you must pass
+on to the recipients the same freedoms that you received. You must make sure
+that they, too, receive or can get the source code. And you must show them these
+terms so they know their rights.
+
+Developers that use the GNU GPL protect your rights with two steps:
+
+. assert copyright on the software, and 
+. offer you this License giving you legal permission to copy, distribute and/or modify it.
+
+For the developers' and authors' protection, the GPL clearly explains that there
+is _no warranty_ for this free software. For both users' and authors' sake, the
+GPL requires that modified versions be _marked as changed,_ so that their problems
+will not be attributed erroneously to authors of previous versions.
+
+Some devices are designed to deny users access to install or run modified
+versions of the software inside them, although the manufacturer can do so. This
+is fundamentally incompatible with the aim of protecting users' freedom to
+change the software. The systematic pattern of such abuse occurs in the area of
+products for individuals to use, which is precisely where it is most
+unacceptable. Therefore, the version 3 of the GPL was designed to prohibit
+the practice for those products. If such problems arise substantially in other
+domains, the Free Software Foundation is prepared to extend this provision to
+those domains in future versions of the GPL, as needed to protect the
+freedom of users.
+
+Finally, every program is threatened constantly by software patents. States
+should not allow patents to restrict development and use of software on
+general-purpose computers, but in those that do, we wish to avoid the special
+danger that patents applied to a free program could make it effectively
+proprietary. To prevent this, the GPL v3 assures that patents cannot be used
+to render the program non-free.
+
+For the precise, legally binding terms and conditions see
+
+- the link:gpl.html[GNU General Public License Version-2]
+- the link:gpl3.html[GNU General Public License Version-3]
+
+
+== License for additional Material on the Webiste ==
+
+WARNING: still in discussion
+
+Lumiera.org provides a lot of additional materials, design documents, technical
+documentation, background informations (a _User Manual is planned_ ) on this
+website. The intention is to provide this contents under license terms similar
+in spirit. The actual License to choose is in discussion right now (4/2011).
+Possible Candidates are the GPL, the GFDL or CC-by-sa
+
