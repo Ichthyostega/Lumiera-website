@@ -10,8 +10,10 @@ run_menugen=no
 function additionalAttributes() {
 	# some hard wired additional document attributes
 	# depending on the source document name $1
-	case "$1" in
-	./index.txt|./documentation/index.txt)
+	local file="${1#./}"
+
+	case "$file" in
+	index.txt|documentation/index.txt)
 		echo -n " --attribute=index-only "
 		;;
 	*)
@@ -19,10 +21,10 @@ function additionalAttributes() {
 	esac
 	#
 	# all documents in this list will be rendered with page-toplevel.template....
-	case "$1" in
-	./contribute.txt|./download.txt|./index.txt|\
-	./project/index.txt|./project/faq.txt|./project/press.txt|\
-	./project/donate.txt|./project/roadmap.txt|./project/contact.txt)
+	case "$file" in
+	contribute.txt|download.txt|index.txt|\
+	project/index.txt|project/faq.txt|project/press.txt|\
+	project/donate.txt|project/roadmap.txt|project/contact.txt)
 		echo -n " --attribute=template=toplevel "
 		;;
 	*)
@@ -66,6 +68,23 @@ if [[ ! "$1" ]]; then
 echo
 fi
 
+# parsing opargs
+dryrun=
+while [[ "$1" ]]; do
+	case $1 in
+	-n|--dry-run)
+		shift
+		CONCURRENCY_LEVEL=1
+		dryrun=echo
+		;;
+	-j|--jobs)
+		CONCURRENCY_LEVEL="${2:-$CONCURRENCY_LEVEL}"
+		shift 2
+		;;
+	*|--)
+		break;
+	esac
+done
 
 # second pass for every .txt file
 echo -n "processing files "
@@ -109,10 +128,10 @@ esac |
 		fi
 	done
 
-	xargs -P $CONCURRENCY_LEVEL -r -n 12 -a .todo.$$ asciidoc
+	xargs -P $CONCURRENCY_LEVEL -r -n 12 -a .todo.$$ $dryrun asciidoc
 	rm .todo.$$
 
-	if [[ $run_menugen = yes ]]; then
+	if [[ $run_menugen = yes && ! "$dryrun" ]]; then
 		./menugen.py -p -s -w >menu.html.tmp
 		if cmp -s menu.html.tmp menu.html; then
 			rm menu.html.tmp
