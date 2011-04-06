@@ -13,49 +13,52 @@
     "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset={encoding}" />
-<meta name="generator" content="AsciiDoc {asciidoc-version}" />
+	<meta http-equiv="Content-Type" content="text/html; charset={encoding}" />
+	<meta name="generator" content="AsciiDoc {asciidoc-version}" />
 ifdef::index-only[]
-<meta name="description" content="The new NLE for Linux" />
-<meta name="keywords" content="NLE, professional video editing, linux video, open source, programming" />
+	<meta name="description" content="The new NLE for Linux" />
+	<meta name="keywords" content="NLE, professional video editing, linux video, open source, programming" />
 endif::index-only[]
-<link rel="stylesheet" href="/css/asciidoc.css" type="text/css" />
-<link rel="stylesheet" href="/css/page.css" type="text/css" />
-<script type="text/javascript" src="{scriptsdir=.}/menu.js" defer="defer"></script>
-<title>{doctitle}</title>
+	<link rel="stylesheet" href="/css/main.css" type="text/css" />
+	<script type="text/javascript" src="{scriptsdir=.}/menu.js" defer="defer"></script>
+	<title>{doctitle}</title>
 </head>
 <body>
 
 <!-- page-template = {template} -->
 
-<div id="layout-banner">
-  <div id="layout-title">Lumiera-TOPLEVEL</div>
-  <div id="layout-description">The new emerging NLE for GNU/Linux</div>
-</div>
 <div id="wrapper">
- <iframe id="inavi" name="inavi" src="/menu.html" onload="markPageInMenu()">
- <p>This frame should hold the <a href="/menu.html">main navigation menue</a>, 
-    but unfortunately your browser can't display iFrames</p>
- </iframe>
-
-<div id="layout-content">
-
-<!-- visible page header -->
-<div id="header">
-<h1>{doctitle}</h1>
-<span id="author">{author}</span><br />
-<span id="email"><tt>&lt;<a href="mailto:{email}">{email}</a>&gt;</tt></span><br />
-<span id="page_date">&mdash; {date} &mdash;</span>
-</div>
+	<div id="header">
+		<div id="title">		
+			<h1>Lumiera</h1>
+			<p>The emerging NLE for GNU/Linux</p>
+		</div>
+		<iframe id="inavi" name="inavi" src="/menu_h.html" onload="markPageInMenu()">iframe</iframe>
+	</div>
+	<div id="content_wrapper">
+		<div class="main">
+			<h1>{doctitle}</h1>
+			<span id="author">{author}</span><br />
+			<span id="email"><tt>&lt;<a href="mailto:{email}">{email}</a>&gt;</tt></span><br />
+			<span id="page_date">&mdash; {date} &mdash;</span>
 
 
 [footer]
+		</div>
+		<div class="main side">
+			<h2>Quick links</h2>
+			<ul class="quick_links">
+				<li class="rss"><a href="#">Lumiera Git Master Repo</a></li>
+				<li class="rss"><a href="#">TRAC activity</a></li>
+				<li class="rss"><a href="#">Mailing list activity</a></li>
+			</ul>
+		</div>
 <div id="footer">
-<div id="footer-text">
+			<div id="footer-text">
 include::footer.htmlf[]
-</div>
-</div>
-</div>
+			</div>
+		</div>
+	</div>
 </div>
 </body>
 </html>

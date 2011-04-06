@@ -1,0 +1,69 @@
+#header {
+	position:relative;
+/* allows z-index value */
+	z-index:1;
+/* places header above faux columns */
+/*background: url(../../images/bg_header.png) top center no-repeat;*/
+	padding:10px 15px 15px;
+	-moz-border-radius:0 0 4px 4px;
+	background-color:#000;
+	margin-bottom:20px;
+}
+
+#title {
+	background:url(images/logo_small.png) no-repeat;
+	background-position:10px 0;
+	height:71px;
+	width:365px;
+}
+
+
+
+/* container for navigation menu */
+iframe#inavi_v {
+	border:none;
+	margin:0 1px 20px 15px;
+	padding:0;
+	width:250px;
+	height:736px;
+	float:left;
+	background:#CECECE;
+	-moz-border-radius: 3px 0 0 3px;
+}
+
+
+
+.main {
+	float:left;
+	width:680px;
+	margin:0 5px 75px 0;
+/* margin-bottom clears footer */
+	background:#CECECE;
+	display:inline;
+	position:relative;
+/* allows z-index value */
+	z-index:1;
+/* places "real columns" above "faux columns" */
+/*border: 1px solid #000;*/
+	padding:10px 20px;
+	-moz-border-radius:0 2px 2px 0;
+}
+
+.main ul {
+	list-style-position:inside;
+	padding-left:10px;
+}
+
+td.content {
+	padding-left:15px;
+}
+
+pre {
+	overflow:scroll;
+}
+
+p.snippet {
+	font-family:"Courier New", Courier;
+	padding:5px 10px;
+	background-color:#DDD;
+}
