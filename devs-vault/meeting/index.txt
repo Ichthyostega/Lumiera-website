@@ -1,13 +1,17 @@
 Monthly Meetings
 ================
 
+// Menu :  include dir .
+// Menu :  include root/documentation/devel/meeting_summary
+
+
 We regularly conduct developer meetings -- usually at 2^nd^ Wednesday of each month, starting 20^00^ UTC.  
 These meetings take place in the IRC channel #lumiera at Freenode. ->link:/project/contact.html[more]
 
 This page announces the next meeting. Usually, meetings are also announced some days ahead
 on the Mailinglist. _Everyone is welcome. Feel free to suggest any topic you would like to discuss!_
 
- * *Summaries* of past meetings can be found link:/devs-vault/meeting/summaries/index.html[here].
+ * *Summaries* of past meetings can be found link:/documentation/devel/meeting_summary/index.html[here].
 
  * If you have been ``volunteered'' to write a summary, you might want
    to have a look at the link:/documentation/devel/template/YYYY-MM-DD-developerMeetingSummary.txt[summary template].
@@ -20,8 +24,8 @@ For general discussions or further questions, refer to the ->link:/project/conta
 Next Developers Meeting
 -----------------------
 
-Wednesday April 13 20:00 GMT
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Wednesday May 11 20:00 UTC
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .Topics
 . ...
