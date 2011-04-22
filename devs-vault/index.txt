@@ -7,6 +7,7 @@ Developers Vault
 
 // Menu :  prepend child 'devs'
 // Menu :  put child 'roadmap' after 'devs'
+// Menu :  put child 'doxy' after 'roadmap'
 // Menu :  append child 'gitweb
 // Menu :  append child 'report'
 // Menu :  append child 'rfc'

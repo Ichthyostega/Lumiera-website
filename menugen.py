@@ -85,6 +85,7 @@ def addPredefined():
     # define external links
     proj.link('http://issues.lumiera.org/roadmap', label="Roadmap (Trac)")
     vault.link('http://www.lumiera.org/gitweb',    label="Gitweb")
+    vault.link('http://lumiera.org/doxy',          label="API Doc (Doxygen)")
     
     # ordering of news entries
     Node('news').sortChildren(reverse=True) \
