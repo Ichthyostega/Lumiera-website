@@ -1,0 +1,175 @@
+Clean Code Development
+======================
+:Author: Ichthyostega
+:Date: 4/2011
+
+//MENU: label Clean Code
+
+
+
+******************************************************************************************************
+The *Clean Code Developer Initiative* was initiated by link:http://lieser-online.de[Stefan Lieser]
+and link:http://www.ralfw.de/[Ralph Westphal] early in 2009. Largely inspired by the Book
+link:http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/[»Clean Code«]
+-- a Handbook of Agile Software Craftsmanship by *Robert C. Martin*, the Initiative aims at growing
+an attitude of professionalism amongst software developers. It is rooted in the Software Craftsmanship
+and Agile Movement.
+******************************************************************************************************
+
+*Clean Code Developers* take pride in what they do.
+They strive to write code which, besides performing some task with precision,
+also clearly conveys its meaning to the reader.
+
+Professionalism isn't a matter of pay-check or just booking the right education and training.
+It isn't sufficient to deliver to the customer or make your boss happy. Professionalism is
+an attitude, it means to reflect your results, to think about your working style, your
+methods, materials and tools. It's about having an inner compass, a system of values to
+gauge your actions against. It's not a fixed possession, you acquire this awareness
+gradually and it requires practising.
+
+
+Guidelines
+----------
+* Build for Change
+* Care for Correctness
+* Work efficiently
+* Rethink your actions
+
+The Path to Clean Code
+----------------------
+Letting aside specific technologies or elaborated development methodologies, 
+to guide you on your path through the software development jungle, a least common
+denominator of generally accepted principles and best practices is established.
+
+As a help for understanding and practising, the Clean Code Developer Initiative grouped
+these into five levels or degrees (in allusion to martial arts training). We prefer
+here to use the term _Path_ while still retaining the distinctive colour codes used
+by the original link:http://www.clean-code-developer.de/Grade.ashx[CCDI] page.
+
+Each of these paths focusses on a certain aspect of coding, and does so by combining
+a set of well known principles and guidelines with some suitable practices. Each
+path builds upon the preceding path, but you can take on only one path a time.
+
+And you really need to _take on_ such a path -- actively try to understand the principles,
+keep them up in your everyday work and try to stick to the practices. No path is
+inherently ``better'' than the preceding path -- usually, when finished with _blue_,
+you start again with _red_.
+
+
+[red,maroon]#Red Path# -- understanding
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.Principles
+DRY -- Don't Repeat Yourself::
+  uga
+KISS -- Keep it simple, stupid::
+  uga
+Avoid preliminary optimisation::
+  uga
+FCoI -- Favour Composition over Inheritance::
+  uga
+
+.Practices
+Boy Scout Rule::
+  oga
+Root Cause Analysis::
+  oga
+Use Version Management::
+  oga
+Simple Refactorings::
+  oga
+Reflection::
+  oga
+
+[orange,maroon]#Orange Path# -- sharpening
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.Principles
+SLA -- Single Level of Abstraction::
+  uga
+SRP -- Single Responsibility Principle::
+  uga
+SoC -- Seperation of Concerns::
+  uga
+Source Code Conventions::
+  uga
+
+.Practices
+Issue Tracking::
+  uga
+Automate Tests::
+  uga
+Eager Reading::
+  uga
+Code Reviews::
+  uga
+
+[maroon,yellow]#Yellow Path# -- segregating
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.Principles
+ISP -- Interface Segregation Principle::
+  uga
+Dependency Inversion::
+  uga
+Liskov Substitution Principle::
+  uga
+Rule of Least Surprise::
+  uga
+Information Hiding::
+  uga
+
+.Practices
+Automated Unit Tests::
+  uga
+Mockups::
+  uga
+Code Coverage::
+  uga
+Advanced Refactorings::
+  uga
+Community Participation::
+  uga
+
+
+[lime,green]#Green Path# -- decoupling
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.Principles
+OCP -- Open Closed Principle::
+  uga
+Tell, don't ask::
+  uga
+Law of Demeter
+  uga
+
+.Practices
+Continuous Integration::
+  uga
+Code Metrices::
+  uga
+Inversion of Control Container::
+  uga
+Quality Measurments::
+  uga
+Learn by Teaching::
+  uga
+
+[aqua,navy]#Blue Path:# -- balancing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.Principles
+Segegate Design and Implementation::
+  uga
+Implementation reflects Design::
+  uga
+YAGNI -- You Ain't Gonna Need It::
+  uga
+
+.Practices
+Continuous Delivery::
+  uga
+Iterative Development::
+  uga
+Components and Contracts::
+  uga
+Test first::
+  uga
+
+
+
