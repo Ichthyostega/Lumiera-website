@@ -1,7 +1,7 @@
 Clean Code Development
 ======================
 :Author: Ichthyostega
-:Date: 4/2011
+:Date: 5/2011
 
 //MENU: label Clean Code
 
@@ -17,12 +17,13 @@ and Agile Movement.
 ******************************************************************************************************
 
 *Clean Code Developers* take pride in what they do.
-They strive to write code which, besides performing some task with precision,
-also clearly conveys its meaning to the reader.
+They strive to write code which
+both clearly _conveys its meaning_ to the reader
+and performs a given task _with precision_.
 
 Professionalism isn't a matter of pay-check or just booking the right education and training.
 It isn't sufficient to deliver to the customer or make your boss happy. Professionalism is
-an attitude, it means to reflect your results, to think about your working style, your
+an attitude, it takes reflecting your results, to think about your working style, your
 methods, materials and tools. It's about having an inner compass, a system of values to
 gauge your actions against. It's not a fixed possession, you acquire this awareness
 gradually and it requires practising.
@@ -37,7 +38,7 @@ Guidelines
 
 The Path to Clean Code
 ----------------------
-Letting aside specific technologies or elaborated development methodologies, 
+Letting aside specific technologies or elaborated development methodologies -- 
 to guide you on your path through the software development jungle, a least common
 denominator of generally accepted principles and best practices is established.
 
@@ -46,130 +47,226 @@ these into five levels or degrees (in allusion to martial arts training). We pre
 here to use the term _Path_ while still retaining the distinctive colour codes used
 by the original link:http://www.clean-code-developer.de/Grade.ashx[CCDI] page.
 
-Each of these paths focusses on a certain aspect of coding, and does so by combining
-a set of well known principles and guidelines with some suitable practices. Each
-path builds upon the preceding path, but you can take on only one path a time.
+Each of these paths focusses on a certain aspect of development -- and does so by
+combining a set of well known principles and guidelines with some suitable practices.
+Each path builds upon the preceding path, but you can take on only one path a time.
 
-And you really need to _take on_ such a path -- actively try to understand the principles,
-keep them up in your everyday work and try to stick to the practices. No path is
-inherently ``better'' than the preceding path -- usually, when finished with _blue_,
-you start again with _red_.
+And you really need to _take on_ such a path personally -- try to understand the
+principles actively, keep them up in your everyday work and try to adhere to the practices.
+No path is inherently ``better'' than the preceding path -- usually, when finished
+with _blue_, you start again with _red_.
 
 
 [red,maroon]#Red Path# -- understanding
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .Principles
 DRY -- Don't Repeat Yourself::
-  uga
+  don't bore your readers by stating the same again and again -- build
+  viable abstractions instead. Avoid duplicated functionality, remove
+  unnecessary data redundancy, automate repetitive tasks.
 KISS -- Keep it simple, stupid::
-  uga
-Avoid preliminary optimisation::
-  uga
+  ``Everything should be made as simple as possible, but not simpler'' (Einstein).
+  Write code foremost to be understandable. Resist using an _interesting_
+  solution, when there also is a straight forward (albeit boring) standard solution.
+Avoid Preliminary Optimisation::
+  _distrust your own cleverness_. ``More computing sins are committed in the name
+  of efficiency than for any other single reason – including blind stupidity'' (W.A.Wulf).
+  Defer improvements ``for later''. Require an objective proof for performance problems,
+  based on real-world data.
 FCoI -- Favour Composition over Inheritance::
-  uga
+  build up functionality from self-contained abstractions, instead of cleverly extending,
+  bending or specialising. Avoid proliferation of special cases.
 
 .Practices
 Boy Scout Rule::
-  oga
+  whenever you enter some area, leave it in somewhat better shape than you found it
 Root Cause Analysis::
-  oga
+  never do ``programming by coincidence''. Try to understand _why_ something works
+  or breaks. Never act based on assumptions. Don't treat symptoms. Better don't act
+  unless you understand.
 Use Version Management::
-  oga
+  use a revision control system. Create thematically consistent _change sets_, write
+  clear _commit messages_, learn to handle _branching and merging_.
 Simple Refactorings::
-  oga
+  apply the fundamental refactorings ``_extract method_'' and ``_rename_'' liberally.
 Reflection::
-  oga
+  review your own achievements based on the principles (especially but not limited to
+  those you're focussing on currently). Partition your work into tasks which can be
+  finished on one day. Take the time to reflect.
 
 [orange,maroon]#Orange Path# -- sharpening
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .Principles
 SLA -- Single Level of Abstraction::
-  uga
+  each piece of code should talk on a distinctive level of granularity.
+  Don't mix implementation details with invocation of high-level abstractions.
+  Refactor code to balance the level of abstraction.
 SRP -- Single Responsibility Principle::
-  uga
-SoC -- Seperation of Concerns::
-  uga
+  every class or entity should deal with one topic solely, and do that well.
+  What needs to be said for a given concern, should be found at a single location.
+SoC -- Separation of Concerns::
+  decompose functionality into orthogonal _concerns_. Increase focussing and cohesion
+  within a single concern, and decrease coupling amongst separate concerns.
 Source Code Conventions::
-  uga
+  establish writing conventions based on readability. Code is more often read than written.
+  Reason about the _purpose_ of conventions, then stick to them. Especially focus on
+  naming conventions and correct source code comments. Comments should not detail _what_
+  you do, but _the purpose why_ you do it.
 
 .Practices
 Issue Tracking::
-  uga
+  capture problems and work items as well delineated _issues_. Track them in a structured way,
+  establish ubiquitous procedures for assigning and resolving issues.
 Automate Tests::
-  uga
+  verify correct integration of the parts by running tests automatically.
+  Build a safety net allowing to perform refactorings while retaining correct operation.
 Eager Reading::
-  uga
+  acquire an attitude of concern for the ongoing evolution of the coding craft.
+  Read books, journals and blogs. Learn a new programming language every year.
 Code Reviews::
-  uga
+  four eyes are better then two. Present and explain your code to other programmers.
+  Establish practices like code reviews and pair programming.
+
 
 [maroon,yellow]#Yellow Path# -- segregating
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .Principles
 ISP -- Interface Segregation Principle::
-  uga
+  keep interfaces focussed and confined to a set of operations likely to be used in conjunction.
+  Avoid to tie clients to the details of a service implementation
 Dependency Inversion::
-  uga
+  revert dependencies with respect to the naive logical meaning. Instead of implementing high-level
+  functions through low-level functions, turn the latter into services and thus make both depend
+  on interfaces.
 Liskov Substitution Principle::
-  uga
+  the special case must be able to _stand-in_ for the general concept _in all respects_. A subclass
+  instance is required to take on all responsibilities outlined by the Interface. The special case
+  must not extend and bend the meaning beyond what was outlined in the abstraction. An ellipse can't
+  be kind-of a circle.
 Rule of Least Surprise::
-  uga
+  every piece of code should behave exactly in the way obvious from the names, the concepts and the
+  general context. The reader should be able to get the essence of what's going on already from the
+  first coarse-grained view.
 Information Hiding::
-  uga
+  every part -- be it function, object, interface or subsystem -- should expose only the bare minimum
+  required to use it effectively.
 
 .Practices
 Automated Unit Tests::
-  uga
+  cover individual components with tests in isolation.
+  Break the reasoning in terms of contracts down to the implementation level
 Mockups::
-  uga
+  build mock-ups, dummies, stubs and fakes to create a controlled environment for reasoning and test.
 Code Coverage::
-  uga
+  base your reasoning and testing on coverage analysis (instructions, branches, decisions).
 Advanced Refactorings::
-  uga
+  apply the more advanced types of refactoring techniques to rearrange and restructure code fluently.
+  Ensure correctness through your stock of unit tests.
 Community Participation::
-  uga
+  participate actively, beyond the local team. Report bugs, provide testcases, work with library developers,
+  visit local user groups, participate in conferences.
 
 
 [lime,green]#Green Path# -- decoupling
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .Principles
 OCP -- Open Closed Principle::
-  uga
+  any class or functional unit should be open towards extensions, but closed against modifications.
+  Extending it should not require changing the internals, nor tie the extension to these internals.
+  Increase cohesion, decrease coupling.
 Tell, don't ask::
-  uga
-Law of Demeter
-  uga
+  invoke services instead of doing things yourselves. Don't inspect state and operate from the outside.
+  Respect Subsidiarity.
+Law of Demeter::
+  don't write ``train wreck code''. Talk to direct collaborators only. Within each scope, confine yourself
+  to using the parameters, local methods, locally created objects, associated partners and global services.
 
 .Practices
 Continuous Integration::
-  uga
-Code Metrices::
-  uga
+  integrate changes timely and frequently. Perform this integration process automatically, in a controlled
+  and reproducible environment, perform the unit and integration test suites as part of this process.
 Inversion of Control Container::
-  uga
+  use Dependency Injection to implement IoC. Use service locators, employ the DI patterns or use an existing
+  DI container implementation or framework.
+Code Metrices::
+  use static analysis and similar quantitative measurements to monitor various aspects of a source base
 Quality Measurments::
-  uga
+  observe instead of assuming. Monitor the code quality, measure performance, observe defect rates.
+  Estimate efforts and verify your guesses after the fact. Identify impediments.
 Learn by Teaching::
-  uga
+  share your experience and knowledge. Explaining something is the best way to understand it yourself.
 
-[aqua,navy]#Blue Path:# -- balancing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[aqua,navy]#Blue Path# -- balancing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .Principles
-Segegate Design and Implementation::
-  uga
+Segregate Design and Implementation::
+  clearly delineate planning and doing. Design must not duplicate implementation work, and implementation
+  concerns must not interfere with architectural considerations. Otherwise implementation will supersede
+  the design and the real system will end in chaos.
 Implementation reflects Design::
-  uga
+  code in accordance with design. Traces of architecture should be visible down into individual implementation
+  structures, names, organisation of the code base and the runtime structure. Never play tricks to 
+  undermine and thwart the design and create a second reality.
 YAGNI -- You Ain't Gonna Need It::
-  uga
+  _decide later_ and don't do it, if in doubt. Question your own _brilliant ideas_ -- write them down, but defer
+  implementation for later, because, well, you ain't gonna need that crap. Don't say ``I can do that on a single
+  afternoon'' -- be prudent: doing it seriously will be a major undertaking.
+  Refrain from spending effort without a reason.
 
 .Practices
 Continuous Delivery::
-  uga
+  extend the automated continuous integration into deployment and setup.
+  Plan and test the steps towards an release, and finally automate them.
+  Create a platform to roll out development snapshots, integration builds,
+  release candidates and service updates.
 Iterative Development::
-  uga
+  development is a learning process. Instead of achieving perfection through a single _big bang_, 
+  proceed in incremental steps and include feedback from the user or customer. Use each iteration
+  for a retrospective and adjust your procedures.
 Components and Contracts::
-  uga
+  employ the thinking in terms of components and contracts from the largest to the smallest.
+  Each component establishes some kind of isolation, which helps to cut down complexity.
 Test first::
-  uga
+  start from the _usage situation_. Each unit, class, component or subsystem has clients.
+  Instead of detached planning, or worse, guessing what might be cool, work out the requirements
+  and contract from an exemplary use in code. Transform this into a test before you even _think_
+  about how to make it work.
+
+....
 
 
+
+
+....
+
+''''
+
+References
+----------
+Unfortunately, the link:http://www.clean-code-developer.de/[original Clean Code Developer page] with 
+extensive explanations is written entirely in German. There was immediately much reception amongst the
+German speaking .NET and Java developers and others -- yet it still seems to be not so well recognized
+in other countries.
+
+The link:http://codescouts.dejung.id.au/tiki-index.php?page=codeScoutsPaths[CodeScouts] have prepared
+a full english translation of the Principles and Practices described on the original page. The translation
+is a bit crude at places -- they used google translation as a starting point.
+
+*Robert C. Martin*'s Book link:http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/[»Clean Code«]
+was the initial inspiration. Indeed, the whole initiative started out of excitement, controversies and discussions ignited
+by reading this book together. 
+
+Last but not least, many of the guidelines, rules, principles and practices can already be found in 
+link:http://www.amazon.com/Pragmatic-Programmer-Journeyman-Master/dp/020161622X/[»The Pragmatic Programmer«],
+essential read anyway.
+
+Further articles explaining details
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- link:http://www.pragprog.com/articles/tell-dont-ask[Tell, don't Ask and the Law of Demeter]
+- link:http://www.objectmentor.com/resources/articles/ocp.pdf[Open-Closed-Principle]
+- link:http://www.objectmentor.com/resources/articles/lsp.pdf[Liskov Substitution Principle]
+- link:http://www.objectmentor.com/resources/articles/dip.pdf[Dependency Inversion Principle]
+- link:http://www.objectmentor.com/resources/articles/isp.pdf[Interface Segregation Principle]
+- link:http://www.objectmentor.com/resources/articles/srp.pdf[Single Responsibility Principle]
+- link:http://martinfowler.com/articles/mocksArentStubs.html[Martin Fowler: Mocks aren't Stubs]
 

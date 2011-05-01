@@ -27,3 +27,14 @@ problems when using link:http://cinelerra.org[Cinelerra]...
 
 -> link:history[read more about the project history]
 
+
+Development methods and coding standards
+----------------------------------------
+The *Clean Code* movement evolves around a set of principles and practices
+to guide a professional attitude for software developers. The original pages
+with extensive explanations are unfortunately written in German.
+
+-> we provide a link:CleanCodeDevelopment.html[condensed outline of the principles]
+in English...
+
+
