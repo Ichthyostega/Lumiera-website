@@ -1,0 +1,17 @@
+Legal Documents
+===============
+
+//Menu: label terms & conditions
+
+//Menu: append child 'lgpl'
+//Menu: append child 'cc3-by-sa'
+
+The full, legally binding terms and conditions of the Licenses covering parts
+of the source and additional accompanying materials presented on this website.
+
+- most of the source code is link:gpl.html[GNU General Public License Version-2]
+  or link:gpl3.html[above]
+- documentation and material on the website is dual-licensed also under
+  link:cc3-by-sa.html[Creative Commons 3.0 attribution share alike]
+
+
