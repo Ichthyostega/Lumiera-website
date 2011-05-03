@@ -41,7 +41,7 @@
             <a href="http://lumiera.org/builddrone/lumiera.log">log</a>
         </td>
         <td><a href="http://lumiera.org/doxy/">API Documentation (Doxygen)</a>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td align="right"><span style="font-size:smaller;"><a href="/project/legal/legal.html#Impressum">Impressum</a></font></td>
     </tr>
 </table>
 <span style="font-size: 75%; float: right;">Last updated {localdate} {localtime}</span>
