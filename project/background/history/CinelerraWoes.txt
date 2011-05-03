@@ -1,120 +1,130 @@
-= Cinelerra woes =
+Cinelerra woes
+==============
+:Author: Ichthyostega
+:Date: 6/2007
 
-__This text is polemic__. It is intended to forment controversy, and to foster discussion.
-My intention is to collect a list of things considered problematic and to analyze why they are this way and if it is possible to change them.
+*This text is polemic*. It is intended to forment controversy, and to foster discussion. +
+My intention is to collect a list of things considered problematic and to
+analyze why they are this way and if it is possible to change them.
 
 == Cinelerra has Pro focus ==
-It claims to be quality oriented. It is clear you rather need big iron to run it. And indeed, you can open any media size and framerate and use RGB-float for processing. And indeed, it doesn't bother you with wizards and doesnt aply "intelli-sense" to revert your parameters to use "safe" amateur settings automagically.
+It claims to be quality oriented. It is clear you rather need big iron to run it. And indeed, you can open any media size and framerate and use RGB-float for processing. And indeed, it doesn't bother you with wizards and doesnt aply ``intelli-sense'' to revert your parameters to use "safe" amateur settings automagically.
 
-But its stability doesn't stand up to Pro standards. There is a certain discrepancy between the partially very advanced featues embodied into Cinelerra, and the shortcommings at quite basic features. The Application segfaults on a regular base, often letting the backup and the program defaults in an inconsistent state, so to cause the Application immediately to segfault again when trying to restore the latest state. I encountered several cases, where even the stored Session was messed up since some time and I had to rebuild it by handwork, in order not to looose the last two hours of work. Such can be very problematic in a Pro context, as you often have tight schedules and deadlines to meet. Further, Cinelerra doesn't give you the slightest clue about the limitations of many parameters and what is acceptable. Often, a simple zero check would prevent the segfaulting. This stability issues affect quite everyday features. Cinelerra can segfault if you "undo" to much steps under certain circumstances. It can segfault if you try to "roll away" an edit. (and after you open the backup, all clips behind on the same track have been shifted by the amount you tried to roll).
+But its stability doesn't stand up to Pro standards. There is a certain discrepancy between the partially very advanced featues embodied into Cinelerra, and the shortcommings at quite basic features. The Application segfaults on a regular base, often letting the backup and the program defaults in an inconsistent state, so to cause the Application immediately to segfault again when trying to restore the latest state. I encountered several cases, where even the stored Session was messed up since some time and I had to rebuild it by handwork, in order not to looose the last two hours of work. Such can be very problematic in a Pro context, as you often have tight schedules and deadlines to meet. Further, Cinelerra doesn't give you the slightest clue about the limitations of many parameters and what is acceptable. Often, a simple zero check would prevent the segfaulting. This stability issues affect quite everyday features. Cinelerra can segfault if you ``undo'' to much steps under certain circumstances. It can segfault if you try to ``roll away'' an edit. (and after you open the backup, all clips behind on the same track have been shifted by the amount you tried to roll).
 
 == Problems with the release policy ==
-The quality level of the last two releases is questionable. When I started using it for serious work, fall/winter 2005, for example, it didn't display the locations of mask keyframes or the length of transitions. You couldn't even mix dissolve transitions of different length in a single session. Without doing any checks, the loger transitions produced a numeric overflow of the pixels colour value in a quite stiking manner. All of this points got fixed quickly thanks to the community. Anyhow, the preceeding Release was maked "2.0" -- according to usual practice, such a version with defects in basic features should be labeled "beta" and numbered below "1.0" 
+The quality level of the last two releases is questionable. When I started using it for serious work, fall/winter 2005, for example, it didn't display the locations of mask keyframes or the length of transitions. You couldn't even mix dissolve transitions of different length in a single session. Without doing any checks, the loger transitions produced a numeric overflow of the pixels colour value in a quite stiking manner. All of this points got fixed quickly thanks to the community. Anyhow, the preceeding Release was maked "2.0" -- according to usual practice, such a version with defects in basic features should be labeled ``beta'' and numbered below "1.0" 
 
 The quality problems perpetuated with Release "2.1". It quite noticeable degraded stability and broke some
-calculations in the basic color model ("additive" mode), while bringing in features of rather questionable
+calculations in the basic color model (_additive_ mode), while bringing in features of rather questionable
 value (I'll come back to OpenGL later). Normally, you would expect an official release never to break any
 basic features (and if, there should be a bugfix release on a tight schedule). The decision to rely on some
 tool for larger projects requires a certain amount of trust, and this should be considered when planning new releases.
 
 == missing the Usage Perspective ==
 Besides broken featues (well, bugs can be fixed), the design of several features is insatisfactory from a usage perspective, albeit beeing technically brilliant. Especially, what would be the workflow if using them? Does the sollution scale? Does it fit in with other indispensable features? How many keystrokes are required to use it 30 times or to change and adapt 30 instances of the feature?
- * the basic design of the transitions is problematic. Cinelerra adds the transitions at the source end of the render pipeline, before any plugin -- and this behaviour is hard wired. So it's impossible to combine them e.g. with color correction or fliped video playback. You may argue this is just right for creating patterns and then pass them on to effects. But, obviousely the most basic use case is to have dozens of single takes to combine in alternating fashion. Establishing shot, 2 medium shots, closeups. And commonly you need just to colour correct all the 12 closeup shots of Actor B.
- * the selection of transition types provided is questionable. For example, we can have heart shaped wipe transitons. But the heart shape is nither antialiased nor is there a smoothly blended masking at the border. On the other hand, the additive dissolve transition is missing, as is a whipe transition with softened edge.
- * the possibility to edit transition's curve shapes is lacking, for sound as well as for the image transitions. The transitions go linearily and just end with a yank. Laymen probably won't notice, but Pro media people are trained to be attentive observers and look at the fine details.
- * so to work around the problems with transitions, it is crutial to use the fade automation, which, sadly enough, has lots of problems on its own. 
-   * Newly added keyframes have an horizontal tangent. So we have to zoom in, pull out the ctrl points, drag them to where? 
-   * we can feely drag them even in horizontal direction (which doesn't make much sense mathematically unless Cinelerra would ''solve numerically'' for the bezier equation), the horizontal drag beeing irrelevant, but the response to the vertical drag is over exagerated and we can't see the angle of the tangent entering the node. 
-   * the ability to have a common editable tangent on control points is lacking. This caused me hours and hours of work to get my curves smooth and correct by trial and error.
-   * there is no automatic smooting facility and the linearization added in Release 2.1 is only after the fact, not dynamically adapting. Exponential smoothing behaviour is lacking.
- * All of this aplies to camera, projetor, zoom and and audio curves as well, wheras masks behave differently and plugins do interpolation as they like. There is no common approach to things linked conceptually.
- * Cinelerra has the ability to play backwards smoothly. This is rare. Much many Apps stutter when playing backwards because they assemble small chunks of forward played rendering in reverse order. But we have to consider that in order to permit such cuteness the whole Rendering Engine has to be able to do its calculations backwards, including all plugins. Plastering half of the codebase with copy-n-pasted blocks "if(direction==PLAY_BACKWARD)..." seems way to high a price to pay for just getting smooth playback. On a second thought, this feature is even counterproductive. It causes the frames of a movie to be calculated different, the internal state of all plugins to evolve different, the masks, fades and all keyed features to behave different if the user just scrubbs some frames backwards to do adjustments. Try to correct an isolated jerk with the camera automation, try to to precise moving masks or any frame accurate keying with Cinelerra and you know what I am talking about. 
- * Cinelerra has a motion tracker with quite astonishing technical abilities, but again the design insufficiently considers usability issues. Why can't the motion tracker just output camera or projector automaton, instead of adding an additional scale/translate operation with the unavoidable quality degradation? Why is the only possibility to store and reuse calculated values writing a huge pile of files in /temp, one for each frame, making several overlapping instances of the motion tracker impossible?
- * the ability of bounced tracks, or -- to use Cinelerras terminology -- using a "shared track" or "shared module" is an incredibly powerful feature. You could buld up quite astonishing effects and compositing via cooperating tracks out of simple building blocks, without the need of programming a ton of spcialized plugins. But, sadly enough, we can't really control the effects/maskings that we get bounced, we can't control the additional output at the other end of the shared module, switch it off or change its overlay mode. And without the patch by the community to apply masks before plugins most of this feature would be almost completely useless.
+
+* the basic design of the transitions is problematic. Cinelerra adds the transitions at the source end of the render pipeline, before any plugin -- and this behaviour is hard wired. So it's impossible to combine them e.g. with color correction or fliped video playback. You may argue this is just right for creating patterns and then pass them on to effects. But, obviousely the most basic use case is to have dozens of single takes to combine in alternating fashion. Establishing shot, 2 medium shots, closeups. And commonly you need just to colour correct all the 12 closeup shots of Actor B.
+* the selection of transition types provided is questionable. For example, we can have heart shaped wipe transitons. But the heart shape is nither antialiased nor is there a smoothly blended masking at the border. On the other hand, the additive dissolve transition is missing, as is a whipe transition with softened edge.
+* the possibility to edit transition's curve shapes is lacking, for sound as well as for the image transitions. The transitions go linearily and just end with a yank. Laymen probably won't notice, but Pro media people are trained to be attentive observers and look at the fine details.
+* so to work around the problems with transitions, it is crutial to use the fade automation, which, sadly enough, has lots of   problems on its own. 
+
+  - Newly added keyframes have an horizontal tangent. So we have to zoom in, pull out the ctrl points, drag them to where? 
+  - we can feely drag them even in horizontal direction (which doesn't make much sense mathematically unless Cinelerra would ``solve numerically'' for the bezier equation), the horizontal drag beeing irrelevant, but the response to the vertical drag is over exagerated and we can't see the angle of the tangent entering the node. 
+  - the ability to have a common editable tangent on control points is lacking. This caused me hours and hours of work to get my curves smooth and correct by trial and error.
+  - there is no automatic smooting facility and the linearization added in Release 2.1 is only after the fact, not dynamically adapting. Exponential smoothing behaviour is lacking.
+  - All of this aplies to camera, projetor, zoom and and audio curves as well, wheras masks behave differently and plugins do interpolation as they like. There is no common approach to things linked conceptually.
+  - Cinelerra has the ability to play backwards smoothly. This is rare. Much many Apps stutter when playing backwards because they assemble small chunks of forward played rendering in reverse order. But we have to consider that in order to permit such cuteness the whole Rendering Engine has to be able to do its calculations backwards, including all plugins. Plastering half of the codebase with copy-n-pasted blocks +if(direction==PLAY_BACKWARD)...+ seems way to high a price to pay for just getting smooth playback. On a second thought, this feature is even counterproductive. It causes the frames of a movie to be calculated different, the internal state of all plugins to evolve different, the masks, fades and all keyed features to behave different if the user just scrubbs some frames backwards to do adjustments. Try to correct an isolated jerk with the camera automation, try to to precise moving masks or any frame accurate keying with Cinelerra and you know what I am talking about. 
+  - Cinelerra has a motion tracker with quite astonishing technical abilities, but again the design insufficiently considers usability issues. Why can't the motion tracker just output camera or projector automaton, instead of adding an additional scale/translate operation with the unavoidable quality degradation? Why is the only possibility to store and reuse calculated values writing a huge pile of files in /temp, one for each frame, making several overlapping instances of the motion tracker impossible?
+  - the ability of bounced tracks, or -- to use Cinelerras terminology -- using a ``shared track'' or ``shared module'' is an incredibly powerful feature. You could buld up quite astonishing effects and compositing via cooperating tracks out of simple building blocks, without the need of programming a ton of spcialized plugins. But, sadly enough, we can't really control the effects/maskings that we get bounced, we can't control the additional output at the other end of the shared module, switch it off or change its overlay mode. And without the patch by the community to apply masks before plugins most of this feature would be almost completely useless.
 
 I could continue this list, but rather I want to get to the point I am aimig at: If you do C programming, it isn't astonishing you miss a NULL pointer here and there. When fleshing out functional details under the hood, it is easy to miss the usage perspective (I know what I am talking about, I am software developer myself). But this doesn't explain the regularity of all these shortcommings. All of this rather gives rise to the suspicion of a common root for all of this burried somewhere in the source base.
 
 
 == Interdependency of Design and feature properties ==
-And indeed, there is a link between certain Architecture and source level Design decisions and user visible problems and properties. This insight is not restricted to Cinelerra and there were many studies, much reasoning and quite some debate on this topic in the last decades. This interconnection is not simple, rarely isolated and obvious, but ''when looking at the code from an Design perspective, we can see why features are implemented the way they are, and why the same problems tend to arise again and again.'' Or, to put it in a more practical and personal manner: if an interested user-programmer tries to fix any of the aforementioned problems, which seem to be just silly omissions and shortcomings from user's perspective, he soon finds himself "running against walls" and "fighting against windmills". An inappropriate amount of dilligence and dedication is needed to correct any of this problems. To underpin and proove this analysis, I want to revisit the problems mentioned above from a programmers perspective.
+And indeed, there is a link between certain Architecture and source level Design decisions and user visible problems and properties. This insight is not restricted to Cinelerra and there were many studies, much reasoning and quite some debate on this topic in the last decades. This interconnection is not simple, rarely isolated and obvious, but _when looking at the code from an Design perspective, we can see why features are implemented the way they are, and why the same problems tend to arise again and again_. Or, to put it in a more practical and personal manner: if an interested user-programmer tries to fix any of the aforementioned problems, which seem to be just silly omissions and shortcomings from user's perspective, he soon finds himself _running against walls_ and _fighting against windmills_. An inappropriate amount of dilligence and dedication is needed to correct any of this problems. To underpin and proove this analysis, I want to revisit the problems mentioned above from a programmers perspective.
 
-==== NULL pointer and cast problems ====
-The fact of Cinelerra's code base showing these symptoms is of ''uttermost importance'' and needs our undivided attention. Metaphorically speaking, these are symproms of serious illnes.
+=== NULL pointer and cast problems ===
+The fact of Cinelerra's code base showing these symptoms is of _uttermost importance_ and needs our undivided attention. Metaphorically speaking, these are symproms of serious illnes.
 
 Regular segfaulting can be due to tow quite different reasons, and I fear Cinelerra is affected by both. First, it can be caused by missing the detection of error situations, and secondly it can be a derivative of forced-to cast problems without the ability to detect object's runtime type. Both problems are not immediately obvious and notorios difficult to spot in a dynamic and concurrent environment. You need to attack the root of the problem, fixing symptomps won't help.
 
- * short explanation for each, first the checks
+- short explanation for each, first the checks
+
    * checks need support by the design
    * fault tolerance and design by contract
    * making too much checks obfuscates the code
- * casting is a symptom of subtle design errors
+   
+- casting is a symptom of subtle design errors
+
    * confusing genealogy and inheritance
-   * inheritance expresses "is-a" relations, nothing else
+   * inheritance expresses _is-a_ relations, nothing else
    * prefere configuration over compositon over inheritence
    * design patterns are the only working and broadly aplicable solution known thus far
    
-{X} WIP
+~[,yellow]#TODO explain in greater detail#~
 
-==== asserting the consistency of internal structures ====
- * session getting in an inconsitent state unnoticed
- * internal structures messed up after detecting an error situration
- * undo not working bullet proof
+=== asserting the consistency of internal structures ===
+* session getting in an inconsitent state unnoticed
+* internal structures messed up after detecting an error situration
+* undo not working bullet proof
 
-...needs an indirection layer. needs instances transforming and gathering properties. needs the policy "rigorusly strict output, tolerant at input". the need to look at matters from a global perspective, not just going ahead and changing some property somewhere else. design by contract and design patterns help. No general, "one fits all" solution available for this problem.
+...needs an indirection layer. needs instances transforming and gathering properties. needs the policy ``rigorusly strict output, tolerant at input''. the need to look at matters from a global perspective, not just going ahead and changing some property somewhere else. design by contract and design patterns help. No general, "one fits all" solution available for this problem.
 
-{X} WIP
+~[,yellow]#WIP#~
 
-==== release quality asurance ====
+=== release quality asurance ===
 two aproaches to QA
- * "old-style": organization, design documents, test matrices, QA departement
- * "new-style": design by contract, test driven developement, automatic regression testing
 
-the new style is a giganitc advace, as it enables small entities and even single individuals to get at a "corporate style" and "industrial strength" quality level. It helps fostering transparency and deescalating conflicts, because shortcommings are documented, improvements are visible and measurable. But the biggest improve, in terms of developement culture is: you can open up much more for external contributions, because you build up a neutral security mesh. Far less need for the "sceptical, suspicious" type of lead developer, or the "quality devil" (any better english term for this?). 
+"old-style":: organization, design documents, test matrices, QA departement
+"new-style":: design by contract, test driven developement, automatic regression testing
 
-{X} WIP
+the new style is a giganitc advace, as it enables small entities and even single individuals to get at a _corporate style_ and _industrial strength_ quality level. It helps fostering transparency and deescalating conflicts, because shortcommings are documented, improvements are visible and measurable. But the biggest improve, in terms of developement culture is: you can open up much more for external contributions, because you build up a neutral security mesh. Far less need for the "sceptical, suspicious" type of lead developer, or the "quality devil" (any better english term for this?). 
 
-==== features driven by technical possibilities ====
+~[,yellow]#WIP#~
+
+=== features driven by technical possibilities ===
 This sort of problems is not overly problematic, if only the system is large, flexible and widespread enough to accomodate. In the discussion above we came across this topic with the heart shaped masks and the wipe transitions without soft border. Partially, the basic design of the transition calculation falls into this category as well: adding transitions at the source end is almost obvious and strikingly simple, i.e. it is elegant at the code level. The same holds true for the mentioned transitions. Just a conditional copy in a loop running over the pixel array. Looking at this stunning code is estetically pleasing: just a view lines of code, and the visual impact is quite impresive. 
 
-As said, such features don't impose much problems. You could well have 30 plugins of this "cheap spin-off" type, if the asset management is designed to the necessary complexity, i.e. you can have a tree of effects, you have keywords on effects for searching, you can create personal collections or plugin "palettes". They could be made clear to be "goodies", and the "basic craftman's tools" are here at hand, in the main folder.
+As said, such features don't impose much problems. You could well have 30 plugins of this ``cheap spin-off'' type, if the asset management is designed to the necessary complexity, i.e. you can have a tree of effects, you have keywords on effects for searching, you can create personal collections or plugin _palettes_. They could be made clear to be ``goodies'', and the _basic craftman's tools_ are here at hand, in the main folder.
 
-To return to the example, implementing these basic craftman's tools involves quite some consideration: you'd need a buffer to do a dissolve ''following a path'' at least, or in the advanced version, you'd need two buffers to mask and to blur and you'd overlay them togehter on top of the combined frames. So the lession learned is: some important tools are still missing and we'd need quite some infrastructure which isn't there at the moment. And it's highly adivsable not to add this infrastructure on a case-by-case base, because this can get dangerous. We'd need a buffer memory manager for plugins, as doing memory allocation in inner loops is a mayor problem for modern machines, and getting a buffer memory manager working correct in a highly parallelized environment can be tricky and should be done with the "big picture" in mind.
+To return to the example, implementing these basic craftman's tools involves quite some consideration: you'd need a buffer to do a dissolve _following a path_ at least, or in the advanced version, you'd need two buffers to mask and to blur and you'd overlay them togehter on top of the combined frames. So the lession learned is: some important tools are still missing and we'd need quite some infrastructure which isn't there at the moment. And it's highly adivsable not to add this infrastructure on a case-by-case base, because this can get dangerous. We'd need a buffer memory manager for plugins, as doing memory allocation in inner loops is a mayor problem for modern machines, and getting a buffer memory manager working correct in a highly parallelized environment can be tricky and should be done with the "big picture" in mind.
 
-==== structural design problems ====
- * design of the transitions
- * interpolation implemented several times independently, can't unify curve handling
- * handling of bezier control points needs cooperative changes beyond the single node
-{X} WIP
- 
+=== structural design problems ===
+* design of the transitions
+* interpolation implemented several times independently, can't unify curve handling
+* handling of bezier control points needs cooperative changes beyond the single node
+
+~[,yellow]#elaborate on the details#~
+
 Solving any of this needs a some localized cooperation above the single-object level. This quickly gets difficult and complex to a level of beeing almost unmanageable with all the possible side effects it can cause, if it isnt's supported by encapsulation and data hiding. To use the bezier control points as an example: automatic smoothing includes the adjustment of neighbouring control points. If you have alredy a separation of container (list of nodes) and functionallity, and if you express the operations on bezier curves in an intentional, semantic-like style, i.e. as functional services (find_node, get_value, intersperse_interpolated_node_at, get_tanget_at) provided by an object encapsulating the node collection and implementing a generic interface, then adding all of this features is rather a breeze. But Cinelerra has none of this. Instead, individual node values and properties are done from quite unrelated code locations, and all of the searching, testing and manipulation code is implemented in a low-level-style without functional abstraction. 
 
-==== problems with design level ====
- * unifying curves and interpolation
- * full-blown keying of plugin parameters
- * the problem of reversed playback
- * the aproach to handle the different color models
- * how to integrate hardware supported rendering (OpenGL)
- * background rendering fits in here too
+=== problems with design level ===
+* unifying curves and interpolation
+* full-blown keying of plugin parameters
+* the problem of reversed playback
+* the aproach to handle the different color models
+* how to integrate hardware supported rendering (OpenGL)
+* background rendering fits in here too
  
-Common to all those problems is that you have to step back in order to ''see the problem'' at all. If you just look at the individual technical feature, everything looks fine, correct and solved. You need to take the architectural viewpoint or the usage perspective or the code sanity aproach in order to see the dublication of efforts, discrepancies and inconsistencies -- and to see why they matter.
+Common to all those problems is that you have to step back in order to _see the problem_ at all. If you just look at the individual technical feature, everything looks fine, correct and solved. You need to take the architectural viewpoint or the usage perspective or the code sanity aproach in order to see the dublication of efforts, discrepancies and inconsistencies -- and to see why they matter.
 
-And still worse: after having seen them, really solving this sort of problems includes quite a bit of augmenting achitecture, considering performance and getting different domains subsumed under common patters. With such problems, commonly there seems to be sort of a natural slope in favour of just overlooking the problem and beeing content with the pragmatic sollution. To fight this, ''users'' have to point out the discrepanciy, users have to ''demand the real sollution,'' otherwise nothing will happen. Otherwise we won't get unyfied treatment of all interpolation, we won't get full-fledged manipulation of the inerpolation and keying of plugin parameters, we won't get a really usefull background rendering and we won't get smooth reversed playback ''and'' consistent treatment of keyframes and playback position at the same time.
+And still worse: after having seen them, really solving this sort of problems includes quite a bit of augmenting achitecture, considering performance and getting different domains subsumed under common patters. With such problems, commonly there seems to be sort of a natural slope in favour of just overlooking the problem and beeing content with the pragmatic sollution. To fight this, _users_ have to point out the discrepanciy, users have to _demand the real sollution_, otherwise nothing will happen. Otherwise we won't get unyfied treatment of all interpolation, we won't get full-fledged manipulation of the inerpolation and keying of plugin parameters, we won't get a really usefull background rendering and we won't get smooth reversed playback _and_ consistent treatment of keyframes and playback position at the same time.
 
-To detail more on the "play backwards" problem just as an example, at first sight the current solution "feels good": it is lokal (in the sense that for handling playbak I only have to set a flag related to playback direction and doesn't need to build up global scale infrastructure), it is simple and easy to understand: you
-allways display the frame the playback has just ''passed'' and you communicate a flag with the playback direction, which is passed on as parameter over all calls forming the rendering engine. The problems start to arise in conjuction with keyframes (where is a keyframe supposed to be located? and where does the changed value show off?). Putting on the code quality angle, I would even call the footprint of this solution desastrous: It fosters the widespread use of copy-n-paste style programming, causing code bloat, tearing apart features related functionallity-wise, opening the possibility for subtle bugs to creep in. For example, just while tracing the usage of bezier interpolation (which btw forced me to look up quite a lot of scattered locations due to missing encapsulation and abstraction), I came acros several almost classical bugs of conditions beeing treated differently in code blocks specialized by copy-n-paste programming. All of this bugs turend out to be fixed alredy, and all the fixes were not done "to the point", but by curing symptoms several levels separated from the source of the problem. In one case, it cost me several hours to find out and prove the problem to be soved. I don't tell this to complain (because that's normal programmer's work), but to make clear: the solution initially appealing to be pragmatic and simple puts quite a maintainence burden on the future. Because of this, today there is wide consensus that copy-n-paste-programming should be avoided at any rate (commonly known als the "DRY-Principle": Dont Repeat Youself!)
+To detail more on the ``play backwards'' problem just as an example, at first sight the current solution ``feels good'': it is lokal (in the sense that for handling playbak I only have to set a flag related to playback direction and doesn't need to build up global scale infrastructure), it is simple and easy to understand: you allways display the frame the playback has just _passed_ and you communicate a flag with the playback direction, which is passed on as parameter over all calls forming the rendering engine. The problems start to arise in conjuction with keyframes (where is a keyframe supposed to be located? and where does the changed value show off?). Putting on the code quality angle, I would even call the footprint of this solution desastrous: It fosters the widespread use of copy-n-paste style programming, causing code bloat, tearing apart features related functionallity-wise, opening the possibility for subtle bugs to creep in. For example, just while tracing the usage of bezier interpolation (which btw forced me to look up quite a lot of scattered locations due to missing encapsulation and abstraction), I came acros several almost classical bugs of conditions beeing treated differently in code blocks specialized by copy-n-paste programming. All of this bugs turend out to be fixed alredy, and all the fixes were not done _to the point_, but by curing symptoms several levels separated from the source of the problem. In one case, it cost me several hours to find out and prove the problem to be soved. I don't tell this to complain (because that's normal programmer's work), but to make clear: the solution initially appealing to be pragmatic and simple puts quite a maintainence burden on the future. Because of this, today there is wide consensus that copy-n-paste-programming should be avoided at any rate (commonly known als the _DRY-Principle_ : Dont Repeat Youself!)
 
-Getting the play-backward problem solved in a clean manner is far less stright forward and requires architectural considerations: We would need to advice the Render Engine to compute small chunks of frames in forward direction, maybe (to be further investigated) we would need to provide additional infrastructure to plugins touching more then single frames, e.g. selective tempoaral average, time front, sound reverberator or compressor etc, and finally, we need to assemble those chunks and send them to output in reversed order. Integrating this with the current design which is a highly parallelized one, using a thread for every frame (for calculation ''and'' display) -- could become a challenging task. That's what is meant with "level of Design"
+Getting the play-backward problem solved in a clean manner is far less stright forward and requires architectural considerations: We would need to advice the Render Engine to compute small chunks of frames in forward direction, maybe (to be further investigated) we would need to provide additional infrastructure to plugins touching more then single frames, e.g. selective tempoaral average, time front, sound reverberator or compressor etc, and finally, we need to assemble those chunks and send them to output in reversed order. Integrating this with the current design which is a highly parallelized one, using a thread for every frame (for calculation _and_ display) -- could become a challenging task. That's what is meant with ``level of Design''
 
-But as a user doing much work with the Application, I stress the fact Cinelerra can't be a Pro application if it isn't able to support keyframe tweeking with frame precision, and as a quality oriented software developer, I'd like to propose that we drop the whole PLAY_BACKWARD thing and go for the clean sollution.
+But as a user doing much work with the Application, I stress the fact Cinelerra can't be a Pro application if it isn't able to support keyframe tweeking with frame precision, and as a quality oriented software developer, I'd like to propose that we drop the whole +PLAY_BACKWARD+ thing and go for the clean sollution.
 
 Just for completeness I want to point out that the current solution for supporting color models creates similar code-quality problems: widespread use of macros and case-tests within the next-to-inner rendering codepath (several superfluos color model and alpha channel tests per frame and plugin). The situation is similar with the  current aproach to OpenGL support: Scattered code, duplicated algorithms, difficult to trace execution path. Both problems could be used much more satisfactory by fully applying the Builder Design Pattern -- again a solution on the architecture level, not the feature level. For this discuusion here it's enough to mention it; this is one of the central concerns of my design/project plan proposal I detail on another page.
 
-==== problems with features cooperative in nature ====
- * motion tracker generating camera/projector automation. 
- * motion tracker loading external automation
- * flexible design of transitions and masks (render pipeline as configurable tree) and controlling the properties of "shared tracks"
- * composite clips (clips of clips), multiple timelines
- * could add a better background render manager here too
+=== problems with features cooperative in nature ===
+* motion tracker generating camera/projector automation. 
+* motion tracker loading external automation
+* flexible design of transitions and masks (render pipeline as configurable tree) and controlling the properties of _shared tracks_
+* composite clips (clips of clips), multiple timelines
+* could add a better background render manager here too
 
 Problems of this category are different to the ones discussed in the previous section, as there is no acceptable simple sollution on the feature level. If you try to fix it there, you are running against walls. To solve them, you need an architectural aproach from the very start, and you need to make several parts of the system cooperate in order to get them solved. 
 
@@ -125,24 +135,25 @@ Motion tracker simply can't output camera automation without a general facility 
 
 == Performance? ==
 Quite deliberately, I left out the difficult questions regarding performance. From a users perspective,
-Cinelerra's performance isn't thrilling. Everyone has seen much more responsive Apps giving a much more "spontaneous" feeling today. __But if we recall__ it's geared at a rather ''purist, hard core, ascetic'' type of work, namely movie editing and montage including some unobstrusive Compositing, but all to be done with ''absolute quality'' -- then I would label it's behaviour "neutral" performance-wise. Not excitingly fast and not annoyingly slow.
+Cinelerra's performance isn't thrilling. Everyone has seen much more responsive Apps giving a much more ``spontaneous'' feeling today. _But if we recall_ it's geared at a rather _purist, hard core, ascetic_ type of work, namely movie editing and montage including some unobstrusive Compositing, but all to be done with _absolute quality_ -- then I would label it's behaviour ``neutral'' performance-wise. Not excitingly fast and not annoyingly slow.
 
-Regarding the GUI, there is a certain, difficult to define "slughisness", which in my eyes isn't a problem of
+Regarding the GUI, there is a certain, difficult to define ``slughisness'', which in my eyes isn't a problem of
 slow reaction. Rather, many GUI elements are lacking all those subtle shortcuts, fuziness and convienience we take for granted nowadays. Many widgets you have to hit exactly, you have to navigate the menus precisely and have to click into the right place to make menus disapear, you can't use all of the common keyboard shrortcuts and navigation keys consistently over the application. I remember very well MOTIF or the early versions of GTK feeling the same way. I remember very much the situation at the time Cinelerra developement was started. It was a sound decision to develope a private GUI toolkitset for specialized needs at those days. 
 
 Meanwhile, the common main stream toolkits have advanced quite a lot, and, at some point in the future we could consider to switch over to one of them and get rid of all the intircate GUI toolkit questions. This could help implementing some of those features on everyones whishilst with much reduced effort. Personally, I don't consider this point overly important at the moment. It certainly doesn't interfere with Cinelerra's Pro focus on a short timescale, and that's the main concern of this page.
 
-I want to add here a link to my [wiki:self:../never_calculate_twice Vision of never throwing away a single frame]. Because this is an aproach to improve performance without improving the raw computing performance, but by using a smart workflow. {X} WIP
+I want to add here a reference to my _Vision of never throwing away a single frame_. Because this is an aproach to improve performance without improving the raw computing performance, but by using a smart workflow. ~[,yellow]#WIP#~
 
 
 == Conclusions and Consequences ==
 
- * Design matters
- * don't blame the past, start improving it now
+* Design matters
+* don't blame the past, start improving it now
  
-It is possible to attack these problems even in a quite large and long living code base. We just need to leave the ''Problem perspective'' and switch to the Design and Achiecture viewpoint. It is not necessary to cure tousends of isolated problems, but it will advance Cinelerra if we step back and introduce some Structures, Layer separation, encapsulation and QA facilities and then, in a second step, rework and reorganize a view central facilities to proviede a higher level of Integraion.
+It is possible to attack these problems even in a quite large and long living code base. We just need to leave the _Problem perspective_ and switch to the Design and Achiecture viewpoint. It is not necessary to cure tousends of isolated problems, but it will advance Cinelerra if we step back and introduce some Structures, Layer separation, encapsulation and QA facilities and then, in a second step, rework and reorganize a view central facilities to proviede a higher level of Integraion.
 
-{X} TODO: separate page for this "reversed aproach" (much shorter). List the Design principles from my project plan proposal, add an explanatory paragraph to each, followed by a proposal to rework the Render Engine by using the Builder pattern and to elaborate the EDLs, Plugins, Clips and Assets. (all just telegram style)
+[,yellow]#TODO#: separate page for this ``reversed aproach'' (much shorter). List the Design principles from my project plan proposal, add an explanatory paragraph to each, followed by a proposal to rework the Render Engine by using the Builder pattern and to elaborate the EDLs, Plugins, Clips and Assets. (all just telegram style)
 
  
-{X} WIP: flesh out some details, smooth formulations etc. But the core of my argumentation is complete.
+~[,yellow]#WIP# flesh out some details, smooth formulations etc. But the core of my argumentation is complete.~
+
