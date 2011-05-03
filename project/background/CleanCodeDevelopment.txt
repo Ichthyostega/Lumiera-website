@@ -53,6 +53,8 @@ Each path builds upon the preceding path, but you can take on only one path a ti
 
 And you really need to _take on_ such a path personally -- try to understand the
 principles actively, keep them up in your everyday work and try to adhere to the practices.
+It is recommended to stay on a single path for an extended period of time (at least
+3 weeks)
 No path is inherently ``better'' than the preceding path -- usually, when finished
 with _blue_, you start again with _red_.
 
