@@ -20,6 +20,9 @@ if [[ ! "$1" ]]; then
 					echo -n "."
 					# check for includes
 					sed 's/include::\([^[]*\).*/\1/p;d' "$file" | while read prerequisite; do
+						if [[ "${prerequisite:1:1}" != '/' ]]; then
+							prerequisite="${file%/*}/$prerequisite"
+						fi
 						if [[ "${prerequisite}" -nt "${file}" ]]; then
 							echo -n ":"
 							touch "$file"
