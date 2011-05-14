@@ -1,0 +1,45 @@
+Lumiera Winter Report
+=====================
+:Date: March 2011
+
+//Menu: label 11.03 Dev Report
+
+Winter is (almost) gone (hopefully). +
+collecting some pieces of information for the ``coding news''...
+
+Core Development
+----------------
+On the concept & planning frontier, last fall Hermann Voßeler (_ichthyo_)
+concentrated on several aspects of output handling and routing at the session level.
+This included writing an initial concept how to handle the ``output designation'' of
+a media object, especially when nested sequences are involved. The implementation of
+an output mapping element allowed to fill some gaps regarding the flexible
+binding of a 'sequence' element both into a 'timeline' or 'virtual clip'.
+
+Stefan Kangas (_skangas_) continued his contribution to the Lumiera GUI. Besides
+various fixes and clean-ups in the GUI code, he extracted the *Timecode widget* from
+*Ardour* and adapted it for the Lumiera codebase. As next topic, he turned towards
+hooking up the first pieces of functionality behind the GUI: adding the ability to
+place (dummy) clips on the timeline and looking into how to drag them around.
+
+Prompted by Stefan's work on including the Timecode widget into the Lumiera GUI,
+as next topic _ichthyo_ concentrated on time handling and time values and *Timecode
+representation* in the model. Here the tricky part is how to represent grid aligned
+time values, e.g. *frame quantised time*; as Lumiera doesn't use a single session-wide
+fixed frame rate, but rather derives the frame rate from the output to be generated,
+building a somewhat more general framework was required.
+
+Infrastructure
+--------------
+The most obvious improvement is that we finally managed to get the
+reworked website structure online. The final rush included some cleanup
+of existing text content, adjusting of links and a script solution to
+maintain the navigation menu of the website automatically.
+
+Besides that, _ichthyo_ worked on improving the general infrastructure: 
+He defined what is necessary to *run* the Lumiera *Application*, either directly
+or installed through a package. After implementing the necessary adjustments
+for build system and start-up sequence, he defined a *Debian packaging* for
+the Lumiera Application.
+
+

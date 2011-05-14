@@ -5,6 +5,11 @@ Comment irrelevant stuff out
 ////
 
 
+*May 2011*::
+      _a bit late...._ but here it is: the
+      link:/project/news/DevReport-11-03.html[Winter Coding News].
+      The _Spring Coding Report_ is in the works and will follow soon...
+
 *March 2011*::
       We can now provide link:/debian[binary Debian packages] for the first time,
       allowing you to _install_ a development preview/snapshot without compiling, on
@@ -16,7 +21,7 @@ Comment irrelevant stuff out
 	with a booth and a talk on Lumiera. ->link:/project/news/DevReport-10-10.html[more...]
 	
 *July 30 2010*::
-	The link:DevReport-10-07.html[Summer Quarterly News] are out! Read the
+	The link:/project/news/DevReport-10-07.html[Summer Coding News] are out! Read the
         latest development report.
 
 *July 29 2010*::
@@ -26,7 +31,7 @@ Comment irrelevant stuff out
         on Sunday 21 at 10:00. We hope to see you there!
 
 *April 9 2010*::
-        The link:DevReport-10-04.html[Spring Quarterly News] are out!
+        The link:/project/news/DevReport-10-04.html[Spring Quarterly News] are out!
 
 ////
 .Future
