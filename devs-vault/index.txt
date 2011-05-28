@@ -8,6 +8,7 @@ Developers Vault
 // Menu :  prepend child 'devs'
 // Menu :  put child 'roadmap' after 'devs'
 // Menu :  put child 'doxy' after 'roadmap'
+// Menu :  put child 'renderengine' after 'doxy'
 // Menu :  append child 'gitweb
 // Menu :  append child 'report'
 // Menu :  append child 'rfc'
@@ -46,8 +47,32 @@ For small changes, and for the first contributions, there is a _mob repository_ 
 pushable by everyone. Just clone master, do your changes and push to `git://git.lumiera.org/lumiera/mob`
 
 
+Technical Documentation
+-----------------------
+- semi-final detail documentation can be found in the
+  link:/documentation/technical[Documentation section]
+- for work-in-progress on the ``Proc-Layer'', _Ichthyo_ uses an
+  link:/wiki/renderengine.html[TiddlyWiki in the source tree].
+  You'll find extensive documentation about internal concepts,
+  design reasoning and UML diagrams.
+- you might want to have a look into the
+  link:/doxy/[generated API documentation] -- especially when
+  interested in some concepts, subsystems or components, have a look
+  at the file-level documentation of the corresponding main header files.
+- The issue tracking system (*Trac*) provides several
+  link:http://issues.lumiera.org/report[Query-reports].
+  Especially the report
+  link:http://issues.lumiera.org/report/14[»recently changed«] might
+  give a good feeling about the current activities.
+- feel free to ask on link:/project/contact.html[IRC]!
+
+
+Development Process
+-------------------
+The Lumiera developers favour an open, semi-formal development style.
+
 IRC Developer meetings
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 We try to ``meet'' at least once every month in our IRC channel +#lumiera+ on Freenode.net +
 Depending on the number of participants and topics to discuss, these meetings are more formal
 or informal. 'Everyone is welcome'  -> more about link:meeting[dev meetings].
@@ -59,4 +84,9 @@ we have the more formalised *Design Process*: Everyone can write an RfC, using o
 Typically we expect each proponent to participate in some way in the implementation of such a proposal.
 These RfC entries will be discussed at the developer meetings and finally accepted or rejected.
 
+Unit tests
+~~~~~~~~~~
+Code should be structured in fine granular _components_. Each component should expose a clearly defined
+contract, and this contract should be covered by unit tests -- preferrably before writing the implementation.
+Besides providing a safety net, unit tests also serve to document the intended usage.
 

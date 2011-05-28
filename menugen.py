@@ -86,6 +86,8 @@ def addPredefined():
     proj.link('http://issues.lumiera.org/roadmap', label="Roadmap (Trac)")
     vault.link('http://www.lumiera.org/gitweb',    label="Gitweb")
     vault.link('http://lumiera.org/doxy',          label="API Doc (Doxygen)")
+    vault.link('http://lumiera.org/wiki/renderengine.html',
+                                                   label="Proc TiddlyWiki")
     
     # ordering of news entries
     Node('news').sortChildren(reverse=True) \
