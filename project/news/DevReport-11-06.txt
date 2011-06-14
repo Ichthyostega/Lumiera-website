@@ -1,0 +1,44 @@
+Lumiera Spring Report
+=====================
+:Date: June 2011
+:Author: Wouter Verwijlen
+
+//Menu: label 11.06 Dev Report
+
+
+We're a bit behind on our news reports, but here's some catching up for this quarter.
+
+As you might have read in an earlier newsitem a repository has been setup to
+provide binary Debian packages of Lumiera. This means you can easily download
+and install Lumiera without having to get the source code and compile it
+yourself. This should work for all Debian-derived distro's, including Ubuntu. 
+What this doesn't mean is that Lumiera's usable yet. Installing Lumiera will
+only give you a taste of the GUI as it was when Joel Holdsworth quit working on
+it, over a year ago. Yet it's good to see the repository setup for future use,
+though an alpha release is not yet around the corner (there's simply too much
+work to be done by just the handful of people that's currently devoted to
+Lumiera's development).
+
+While preparing this repository Hermann Vosseler (_ichthyo_) took the time to
+review all the work that's been put into Lumiera over the past few years. While
+examining the codebase (and cleaning occasionally), certain design principles
+have been reviewed and rediscussed. He also worked on the design of the Player
+subsystem and Engine Interface. Basically the Player will coordinate what actual
+calculations to request from the rendering engine, for which purpose (realtime
+playback, rendering, background rendering), how these requests can be interupted
+when the request itself changes (f.e. when changing playback speed), and how to
+deliver this output to a viewer, which can be controlled by the user, by using
+transport controls.
+
+Ichthyo also continued to work on the Time/Timecode handling and Frame
+Quantisation functions. These are required to handle frame-time relationships while
+providing the option to use custom framerate settings at session level, or even for
+individual output busses. The basic framework is in place now. Next step is to
+connect it to Ardour's timecode widget, and to add drop-frame support.
+
+Short update about the website: this summer we're going to see the new design
+for Lumiera's reworked website! Francesco Siddi is working on it. Exciting
+stuff. At the meantime preparations are being made for participation in this
+year's Froscon. More about that later in the next quarterly news report coming
+somewhere this summer...
+
