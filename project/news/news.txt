@@ -5,10 +5,14 @@ Comment irrelevant stuff out
 ////
 
 
+*June 2011*::
+      ...we're still a tiny bit behind on our news reports, but here's some catching up for this quarter:
+      the link:/project/news/DevReport-11-06.html[Spring Coding News] Report; 
+      thanks to Wouter Verwijlen for reminding us and collecting the informations
+
 *May 2011*::
       _a bit late...._ but here it is: the
       link:/project/news/DevReport-11-03.html[Winter Coding News].
-      The _Spring Coding Report_ is in the works and will follow soon...
 
 *March 2011*::
       We can now provide link:/debian[binary Debian packages] for the first time,
