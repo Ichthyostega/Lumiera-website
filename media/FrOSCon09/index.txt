@@ -1,7 +1,11 @@
-Lumiera at FrOSCon 2009!!
-=========================
+Lumiera at FrOSCon 2009
+=======================
 
-image:FrOSCon09/froscon.png[FrOSCon logo]
+
+//MENU: label FrOSCon 2009
+
+
+image:froscon.png[FrOSCon logo]
 
 The conference
 --------------
@@ -9,49 +13,55 @@ The conference
 On August 22-23 2009 the Lumiera community participated to FrOSCon, +
 the 4th German conference on Free Software and Open Source held at the University of Applied Sciences Bonn-Rhine-Sieg.
 
-image:FrOSCon09/entrance.png["The FrOSCon venue", width=180, link="FrOSCon09/entrance.png"] image:FrOSCon09/booth.png["The Lumiera booth", width=180, link="FrOSCon09/booth.png"] image:FrOSCon09/entrance2.png["The FrOSCon venue", width=180, link="FrOSCon09/entrance2.png"]
+image:entrance.png["The FrOSCon venue", width=180, link="entrance.png"] image:booth.png["The Lumiera booth", width=180, link="booth.png"] image:entrance2.png["The FrOSCon venue", width=180, link="entrance2.png"]
 
 The project
 -----------
 
 6 community members had fun meeting interesting people and projects, discussing about video editing and openvideo, presenting the Lumiera project, its goals and its plans.
 
-image:FrOSCon09/team.png["A happy Lumiera team", width=550, link="FrOSCon09/team.png"]
+image:team.png["A happy Lumiera team", width=550, link="team.png"]
 
-image:FrOSCon09/white_poster_A4.png["Lumiera", width=180, link="Download/white_poster_A4.png"] image:FrOSCon09/NoBug-logo.png["NoBug", width=180, link="Download/NoBug-logo.png"] image:FrOSCon09/uwiki.png["uWiki", width=180, link="FrOSCon09/uwiki.png"]
+image:white_poster_A4.png["Lumiera", width=180] image:NoBug-logo.png["NoBug", width=180] image:uwiki.png["uWiki", width=180]
 
 An interview
 ------------
 
-image:FrOSCon09/cehteh.png["Christian Thaeter, core dev - Germany", width=180, link="FrOSCon09/cehteh.png"] image:FrOSCon09/ichthyo.png["Hermann Vosseler, core dev - Germany", width=180, link="FrOSCon09/ichthyo.png"] image:FrOSCon09/Velmont.png["Odin Horte Omdal, dev - Norway", width=180, link="FrOSCon09/Velmont.png"]
+image:cehteh.png["Christian Thäter, core dev - Germany", width=180, link="cehteh.png"] image:ichthyo.png["Hermann Voßeler, core dev - Germany", width=180, link="ichthyo.png"] image:Velmont.png["Odin Hørthe Omdal, dev - Norway", width=180, link="Velmont.png"]
 
-image:FrOSCon09/hermanr.png["Herman Robak, well-wisher from cinelerra-cv - Norway", width=180, link="FrOSCon09/hermanr.png"] image:FrOSCon09/raffa.png["Raffaella Traniello, project member - Italy", width=180, link="FrOSCon09/raffa.png"] image:FrOSCon09/helene.png["Helene, supporter - Norway", width=180, link="FrOSCon09/helene.png"]
+image:hermanr.png["Herman Robak, well-wisher from cinelerra-cv - Norway", width=180, link="hermanr.png"] image:raffa.png["Raffaella Traniello, project member - Italy", width=180, link="raffa.png"] image:helene.png["Helene, supporter - Norway", width=180, link="helene.png"]
 
-image:FrOSCon09/RadioTux_Logo.png["Radio tux logo", width=180, link="FrOSCon09/RadioTux_Logo.png"] image:FrOSCon09/jalalbad-school-with-linux-olpc-lxde-freifunk.png["Mario Behling", width=180, link="FrOSCon09/jalalbad-school-with-linux-olpc-lxde-freifunk.png"] image:FrOSCon09/blue-1024x768.thumbnail.png["LXDE screenshot", width=180, link="FrOSCon09/blue-1024x768.thumbnail.png"] 
+image:RadioTux_Logo.png["Radio tux logo", width=180] image:jalalbad-school-with-linux-olpc-lxde-freifunk.png["Mario Behling", width=180, link="jalalbad-school-with-linux-olpc-lxde-freifunk.png"] image:blue-1024x768.thumbnail.png["LXDE screenshot", width=180] 
 
 Mario Behling from http://www.lxde.org/[LXDE] talked to the Lumiera team in front of a microphone for 35 minutes. + 
-The interview is now online at Mario's blog http://www.perspektive89.com/2009/lumiera_radio_interview_during_froscon_2009[perspective89] and at http://blog.radiotux.de/2009/09/02/interview-ueber-lumiera/[Radio Tux]. 
+The interview is now online at Mario's blog link:http://www.perspektive89.com/2009/lumiera_radio_interview_during_froscon_2009[perspective89] and at link:http://blog.radiotux.de/2009/09/02/interview-ueber-lumiera/[Radio Tux].
 
 Thanks to Mario for his warm support and to the Radio Tux team who made this happen. 
+
+...
+
+
+...
 
 Video production and education
 ------------------------------
 
-image:FrOSCon09/skolelinux.png["Skolelinux logo", width=180, link="FrOSCon09/skolelinux.png"] image:FrOSCon09/mascotte.png["Skolelinux Mascotte", width=100, link="FrOSCon09/mascotte.png"] image:FrOSCon09/stopmotion.png["Stopmotion logo", width=200, link="FrOSCon09/stopmotion.png"]
-
-During the conference, Skolelinux and Lumiera teams discussed and experimented possible uses of video for educational purposes. + 
+During the conference, Skolelinux and Lumiera teams discussed and experimented possible uses of video for educational purposes. +
 The fun included a Stopmotion workshop for kids and teachers.
+
+image:skolelinux.png["Skolelinux logo", height=50] image:mascotte.png["Skolelinux Mascotte", height=50] image:stopmotion.png["Stopmotion logo", height=50]
+
 
 A short video
 -------------
 
-image:FrOSCon09/frame2.png["Frame from the video", width=180, link="FrOSCon09/frame2.png"] image:FrOSCon09/frame1.png["Frame from the video", width=180, link="FrOSCon09/frame1.png"] image:FrOSCon09/frame3.png["Frame from the video", width=180, link="FrOSCon09/frame3.png"]
+image:frame2.png["Frame from the video", width=180, link="frame2.png"] image:frame1.png["Frame from the video", width=180, link="frame1.png"] image:frame3.png["Frame from the video", width=180, link="frame3.png"]
 
 
 Playing with a camera and a steadicam we ended up shooting some footage. + 
-We are now editing it in Cinelerra to produce a short video that won't tell you anything interesting about the conference, nor about our project or any FOSS related stuff. 
+Maybe some day we'll find the time to edit it, maybe to produce a short video that won't tell you anything
+interesting about the conference, nor about our project or any FOSS related stuff...
 
-This "about nothing" video will be on-line as soon as time permits.
 
 ////
 Download
@@ -87,3 +97,4 @@ SVG Logos
 * link:Download/white_poster_A4.svg[Lumiera poster on white, A3]
 
 ////
+

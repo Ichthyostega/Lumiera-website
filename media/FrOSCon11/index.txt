@@ -1,0 +1,38 @@
+Git Workshop at FrOSCon 2011
+============================
+
+
+//MENU: label FrOSCon 2011
+
+
+CAUTION: under construction
+
+
+As in the previous years, Lumiera contributed again to the FrOSCon conference in St.Augustin / Bonn / Germany.
+Froscon is one of the few Open Souce gatherings that I've experienced over the past few years where you can meet a concentrated bunch of people who know what they are talking about, who have something to say, are not trying to sell something; all mixed together with an extremely congenial atmosphere.  I even met one Guy who developed a Window Manager who passionately tried to argue with me why Git isn't the best for him.  In the end I agreed to try his WM for at least a week, and he's going to give Git another try.
+
+This year, we had again a developer room and held a Git workshop there under the Lumiera banner. 
+We decided to do that because Git is a key tool in the Lumiera development process and anything
+to ease the entry into development.
+
+The Lumiera project was represented there by a few people:
+
+- Raffaella (& Ruth, Sybilla & Valentino)
+- Simon 
+- Odin
+- Hermann
+- Christian
+- Benny
+
+We had a lot of visitors to the Git workshop/Lumiera room, including Scott Chacon, and spent a good deal of time explaning and clarifying Git to quite a few people. There's a lot of people out there terribly interested in Git and we got a few people started on their way to getting to know Git.  Holding a workshop on Git was a good idea as we did get a lot of people coming round just because of Git (and the kind of people that come to such a workshop are developers and that's what the Lumiera project is after) and we used the opportunity to spread the word.
+
+We had a computer and set up a Git repository so that people could have 'hands on' experience with Git.  This worked very well and a few visitors benefited directly from that.
+
+It was also great to meet some of the individuals behind the internet-mask & get to know them: it somehow adds that extra dimension when you can place a face and character to an email address.
+
+
+
+[red]#This page is currently just a placeholder to allow for collecting and adding more content...#
+
+_Several people took photographs, so we might have the opportunity of sharing a little bit of Froscon 6 with should someone make a few photographs available._
+
