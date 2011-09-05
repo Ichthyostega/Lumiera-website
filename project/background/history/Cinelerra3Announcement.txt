@@ -1,0 +1,128 @@
+Announcement: Cinelerra3 Development/Planning
+=============================================
+:Author: Christian Thäter
+:Date: 13 Jun 2007
+
+//MENU: label Announce Cin-3
+
+/////
+Return-Path: <ct@pipapo.org>
+Delivery-Date: Wed, 13 Jun 2007 07:07:03 +0200
+Received-SPF: pass (mxeu19: domain of pipapo.org designates 217.140.77.75 as permitted sender) client-ip=217.140.77.75; envelope-from=ct@pipapo.org; helo=mail.pipapo.org;
+Received: from [217.140.77.75] (helo=mail.pipapo.org)
+	by mx.kundenserver.de (node=mxeu19) with ESMTP (Nemesis),
+	id 0ML05c-1HyL4R1UEB-0002Lx for prg@ichthyostega.de; Wed, 13 Jun 2007 07:07:03 +0200
+Received: from [10.20.70.10] (mercur.pipapo.org [10.20.70.10])
+	by mail.pipapo.org (Postfix) with ESMTP id 6291A34E25B9D;
+	Wed, 13 Jun 2007 07:07:00 +0200 (CEST)
+Message-ID: <466F7B73.10603@pipapo.org>
+Date: Wed, 13 Jun 2007 07:06:59 +0200
+From: Christian Thaeter <ct@pipapo.org>
+User-Agent: Icedove 1.5.0.10 (X11/20070329)
+MIME-Version: 1.0
+To: Jack Crossfire <broadcast@earthling.net>, 
+ Johannes Sixt <johannes.sixt@telecom.at>,
+ Andraz Tori <Andraz.tori1@guest.arnes.si>, 
+ Herman Robak <herman@skolelinux.no>,
+ Richard Baverstock <baver@thebeever.com>, 
+ Petter Reinholdtsen <pere@hungry.com>,
+ Tollef Fog Heen <tollef@add.no>, Andreas Kielb <andreaskielb@web.de>, 
+ Tyler Geddes <tgeddes@wgeddes.com>,
+ Gergely Erdelyi <dyce@rovidzar.hu>, David Arendt <admin@prnet.org>, 
+ Gustavo Iniguez <ga@kutxa.homeunix.org>,
+ Michael Eric Menk <meklev@osys.grm.hia.no>, 
+ Benjamin Flaming <cinelerra@solobanjo.com>,
+ Kevin Brosius <cobra@compuserve.com>, Mark Taraba <m_taraba@yahoo.com>, 
+ Nathan Kurz <nate@verse.com>,
+ Camille Harang <mammique@garbure.org>, 
+ Karl Bielefeldt <uhauufo02@sneakemail.com>,
+ Alex Ferrer <alex@ftconsult.com>, 
+ Pierre Dumuid <pierre.dumuid@adelaide.edu.au>,
+ Riccardo Setti <giskard@autistici.org>, Joe Stewart <jstewart@lurhq.com>, 
+ Sylvain Joyeux <doudou@melix.net>,
+ Rafael Diniz <rafael@riseup.net>, Nicolas Maufrais <e.conti@gmx.net>, 
+ ct@pipapo.org,  sfrase6@comcast.net,  miha.kitic@mladi.org, 
+ prg@ichthyostega.de,  list@atmarama.org,  vale@poliforma.org, 
+ jean-luc.coulon@wanadoo.fr
+Subject: Cinelerra3 Development/Planning
+X-Enigmail-Version: 0.94.2.0
+Content-Type: text/plain; charset=ISO-8859-15
+Content-Transfer-Encoding: 7bit
+Envelope-To: prg@ichthyostega.de
+/////
+
+After some cursing over the existing codebase some weeks ago, I asked HV
+what he thinks about to plan a rewrite/redesign for cinelerra3, while
+keeping cinelerra2 still maintained.
+
+So far he asked me back about some responsibilities to fill for cin2,
+which I replied with some questions (still waiting for an answer) and a
+statement I read as ``he wants to see something before rating it''. In an
+earlier mail he complained that people proprosed things but didn't come
+up with useable input afterwards, which is admitly quite sad.
+
+Anyways in the meantime the cinelerra3 idea got some drive by people on
+IRC and we currently starting to define how we want to setup a new
+project to make it accessible for anyone interested, this is the part
+where your opinions are needed now.
+
+I've set up some wiki pages on my server to collect ideas and serve as
+Brainstorming platform see:
+ 'http://www.pipapo.org/pipawiki/Cinelerra3'
+
+Noteably ichthyo did a lot work into setting up a document describing a
+possible redesign process.
+
+This Wiki is meant as initiate/temporary solution, I do not wan't to
+take over cinelerra development on my server (for technical and social
+reasons).
+
+Some short facts about the ideas we already have:
+
+* The wiki serves as Brainstorming Platform to define the way we want to
+work together, as well as collecting design proposals (until we find
+something better.
+* Use a distributed development model (using git), making this project
+completely free, anyone can just clone, hack and proprose his works to
+others for merge.
+* Essentially anyone has his own fork in git, but we may regulary agree
+on official releases (CV and HV might be merged this way, lets see what
+Adam says)
+* *We want Cinelerra! Just a even better one*, +
+  this is not about _Yet another Video Editor_, This means that I count
+  on HV acknowleding our efforts and supporting the idea.
+* This time noone shall be pissed when people propose things and then do
+nothing. Expect nothing and merge happily when something is done.
+* We have no time pressure, cinelerra2 can be used for the time coming
+* I don't like like mailinglists that much, development/brainstorming
+should take place where a presentable/persistent output is produced
+(wiki, maybe disstributed in git, uml model, ...). Mail and IRC can be
+used for volatile discussions.
+* Some Developers will gather at Piksel07 in november +
+'http://www.piksel.no/piksel07/call_html' feel invited to join us.
+* Especially we would like to invite HV to that event, would you make
+it?
++
+The Linux Foundation offers a travel fund ``...for the Rock Stars of
+the Open source Community'', we think you really qualify for that! ;-)
+
+I've set up a small description about the project: +
+ 'http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/Manifest'
+
+As already proposed, please prefer to use the wiki for replies.
+
+
+	Greetings
+		Christian
+
+
+Note, this mail is send intentionally to all AUTHORS and some selected
+people from which I think they are interested in development, not the the
+mailinglist. The reason is that I want to get the opinions of the most
+involved people first, without beeing flooded by user requests yet. This
+is not really to be kept secret and should be announced sometime next
+when we have some more conclusions about how to proceed. If you know any
+other person who should be involved/might be interested, please forward
+this mail.
+
+

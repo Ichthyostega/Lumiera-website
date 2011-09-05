@@ -3,8 +3,9 @@ Lumiera Project History
 :Author: Ichthyostega
 :Date: 3/2011
 
+// Menu :  put child 'Cinelerra3Announcement' after 'CinelerraWoes'
 
-CAUTION: more contents to be added soon
+CAUTION: more contents to be added from time to time
 
 In this section of the Lumiera website we'll collect some documents
 and background informations about the history of the Lumiera project.
@@ -20,6 +21,98 @@ that indeed Cinelerra _is_ capable of delivering professional quality,
 but users of Cinelerra are constantly facing some more or less serious
 problems.
 
-[red]#more to be written soon...#
+While not being part of the long-standing ``Cinelerra-CV'' community
+right from start, since 2005 we tried to remedy this situation by
+contributing improvements, especially addressing things perceived as
+major impediment in our everyday editing work. But, overall, the net
+result of these efforts was rather sobering
+
+- first of all, the basic constellation within the Cinelerra-CV project
+  isn't encouraging. Judging from past discussions, several forums and
+  mailing list archives, the original _upstream_ author(s) -- generally
+  only known under the pseudonym ``Heroine Warrior Inc.'' -- seem(s) rather not
+  to be interested in a more collaborative working style. Just, from time to
+  time, a new _upstream version_ will be ``thrown over the brick-wall'',
+  featuring some new and nifty additions, some bugfixes plus some more or less
+  serious new quality problems.
++
+Fortunately, there was the Cinelerra-CV crew,
+which used to merge these _new upstream versions_ into the community's
+source control system and then, over the course of the next months,
+did a great job in getting the new version into a roughly usable
+shape for a larger variety of distributions and configurations.
+Some of these improvements where picked up by Heroine Warrior,
+some weren't, without any real feedback.
++
+But given this overall situation, it is quite understandable that this
+long-term Cinelerra-CV crew was rather reluctant towards anything beyond
+isolated fixes and small improvements. Because any change, irrespective
+of the result, would just add to the increasing amount of differences
+to maintain and merge with each new upstream release.
+
+- even ignoring this problem of ``mergeability'', Ichthyo's attempts to
+  rectify some of the most time-consuming oddities in the behaviour of
+  frequently needed features (transitions, automation, effects, interlacing,
+  proxy editing) quickly evolved into disproportionally expensive refactoring
+  and reworking projects. At the same time, Cehteh concentrated on the frequent
+  deadlocks and crashes. Being an experienced system programmer, he quickly
+  spotted the reason -- yet any attempt of fixing the problems would lead
+  to ``chainsaw surgery'' all over the place. Seemingly, Cinelerra's
+  code base was just resilient towards change and evolution.
+
+The strange year 2007
+~~~~~~~~~~~~~~~~~~~~~
+I recall 2007 as one of these pivotal years, which -- while featuring rather
+few ``news events'' -- still endow some kind of _atmospheric change_ in several
+areas of life, both in small and on the large. For the Cinelerra-CV community,
+in spring 2007 it became evident that, from the long-standing core contributors,
+all but one had left, for one reason or the other (not related to Cinelerra).
+The development efforts for the CV-Version basically stalled. Several discussions
+on IRC gave the impression that the project as a whole might take another turn.
+
+In May, Cehteh and Ichthyo for the first time had some longer conversations on IRC.
+Cehteh showed a ``Cinelerra Guerilla Git repository'' with the official CV-Version
+and some of his disruptive changes to rework the asset handling, memory management
+and thread locking. He wrote a _Braindump page_ on his personal Wiki, proposing
+
+- to replace Cinelerra's excessive use of threading by a thread pool with precisely
+  scheduled, side-effect free frame calculation jobs, optimally using the I/O bandwidth
+- to introduce a more stringent module- and plugin system, and then to modularise the
+  codebase step by step
+- to replace Cinelerra's ``background rendering'' by a frame index and frame cache
+- to handle the render pipeline more flexibly, so that every component (Camera,
+  Mask, Projector, Effects) can be inserted everywhere
+- to switch to a really open distributed project structure, allowing everyone to
+  contribute freely. Let just the best merged version win!
+
+Some days later, ill tempered and in a bad mood after yet another frustrating
+editing session with Cinelerra, spending most of the time just with re-adjusting
+already finished sound work messed up by side effects of further editing, Ichthyo
+wrote a rant, peppered with random insults and curses. Herman Robak encouraged
+him to rewrite that bluster into a polemic text which can be taken seriously.
+The resulting link:CinelerraWoes.html[»Cinelerra Woes«] page caused a surprisingly
+strong resonance among the Cinelerra-CV community and quickly led to the proposal
+for a gradual reworking of the existing code base to rectify and cure the problems
+pinpointed here. Ichthyo condensed that into a project plan with seven milestones,
+first to define a solid new tooling and project framework and build some trusted
+islands of new code. Starting from there, gradually then the whole source base
+could be reworked. On another page, he defined some crucial »best practices«
+to complement and support the desired open distributed nature of the new
+project.
+
+So, suddenly we found ourselves right in the middle of an exciting new movement
+with much momentum, long debates and lots of new ideas -- and, most exciting, it
+seemed doable right now and here. Yet we should note that we didn't want to start
+a new video editor project -- we didn´t want something different, we wanted a
+_better Cinelerra_. Throughout these discussions, it became custom to label it
+_the-next-Cinelerra_, or -- since the current Version was '2.1' -- just call it
+**Cinelerra-3**. After some weeks, Cehteh wrote a _Project Manifest_ and sent a
+link:Cinelerra3Announcement.html[Project Announcement] to the contributors,
+the known Cinelerra-CV developers and Cinelerra's original Author
+(``Heroine Warrior'' alias ``Jack Crossfire'').
+
+
+
+[red]#more to be written as time permits...#
 
 

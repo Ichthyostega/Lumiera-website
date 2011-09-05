@@ -182,9 +182,9 @@ symptomps won't help.
 * internal structures messed up after detecting an error situration
 * undo not working bullet proof
 
-...needs an indirection layer. needs instances transforming and gathering
-properties. needs the policy ``rigorusly strict output, tolerant at input''. the
-need to look at matters from a global perspective, not just going ahead and
+...needs an indirection layer. ... needs instances transforming and gathering
+properties ... needs the policy ``rigorusly strict output, tolerant at input''. +
+_the need to look at matters from a global perspective,_ not just going ahead and
 changing some property somewhere else. design by contract and design patterns
 help. No general, "one fits all" solution available for this problem.
 

@@ -6,7 +6,7 @@ Lumiera Project: Background
 //MENU: label more about...
 
 
-CAUTION: more contents to be added soon
+CAUTION: more contents to be added occasionally
 
 This page contains a collection of generally interesting background
 informations -- usually things _the insiders_ know already, but which
