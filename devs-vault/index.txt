@@ -46,24 +46,38 @@ unit or integration tests will be kept on hold, until problems are sorted out.
 For small changes, and for the first contributions, there is a _mob repository_ which is
 pushable by everyone. Just clone master, do your changes and push to `git://git.lumiera.org/lumiera/mob`
 
+.Patches per eMail
+You may send patches per mail. If possible, consider using +git format-patch+ from a
+local clone of some lumiera repository, because this vastly simplifies feeding in those
+patches on our side. If this doesn't work for you, at least try to tell us the exact
+revision (SHA of the git commit) you're basing your patch on.
+
+.Github
+Ichthyo also maintains a backup copy of the primary Repositories at
+link:https://github.com/Ichthyostega/Lumiera[Github] +
+In case everything else fails, you may fork there as well.
 
 Technical Documentation
 -----------------------
 - semi-final detail documentation can be found in the
   link:/documentation/technical[Documentation section]
-- for work-in-progress on the ``Proc-Layer'', _Ichthyo_ uses an
-  link:/wiki/renderengine.html[TiddlyWiki in the source tree].
-  You'll find extensive documentation about internal concepts,
-  design reasoning and UML diagrams.
+- for work-in-progress on the ``Proc-Layer'', Ichthyo uses an
+  embedded *TiddlyWiki* in the source tree.
+  There you'll find _extensive documentation_ about _internal concepts_,
+  design reasoning and UML diagrams. Just point your browser at the
+  file +wiki/renderengine.html+ in your local source checkout. Local
+  Modifications, additions, corrections are welcome and can be fed back
+  as patches or git checkins. A fairly recent copy of this
+  link:/wiki/renderengine.html[Renderengine-Wiki can be accessed read-only at Lumiera.org].
 - you might want to have a look into the
   link:/doxy/[generated API documentation] -- especially when
-  interested in some concepts, subsystems or components, have a look
-  at the file-level documentation of the corresponding main header files.
+  interested in some concepts, subsystems or components, check out the file-level
+  documentation of the corresponding primary header files.
 - The issue tracking system (*Trac*) provides several
   link:http://issues.lumiera.org/report[Query-reports].
   Especially the report
   link:http://issues.lumiera.org/report/14[»recently changed«] might
-  give a good feeling about the current activities.
+  give a good feel about currently ongoing activities.
 - feel free to ask on link:/project/contact.html[IRC]!
 
 
