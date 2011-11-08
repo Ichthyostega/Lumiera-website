@@ -5,6 +5,10 @@ Comment irrelevant stuff out
 ////
 
 
+*October 2011*::
+      again thanks to Wouter Verwijlen: read the
+      link:/project/news/DevReport-11-10.html[Summer/Fall Coding News] Report
+
 *June 2011*::
       ...we're still a tiny bit behind on our news reports, but here's some catching up for this quarter:
       the link:/project/news/DevReport-11-06.html[Spring Coding News] Report; 

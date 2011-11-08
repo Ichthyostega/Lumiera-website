@@ -1,0 +1,25 @@
+Lumiera Summer/Autumn Coding Report
+===================================
+:Date: October 2011
+:Author: Wouter Verwijlen
+
+//Menu: label 11.10 Dev Report
+
+Time to tell you all what's been going on the past months.
+
+The Lumiera crew has again been visiting the FrOSCon conference in Germany. Over there we had a booth with a Lumiera banner where we gave a GIT workshop (one of the tools being used to develop Lumiera) and tried to make developers enthusiastic about Lumiera. It was a great success. Read more about this topic at our link:/media/FrOSCon11/index.html[FrOSCon-2011 page].
+
+Hermann (_ichthyo_) has continued to work on the Player subsystem that we talked about in the previous report: this is the part of the processing layer (proc layer) that deals with video playback (therefore communicating with the render engine that calculates the output frames), the user interactions that can take place during playback, while driving the queue for 
+frame calculation jobs that the Player has to deal with. The goal here is to perform well on systems with multiple CPUs,
+wile not generating too much latency.
+Ichthyo also continued his work on the framework for output management: how to handle data that is being send outside of the application (f.e. video to an x-server or audio to a Jack server).
+
+We'd like to welcome Michael Fisher: a new developer who has joined the crew to work on the GUI. He's been working on adding a zoom slider control and will be working on other GUI-related stuff from here on. That's very good news, since there hasn't really been made any progress on the GUI since Joel Holdsworth left the team a while ago.
+
+Christian (_cehteh_) will be returning to Lumiera this winter, so there's currently no updates on his part but hopefully in the next quarterly news report! If things are going well then cehteh and ichthyo will start to connect the render engine with Lumiera's backend (used for all data handling/caching/prefetching/delivering). Certainly a milestone to look forward to.
+
+By that time we're also hoping to have the new website design finished (yeah, I know I wrote that last time as well, but we're well on the way with that, so who knows, it might actually happen for real :).
+
+That's it for now. Check back here for more updates and spread the word about Lumiera! Yes, we need more developers to speed up development and create the best native professional NLE for Linux. So don't hesitate, participate! We welcome everybody willing to contribute anything on any part.
+
+
