@@ -25,7 +25,10 @@ _Lumiera from Outer Space_ is a document that gives an overview of the applicati
 design, helping people to understand the ideas behind Lumiera and the tools they 
 will get to work with. It is aimed for workflow designers and anyone who wants to 
 know how Lumiera works in general. The document is still in draft form, but already 
-useful. Read the http://git.lumiera.org/gitweb?p=lumiera/ct;a=blob;f=doc/user/lumiera_from_outer_space/lumiera_from_outer_space.txt;hb=workflow[Asciidoc draft].
+useful. Read the 
+link:http://git.lumiera.org/gitweb?p=lumiera/ct;a=blob;f=doc/user/lumiera_from_outer_space/lumiera_from_outer_space.txt;h=75be10ba3534be344a2f9feeb60784a6776ef695;hb=documentation[Asciidoc draft]. +
+_^([,yellow]#note:# meanwhile this text has been integrated into the
+link:{ldoc}/user/intro/intro.html[Documentation Section] of the website)^_
 
 Stefan Kangas (_skangas_) and Guram Z. Savinov (_savgur_) joined the dev team!
 _skangas_ is working on GUI, time widget and time handling lib; _savgur_ is investigating 
