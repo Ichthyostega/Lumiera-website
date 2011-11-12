@@ -1,38 +1,61 @@
 Git Workshop at FrOSCon 2011
 ============================
 
-
 //MENU: label FrOSCon 2011
 
 
-CAUTION: under construction
 
+**************************************************************************************************************
+As in the previous years, Lumiera contributed again to the FrOSCon conference in St.Augustin,  Bonn / Germany.
 
-As in the previous years, Lumiera contributed again to the FrOSCon conference in St.Augustin / Bonn / Germany.
 Froscon is one of the few Open Souce gatherings that I've experienced over the past few years where you can meet a concentrated bunch of people who know what they are talking about, who have something to say, are not trying to sell something; all mixed together with an extremely congenial atmosphere.  I even met one Guy who developed a Window Manager who passionately tried to argue with me why Git isn't the best for him.  In the end I agreed to try his WM for at least a week, and he's going to give Git another try.
 
-This year, we had again a developer room and held a Git workshop there under the Lumiera banner. 
-We decided to do that because Git is a key tool in the Lumiera development process and anything
-to ease the entry into development.
+_Benny Lyons_
+**************************************************************************************************************
+image:froscon.png["FrOSCon logo", width=350]
 
-The Lumiera project was represented there by a few people:
+image:frosch-1.jpg[width=422, link="frosch-1.jpg"]
 
-- Raffaella (& Ruth, Sybilla & Valentino)
+image:frosch-2.jpg[height=200, link="frosch-2.jpg"]image:frosch-3.jpg[height=200, link="frosch-3.jpg"]
+
+image:lumiera-at-night.jpg[width=422, link="lumiera-at-night.jpg"]
+
+The Lumiera project was represented by a few people:
+
+- Raffaella ~(with Ruth, Sybilla & Valentino)~
 - Simon 
 - Odin
 - Hermann
 - Christian
 - Benny
 
+This year, we had again a developer room and held a Git workshop there under the Lumiera banner. 
+We decided to do that because Git is a key tool in the Lumiera development process and anything
+to ease the entry into development.
+
+
+
 We had a lot of visitors to the Git workshop/Lumiera room, including Scott Chacon, and spent a good deal of time explaning and clarifying Git to quite a few people. There's a lot of people out there terribly interested in Git and we got a few people started on their way to getting to know Git.  Holding a workshop on Git was a good idea as we did get a lot of people coming round just because of Git (and the kind of people that come to such a workshop are developers and that's what the Lumiera project is after) and we used the opportunity to spread the word.
 
 We had a computer and set up a Git repository so that people could have 'hands on' experience with Git.  This worked very well and a few visitors benefited directly from that.
+It was also great to meet some of the individuals behind the internet-mask and get to know them: it somehow adds that extra dimension when you can place a face and character to an email address.
 
-It was also great to meet some of the individuals behind the internet-mask & get to know them: it somehow adds that extra dimension when you can place a face and character to an email address.
+image:git-workshop.jpg[width=570, link="git-workshop.jpg"]
+image:raffa-with-children.jpg[height=323, align="right", link="raffa-with-children.jpg"]
+
+image:bouncy-10.jpg[height=160, link="bouncy-10.jpg"]
+
+image:bouncy-1.jpg[height=141, link="bouncy-1.jpg"]
+image:bouncy-2.jpg[height=141, link="bouncy-2.jpg"]
+image:bouncy-3.jpg[height=141, link="bouncy-3.jpg"]
+image:bouncy-4.jpg[height=141, link="bouncy-4.jpg"]
+image:bouncy-5.jpg[height=141, link="bouncy-5.jpg"]
+image:bouncy-6.jpg[height=141, link="bouncy-6.jpg"]
+
+image:bouncy-7.jpg[height=220, link="bouncy-7.jpg"]
+image:bouncy-8.jpg[height=220, link="bouncy-8.jpg"]
+image:bouncy-9.jpg[height=220, link="bouncy-9.jpg"]
 
 
 
-[red]#This page is currently just a placeholder to allow for collecting and adding more content...#
-
-_Several people took photographs, so we might have the opportunity of sharing a little bit of Froscon 6 with should someone make a few photographs available._
 
