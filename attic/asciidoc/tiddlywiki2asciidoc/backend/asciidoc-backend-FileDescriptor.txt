@@ -1,9 +1,0 @@
-== FileDescriptor
-:Author: CehTeh
-:Date Created: 200706201525
-:Date Changed: 200803271036
-:Count Changes: 2
-
-+FileDescriptor+ is the superclass of all possible filetypes, it has a weak reference to a <<backend-FileHandle, +FileHandle+>> which is managed in <<backend-FilehandleCache, +FilehandleCache+>>, on creation only the existence (when reading) or access for write for new files are checked. +FileDescriptor+ stores some generic metadata about the underlying file and intended use. But actual opening is done on demand.
-
-The content is memory mapped into the process address space, this is managed by <<backend-FileMap, +FileMap+>> objects and a <<backend-FileMapCache, +FileMapCache+>>.

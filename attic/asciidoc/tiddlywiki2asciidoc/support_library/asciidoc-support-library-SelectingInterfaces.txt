@@ -1,9 +1,0 @@
-== SelectingInterfaces
-:Author: CehTeh
-:Date Created: 200708120132
-:Date Changed: 
-:Count Changes: 2
-
-Each Plugin can export different Interfaces, even same interfaces with different capabilities like a effect for different color models or such.
-
-Plugins announce their interfaces and capabilities and we implement a deduction system which chooses the best matching interface for the task.

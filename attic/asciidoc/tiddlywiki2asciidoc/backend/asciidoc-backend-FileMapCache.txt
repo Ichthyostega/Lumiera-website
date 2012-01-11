@@ -1,7 +1,0 @@
-== FileMapCache
-:Author: MichaelPloujnikov
-:Date Created: 200706202207
-:Date Changed: 200706270305
-:Count Changes: 4
-
-The +FileMapCache+ keeps a list of <<backend-FileMap, +FileMap+>>s which are currently not in use and subject of aging.  Whenever a +FileMap+ is in use, it is checked out into an in-use list where it is not subject to aging.

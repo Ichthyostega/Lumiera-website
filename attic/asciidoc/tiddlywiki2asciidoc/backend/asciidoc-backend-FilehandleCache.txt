@@ -1,7 +1,0 @@
-== FilehandleCache
-:Author: CehTeh
-:Date Created: 200706201548
-:Date Changed: 200803271025
-:Count Changes: 2
-
-+FilehandleCache+ storing a finite maximum number of <<backend-FileHandle, +FileHandle+>>s as a list. As long the configured maximum of open files is not reached new file handles are stored at the begin of the list. Whenever a +filehandle+ is accessed it is moved to the begin of the list too. Unused filehandles propagate towards the end of the list. When the maximum of open ++filehandle++s is reached, aged filehandles are closed and taken from the end.

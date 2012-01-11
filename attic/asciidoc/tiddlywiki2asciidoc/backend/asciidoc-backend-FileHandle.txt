@@ -1,7 +1,0 @@
-== FileHandle
-:Author: CehTeh
-:Date Created: 200706201535
-:Date Changed: 200706202208
-:Count Changes: 2
-
-++FileHandle++s are managed by the <<backend-FilehandleCache, +FilehandleCache+>>, they are just storing the underlying OS file handles and managed in a lazy/weak way, (re)opened when needed and aging in the cache when not needed, since the amount of open file handles is limited aged ones will be closed and reused when the system needs to open another file.

@@ -1,8 +1,0 @@
-== Software
-:Author: CehTeh
-:Date Created: 200803261323
-:Date Changed: 
-:Count Changes: 2
-
-
-Lumiera expects a 'standard' desktop installation running a Xserver.
