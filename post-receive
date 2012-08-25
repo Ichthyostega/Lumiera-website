@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Hook script to rebuild the website after a git push
 #
