@@ -31,20 +31,6 @@ prevailing Open Source technologies---do not re-invent the wheel---and the
 knowledge base provided directly by programmers.
 
 
-#a modern design is being used.
-#Moreover,
-#the design draws on the expertise flourishing in the Open Source Community:
-#programmer know-how and existing, well-proven Open Source technologies are
-#infused into the Lumiera design. 
-#
-#Lumiera is designed to be an advanced NLE. It will have extensive technical and
-#creative tools, and the architecture to expand its tool-sets. The application is 
-#developed to be highly modular, future-adaptable, and open.
-#
-#Some select design elements from Lumiera include: advanced memory and media management, 
-#optimised & customizable GUI, innovative track grouping/nesting, and time code support.
-
-
 Lumiera: Why?
 ~~~~~~~~~~~~~
 
@@ -74,22 +60,22 @@ is seen as being one of the more important aspects of the project.
 
 
 
-#How it works
-#~~~~~~~~~~~~~
-#
-#NLE's can be demanding of hardware systems, and have specific requirements for
-#the application functions and media handling. Lumiera is developed from the
-#ground up, beginning with the core. It is designed so the core of the
-#application is not tied to the GUI, and can operate independently.
-#
-#The core consists of a backend (low-level) and proc-layer (mid-level). Because of 
-#the specialised requirements of NLE's, there is some interesting and sophisticated 
-#development at this level.
-#
-#The GUI is the part most users will work with, and is in a state of constant 
-#design. Unlike some applications, the GUI for Lumiera isn't a pass-through, but 
-#contains many features itself. Specialised track nesting, marker/clip interaction, 
-#and "perspectives" that arrange GUI elements for specific video tasks.
+//How it works
+//~~~~~~~~~~~~~
+//
+//NLE's can be demanding of hardware systems, and have specific requirements for
+//the application functions and media handling. Lumiera is developed from the
+//ground up, beginning with the core. It is designed so the core of the
+//application is not tied to the GUI, and can operate independently.
+//
+//The core consists of a backend (low-level) and proc-layer (mid-level). Because of 
+//the specialised requirements of NLE's, there is some interesting and sophisticated 
+//development at this level.
+//
+//The GUI is the part most users will work with, and is in a state of constant 
+//design. Unlike some applications, the GUI for Lumiera isn't a pass-through, but 
+//contains many features itself. Specialised track nesting, marker/clip interaction, 
+//and "perspectives" that arrange GUI elements for specific video tasks.
 
 
 Lumiera: WhereProject History
