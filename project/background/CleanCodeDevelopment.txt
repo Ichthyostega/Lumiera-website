@@ -59,8 +59,8 @@ No path is inherently ``better'' than the preceding path -- usually, when finish
 with _blue_, you start again with _red_.
 
 
-[red,maroon]#Red Path# -- understanding
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[red maroon-background]#Red Path# -- understanding
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .Principles
 DRY -- Don't Repeat Yourself::
   don't bore your readers by stating the same again and again -- build
@@ -96,8 +96,8 @@ Reflection::
   those you're focussing on currently). Partition your work into tasks which can be
   finished on one day. Take the time to reflect.
 
-[orange,maroon]#Orange Path# -- sharpening
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[orange maroon-background]#Orange Path# -- sharpening
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .Principles
 SLA -- Single Level of Abstraction::
   each piece of code should talk on a distinctive level of granularity.
@@ -130,8 +130,8 @@ Code Reviews::
   Establish practices like code reviews and pair programming.
 
 
-[maroon,yellow]#Yellow Path# -- segregating
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[maroon yellow-background]#Yellow Path# -- segregating
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .Principles
 ISP -- Interface Segregation Principle::
   keep interfaces focussed and confined to a set of operations likely to be used in conjunction.
@@ -169,8 +169,8 @@ Community Participation::
   visit local user groups, participate in conferences.
 
 
-[lime,green]#Green Path# -- decoupling
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[lime green-background]#Green Path# -- decoupling
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .Principles
 OCP -- Open Closed Principle::
   any class or functional unit should be open towards extensions, but closed against modifications.
@@ -198,8 +198,8 @@ Quality Measurments::
 Learn by Teaching::
   share your experience and knowledge. Explaining something is the best way to understand it yourself.
 
-[aqua,navy]#Blue Path# -- balancing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[aqua navy-background]#Blue Path# -- balancing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .Principles
 Segregate Design and Implementation::
   clearly delineate planning and doing. Design must not duplicate implementation work, and implementation
