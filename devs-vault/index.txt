@@ -3,7 +3,7 @@ Developers Vault
 
 // Menu :  include dir .
 // Menu :  include root/documentation/devel/report
-// Menu :  include root/documentation/devel/rfc.txt
+// Menu :  include root/documentation/devel/design_process.txt
 
 // Menu :  prepend child 'devs'
 // Menu :  put child 'roadmap' after 'devs'
@@ -11,7 +11,7 @@ Developers Vault
 // Menu :  put child 'renderengine' after 'doxy'
 // Menu :  append child 'gitweb
 // Menu :  append child 'report'
-// Menu :  append child 'rfc'
+// Menu :  append child 'design_process'
 // Menu :  append child 'meeting'
 // Menu :  append child 'links'
 
