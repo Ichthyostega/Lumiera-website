@@ -1,0 +1,62 @@
+Lumiera Autumn Coding Report
+============================
+:Date: November 2012
+:Author: Benny, ...
+
+//Menu: label 12.11 Dev Report
+
+There's been a long pause since our last developer news report, but this can
+better be attributed to less willingless to write these notes rather than lack
+of project activity. 
+
+. FrOSCon 2012 and the Annual Lumiera Project Meeting
+FrOSCon is rapidly begining to establish itself as the occasion for the Lumiera
+annual project get-together.  The project has been represented at the conference
+in one or other form over the past several years, so if you'd like to get
+together and meet the various individuals involved in the project, you might
+consider attending the conference next year. 
+Originally, we intended to meet up for a couple of days before the conference in
+Southern Germany, but this fell through for one organisational reason or
+another. It would be great if we managed to get together a few days before (or
+after) FrOSCon 2013.
+
+The Lumiera Project was at the conference this year with a Developer Room.
+Hermann (aka _ichthyo_) held a talk on Git, followed by a discussion on Git on the
+Saturday and Sunday of the project.
+
+The conference also proved productive for Lumiera as Hermann and Benny (aka _Benn_)
+began reviewing the content of various Lumiera web pages.  Many of the pages
+are not finished and have been in a state of _work-in-progress_ for some time
+now.  Other pages were found to be lacking in content.  At the conference they
+both sat down and been tackling this problem.  Moreover, it was quickly realised that
+Asciidoc did not have proficient tools to handle crosslinking.  Moreover,
+Lumiera has an abundance of technical jargon and terminology with a very
+specialised meaning.  A good glossary is almost a must.  A glossary is also a
+good place for developers to explain various new aspects in Lumiera over
+traditional thinking: 'this what Lumiera understands of this term'.   It was
+thus agreed to automate the generation of a glossary among the documentation.
+
+This work is now in full progress.
+
+Hermann has been working on the player subsystem.  The code base has increased
+considerably since our last news report, however, there is still limited changes
+visible to the user.
+
+M. Fisher has now been working on the GUI for just over a year. There has been
+some progress on the GUI.
+
+Christian has also returned to the project after an absence of some time caused
+by other work comitments.
+
+Lumiera is still plagued by the lack of developers.  In the Spring of this
+year, Lumiera had an advertisement
+(link:http://libregraphicsmag.com/files/libregraphicsmag_1.4_lowquality.pdf[download])
+in the Libregraphics magazine (link:http://libregraphicsmag.com), an Open Source
+magazine devoted to Open Source Graphics.  The advertisement was generally
+geared towards a call for developers.  The problem of too few developers working
+on Lumiera is still a serious concern for the project.
+
+
+
+
+
