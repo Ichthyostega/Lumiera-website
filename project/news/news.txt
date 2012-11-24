@@ -5,6 +5,13 @@ Comment irrelevant stuff out
 ////
 
 
+*November 2012*::
+      a coding news report is long overdue --
++
+Kudos to Benny Lyons for writing the 
+link:/project/news/DevReport-12-11.html[2012 Fall Coding News] Report
+and all his further documentation and website contributions
+
 *October 2011*::
       again thanks to Wouter Verwijlen: read the
       link:/project/news/DevReport-11-10.html[Summer/Fall Coding News] Report
