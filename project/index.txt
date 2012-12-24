@@ -21,10 +21,11 @@ be flexible enough to satisfy the needs of more modest single-user
 equipment. In other words, Lumiera will be scalable.
 
 Two key factors were identified to achieve these ambitious goals:
-   -- a modern design
-   -- the resources of the open-source community
 
-The design draws directly on the open-source community by the major use of
+- a modern design
+- the resources of the open-source community
+
+The Lumiera project draws directly on the power of open-source by the major use of
 prevailing open-source technologies -- do not re-invent the wheel, and use the
 knowledge base provided directly by programmers.
 
@@ -36,7 +37,7 @@ There is a serious lack of good video editors in the open-source
 community. Indeed, commercial video editors typically exhibit a spectrum of
 weaknesses; some are minor, but many are serious.  Many of the design
 features of Lumiera are there to avoid the limitations
-of currently availablee video editors.
+of currently available video editors.
 
 
 Lumiera: How?
@@ -76,15 +77,16 @@ is seen as being one of the more important aspects of the project.
 //and "perspectives" that arrange GUI elements for specific video tasks.
 
 
-Lumiera: WhereProject History
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Lumiera: Project History
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Lumiera was born from CinelerraCV.  While Cinelerra is held in no small esteem 
-by many, it does have a number of flaws. Cinelerra is not developed by an open
-community; this was unfavourably viewed by many.  
-A number of users started a fork of Cinelerra, called Cinelerra3,
-which quickly developed into a complete
-re-write of the code base.
+Lumiera was born from *CinelerraCV*.  While Cinelerra is held in no small esteem 
+by many, it does have a number of flaws. The stock of the Cinelerra code base was
+not developed by an open community; this was unfavourably viewed by many.
+Moreover, the quality of this code base is questionable at places, and the
+architecture was deemed not sufficiently extensible and future-proof.
+A number of users started a fork of Cinelerra, called ``Cinelerra-3'',
+which quickly developed into a complete re-write of the code base.
 Major re-design finally resulted in the birth of an entirely
 new project to be called Lumiera.  However, the origins of Lumiera are
 deeply rooted in the Cinelerra project.
@@ -92,8 +94,6 @@ deeply rooted in the Cinelerra project.
 Lumiera has grown since its emergence as a new project.  Regular developer
 meetings, active open-source Community participation and stimulating
 communication over the net contribute to form a steadily maturing  project.
-For example, the GUI has began to take shape:
-link:{l}/project/screenshots.html[screenshots].
 
 -> read more about the link:background/history[Project History]
 
