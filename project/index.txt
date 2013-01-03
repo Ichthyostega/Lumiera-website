@@ -6,8 +6,9 @@ About Lumiera
 //Note order of top level menu entries is setup statically in menugen.py
 
 
-
-The Emerging NLE for GNU/Linux
+************************************
+``*The Emerging NLE for GNU/Linux*''
+************************************
 
 Lumiera: What?
 --------------
@@ -31,7 +32,7 @@ knowledge base provided directly by programmers.
 
 
 Lumiera: Why?
-~~~~~~~~~~~~~
+-------------
 
 There is a serious lack of good video editors in the open-source
 community. Indeed, commercial video editors typically exhibit a spectrum of
@@ -41,7 +42,7 @@ of currently available video editors.
 
 
 Lumiera: How?
-~~~~~~~~~~~~~
+-------------
 
 Lumiera's design is a flexible, open architecture.  Lumiera is composed of
 blocks connected together to form the application. Many of these building
