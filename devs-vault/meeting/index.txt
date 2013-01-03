@@ -3,7 +3,8 @@ Monthly Meetings
 
 // Menu :  include dir .
 // Menu :  include root/documentation/devel/meeting_summary
-
+// Menu :  include root/documentation/devel/transcript
+// Menu :  put child 'transcript' after 'meeting_summary'
 
 We regularly conduct developer meetings -- usually at 2^nd^ Wednesday of each month, starting 20^00^ UTC.  
 These meetings take place in the IRC channel #lumiera at Freenode. ->link:/project/contact.html[more]
@@ -11,11 +12,17 @@ These meetings take place in the IRC channel #lumiera at Freenode. ->link:/proje
 This page announces the next meeting. Usually, meetings are also announced some days ahead
 on the Mailinglist. _Everyone is welcome. Feel free to suggest any topic you would like to discuss!_
 
- * *Summaries* of past meetings can be found link:/documentation/devel/meeting_summary/index.html[here].
+ * *Summaries* of past meetings can be found ->link:{ldoc}/devel/meeting_summary/index.html[here].
 
  * If you have been ``volunteered'' to write a summary, you might want
    to have a look at the link:/documentation/devel/template/YYYY-MM-DD-developerMeetingSummary.txt[summary template].
 
+
+.IRC Transcripts
+Deliberately, we won't provide public logs of all our IRC discussions. There needs to be a place
+for informal and sometimes controversial discussions. As an exception to this rule, sometimes we save
+the literal transcript of an interesting IRC discussion and store an (slightly condensed) excerpt
+for later referral ->link:{ldoc}/devel/transcript/index.html[here]
 
 For general discussions or further questions, refer to the ->link:/project/contact.html[Mailing List].
 
@@ -24,10 +31,12 @@ For general discussions or further questions, refer to the ->link:/project/conta
 Next Developers Meeting
 -----------------------
 
-Wednesday October 10, 2012 20:00 UTC
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Wednesday January 9, 2013 20:00 UTC
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .Topics
+Currently our meetings are rather informal, since there isn't much to decide or
+coordinate. Feel free to show up and propose topics for discussion...
 . ...
 . ....
 
