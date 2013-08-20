@@ -13,7 +13,7 @@ the project.
 The Froscon conference approaches.
 As in previous years, members of the Lumiera project will meet again in the
 South of Germany for a few days before heading off on our annual pilgrimage to
-attend the FrOSCon conference, http://www.froscon.de/en/home/.  
+attend the link:http://www.froscon.de/en/home/[FrOSCon conference].  
 
 The Lumiera project will have a developer room at the conference.  We will again
 hold introductory talks on Git and be available throughout the conference to
@@ -29,8 +29,8 @@ discussed on IRC and on our mailing list.  The general opinion of core
 developers seems to be that the current structure should be retained, at least
 for now, unless some other method is 
 proposed with compelling advantages over the current mechanism.  The current
-framework is documented here:
-http://www.lumiera.org/documentation/devel/rfc_pending/DeveloperDocumentationStructure.html
+framework is documented
+link:http://www.lumiera.org/documentation/devel/rfc_pending/DeveloperDocumentationStructure.html[here].
 
 The developers are aware of disadvantages in this framework and have undertaken
 some steps to improve the situation. 
@@ -48,8 +48,8 @@ ineffectual as the number of documents explode.  Furthermore, there is no
 automated and easy way to produce a glossary of terms from the mass of
 documentation.
 
-More details can be found here: 
-http://www.lumiera.org/documentation/devel/rfc_pending/WebsiteSupportMarkup.html.
+More details can be found 
+link:http://www.lumiera.org/documentation/devel/rfc_pending/WebsiteSupportMarkup.html[in this RfC].
 
 . The Code
 As usual, Hermann has been the most productive developer over the past few
