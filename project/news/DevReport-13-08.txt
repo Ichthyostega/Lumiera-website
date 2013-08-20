@@ -1,7 +1,7 @@
 Lumiera Summer Coding Report
 ============================
 :Date: August 2013
-:Author: Benny, ...
+:Author: Benny Lyons
 
 //Menu: label 13.08 Dev Report
 
@@ -53,7 +53,9 @@ http://www.lumiera.org/documentation/devel/rfc_pending/WebsiteSupportMarkup.html
 
 . The Code
 As usual, Hermann has been the most productive developer over the past few
-months. He has continued to progress on the player sub-system.
+months. He has continued to progress on the player sub-system. He investigated
+special modes of playback and implemented the interplay of frame dispatch and
+job generation. Michael Fisher provided code for Jack audio integration.
 
 
 . Lumiera, The Project
