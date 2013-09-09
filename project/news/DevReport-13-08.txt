@@ -9,7 +9,7 @@ Although news reports have become rare, there is still activity taking place on
 the project. 
 
 
-. FrOSCon 2013 and the Annual Lumiera Project Meeting
+.FrOSCon 2013 and the Annual Lumiera Project Meeting
 The Froscon conference approaches.
 As in previous years, members of the Lumiera project will meet again in the
 South of Germany for a few days before heading off on our annual pilgrimage to
@@ -22,7 +22,7 @@ answer questions and to provide general assistance on Git.
 If you would like to meet members of the project, you consider attending
 the conference and visit us at our developer room. All are heartily welcome.
 
-. Documentation
+.Documentation
 Over the past few months, there has been some activity involved in
 documentation.  Organisation of the project's documentation framework has been
 discussed on IRC and on our mailing list.  The general opinion of core
@@ -30,7 +30,7 @@ developers seems to be that the current structure should be retained, at least
 for now, unless some other method is 
 proposed with compelling advantages over the current mechanism.  The current
 framework is documented
-link:http://www.lumiera.org/documentation/devel/rfc_pending/DeveloperDocumentationStructure.html[here].
+link:{rfc}/DeveloperDocumentationStructure.html[here].
 
 The developers are aware of disadvantages in this framework and have undertaken
 some steps to improve the situation. 
@@ -49,26 +49,21 @@ automated and easy way to produce a glossary of terms from the mass of
 documentation.
 
 More details can be found 
-link:http://www.lumiera.org/documentation/devel/rfc_pending/WebsiteSupportMarkup.html[in this RfC].
+link:{rfc}//WebsiteSupportMarkup.html[in this RfC].
 
-. The Code
+.The Code
 As usual, Hermann has been the most productive developer over the past few
 months. He has continued to progress on the player sub-system. He investigated
 special modes of playback and implemented the interplay of frame dispatch and
 job generation. Michael Fisher provided code for Jack audio integration.
 
 
-. Lumiera, The Project
+.Lumiera, The Project
 Lumiera is still hampered by too few developers.  Developers continue to be
 active despite this, but project time-lines are scarce or have become
 non-existent.
-Participants are still active on the project's IRC channel and the mailing list
-still has traffic. 
-
-
-
-
-
+But participants are still active on the project's IRC channel and the mailing list
+has ongoing discussions.
 
 
 

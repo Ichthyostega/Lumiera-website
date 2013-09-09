@@ -42,72 +42,10 @@ Help with our website and infrastructure
 You may be aware that we are updating the website and integrating many of the 
 Lumiera development tools into it. This takes a bit of work and ingenuity, so 
 we need people to work these things out.
-
-Beside writing content for the pages, the major project is implementing uWiki. 
-The Lumiera website is designed to 'live' through uWiki, which will provide a web 
-interface to edit the whole site. uWiki is in development and needs some attention. 
-
 Some additional help is greatly appreciated with keeping news up-to-date, 
 formatting and editing design documentation, and working on the aesthetics of the 
 Lumiera site.
 
-Existing content
-^^^^^^^^^^^^^^^^^
-
-Many pages are adapted from the original site, or from documents in the 
-link:http://git.lumiera.org/gitweb[git] but need editing.
-
- * The existing content of the old website into a 
-   link:{l}/OldWebpage/[separate subdirectory].
- * The results of the *Asciidoc Day* are in Subdirectory 
-   link:{l}/Lumiera[/Lumiera]
- * The results of the TiddlyWiki asciidoc-ing can be found in 
-   link:{l}/tiddlywiki2asciidoc/[/tiddlywiki2asciidoc]
-
-
-New Content
-^^^^^^^^^^^^
-Many pages need designing: what they will say, how they will be laid-out, 
-should this information be abstract and static or dynamic?
-
-See how the site works below.
-
-One goal for the new site is to keep things open and collaborative, so I'm
-trying to include summaries and suggestions for each page.
-
-How can I help?
-^^^^^^^^^^^^^^^^
-
-For information on how to edit pages and contribute:
-
-To learn how to edit the Lumiera website and use git and Asciidoc read
-*quickstart*: [link:{l}/quickstart.txt[txt]] and [link:{l}/quickstart.html[html]]
-You should look at the txt primarily, and the html to see how Asciidoc looks in html.
-
-To see what needs to be done:
-
-See *todo* [link:{l}/todo.txt[txt]] and [link:{l}/todo.html[html]]
-The txt has some hidden/commented sections that are in development because of
-Design-Process, if you are not familiar with design-process use the html.
-
-There will also be tickets in trac for certain tasks, so look here:
-link:http://issues.lumiera.org/report/15[trac small/non-coding tasks]
-
-To see how the site is strucured read the
-*sitemap* [link:{l}/sitemap.html[html]] and [link:{l}/sitemap.txt[txt]]
-
-Note that the todo contains a more detailed and complete version of the actual
-pages of the site and this is primarily for structure.
-
-Some useful links
-^^^^^^^^^^^^^^^^^^
-
- * link:http://lists.lumiera.org/pipermail/lumiera/2010-January/001538.html[Mailing list discussion of structure v2]
- * link:{l}/todo.txt[todo.txt]
- * link:{l}/quickstart.txt[quickstart.txt]
- * link:http://git.lumiera.org/gitweb?p=website-staging[gitweb:website-staging]
- * link:http://issues.lumiera.org/report/15[trac small/non-coding tasks]
- * link:http://powerman.name/doc/asciidoc[asciidoc cheatsheet]
 
 [[3]]
 Complete small tasks and favours
@@ -121,7 +59,7 @@ And keep up with the mailing list.
 Contribute to the Lumiera design
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The design of Lumiera is being documented, see the related section of the documentation : link:{l}/documentation/design/index.html
+The design of Lumiera is being documented, see the related link:{ldoc}/design/index.html[design section] of the documentation.
 We base the development of the design on RfCs, these originally are proposals by developers that then become accepted or not.
 link:{l}/documentation/devel/rfc.html[Read more about our RfC system].
 
@@ -163,30 +101,22 @@ Resources
 
 The project is built with a git repository running a builddrone. We have our own 
 continuous integration system running on the development server. This monitors 
-certain repositories, builds the code and runs the test suite etc. You can look 
-at the current state at http:/builddrone/table.html[] and its
-root dir (http:/builddrone/[]) contains the raw build logs too. 
+certain repositories, builds the code and runs the test suite etc.
 
 Builddrone is very much work in progress and we would
 like if anyone helps developing it further.
-
-To learn about git you can read the link:{l}/quickstart.html[quickstart-html] 
-link:{l}/quickstart.txt[txt] Note that this is written for the sitework and just 
-an overview of how git works.
 
 Everyone works on his own git, merges with anyone else, at times we decide to 
 accumulate work into a master git.
 
 Build the Lumiera GUI from the git source repository: 
-link:http://lumiera.org/Lumiera/NewbiesTutorials[Newbie Tutorial].
+link:{ldoc}/user/tutorials/building.html[Building Tutorial].
 
-To understand the design of Lumiera visit link:{l}/documentation/design/index.html[Design Documentation]
+To understand the design of Lumiera visit link:{ldoc}/user/intro/intro.html[Lumiera from Outer Space]
 
-For technical information on developed components link:{l}/documentation/technical/index.html[Technical Documentation]
+For technical information on developed components link:{ldoc}/technical/overview.html[The inner Core]
 
-For the structure of the code look at our http://www.lumiera.org/doxy/[Doxygen documentation]
 
-////
 
 To find, read and claim trac tickets: link:http://issues.lumiera.org/[Lumiera Trac]
 
@@ -223,8 +153,18 @@ like if anyone helps developing it further.
 Plan
 ----
 
-Thus working on the design shall be as easy and simple as possible for _Doers_. _Doers_ are defined by the work they do. There is no application or such to join the project. It is completely open to anyone.
+Thus working on the design shall be as easy and simple as possible for _Doers_.
+_Doers_ are defined by the work they do. There is no application or such to join
+the project. It is completely open to anyone.
 
-This needs certain knowledge and experience. Anyone may decide if and which parts of the project he is able to handle. The goal is to work together where each one adds his best capabilities for the benefit of all. Beginners are welcome. This is a good place to gain experience and knowledge and we need people who point out when things become too complicated. There is a lot of tedious work to do (documentation, coding), but everyone shall acknowledge not to block the project by his actions. Therefore: think first, ask people personally if something is not understood, try to understand things how they are before arguing about.
+This needs certain knowledge and experience. Anyone may decide if and which
+parts of the project he is able to handle. The goal is to work together where
+each one adds his best capabilities for the benefit of all. Beginners are
+welcome. This is a good place to gain experience and knowledge and we need
+people who point out when things become too complicated. There is a lot of
+tedious work to do (documentation, coding), but everyone shall acknowledge not
+to block the project by his actions. Therefore: think first, ask people
+personally if something is not understood, try to understand things how they are
+before arguing about.
 
-////
+

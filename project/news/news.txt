@@ -4,13 +4,15 @@ Please add new items on the top, move older items to old_news.txt
 Comment irrelevant stuff out
 ////
 
+*August 2013*::
+      while preparing for FrOSCon, we collected and meged several
+      documentation contributions. Thanks to Benny Lyons:
+      here is the link:/project/news/DevReport-13-08.html[2013 Summer News Report]
 
 *November 2012*::
-      a coding news report is long overdue --
-+
-Kudos to Benny Lyons for writing the 
-link:/project/news/DevReport-12-11.html[2012 Fall Coding News] Report
-and all his further documentation and website contributions
+      Kudos to Benny Lyons for writing the
+      link:/project/news/DevReport-12-11.html[2012 Fall Coding News] Report
+      and all his further documentation and website contributions
 
 *October 2011*::
       again thanks to Wouter Verwijlen: read the

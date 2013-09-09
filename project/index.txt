@@ -52,34 +52,14 @@ provided by the open-source community.
 
 Lumiera is not confined to using only technology from the open-source community,
 but uses open-source community person-power: programmers, testers, video users,
-etc. In fact, the Lumiera open-source community of volunteers, aka *Luminites*,
+etc. In fact, the Lumiera open-source community of volunteers,
 is seen as being one of the more important aspects of the project. 
 
-//Scalability
-
-
-
-
-//How it works
-//~~~~~~~~~~~~~
-//
-//NLE's can be demanding of hardware systems, and have specific requirements for
-//the application functions and media handling. Lumiera is developed from the
-//ground up, beginning with the core. It is designed so the core of the
-//application is not tied to the GUI, and can operate independently.
-//
-//The core consists of a backend (low-level) and proc-layer (mid-level). Because of 
-//the specialised requirements of NLE's, there is some interesting and sophisticated 
-//development at this level.
-//
-//The GUI is the part most users will work with, and is in a state of constant 
-//design. Unlike some applications, the GUI for Lumiera isn't a pass-through, but 
-//contains many features itself. Specialised track nesting, marker/clip interaction, 
-//and "perspectives" that arrange GUI elements for specific video tasks.
+-> read more about the link:{ldoc}/user/intro/intro.html[Design and Vision]
 
 
 Lumiera: Project History
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 Lumiera was born from *CinelerraCV*.  While Cinelerra is held in no small esteem 
 by many, it does have a number of flaws. The stock of the Cinelerra code base was
@@ -94,7 +74,8 @@ deeply rooted in the Cinelerra project.
 
 Lumiera has grown since its emergence as a new project.  Regular developer
 meetings, active open-source Community participation and stimulating
-communication over the net contribute to form a steadily maturing  project.
+communication over the net contribute to form a slowly but steadily
+maturing project.
 
 -> read more about the link:background/history[Project History]
 

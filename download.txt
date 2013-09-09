@@ -23,11 +23,14 @@ Lumiera Debian package
 Some of the Lumeira core developers use Debian/stable as a reference system for
 development. This has the nice side effect that we'll provide debian source and
 binary packages to reflect the ongoing development. Since Ubuntu is based on
-debian, the plan is to extend this gradually to some Ubuntu distributions as well.
+debian, we provide packaging for some Ubuntu distributions as well.
 
-Thus, if you're using a Debian/Squeeze (stable) based system _(Doh!)_,
-or an Ubuntu 10.04 or 10.10 setup on a 32bit machine (i386), you might want to try out our
-link:/debian[Debian depot for apt-get]
+While Lumiera doesn't provide any usable features yet, it can be installed
+already through the debian packaging mechanisms. We prepare pre-releases
+and build packages on VMs to rehearse the release mechanisms. Thus, if you're using
+a Debian/Squeeze (stable) based system _(Doh!)_, or a suitable Ubutu flavour,
+you might be able to try out our link:/debian[Debian depot for apt-get].
+Please be sure to report any broken dependencies and installation problems.
 
 ....
 
