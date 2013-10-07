@@ -107,6 +107,7 @@ div.verseblock+div.attribution {
 
 div.sidebarblock {
     float:right;
+    clear:right;
     width: 50ex;
     margin: 1.5em -30ex 1.5em 2ex;
     border: 1px solid #84404E;
@@ -383,30 +384,63 @@ td.hlist2 {
 
 
 
-/* -------- Time of Creation --------- */
+/* -------- JavaScript generated Table of Contents --------- */
+
+div.toc {
+    width: 30ex;
+    margin: 1.5em -21ex 1.5em 2ex;
+}
+
 div#toctitle {
-    margin: 1em 0 .1em 0;
-    color: #527bbd;
-    font: bold 1.1em sans-serif;
+    /* nothing special; we're using div.title */
 }
 
 div.toclevel1,div.toclevel2,div.toclevel3,div.toclevel4 {
+    font-size: 0.8em;
     margin: 0 0 0 0;
 }
 
 div.toclevel2 {
     margin-left: 2em;
-    font-size: 0.9em;
+    font-size: 0.7em;
 }
 
 div.toclevel3 {
-    margin-left: 4em;
-    font-size: 0.9em;
+    margin-left: 3em;
+    font-size: 0.7em;
 }
 
 div.toclevel4 {
-    margin-left: 6em;
-    font-size: 0.9em;
+    margin-left: 4em;
+    font-size: 0.7em;
+}
+
+#toc a {
+    font-weight: normal;
+    color: #4E5E78;    
+}
+
+
+
+/* -------- JavaScript generated Footnotes --------- */
+
+div#footnotes {
+    font-size: smaller;
+    margin-top: 2em;
+}
+
+#footnotes div.footnote {
+    margin-top: 0.5ex;
+    padding-left: 3em;
+}
+
+div.footnote>a {
+    vertical-align: super;
+}
+
+span.footnote { /* footnote anchor in text */
+    font-size: small;
+    vertical-align: super;
 }
 
 /* -------- Debug -------- */
