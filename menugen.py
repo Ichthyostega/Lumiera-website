@@ -41,7 +41,7 @@ menuSpec_RE  = re.compile(r'^//\s*MENU\s*:\s*', re.IGNORECASE)
 
 
 def addPredefined():
-    ''' populate the menu with a set of basic nodes createing a backbone,
+    ''' populate the menu with a set of basic nodes creating a backbone,
         which can then be extended by values extracted from individual pages.
     '''
     root = Node(TREE_ROOT, label='Lumiera.org')
@@ -70,22 +70,24 @@ def addPredefined():
     proj.linkChild ('credits')
     proj.linkChild ('legal')
     
-    vault.linkChild('roadmap')
-    vault.linkChild('devs')
-    
     doc.linkChild('user')
     doc.linkChild('media')
     doc.linkChild('design')
     doc.linkChild('technical')
+    doc.linkChild('doxy')
+    
+    vault.linkChild('roadmap')
+    vault.linkChild('devs')
+    vault.linkChild('doxy')
     
     # make the 'media' subdir appear below root/documentation
     doc.discover(includes=[TREE_ROOT+'/media'])
     doc.discover(includes='user design technical'.split())
     
     # define external links
+    doc.link('http://lumiera.org/doxy',            label="API Doc (Doxygen)")
     proj.link('http://issues.lumiera.org/roadmap', label="Roadmap (Trac)")
     vault.link('http://www.lumiera.org/gitweb',    label="Gitweb")
-    vault.link('http://lumiera.org/doxy',          label="API Doc (Doxygen)")
     vault.link('http://lumiera.org/wiki/renderengine.html',
                                                    label="Proc TiddlyWiki")
     
