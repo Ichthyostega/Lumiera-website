@@ -1,43 +1,39 @@
 Contribute
 ==========
+:Date: 2010
+:toc:
 
 //MENU: on
 
-Lumiera is an open source, community developed project, please join in!
+Lumiera is an open source, community developed project. +
+We need your contributions to get ahead, please join in!
 
-The Lumiera project is very open, anyone can start working on it. We do like to 
-hear from you about what you would like to do so we can coordinate tasks. 
 
 How can you help?
 -----------------
 
-The are many ways to help the Lumiera project:
+The are many ways to help the Lumiera project; joining e.g. the discussion on the
+Mailinglist as an expert, maybe investigating some topic of interest -- likewise,
+the small contributions are valuable, be it just to fix some spelling or grammar
+error on the website. Besides, starting with small contributions is a good way
+to familiarise yourself with the way the project works; in doing so, you might
+well discover interesting aspects or topics to work on.
 
-=====================================================
- * <<1,Join and contribute to the Mailing List>>
- * <<2,Help with website and infrastructure>>
- * <<3,Do little tasks and favours as they come up>>
- * <<4,Contribute to the Lumiera Design>>
- * <<5,Become a developer>>
- * link:{l}/project/donate.html[Donate!]
-=====================================================
 
-[[1]]
-Join and contribute to the Mailing List
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Contribute to the Mailing List
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The mailing list is the central information hub of the project. Everyone is welcome! +
 It is used by the developers for technical discussion but we encourage you to subscribe,
-follow and use it for bringing proposals, technical or user-level questions and any
-kind of request concerning Lumiera.  You can
-link:http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[subscribe to the mailing list]
-or link:http://news.gmane.org/gmane.comp.video.lumiera.general[browse the archives online].
-To talk with us in real time you can visit our IRC channel #lumiera on Freenode.
+follow the discussions and use it for proposals, technical or user-level questions and any
+kind of request concerning Lumiera.  You may also talk to us in real time at our IRC channel
+#lumiera on Freenode.
+
+-> contact information link:project/contact.html[Mailing List & IRC]
 
 
-[[2]]
 Help with our website and infrastructure
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You may be aware that we are updating the website and integrating many of the 
 Lumiera development tools into it. This takes a bit of work and ingenuity, so 
@@ -47,124 +43,90 @@ formatting and editing design documentation, and working on the aesthetics of th
 Lumiera site.
 
 
-[[3]]
-Complete small tasks and favours
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Complete small tasks
+~~~~~~~~~~~~~~~~~~~~
 
-We always have small needs and necessities, please check trac: link:http://issues.lumiera.org/report/15[trac small/non-coding tasks]
+We always have small needs and necessities, please check our issue tracker; +
+If in doubt, ask on the mailing list.
 
-And keep up with the mailing list.
+-> see link:http://issues.lumiera.org/report/15[small/non-coding tasks] in our Trac.
 
-[[4]]
+
 Contribute to the Lumiera design
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The design of Lumiera is being documented, see the related link:{ldoc}/design/index.html[design section] of the documentation.
-We base the development of the design on RfCs, these originally are proposals by developers that then become accepted or not.
-link:{l}/documentation/devel/rfc.html[Read more about our RfC system].
+The design of Lumiera is being evolved and documented continuously,
+see the related link:{ldoc}/design/index.html[design section] of the documentation.
+We base the development of the design on **RfC**s; these start out as proposals by developers
+or users -- we'll discuss them on the next IRC meeting, work in modifications and finally
+accept or drop them...
 
-[[5]]
-Become a Developer
-~~~~~~~~~~~~~~~~~~~
+-> read more about our link:{l}/documentation/devel/rfc.html[RfC system].
 
-Lumiera is an open project, you don't need an application, you can start 
-working now.
 
-There are portions of the project that need a lot of specific knowledge and 
-experience. Because everyone has different specialties (and likes) we work 
+Start contributing to the code
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Familiarise yourself with Git. Learn how to build from sources. Explore the code.
+Lumiera is an open project -- any contribution, small or large, is welcome.
+
+There are portions of the project that require specific knowledge and
+experience. Because everyone has different specialities (and likes) we work
 together to cover the project's necessities. When you join Lumiera, let us know 
 your interests and expertise, there is something for everyone here.
 
+
 Beginners
 ^^^^^^^^^^
-
-Beginners are welcome! Lumiera is a good project to gain knowledge and experience 
-with. Also, we need the people who can let us know when something is too 
-complicated, or the documentation misses something important.
+_Beginners are welcome._ Explaining stuff to others helps _us_ to understand our
+own code better. Lumiera is a good place to gain experience and knowledge and we
+need people who point out when things become too complicated or documentation is
+lacking.
 
 Open Source Attitude
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
+Working on the design and code shall be as easy and simple as possible for _Doers_. +
+_Doers_ are defined by the work they do. There is no application or such to join
+the project. It is completely open to anyone. Bring your ideas and insight,
+discuss with the other coders, defend and improve your approach, shape
+the direction the project takes.
 
-While there is some tedious work to do (coding, documenting your work, git)
-please commit to interfere with the work by your actions (or inactions). We are
-careful with documentation and code quality, you're free to contribute but make
-sure your contributions are maintainable and understandable to others.
+This needs certain knowledge and experience. Anyone may decide if and which
+parts of the project (s)he is able to handle. The goal is to work together
+where each one adds his best capabilities for the benefit of all.
 
-So, *Think First*. If something is unclear, ask us personally (irc, email). 
-Very often any issues can be resolved right there. Many ideas are well-thought 
-out at this point in the project try to read our discussions and reasoning about 
-how we go there. If you still don't understand, ask. Just as we are open to ideas 
-please also keep an open mind for suggestions.
-
-Resources
-^^^^^^^^^^
-
-The project is built with a git repository running a builddrone. We have our own 
-continuous integration system running on the development server. This monitors 
-certain repositories, builds the code and runs the test suite etc.
-
-Builddrone is very much work in progress and we would
-like if anyone helps developing it further.
-
-Everyone works on his own git, merges with anyone else, at times we decide to 
-accumulate work into a master git.
-
-Build the Lumiera GUI from the git source repository: 
-link:{ldoc}/user/tutorials/building.html[Building Tutorial].
-
-To understand the design of Lumiera visit link:{ldoc}/user/intro/intro.html[Lumiera from Outer Space]
-
-For technical information on developed components link:{ldoc}/technical/overview.html[The inner Core]
-
-
-
-To find, read and claim trac tickets: link:http://issues.lumiera.org/[Lumiera Trac]
-
-Talk to us on IRC: #lumiera @ irc.freenode.net
-
-Join the mailinglist: link:http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[subscribe to it].
-You can also read the http://lists.lumiera.org/pipermail/lumiera/[Mailinglist archives].
+Sometimes there is tedious work to do, documentation needs writing, boring coding
+details demand our full attention -- but everyone shall acknowledge not to block the
+project by his actions. Therefore: think first, ask people personally if something
+is not understood, try to understand things how they are before arguing about.
 
 
 
 How to contribute
 -----------------
 
-We want the project being very open. Anyone can just start working on it. Of course he should to communicate what he 
-wants to do before starting so that we can coordinate the things. We are also careful about documentation and code 
-quality, if anyone can just join and leave his contribution must be maintainable by others. That means everything needs 
-to be properly documented and supply tests for the testsuite.
+While anyone can just start working on the project, we'd appreciate if you communicate
+your intentions. This helps avoiding wasted efforts. Beyond this, the only real entrance
+barrier is to learn working with commandline tools and to set up a work environment.
 
-If you want to build the Lumiera GUI from the git source repository have a look at our http://lumiera.org/Lumiera/NewbiesTutorials[Newbie Tutorial].
+Basically, everyone works on his own Git repository and merges in any changes done by
+other contributors. At times, the core developers will pick up your contributions, review
+and accumulate work into the subsystem branch and later into the master branch.
 
-Idea how to participate
-~~~~~~~~~~~~~~~~~~~~~~~
 
-Everyone works on his own git, merges with anyone else, at times we decide to accumulate work into a master git. 
 
-Continuous Integration system
-----------------------------
 
-We have our own continuous integration system running on the development server. This monitors certain repositories,
-builds the code and runs the testsuite etc. You can look at the current state at http:/builddrone/table.html[] and its
-root dir (http:/builddrone/[]) contains the raw build logs too. Builddrone is very much work in progress and we would
-like if anyone helps developing it further.
+Resources
+~~~~~~~~~
 
-Plan
-----
-
-Thus working on the design shall be as easy and simple as possible for _Doers_.
-_Doers_ are defined by the work they do. There is no application or such to join
-the project. It is completely open to anyone.
-
-This needs certain knowledge and experience. Anyone may decide if and which
-parts of the project he is able to handle. The goal is to work together where
-each one adds his best capabilities for the benefit of all. Beginners are
-welcome. This is a good place to gain experience and knowledge and we need
-people who point out when things become too complicated. There is a lot of
-tedious work to do (documentation, coding), but everyone shall acknowledge not
-to block the project by his actions. Therefore: think first, ask people
-personally if something is not understood, try to understand things how they are
-before arguing about.
-
+* build the Lumiera GUI from the Git source repository: 
+  link:{ldoc}/user/tutorials/building.html[Building Tutorial].
+* learn to use Git, get the source, build and pass contributions back:
+  link:{ldoc}/user/tutorials/contributing.html[Contributing Tutorial]
+* to understand the design of Lumiera visit link:{ldoc}/user/intro/intro.html[»Lumiera from Outer Space«]
+* for technical overview of developed components visit link:{ldoc}/technical/overview.html[»The inner Core«]
+* we care for code quality -- please have a look at our
+  link:{ldoc}/technical/code/codingGuidelines.html[coding guidelines] +
+  and consider the principles of
+  link:{l}/project/background/CleanCodeDevelopment.html[Clean Code].
 
