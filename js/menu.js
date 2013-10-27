@@ -28,15 +28,22 @@
  * causes the branch of the menu tree leading to this page to be expanded
  * and any previously expanded branches to be collapsed.
  */
-function markPageInMenu(url)
+function markPageInMenu(frame)
   {
-    if (!url) url = document.location.href
+    adjustToNecessaryHeight(frame)
+    url = document.location.href
     path = extractPathFromURL(url)
     menuDoc = getMenuIFrameContent()
     if (menuDoc)
       menuDoc.menuTable.select(path)
   }
 
+function adjustToNecessaryHeight(obj)
+  {
+    containerHeight = document.body.scrollHeight - 200;
+    contentHeight   = obj.contentWindow.document.body.scrollHeight
+    obj.style.height = Math.min(containerHeight,contentHeight) + 'px';
+  }
 
 function extractPathFromURL(url)
   {
