@@ -1,18 +1,67 @@
 FAQ
 ===
+:date: 2013
 
-Is Lumiera a fork of Cinelerra???
-No. Lumiera is a complete rewrite. Not a single line of Cinelerra code is now used in Lumiera. The project was first called Cinelerra3 because it was born in the Cinelerra Community.
+[qanda]
+How can I try Lumiera?::
+  Sorry, you can't yet. Lumiera is still in the early stages of development.
 
-How can I try Lumiera???
-Sorry, you can't yet. Lumiera is still in the early stages of development.
+Is Lumiera a fork of Cinelerra?::
+  No. Lumiera is a complete rewrite. Not a single line of Cinelerra code is now
+  used in Lumiera. The project was first called Cinelerra-3 because it was born
+  in the Cinelerra Community.
 
-When will Lumiera be usable for basic tasks???
-It's very difficult to say. It depends on a lot of things.
-We are really ambitious, which means we care for a lot of advanced stuff up front, so there's a lot of work to do at the back.
-Best hopes are that we can make a first very rudimental integration (pre alpha release) round the end of this year.
+OMG. Why yet another rewrite? Can't you guys just join another project?::
+  May we ask back why the ``other guys'' don't just join the Lumiera project?
++
+Seriously. Our project has specific roots, and it has a distinct focus (professional
+editing, film making). Other projects have different goals and different value systems.
++
+We didn't start from scratch. Lumiera would be unthinkable without Cinelerra as
+point of reference. Initially, we attempted to overhaul Cinelerra to cope with the
+long standing link:{l}/project/background/history/CinelerraWoes.html[notorious problems].
+Our first in-depth analysis showed us, that we'd need to rework pretty much each and every
+component of Cinelerra, for one reason or the other. Thus our effort turned into a
+``Cinelerra done right'' style project.
 
-Will Lumiera be using guicast (the Cinelerra GUI library) or will it use one of the more popular libraries like GTK or Qt???
-We won't' use Guicast. Lumiera native interface will be written in GTK, although other interfaces will be possible.
+When will Lumiera be usable for basic tasks?::
+  It's very difficult to say. It depends on a lot of things. We are really
+  ambitious, which means we care for a lot of advanced stuff up front, so
+  there's a lot of work to do at the back. And our developer team is small.
 
+Is this project dead? I don't see any progress?::
+  Rest assured, we're constantly working on this project. Look at the
+  link:http://Lumiera.org/gitweb[Git repositories] if in doubt. But regarding the GUI,
+  your observation is correct: Work on the GUI has stalled, since we don't have a
+  dedicated GUI developer right now, and the other devs are focussed primarily
+  at the engine core.
+
+Will Lumiera be using guicast (the Cinelerra GUI library)?::
+  We won't' use Guicast. Lumiera's native interface will be written in GTK,
+  although other interfaces will be possible. Basically the GUI is a plug-in.
+
+Why the hell did you pick GTK?? Toolkit [your favorite here] is so much better!::
+  We picked GTK, because, in the early days, Joel Holdsworth joined the team. Joel was
+  an experienced Inkscape / GTK developer; he contributed a huge load of code. Please
+  don't underestimate the amount of work necessary for any non-trivial GUI
+
+Will there be a Windows version?::
+  Windows isn't an Unix flavour, indeed, its internal workings are quite different.
+  When it comes to system level programming, there is no such thing as OS neutral
+  programming. Either, we'd have to introduce an abstraction layer (which costs
+  performance), or we'd have to develop a different back-end for Windows.
++
+That being said -- we'll focus on other topics first. Thus it depends on
+Someone(TM) to do that work.
+
+Do you rely on hardware acceleration?::
+  Hardware acceleration has lots of potential, but it also has lots of potential
+  for vendor lock-in. Since the start of our project (2007), the situation has
+  improved significantly. But anyway, we choose a different approach. Our core
+  _organises_ the rendering and manages the data (buffer, cache) and the metadata
+  (data type descriptions). But the actual processing will always be delegated to
+  some suitable library.
++
+This approach has the downside to require much more ``organisational'' stuff to
+implement up front, but it promises to be really future-proof.
 
