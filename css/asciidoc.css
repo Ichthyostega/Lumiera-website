@@ -62,7 +62,8 @@ div.content { /* Block element content. */
 div.title,caption.title {
     margin: 1em 0 .5em 0;
     color: #6D86A6;
-    font: bold sans-serif;
+    font-family: sans-serif;
+    font-weight: normal;
     text-align: left;
 }
 
@@ -121,7 +122,8 @@ div.sidebarblock>div.content {
 
 div.admonitionblock .icon {
     padding-right: 0.5em;
-    font: bold 1.1em;
+    font-weight: bold;
+    font-size: 1.1em;
     color: #008080;
     text-decoration: none;
     vertical-align: top;
@@ -155,7 +157,7 @@ div.hlist {
 h1,h2,h3,h4,h5,h6 {
     margin: 10px 0 .5em 0;
     color: #6D86A6;
-    font: sans-serif;
+    font-family: sans-serif;
     line-height: 1.3;
 }
 
@@ -359,11 +361,16 @@ div.tableblock>table {
 }
 
 thead {
-    font: bold sans-serif;
+    font-family: sans-serif;
+    font-weight: bold;
 }
 
 tfoot {
     font-weight: bold;
+}
+
+p.table {
+    margin: 0;
 }
 
 td.hlist1 {
@@ -434,7 +441,7 @@ div#footnotes {
     padding-left: 3em;
 }
 
-div.footnote>a {
+div.footnote > a.footnote {
     vertical-align: super;
 }
 

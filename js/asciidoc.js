@@ -141,7 +141,7 @@ footnotes: function () {
       }
       noteholder.innerHTML +=
         "<div class='footnote' id='_footnote_" + n + "'>" +
-        "<a href='#_footnoteref_" + n + "' title='Return to text'>("+n+")</a> "
+        "<a class='footnote' href='#_footnoteref_" + n + "' title='Return to text'>("+n+")</a> "
         + note + "</div>";
       var id =spans[i].getAttribute("id");
       if (id != null) refs["#"+id] = n;

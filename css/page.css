@@ -21,7 +21,7 @@ div#layout-banner {
     background: #7097BF;
     border-bottom: 9px #A9A38B solid;
     color: white;
-    font: sans-serif;
+    font-family: sans-serif;
     text-align: left;
     background-image: url(/images/lumi_trac_header.png);
     background-position: 0.5ex 4ex;
@@ -92,7 +92,7 @@ div#footer-text {
 /* -------- Other -------- */
 h1
 #header {
-    margin: -10 px 0 0 0;
+    margin: -10px 0 0 0;
 }
 
 @media print {
