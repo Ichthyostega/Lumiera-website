@@ -11,17 +11,21 @@
 
 /* --------  Body  -------- */
 body {
+    margin: 8px 0;
     background: #F4EFDC;
 }
 
 div#layout-banner {
-    margin: 5px 5px 0 5px;
-    padding: 0.4em 20px .2em 20px;
+    margin: 5px 0 0 0;
+    padding: 0.4em 25px .2em 12ex;
     background: #7097BF;
     border-bottom: 9px #A9A38B solid;
     color: white;
     font: sans-serif;
     text-align: left;
+    background-image: url(/images/lumi_trac_header.png);
+    background-position: 0.5ex 4ex;
+    background-repeat: no-repeat;
 }
 
 div#layout-title {
@@ -40,38 +44,40 @@ div#layout-description {
 #wrapper {
     display: block;
     width: 950px;
-    margin: 10px auto 0 5px;
+    height: auto;
+    margin: 10px auto 0 13px;
 }
 
-#menu,#layout-content {
-    float: left;
-    width: 700px;
-}
 
-#menu {
-    width: 180px;
-    margin: 0 20px 0 0;
-}
-
-/* container for navigation menu */
+/* ---- navigation menu ---- */
 iframe#inavi {
-    width: 200px;
-    height: 50em;
+    width: 22.5ex;
+    min-height: 35em;
     float: left;
     border: none;
-    margin: 0 10px 0 0;
+    margin: 0 16px 0 8px;
     padding: 0 0;
-    /*    background: #C20; */
+}
+/* note: min-height defines overall minimum page height;
+   the actual height will be adjusted onLoad() by the
+   JavaScript, which also selects the current page */
+
+
+/* ---- ASCIIDOC ---- */
+#layout-content {
+    float: left;
+    width: 700px;
+    padding-left: 12px;
+    padding-top: 1ex;
 }
 
-#layout-content {
-    
-}
 
 /* ---- footer ---- */
 div#footer {
+    clear: left;
     margin: 4em 0 0 0;
-    border-top: 12px #7097BF solid;
+    padding: 0.4em 20px .2em 28ex;
+    border-top: 8px #7097BF solid;
     background: #A9A38B;
     border-bottom: 2px #7097BF solid;
 }
