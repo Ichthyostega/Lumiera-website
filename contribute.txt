@@ -98,7 +98,7 @@ where each one adds his best capabilities for the benefit of all.
 Sometimes there is tedious work to do, documentation needs writing, boring coding
 details demand our full attention -- but everyone shall acknowledge not to block the
 project by his actions. Therefore: think first, ask people personally if something
-is not understood, try to understand things how they are before arguing about.
+is confusing, try to understand things how they are before arguing about.
 
 
 
@@ -106,8 +106,8 @@ How to contribute
 -----------------
 
 While anyone can just start working on the project, we'd appreciate if you communicate
-your intentions. This helps avoiding wasted efforts. Beyond this, the only real entrance
-barrier is to learn working with commandline tools and to set up a work environment.
+your intentions. This helps to avoid wasted efforts. Beyond this, the only real entrance
+barrier is to learn to work with commandline tools and to set up a coding environment.
 
 Basically, everyone works on his own Git repository and merges in any changes done by
 other contributors. At times, the core developers will pick up your contributions, review
