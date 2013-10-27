@@ -1,9 +1,0 @@
-
-
-Simeon Völkel (SimAV)
----------------------
-
- 
-link:Lumiera/Developers/SimAV/German/[] German IRC logs
-
-link:Lumiera/Developers/SimAV/ideapool/[] a more or less chaotic place where you can find features / ideas i would like to see realized in Lumiera
