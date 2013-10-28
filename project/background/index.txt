@@ -6,12 +6,12 @@ Lumiera Project: Background
 //MENU: label more about...
 
 
-CAUTION: more contents to be added occasionally
+This page contains a collection of general background information -- +
+usually stuff _the insiders_ know already, but which might be helpful
+for new people to understand the rationale and the specific decisions
+taken within the project.
 
-This page contains a collection of generally interesting background
-informations -- usually things _the insiders_ know already, but which
-might be helpful for new people to understand the rationale and
-the specific decisions taken within the project.
+NOTE: more contents to be added occasionally
 
 -> see also the link:/documentation/user/[User documentation] and 
 link:/documentation/user/tutorials[Tutorials]

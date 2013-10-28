@@ -5,7 +5,7 @@ Lumiera Project History
 
 // Menu :  put child 'Cinelerra3Announcement' after 'CinelerraWoes'
 
-CAUTION: more contents to be added from time to time
+CAUTION: incomplete, more content to come...
 
 In this section of the Lumiera website we'll collect some documents
 and background informations about the history of the Lumiera project.

@@ -13,8 +13,8 @@ About Lumiera
 Lumiera: What?
 --------------
 
-Lumiera is a free open-source nonlinear editing (NLE) and compositing
-application.
+Lumiera is a free open-source nonlinear editing and compositing
+application (NLE).
 
 On the one hand, it must meet the rigours of a professional
 film and video production environment; on the other hand, it must
@@ -45,10 +45,11 @@ Lumiera: How?
 -------------
 
 Lumiera's design is a flexible, open architecture.  Lumiera is composed of
-blocks connected together to form the application. Many of these building
-blocks are not *reinvented* by the Lumiera team, but are directly included
-into the application as plugins using the wealth of excellent technology already
-provided by the open-source community. 
+blocks connected together to form the application and process the data.
+Lumiera is a tool, offering reliability and flexibility to combine these components
+to build your editing session.  Many of the building blocks are not _reinvented_
+by the Lumiera team, but are directly included into the application using the
+wealth of excellent technology already provided by the open-source community.
 
 Lumiera is not confined to using only technology from the open-source community,
 but uses open-source community person-power: programmers, testers, video users,

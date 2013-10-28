@@ -21,7 +21,7 @@ experimentation now, but usually you need to _build_ it first.
 Lumiera Debian package
 ~~~~~~~~~~~~~~~~~~~~~~
 Some of the Lumeira core developers use Debian/stable as a reference system for
-development. This has the nice side effect that we'll provide debian source and
+development. This has the nice side effect that we'll provide Debian source and
 binary packages to reflect the ongoing development. Since Ubuntu is based on
 debian, we provide packaging for some Ubuntu distributions as well.
 
@@ -40,21 +40,21 @@ Please be sure to report any broken dependencies and installation problems.
 ....
 
 
-Build it, try it!
-~~~~~~~~~~~~~~~~~
+Build it, try it...
+~~~~~~~~~~~~~~~~~~~
 
 We use a distributed infrastructure based on *Git* repositories.
 To learn how to compile Lumiera from source, you might want to read our tutorial
 link:{l}/documentation/user/tutorials/building.html[»Building Lumiera from source«].
 
-Additional informations
-
-- Browse, review and download current Lumiera code and more from our various
+Additional resources
+^^^^^^^^^^^^^^^^^^^^
+- browse, review and download current Lumiera code and more from our various
   Git repositories, link:http://www.lumiera.org/gitweb[browsable online here].
-- You can find more information about the project on the 
-  link:{l}/project/index.html[About Lumiera page].
-- For in-depth design and technical documentation and further tutorials
-  please see the link:{l}/documentation/index.html[Documentation section].
+- find more information about the project in the 
+  link:{l}/project/index.html[Project section].
+- for in-depth design and technical documentation and further tutorials
+  please see the link:{lDoc}/user/intro/intro.html[Documentation section].
 
 
 

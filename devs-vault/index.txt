@@ -17,25 +17,25 @@ Developers Vault
 
 
 
-This section of the website contains informations and resources for the link:{l}/devs-vault/devs.html[active developers]
+This section of the website contains resources for the link:{l}/devs-vault/devs.html[active developers]
 of the project. The content here may not be what you are looking for if you are a user.
 
 Repositories
 ------------
 The Lumiera sourcecode is maintained in a distributed fashion through a set of Git repositories.
 Each developer has his own repository, but usually developers are working on the same branches;
-e.g. you'll certainly find the _master_ branch in each repository. We're fairly liberal when
+e.g. you'll certainly find the _master_ branch in each repository. We are fairly liberal when
 it comes to giving people an account on +git.lumiera.org+, to allow publishing the individual
 developer's work to public repositories. Just ask, maybe explain a bit what you intend to do. +
 -> browse our repositories online via link:http://git.lumiera.org/gitweb[Gitweb]
 
 Repository usage pattern
 ~~~~~~~~~~~~~~~~~~~~~~~~
-Developers work locally using Git repositories on their private PC. As a rule: check in often,
+Developers work locally using Git repositories on their private PC. As a rule: check-in often,
 publish frequently. Each developer can _pull_ from every repository, but has the right to _push_
 just to his own public repository at  +git.lumiera.org+. The ongoing work happens on dedicated
-branches. Developers might collaborate by using the same branches. Every working pattern is
-possible -- just acknowledge with the others what you're doing.
+branches. Developers might collaborate by using the same branches. Various working patterns
+are possible -- just acknowledge with the others what you're doing.
 
 Eventually, changes and additions get picked up and reviewed by the core developer responsible
 for the layer or part of the application in question. This way, code gets merged to the master
@@ -45,10 +45,11 @@ unit or integration tests will be kept on hold, until problems are sorted out.
 .Mob repository
 For small changes, and for the first contributions, there is a _mob repository_ which is
 pushable by everyone. Just clone master, do your changes and push to `git://git.lumiera.org/lumiera/mob`
+-- typically onto a branch prefixed by your name.
 
 .Patches per eMail
-You may send patches per mail. If possible, consider using +git format-patch+ from a
-local clone of some lumiera repository, because this vastly simplifies feeding in those
+You may send patches per mail. If possible, consider using +git format-patch+ against a
+local clone of some Lumiera repository, because this vastly simplifies applying those
 patches on our side. If this doesn't work for you, at least try to tell us the exact
 revision (SHA of the git commit) you're basing your patch on.
 
@@ -101,6 +102,7 @@ These RfC entries will be discussed at the developer meetings and finally accept
 Unit tests
 ~~~~~~~~~~
 Code should be structured in fine granular _components_. Each component should expose a clearly defined
-contract, and this contract should be covered by unit tests -- preferrably before writing the implementation.
+contract, and this contract should be covered by unit tests -- preferably before writing the implementation.
 Besides providing a safety net, unit tests also serve to document the intended usage.
+
 

@@ -140,6 +140,7 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 |ichthyo         | HERMANN VOSSELER
 |joelholdsworth  | JOEL HOLDSWORTH
 |jyakovlev       | ANTON YAKOVLEV
+|mfisher31       | MICHAEL R. FISHER
 |mridkash        | MRIDUL KASHATRIA
 |nasa            | NICHOLAS SINNOTT-ARMSTRONG
 |oracle2025      | RICHARD SPINDLER

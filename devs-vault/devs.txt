@@ -25,13 +25,17 @@ _plouj_::
   *Michael Ploujnikov* +
   Threadpool, Library
 
-_simAV_::
-  *Simeon Voelkel* +
-  Config parser
-
 _skangas_::
   *Stefan Kangas* +
   GUI, Timecode
+
+_mfisher31_::
+  *Michael Fisher* +
+  GUI, GTK-3 porting, Jack audio
+
+_simAV_::
+  *Simeon Voelkel* +
+  Config parser
 
 ....
 
