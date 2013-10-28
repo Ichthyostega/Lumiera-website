@@ -22,16 +22,19 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 ||
 ||
 |*Programming*|
-|rendering engine  | HERMANN VOSSELER
+|session and engine| HERMANN VOSSELER
 |backend           | CHRISTIAN THÄTER
 |                  | MICHAEL PLOUJNIKOV
 |graphical user interface| JOEL HOLDSWORTH
 |                  | STEFAN KANGAS
+|                  | MICHAEL FISHER
 |library           | HERMANN VOSSELER
 |                  | CHRISTIAN THÄTER
 |                  | ANTON YAKOVLEV
+|                  | STEFAN KANGAS
 |testsuite         | CHRISTIAN THÄTER
 |                  | NICHOLAS SINNOTT-ARMSTRONG
+|                  | HERMANN VOSSELER
 
 ||
 ||
@@ -42,6 +45,8 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 |                  | ODIN HØRTHE OMDAL
 |                  | SIMEON VÖLKEL
 |                  | MANO STIENEN
+|                  | HENDRIK BOOM
+|                  | BENNY LYONS
 
 ||
 ||
@@ -63,9 +68,15 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 |and content     | BRIAN RYTEL
 |                | SIMON LARCHER
 |                | STEFAN KANGAS
+|graphical design| FRANCESCO SIDDI
+|                | ANDREAS HERMANN BRAML
+|                | HERMANN VOSSELER
+|photography     | RAFFAELLA TRANIELLO
+|                | HERMANN VOSSELER
 |special effects | FRANCISCO G. RODRIGUEZ
 |creative mockup | FRANÇOIS KUBLER
 |navigation menu | HERMANN VOSSELER
+|authoring tools | BENNY LYONS
 |css             | CILLIAN DE RÓISTE
 |                | BRIAN RYTEL
 |                | HERMANN VOSSELER
@@ -94,8 +105,9 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 |FrOSCon              | CHRISTIAN THÄTER
 |                     | HERMANN VOSSELER
 |                     | RAFFAELLA TRANIELLO
-|                     | HERMAN ROBAK
 |                     | ODIN HØRTHE OMDAL
+|                     | HERMAN ROBAK
+|                     | BENNY LYONS
 
 
 ||
@@ -110,6 +122,7 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 |AkhIL           | IL'DAR AKHMETGALEEV
 |alcarinque      | FRANCISCO G. RODRIGUEZ
 |andrewjames     | ANDREW JAMES SWINAMER
+|benn            | BENNY LYONS
 |BJMR            | BRIAN RYTEL
 |BlueJay         | SEBASTIAN INACKER
 |bsemrad         | BRIAN SEMRAD
@@ -122,6 +135,7 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 |fsiddi          | FRANCESCO SIDDI
 |gmerlin         | BURKHARD PLAUM
 |goibhniu        | CILLIAN DE RÓISTE
+|hendrik3        | HENDRIK BOOM
 |hermanr         | HERMAN ROBAK
 |ichthyo         | HERMANN VOSSELER
 |joelholdsworth  | JOEL HOLDSWORTH
@@ -137,7 +151,6 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 |savinov         | GURAM Z. SAVINOV
 |simav           | SIMEON VÖLKEL
 |skangas         | STEFAN KANGAS
-|steroeb         | STEFAN RÖBEN
 |SvenL           | SIMON LARCHER
 |teld            | SERGE GIELKENS
 |thorwil         | THORSTEN WILMS
