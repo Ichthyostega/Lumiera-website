@@ -3,263 +3,237 @@ Credits
 
 image:/images/lumiera_logo.png[Lumiera Logo]
 
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Architecture and Design,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-graphical user interface, JOEL HOLDSWORTH
-                  , HERMANN VOSSELER
-                  , BRIAN RYTEL
-processing layer  , HERMANN VOSSELER
-backend           , CHRISTIAN THÄTER
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[cols=">d,<d",grid="none"]
+|==========================================
+|*Architecture and Design*|
+|graphical user interface| JOEL HOLDSWORTH
+|                  | HERMANN VOSSELER
+|                  | BRIAN RYTEL
+|processing layer  | HERMANN VOSSELER
+|backend           | CHRISTIAN THÄTER
 
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Programming,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-rendering engine  , HERMANN VOSSELER
-backend           , CHRISTIAN THÄTER
-                  , MICHAEL PLOUJNIKOV
-graphical user interface, JOEL HOLDSWORTH
-                  , STEFAN KANGAS
-library           , HERMANN VOSSELER
-                  , CHRISTIAN THÄTER
-                  , ANTON YAKOVLEV
-testsuite         , CHRISTIAN THÄTER
-                  , NICHOLAS SINNOTT-ARMSTRONG
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+||
+||
+|*Workflow design*|
+|concept          | BRIAN RYTEL
+|                 | MIKE PROVOST
+|                 | NIKOLA DUPER
 
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Programming Documentation,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-, CHRISTIAN THÄTER
-, HERMANN VOSSELER
-, MICHAEL PLOUJNIKOV
-, ODIN HØRTHE OMDAL
-, SIMEON VÖLKEL
-, MANO STIENEN
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+||
+||
+|*Programming*|
+|rendering engine  | HERMANN VOSSELER
+|backend           | CHRISTIAN THÄTER
+|                  | MICHAEL PLOUJNIKOV
+|graphical user interface| JOEL HOLDSWORTH
+|                  | STEFAN KANGAS
+|library           | HERMANN VOSSELER
+|                  | CHRISTIAN THÄTER
+|                  | ANTON YAKOVLEV
+|testsuite         | CHRISTIAN THÄTER
+|                  | NICHOLAS SINNOTT-ARMSTRONG
 
+||
+||
+|*Programming Documentation*|
+|                  | CHRISTIAN THÄTER
+|                  | HERMANN VOSSELER
+|                  | MICHAEL PLOUJNIKOV
+|                  | ODIN HØRTHE OMDAL
+|                  | SIMEON VÖLKEL
+|                  | MANO STIENEN
 
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Used Software and Libraries,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-boost libraries,
-gavl libraries,
-gtk+ toolkit,
-lua,
-nobug,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+||
+||
+|*Used Software and Libraries*|
+|boost libraries|
+|gavl libraries|
+|gtk+ toolkit|
+|nobug|
 
+||
+||
+|*Builddrone*|
+|idea and implementation | CHRISTIAN THÄTER
 
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Builddrone,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-idea and implementation, CHRISTIAN THÄTER
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+||
+||
+|*Website*|
+|basic design    | RAFFAELLA TRANIELLO
+|and content     | BRIAN RYTEL
+|                | SIMON LARCHER
+|                | STEFAN KANGAS
+|special effects | FRANCISCO G. RODRIGUEZ
+|creative mockup | FRANÇOIS KUBLER
+|navigation menu | HERMANN VOSSELER
+|css             | CILLIAN DE RÓISTE
+|                | BRIAN RYTEL
+|                | HERMANN VOSSELER
 
+||
+||
+|*Server Administration*|
+|                | CHRISTIAN THÄTER
 
-
-//'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// ,Testing
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// ,
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Workflow design,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-concept      , BRIAN RYTEL
-             , MIKE PROVOST
-             , NIKOLA DUPER
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Website,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-basic design    , RAFFAELLA TRANIELLO
-and content     , BRIAN RYTEL
-                , SIMON LARCHER
-                , STEFAN KANGAS
-special effects , FRANCISCO G. RODRIGUEZ
-creative mockup , FRANÇOIS KUBLER
-navigation menu , HERMANN VOSSELER
-css             , CILLIAN DE RÓISTE
-                , BRIAN RYTEL
-                , HERMANN VOSSELER
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+||
+||
+|*uWiki*|
+|idea            | CHRISTIAN THÄTER
+|programming     | SERGE GIELKENS
+|                | MRIDUL KASHATRIA
+|                | ROBERT DJUBEK
+|helping hand    | CILLIAN DE RÓISTE
+|                | ANDREW JAMES SWINAMER
 
 
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Server Administration,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-, CHRISTIAN THÄTER
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+||
+||
+|*Public Relations / Presentations*|
+|openvideo conference | THOMAS JUDGE
+|                     | RAFFAELLA TRANIELLO
+|FrOSCon              | CHRISTIAN THÄTER
+|                     | HERMANN VOSSELER
+|                     | RAFFAELLA TRANIELLO
+|                     | HERMAN ROBAK
+|                     | ODIN HØRTHE OMDAL
 
 
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-uWiki,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-idea            , CHRISTIAN THÄTER
-programming     , SERGE GIELKENS
-                , MRIDUL KASHATRIA
-                , ROBERT DJUBEK
-helping hand    , CILLIAN DE RÓISTE
-                , ANDREW JAMES SWINAMER
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+||
+||
+|*Merchandising*|
+|T-shirts        | RAFFAELLA TRANIELLO
 
 
-
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Public Relations/ Presentations,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-openvideo conference , THOMAS JUDGE
-                     , RAFFAELLA TRANIELLO
-FrOSCon              , CHRISTIAN THÄTER
-                     , HERMANN VOSSELER
-                     , RAFFAELLA TRANIELLO
-                     , HERMAN ROBAK
-                     , ODIN HØRTHE OMDAL
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Merchandising,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-T-shirts  , RAFFAELLA TRANIELLO
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-IRC Crew,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-AkhIL           , IL'DAR AKHMETGALEEV
-alcarinque      , FRANCISCO G. RODRIGUEZ
-andrewjames     , ANDREW JAMES SWINAMER
-BJMR            , BRIAN RYTEL
-BlueJay         , SEBASTIAN INACKER
-bsemrad         , BRIAN SEMRAD
-cehteh          , CHRISTIAN THÄTER
-daitheflu       , FRANÇOIS KUBLER
-daylife         , WOUTER VERWIJLEN
-digitalkiwi     , ROBERT DJUBEK
-dragontamer     , PERCIVAL TIGLAO
-faberman        , FLORIAN FABERMANN
-fsiddi          , FRANCESCO SIDDI
-gmerlin         , BURKHARD PLAUM
-goibhniu        , CILLIAN DE RÓISTE
-hermanr         , HERMAN ROBAK
-ichthyo         , HERMANN VOSSELER
-joelholdsworth  , JOEL HOLDSWORTH
-jyakovlev       , ANTON YAKOVLEV
-mridkash        , MRIDUL KASHATRIA
-nasa            , NICHOLAS SINNOTT-ARMSTRONG
-oracle2025      , RICHARD SPINDLER
-plouj           , MICHAEL PLOUJNIKOV
-pseudoruprecht  , ANDREAS HERMANN BRAML
-raevol          , MICKEY LYLE
-raffa           , RAFFAELLA TRANIELLO
-rgareus         , ROBIN GAREUS
-savinov         , GURAM Z. SAVINOV
-simav           , SIMEON VÖLKEL
-skangas         , STEFAN KANGAS
-steroeb         , STEFAN RÖBEN
-SvenL           , SIMON LARCHER
-teld            , SERGE GIELKENS
-thorwil         , THORSTEN WILMS
-tonsofpcs       , ERIC ADLER
-tvjudge         , THOMAS JUDGE
-velmont         , ODIN HØRTHE OMDAL
-wildhostile     , ROLAND
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+||
+||
+|*IRC Crew*|
+|AkhIL           | IL'DAR AKHMETGALEEV
+|alcarinque      | FRANCISCO G. RODRIGUEZ
+|andrewjames     | ANDREW JAMES SWINAMER
+|BJMR            | BRIAN RYTEL
+|BlueJay         | SEBASTIAN INACKER
+|bsemrad         | BRIAN SEMRAD
+|cehteh          | CHRISTIAN THÄTER
+|daitheflu       | FRANÇOIS KUBLER
+|daylife         | WOUTER VERWIJLEN
+|digitalkiwi     | ROBERT DJUBEK
+|dragontamer     | PERCIVAL TIGLAO
+|faberman        | FLORIAN FABERMANN
+|fsiddi          | FRANCESCO SIDDI
+|gmerlin         | BURKHARD PLAUM
+|goibhniu        | CILLIAN DE RÓISTE
+|hermanr         | HERMAN ROBAK
+|ichthyo         | HERMANN VOSSELER
+|joelholdsworth  | JOEL HOLDSWORTH
+|jyakovlev       | ANTON YAKOVLEV
+|mridkash        | MRIDUL KASHATRIA
+|nasa            | NICHOLAS SINNOTT-ARMSTRONG
+|oracle2025      | RICHARD SPINDLER
+|plouj           | MICHAEL PLOUJNIKOV
+|pseudoruprecht  | ANDREAS HERMANN BRAML
+|raevol          | MICKEY LYLE
+|raffa           | RAFFAELLA TRANIELLO
+|rgareus         | ROBIN GAREUS
+|savinov         | GURAM Z. SAVINOV
+|simav           | SIMEON VÖLKEL
+|skangas         | STEFAN KANGAS
+|steroeb         | STEFAN RÖBEN
+|SvenL           | SIMON LARCHER
+|teld            | SERGE GIELKENS
+|thorwil         | THORSTEN WILMS
+|tonsofpcs       | ERIC ADLER
+|tvjudge         | THOMAS JUDGE
+|velmont         | ODIN HØRTHE OMDAL
+|wildhostile     | ROLAND
 
 
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Naming Assistants,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-,RAFFAELLA TRANIELLO
-,CILLIAN DE RÓISTE
-,ODIN HØRTHE OMDAL
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+||
+||
+|*Naming Assistants*|
+|                | RAFFAELLA TRANIELLO
+|                | CILLIAN DE RÓISTE
+|                | ODIN HØRTHE OMDAL
+
+||
+|*Logo*|
+|original design | ANAMII
+|final makeover  | THORSTEN WILMS
+|                | RAFFAELLA TRANIELLO
+|                | ODIN HØRTHE OMDAL
+|                | GUILLERMO ESPERTINO
+|                | GRAHAM EVANS
+|                | RICHARD QUERIN
+|                | VICTORSIGMA
+
+||
+||
+2+^|*Logo contest*
+2+^|RAFFAELLA TRANIELLO
+
+||
+2+^|*Logo contestants*
+2+^|3IO - AKIRAD - ALBERTO ARNOLDI - ALESSANDRO R
+2+^|ALEXIS SÁNCHEZ - ALEXANDER HADJIIVANOV - ALFONSO CORONEL
+2+^|ANDY CIRCUS - ANGELO ALBÈ - ARIANE STOLFI - ARIMAL
+2+^|ARTHUR REEDER - BENJAMIN BARRIOS - BLACKLAB
+2+^|BULL[X] - CARLOS TOBIAS - CASTRO - CINEPHILIAC
+2+^|CLAUDIO CASTELLI - DAMOS (MOSILLUS MEDIA)
+2+^|DIVINESPECTRUM - FLIPTOPBOX - FUMI - GISLES
+2+^|ILARIO DE ANGELIS - J. CHAMBERS - JAIMENIETO - JILT
+2+^|JOSUA - JST - JOAQUÍN HERRERA GOÁS - JOEL HOLDSWORTH
+2+^|JONGPAIREZ - JUARNEZ - L B - KASPERI "CIUU96" KUUSKOSKI
+2+^|KLIURKA - LEANDRO RIBEIRO - LOOMANN - LUCKENBG
+2+^|MARCI - MARCIN DOPIERALSKI - MARCO SCAPIN - MARKKU
+2+^|MEIJI  MENDOZA - MEXICORARA - MIKE SMICK - PINECONECS
+2+^|PABLO LIZARDO - PABLO SUKOVSKY - PONYCHASER - RAFFA
+2+^|RAPHA - RICHARD QUERIN - SAM - RIVIERE INFORMATIQUE
+2+^|ROLAND C. - SCOTT FRASE - SEBASTIAN LOPEZ - SLEEPYMOOSE
+2+^|SREE KUMAR - STENSONB - SÍLIA MOAN - THE FURLINATOR
+2+^|THORSTEN WILMS - TONEDDU2000 - TREE
+2+^|TW WOODWARD - VELMONT
+
+||
+||
+2+^|*Asciidoc Transistion*
+2+^|ANDREAS HERMANN BRAML - BRUCE BERTRAND
+2+^|FEDERICO BRUNI - FRANCISCO G. RODRIGUEZ
+2+^|FRANÇOIS KUBLER - KOMPUTES
+2+^|RAFFAELLA TRANIELLO - WOUTER VERWIJLEN
 
 
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Logo,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-original design ,ANAMII
-final makeover  ,THORSTEN WILMS
-                ,RAFFAELLA TRANIELLO
-                ,ODIN HØRTHE OMDAL
-                ,GUILLERMO ESPERTINO
-                ,GRAHAM EVANS
-                ,RICHARD QUERIN
-                ,VICTORSIGMA
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+||
+||
+2+^|*Special thanks to*
+2+^|ADAM WILLIAMS
+2+^|BURKHARD PLAUM
+2+^|FLORIAN FABERMANN
+2+^|HERMAN ROBAK
+2+^|IL'DAR AKHMETGALEEV
+2+^|PERCY TIGLAO
+2+^|RICHARD SPINDLER
+2+^|ROBIN GAREUS
+2+^|ROLAND
+2+^|THORSTEN WILMS
+2+^|TREE
 
+||
+||
+||
+||
+||
+||
+||
+||
+||
+||
+||
+||
+||
+||
+2+^a|
+[small]#this fabulous software is fictitious# +
+[small]#any coincidence with real world problems is purely coincidental# +
+[small]#no animals were harmed during the making of Lumiera#
+|==========================================
 
-'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Logo contest,
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-,RAFFAELLA TRANIELLO
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-.~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Logo contestants
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-3IO - AKIRAD - ALBERTO ARNOLDI - ALESSANDRO R
-ALEXIS SÁNCHEZ - ALEXANDER HADJIIVANOV - ALFONSO CORONEL
-ANDY CIRCUS - ANGELO ALBÈ - ARIANE STOLFI - ARIMAL
-ARTHUR REEDER - BENJAMIN BARRIOS - BLACKLAB
-BULL[X] - CARLOS TOBIAS - CASTRO - CINEPHILIAC
-CLAUDIO CASTELLI - DAMOS (MOSILLUS MEDIA)
-DIVINESPECTRUM - FLIPTOPBOX - FUMI - GISLES
-ILARIO DE ANGELIS - J. CHAMBERS - JAIMENIETO - JILT
-JOSUA - JST - JOAQUÍN HERRERA GOÁS - JOEL HOLDSWORTH
-JONGPAIREZ - JUARNEZ - L B - KASPERI "CIUU96" KUUSKOSKI
-KLIURKA - LEANDRO RIBEIRO - LOOMANN - LUCKENBG
-MARCI - MARCIN DOPIERALSKI - MARCO SCAPIN - MARKKU
-MEIJI  MENDOZA - MEXICORARA - MIKE SMICK - PINECONECS
-PABLO LIZARDO - PABLO SUKOVSKY - PONYCHASER - RAFFA
-RAPHA - RICHARD QUERIN - SAM - RIVIERE INFORMATIQUE
-ROLAND C. - SCOTT FRASE - SEBASTIAN LOPEZ - SLEEPYMOOSE
-SREE KUMAR - STENSONB - SÍLIA MOAN - THE FURLINATOR
-THORSTEN WILMS - TONEDDU2000 - TREE
-TW WOODWARD - VELMONT
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-.~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Asciidoc Transistion
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ANDREAS HERMANN BRAML - BRUCE BERTRAND
-FEDERICO BRUNI - FRANCISCO G. RODRIGUEZ
-FRANÇOIS KUBLER - KOMPUTES
-RAFFAELLA TRANIELLO - WOUTER VERWIJLEN
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-//'`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//Funded by,
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//YOU,?
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Special thanks to
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ADAM WILLIAMS
-BURKHARD PLAUM
-FLORIAN FABERMANN
-HERMAN ROBAK
-IL'DAR AKHMETGALEEV
-PERCY TIGLAO
-RICHARD SPINDLER
-ROBIN GAREUS
-ROLAND
-THORSTEN WILMS
-TREE
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -6,5 +6,5 @@ function pageScrollRec(current_position) {
 }
 
 function pageScroll() {
-    setTimeout('pageScrollRec(0)', 2000);
+    setTimeout('pageScrollRec(0)', 1000);
 }

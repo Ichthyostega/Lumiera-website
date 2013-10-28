@@ -34,3 +34,8 @@ div#layout-content div#preamble div.sectionbody div.para {
   text-align: center;
 }
 
+p.table strong {
+  color: white;
+  font-weight: bold;
+}
+
