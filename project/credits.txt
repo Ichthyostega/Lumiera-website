@@ -6,26 +6,28 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 [cols=">d,<d",grid="none"]
 |==========================================
 |*Architecture and Design*|
-|graphical user interface| JOEL HOLDSWORTH
+|graphical
+    user interface | JOEL HOLDSWORTH
 |                  | HERMANN VOSSELER
 |                  | BRIAN RYTEL
 |processing layer  | HERMANN VOSSELER
 |backend           | CHRISTIAN THÄTER
 
-||
-||
-|*Workflow design*|
-|concept          | BRIAN RYTEL
-|                 | MIKE PROVOST
-|                 | NIKOLA DUPER
+|                  |
+|                  |
+|*Workflow design* |
+|concept           | BRIAN RYTEL
+|                  | MIKE PROVOST
+|                  | NIKOLA DUPER
 
-||
-||
+|                  |
+|                  |
 |*Programming*|
 |session and engine| HERMANN VOSSELER
 |backend           | CHRISTIAN THÄTER
 |                  | MICHAEL PLOUJNIKOV
-|graphical user interface| JOEL HOLDSWORTH
+|graphical
+     user interface| JOEL HOLDSWORTH
 |                  | STEFAN KANGAS
 |                  | MICHAEL FISHER
 |library           | HERMANN VOSSELER
@@ -36,8 +38,8 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 |                  | NICHOLAS SINNOTT-ARMSTRONG
 |                  | HERMANN VOSSELER
 
-||
-||
+|                  |
+|                  |
 |*Programming Documentation*|
 |                  | CHRISTIAN THÄTER
 |                  | HERMANN VOSSELER
@@ -48,8 +50,8 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 |                  | HENDRIK BOOM
 |                  | BENNY LYONS
 
-||
-||
+|                  |
+|                  |
 |*Used Software and Libraries*|
 |boost libraries|
 |gavl libraries|
