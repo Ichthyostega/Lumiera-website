@@ -4,5 +4,8 @@ Disallow: /gitweb
 Disallow: /static
 Disallow: /admin
 Disallow: /attic
-Disallow: /doxy
+Disallow: /debian/pool
+
+User-Agent: AhrefsBot
+Crawl-Delay: 5
 

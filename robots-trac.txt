@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /report
+Disallow: /query
+Disallow: /wiki
+Disallow: /newticker
+Disallow: /admin
+Disallow: /prefs
+Disallow: /about
+Disallow: /serch
+Disallow: /rpc
+Disallow: /depgraph
+
+User-Agent: AhrefsBot
+Crawl-Delay: 20
+
