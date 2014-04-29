@@ -4,10 +4,28 @@ Please add new items on the top, move older items to old_news.txt
 Comment irrelevant stuff out
 ////
 
+*May 2014*::
+      the Lumiera core developers will visit the
+      http://lac.linuxaudio.org/2014[LAC Linux Audio Conference] in Karlsruhe/Germany.
+      As we did some years ago at Utrecht, we'll help again with the Video streaming. And
+      of course we'll use the opportunity for a in-person *developer meeting*.
+
+*April 2014*::
+      The Lumiera code base has been switched to C\+\+11.
+      Additionally, we'll support also compilation with Clang from now on.
+      The transition to C++11 didn't impose any serious problems, since we're employing
+      a modern coding style right from start. After the switch, development will benefit
+      especially from the new features _rvalue references_, _auto type inference_ and
+      _constexpr_.
+
 *August 2013*::
-      while preparing for FrOSCon, we collected and meged several
+      while preparing for FrOSCon, we collected and merged several
       documentation contributions. Thanks to Benny Lyons:
       here is the link:/project/news/DevReport-13-08.html[2013 Summer News Report]
++
+Some *images* of our meeting and excursion can be seen
+link:/media/Au13.pre/[here...]
+      
 
 *November 2012*::
       Kudos to Benny Lyons for writing the

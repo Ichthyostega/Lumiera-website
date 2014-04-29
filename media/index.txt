@@ -1,6 +1,9 @@
 Media Documentation
 ===================
 
+// Menu :  child August-2013 link:/media/Au13.pre/[Developer Meeting and Excursion -- August 2013]
+// Menu :  attach child presentations
+
 Here you will eventually find:
 
 * White Papers
@@ -8,3 +11,6 @@ Here you will eventually find:
 * Posters
 * Slides
 * Handouts
+
+Moreover, we'll share some images of our developer meetings
+and similar events.
