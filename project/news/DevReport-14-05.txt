@@ -1,0 +1,94 @@
+Lumiera Spring Report
+=====================
+:Date: May 2014
+:Author: Benny Lyons
+
+//Menu: label 14-05 Dev Report
+
+
+Linux Audio Conference 2014
+---------------------------
+The Linux Audio Conference (LAC) 2014 was held at the ZKM in Karlsruhe from the
+1'st to the 4'th of May.  For LAC it was a return home to where it all began in
+Karlsruhe in 2003.
+
+Some of the Lumiera developers were there helping out with organisation:
+_cehteh_, _ichthyo_ and _ibenn_. You might be able to see us peeping through in
+http://lac.linuxaudio.org/2014/[this picture].  The conference provided us with
+an opportunity to meet up and discuss Lumiera and see old friends from the
+world of FOSS Audio.
+
+But the conference itself supplied a crop of ideas to the Lumiera
+attendees. Sound is an inherent facet of Lumiera as is video, and the conference
+did not fail to reveal its treasures, new trends and food-for-thought.
+
+One such topic was the GUI.
+
+.The GUI
+The Lumiera GUI is a challenge.  Initially, there will most likely be one,
+dominant GUI although smaller scaled GUIs might also be present which would be
+geared towards specialised tasks.
+
+For simple sound processing, one can use a simple GUI-builder, e.g., glade, and
+glue a few widgets together: a slider for volume, a file loader and saver, etc.
+But as the application becomes more complex, this simple mechanism fails to
+allow more complex operations to be intuitively incorporated into the GUI.  Most
+developers who have used a GUI-builder have crashed against this wall.  The
+level of complexity that a GUI-builder can provide quickly becomes saturated.
+The developer soon discovers the necessity of having to write code. This is
+something that is well known to many programmers.
+
+As the complexity of the application further increases, more careful planning is
+required. At some point, as more complex operations have to be supported by a
+graphical user interface, the GUI programmer is going to have to transgress
+conventional GUI patters.  A good example of this is Blender.
+
+The Blender GUI is truly a marvel.
+
+Blender offers a unique GUI design that provides the user with an incredible
+array of complex functionality.  To do this the designers of Blender had to go
+beyond conventional GUIs.
+
+Lumiera is also on the moon when it comes to the GUI. It's a moon inhabited
+with all kinds of green little martians, who are all members of the freaky
+feature show that the Lumiera GUI is going to have to provide to the user.
+
+At LAC 20014 there was at least one GUI where the programmers were faced with
+freaky green specimens and it was thrilling to witness how the programmers went
+about solving the issues to present a really interesting GUI even though the
+GUI itself was almost a side show.
+
+We got to see a very interesting GUI.
+
+
+Coding
+------
+There has been some code development on Lumiera recently.  _ichthyo_ has been
+responsible for most code contributions over the past few months.
+
+   *  The Lumiera code-base is almost entirely
+    compliant https://en.wikipedia.org/wiki/C++11[C11 compliant]
+   *  Some code restructuring
+
+
+One of the plagues hitting Lumiera development at the moment is the opaqueness
+of coding development to the general user: there's nothing to exhibit.
+
+
+FroSCon 20014: 23-24 August
+---------------------------
+http://www.froscon.de/startseite/[FroSCon] is beginning to establish itself as
+the defacto annual Lumiera get-together.  This year promises to continue the
+slowly emerging tradition of meeting up either before or after the conference.  No
+definite plans have been made yet.
+
+FroSCon takes place this year from 23 to the 24 of August, and Lumiera members
+and enthusiasts will discuss plans on our regular IRC meetings and on our
+mailing list http://www.lumiera.org/project/contact.html.
+
+Stay in Touch
+-------------
+Keep checking http://lumiera.org/[lumiera.org] for updates, join our
+http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[mailing list] or give
+us a visit on IRC at #lumiera.
+
