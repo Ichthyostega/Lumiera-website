@@ -3,7 +3,7 @@ Lumiera Autumn Coding Report
 :Date: November 2012
 :Author: Benny Lyons
 
-//Menu: label 12.11 Dev Report
+//Menu: label 12-11 Dev Report
 
 There's been a long pause since our last developer news report, but this can
 better be attributed to less willingness to write these notes rather than lack

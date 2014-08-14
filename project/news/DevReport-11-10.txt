@@ -3,7 +3,7 @@ Lumiera Summer/Autumn Coding Report
 :Date: October 2011
 :Author: Wouter Verwijlen
 
-//Menu: label 11.10 Dev Report
+//Menu: label 11-10 Dev Report
 
 Time to tell you all what's been going on the past months.
 

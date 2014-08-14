@@ -2,7 +2,7 @@ Lumiera Summer Report
 =====================
 :Date: July 2010
 
-//Menu: label 10.07 Dev Report
+//Menu: label 10-07 Dev Report
 
 
 Summary of achievements

@@ -2,7 +2,7 @@ Lumiera Autumn Report
 =====================
 :Date: October 2010
 
-//Menu: label 10.10 Dev Report
+//Menu: label 10-10 Dev Report
 
 
 .Just a short summary this time....

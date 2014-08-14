@@ -3,7 +3,7 @@ Lumiera Spring Report
 :Date: June 2011
 :Author: Wouter Verwijlen
 
-//Menu: label 11.06 Dev Report
+//Menu: label 11-06 Dev Report
 
 
 We're a bit behind on our news reports, but here's some catching up for this quarter.

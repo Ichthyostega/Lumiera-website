@@ -2,7 +2,7 @@ Lumiera Winter Report
 =====================
 :Date: December 2009
 
-//Menu: label 09.12 Dev Report
+//Menu: label 09-12 Dev Report
 
 
 Summary of coding achievements
