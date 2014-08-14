@@ -1,0 +1,34 @@
+Lumiera Spring Report
+=====================
+:Date: August 2014
+
+//Menu: label 08.14 Dev Report
+
+
+FrOSCon 2014 
+------------
+Members of the Lumiera team will be getting together at FrOSCon
+http://www.froscon.de/en/home/, which wiill take place towards the end of
+August.  All are welcome.  
+
+The project get-together will continue on into the week after the conference.
+
+
+Blender
+-------
+_ichthyo_ has been busy recently.  What initially began as a casual look into
+Blender has resulted in a significant contribution to to the Blender code-base
+http://www.blender.org/[Blender].  
+His contribution centres around picture stability, in particular, stability of
+picture instability.
+
+For example, films made using a hand-held camera result in picture 'shake'.  By
+using the contribution by _ichthyo_ this can be reduced or even entirely removed.  
+
+You can view the interesting clip on this feature at: ...
+
+While this feature will certainly find its way into Lumiera in the (far) future,
+_ichthyo_ was quick to assert that the main gain to the Lumiera project is not
+so much the feature itself, rather the experience gained in examining the
+Blender design and code-base.  The Blender need for a re-design was specially
+illuminating and the reasons leading to such a decision.
