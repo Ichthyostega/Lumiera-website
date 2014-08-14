@@ -43,7 +43,8 @@ required. At some point, as more complex operations have to be supported by a
 graphical user interface, the GUI programmer is going to have to transgress
 conventional GUI patters.  A good example of this is Blender.
 
-The Blender GUI is truly a marvel.
+The Blender GUI is a marvel in itself, but it is not perfect; and it is this
+imperfection itself that has led to new insight: things to avoid in the Lumiera GUI. 
 
 Blender offers a unique GUI design that provides the user with an incredible
 array of complex functionality.  To do this the designers of Blender had to go
