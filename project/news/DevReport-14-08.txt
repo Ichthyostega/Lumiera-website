@@ -1,15 +1,18 @@
-Lumiera Spring Report
+Lumiera Summer Report
 =====================
 :Date: August 2014
+:Author: Benny Lyons
 
-//Menu: label 08.14 Dev Report
+//Menu: label 14-08 Dev Report
 
 
 FrOSCon 2014 
 ------------
-Members of the Lumiera team will be getting together at FrOSCon
-http://www.froscon.de/en/home/, which wiill take place towards the end of
-August.  All are welcome.  
+Members of the Lumiera team will be getting together at
+http://www.froscon.de/en/home/[FrOSCon 14], which will take place towards
+the end of August. All are welcome. We'll have a small developer room again,
+shared with baseflight/multiwii, since _cehteh_ is also active in this
+community.
 
 The project get-together will continue on into the week after the conference.
 
@@ -17,18 +20,18 @@ The project get-together will continue on into the week after the conference.
 Blender
 -------
 _ichthyo_ has been busy recently.  What initially began as a casual look into
-Blender has resulted in a significant contribution to to the Blender code-base
-http://www.blender.org/[Blender].  
-His contribution centres around picture stability, in particular, stability of
-picture instability.
-
-For example, films made using a hand-held camera result in picture 'shake'.  By
-using the contribution by _ichthyo_ this can be reduced or even entirely removed.  
-
-You can view the interesting clip on this feature at: ...
+http://www.blender.org/[Blender] has resulted in a contribution to the Blender
+code-base, expanding and improving the function for video stabilisation.
+For example, films made using a hand-held camera result in picture ``shake''.
+Blender has a feature tracking function, which can be (ab)used to measure
+and compensate unwanted movements in video frames.
+footnote:[You can view the
+http://vimeo.com/blenderHack/stabilizerdemo[demonstration clip]
+on this feature at Vimeo]
 
 While this feature will certainly find its way into Lumiera in the (far) future,
 _ichthyo_ was quick to assert that the main gain to the Lumiera project is not
 so much the feature itself, rather the experience gained in examining the
 Blender design and code-base.  The Blender need for a re-design was specially
 illuminating and the reasons leading to such a decision.
+
