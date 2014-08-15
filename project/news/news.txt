@@ -9,6 +9,9 @@ Comment irrelevant stuff out
       http://lac.linuxaudio.org/2014[LAC Linux Audio Conference] in Karlsruhe/Germany.
       As we did some years ago at Utrecht, we'll help again with the Video streaming. And
       of course we'll use the opportunity for a in-person *developer meeting*.
++
+After this conference, Benny Lyons has written the
+link:/project/news/DevReport-14-05.html[2014 Spring News Report]
 
 *April 2014*::
       The Lumiera code base has been switched to C\+\+11.

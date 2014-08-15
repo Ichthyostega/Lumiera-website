@@ -33,10 +33,7 @@ For simple sound processing, one can use a simple GUI-builder, e.g., glade, and
 glue a few widgets together: a slider for volume, a file loader and saver, etc.
 But as the application becomes more complex, this simple mechanism fails to
 allow more complex operations to be intuitively incorporated into the GUI.  Most
-developers who have used a GUI-builder have crashed against this wall.  The
-level of complexity that a GUI-builder can provide quickly becomes saturated.
-The developer soon discovers the necessity of having to write code. This is
-something that is well known to many programmers.
+developers who have used a GUI-builder have crashed against this wall.
 
 As the complexity of the application further increases, more careful planning is
 required. At some point, as more complex operations have to be supported by a
@@ -45,8 +42,8 @@ conventional GUI patters.  A good example of this is Blender.
 
 The Blender GUI is a marvel in itself, but it is not perfect; and it is this
 imperfection itself that has led to new insight: things to avoid in the Lumiera GUI. 
-
-Blender offers a unique GUI design that provides the user with an incredible
+Blender offers an open application strucure built on top of a extensible data model
+and a unique self-describing binding layer that provides the user with an incredible
 array of complex functionality.  To do this the designers of Blender had to go
 beyond conventional GUIs.
 
@@ -54,23 +51,21 @@ Lumiera is also on the moon when it comes to the GUI. It's a moon inhabited
 with all kinds of green little martians, who are all members of the freaky
 feature show that the Lumiera GUI is going to have to provide to the user.
 
-At LAC 20014 there was at least one GUI where the programmers were faced with
+At LAC 2014 there was at least one GUI where the programmers were faced with
 freaky green specimens and it was thrilling to witness how the programmers went
 about solving the issues to present a really interesting GUI even though the
 GUI itself was almost a side show.
 
-We got to see a very interesting GUI.
-
 
 Coding
 ------
-There has been some code development on Lumiera recently.  _ichthyo_ has been
+There has been some code development on Lumiera recently. _ichthyo_ has been
 responsible for most code contributions over the past few months.
 
-   *  The Lumiera code-base is almost entirely
-    compliant https://en.wikipedia.org/wiki/C++11[C11 compliant]
-   *  Some code restructuring
-
+ * The Lumiera code-base is almost entirely
+   http://en.wikipedia.org/wiki/C++11[`C++11` compliant]
+ * After some further code restructuring, we were able to switch
+   to C++11 compilation mode without any deeper problems.
 
 One of the plagues hitting Lumiera development at the moment is the opaqueness
 of coding development to the general user: there's nothing to exhibit.
@@ -80,9 +75,7 @@ FroSCon 20014: 23-24 August
 ---------------------------
 http://www.froscon.de/startseite/[FroSCon] is beginning to establish itself as
 the defacto annual Lumiera get-together.  This year promises to continue the
-slowly emerging tradition of meeting up either before or after the conference.  No
-definite plans have been made yet.
-
+slowly emerging tradition of meeting up either before or after the conference.
 FroSCon takes place this year from 23 to the 24 of August, and Lumiera members
 and enthusiasts will discuss plans on our regular IRC meetings and on our
 mailing list http://www.lumiera.org/project/contact.html.
