@@ -43,7 +43,8 @@ include::project/news/news.txt[]
 Check Lumiera's Pulse:
 -----------------------
 
-image:{l}/images/feed-icon-28x28.png["RSS Feed",link="http://www.lumiera.org/gitweb?p=LUMIERA;a=rss"] RSS: Lumiera Git Master repository
+image:{l}/images/feed-icon-28x28.png["RSS Feed",link="http://www.lumiera.org/gitweb?p=LUMIERA;a=rss"] RSS: Lumiera Git Master
+image:{l}/images/feed-icon-28x28.png["RSS Feed",link="http://www.lumiera.org/gitweb?p=lumiera/ichthyo;h=refs/heads/c%2B%2B11;a=rss"] RSS: currently active branch
 
 image:{l}/images/feed-icon-28x28.png["RSS Feed",link="http://issues.lumiera.org/timeline?ticket=on&milestone=on&max=5&daysback=90&format=rss"] RSS: Trac activity
 
