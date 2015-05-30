@@ -1,0 +1,79 @@
+Lumiera Spring Report
+=====================
+:Date: May 2015
+:Author: Hermann Voßeler
+
+//Menu: label 15-05 Dev Report
+
+
+Coding: Upgrades
+----------------
+Recent coding activities were largely related to upgrades regarding language and
+supporting libraries. After the switch to C++11 last year, a lot of long standing minor technical
+issues could be addressed, with the help of ``R-Value References'' and ``Variadic Templates''.
+Not to mention the nice _language support for Closures_ -- which allowed us to get rid of
+various custom library based constructs, thereby both improving readability and performance
+of the code. Prompted by these upgrade activities, a lot of clean-up work was done all over
+the place. This kind of work -- as such rather not very gratifying -- helps to support and
+empower further development work. Our code base has reached a significant size, after all.
+
+GTK-3
+~~~~~
+The Lumiera User Interface is based on the Gimp Tool Kit (GTK), which, competing with the Qt
+framework, is one of the major UI technologies for building user interfaces on Linux and similar
+systems. GTK saw a partially disruptive update and renovation round in the last years. As the new
+version GTK-3 meanwhile can be considered sufficiently stable and mature, all applications
+based on GTK have to face this significant upgrade step sooner or later. Fortunately, our then
+UI developer, _Joel Holdsworth,_ based on his background in the Inkscape project, had given the
+Lumiera UI an advanced technological base. Most prominently, Lumiera used vector-based interface
+rendering through lib Cairo from start. This provident move turned out to save us most of the
+pains other projects encounter with the switch to GTK-3. Two years ago, _Michael Fisher_ built
+an experimental branch of our UI based on GTK-3 in order to conduct some experiments towards a
+generalised UI canvas control. We could build on this work to conduct the main library switch
+rather painless.
+
+Of course, there remained some follow-up work which kept me busy well until the end of 2014: For
+one, we could abandon our old backport of the docking library (GDL) and switch to the C\++ bindings
+available for GDL-3 / GTK-3. This upgrade helped us to get rid of some manual resource tracking
+done in C previously, replacing it with the automated resource tracking supported by the C++ language,
+which resolved several insidious issues related to closing docked and re-ordered windows and toolbars.
+Another somewhat tedious effort was to port our custom style sheet to CSS. Lumiera used a custom
+``dark'' theme based on the Ardour audio workstation software, which also relies on GTK as UI framework.
+Since GTK abandoned the home-grown theming framework and switched to the Cascading Style Sheets (CSS)
+known from web and JavaScript development, we had to reverse-engineer our custom theming and re-build
+it as a CSS stylesheet.
+
+
+Ongoing work: Timeline <--> Session connection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Another ``ripple effect'' of the transition to GTK-3 made our custom timeline display widget in the
+GUI turn defunct. GTK has largely reworked and streamlined the event handling, yet our existing timeline
+code simply does not respond to the new events and thus remains stale. This was considered a good
+opportunity to review the existing approach for rendering the timeline, which is more or less the
+backbone of our interface. It turned out, that -- while just fine at the moment -- the chosen approach
+indicates some problems with scaling the architecture. Based on what we have implemented right now
+in the Session, a lot more functionality need to be hooked up to the UI. Especially, in order to
+retain a ``reactive'' interface, updates need to be pushed up from the lower layers asynchronously.
+This is a common theme in all current application development, and it is well known that the classical,
+_data centric_ and _imperative_ programming paradigm causes significant maintenance problems when
+turning to more parallel and asynchronous programming models. For that reason, instead of just porting
+the existing custom timeline widget to the new GTK-events, _Ichthyo_ started reworking this backbone
+component using a message driven approach: the Session will push up change messages (``diff messages'')
+to the UI and the timeline will be organised recursively, so it automatically follows the structure
+dictated by the Session, instead of maintaining a ``mirrored UI model'' on its own.
+
+
+Workflow and User Interaction Design
+------------------------------------
+By coincidence, questions of Interface and Interaction Design saw some activity again, recently.
+About two years ago, _Christoph Varga_, a film maker from Vienna approached me with an proposal
+looking well into future ways to shape the the Human-Computer interface, when it comes to film
+editing. Christoph -- like myself -- considers most existing professional editing software
+lacking; not so much in terms of »features«, but as a tool for humans to work with. Incidentally,
+Christoph is also related to the https://www.apertus.org/[Apertus° AXIOM] project. In the following
+time, there was an ongoing private exchange, which finally lead to Christoph contributing an
+http://lumiera.org/documentation/design/workflow/InterfaceConcept_Varga.html[Interface Concept]
+to Lumiera. Focussed mainly on the working style, the arrangement and interplay of functions,
+terminology and mental model of workspace, this concept covers an area in urgent need of more
+thoughtful considerations, beyond just building the interface and engine technology.
+
