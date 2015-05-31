@@ -67,15 +67,15 @@ dictated by the Session, instead of maintaining a ``mirrored UI model'' on its o
 
 Workflow and User Interaction Design
 ------------------------------------
-By coincidence, questions of Interface and Interaction Design saw some activity again, recently.
-About two years ago, _Christoph Varga_, a film maker from Vienna approached me with an proposal
-looking well into future ways to shape the the Human-Computer interface, when it comes to film
-editing. Christoph -- like myself -- considers most existing professional editing software
-lacking; not so much in terms of »features«, but as a tool for humans to work with. Incidentally,
-Christoph is also related to the https://www.apertus.org/[Apertus° AXIOM] project. In the following
-time, there was an ongoing private exchange, which finally lead to Christoph contributing an
-http://lumiera.org/documentation/design/workflow/InterfaceConcept_Varga.html[Interface Concept]
-to Lumiera. Focussed mainly on the working style, the arrangement and interplay of functions,
-terminology and mental model of workspace, this concept covers an area in urgent need of more
+By pure coincidence, questions of Interface and Interaction Design saw some recent activity again.
+About two years ago, _Christoph Varga_, a film maker from Vienna approached _Ichthyo_ with a 
+visionary and innovative proposal concering the Human-Computer interface with film editing.
+Christoph -- like _Ichthyo_ -- considers most present day professional film editing software to be
+deficient. This deficieny is less a lack of »features«, but more of a failing as a tool for humans to actually
+work with. Incidentally, Christoph is also related to the https://www.apertus.org/[Apertus° AXIOM] project. 
+Once Christoph and _Ichthyo_ had met, much private communication continued which resulted in a contribution to
+Lumiera from Christoph http://lumiera.org/documentation/design/workflow/InterfaceConcept_Varga.html[Interface Concept]
+The focus of this work is on working style, the arrangement and interplay of functions,
+terminology and the mental model of workspace.  This concept covers an area in urgent need of more
 thoughtful considerations, beyond just building the interface and engine technology.
 
