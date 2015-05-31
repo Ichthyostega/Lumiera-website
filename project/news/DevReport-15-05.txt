@@ -45,22 +45,23 @@ known from web and JavaScript development, we had to reverse-engineer our custom
 it as a CSS stylesheet.
 
 
-Ongoing work: Timeline <--> Session connection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Another ``ripple effect'' of the transition to GTK-3 made our custom timeline display widget in the
-GUI turn defunct. GTK has largely reworked and streamlined the event handling, yet our existing timeline
-code simply does not respond to the new events and thus remains stale. This was considered a good
-opportunity to review the existing approach for rendering the timeline, which is more or less the
-backbone of our interface. It turned out, that -- while just fine at the moment -- the chosen approach
-indicates some problems with scaling the architecture. Based on what we have implemented right now
-in the Session, a lot more functionality need to be hooked up to the UI. Especially, in order to
-retain a ``reactive'' interface, updates need to be pushed up from the lower layers asynchronously.
-This is a common theme in all current application development, and it is well known that the classical,
+On-going work: Timeline <--> Session connection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Another unfortunate ``ripple effect'' of the transition to GTK-3 caused our custom timeline display widget in
+the GUI to become defunct. GTK has largely reworked and streamlined event handling; yet our present timeline
+code simply does not respond to new events and thus remains stale. Consequently, it was considered to be a good
+opportunity to review the current approach we used to render the timeline, which is more or less the
+backbone of our interface. It turned out, that -- while just fine for the moment -- the approach we adopted
+does suggest a number of problems when confronted with scaling the architecture.
+Based on what we have now implemented in the Session, there is still a lot more functionality that has to be hooked
+up into the UI. One important facet that requires careful attention is that updates must be pushed up from the
+lower layers asynchronously; otherwise the interface will not be ``reactive'' and would suffer sluggish
+behaviour. This is a common phenomena in all current application development, and it is well known that the classical,
 _data centric_ and _imperative_ programming paradigm causes significant maintenance problems when
-turning to more parallel and asynchronous programming models. For that reason, instead of just porting
-the existing custom timeline widget to the new GTK-events, _Ichthyo_ started reworking this backbone
-component using a message driven approach: the Session will push up change messages (``diff messages'')
-to the UI and the timeline will be organised recursively, so it automatically follows the structure
+turning to parallel and asynchronous programming models. For this very reason, instead of just simply porting
+the existing custom timeline widget to the new GTK-events, _Ichthyo_ started to rework this backbone
+component. To this end, he adopted a message driven approach: the Session will push up change messages (``diff
+messages'') to the UI and the timeline will be organised recursively, so it automatically follows the structure
 dictated by the Session, instead of maintaining a ``mirrored UI model'' on its own.
 
 
