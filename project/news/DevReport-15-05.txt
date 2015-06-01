@@ -22,18 +22,18 @@ GTK-3
 The Lumiera User Interface is based on the Gimp Tool Kit (GTK). It is one of the major UI technologies for
 building user interfaces on Linux and similar systems; the other main contender is the Qt framework.
 GTK saw a partially disruptive update and a round of code renovation over the last few years. 
-The new version of GTK, version 3, i.e., GTK-3, has reached a state that can now be considered stable and mature.
-However, all applications based on GTK have to face a significant upgrade either soone or later. 
+The new version of GTK, version 3, has reached a state that can now be considered stable and mature.
+However, all applications based on GTK have to face a significant upgrade either sooner or later.
 We were considerably fortunate with our then UI developer, _Joel Holdsworth,_ who used his experience and
 involvement in the Inkspace project to inject the Lumiera UI with an advanced technological base.
-One major significant contribution was that Lumiera used right from the very begining a vector-based
-interface, which was rendered using the Cairo library. This provident move turned out to save us most of the
+One major significant contribution was that Lumiera right from the very beginning used the Cairo library
+for vector based rendering of the interface. This provident move turned out to save us most of the
 pains other projects encounter when they upgrade from GTK-2 to GTK-3. Two years ago, _Michael Fisher_ built
 an experimental branch of our UI based on GTK-3 in order to conduct some experiments with a view towards a
 generalised UI canvas control. We were then able to build on this work to switch the main library 
-with considerabley less pain.
+with considerably less pain.
 
-Of course, there remained some follow-up work which kept me busy well until the end of 2014: On the one hand, 
+Of course, there remained some follow-up work which kept _Ichthyo_ busy well until the end of 2014: On the one hand,
 we were able to abandon our old backport of the docking library (GDL) and switch to the C\++ bindings
 available for GDL-3 / GTK-3. This upgrade helped us to get rid of some manual resource tracking
 done in C previously, replacing it with the automated resource tracking supported by the C++ language,
