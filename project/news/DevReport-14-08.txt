@@ -6,15 +6,21 @@ Lumiera Summer Report
 //Menu: label 14-08 Dev Report
 
 
-FrOSCon 2014 
-------------
-Members of the Lumiera team will be getting together at
-http://www.froscon.de/en/home/[FrOSCon 14], which will take place towards
-the end of August. All are welcome. We'll have a small developer room again,
+FrOSCon 2014 and the Annual Lumiera Project Meeting
+---------------------------------------------------
+The link:http://www.froscon.de/en/home/[FrOSCon conference] has become
+the defacto annual meeting for the Lumiera community.  It was held this year
+on August 23'rd and 24'th in Sankt Augustin, near Bonn in Germany.  Lumiera was
+one again represented at the conference with a developer room,
 shared with baseflight/multiwii, since _cehteh_ is also active in this
 community.
 
-The project get-together will continue on into the week after the conference.
+This year our get-together took place after the conference.  Members of the
+Lumiera group retired to Karlsruhe, the Black Forest and France where we
+rambled, dined and generally had a good time.
+
+.The Code
+There is little code progress to report on this time.
 
 
 Blender
