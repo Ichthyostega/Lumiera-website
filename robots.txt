@@ -7,5 +7,5 @@ Disallow: /attic
 Disallow: /debian/pool
 
 User-Agent: AhrefsBot
-Crawl-Delay: 5
+Crawl-Delay: 35
 
