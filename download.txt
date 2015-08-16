@@ -1,6 +1,6 @@
 Build and install Lumiera
 =========================
-:Date: 2/2011
+:Date: 8/2015
 
 //MENU: label Build / Install
 
@@ -20,15 +20,15 @@ experimentation now, but usually you need to _build_ it first.
 
 Lumiera Debian package
 ~~~~~~~~~~~~~~~~~~~~~~
-Some of the Lumeira core developers use Debian/stable as a reference system for
-development. This has the nice side effect that we'll provide Debian source and
+Some of the Lumeira core developers use Debian/stable (**Jessie**) as a reference system
+for development. This has the nice side effect that we'll provide Debian source and
 binary packages to reflect the ongoing development. Since Ubuntu is based on
 debian, we provide packaging for some Ubuntu distributions as well.
 
 While Lumiera doesn't provide any usable features yet, it can be installed
 already through the debian packaging mechanisms. We prepare pre-releases
 and build packages on VMs to rehearse the release mechanisms. Thus, if you're using
-a Debian/Squeeze (stable) based system _(Doh!)_, or a suitable Ubutu flavour,
+a Debian/Jessie (stable) based system _(Doh!)_, or a suitable Ubutu flavour,
 you might be able to try out our link:/debian[Debian depot for apt-get].
 Please be sure to report any broken dependencies and installation problems.
 

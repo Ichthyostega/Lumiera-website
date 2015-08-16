@@ -4,6 +4,12 @@ Please add new items on the top, move older items to old_news.txt
 Comment irrelevant stuff out
 ////
 
+*August 2015*::
+      The reference platform for Lumiera has been upgraded to Debian/Jessie.
+      And the Language level has been raised to C++14. As usal, Lumiera
+      core developers will meet at and after the
+      http://froscon.org[FrOSCon conference].
+
 *May 2015*::
       The existing Lumiera user interface has been switched to GTK-3. +
       Besides some clean-up, this prompted more activities in
