@@ -6,9 +6,20 @@ Disallow: /newticker
 Disallow: /admin
 Disallow: /prefs
 Disallow: /about
-Disallow: /serch
+Disallow: /search
+Disallow: /login
 Disallow: /rpc
 Disallow: /depgraph
+
+User-agent: ia_archiver
+Disallow: /wiki
+Disallow: /newticker
+Disallow: /admin
+Disallow: /prefs
+Disallow: /about
+Disallow: /search
+Disallow: /login
+Disallow: /rpc
 
 User-Agent: AhrefsBot
 Crawl-Delay: 20
