@@ -1,0 +1,111 @@
+Lumiera 2016 Development Report
+===============================
+:Date: Fall 2016
+:Author: Hermann Voßeler
+
+//Menu: label 16-11 Dev Report
+
+
+Coding: Upgrades
+----------------
+The major library and language upgrade detailed in the
+link:/project/news/DevReport-15-05.html[last report],
+gave rise to a bunch of further upgrades and clean-up activities all over the place.
+Once again we bumped our development reference platform, this time to Debian/Jessie, currently the »stable«
+Debian distribution. While such an upgrade always triggers a host of smallish problems to be investigated and solved,
+it also enables using more recent libraries and -- especially relevant in our case -- a more recent reference compiler.
+We where able thus to rely on GCC-4.9, which not only means solid and mature C\+\+11 support, it even allowed us to
+switch to C++14, a minor upgrade of the language, but with several nice improvements to ease everyday coding work.
+The newer compiler, together with a way more mature version of Glib, helped to get rid of some long standing
+annoyances and workarounds. As usual, we completed this round of upgrades by cutting a new ``preview release''
+(Version `Lumiera-0.pre.03`), thereby updating the packaging and dependencies in build system and documentation.
+
+Coding framework improvements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As a follow-up to this platform work, _Ichthyo_ engaged into a series of improvements to our coding framework within
+the application. In fact, this work was not done all at once, but rather intermixed with the other activities outlined
+in this report. For example, the use of smart-pointers and hash functions could be streamlined, replacing most of the
+`libBoost` implementations with the now available equivalent from the standard library. In a similar vein, our hand
+made tuple type and the related metaprogramming to deal with function argument lists could be replaced or retrofitted
+to rely on variadic templates, a new language feature crafted for that very purpose. In a sense, Lumiera was always
+able to leverage modern programming techniques to improve productivity, even before these became officially
+blessed part of the programming language.
+To complement these achievements, methods for diagnostic printing were unified and augmented. Similar to Java's
+`toString()` method, we're now able to get a sensible output from any language entity, including the automatic
+use of custom defined string conversions, falling back to a clean human readable rendering of the language
+type name, based on using a somewhat obscure yet standardised interface in the compiler.
+
+
+Getting in touch with GTK-3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Generally speaking, _Joel Holdsworth_ had prepared us very well for the future with his architectural choices for the
+UI, especially by relying on vector graphics (lib Cairo) as much as possible. He did this in anticipation of the GTK
+project's future roadmap, and so the actual upgrade was mostly painless. But unfortunately it left our custom made
+timeline widget in dysfunctional state -- the protocol and interaction between widgets and the GTK framework had been
+changed. This observation spurred _Ichthyo_ to leave the half-finished work at the player-to-engine connection for
+the time being, and shift focus more towards the UI. Obviously, being no expert, yet familiar with UI programming in
+similar frameworks, this involves learning effort to understand the specific ways clients are expected to make use
+of the GTK framework.
+
+
+Coding: Architecture work
+-------------------------
+As was outlined
+link:/project/news/DevReport-15-05.html#timeline-to-session[in the preceding report],
+we have to face a two-fold challenge, as we want to embody our advanced concepts from the session model
+into actual user interface structures for the user to interact with. For one, the collaboration between session core
+and UI needs to work asynchronously, otherwise the interface will not be ``reactive'' and would suffer sluggish
+behaviour. And beyond that, not only is there a lot of flexibility in our core structures, even more challenging is
+to retain flexibility in shaping and evolving both parts to suit an adequate workflow. To cope with these demands,
+we are leaning towards a more message based connection of the parts.
+
+UI connection backbone
+~~~~~~~~~~~~~~~~~~~~~~
+Within this general theme, it was an achievement to build the UI-Bus, which is a messaging and connection backbone
+to channel command and data exchange between the core and the GUI. This introduced a distinction between the
+_local UI mechanics,_ to be implemented the conventional way through widgets, controllers and ``signal'' connections,
+and the _core editing concerns,_ which now involve sending command messages towards the core, later to be responded
+by structure update messages. Building such a backbone incurred a massive amount of conceptual work and quite some
+prototyping, to define the notion of a generic UI element together with a communication protocol, a way how to form
+and finally issue the commands, plus a solution to express, capture and later re-play interface state changes.
+As a foundation, all these parts rely on a generic way to express structural data and changes thereof.
+
+Timeline display
+~~~~~~~~~~~~~~~~
+Just recently these activities reached the point to address the actual structure of a reshaped timeline display widget.
+It relies on the new _canvas control_ available since GTK-3 (`Gtk::Layout`), which allows us to combine custom drawing
+with embedded widgets placed on top of a scrollable ``timeline canvas''. This is ongoing work, and the new structure
+about to be built is entirely recursive, no longer relying on a ``shadow model'', rather on a connection to the UI-Bus.
+
+
+Collaboration and Exchange of Ideas
+-----------------------------------
+Last winter, there was an inspiring conversation and exchange of ideas between _Ichthyo_ and _Andrej_ from
+https://www.apertus.org/en/opencine[OpenCine project], which is related to the
+https://www.apertus.org/[Apertus°] effort. These new cameras will provide raw sensor data, and so what is
+needed is a free application to develop raw video stream data, in a way similar to what is known from developing
+raw digital (still) images. Starting from ``how to integrate for example into Lumiera?'', the discussion soon turned
+towards requirements to enable integration of raw video processing into any suitable free software, which means how
+to make a library behave as a ``good citizen'' and what it means to be a ``good citizen'' especially with such a
+challenging and resource hungry task as raw developing of 4K video will be. This discussion also helped us to
+identify the possible workflows to deal with shooting and editing raw video footage
+
+- raw develop in OpenCine and encode into a conventional codec, then continue production with established software
+- raw develop in OpenCine, import the result as proxy and produce the final result with batch processing the edit
+- embed a raw developing library to produce preview, do all editing non-destructively, actually develop on final render
+
+Consensus was that the first kind of workflow would be the starting point, since it allows to bootstrap the whole
+effort with the notoriously limited developer resources in any OpenSource project. But actually the second and the
+third alternative should be the envisioned workflow, the way we actually want to work and the kind of workflow we
+are aiming at.
+
+
+On a personal note
+------------------
+During 2016, _Ichthyo_ had to face serious health concerns, as he was diagnosed with abdominal cancer.
+As it turned out after surgery, the discovery happened in the nick of time, so to prevent further spreading of the
+disease. And while, right now, the prognosis is good, this encounter was understood as a reminder that life is short,
+and possibilities are not endless.
+

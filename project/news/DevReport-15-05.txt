@@ -25,7 +25,7 @@ GTK saw a partially disruptive update and a round of code renovation over the la
 The new version of GTK, version 3, has reached a state that can now be considered stable and mature.
 However, all applications based on GTK have to face a significant upgrade either sooner or later.
 We were considerably fortunate with our then UI developer, _Joel Holdsworth,_ who used his experience and
-involvement in the Inkspace project to inject the Lumiera UI with an advanced technological base.
+involvement in the Inkscape project to inject the Lumiera UI with an advanced technological base.
 One major significant contribution was that Lumiera right from the very beginning used the Cairo library
 for vector based rendering of the interface. This provident move turned out to save us most of the
 pains other projects encounter when they upgrade from GTK-2 to GTK-3. Two years ago, _Michael Fisher_ built
@@ -52,7 +52,7 @@ the GUI to become defunct. GTK has largely reworked and streamlined event handli
 code simply does not respond to new events and thus remains stale. Consequently, it was considered to be a good
 opportunity to review the current approach we used to render the timeline, which is more or less the
 backbone of our interface. It turned out, that -- while just fine for the moment -- the approach we adopted
-does suggest a number of problems when confronted with scaling the architecture.
+does suggest a number of problems when confronted with scaling the architecture. [[timeline-to-session]]
 Based on what we have now implemented in the Session, there is still a lot more functionality that has to be hooked
 up into the UI. One important facet that requires careful attention is that updates must be pushed up from the
 lower layers asynchronously; otherwise the interface will not be ``reactive'' and would suffer sluggish

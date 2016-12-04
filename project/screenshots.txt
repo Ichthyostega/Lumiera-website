@@ -4,6 +4,11 @@ Screenshots
 .Current GUI
 image:{l}/images/lumiera_gui_small.png[Current Lumiera GUI Screenshot]
 
+NOTE: development on the UI is stalled since a long time. +
+      Just recently (as of fall 2016), new activity arouse regarding
+      the timeline display, so hopefully we're able to show new results
+      in this area soon...
+
 Past GUIs
 ----------
 
