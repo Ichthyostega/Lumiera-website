@@ -124,10 +124,10 @@ project. However, the second and the third alternatives should be the envisioned
 we actually want to work and the kind of workflow we are aiming towards.
 
 
-On a personal note
+On a Personal Note
 ------------------
-During 2016, _Ichthyo_ had to face serious health concerns, as he was diagnosed with abdominal cancer.
-As it turned out after surgery, the discovery happened in the nick of time, so to prevent further spreading of the
-disease. And while, right now, the prognosis is good, this encounter was understood as a reminder that life is short,
-and possibilities are not endless.
+In 2016, _Ichthyo_ had to face serious health concerns, as he was diagnosed with abdominal cancer.
+As it turned out after surgery, the discovery happened in the nick of time, and prevented the
+disease from spreading further. While, now, the prognosis is good, this encounter was interpreted as
+a reminder that life is short, and the possibilities are not endless.
 
