@@ -66,16 +66,18 @@ require a bit of learning and investigation, in order to be able to grasp how a 
 and extend the GTK framework.
 
 
-Coding: Architecture work
+Coding: Architecture Work
 -------------------------
-As was outlined
+As has already being illustrated
 link:/project/news/DevReport-15-05.html#timeline-to-session[in the preceding report],
-we have to face a two-fold challenge, as we want to embody our advanced concepts from the session model
-into actual user interface structures for the user to interact with. For one, the collaboration between session core
-and UI needs to work asynchronously, otherwise the interface will not be ``reactive'' and would suffer sluggish
-behaviour. And beyond that, not only is there a lot of flexibility in our core structures, even more challenging is
-to retain flexibility in shaping and evolving both parts to suit an adequate workflow. To cope with these demands,
-we are leaning towards a more message based connection of the parts.
+we are still confronted with a two-thronged challenge because we would like to employ our advanced
+concepts from the session model and put these into the actual user interface structures so that the
+user can reap the rewards. Collaboration between the session core and UI needs to
+work asynchronously, otherwise the interface will not be ``reactive'' and would suffer from sluggish
+behaviour. While the core structures are inherently flexible, it remains a greater challenge to
+retain this flexibility in shaping and evolving both components and adopt these to provide an adequate
+workflow. To cope with these demands, we are more inclined to use a more message based
+inter-connection between the various components. 
 
 UI connection backbone
 ~~~~~~~~~~~~~~~~~~~~~~
