@@ -79,16 +79,20 @@ retain this flexibility in shaping and evolving both components and adopt these 
 workflow. To cope with these demands, we are more inclined to use a more message based
 inter-connection between the various components. 
 
-UI connection backbone
-~~~~~~~~~~~~~~~~~~~~~~
-Within this general theme, it was an achievement to build the UI-Bus, which is a messaging and connection backbone
-to channel command and data exchange between the core and the GUI. This introduced a distinction between the
-_local UI mechanics,_ to be implemented the conventional way through widgets, controllers and ``signal'' connections,
-and the _core editing concerns,_ which now involve sending command messages towards the core, later to be responded
-by structure update messages. Building such a backbone incurred a massive amount of conceptual work and quite some
-prototyping, to define the notion of a generic UI element together with a communication protocol, a way how to form
-and finally issue the commands, plus a solution to express, capture and later re-play interface state changes.
-As a foundation, all these parts rely on a generic way to express structural data and changes thereof.
+The UI Connection Backbone
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+The UI Connection Backbone was a major achievement and was no small feat to build the UI-Bus, 
+which is a message-based connection backbone to channel command and data between the core and the 
+GUI. However, this did introduce a distinction between _local UI mechanics,_ to be implemented
+in the conventional manner via widgets, controllers and ``signal'' connections, and _core editing
+concerns,_ which now involve sending command messages towards the core that later respond by
+deploying structure update messages. The concepts behind and the prototyping required for the
+backbone required a massive effort. This required the definition of a generic UI element and its
+means of communication by defining a protocol to accomplish this, a means of forming, building and,
+finally, issuing commands. Finally, it was necessary to find some way to express, capture and later
+replay interface state changes. The basis of this was achieved by adopting a generic way to express
+structural data and changes.
+
 
 Timeline display
 ~~~~~~~~~~~~~~~~
