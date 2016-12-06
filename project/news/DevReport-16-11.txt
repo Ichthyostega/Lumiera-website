@@ -1,6 +1,6 @@
 Lumiera 2016 Development Report
 ===============================
-:Date: Fall 2016
+:Date: Autumn 2016
 :Author: Hermann Voßeler
 
 //Menu: label 16-11 Dev Report
@@ -8,17 +8,25 @@ Lumiera 2016 Development Report
 
 Coding: Upgrades
 ----------------
-The major library and language upgrade detailed in the
+Updates to language and project support libraries, detailed in the  
 link:/project/news/DevReport-15-05.html[last report],
-gave rise to a bunch of further upgrades and clean-up activities all over the place.
+gave rise to the need for additional upgrades and clean-up requirements all over the place.
 Once again we bumped our development reference platform, this time to Debian/Jessie, currently the »stable«
-Debian distribution. While such an upgrade always triggers a host of smallish problems to be investigated and solved,
-it also enables using more recent libraries and -- especially relevant in our case -- a more recent reference compiler.
-We where able thus to rely on GCC-4.9, which not only means solid and mature C\+\+11 support, it even allowed us to
-switch to C++14, a minor upgrade of the language, but with several nice improvements to ease everyday coding work.
-The newer compiler, together with a way more mature version of Glib, helped to get rid of some long standing
-annoyances and workarounds. As usual, we completed this round of upgrades by cutting a new ``preview release''
-(Version `Lumiera-0.pre.03`), thereby updating the packaging and dependencies in build system and documentation.
+Debian distribution. While such an upgrade always triggers a host of smallish
+problems which need to be investigated and resolved,
+it also enables us to use the latest libraries and -- particularly relevant for
+us -- a more up-to-date compiler as our reference compiler. 
+Consequently, we have established GCC-4.9 as the current project standard
+reference compiler providing us with mature C\+\+11 support and enabling us to
+switch to C++14 -- a minor language upgrade.  Moreover, for us developers, this
+new compiler comes equipped with a number of enhancements easing our everyday
+work on programming.  For example, by using the new version of the compiler and
+the use of the new Glib library, we were able to rid the code base of a number
+of long standing annoying problems and a few workarounds were also eradicated.
+
+As usual, we completed this round of upgrades by cutting a new ``preview release''
+(Version `Lumiera-0.pre.03`), and, in the process, updating the packages,
+dependencies in build system and documentation. 
 
 Coding framework improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
