@@ -50,7 +50,7 @@ human readable rendering of the language type name, based on using a somewhat ob
 standardised interface in the compiler. 
 
 
-Getting in Touch with GTK-3
+Getting to Grips with GTK-3
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We were very fortunate with the UI design adopted by _Joel Holdsworth_.  The archetecture decided upon
