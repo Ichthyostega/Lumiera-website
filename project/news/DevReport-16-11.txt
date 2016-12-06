@@ -105,22 +105,23 @@ Collaboration and Exchange of Ideas
 -----------------------------------
 Last winter, there was an inspiring conversation and exchange of ideas between _Ichthyo_ and _Andrej_ from
 https://www.apertus.org/en/opencine[OpenCine project], which is related to the
-https://www.apertus.org/[Apertus°] effort. These new cameras will provide raw sensor data, and so what is
-needed is a free application to develop raw video stream data, in a way similar to what is known from developing
-raw digital (still) images. Starting from ``how to integrate for example into Lumiera?'', the discussion soon turned
-towards requirements to enable integration of raw video processing into any suitable free software, which means how
-to make a library behave as a ``good citizen'' and what it means to be a ``good citizen'' especially with such a
-challenging and resource hungry task as raw developing of 4K video will be. This discussion also helped us to
-identify the possible workflows to deal with shooting and editing raw video footage
+https://www.apertus.org/[Apertus°] effort. These new cameras will provide raw sensor
+data. Obviously, we require a free application to develop raw video stream data, in a way similar to
+what is known from developing raw digital (still) images. Starting from ``how to integrate for
+example into Lumiera?'', the discussion quickly turned towards requirements to enable integration of
+raw video processing into any suitable free software, which means how to make a library behave as a
+``good citizen'' and what it means to be a ``good citizen'' especially with such a challenging and
+resource hungry task as raw developing of 4K video promises to be. This discussion also helped us to
+identify the possible workflows to deal with shooting and editing raw video footage:
 
 - raw develop in OpenCine and encode into a conventional codec, then continue production with established software
-- raw develop in OpenCine, import the result as proxy and produce the final result with batch processing the edit
-- embed a raw developing library to produce preview, do all editing non-destructively, actually develop on final render
+- raw develop in OpenCine, import the result as a proxy and produce the final result with batch processing the edit
+- embed a raw developing library to produce a preview, do all editing non-destructively, then develop on a final render 
 
-Consensus was that the first kind of workflow would be the starting point, since it allows to bootstrap the whole
-effort with the notoriously limited developer resources in any OpenSource project. But actually the second and the
-third alternative should be the envisioned workflow, the way we actually want to work and the kind of workflow we
-are aiming at.
+The consensus was that the first kind of workflow would be the starting point since it allows the
+whole effort to be bootstrapped with the notoriously limited developer resources in any OpenSource
+project. However, the second and the third alternatives should be the envisioned workflow, the way
+we actually want to work and the kind of workflow we are aiming towards.
 
 
 On a personal note
