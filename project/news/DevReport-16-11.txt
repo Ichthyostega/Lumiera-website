@@ -57,14 +57,13 @@ We were very fortunate with the UI design adopted by _Joel Holdsworth_.  The arc
 by him placed us in a very good position to confront the future. His reliance on vector graphics
 (lib Cairo) in the design where possible has much to be recommended. He did this in anticipation of
 the future direction of GTK from which we were able to reap the rich rewards of a, more-or-less,
-painless upgrade. Something all too rare in modern software development. Unfortunately, this did
-have one negative effect: our custom-made timeline widget became inoperable -- the protocol and
-interaction between widgets and the GTK framework had been changed. This unfortunate knock-on effect
-of unfinished work at the player-to-engine connection was a victim, for the time being, to other
-more pressing issues. So, a relunctant _Ichthyo_ decided to focus attention on the UI. Obviously,
+painless upgrade. Unfortunately, this did have one negative effect: our custom-made timeline widget
+became inoperable -- the protocol and interaction between widgets and the GTK framework had been changed
+by the GTK developers for version 3. This observation spurred _Ichthyo_ to leave the half-finished work
+at the player-to-engine connection for the time being, and to focus attention on the UI. Obviously,
 being no expert, yet familiar with UI programming in similar frameworks, such an endeavour would
-require a steep learning curve in order to be able to grasp how a client should use the GTK
-framework.
+require a bit of learning and investigation, in order to be able to grasp how a client should use
+and extend the GTK framework.
 
 
 Coding: Architecture work
