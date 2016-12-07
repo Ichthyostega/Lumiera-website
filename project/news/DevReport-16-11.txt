@@ -19,9 +19,9 @@ us -- a more up-to-date compiler as our reference compiler.
 Consequently, we have established GCC-4.9 as the current project standard
 reference compiler providing us with mature C\+\+11 support and enabling us to
 switch to C++14 -- a minor language upgrade.  Moreover, for us developers, this
-new compiler comes equipped with a number of enhancements easing our everyday
-work on programming.  For example, by using the new version of the compiler and
-the use of the new Glib library, we were able to rid the code base of a number
+new language standard comes equipped with a number of enhancements easing our everyday
+work on programming.  And, in addition, by using the new version of the compiler and
+the use of a more mature version of the `Glib` library, we were able to rid the code base of a number
 of long standing annoying problems and a few workarounds were also eradicated.
 
 As usual, we completed this round of upgrades by cutting a new ``preview release''
