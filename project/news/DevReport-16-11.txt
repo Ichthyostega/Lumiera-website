@@ -76,22 +76,20 @@ user can reap the rewards. Collaboration between the session core and UI needs t
 work asynchronously, otherwise the interface will not be ``reactive'' and would suffer from sluggish
 behaviour. While the core structures are inherently flexible, it remains a greater challenge to
 retain this flexibility in shaping and evolving both components and adopt these to provide an adequate
-workflow. To cope with these demands, we are more inclined to use a more message based
-inter-connection between the various components. 
+workflow. To cope with these demands, we are more inclined to use a message based inter-connection
+between the various components.
 
 The UI Connection Backbone
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-The UI Connection Backbone was a major achievement and was no small feat to build the UI-Bus, 
-which is a message-based connection backbone to channel command and data between the core and the 
+Towards the goal of an UI connection it was no small feat to build the UI-Bus,
+which is a message-based backbone to channel command and data between the core and the
 GUI. However, this did introduce a distinction between _local UI mechanics,_ to be implemented
 in the conventional manner via widgets, controllers and ``signal'' connections, and _core editing
-concerns,_ which now involve sending command messages towards the core that later respond by
-deploying structure update messages. The concepts behind and the prototyping required for the
-backbone required a massive effort. This required the definition of a generic UI element and its
-means of communication by defining a protocol to accomplish this, a means of forming, building and,
-finally, issuing commands. Finally, it was necessary to find some way to express, capture and later
-replay interface state changes. The basis of this was achieved by adopting a generic way to express
-structural data and changes.
+concerns,_ which now involve sending command messages towards the core, which later responds
+asynchronously by deploying structure update messages. This required the definition of a generic
+UI element and its communication protocol, a means of forming, building and, finally, issuing commands,
+and a way to express, capture and later replay interface state changes. The basis of this was achieved
+by adopting a generic way to express structural data and changes.
 
 
 Timeline display
