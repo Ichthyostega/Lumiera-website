@@ -26,7 +26,7 @@ of long standing annoying problems and a few workarounds were also eradicated.
 
 As usual, we completed this round of upgrades by cutting a new ``preview release''
 (Version `Lumiera-0.pre.03`), and, in the process, updating the packages,
-dependencies in build system and documentation. 
+dependencies in build system and documentation.
 
 Coding Framework Improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -36,12 +36,12 @@ framework within the application. In fact, this work was not all done in a singl
 intermingled with other activities, which are presented elsewhere in this report. For example, the
 use of smart-pointers and hash functions were streamlined, replacing most of the `libBoost`
 implementations with their equivalents from the standard library, which are now available as part of
-the standard library. In a similar vein, our manually crafted tuple type and the associated
+the language standard. In a similar vein, our manually crafted tuple type and the associated
 meta-programming to deal with function argument lists could be replaced or retrofitted to rely on
 variadic templates, a new language feature crafted for that very purpose. Indeed, in praise of
 Lumiera it was always sufficiently flexible as to be able to draw upon modern programming techniques
 to improve productivity, even before these features passed through the gates of the language fathers
-to become part of the official programming language. 
+to become part of the official programming language.
 
 To complement these achievements, methods for diagnostic printing were unified and augmented. Similar to Java's
 `toString()` method, we are now in a position be be able to obtain sensible output from any language
