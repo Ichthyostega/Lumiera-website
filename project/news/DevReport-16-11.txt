@@ -55,7 +55,7 @@ Getting to Grips with GTK-3
 
 We were very fortunate with the UI design adopted by _Joel Holdsworth_.  The archetecture decided upon
 by him placed us in a very good position to confront the future. His reliance on vector graphics
-(lib Cairo) in the design where possible has much to be recommended. He did this in anticipation of
+(lib `Cairo`) for the UI drawing routines has much to be recommended. He did this in anticipation of
 the future direction of GTK from which we were able to reap the rich rewards of a, more-or-less,
 painless upgrade. Unfortunately, this did have one negative effect: our custom-made timeline widget
 became inoperable -- the protocol and interaction between widgets and the GTK framework had been changed
