@@ -94,12 +94,11 @@ by adopting a generic way to express structural data and changes.
 
 The Timeline Display
 ~~~~~~~~~~~~~~~~~~~~
-After working on the display of the timeline, it recently became apparent that we would have to turn
-our attention to the actual structure of a reshaped timeline display widget. This relies on the new
-_canvas control_ which has been available since GTK-3 (`Gtk::Layout`). This allows us to combine custom drawing 
-with embedded widgets placed on top of a scrollable ``timeline canvas''. The work is in progress.
-The new structure is entirely recursive, no longer relying on a ``shadow model'', rather on a
-connection to the UI-Bus.
+After engaging into all this foundation work, just recently these activities reached the point to 
+be able to address the actual structure of a reshaped timeline display widget. This relies on the new
+_canvas control_ which has been available since GTK-3 (`Gtk::Layout`), which allows us to combine custom drawing 
+with embedded widgets placed on top of a scrollable ``timeline canvas''. The new structure is in the works now,
+it will be entirely recursive, no longer relying on a ``shadow model'', rather on a connection to the UI-Bus.
 
 
 Collaboration and Exchange of Ideas
