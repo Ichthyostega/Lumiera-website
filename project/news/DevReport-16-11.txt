@@ -81,24 +81,25 @@ between the various components.
 
 The UI Connection Backbone
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-Towards the goal of an UI connection it was no small feat to build the UI-Bus,
+It was no small feat to build the UI-BUS in our efforts towards building the UI connection,
 which is a message-based backbone to channel command and data between the core and the
 GUI. However, this did introduce a distinction between _local UI mechanics,_ to be implemented
 in the conventional manner via widgets, controllers and ``signal'' connections, and _core editing
 concerns,_ which now involve sending command messages towards the core, which later responds
-asynchronously by deploying structure update messages. This required the definition of a generic
-UI element and its communication protocol, a means of forming, building and, finally, issuing commands,
-and a way to express, capture and later replay interface state changes. The basis of this was achieved
-by adopting a generic way to express structural data and changes.
+asynchronously by deploying structure update messages. This required the formulation and definition
+of a generic UI element and its communication protocol, a means of forming, building and, finally, issuing commands,
+and a way to express, capture and later replay interface state changes. The heart of this was
+accomplished by adopting a generic means to express structural data and changes.
 
 
 The Timeline Display
 ~~~~~~~~~~~~~~~~~~~~
-After engaging into all this foundation work, just recently these activities reached the point to 
-be able to address the actual structure of a reshaped timeline display widget. This relies on the new
-_canvas control_ which has been available since GTK-3 (`Gtk::Layout`), which allows us to combine custom drawing 
-with embedded widgets placed on top of a scrollable ``timeline canvas''. The new structure is in the works now,
-it will be entirely recursive, no longer relying on a ``shadow model'', rather on a connection to the UI-Bus.
+After indulging in fundamental work on the ``Timeline Display'', it recently became apparent that it
+was time to address the actual structure of a reshaped timeline display widget. This relies on the
+new _canvas control_ which has been available since GTK-3 (`Gtk::Layout`), which allows us to
+combine custom drawing with embedded widgets placed on top of a scrollable ``timeline canvas''. The
+new structure is now in the works. This will be entirely recursive, no longer relying on a ``shadow
+model'', rather on a connection to the UI-Bus.
 
 
 Collaboration and Exchange of Ideas
