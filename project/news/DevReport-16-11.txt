@@ -62,7 +62,7 @@ became inoperable -- the protocol and interaction between widgets and the GTK fr
 by the GTK developers for version 3. This observation spurred _Ichthyo_ to leave the half-finished work
 at the player-to-engine connection for the time being, and to focus attention on the UI. Obviously,
 being no expert, yet familiar with UI programming in similar frameworks, such an endeavour would
-require a bit of learning and investigation, in order to be able to grasp how a client should use
+require some study and investigation, in order to be able to grasp how a client should use
 and extend the GTK framework.
 
 
