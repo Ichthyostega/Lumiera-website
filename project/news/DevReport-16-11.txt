@@ -26,7 +26,7 @@ of long standing annoying problems; and a few workarounds were also eradicated.
 
 As usual, we completed this round of upgrades by cutting a new ``preview release''
 (Version `Lumiera-0.pre.03`), and, in the process, updating the packages,
-dependencies in build system and documentation.
+dependencies in the build system and the documentation.
 
 Coding Framework Improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
