@@ -5,6 +5,12 @@ Comment irrelevant stuff out
 
 ////
 *November 2015*::
+      While there’s been a long pause since our last news report,
+      a lot of coding activity happened ``behind the scenes''.
+      Read more in our recent
+      link:/project/news/DevReport-16-11.html[2016 Development Report]...
+
+*November 2015*::
       We published the next »preview release« `0.pre.03` +
       We did a lot of library and platform upgrades recently, which need to be
       reflected within package definitions and buildsystem. This ``release'' is
