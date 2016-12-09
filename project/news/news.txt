@@ -2,6 +2,7 @@
 !!! THIS FILE WILL BE INCLUDED INTO THE FRONTPAGE !!!
 Please add new items on the top, move older items to old_news.txt
 Comment irrelevant stuff out
+
 ////
 *November 2015*::
       We published the next »preview release« `0.pre.03` +
@@ -39,65 +40,7 @@ Comment irrelevant stuff out
 After this conference, Benny Lyons has written the
 link:/project/news/DevReport-14-05.html[2014 Spring News Report]
 
-*April 2014*::
-      The Lumiera code base has been switched to C\+\+11.
-      Additionally, we'll support also compilation with Clang from now on.
-      The transition to C++11 didn't impose any serious problems, since we're employing
-      a modern coding style right from start. After the switch, development will benefit
-      especially from the new features _rvalue references_, _auto type inference_ and
-      _constexpr_.
+'''''''
+-> link:/project/news/old_news.html[Older News]
 
-*August 2013*::
-      while preparing for FrOSCon, we collected and merged several
-      documentation contributions. Thanks to Benny Lyons:
-      here is the link:/project/news/DevReport-13-08.html[2013 Summer News Report]
-+
-Some *images* of our meeting and excursion can be seen
-link:/media/Au13.pre/[here...]
-      
 
-*November 2012*::
-      Kudos to Benny Lyons for writing the
-      link:/project/news/DevReport-12-11.html[2012 Fall Coding News] Report
-      and all his further documentation and website contributions
-
-*October 2011*::
-      again thanks to Wouter Verwijlen: read the
-      link:/project/news/DevReport-11-10.html[Summer/Fall Coding News] Report
-
-*June 2011*::
-      ...we're still a tiny bit behind on our news reports, but here's some catching up for this quarter:
-      the link:/project/news/DevReport-11-06.html[Spring Coding News] Report; 
-      thanks to Wouter Verwijlen for reminding us and collecting the informations
-
-*May 2011*::
-      _a bit late...._ but here it is: the
-      link:/project/news/DevReport-11-03.html[Winter Coding News].
-
-*March 2011*::
-      We can now provide link:/debian[binary Debian packages] for the first time,
-      allowing you to _install_ a development preview/snapshot without compiling, on
-      Debian based systems (e.g. Ubuntu). But don't get too excited -- you won't
-      see any new features on the GUI...
-
-*September 2010*::
-	We have been at http://froscon.org/[FrOSCon 2010]
-	with a booth and a talk on Lumiera. ->link:/project/news/DevReport-10-10.html[more...]
-	
-*July 30 2010*::
-	The link:/project/news/DevReport-10-07.html[Summer Coding News] are out! Read the
-        latest development report.
-
-*July 29 2010*::
-	The Lumiera team will be at the German _Free and Open Source Software 
-	Conference_ (http://froscon.org/[FrOSCon]) in St. Augustin (near Bonn)
-	on August 20-21. Hermann Vosseler (_ichthyo_) will give a talk about Lumiera
-        on Sunday 21 at 10:00. We hope to see you there!
-
-*April 9 2010*::
-        The link:/project/news/DevReport-10-04.html[Spring Quarterly News] are out!
-
-////
-.Future
-
-////

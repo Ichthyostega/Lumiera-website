@@ -31,8 +31,6 @@ News:
 
 include::project/news/news.txt[]
 
-'''''''
--> link:/project/news/old_news.html[Older News]
 ....
 
 
