@@ -37,14 +37,14 @@ intermingled with other activities, which are presented elsewhere in this report
 use of smart-pointers and hash functions were streamlined, replacing most of the `libBoost`
 implementations with their equivalents from the standard library, which are now available as part of
 the language standard. In a similar vein, our manually crafted tuple type and the associated
-meta-programming to deal with function argument lists could be replaced or retrofitted to rely on
+meta-programming to deal with function argument lists could be replaced or retro-fitted to rely on
 variadic templates, a new language feature crafted for that very purpose. Indeed, in praise of
 Lumiera it was always sufficiently flexible as to be able to draw upon modern programming techniques
 to improve productivity, even before these features passed through the gates of the language fathers
 to become part of the official programming language.
 
 To complement these achievements, methods for diagnostic printing were unified and augmented. Similar to Java's
-`toString()` method, we are now in a position be be able to obtain sensible output from any language
+`toString()` method, we are now able to obtain sensible output from any language
 entity, including the automatic use of custom defined string conversions, falling back to a clean
 human readable rendering of the language type name, based on using a somewhat obscure yet
 standardised interface in the compiler. 
@@ -59,7 +59,7 @@ by him placed us in a very good position to confront the future. His reliance on
 the future direction of GTK from which we were able to reap the rich rewards of a, more-or-less,
 painless upgrade. Unfortunately, this did have one negative effect: our custom-made timeline widget
 became inoperable -- the protocol and interaction between widgets and the GTK framework had been changed
-by the GTK developers for version 3. This observation spurred _Ichthyo_ to leave the half-finished work
+by the GTK developers for version 3. This observation spurred _Ichthyo_ to leave half-finished work
 at the player-to-engine connection for the time being, and to focus attention on the UI. Obviously,
 being no expert, yet familiar with UI programming in similar frameworks, such an endeavour would
 require some study and investigation, in order to be able to grasp how a client should use
@@ -82,7 +82,7 @@ between the various components.
 The UI Connection Backbone
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 It was no small feat to build the UI-Bus in our efforts towards building the UI connection,
-which is a message-based backbone to channel command and data between the core and the
+which is a message-based backbone to channel commands and data between the core and the
 GUI. However, this did introduce a distinction between _local UI mechanics,_ to be implemented
 in the conventional manner via widgets, controllers and ``signal'' connections, and _core editing
 concerns,_ which now involve sending command messages towards the core, which later responds
