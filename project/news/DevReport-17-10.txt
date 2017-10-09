@@ -1,0 +1,83 @@
+Lumiera 2017 Development Report
+===============================
+:Date: Autumn 2017
+:Author: Hermann Voßeler, Benny Lyons
+
+//Menu: label 17-10 Dev Report
+
+
+Project may seem inactive at first sight -- yet in fact there was a lot of coding, and several gaps could be filled in
+
+Coding: GUI Integration
+-----------------------
+Implementation work proceeded roughly along the lines layed out in the
+link:/project/news/DevReport-16-11.html[last report]:
+The Goal is to reestablish a timeline display. The existing code was in parts a draft and mock-up, which became
+dysfunctional over time, due to the changes in GTK. So the reworked timeline widget will not just be fixed and ported,
+rather it will be able to serve a bidirectional, asynchronous connection to the layers below in the software architecture.
+
+Establish a »Session« Subsystem
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The obvious first step in this effort was to institute the counterpart to which UI-Elements might talk.
+Over time, a lot of code has been written to define structures within the Proc-Layer and »High-Level Model«
+(session model), including a complete framework for defining and handling of commands. Yet all of this code
+used to be passive, waiting to be called and activated by ``someone''. So the endeavour of building a UI
+connection helped to link all these existing parts together into a coherent _Subsystem,_ which is now
+actively started when launching the application. The key element for this achievement was finally to
+build the `ProcDispatcher`, which performs a dedicated thread to execute incoming commands one by one,
+and which cares to invoke the _Builder_ regularly.
+
+Framework for defining commands
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+As UI-Elements will start binding to actions within the session, we needed to organise the definition
+and lookup of Proc-Layer commands. Building on top of the aforementioned command framework, concrete
+actions can now be defined within a library of small-ish functions at one central location. In accordance
+with the message driven architecture we're aiming at, the actual action binding within the UI widget now issues
+a message on the UI-Bus, which causes the corresponding command functor to be retrieved from a registry and
+enqueued with the `ProcDispatcher`.
+
+Service to publish results
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Any action induced by user interaction can be considered to cause an ongoing chain of reactions, with integration
+of feedback results into the UI display finally to close the circle. While this is commonplace, the important twist
+to note is the fact that this chain of reaction soon submerges into background activity, relieving the UI to be ready
+for the next interaction.
+
+The execution of Proc-Layer commands thus requires a counterpart: a service offered by the UI to receive any
+changes effected by the command. Building such a service especially involved the integration of the _diff framework_
+created during last year, which allows to publish structural changes without tight coupling between producer and receiver.
+In line with the envisioned architecture, the actual diff application was realised as a callback, which is dispatched
+into the UI event thread and thus ``pulled'' by the receiving widget, prompted by a tiny notification message passed
+over the UI-Bus.
+
+
+Coding: Refitting of UI structure
+---------------------------------
+At this point, further efforts towards UI integration came to a grinding halt, since the existing code structure
+was deemed too rigid to support this flexible callback model. On investigation, the problem turned out to be far
+less serious than it seemed on first sight; only the top-level backbone showed up to be too cohesive, with a
+master controller acting top-down on a centralised UI model. So, after abolishing the model and remoulding
+the controller into a small circle of collaborating services for global UI concerns, we where able to
+retract the `GtkLumiera` singleton object, which had been notorious for breeding call-after-death bugs
+hard-to diagnose and resolve.
+
+Related to the long term vision
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+While this current work at the UI can be described as _pragmatic,_ this is the right moment to consider
+as to where our long term vision interferes with the commonplace way of dealing with UI construction.
+Since quite some time, there is a ``background thread'' of discussion ongoing within the Lumiera project,
+regarding the direction we see for further evolution of human-computer interface and to what extent we
+actually want to push in that direction. Just recently, an offspring of these discussions has crystallised
+into a set of terms and definitions we label as link:{ldoc}/design/gui/InteractionControl.html[Interaction Control].
+Following this route would require us to intersperse a secondary yet overarching control system _in between_ the
+structure and ``mechanics'' offered by the usual UI toolkit set but above our actual widgets. On the long run,
+such an interspersed structure will allow us to ``pull some strings'' -- without actively interfering with
+or even opposing the way usual UI toolkit sets happen to deal with UI programming.
+
+In line with this reasoning, on reshaping the internal UI structure, we made allowance for the anchor points
+such an extended control structure might hinge upon eventually. Most notably, we introduced the notion of
+topological *UI-Coordinates* to refer to some component within the UI implementation, instead of navigating
+the widget hierarchy directly on implementation level. As immediate benefit, this allows us to store and
+configure the place where some new view will be instantiated, instead of intermingling this decision with
+low-level widget handling code.
+
