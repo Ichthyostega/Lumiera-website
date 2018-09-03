@@ -6,7 +6,7 @@ Lumiera 2018 Development Report
 //Menu: label 18-08 Dev Report
 
 
-Most activitiy in the UI-layer: topological dependency on mouse and widgets  
+Most activity in the UI-layer: topological dependency on mouse and widgets  
 
 Introduction
 ------------
@@ -23,27 +23,27 @@ the user workflow and Lumiera aims to provide a high-quality professional
 non-linear video editor. The nature of such a workflow is itself intricate and
 complex. Hence, the care and attention.
 
-After consulting  professional video editors it has become apparent that traditioanl
-point-and-click methology will not rise to the challange. An entirely new UI
+After consulting  professional video editors it has become apparent that traditional
+point-and-click methodology will not rise to the challenge. An entirely new UI
 concept is required.
 
 One aspect under scrutiny is the diversity of functionality various widgets on a
 typical Lumiera screen will have to support to provide a user with the
-plethoria of functionality at their finger tips. To support this, a new layer
+plethora of functionality at their finger tips. To support this, a new layer
 has been conceptually added between the UI widgets and the user
 interaction. Typically, a simple widget can be on or off. The user simply 
 'clicks' the mouse to interact.  More complex interaction is required to
 interact with trimming a clip. We can think of yet more complex interactions,
-such as pickiing a specific transition and apply it uniformally to a select number
+such as picking a specific transition and apply it informally to a select number
 of junctions in a sequence.
 
 We generalise user interaction with widgets as a _gesture_, 'clicking a mouse'
 being one simple instance of an interaction. A user interacts with a widget via
 a gesture. Once a widget receives a gesture, a complex series of events can
 occur, depending on the gesture received. Some Lumiera widgets must support a
-diverse set of events. Not only an entire API of things the widget can tigger,
+diverse set of events. Not only an entire API of things the widget can trigger,
 but, depending on the plugins loaded, this might be API version dependent.
-To add complexiety to diversity, a single gesture can involve a number of different
+To add complexity to diversity, a single gesture can involve a number of different
 widgets: a number of gestures can involve a single or several widgets.
 
 To manage gesture-widget interaction, a coordinate system has been placed over
