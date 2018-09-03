@@ -1,0 +1,77 @@
+Lumiera 2018 Development Report
+===============================
+:Date: Autumn 2018
+:Author: Hermann Voßeler, Benny Lyons
+
+//Menu: label 18-08 Dev Report
+
+
+Most activitiy in the UI-layer: topological dependency on mouse and widgets  
+
+Introduction
+------------
+Developers met at Froscon and reflected on project activity over the
+previous year.
+
+
+Mouse Moves on a Topologically Recorded Surface
+-----------------------------------------------
+
+The design of the Lumiera UI is of such fundamental importance that much effort
+and care has been devoted to its requirements and design. The UI must support
+the user workflow and Lumiera aims to provide a high-quality professional
+non-linear video editor. The nature of such a workflow is itself intricate and
+complex. Hence, the care and attention.
+
+After consulting  professional video editors it has become apparent that traditioanl
+point-and-click methology will not rise to the challange. An entirely new UI
+concept is required.
+
+One aspect under scrutiny is the diversity of functionality various widgets on a
+typical Lumiera screen will have to support to provide a user with the
+plethoria of functionality at their finger tips. To support this, a new layer
+has been conceptually added between the UI widgets and the user
+interaction. Typically, a simple widget can be on or off. The user simply 
+'clicks' the mouse to interact.  More complex interaction is required to
+interact with trimming a clip. We can think of yet more complex interactions,
+such as pickiing a specific transition and apply it uniformally to a select number
+of junctions in a sequence.
+
+We generalise user interaction with widgets as a _gesture_, 'clicking a mouse'
+being one simple instance of an interaction. A user interacts with a widget via
+a gesture. Once a widget receives a gesture, a complex series of events can
+occur, depending on the gesture received. Some Lumiera widgets must support a
+diverse set of events. Not only an entire API of things the widget can tigger,
+but, depending on the plugins loaded, this might be API version dependent.
+To add complexiety to diversity, a single gesture can involve a number of different
+widgets: a number of gestures can involve a single or several widgets.
+
+To manage gesture-widget interaction, a coordinate system has been placed over
+the entire UI. Moving the pointer (i.e., the mouse pointer) over the screen is
+recorded as a trajectory across the coordinate system. As the pointer passes
+from one widget to the next, a new API is associated with the pointer. Uttering
+a gesture, i.e. clicking the mouse, will trigger events associated with that
+gesture. However, gestures can, of course, be more complex.
+
+This then is the consequence of talks from ... with ...
+Hermann, hilfe hier
+
+
+Integration 
+-----------
+
+Various components have been integrated together so that we can now issue a command
+over the UI bus which is then packaged into a message, received onto a queue and then
+dispatched into a different processing thread within the session sub-system. As
+a proof of concept, the dummy test command sends a status update back into the
+UI, which is transmitted back over the UI bus to effect a status change on a
+given widget. This test setup represents the first integration of various
+fundamental low-level components to process an entire dummy command from the
+UI-bus to a different processing thread.
+
+This development step is an important milestone in the development process.
+
+
+Froscon Meet-Up
+---------------
+The annual developer meet-up at Froscon happened over the last weekend of August.
