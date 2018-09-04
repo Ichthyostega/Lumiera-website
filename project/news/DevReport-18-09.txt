@@ -32,17 +32,16 @@ typical Lumiera screen will have to support to provide a user with the
 plethora of functionality at their finger tips. To support this, a new layer
 has been conceptually added between the UI widgets and the user
 interaction. Typically, a simple widget can be on or off. The user simply 
-'clicks' the mouse to interact.  More complex interaction is required to
-interact with trimming a clip. We can think of yet more complex interactions,
+``clicks'' the mouse to interact.  More complex interaction is required to
+trim or roll or slide a clip. We can think of yet more complex interactions,
 such as picking a specific transition and apply it informally to a select number
 of junctions in a sequence.
 
-We generalise user interaction with widgets as a _gesture_, 'clicking a mouse'
-being one simple instance of an interaction. A user interacts with a widget via
-a gesture. Once a widget receives a gesture, a complex series of events can
-occur, depending on the gesture received. Some Lumiera widgets must support a
-diverse set of events. Not only an entire API of things the widget can trigger,
-but, depending on the plugins loaded, this might be API version dependent.
+We generalise user interaction with widgets as a _gesture_, ``clicking a mouse''
+being one simple instance of an interaction. Yet in general a gesture is comparable
+to a sentence of spoken language, insofar there is always a predication, a subject
+and possibly some further objects as targets. Once the UI detects the completion
+of a gesture, a complex series of events can occur, depending on the gesture received.
 To add complexity to diversity, a single gesture can involve a number of different
 widgets: a number of gestures can involve a single or several widgets.
 
