@@ -14,8 +14,8 @@ Developers met at Froscon and reflected on project activity over the
 previous year.
 
 
-Mouse Moves on a Topologically Recorded Surface
------------------------------------------------
+Extended concepts for user interaction
+--------------------------------------
 
 The design of the Lumiera UI is of such fundamental importance that much effort
 and care has been devoted to its requirements and design. The UI must support
