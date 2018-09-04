@@ -3,7 +3,7 @@ Lumiera 2018 Development Report
 :Date: Autumn 2018
 :Author: Hermann Voßeler, Benny Lyons
 
-//Menu: label 18-08 Dev Report
+//Menu: label 18-09 Dev Report
 
 
 Most activity in the UI-layer: topological dependency on mouse and widgets  
@@ -66,8 +66,9 @@ dispatched into a different processing thread within the session sub-system. As
 a proof of concept, the dummy test command sends a status update back into the
 UI, which is transmitted back over the UI bus to effect a status change on a
 given widget. This test setup represents the first integration of various
-fundamental low-level components to process an entire dummy command from the
-UI-bus to a different processing thread.
+fundamental low-level components to form a complete collaboration cycle
+with an action triggered from the UI and a response generated within the
+session and pushed back into the UI asynchronously.
 
 This development step is an important milestone in the development process.
 
