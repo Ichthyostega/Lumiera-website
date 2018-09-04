@@ -64,8 +64,9 @@ Top-level components were arranged on the UI layer in a manner that was tending 
 and losing an obvious structure. Components have been reorganised to optimise clear structure, more
 coherence and improve sustainability.
 
-Various issues plagued accessing components and the order of initialisation. These have been rectified.
-The Lumiera UI, which is itself a plug-in, can now be loaded and shutdown without any difficulties.
+Various issues plagued accessing components and the order of initialisation required scrutiny. These
+have been rectified. The Lumiera UI, which is itself a plug-in and dynamically loaded at runtime,
+can now be loaded and shutdown without any difficulties.     
 
 Helper for Component Wiring
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
