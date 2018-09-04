@@ -56,7 +56,7 @@ example, where to place a new view, or where to show a property panel.
 
 UI Backbone
 -----------
-Apart from work done on implementing a vertical slice from the top-level UI down to thew backend and
+Apart from work done on implementing a vertical slice from the top-level UI down to the backend and
 back up to the front-end again, work was carried out on a few areas which had already been discussed
 over the previous Spring.
 
@@ -64,9 +64,8 @@ Top-level components were arranged on the UI layer in a manner that was tending 
 and losing an obvious structure. Components have been reorganised to optimise clear structure, more
 coherence and improve sustainability.
 
-Various issues plagued accessing components. These have been rectified.
-
-Lumiera can now be started and shutdown without any difficvultes.
+Various issues plagued accessing components, and the order of initialisation. These have been rectified.
+The Lumiera UI, which is itself a plug-in, can now be loaded and shutdown without any difficulties.
 
 Helper for Component Wiring
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -96,3 +95,4 @@ This development step is an important milestone in the development process.
 Froscon Meet-Up
 ---------------
 The annual developer meet-up at Froscon happened over the last weekend of August.
+
