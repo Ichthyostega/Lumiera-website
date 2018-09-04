@@ -34,27 +34,27 @@ has been conceptually added between the UI widgets and the user
 interaction. Typically, a simple widget can be on or off. The user simply 
 ``clicks'' the mouse to interact.  More complex interaction is required to
 trim or roll or slide a clip. We can think of yet more complex interactions,
-such as picking a specific transition and apply it informally to a select number
+such as picking a specific transition and applying it informally to a select number
 of junctions in a sequence.
 
 We generalise user interaction with widgets as a _gesture_, ``clicking a mouse''
-being one simple instance of an interaction. Yet in general a gesture is comparable
-to a sentence of spoken language, insofar there is always a predication, a subject
-and possibly some further objects as targets. Once the UI detects the completion
-of a gesture, a complex series of events can occur, depending on the gesture received.
+being one simple instance of an interaction. Yet, in general, a gesture is comparable
+to a sentence in common spoken language, in as much as there is always a predication, a subject
+and possibly some further objects as targets. Once the UI detects that a gesture has completed,
+a complex series of events can occur, depending on the gesture received.  
 To add complexity to diversity, a single gesture can involve a number of different
 widgets: a number of gestures can involve a single or several widgets.
 
-To describe and manage user interactions on a higher level, a topological coordinate
+To describe and manage user interactions at a higher level, a topological coordinate
 system has been devised. It complements the usual addressing within user interfaces,
 which is based on pixel coordinates and direct references to widget implementation
-objects. Our new topological _UI-Coordinates_ allow do address a location within the
+objects. Our new topological _UI-Coordinates_ allows us to address a location within the
 structure of the user interface, e.g. within window 1, in panel A, view B, tab C.
-This is the foundation to allow a more systematic navigation of the focus within
-the UI. Moreover, such coordinates allow to define rules where to place a new
-view, or where to show a property panel.
+This is the basis of supporting a more systematic navigation of focus within
+the UI. Moreover, such coordinates provides the ability to define rules of, for
+example, where to place a new view, or where to show a property panel.
 
-UI backbone
+UI Backbone
 -----------
 [red]#to be written# ...
 
@@ -63,7 +63,7 @@ UI backbone
  - allow for clean start-up and shutdown
  - resolve problems with component access
 
-Helper for component wiring
+Helper for Component Wiring
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 [red]#to be written# ...
 
