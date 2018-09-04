@@ -14,7 +14,7 @@ Developers met at Froscon and reflected on project activity over the
 previous year.
 
 
-Extended concepts for user interaction
+Extended concepts for User Interaction
 --------------------------------------
 
 The design of the Lumiera UI is of such fundamental importance that much effort
