@@ -56,6 +56,10 @@ example, where to place a new view, or where to show a property panel.
 
 UI Backbone
 -----------
+Apart from work done on implementing a vertical slice from the top-level UI down to thew backend and
+back up to the front-end again, work was carried out on a few areas which had already been discussed
+over the previous Spring.
+
 Top-level components were arranged on the UI layer in a manner that was tending to become diffuse
 and losing an obvious structure. Components have been reorganised to optimise clear structure, more
 coherence and improve sustainability.
