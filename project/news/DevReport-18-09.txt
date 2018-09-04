@@ -70,12 +70,12 @@ can now be loaded and shutdown without any difficulties.
 
 Helper for Component Wiring
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-[red]#to be written# ...
+To support the improved structure in the UI backbone, the current helpers in Lumiera were reworked
+and improved to facilitate component wiring. A service can now be exposed so that it can be picked
+up at another site that is not directly connected to the site at which the service was exposed.
 
- - to support this better structure in the UI backbone...
- - rework improve our existing helpers for component wiring
- - add the ability to expose a service and to pick it up from a not directly connected usage site
- - now use the ``atomics'' from the new C++ language standard to guard component initialisation
+Components are now guarded during initialisation using ``atomics'' from the recent standard C++
+improvements.
 
 Integration
 ~~~~~~~~~~~
