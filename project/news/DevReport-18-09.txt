@@ -54,9 +54,26 @@ This is the foundation to allow a more systematic navigation of the focus within
 the UI. Moreover, such coordinates allow to define rules where to place a new
 view, or where to show a property panel.
 
-
-Integration 
+UI backbone
 -----------
+[red]#to be written# ...
+
+ - reorganised the top level components within UI layer
+ - more sustainable, clearer structure
+ - allow for clean start-up and shutdown
+ - resolve problems with component access
+
+Helper for component wiring
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[red]#to be written# ...
+
+ - to support this better structure in the UI backbone...
+ - rework improve our existing helpers for component wiring
+ - add the ability to expose a service and to pick it up from a not directly connected usage site
+ - now use the ``atomics'' from the new C++ language standard to guard component initialisation
+
+Integration
+~~~~~~~~~~~
 
 Various components have been integrated together so that we can now issue a command
 over the UI bus which is then packaged into a message, received onto a queue and then
