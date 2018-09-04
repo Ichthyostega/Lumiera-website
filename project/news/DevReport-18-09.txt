@@ -45,15 +45,14 @@ of a gesture, a complex series of events can occur, depending on the gesture rec
 To add complexity to diversity, a single gesture can involve a number of different
 widgets: a number of gestures can involve a single or several widgets.
 
-To manage gesture-widget interaction, a coordinate system has been placed over
-the entire UI. Moving the pointer (i.e., the mouse pointer) over the screen is
-recorded as a trajectory across the coordinate system. As the pointer passes
-from one widget to the next, a new API is associated with the pointer. Uttering
-a gesture, i.e. clicking the mouse, will trigger events associated with that
-gesture. However, gestures can, of course, be more complex.
-
-This then is the consequence of talks from ... with ...
-Hermann, hilfe hier
+To describe and manage user interactions on a higher level, a topological coordinate
+system has been devised. It complements the usual addressing within user interfaces,
+which is based on pixel coordinates and direct references to widget implementation
+objects. Our new topological _UI-Coordinates_ allow do address a location within the
+structure of the user interface, e.g. within window 1, in panel A, view B, tab C.
+This is the foundation to allow a more systematic navigation of the focus within
+the UI. Moreover, such coordinates allow to define rules where to place a new
+view, or where to show a property panel.
 
 
 Integration 
