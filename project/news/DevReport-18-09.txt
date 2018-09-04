@@ -56,12 +56,13 @@ example, where to place a new view, or where to show a property panel.
 
 UI Backbone
 -----------
-[red]#to be written# ...
+Top-level components were arranged on the UI layer in a manner that was tending to become diffuse
+and losing an obvious structure. Components have been reorganised to optimise clear structure, more
+coherence and improve sustainability.
 
- - reorganised the top level components within UI layer
- - more sustainable, clearer structure
- - allow for clean start-up and shutdown
- - resolve problems with component access
+Various issues plagued accessing components. These have been rectified.
+
+Lumiera can now be started and shutdown without any difficvultes.
 
 Helper for Component Wiring
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
