@@ -29,8 +29,8 @@ There is no usable application at the moment. There will be no application ready
 near future. Lumiera development is still at the low level coding stages with a myriad of questions
 still to be addressed.
 
-However, incremental progress does occur. One milestone to note is the recent deployment of a test
-command through various layers of the system, which, by its vary nature, is a revelation that that
+However, incremental progress is evident. One milestone to note is the recent deployment of a test
+command through various layers of the system, which, by its vary nature, is a revelation that the
 project is still at the initial stages of development. 
 
 Extended concepts for User Interaction
