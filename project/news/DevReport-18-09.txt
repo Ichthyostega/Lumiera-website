@@ -91,9 +91,8 @@ the topic was provided by Martin Fowler in 2004:
 https://martinfowler.com/articles/injection.html[»Inversion of Control Containers and the Dependency
 Injection pattern«].]
 
-A complex project like Lumiera is also confronted with the ordeal and the subject has received much
-debate and solution has been implemented from which details are provided
-http://issues.lumiera.org/ticket/1086[in this ticket].
+A complex project like Lumiera is also confronted with the ordeal and some effort was devoted
+implement a solution to this and is provided http://issues.lumiera.org/ticket/1086[in this ticket].
 
 To support the improved structure in the UI backbone, the current helpers in Lumiera were reworked
 and improved to facilitate component wiring. A service can now be exposed so that it can be picked
@@ -103,7 +102,6 @@ Components are now guarded during initialisation using
 http://en.cppreference.com/w/cpp/atomic[`std::atomic`] from the recent standard C++ improvements.
 
 -> http://lumiera.org/documentation/technical/library/Dependencies.html[Details].
-
 
 
 Integration
