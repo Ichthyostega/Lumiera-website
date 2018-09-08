@@ -19,7 +19,7 @@ introductory section: details are provided below.
  - Vertical slice implemented, i.e., a simple dummy command has been issued on the front end then
    traversed down through many software components to the lowest software vaults of Lumiera, and
    travelled back to be received at the top-level UI layer
- - The difficult and important design phenomena of wiring many components scattered around many layers
+ - The important design challenge of wiring many components scattered around many layers
    so that these components can communicate with one another has received a solution
  - Developers met at Froscon and reflected on project activity over the previous year.
 
