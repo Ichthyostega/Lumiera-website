@@ -99,6 +99,7 @@ up at another site that is not directly connected to the site at which the servi
 Components are now guarded during initialisation using ``atomics'' from the recent standard C++
 improvements.
 
+http://lumiera.org/documentation/technical/library/Dependencies.html[Details].
 
 
 
