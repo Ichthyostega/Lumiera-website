@@ -2,6 +2,7 @@ Lumiera 2018 Development Report
 ===============================
 :Date: Autumn 2018
 :Author: Hermann Voßeler, Benny Lyons
+:toc:
 
 //Menu: label 18-09 Dev Report
 
@@ -84,22 +85,24 @@ decouple software components so that components do not depend on one another. Ho
 even the simplest of tasks without over complex code, we create dependencies.
 
 The centre of much debate currently is how one component can access the dependencies of another
-component? There are several proposaly to dependency injection which are currently hotly debated in
-the software community. An interesting https://martinfowler.com/articles/injection.html[article] on
-the topic is provided by Martin Fowler.
+component? There are several proposals to dependency injection which in parts were hotly debated
+during the past decade within the software community.footnote:[A seminal article on
+the topic was provided by Martin Fowler in 2004:
+https://martinfowler.com/articles/injection.html[»Inversion of Control Containers and the Dependency
+Injection pattern«].]
 
 A complex project like Lumiera is also confronted with the ordeal and the subject has received much
-debate and solution has been implemented from which details are provided a
+debate and solution has been implemented from which details are provided
 http://issues.lumiera.org/ticket/1086[in this ticket].
 
 To support the improved structure in the UI backbone, the current helpers in Lumiera were reworked
 and improved to facilitate component wiring. A service can now be exposed so that it can be picked
 up at another site that is not directly connected to the site at which the service was exposed.
 
-Components are now guarded during initialisation using ``atomics'' from the recent standard C++
-improvements.
+Components are now guarded during initialisation using
+http://en.cppreference.com/w/cpp/atomic[`std::atomic`] from the recent standard C++ improvements.
 
-http://lumiera.org/documentation/technical/library/Dependencies.html[Details].
+-> http://lumiera.org/documentation/technical/library/Dependencies.html[Details].
 
 
 
