@@ -17,9 +17,9 @@ introductory section: details are provided below.
  - The important nature of how a user interacts with Lumiera has been addressed and first steps
    formalised
  - Vertical slice implemented, i.e., a simple dummy command has been issued on the front end then
-   traversed down through many software components to the lowest software vaults of Luimiera, and
+   traversed down through many software components to the lowest software vaults of Lumiera, and
    travelled back to be received at the top-level UI layer
- - The diffcult and important design phenomena of wiring many comonents scattered around many layers
+ - The difficult and important design phenomena of wiring many components scattered around many layers
    so that these components can communicate with one another has received a solution
  - Developers met at Froscon and reflected on project activity over the previous year.
 
@@ -91,7 +91,7 @@ the topic was provided by Martin Fowler in 2004:
 https://martinfowler.com/articles/injection.html[»Inversion of Control Containers and the Dependency
 Injection pattern«].]
 
-A complex project like Lumiera is also confronted with the ordeal and some effort was devoted
+A complex project like Lumiera is also confronted with the ordeal and some effort was devoted to
 implement a solution to this and is provided http://issues.lumiera.org/ticket/1086[in this ticket].
 
 To support the improved structure in the UI backbone, the current helpers in Lumiera were reworked
