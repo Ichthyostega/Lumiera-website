@@ -22,7 +22,7 @@ introductory section: details are provided below.
  - The important design challenge of wiring many components scattered around many layers
    so that these components can communicate with one another has received a solution
  - Server hosting the Lumiera infrastructure updated this summer 
- - Developers met at Froscon and reflected on project activity over the previous year.
+ - Developers met at Froscon and reflected on project activity over the previous year
 
 Project Status
 --------------
