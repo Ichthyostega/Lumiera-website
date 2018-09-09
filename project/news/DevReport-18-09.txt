@@ -1,7 +1,7 @@
 Lumiera 2018 Development Report
 ===============================
 :Date: Autumn 2018
-:Author: Hermann Voßeler, Benny Lyons
+:Author: Benny Lyons, Hermann Voßeler
 :toc:
 
 //Menu: label 18-09 Dev Report
@@ -26,7 +26,7 @@ introductory section: details are provided below.
 Project Status
 --------------
 There is no usable application at the moment. There will be no application ready to deliver over the
-near future. There are a myriad of quetions still to be addressed. Lumiera development is still at
+near future. There are a myriad of questions still to be addressed. Lumiera development is still at
 the low level coding stages.
 
 However, incremental progress is evident. One small milestone to note is the recent deployment of a
