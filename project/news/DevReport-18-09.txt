@@ -26,16 +26,16 @@ introductory section: details are provided below.
 Project Status
 --------------
 There is no usable application at the moment. There will be no application ready to deliver over the
-near future. Lumiera development is still at the low level coding stages with a myriad of questions
-still to be addressed.
+near future. There are a myriad of quetions still to be addressed. Lumiera development is still at
+the low level coding stages.
 
 However, incremental progress is evident. One small milestone to note is the recent deployment of a
-test command through various layers of the system, which, by its vary nature, is a revelation that
-the project is still at the initial stages of development. 
+test command through various layers of the system.
+
+Then project remains in a pre-alpha status of development.
 
 Extended concepts for User Interaction
 --------------------------------------
-
 The design of the Lumiera UI is of such fundamental importance that much effort
 and care has been devoted to its requirements and design. The UI must support
 the user workflow and Lumiera aims to provide a high-quality professional
@@ -112,10 +112,8 @@ http://en.cppreference.com/w/cpp/atomic[`std::atomic`] from the recent standard 
 
 -> http://lumiera.org/documentation/technical/library/Dependencies.html[Details].
 
-
 Integration
 ~~~~~~~~~~~
-
 Various components have been integrated together so that we can now issue a command
 over the UI bus which is then packaged into a message, received onto a queue and then
 dispatched into a different processing thread within the session sub-system. As
@@ -127,7 +125,6 @@ with an action triggered from the UI and a response generated within the
 session and pushed back into the UI asynchronously.
 
 This development step is an important milestone in the development process.
-
 
 Froscon Meet-Up
 ---------------
