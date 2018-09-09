@@ -10,7 +10,7 @@ Lumiera 2018 Development Report
 Most activity in the UI-layer: topological dependency on mouse and widgets  
 
 Introduction
-------------
+~~~~~~~~~~~~
 We provide a brief overview of work on the Lumiera project over the previous year in this
 introductory section: details are provided below.
 
@@ -25,7 +25,7 @@ introductory section: details are provided below.
  - Developers met at Froscon and reflected on project activity over the previous year
 
 Project Status
---------------
+~~~~~~~~~~~~~~
 There is no usable application at the moment. There will be no application ready to deliver over the
 near future. There are a myriad of quetions still to be addressed. Lumiera development is still at
 the low level coding stages.
@@ -36,7 +36,7 @@ test command through various layers of the system.
 Then project remains in a pre-alpha status of development.
 
 Extended concepts for User Interaction
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The design of the Lumiera UI is of such fundamental importance that much effort
 and care has been devoted to its requirements and design. The UI must support
 the user workflow and Lumiera aims to provide a high-quality professional
@@ -75,7 +75,7 @@ the UI. Moreover, such coordinates provides the ability to define rules of, for
 example, where to place a new view, or where to show a property panel.
 
 UI Backbone
------------
+~~~~~~~~~~~
 Apart from work done on implementing a vertical slice from the top-level UI down to the backend and
 back up to the front-end again, work was carried out on a few areas which had already been discussed
 over the previous Spring.
@@ -128,11 +128,11 @@ session and pushed back into the UI asynchronously.
 This development step is an important milestone in the development process.
 
 Server Hosting the Lumiera Infrastructure Update
-------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The server hosting the Lumiera infrastructure has been showing signs of age. New hardware has been
 installed and the infrastructure software updated. The update required some effort.
 
 Froscon Meet-Up
----------------
+~~~~~~~~~~~~~~~
 The annual developer meet-up at Froscon happened over the last weekend of August.
 
