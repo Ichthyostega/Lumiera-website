@@ -7,13 +7,12 @@ Lumiera 2018 Development Report
 //Menu: label 18-09 Dev Report
 
 
-Most activity in the UI-layer: topological dependency on mouse and widgets  
 
-Introduction
-~~~~~~~~~~~~
+.Introduction
 We provide a brief overview of work on the Lumiera project over the previous year in this
 introductory section: details are provided below.
 
+ - Most activity in the UI-layer
  - The important nature of how a user interacts with Lumiera has been addressed and first steps
    formalised
  - Vertical slice implemented, i.e., a simple dummy command has been issued on the front end then
@@ -25,7 +24,7 @@ introductory section: details are provided below.
  - Developers met at Froscon and reflected on project activity over the previous year
 
 Project Status
-~~~~~~~~~~~~~~
+--------------
 There is no usable application at the moment. There will be no application ready to deliver over the
 near future. There are a myriad of quetions still to be addressed. Lumiera development is still at
 the low level coding stages.
@@ -34,6 +33,10 @@ However, incremental progress is evident. One small milestone to note is the rec
 test command through various layers of the system.
 
 Then project remains in a pre-alpha status of development.
+
+
+Coding and Design Work on the UI-Layer
+--------------------------------------
 
 Extended concepts for User Interaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -128,11 +131,11 @@ session and pushed back into the UI asynchronously.
 This development step is an important milestone in the development process.
 
 Server Hosting the Lumiera Infrastructure Update
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------
 The server hosting the Lumiera infrastructure has been showing signs of age. New hardware has been
 installed and the infrastructure software updated. The update required some effort.
 
 Froscon Meet-Up
-~~~~~~~~~~~~~~~
+---------------
 The annual developer meet-up at Froscon happened over the last weekend of August.
 
