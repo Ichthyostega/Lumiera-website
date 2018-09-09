@@ -21,6 +21,7 @@ introductory section: details are provided below.
    travelled back to be received at the top-level UI layer
  - The important design challenge of wiring many components scattered around many layers
    so that these components can communicate with one another has received a solution
+ - Server hosting the Lumiera infrastructure updated this summer 
  - Developers met at Froscon and reflected on project activity over the previous year.
 
 Project Status
@@ -125,6 +126,11 @@ with an action triggered from the UI and a response generated within the
 session and pushed back into the UI asynchronously.
 
 This development step is an important milestone in the development process.
+
+Server Hosting the Lumiera Infrastructure Update
+------------------------------------------------
+The server hosting the Lumiera infrastructure has been showing signs of age. New hardware has been
+installed and the infrastructure software updated. The update required some effort.
 
 Froscon Meet-Up
 ---------------
