@@ -7,9 +7,12 @@ Comment irrelevant stuff out
 *September 2018*::
       Our annual report on the progress of Lumiera lists a number of elements
       contributing to project increment and the general status of the project.
-      Should you have any questions do not hesitate to contact us on the usual
-      channels lumiera@lists.lumiera.org.
-      link:/project/news/DevReport-18-09.html[2018 Development Report]...
++
+Should you have any questions do not hesitate to
+link:/project/contact.html[contact us].
++
+* link:/project/news/DevReport-18-09.html[2018 Development Report]...
+* link:/project/news/DevReport-17-10.html[2017 Development Report]...
 
 *November 2016*::
       While there’s been a long pause since our last news report,
