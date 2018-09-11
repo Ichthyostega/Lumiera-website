@@ -11,28 +11,29 @@ Integrated & Related Projects
 -----------------------------
 Our projects and those we use
 
- * http://www.pipapo.org/pipawiki/NoBug[NoBug]
+ * http://nobug.pipapo.org/[NoBug]
+ * http://gmerlin.sourceforge.net/[Gmerlin / GAVL]
  * http://git-scm.com/[Git]
- * http://www.stack.nl/~dimitri/doxygen/index.html[Doxygen]
- * http://www.gtk.org/[GTK+]
- * http://www.methods.co.nz/asciidoc/[AsciiDoc]
- * http://uwiki.pipapo.org/[uWiki]
+ * http://doxygen.nl[Doxygen]
+ * https://www.gtk.org/[GTK+]
+ * http://asciidoc.org/[AsciiDoc]
  * http://freenode.net/[IRC-Freenode]
 
 Other Projects of Interest
 --------------------------
 
- * http://cinelerra.org/[Cinelerra CV]
- * Ardour
- * Blender
- * CinePaint
- * Inkscape
- * JACK
+ * https://cinelerra-cv.org/[Cinelerra CV]
+ * https://ardour.org/[Ardour DAW]
+ * https://blender.org/[Blender]
+ * https://inkscape.org/[Inkscape]
+ * http://jackaudio.org/[JACK Audio]
+ * https://ffmpeg.org/[FFmpeg]
 
 FLOSS
 -----
 Free GNU/Linux & Open Source Software
 
- * http://www.mozilla.com/en-US/firefox/upgrade.html[Mozilla Firefox]
- * http://www.froscon.org/[FrOSCON]
+ * http://froscon.org/[FrOSCon Conference]
+ * http://linuxaudio.org/lac.html[LAC / Linuxaudio]
+
 
