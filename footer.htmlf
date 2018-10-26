@@ -2,12 +2,12 @@
 <table width="100%">
     <tr>
         <td width="40%">git://git.lumiera.org/LUMIERA
-            &nbsp;&nbsp;&rarr;<a href="http://git.lumiera.org/gitweb">Gitweb</a>
+            &nbsp;&nbsp;&rarr;<a href="https://git.lumiera.org/gitweb">Gitweb</a>
         </td>
         <td width="40%">
-            <a href="http://issues.lumiera.org/">TRAC</a>&nbsp;&middot;
-            <a href="http://issues.lumiera.org/timeline">timeline</a>&nbsp;&middot;
-            <a href="http://issues.lumiera.org/roadmap">roadmap</a>
+            <a href="https://issues.lumiera.org/">TRAC</a>&nbsp;&middot;
+            <a href="https://issues.lumiera.org/timeline">timeline</a>&nbsp;&middot;
+            <a href="https://issues.lumiera.org/roadmap">roadmap</a>
         </td>
         <td align="right">
             <form method="post" action="/cgi-bin/htsearch">
@@ -22,25 +22,25 @@
         </td>
     </tr>
     <tr>
-        <td><a href="http://git.lumiera.org/gitweb?p=LUMIERA;a=shortlog;h=refs/heads/master">master</a>&nbsp;&middot;
-            <a href="http://git.lumiera.org/gitweb?p=lumiera/ichthyo;a=shortlog;h=refs/heads/gui">gui</a>&nbsp;&middot;
-            <a href="http://git.lumiera.org/gitweb?p=lumiera/ichthyo;a=shortlog;h=refs/heads/proc">proc</a>&nbsp;&middot;
-            <a href="http://git.lumiera.org/gitweb?p=lumiera/ct;a=shortlog;h=refs/heads/backend">back</a>&nbsp;&middot;
-            <a href="http://git.lumiera.org/gitweb?p=lumiera_documentation">dok</a>&nbsp;&middot;
-            <a href="http://git.lumiera.org/gitweb?p=lumiera/website">web</a>
+        <td><a href="https://git.lumiera.org/gitweb?p=LUMIERA;a=shortlog;h=refs/heads/master">master</a>&nbsp;&middot;
+            <a href="https://git.lumiera.org/gitweb?p=lumiera/ichthyo;a=shortlog;h=refs/heads/gui">gui</a>&nbsp;&middot;
+            <a href="https://git.lumiera.org/gitweb?p=lumiera/ichthyo;a=shortlog;h=refs/heads/proc">proc</a>&nbsp;&middot;
+            <a href="https://git.lumiera.org/gitweb?p=lumiera/ct;a=shortlog;h=refs/heads/backend">back</a>&nbsp;&middot;
+            <a href="https://git.lumiera.org/gitweb?p=lumiera_documentation">dok</a>&nbsp;&middot;
+            <a href="https://git.lumiera.org/gitweb?p=lumiera/website">web</a>
         </td>
-        <td><a href="http://issues.lumiera.org/report/14">recent</a>&nbsp;&middot;
-            <a href="http://issues.lumiera.org/report/5">stalled</a>&nbsp;&middot;
-            <a href="http://issues.lumiera.org/report/8">core-work</a>&nbsp;&middot;
-            <a href="http://issues.lumiera.org/report/15">non-code</a>
+        <td><a href="https://issues.lumiera.org/report/14">recent</a>&nbsp;&middot;
+            <a href="https://issues.lumiera.org/report/5">stalled</a>&nbsp;&middot;
+            <a href="https://issues.lumiera.org/report/8">core-work</a>&nbsp;&middot;
+            <a href="https://issues.lumiera.org/report/15">non-code</a>
         </td>
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td><a href="http://lumiera.org/builddrone/table.html">Builddrone</a>&nbsp;&middot;
-            <a href="http://lumiera.org/builddrone/lumiera.log">log</a>
+        <td><a href="https://lumiera.org/builddrone/table.html">Builddrone</a>&nbsp;&middot;
+            <a href="https://lumiera.org/builddrone/lumiera.log">log</a>
         </td>
-        <td><a href="http://lumiera.org/doxy/">API Documentation (Doxygen)</a>&nbsp;</td>
+        <td><a href="https://lumiera.org/doxy/">API Documentation (Doxygen)</a>&nbsp;</td>
         <td align="right"><span style="font-size:smaller;"><a href="/project/legal/legal.html#Impressum">Impressum</a></font></td>
     </tr>
 </table>

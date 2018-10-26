@@ -74,7 +74,7 @@ Christoph -- like _Ichthyo_ -- considers most present day professional film edit
 deficient. This deficiency is less a lack of »features«, but more of a failing as a tool for humans to actually
 work with. Incidentally, Christoph is also related to the https://www.apertus.org/[Apertus° AXIOM] project. 
 Once Christoph and _Ichthyo_ had met, private communication continued which resulted in a
-http://lumiera.org/documentation/design/workflow/InterfaceConcept_Varga.html[Interface Concept]
+link:{ldoc}/design/workflow/InterfaceConcept_Varga.html[Interface Concept]
 contribution to Lumiera from Christoph.
 The focus of this work is on working style, the arrangement and interplay of functions,
 terminology and the mental model of workspace.  This concept covers an area in urgent need of more

@@ -27,7 +27,7 @@ Each developer has his own repository, but usually developers are working on the
 e.g. you'll certainly find the _master_ branch in each repository. We are fairly liberal when
 it comes to giving people an account on +git.lumiera.org+, to allow publishing the individual
 developer's work to public repositories. Just ask, maybe explain a bit what you intend to do. +
--> browse our repositories online via link:http://git.lumiera.org/gitweb[Gitweb]
+-> browse our repositories online via link:https://git.lumiera.org/gitweb[Gitweb]
 
 Repository usage pattern
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -75,9 +75,9 @@ Technical Documentation
   interested in some concepts, subsystems or components, check out the file-level
   documentation of the corresponding primary header files.
 - The issue tracking system (*Trac*) provides several
-  link:http://issues.lumiera.org/report[Query-reports].
+  link:https://issues.lumiera.org/report[Query-reports].
   Especially the report
-  link:http://issues.lumiera.org/report/14[»recently changed«] might
+  link:https://issues.lumiera.org/report/14[»recently changed«] might
   give a good feel about currently ongoing activities.
 - feel free to ask on link:/project/contact.html[IRC]!
 

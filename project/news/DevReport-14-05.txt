@@ -63,7 +63,7 @@ There has been some code development on Lumiera recently. _ichthyo_ has been
 responsible for most code contributions over the past few months.
 
  * The Lumiera code-base is almost entirely
-   http://en.wikipedia.org/wiki/C++11[`C++11` compliant]
+   https://en.wikipedia.org/wiki/C++11[`C++11` compliant]
  * After some further code restructuring, we were able to switch
    to C++11 compilation mode without any deeper problems.
 
@@ -73,16 +73,16 @@ of coding development to the general user: there's nothing to exhibit.
 
 FroSCon 20014: 23-24 August
 ---------------------------
-http://www.froscon.de/startseite/[FroSCon] is beginning to establish itself as
+https://froscon.de[FroSCon] is beginning to establish itself as
 the defacto annual Lumiera get-together.  This year promises to continue the
 slowly emerging tradition of meeting up either before or after the conference.
 FroSCon takes place this year from 23 to the 24 of August, and Lumiera members
 and enthusiasts will discuss plans on our regular IRC meetings and on our
-mailing list http://www.lumiera.org/project/contact.html.
+link:{l}/project/contact.html[Mailing List].
 
 Stay in Touch
 -------------
-Keep checking http://lumiera.org/[lumiera.org] for updates, join our
-http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[mailing list] or give
+Keep checking {l}[lumiera.org] for updates, join our
+https://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[mailing list] or give
 us a visit on IRC at #lumiera.
 

@@ -49,7 +49,7 @@ Complete small tasks
 We always have small needs and necessities, please check our issue tracker; +
 If in doubt, ask on the mailing list.
 
--> see link:http://issues.lumiera.org/report/15[small/non-coding tasks] in our Trac.
+-> see link:https://issues.lumiera.org/report/15[small/non-coding tasks] in our Trac.
 
 
 Contribute to the Lumiera design
