@@ -6,8 +6,8 @@ Monthly Meetings
 // Menu :  include root/documentation/devel/transcript
 // Menu :  put child 'transcript' after 'meeting_summary'
 
-We regularly conduct developer meetings -- usually at 2^nd^ Thursday of each month, starting 20^00^ UTC.  
-These meetings take place in the IRC channel #lumiera at Freenode. ->link:/project/contact.html[more]
+We used to conduct regularly developer meetings -- usually at 2^nd^ Thursday of each month, starting 20^00^ UTC.  
+Our meetings take place in the IRC channel #lumiera at Freenode. ->link:/project/contact.html[more]
 
 This page announces the next meeting. Usually, meetings are also announced some days ahead
 on the Mailinglist. _Everyone is welcome. Feel free to suggest any topic you would like to discuss!_
@@ -31,14 +31,12 @@ For general discussions or further questions, refer to the ->link:/project/conta
 Next Developers Meeting
 -----------------------
 
-Thursday November 14, 2013 20:00 UTC
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+WARNING: since 2013 there is only one active coder working on the project.
 
-.Topics
-Currently most of our meetings are rather informal, since there isn't much to decide
-or coordinate. Sometimes, quite involved and technical discussions spring up spontaneously.
-Feel free to show up and propose topics for discussion...
+For the time being, we do not need focussed developer meetings anymore.
+If there is some concern, please speak up on the link:/project/contact.html[Mailing List]
+or send a private mail to the developer(s).
 
-. ....
-. ...
+_We expect (or hope) the project will gain some momentum eventually_ --
+and when this happens, we'll continue the tradition of regular meetings in IRC.
 
