@@ -37,9 +37,6 @@
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td><a href="https://lumiera.org/builddrone/table.html">Builddrone</a>&nbsp;&middot;
-            <a href="https://lumiera.org/builddrone/lumiera.log">log</a>
-        </td>
         <td><a href="https://lumiera.org/doxy/">API Documentation (Doxygen)</a>&nbsp;</td>
         <td align="right"><span style="font-size:smaller;"><a href="/project/legal/legal.html#Impressum">Impressum</a></font></td>
     </tr>
