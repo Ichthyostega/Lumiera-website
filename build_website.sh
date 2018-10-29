@@ -2,7 +2,7 @@
 DEFAULT_CONF=page
 GROUP=$(find -L index.txt -printf "%g")
 PARALLEL=${PARALLEL:-$(nproc || echo 4)}
-ASCIIDOC_OPTIONS="--unsafe --backend=xhtml11 --attribute icons --attribute=iconsdir=/images/asciidoc --attribute=badges! --attribute quirks!"
+ASCIIDOC_OPTIONS=("--unsafe" "--backend=xhtml11" "--attribute icons" "--attribute=iconsdir=/images/asciidoc" "--attribute=badges!" "--attribute quirks!")
 
 # unconditional dependencies
 DEPENDS=("footer.htmlf")
@@ -25,7 +25,7 @@ run_menugen=no
 
 # first pass, poor man dependency tracking over all .txt files
 if [[ ! "$1" ]]; then
-    msg -n "finding dependencies: "
+    msg -en "finding dependencies:\n\n\t"
 
     find -L . -name '*.txt' -group "$GROUP" |
         while read file; do
@@ -91,7 +91,7 @@ case "$1" in
 esac |
     {
     run_menugen=no
-    msg -n "processing files: "
+    msg -en "processing files:\n\t"
     while read file; do
         [[ "${IGNORE/*${file#./}*}" ]] || continue
         # when the .txt is newer than an existing .html
@@ -102,22 +102,18 @@ esac |
             if [[ -e "${file%*.txt}.conf" ]]; then
                 conf="${file%*.txt}.conf"
             fi
-            # run asciidoc over it
-            msg -ne "\nasciidocing $file"
-
-            printf "%q " \
-                   $ASCIIDOC_OPTIONS \
-                   --conf-file="${conf}" \
-                   "$file"
-
+            msg -ne "\n\t$file\n\t"
+            printf "%q %q\0" --conf-file="${conf}" "$file"
 
             run_menugen=yes
         else
             msg -n "."
         fi
     done >.todo.$$
+    msg
+    msg "asciidoc: ${ASCIIDOC_OPTIONS[*]} ..."
 
-    xargs -a .todo.$$ -P $PARALLEL -r -n 10 asciidoc
+    xargs -a .todo.$$ -0 -I '{}' -P "$PARALLEL" -n1 -0 sh -c "echo '{}' | sed 's/[^ ]* \(.*\)/\t\1/' >&2; asciidoc ${ASCIIDOC_OPTIONS[*]} {}"
     rm .todo.$$
 
     if [[ $run_menugen = yes ]]; then
