@@ -25,7 +25,7 @@ run_menugen=no
 
 # first pass, poor man dependency tracking over all .txt files
 if [[ ! "$1" ]]; then
-    msg -en "finding dependencies:\n\n\t"
+    msg -en "\nfinding dependencies:\n\n\t"
 
     find -L . -name '*.txt' -group "$GROUP" |
         while read file; do
@@ -80,6 +80,29 @@ fi
 
 # second pass for every .txt file
 case "$1" in
+--help|-h|-?)
+    cat <<EOF
+    Website rebuild script
+Usage:
+        ${0##*/}
+           Rebuild only whats necessary
+
+        ${0##*/} [asciidocfiles..]
+           Rebuild the given files
+
+        ${0##*/} --all
+           Rebuild all pages unconditionally
+
+        ${0##*/} --clean
+           Cleans/deletes all files not under git control
+
+        ${0##*/} --help
+           This help
+EOF
+    exit 0
+esac
+
+case "$1" in
 --all|'')
     find -L . -name '*.txt' -group "$GROUP"
     ;;
@@ -91,7 +114,7 @@ case "$1" in
 esac |
     {
     run_menugen=no
-    msg -en "processing files:\n\t"
+    msg -en "\nfinding files:\n\n\t"
     while read file; do
         [[ "${IGNORE/*${file#./}*}" ]] || continue
         # when the .txt is newer than an existing .html
@@ -102,7 +125,7 @@ esac |
             if [[ -e "${file%*.txt}.conf" ]]; then
                 conf="${file%*.txt}.conf"
             fi
-            msg -ne "\n\t$file\n\t"
+            msg -ne "\n\t$file "
             printf "%q %q\0" --conf-file="${conf}" "$file"
 
             run_menugen=yes
@@ -110,10 +133,14 @@ esac |
             msg -n "."
         fi
     done >.todo.$$
-    msg
-    msg "asciidoc: ${ASCIIDOC_OPTIONS[*]} ..."
 
-    xargs -a .todo.$$ -0 -I '{}' -P "$PARALLEL" -n1 -0 sh -c "echo '{}' | sed 's/[^ ]* \(.*\)/\t\1/' >&2; asciidoc ${ASCIIDOC_OPTIONS[*]} {}"
+    msg
+    msg -e "\n\ngenerating HTML:\n"
+    msg "asciidoc: ${ASCIIDOC_OPTIONS[*]} ..."
+    msg
+
+    xargs -a .todo.$$ -0 -I '{}' -P "$PARALLEL" -n1 -0 \
+       sh -c "echo '{}' | sed 's/[^ ]* \(.*\)/\t\1/' >&2; asciidoc ${ASCIIDOC_OPTIONS[*]} {}"
     rm .todo.$$
 
     if [[ $run_menugen = yes ]]; then
@@ -122,7 +149,7 @@ esac |
             rm menu.html.tmp
         else
             msg
-            msg "regenerate menus"
+            msg "regenerated menus"
             mv menu.html.tmp menu.html
         fi
     fi
