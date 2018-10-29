@@ -2,6 +2,7 @@
 DEFAULT_CONF=page
 GROUP=$(find -L index.txt -printf "%g")
 PARALLEL=${PARALLEL:-$(nproc || echo 4)}
+ASCIIDOC=$(which asciidoc)
 ASCIIDOC_OPTIONS=("--unsafe" "--backend=xhtml11" "--attribute icons" "--attribute=iconsdir=/images/asciidoc" "--attribute=badges!" "--attribute quirks!")
 
 # unconditional dependencies
@@ -136,11 +137,11 @@ esac |
 
     msg
     msg -e "\n\ngenerating HTML:\n"
-    msg "asciidoc: ${ASCIIDOC_OPTIONS[*]} ..."
+    msg "$ASCIIDOC ${ASCIIDOC_OPTIONS[*]} ..."
     msg
 
     xargs -a .todo.$$ -0 -I '{}' -P "$PARALLEL" -n1 -0 \
-       sh -c "echo '{}' | sed 's/[^ ]* \(.*\)/\t\1/' >&2; asciidoc ${ASCIIDOC_OPTIONS[*]} {}"
+       sh -c "echo '{}' | sed 's/[^ ]* \(.*\)/\t\1/' >&2; $ASCIIDOC  ${ASCIIDOC_OPTIONS[*]} {}"
     rm .todo.$$
 
     if [[ $run_menugen = yes ]]; then
