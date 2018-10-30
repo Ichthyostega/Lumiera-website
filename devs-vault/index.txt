@@ -17,7 +17,7 @@ Developers Vault
 
 
 
-This section of the website contains resources for the link:{l}/devs-vault/devs.html[active developers]
+This section of the website contains resources for the link:/devs-vault/devs.html[active developers]
 of the project. The content here may not be what you are looking for if you are a user.
 
 Repositories

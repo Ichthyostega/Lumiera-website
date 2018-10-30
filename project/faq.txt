@@ -20,7 +20,7 @@ What is the meaning of the name »Lumiera«?::
 Is Lumiera a fork of Cinelerra?::
   No. Lumiera is built from scratch. Not a single line of Cinelerra code is now
   used in Lumiera. The project grew out of an effort to amend
-  link:{l}/project/background/history/CinelerraWoes.html[long standing problems]
+  link:/project/background/history/CinelerraWoes.html[long standing problems]
   present in the Cinelerra-CV code base at that time. Lumiera would be unthinkable
   without Cinelerra as point of reference, considering both its strengths and
   weaknesses. The actual technology however is built ground-up, using contemporary
@@ -31,7 +31,7 @@ OMG. Why yet another rewrite? Can't you guys just join another project?::
   May we ask back why the ``other guys'' don't just join the Lumiera project?
 +
 Seriously. Our project has
-link:{l}/project/background/history[specific roots], and it has
+link:/project/background/history[specific roots], and it has
 a distinct focus (professional editing, film making). Other projects have different
 goals and different value systems. We choose methods and solutions deemed adequate
 to reach our ambitious goals, yet we do not want to spend _our life time_ working
@@ -53,7 +53,7 @@ When will Lumiera be usable for basic tasks?::
   schedule or even a guess. We have built a set of core components thus far and achieved
   some partial integration, but there is still a lot of advanced stuff to work out.
   And our developer team is small.footnote:[You can follow progress on our regular
-  link:{l}/project/news/news.html[Development News] updates.]
+  link:/project/news/news.html[Development News] updates.]
 
 Is this project dead? I don't see any progress?::
   Rest assured, we're constantly working on this project. Look at the
