@@ -61,10 +61,10 @@ build server (``builddrone'')
 
 Lumiera is still plagued by the lack of developers.
 In the Spring of this year, Lumiera had a _pro bono_ advertisement
-in the link:http://libregraphicsmag.com[Libre Graphics Magazine], an Open Source
+in the http://libregraphicsmag.com[Libre Graphics Magazine], an Open Source
 magazine devoted to Open Source Graphics.
 The advertisement, placed on page 45 of Issue-1.4, ->
-link:http://libregraphicsmag.com/files/libregraphicsmag_1.4_lowquality.pdf[pdf low res] ~(19MB)~
+http://libregraphicsmag.com/files/libregraphicsmag_1.4_lowquality.pdf[pdf low res] ~(19MB)~
 http://libregraphicsmag.com/files/libregraphicsmag_1.4_highquality.pdf[high res] ~(456MB)~
 was generally
 geared towards a call for developers.  The problem of too few developers working

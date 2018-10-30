@@ -57,7 +57,7 @@ When will Lumiera be usable for basic tasks?::
 
 Is this project dead? I don't see any progress?::
   Rest assured, we're constantly working on this project. Look at the
-  link:http://Lumiera.org/gitweb[Git repositories] if in doubt. But regarding the GUI,
+  https://git.lumiera.org/[Git repositories] if in doubt. But regarding the GUI,
   your observation is correct: Work on the GUI has stalled, since we don't have a
   dedicated GUI developer right now, and the other devs are focussed primarily
   at the engine core.footnote:[See also project

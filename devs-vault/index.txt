@@ -55,7 +55,7 @@ revision (SHA of the git commit) you're basing your patch on.
 
 .Github
 Ichthyo also maintains a backup copy of the primary Repositories at
-link:https://github.com/Ichthyostega/Lumiera[Github] +
+https://github.com/Ichthyostega/Lumiera[Github] +
 In case everything else fails, you may fork there as well.
 
 Technical Documentation
@@ -75,9 +75,9 @@ Technical Documentation
   interested in some concepts, subsystems or components, check out the file-level
   documentation of the corresponding primary header files.
 - The issue tracking system (*Trac*) provides several
-  link:https://issues.lumiera.org/report[Query-reports].
+  https://issues.lumiera.org/report[Query-reports].
   Especially the report
-  link:https://issues.lumiera.org/report/14[»recently changed«] might
+  https://issues.lumiera.org/report/14[»recently changed«] might
   give a good feel about currently ongoing activities.
 - feel free to ask on link:/project/contact.html[IRC]!
 

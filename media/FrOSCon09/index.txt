@@ -33,10 +33,10 @@ image:hermanr.png["Herman Robak, well-wisher from cinelerra-cv - Norway", width=
 
 image:RadioTux_Logo.png["Radio tux logo", width=180] image:jalalbad-school-with-linux-olpc-lxde-freifunk.png["Mario Behling", width=180, link="jalalbad-school-with-linux-olpc-lxde-freifunk.png"] image:blue-1024x768.thumbnail.png["LXDE screenshot", width=180] 
 
-Mario Behling from http://www.lxde.org/[LXDE] talked to the Lumiera team in front of a microphone for 35 minutes. + 
-The interview is now online at Mario's blog link:http://www.perspektive89.com/2009/lumiera_radio_interview_during_froscon_2009[perspective89] and at link:http://blog.radiotux.de/2009/09/02/interview-ueber-lumiera/[Radio Tux].
+Mario Behling from http://www.lxde.org/[LXDE] talked to the Lumiera team in front of a microphone for 35 minutes. +
+The interview is now online at http://blog.radiotux.de/2009/09/02/interview-ueber-lumiera/[Radio Tux].
 
-Thanks to Mario for his warm support and to the Radio Tux team who made this happen. 
+Thanks to Mario for his warm support and to the Radio Tux team who made this happen.
 
 ...
 

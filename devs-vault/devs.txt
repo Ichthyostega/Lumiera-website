@@ -42,4 +42,4 @@ _simAV_::
 
 
 ....
-~see also -> link:http://www.ohloh.net/p/lumiera/contributors[code stats at +ohloh.net+]~
+~see also -> https://www.ohloh.net/p/lumiera/contributors[code stats at +ohloh.net+]~

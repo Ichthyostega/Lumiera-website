@@ -50,7 +50,7 @@ link:{l}/documentation/user/tutorials/building.html[»Building Lumiera from sour
 Additional resources
 ^^^^^^^^^^^^^^^^^^^^
 - browse, review and download current Lumiera code and more from our various
-  Git repositories, link:http://www.lumiera.org/gitweb[browsable online here].
+  Git repositories, http://git.lumiera.org/[browsable online here].
 - find more information about the project in the 
   link:{l}/project/index.html[Project section].
 - for in-depth design and technical documentation and further tutorials
