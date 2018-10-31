@@ -1,6 +1,6 @@
 #!/bin/bash
 DEFAULT_CONF=page
-GROUP=$(find -L index.txt -printf "%g")
+GROUP=$(find -L index.txt -printf "%g" | head -1)
 PARALLEL=${PARALLEL:-$(nproc || echo 4)}
 ASCIIDOC=$(which asciidoc)
 ASCIIDOC_OPTIONS=("--unsafe" "--backend=xhtml11" "--attribute icons" "--attribute=iconsdir=/images/asciidoc" "--attribute=badges!" "--attribute quirks!")
@@ -28,7 +28,7 @@ run_menugen=no
 if [[ ! "$1" ]]; then
     msg -en "\nfinding dependencies:\n\n\t"
 
-    find -L . -name '*.txt' -group "$GROUP" |
+    find -L . -name '*.txt' -not -name '.*' -group "$GROUP" |
         while read file; do
             [[ "${IGNORE/*${file#./}*}" ]] || continue
             msg -n "."
@@ -105,7 +105,7 @@ esac
 
 case "$1" in
 --all|'')
-    find -L . -name '*.txt' -group "$GROUP"
+    find -L . -name '*.txt' -not -name '.*' -group "$GROUP"
     ;;
 *)
     for file in "$@"; do
