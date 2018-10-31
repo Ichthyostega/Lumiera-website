@@ -27,7 +27,7 @@ Each developer has his own repository, but usually developers are working on the
 e.g. you'll certainly find the _master_ branch in each repository. We are fairly liberal when
 it comes to giving people an account on +git.lumiera.org+, to allow publishing the individual
 developer's work to public repositories. Just ask, maybe explain a bit what you intend to do. +
--> browse our repositories online via link:https://git.lumiera.org/gitweb[Gitweb]
+-> browse our repositories online via https://git.lumiera.org/[Gitweb]
 
 Repository usage pattern
 ~~~~~~~~~~~~~~~~~~~~~~~~

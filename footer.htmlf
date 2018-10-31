@@ -22,12 +22,12 @@
         </td>
     </tr>
     <tr>
-        <td><a href="https://git.lumiera.org/gitweb?p=LUMIERA;a=shortlog;h=refs/heads/master">master</a>&nbsp;&middot;
-            <a href="https://git.lumiera.org/gitweb?p=lumiera/ichthyo;a=shortlog;h=refs/heads/gui">gui</a>&nbsp;&middot;
-            <a href="https://git.lumiera.org/gitweb?p=lumiera/ichthyo;a=shortlog;h=refs/heads/proc">proc</a>&nbsp;&middot;
-            <a href="https://git.lumiera.org/gitweb?p=lumiera/ct;a=shortlog;h=refs/heads/backend">back</a>&nbsp;&middot;
-            <a href="https://git.lumiera.org/gitweb?p=lumiera_documentation">dok</a>&nbsp;&middot;
-            <a href="https://git.lumiera.org/gitweb?p=lumiera/website">web</a>
+        <td><a href="https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=refs/heads/master">master</a>&nbsp;&middot;
+            <a href="https://git.lumiera.org/?p=lumiera/ichthyo;a=shortlog;h=refs/heads/gui">gui</a>&nbsp;&middot;
+            <a href="https://git.lumiera.org/?p=lumiera/ichthyo;a=shortlog;h=refs/heads/proc">proc</a>&nbsp;&middot;
+            <a href="https://git.lumiera.org/?p=lumiera/ct;a=shortlog;h=refs/heads/backend">back</a>&nbsp;&middot;
+            <a href="https://git.lumiera.org/?p=lumiera_documentation">doc</a>&nbsp;&middot;
+            <a href="https://git.lumiera.org/?p=website">web</a>
         </td>
         <td><a href="https://issues.lumiera.org/report/14">recent</a>&nbsp;&middot;
             <a href="https://issues.lumiera.org/report/5">stalled</a>&nbsp;&middot;
