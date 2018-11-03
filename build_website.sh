@@ -18,9 +18,31 @@ function msg()
 }
 
 
-
-
 umask 003
+
+
+case "$1" in
+--help|-h|-?)
+    SCRIPT=${0##*/}
+    cat <<EOF
+    Website rebuild script
+Usage:
+        $SCRIPT
+           Rebuild only whats necessary
+
+        $SCRIPT [asciidocfiles..]
+           Rebuild the given files
+
+        $SCRIPT --all
+           Rebuild all pages unconditionally
+
+        $SCRIPT --help
+           This help
+EOF
+    exit 0
+esac
+
+
 
 run_menugen=no
 
@@ -28,7 +50,7 @@ run_menugen=no
 if [[ ! "$1" ]]; then
     msg -en "\nfinding dependencies:\n\n\t"
 
-    find -L . -name '*.txt' -not -name '.*' -group "$GROUP" |
+    find -L . -name '*.txt' -not -name '.*' -writable -group "$GROUP" |
         while read file; do
             [[ "${IGNORE/*${file#./}*}" ]] || continue
             msg -n "."
@@ -80,29 +102,6 @@ fi
 
 
 # second pass for every .txt file
-case "$1" in
---help|-h|-?)
-    cat <<EOF
-    Website rebuild script
-Usage:
-        ${0##*/}
-           Rebuild only whats necessary
-
-        ${0##*/} [asciidocfiles..]
-           Rebuild the given files
-
-        ${0##*/} --all
-           Rebuild all pages unconditionally
-
-        ${0##*/} --clean
-           Cleans/deletes all files not under git control
-
-        ${0##*/} --help
-           This help
-EOF
-    exit 0
-esac
-
 case "$1" in
 --all|'')
     find -L . -name '*.txt' -not -name '.*' -group "$GROUP"
