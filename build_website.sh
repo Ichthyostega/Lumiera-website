@@ -141,7 +141,8 @@ esac |
     msg
 
     xargs -a .todo.$$ -0 -I '{}' -P "$PARALLEL" -n1 -0 \
-       sh -c "echo '{}' | sed 's/[^ ]* \(.*\)/\t\1/' >&2; $ASCIIDOC  ${ASCIIDOC_OPTIONS[*]} {}"
+       sh -c "echo '{}' | sed 's/[^ ]* \(.*\)/\t\1/' >&2; $ASCIIDOC  ${ASCIIDOC_OPTIONS[*]} {}" 2>&1 \
+       | tee asciidoc_log
     rm .todo.$$
 
     if [[ $run_menugen = yes ]]; then
