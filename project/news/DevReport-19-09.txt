@@ -9,11 +9,39 @@ Lumiera 2019 Development Report
 
 
 .Introduction
-lorem ipsum...
+We review the status of the project here.  Traditionally, we present _our_, i.e.,
+that of team members, view of the project.  However, to provide a more balanced
+perspective, we provide some comments from another source:
+https://www.openhub.net/p/lumiera/[Openhub]:
+ - Programming effort of about 30 years
+ - 115,094 lines of code 
+ - Rated with five stars by 4 people
+ - 31% less activity in 2019
 
+So why then less activity over the previous year?  _Ichthyo_ devoted a number of
+months pursuing other activities. 
 
-Main Section
-------------
+Project Activity
+----------------
+
+Appropriate Nomenclature
+~~~~~~~~~~~~~~~~~~~~~~~~
+'What's in a name?' Juliet says to Romeo in the famous balcony scene of Romeo
+and Juliet by Will Shakespeare. Indeed Martin Fowler (aka Uncle Bob) has
+considerably more to say about the importance of selecting words to name things
+in our code. Modern practice of programming has embraced these ideas and the
+importance of this is now widespread.
+
+We've spent considerable time in selecting appropriate vocabulary throughout the
+project and we were always unhappy with two serms: _proc_ and _backend_. So
+we've renamed these. The _proc_ layer is known as the _steam_ layer, and the
+_backend_ layer is known as the _vault_ layer.
+
+The old nomenclature was mis-leading and had to go.
+
+We would, of course, be most delighted to hear any comments (or objections) you
+might like to make on our mailing list.
+
 
 Sub Section
 ~~~~~~~~~~~
