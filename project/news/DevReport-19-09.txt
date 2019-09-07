@@ -63,6 +63,9 @@ It is possible to start Lumiera and view the Timeline on the GUI.
 
 Status of Support for C++17
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We always strive to support the latest software versions. This is poignantly
+evident in our persual to support the latest C\+\+ version.  We currently
+support C\+\+14, which required considerable effort. The newer C\+\+14 is also
+proving to be a significant challenge.  We have begun initial work on migrating
+to compiling with C\+\+17.
 
-We currently support compiling with C\+\+14. Out next objective is to compile with
-C\+\+17. We have begun initial work on migrating to compiling with C\+\+17.
