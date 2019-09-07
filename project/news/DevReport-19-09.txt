@@ -32,9 +32,9 @@ in our code. Modern practice of programming has embraced these ideas and the
 importance of this is now widespread.
 
 We've spent considerable time in selecting appropriate vocabulary throughout the
-project and we were always unhappy with two serms: _proc_ and _backend_. So
-we've renamed these. The _proc_ layer is known as the _steam_ layer, and the
-_backend_ layer is known as the _vault_ layer.
+project and we were always unhappy with two terms: _proc_ and _backend_. So
+we've renamed these. The _proc_ layer is now known as the _steam_ layer, and the
+_backend_ layer has been renamed to the _vault_ layer.
 
 The old nomenclature was mis-leading and simply had to go.
 
