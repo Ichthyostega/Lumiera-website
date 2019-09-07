@@ -101,8 +101,11 @@ the typical desktop light or dark themes.
 
 Status of Support for C++17
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-We always strive to support the latest software versions. This is poignantly
-evident in our persual to support the latest C\+\+ version.  
-We currently support compiling with C\+\+14. Out next objective is to compile with
-C\+\+17. We have begun initial work on migrating to compiling with C++17.
-
+We always strive to support the latest software versions.
+We currently adhere to the C\+\+14 language standard. Out next objective is to compile
+with C\+\+17. We expect not much impact from this upgrade in language standards, which
+can be applied once we raise our ``reference platform'' from Debian/Stretch to the
+recently released Debian/Buster. Beyond that, we're already looking ahead at the
+upcoming C++20 language standard. Lumiera will certainly benefit from the
+Range TS and the introduction of Concepts, which fits in well with the way we are
+using templates in the code base to create and assemble generic building blocks.
