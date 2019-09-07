@@ -26,7 +26,7 @@ might be interesting:
 So why then less activity over the previous year?  _Ichthyo_ devoted a number of
 months pursuing other activities, most notably some music composition projects
 and his contribution to the
-http://yoshimi.sourceforge.net/[Yoshimi soft synthesiser], which developed after his
+http://yoshimi.sourceforge.net/[Yoshimi soft synthesiser], which emerged after his
 https://media.ccc.de/v/lac2018-12-inbuilt_musicality[Workshop »Inbuilt Musicality« at LAC 2016 Berlin].
 
 
@@ -55,17 +55,23 @@ The Timeline View
 The Timeline View has received some developer attention.
 
 Recall that the Timeline is a time axis with one or more outputs. Each
-output can have its own configuration. Sequences can then be attached to the
-timeline.
+output can have its own configuration. A Sequence can then be attached to the
+timeline, and within each Sequence, clips are placed and arranged onto a fork
+of tracks.
 
 The timeline obviously features on the stage
-and is without a fixed structure. Fixing the structure of the Timeline would not
-be a good idea as the structure of the Timeline is individual and thereby should
-be in the user domain, i.e., user configurable.
-Implementing such a feature is time consuming and complex, but though must be
+and is without a hard wired structure. Fixing the layout of the Timeline would not
+be a good idea as the structure of the Timeline is individual and thereby follows
+the way an editor prefers to arrange the material. The _session model_ down in
+steam layer is very flexible in this respect, and so we need a way to reflect
+the current structure onto the stage without creating a tight coupling between
+the session and the stage internals.
+Building such a feature is time consuming and complex, but thought must be
 devoted to its implementation earlier rather than later in the project.
 
-It is possible to start Lumiera and view the Timeline on the GUI.
+Right now, we are able to trigger a (dummy) structure message from the steam layer,
+which is translated into an corresponding arrangement of timeline and track widgets
+on the stage.
 
 
 Status of Support for C++17
