@@ -20,8 +20,10 @@ https://www.openhub.net/p/lumiera/[Openhub]:
 So why then less activity over the previous year?  _Ichthyo_ devoted a number of
 months pursuing other activities which is reflected in the diminished activity.
 
+
 Project Activity
 ----------------
+
 
 Appropriate Nomenclature
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -42,7 +44,25 @@ We would, of course, be most delighted to hear any comments (or objections) you
 might like to make, for example, on our https://www.lumiera.org/contribute.html[mailing list]. 
 
 
-Sub Section
-~~~~~~~~~~~
-Text
+The Timeline View
+~~~~~~~~~~~~~~~~~
+The Timeline View has received some developer attention.
 
+Recall that the Timeline is a time axis with one or more outputs. Each
+output can have its own configuration. Sequences can then be attached to the
+timeline.
+
+The timeline obviously features on the stage (i.e., formally known as the GUI)
+and is without a fixed structure. Fixing the structure of the Timeline would not
+be a good idea as the structure of the Timeline is individual and thereby should
+be in the user domain, i.e., user configurable.
+Implementing such a feature is time consuming and complex, but though must be
+devoted to its implementation earlier rather than later in the project.
+
+It is possible to start Lumiera and view the Timeline on the GUI.
+
+
+Status of Support for C++17
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+We currently support compiling with C++14. Out next objective is to compile with
+C++17. We have begun initial work on migrating to compiling with C++17.
