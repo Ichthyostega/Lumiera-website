@@ -35,22 +35,19 @@ Project Activity
 
 Appropriate Nomenclature
 ~~~~~~~~~~~~~~~~~~~~~~~~
-``What's in a name?'' Juliet says to Romeo in the famous balcony scene of Romeo
-and Juliet by Will Shakespeare. Indeed Robert Cecil Martin (aka Uncle Bob) has
-considerably more to say about the importance of selecting words to name things
-in our code. Modern practice of programming has embraced these ideas and the
+``What's in a name?'' Juliet says to Romeo in the famous balcony scene by
+Shakespeare. Indeed Robert Cecil Martin (aka Uncle Bob) has considerably
+more to say about the importance of selecting words to name things in our code.
+Modern practice of programming has embraced these ideas and the
 importance of this is now widespread.
 
 We've spent considerable time in selecting appropriate vocabulary throughout the
-project and we were always unhappy with two terms: ``proc'' and ``backend''. So
-we've link:{rfc}/LayerNames.html[renamed] these.
+project and we were increasingly unhappy with two terms: ``proc'' and ``backend'',
+which over time became misaligned with the actual purpose of these layers. So
+we've link:{rfc}/LayerNames.html[decided to rename] these.
 The ``proc layer'' is now known as the _steam layer_, and the
-``backend'' has been renamed to be the _vault layer_.
-
-The old nomenclature was misleading and simply had to go.
-
-We would, of course, be most delighted to hear any comments (or objections) you
-might like to make, for example, on our https://www.lumiera.org/contribute.html[mailing list]. 
+``backend'' has been renamed to be the _vault layer_. While the former
+`namespace gui` became _the stage._
 
 
 The Timeline View
@@ -61,7 +58,7 @@ Recall that the Timeline is a time axis with one or more outputs. Each
 output can have its own configuration. Sequences can then be attached to the
 timeline.
 
-The timeline obviously features on the stage (i.e., formally known as the GUI)
+The timeline obviously features on the stage
 and is without a fixed structure. Fixing the structure of the Timeline would not
 be a good idea as the structure of the Timeline is individual and thereby should
 be in the user domain, i.e., user configurable.
