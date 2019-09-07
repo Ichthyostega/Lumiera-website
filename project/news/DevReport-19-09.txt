@@ -8,18 +8,26 @@ Lumiera 2019 Development Report
 
 
 .Introduction
-We review the status of the project here.  Traditionally, we present _our_, i.e.,
-that of team members, view of the project.  However, from another perspective,
-we provide some comments on Lumiera from another source: 
-https://www.openhub.net/p/lumiera/[Openhub]:
+We review the status of the project here.  Traditionally, we present _our_
+view of the project.  However, from another perspective, some statistics about
+Lumiera from another source, https://www.openhub.net/p/lumiera/[Openhub]
+might be interesting:
 
- - Programming effort of about 30 years
- - 115,094 lines of code 
- - Rated with five stars by 4 people
+ - 115,094 lines of code; 88% written in C++
+ - using the https://en.wikipedia.org/wiki/COCOMO#History[Basic COCOMO Model],
+   this translates into a programming effort of about 30 years; in a commertial
+   setup such would relate to a code base value of ~$1.6 million.
+ - Very well-commented source code, placing ``Lumiera among the top 10% of all
+   C++ projects on Open Hub''.
+ - Rated with five stars by 4 people. Two people even clicked ``I use this'' +
+   _Who did this?_ confess! ;-)
  - 31% less activity in 2019
 
 So why then less activity over the previous year?  _Ichthyo_ devoted a number of
-months pursuing other activities which is reflected in the diminished activity.
+months pursuing other activities, most notably some music composition projects
+and his contribution to the
+http://yoshimi.sourceforge.net/[Yoshimi soft synthesiser], which developed after his
+https://media.ccc.de/v/lac2018-12-inbuilt_musicality[Workshop »Inbuilt Musicality« at LAC 2016 Berlin].
 
 
 Project Activity
