@@ -6,8 +6,6 @@ Lumiera 2019 Development Report
 
 //Menu: label 19-09 Dev Report
 
-Project Activity
-----------------
 
 .Introduction
 We review the status of the project here.  Traditionally, we present _our_, i.e.,
@@ -24,18 +22,22 @@ So why then less activity over the previous year?  _Ichthyo_ devoted a number of
 months pursuing other activities which is reflected in the diminished activity.
 
 
+Project Activity
+----------------
+
 Appropriate Nomenclature
 ~~~~~~~~~~~~~~~~~~~~~~~~
-"What's in a name?" Juliet says to Romeo in the famous balcony scene of Romeo
-and Juliet by Will Shakespeare. Indeed Martin Fowler (aka Uncle Bob) has
+``What's in a name?'' Juliet says to Romeo in the famous balcony scene of Romeo
+and Juliet by Will Shakespeare. Indeed Robert Cecil Martin (aka Uncle Bob) has
 considerably more to say about the importance of selecting words to name things
 in our code. Modern practice of programming has embraced these ideas and the
 importance of this is now widespread.
 
 We've spent considerable time in selecting appropriate vocabulary throughout the
-project and we were always unhappy with two terms: _proc_ and _backend_. So
-we've renamed these. The _proc_ layer is now known as the _steam_ layer, and the
-_backend_ layer has been renamed to the _vault_ layer.
+project and we were always unhappy with two terms: ``proc'' and ``backend''. So
+we've link:{rfc}/LayerNames.html[renamed] these.
+The ``proc layer'' is now known as the _steam layer_, and the
+``backend'' has been renamed to be the _vault layer_.
 
 The old nomenclature was misleading and simply had to go.
 
@@ -64,8 +66,7 @@ It is possible to start Lumiera and view the Timeline on the GUI.
 Status of Support for C++17
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We always strive to support the latest software versions. This is poignantly
-evident in our persual to support the latest C++ version.  We currently
-support C\+\+14, which required considerable effort. The newer C++14 is also
-proving to be a significant challenge.  We have begun initial work on migrating
-to compiling with C++17.
+evident in our persual to support the latest C\+\+ version.  
+We currently support compiling with C\+\+14. Out next objective is to compile with
+C\+\+17. We have begun initial work on migrating to compiling with C++17.
 
