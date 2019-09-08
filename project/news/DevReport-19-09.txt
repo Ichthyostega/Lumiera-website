@@ -14,9 +14,9 @@ Lumiera from another source, https://www.openhub.net/p/lumiera/[Openhub]
 might be interesting:
 
  - 115,094 lines of code; 88% written in C++
- - using the https://en.wikipedia.org/wiki/COCOMO#History[Basic COCOMO Model],
+ - Using the https://en.wikipedia.org/wiki/COCOMO#History[Basic COCOMO Model],
    this translates into a programming effort of about 30 years; in a commertial
-   setup such would relate to a code base value of ~$1.6 million.
+   setup such effort would relate to a code base value of ~$1.6 million.
  - Very well-commented source code, placing ``Lumiera among the top 10% of all
    C++ projects on Open Hub''.
  - Rated with five stars by 4 people. Two people even clicked ``I use this'' +
@@ -27,7 +27,7 @@ So why then less activity over the previous year?  _Ichthyo_ devoted a number of
 months pursuing other activities, most notably some music composition projects
 and his contribution to the
 http://yoshimi.sourceforge.net/[Yoshimi soft synthesiser], which emerged after his
-https://media.ccc.de/v/lac2018-12-inbuilt_musicality[Workshop »Inbuilt Musicality« at LAC 2016 Berlin].
+https://media.ccc.de/v/lac2018-12-inbuilt_musicality[Workshop »Inbuilt Musicality« at LAC 2018 Berlin].
 
 
 Project Activity
