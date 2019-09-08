@@ -63,15 +63,16 @@ The timeline obviously features on the stage
 and is without a hard wired structure. Fixing the layout of the Timeline would not
 be a good idea as the structure of the Timeline is individual and thereby follows
 the way an editor prefers to arrange the material. The _session model_ down in
-steam layer is very flexible in this respect, and so we need a way to reflect
+the steam layer is very flexible in this respect. Thus, we require a means to convey
 the current structure onto the stage without creating a tight coupling between
 the session and the stage internals.
 Building such a feature is time consuming and complex, but thought must be
 devoted to its implementation earlier rather than later in the project.
 
-Right now, we are able to trigger a (dummy) structure message from the steam layer,
+Currently, we are able to trigger a (dummy) structure message from the steam layer,
 which is translated into an corresponding arrangement of timeline and track widgets
 on the stage.
+
 
 Custom drawing and CSS
 ~~~~~~~~~~~~~~~~~~~~~~
