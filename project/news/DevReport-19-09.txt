@@ -59,15 +59,17 @@ output can have its own configuration. A Sequence can then be attached to the
 timeline, and within each Sequence, clips are placed and arranged onto a fork
 of tracks.
 
-The timeline obviously features on the stage
-and is without a hard wired structure. Fixing the layout of the Timeline would not
-be a good idea as the structure of the Timeline is individual and thereby follows
-the way an editor prefers to arrange the material. The _session model_ down in
-the steam layer is very flexible in this respect. Thus, we require a means to convey
-the current structure onto the stage without creating a tight coupling between
-the session and the stage internals.
-Building such a feature is time consuming and complex, but thought must be
-devoted to its implementation earlier rather than later in the project.
+The timeline obviously features on the stage and is without a hard wired
+structure. Fixing the layout of the Timeline would not be a good idea as the
+structure of the Timeline is personal and matter of individual taste. The layout
+tends to follow the way the editor presers to arrange material. The _session
+model_ down in the steam layer is very flexible in this respect. We thus find
+ourselves in a dilemma: how can transfer the current structure onto the stage
+without the evil of creating tight coupling between the session and the
+internals of the internals of the stage? The solution, however it might turn out
+to be, will be time consuming and complex. Moreover time must be invested in its
+implementation at an early stage of the project. The penalities resulting in
+tackling this problem later in the project are simply too high.
 
 Currently, we are able to trigger a (dummy) structure message from the steam layer,
 which is translated into an corresponding arrangement of timeline and track widgets
@@ -77,9 +79,9 @@ on the stage.
 Custom drawing and CSS
 ~~~~~~~~~~~~~~~~~~~~~~
 Building a user interface for media applications often pushes the underlying toolkit
-to the limits. While a typical modern UI toolkit tends to be fairly complete and well
-outfitted for your typical ``business application'', the challenges of media handling
-necessitate to build some select widgets from scratch. And this gives rise to a
+to its limits. While a typical modern UI toolkit tends to be fairly complete and well
+fitted for your typical ``business application'', the challenges of media handling
+necessitate building some select widgets from scratch. This, in turn, gives rise to a
 specific twist, since contemporary users also expect more beyond just some functional
 drop-down boxes to click at. A lot of design slickness has been added to most UI toolkits,
 and this endangers our custom made widgets to get into the way in various respects, be
