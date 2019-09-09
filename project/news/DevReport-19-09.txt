@@ -80,24 +80,24 @@ Custom drawing and CSS
 ~~~~~~~~~~~~~~~~~~~~~~
 Building a user interface for media applications often pushes the underlying toolkit
 to its limits. While a typical modern UI toolkit tends to be fairly complete and well
-fitted for your typical ``business application'', the challenges of media handling
-necessitate building some select widgets from scratch. This, in turn, gives rise to a
-specific twist, since contemporary users also expect more beyond just some functional
-drop-down boxes to click at. A lot of design slickness has been added to most UI toolkits,
-and this endangers our custom made widgets to get into the way in various respects, be
-it just visually, or in terms of ergonomy.
+suited for your typical ``business application'', the challenges of working with media 
+inevitably requires building some select widgets from scratch.  This, in turn,
+gives rise to a specific twist, since contemporary users also expect more beyond just some functional
+drop-down boxes to click on. A lot of design slickness has been added to most UI toolkits,
+and this is dangerous and risky for our custom-made widgets which will interfere
+in various ways, be it simply a visual interference or impede ergonomy. 
 
 Instead of just drawing some boxes with Cairo, a lot of effort has been put into assembling
 as much as possible from existing code and layout building blocks already present in GTK.
 Most notably, we have developed a way for our custom drawing code to pick up theming and
-styling from the user's CSS stylesheet, and we provide the necessary extension hooks
+styling from the user's CSS stylesheet. We also provide the necessary extension hooks
 to allow users to style even our custom made arrangement of components to their heart's
 desire. Lumiera will ship with a dedicated _Application Style Sheet_ in the
-subdued gray look typical for of professional media work applications.footnote:[
+subdued gray look typically to be found in professional media work applications.footnote:[
 In fact, the actual graphics work for this Application Style Sheet still needs to be
-completed. We'll build upon the stylesheet our former GUI developer, _Joel Holdsworth_
-extracted from the https://Ardour.org[Addour DAW] years ago.] Alternatively, we also
-provide a light theme / dark theme ``complement stylesheet'' to fill in just that
+completed. We will build on the stylesheet our former GUI developer, _Joel Holdsworth_
+extracted from https://Ardour.org[Addour DAW] years ago.] Alternatively, we also
+provide a light theme / dark theme ``complement stylesheet'' to fill-in just that
 bare minimum of additional layout and styling required to run Lumiera on top of
 the typical desktop light or dark themes.
 
