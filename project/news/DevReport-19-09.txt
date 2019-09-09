@@ -62,7 +62,7 @@ of tracks.
 The timeline obviously features on the stage and is without a hard wired
 structure. Fixing the layout of the Timeline would not be a good idea as the
 structure of the Timeline is personal and a matter of individual taste. The layout
-tends to follow the way the editor presers to arrange material. The _session
+tends to follow the way the editor prefers to arrange material. The _session
 model_ down in the steam layer is very flexible in this respect. We thus find
 ourselves in a dilemma: how can we transfer the current structure onto the stage
 without the evil of creating tight coupling between the session and the
