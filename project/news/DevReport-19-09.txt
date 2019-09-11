@@ -65,7 +65,7 @@ structure of the Timeline is personal and a matter of individual taste. The layo
 tends to follow the way the editor prefers to arrange material. The _session
 model_ down in the steam layer is very flexible in this respect. We thus find
 ourselves in a dilemma: how can we transfer the current structure onto the stage
-without the evil of creating tight coupling between the session and the
+without the perils of creating tight coupling between the session and the
 internals of the stage? The solution, however it might turn out
 to be, will be time consuming and complex. Moreover time must be invested in how
 this might be done at an early stage of the project. The penalities resulting in
