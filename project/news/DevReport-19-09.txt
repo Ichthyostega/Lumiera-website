@@ -9,8 +9,8 @@ Lumiera 2019 Development Report
 
 .Introduction
 We review the status of the project here.  Traditionally, we present _our_
-view of the project.  However, from another perspective, some statistics about
-Lumiera from another source, https://www.openhub.net/p/lumiera/[Openhub]
+view of the project.  However, for opinions from another perspective outside the
+Lumiera team, some statistics about Lumiera, https://www.openhub.net/p/lumiera/[Openhub]
 might be interesting:
 
  - 115,094 lines of code; 88% written in C++
@@ -52,14 +52,15 @@ The ``proc layer'' is now known as the _steam layer_, and the
 
 The Timeline View
 ~~~~~~~~~~~~~~~~~
-The Timeline View has received some developer attention.
+The https://lumiera.org/documentation/user/intro/intro.html[Timeline View] has
+received some developer attention.
 
 Recall that the Timeline is a time axis with one or more outputs. Each
-output can have its own configuration. A Sequence can then be attached to the
-timeline, and within each Sequence, clips are placed and arranged onto a fork
-of tracks.
+output can have its own configuration. Various sequences can be attached to the
+Timeline and stringed together along this temporal line, and within each
+Sequence, clips can placed and arranged onto a fork of tracks.
 
-The timeline obviously features on the stage and is without a hard wired
+The Timeline obviously features on the stage and is without a hard wired
 structure. Fixing the layout of the Timeline would not be a good idea as the
 structure of the Timeline is personal and a matter of individual taste. The layout
 tends to follow the way the editor prefers to arrange material. The _session
