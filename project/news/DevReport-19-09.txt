@@ -77,7 +77,7 @@ which is translated into an corresponding arrangement of timeline and track widg
 on the stage.
 
 
-Custom drawing and CSS
+Custom Drawing and CSS
 ~~~~~~~~~~~~~~~~~~~~~~
 Building a user interface for media applications often pushes the underlying toolkit
 to its limits. While a typical modern UI toolkit tends to be fairly complete and well
