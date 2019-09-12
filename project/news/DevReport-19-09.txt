@@ -15,7 +15,7 @@ might be interesting:
 
  - 115,094 lines of code; 88% written in C++
  - Using the https://en.wikipedia.org/wiki/COCOMO#History[Basic COCOMO Model],
-   this translates into a programming effort of about 30 years; in a commertial
+   this translates into a programming effort of about 30 years; in a commercial
    setup such effort would relate to a code base value of ~$1.6 million.
  - Very well-commented source code, placing ``Lumiera among the top 10% of all
    C++ projects on Open Hub''.
@@ -69,7 +69,7 @@ ourselves in a dilemma: how can we transfer the current structure onto the stage
 without the perils of creating tight coupling between the session and the
 internals of the stage? The solution, however it might turn out
 to be, will be time consuming and complex. Moreover time must be invested in how
-this might be done at an early stage of the project. The penalities resulting in
+this might be done at an early stage of the project. The penalties resulting in
 tackling this problem later in the project are simply too high.
 
 Currently, we are able to trigger a (dummy) structure message from the steam layer,
@@ -94,10 +94,10 @@ Most notably, we have developed a way for our custom drawing code to pick up the
 styling from the user's CSS stylesheet. We will also provide the necessary extension hooks
 to allow users to style even our custom made arrangement of components to their heart's
 desire. Lumiera will ship with a dedicated _Application Style Sheet_ in the
-subdued gray look typically to be found in professional media work applications.footnote:[
+subdued grey look typically to be found in professional media work applications.footnote:[
 In fact, the actual graphics work for this Application Style Sheet still needs to be
 completed. We will build on the stylesheet our former GUI developer, _Joel Holdsworth_
-extracted from https://Ardour.org[Addour DAW] years ago.] Alternatively, we also
+extracted from https://Ardour.org[Ardour DAW] years ago.] Alternatively, we also
 provide a light theme / dark theme ``complement stylesheet'' to fill-in just that
 bare minimum of additional layout and styling required to run Lumiera on top of
 the typical desktop light or dark themes.
