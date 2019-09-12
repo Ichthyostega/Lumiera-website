@@ -55,10 +55,9 @@ The Timeline View
 The https://lumiera.org/documentation/user/intro/intro.html[Timeline View] has
 received some developer attention.
 
-Recall that the Timeline is a time axis with one or more outputs. Each
-output can have its own configuration. Various sequences can be attached to the
-Timeline and stringed together along this temporal line, and within each
-Sequence, clips can placed and arranged onto a fork of tracks.
+Recall that the Timeline is a time axis with one or more outputs. Each output
+can have its own configuration. For editing, a Sequence is attached to the Timeline,
+and within this Sequence, clips can placed and arranged onto a fork of tracks.
 
 The Timeline obviously features on the stage and is without a hard wired
 structure. Fixing the layout of the Timeline would not be a good idea as the
@@ -91,8 +90,8 @@ in various ways, be it simply a visual interference or impede ergonomy.
 Instead of just drawing some boxes using Cairo, a lot of effort has been put into assembling
 as much as possible from existing code and layout building blocks already present in GTK.
 Most notably, we have developed a way for our custom drawing code to pick up theming and
-styling from the user's CSS stylesheet. We will also provide the necessary extension hooks
-to allow users to style even our custom made arrangement of components to their heart's
+styling from the user's CSS stylesheet. This solution also provides the necessary extension
+hooks to allow users to style even our custom made arrangement of components to their heart's
 desire. Lumiera will ship with a dedicated _Application Style Sheet_ in the
 subdued grey look typically to be found in professional media work applications.footnote:[
 In fact, the actual graphics work for this Application Style Sheet still needs to be
