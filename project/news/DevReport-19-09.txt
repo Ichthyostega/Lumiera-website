@@ -91,7 +91,7 @@ in various ways, be it simply a visual interference or impede ergonomy.
 Instead of just drawing some boxes using Cairo, a lot of effort has been put into assembling
 as much as possible from existing code and layout building blocks already present in GTK.
 Most notably, we have developed a way for our custom drawing code to pick up theming and
-styling from the user's CSS stylesheet. We also provide the necessary extension hooks
+styling from the user's CSS stylesheet. We will also provide the necessary extension hooks
 to allow users to style even our custom made arrangement of components to their heart's
 desire. Lumiera will ship with a dedicated _Application Style Sheet_ in the
 subdued gray look typically to be found in professional media work applications.footnote:[
