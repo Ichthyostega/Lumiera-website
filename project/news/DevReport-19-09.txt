@@ -104,7 +104,27 @@ the typical desktop light or dark themes.
 
 Status of Support for C++17
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-We always strive to support the latest software versions.
+
+WARNING: some quotes to help with rewriting this paragraph
+
+
+[quote, Donald Knuth, 1993]
+____
+So the language is too baroque for my taste
+____
+
+[quote, Ken Thompson]
+____
+[the C++ language] does a lot of things half well and it’s just a garbage heap of ideas that are mutually exclusive.
+Everybody I know (...) selects a subset and these subsets are different
+____
+[quote, Bjarne Stroustrup, »Design and Evolution of C++«]
+____
+within C++, there is a much smaller and cleaner language struggling to get out
+____
+...
+
+We always strive to integrate helpful novel methods and concepts emerging in the field of programming.
 We currently adhere to the C\+\+14 language standard. Out next objective is to compile
 with C\+\+17. We expect not much impact from this upgrade in language standards, which
 can be applied once we raise our ``reference platform'' from Debian/Stretch to the
