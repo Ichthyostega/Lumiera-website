@@ -102,33 +102,47 @@ bare minimum of additional layout and styling required to run Lumiera on top of
 the typical desktop light or dark themes.
 
 
-Status of Support for C++17
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Support for upcoming C++ Standards
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-WARNING: some quotes to help with rewriting this paragraph
+WARNING: this paragraph is about to be rewritten
 
 
 [quote, Donald Knuth, 1993]
 ____
-So the language is too baroque for my taste
+So the language is too baroque for my taste.
 ____
 
 [quote, Ken Thompson]
 ____
-[the C++ language] does a lot of things half well and it’s just a garbage heap of ideas that are mutually exclusive.
-Everybody I know (...) selects a subset and these subsets are different
+_[the C++ language]_ does a lot of things half well and it’s just a garbage heap of ideas that are mutually exclusive.
+Everybody I know _[...]_ selects a subset and these subsets are different.
 ____
 [quote, Bjarne Stroustrup, »Design and Evolution of C++«]
 ____
-within C++, there is a much smaller and cleaner language struggling to get out
+Within C++, there is a much smaller and cleaner language +
+struggling to get out.
 ____
-...
+Including the first ``C with classes'' from 1979, today's C++ embodies the result of 40 years of language
+evolution. And while this long history saw quite some turning points, an always prevailing theme was to incorporate
+advanced academical approaches for solving gritty everyday practical problems. The enabling trait for such undertakings
+is the ability to build _abstractions without overhead._ However -- each successful abstraction also represents an
+element of a private language; and while the formation of dialects certainly strengthens a language, it might exclude
+people not familiar with the idiom.
 
-We always strive to integrate helpful novel methods and concepts emerging in the field of programming.
-We currently adhere to the C\+\+14 language standard. Out next objective is to compile
-with C\+\+17. We expect not much impact from this upgrade in language standards, which
-can be applied once we raise our ``reference platform'' from Debian/Stretch to the
-recently released Debian/Buster. Beyond that, we're already looking ahead at the
-upcoming C++20 language standard. Lumiera will certainly benefit from the
-Range TS and the introduction of Concepts, which fits in well with the way we are
-using templates in the code base to create and assemble generic building blocks.
+In C\+\+, you'll inevitably build your own language while you build your stuff. And this incurs the responsibility
+to keep matters roughly aligned to the common trend of language evolution in the outside world. Right from start,
+to point out an obvious example, Lumiera benefited from use of function objects instead of classical callback pointers.
+Yet with the introduction of Lambdas (anonymous function entities) brought in by the C\+\+11 language standard,footnote:[
+As many commenters noted, the C\+\+11 standard was a turning point. In comparison to the language we all used to hate
+in the 90ies, what we got now feels like an entirely different language in reading and writing.] we were facing the
+challenge to sort out several flavours of functors and especially several styles of argument binding in order to reach
+a common denominator -- which is still an ongoing effort. And in a similar vein, over the years, our `itertools` have
+evolved into a pipeline building facility, incorporating even some elements from functional programming's ``monad
+pattern''. However, with the upcoming C\+\+20 standard, we are now confronted with a roughly similar yet partially
+incompatible ``official'' system for pipeline building (known as »the Range TS«), which, while deeply integrated into
+the standard library of algorithms, will certainly not so easily support our more functional-style monadic structures
+with backtracking, which we use to build search evaluations on not yet existing data structures. To bridge this gap
+will certainly require some effort then -- however, the immediately next step will be the upgrade to C++17
+language level. This transition can be expected to go rather smooth, and will be applied once we raise our
+``reference platform'' from Debian/Stretch to the recently released Debian/Buster.
