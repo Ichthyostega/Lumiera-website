@@ -1,0 +1,148 @@
+Lumiera 2019 Development Report
+===============================
+:Date: Autumn 2019
+:Author: Benny Lyons & Hermann Voßeler
+:toc:
+
+//Menu: label 19-09 Dev Report
+
+
+.Introduction
+We review the status of the project here.  Traditionally, we present _our_
+view of the project.  However, for opinions from another perspective outside the
+Lumiera team, some statistics about Lumiera, https://www.openhub.net/p/lumiera/[Openhub]
+might be interesting:
+
+ - 115,094 lines of code; 88% written in C++
+ - Using the https://en.wikipedia.org/wiki/COCOMO#History[Basic COCOMO Model],
+   this translates into a programming effort of about 30 years; in a commercial
+   setup such effort would relate to a code base value of ~$1.6 million.
+ - Very well-commented source code, placing ``Lumiera among the top 10% of all
+   C++ projects on Open Hub''.
+ - Rated with five stars by 4 people. Two people even clicked ``I use this'' +
+   _Who did this?_ confess! ;-)
+ - 31% less activity in 2019
+
+So why then less activity over the previous year?  _Ichthyo_ devoted a number of
+months pursuing other activities, most notably some music composition projects
+and his contribution to the
+http://yoshimi.sourceforge.net/[Yoshimi soft synthesiser], which emerged after his
+https://media.ccc.de/v/lac2018-12-inbuilt_musicality[Workshop »Inbuilt Musicality« at LAC 2018 Berlin].
+
+
+Project Activity
+----------------
+
+Appropriate Nomenclature
+~~~~~~~~~~~~~~~~~~~~~~~~
+``What's in a name?'' Juliet says to Romeo in the famous balcony scene by
+Shakespeare. Indeed Robert Cecil Martin (aka Uncle Bob) has considerably
+more to say about the importance of selecting words to name things in our code.
+Modern practice of programming has embraced these ideas and the
+importance of this is now widespread.
+
+We've spent considerable time in selecting appropriate vocabulary throughout the
+project and we were increasingly unhappy with two terms: ``proc'' and ``backend'',
+which over time became misaligned with the actual purpose of these layers. So
+we've link:{rfc}/LayerNames.html[decided to rename] these.
+The ``proc layer'' is now known as the _steam layer_, and the
+``backend'' has been renamed to be the _vault layer_. While the former
+`namespace gui` became _the stage._
+
+
+The Timeline View
+~~~~~~~~~~~~~~~~~
+The https://lumiera.org/documentation/user/intro/intro.html[Timeline View] has
+received some developer attention.
+
+Recall that the Timeline is a time axis with one or more outputs. Each output
+can have its own configuration. For editing, a Sequence is attached to the Timeline,
+and within this Sequence, clips can placed and arranged onto a fork of tracks.
+
+The Timeline obviously features on the stage and is without a hard wired
+structure. Fixing the layout of the Timeline would not be a good idea as the
+structure of the Timeline is personal and a matter of individual taste. The layout
+tends to follow the way the editor prefers to arrange material. The _session
+model_ down in the steam layer is very flexible in this respect. We thus find
+ourselves in a dilemma: how can we transfer the current structure onto the stage
+without the perils of creating tight coupling between the session and the
+internals of the stage? The solution, however it might turn out
+to be, will be time consuming and complex. Moreover time must be invested in how
+this might be done at an early stage of the project. The penalties resulting in
+tackling this problem later in the project are simply too high.
+
+Currently, we are able to trigger a (dummy) structure message from the steam layer,
+which is translated into an corresponding arrangement of timeline and track widgets
+on the stage.
+
+
+Custom Drawing and CSS
+~~~~~~~~~~~~~~~~~~~~~~
+Building a user interface for media applications often pushes the underlying toolkit
+to its limits. While a typical modern UI toolkit tends to be fairly complete and well
+suited for your typical ``business application'', the challenges of working with media 
+inevitably requires building some select widgets from scratch.  This, in turn,
+gives rise to a specific twist, since contemporary users also expect more beyond just some functional
+drop-down boxes to click on. A lot of design slickness has been added to most UI toolkits,
+and this is dangerous and risky for our custom-made widgets which will interfere
+in various ways, be it simply a visual interference or impede ergonomy. 
+
+Instead of just drawing some boxes using Cairo, a lot of effort has been put into assembling
+as much as possible from existing code and layout building blocks already present in GTK.
+Most notably, we have developed a way for our custom drawing code to pick up theming and
+styling from the user's CSS stylesheet. This solution also provides the necessary extension
+hooks to allow users to style even our custom made arrangement of components to their heart's
+desire. Lumiera will ship with a dedicated _Application Style Sheet_ in the
+subdued grey look typically to be found in professional media work applications.footnote:[
+In fact, the actual graphics work for this Application Style Sheet still needs to be
+completed. We will build on the stylesheet our former GUI developer, _Joel Holdsworth_
+extracted from https://Ardour.org[Ardour DAW] years ago.] Alternatively, we also
+provide a light theme / dark theme ``complement stylesheet'' to fill-in just that
+bare minimum of additional layout and styling required to run Lumiera on top of
+the typical desktop light or dark themes.
+
+
+Support for upcoming C++ Standards
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+WARNING: this paragraph is being rewritten
+
+
+[quote, Donald Knuth, 1993]
+____
+So the language is too baroque for my taste.
+____
+
+[quote, Ken Thompson]
+____
+_[the C++ language]_ does a lot of things half well and it’s just a garbage heap of ideas that are mutually exclusive.
+Everybody I know _[...]_ selects a subset and these subsets are different.
+____
+[quote, Bjarne Stroustrup, »Design and Evolution of C++«]
+____
+Within C++, there is a much smaller and cleaner language +
+struggling to get out.
+____
+Including the first ``C with classes'' from 1979, today's C++ embodies the result of 40 years of language
+evolution. And while this long history saw quite some turning points, a prevailing theme was to incorporate
+advanced academic approaches to solve gritty, everyday practical problems. The gain in such undertakings
+is the ability to build _abstractions without overhead._ However -- each abstraction also represents an
+element of a private language; and while the formation of dialects certainly strengthens a language, it might exclude
+people not familiar with the idiom.
+
+In C\+\+, you'll inevitably build your own language while you build your stuff. And this incurs the responsibility
+to keep matters roughly aligned to the common trend of language evolution in the outside world. Right from start,
+to point out an obvious example, Lumiera benefited from use of function objects instead of classical callback pointers.
+Yet with the introduction of Lambdas (anonymous function entities) brought in by the C\+\+11 language standard,footnote:[
+As many commenters noted, the C\+\+11 standard was a turning point. In comparison to the language we all used to hate
+in the 90ies, what we got now feels like an entirely different language in reading and writing.] we were facing the
+challenge to sort out several flavours of functors and especially several styles of argument binding in order to reach
+a common denominator -- which is still an ongoing effort. And in a similar vein, over the years, our `itertools` have
+evolved into a pipeline building facility, incorporating even some elements from functional programming's ``monad
+pattern''. However, with the upcoming C\+\+20 standard, we are now confronted with a roughly similar yet partially
+incompatible ``official'' system for pipeline building (known as »the Range TS«), which, while deeply integrated into
+the standard library of algorithms, will certainly not so easily support our more functional-style monadic structures
+with backtracking, which we use to build search evaluations on not yet existing data structures. To bridge this gap
+will certainly require some effort then -- however, the immediately next step will be the upgrade to C++17
+language level. This transition can be expected to go rather smooth, and will be applied once we raise our
+``reference platform'' from Debian/Stretch to the recently released Debian/Buster.
