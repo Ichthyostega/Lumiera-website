@@ -130,8 +130,9 @@ is the ability to build _abstractions without overhead._ However -- each abstrac
 element of a private language; and while the formation of dialects certainly strengthens a language, it might exclude
 people not familiar with new the idiom.
 
-In C\+\+, you'll inevitably build your own language while you build your stuff. And this incurs the responsibility
-to keep matters roughly aligned to the common trend of language evolution in the outside world. Right from start,
+In C\+\+, you'll inevitably build your own language as you use the language on your project.
+This incurs a responsibility, one in which it is necessary to keep _your language_ roughly aligned to the
+common trend of language evolution happening in the outside world. Right from start,
 to point out an obvious example, Lumiera benefited from use of function objects instead of classical callback pointers.
 Yet with the introduction of Lambdas (anonymous function entities) brought in by the C\+\+11 language standard,footnote:[
 As many commenters noted, the C\+\+11 standard was a turning point. In comparison to the language we all used to hate
