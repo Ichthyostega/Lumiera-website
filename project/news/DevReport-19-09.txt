@@ -128,7 +128,7 @@ evolution. And while this long history saw quite some turning points, a prevaili
 advanced academic approaches to solve gritty, everyday practical problems. The gain in such undertakings
 is the ability to build _abstractions without overhead._ However -- each abstraction also represents an
 element of a private language; and while the formation of dialects certainly strengthens a language, it might exclude
-people not familiar with the idiom.
+people not familiar with new the idiom.
 
 In C\+\+, you'll inevitably build your own language while you build your stuff. And this incurs the responsibility
 to keep matters roughly aligned to the common trend of language evolution in the outside world. Right from start,
