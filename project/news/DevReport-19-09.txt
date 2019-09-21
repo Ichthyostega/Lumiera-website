@@ -105,7 +105,7 @@ the typical desktop light or dark themes.
 Support for upcoming C++ Standards
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-WARNING: this paragraph is about to be rewritten
+WARNING: this paragraph is being rewritten
 
 
 [quote, Donald Knuth, 1993]
@@ -124,9 +124,9 @@ Within C++, there is a much smaller and cleaner language +
 struggling to get out.
 ____
 Including the first ``C with classes'' from 1979, today's C++ embodies the result of 40 years of language
-evolution. And while this long history saw quite some turning points, an always prevailing theme was to incorporate
-advanced academical approaches for solving gritty everyday practical problems. The enabling trait for such undertakings
-is the ability to build _abstractions without overhead._ However -- each successful abstraction also represents an
+evolution. And while this long history saw quite some turning points, a prevailing theme was to incorporate
+advanced academic approaches to solve gritty, everyday practical problems. The gain in such undertakings
+is the ability to build _abstractions without overhead._ However -- each abstraction also represents an
 element of a private language; and while the formation of dialects certainly strengthens a language, it might exclude
 people not familiar with the idiom.
 
