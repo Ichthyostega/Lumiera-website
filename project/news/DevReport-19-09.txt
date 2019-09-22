@@ -105,7 +105,7 @@ the typical desktop light or dark themes.
 Support for upcoming C++ Standards
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-WARNING: this paragraph is about to be rewritten
+WARNING: this paragraph is being rewritten
 
 
 [quote, Donald Knuth, 1993]
