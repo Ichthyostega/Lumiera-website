@@ -105,7 +105,7 @@ the typical desktop light or dark themes.
 Support for upcoming C++ Standards
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-WARNING: this paragraph is about to be rewritten
+WARNING: this paragraph is being rewritten
 
 
 [quote, Donald Knuth, 1993]
@@ -124,17 +124,19 @@ Within C++, there is a much smaller and cleaner language +
 struggling to get out.
 ____
 Including the first ``C with classes'' from 1979, today's C++ embodies the result of 40 years of language
-evolution. And while this long history saw quite some turning points, an always prevailing theme was to incorporate
-advanced academical approaches for solving gritty everyday practical problems. The enabling trait for such undertakings
-is the ability to build _abstractions without overhead._ However -- each successful abstraction also represents an
-element of a private language; and while the formation of dialects certainly strengthens a language, it might exclude
-people not familiar with the idiom.
 
-In C\+\+, you'll inevitably build your own language while you build your stuff. And this incurs the responsibility
-to keep matters roughly aligned to the common trend of language evolution in the outside world. Right from start,
-to point out an obvious example, Lumiera benefited from use of function objects instead of classical callback pointers.
-Yet with the introduction of Lambdas (anonymous function entities) brought in by the C\+\+11 language standard,footnote:[
-As many commenters noted, the C\+\+11 standard was a turning point. In comparison to the language we all used to hate
+evolution. And while this long history saw quite some turning points, a prevailing theme was to incorporate
+advanced academic approaches to solve gritty, everyday practical problems. The gain in such undertakings
+is the ability to build _abstractions without overhead._ However -- each abstraction also represents an
+element of a private language; and while the formation of dialects certainly strengthens a language, it might exclude
+people not familiar with the new idiom.
+
+In C\+\+, you'll inevitably build your own language as you use the language on your project.
+This incurs a responsibility, one in which it is necessary to keep _your language_ roughly aligned to the
+common trend of language evolution happening in the outside world. As an example, Lumiera benefited from use
+of function objects instead of classical callback pointers right from the very begining of the project. Yet
+with the introduction of Lambdas (anonymous function entities) introduced by the C\+\+11 language
+standard,footnote:[As many commenters noted, the C\+\+11 standard was a turning point. In comparison to the language we all used to hate 
 in the 90ies, what we got now feels like an entirely different language in reading and writing.] we were facing the
 challenge to sort out several flavours of functors and especially several styles of argument binding in order to reach
 a common denominator -- which is still an ongoing effort. And in a similar vein, over the years, our `itertools` have
@@ -144,5 +146,5 @@ incompatible ``official'' system for pipeline building (known as Â»the Range TSÂ
 the standard library of algorithms, will certainly not so easily support our more functional-style monadic structures
 with backtracking, which we use to build search evaluations on not yet existing data structures. To bridge this gap
 will certainly require some effort then -- however, the immediately next step will be the upgrade to C++17
-language level. This transition can be expected to go rather smooth, and will be applied once we raise our
+language level. This transition can be expected to proceed smoothly and will be implemented once we raise our
 ``reference platform'' from Debian/Stretch to the recently released Debian/Buster.
