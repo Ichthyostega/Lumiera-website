@@ -4,15 +4,16 @@ Please add new items on the top, move older items to old_news.txt
 Comment irrelevant stuff out
 
 ////
+*February 2020*::
+      The Lumiera codebase has been upgraded to C++17 level.
+
 *September-October 2019*::
-Our report includes statistics on the project provided by Open Hub which
-reveals some interesting quantitative numbers on the project. We also
-provide some notes on the C++ languish in general to explain the peril
-of using this language and the extra effort required by projects to
-support a (another) new C++ standard:
-
-* link:/project/news/DevReport-19-09.html[2019 Development Report]...
-
+      Our link:/project/news/DevReport-19-09.html[2019 Development Report]
+      includes statistics on the project provided by Open Hub which reveals
+      some interesting quantitative numbers on the project. We also provide
+      some notes on the C\++ language in general to explain the peril of
+      using this language and the extra effort required by projects to
+      support a (another) new C++ standard:
 +
 We are always glad to hear from you so do not not hesitate to pass on any
 comments you might have
@@ -21,9 +22,6 @@ link:/project/contact.html[to us].
 *September 2018*::
       Our annual report on the progress of Lumiera lists a number of elements
       contributing to project increment and the general status of the project.
-+
-Should you have any questions do not hesitate to
-link:/project/contact.html[contact us].
 +
 * link:/project/news/DevReport-18-09.html[2018 Development Report]...
 
