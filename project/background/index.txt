@@ -23,7 +23,7 @@ As with many open source projects, it is difficult to determine the
 absolute beginnings precisely. There was no ``kick off'' meeting with
 some people to decide ``now we'll start writing a video editing software''.
 Rather, the initiators of the project were all suffering from some well-known
-problems when using link:http://cinelerra.org[Cinelerra]...
+problems when using link:http://cinelerra-cv.wikidot.com[Cinelerra-CV]...
 
 -> link:history[read more about the project history]
 

@@ -15,7 +15,7 @@ Roots of the Project
 As with many open source projects, it is difficult to determine the
 absolute beginnings precisely. There was no ``kick off'' meeting with
 some people to decide ``now we'll start writing a video editing software''.
-Rather, several of us where using link:http://cinelerra.org[Cinelerra] 
+Rather, several of us were using link:http://cinelerra-cv.wikidot.com[Cinelerra-CV]
 for editing tasks with rather professional quality level. It turned out
 that indeed Cinelerra _is_ capable of delivering professional quality,
 but users of Cinelerra are constantly facing some more or less serious
