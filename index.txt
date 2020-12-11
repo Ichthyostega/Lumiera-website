@@ -14,7 +14,7 @@ a smooth workflow which scales well to larger and more complicated editing proje
 
 Lumiera is a Free/Open Source Non-Linear Video Editing (NLE) application project for GNU/Linux
 
-It was born as a rewrite of the link:https://cinelerra-cv.org/[Cinelerra-CV] codebase, +
+It was born as a rewrite of the link:https://cinelerra-cv.wikidot.com/[Cinelerra-CV] codebase, +
 but developed later into an independent project with its own name.
 The application is still in an pre-alpha state and not usable for normal work.
 

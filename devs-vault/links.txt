@@ -22,7 +22,7 @@ Our projects and those we use
 Other Projects of Interest
 --------------------------
 
- * https://cinelerra-cv.org/[Cinelerra CV]
+ * https://cinelerra-cv.wikidot.com/[Cinelerra CV]
  * https://ardour.org/[Ardour DAW]
  * https://blender.org/[Blender]
  * https://inkscape.org/[Inkscape]

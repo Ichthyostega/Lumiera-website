@@ -9,7 +9,7 @@ How can I try Lumiera?::
 Is Lumiera a fork of Cinelerra?::
   No. Lumiera is a complete rewrite. Not a single line of Cinelerra code is now
   used in Lumiera. The project was first called Cinelerra-3 because it was born
-  in the Cinelerra Community.
+  in the link:https://cinelerra-cv.wikidot.com[Cinelerra Community].
 
 OMG. Why yet another rewrite? Can't you guys just join another project?::
   May we ask back why the ``other guys'' don't just join the Lumiera project?
