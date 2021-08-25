@@ -41,8 +41,11 @@ our gesture feature so that editing actions: trim, roll, slide and shuffle are
 provided by a gesture.
 
  
-Commands and Events
-~~~~~~~~~~~~~~~~~~~
+Commands, Events and Sessions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The importance of a reliable and flexible history has been long noted as a key
+feature of Lumiera by developers.
 
 Developers have realised that a thorough and robust history mechanism can be 
 implemented by separating events and commands. A command is evoked by a user, which 
