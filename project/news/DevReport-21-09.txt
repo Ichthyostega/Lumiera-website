@@ -1,0 +1,56 @@
+Lumiera 2021 Development Report
+===============================
+:Date: Autumn 2021
+:Author: Benny Lyons & Hermann Voßeler
+:toc:
+
+//Menu: label 21-09 Dev Report
+
+
+.Introduction
+Covid-19 has also affected the Lumiera project as _Ichthyo_ has had a major workload
+to bear over the past year in his professional occupation in the financial sector as a developer.
+Moreover he continues to devote
+time to other projectes such as his contribution to 
+http://yoshimi.sourceforge.net/[Yoshimi (soft synthesiser)],
+building an acceptance
+https://github.com/Ichthyostega/yoshimi-test/[test framework and a test suite]
+for Yoshimi and a Blender artwork project. However, modest progress has also been seen in Lumiera.   
+
+
+
+
+Project Activity
+----------------
+
+
+
+The Timeline View
+~~~~~~~~~~~~~~~~~
+Over the past years, we have invested time in the 
+https://lumiera.org/documentation/user/intro/intro.html[Timeline View], and last year
+was no exception. 
+
+We previously reported on a milestone in being able to send a command from the stage 
+layer all the way down to the session. More development work in this area resulted in 
+us in succeeding to respond in the session with a structured message to populate the 
+UI with such things as tracks, nested tracks, clips and some other widgets. 
+Consequently, the UI has taken its very first steps in being able to interact with a 
+user. A user can now 'command' something by making some gestures. We plan to extend 
+our gesture feature so that editing actions: trim, roll, slide and shuffle are 
+provided by a gesture.
+
+ 
+Commands and Events
+~~~~~~~~~~~~~~~~~~~
+
+Developers have realised that a thorough and robust history mechanism can be 
+implemented by separating events and commands. A command is evoked by a user, which 
+might produce one or more events. A command might also produce no event at all.
+A flexible history framework will be based on events not on commands. We are now in 
+a position to be able to provide a tentative definition of events, which can be refined 
+as required in the future. Such a definition will be the of a history framework.
+
+
+
+
