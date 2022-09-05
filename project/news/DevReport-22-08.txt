@@ -1,0 +1,115 @@
+Lumiera 2019 Development Report
+===============================
+:Date: Autumn 2022
+:Author: Benny Lyons & Hermann Voßeler
+:toc:
+
+//Menu: label 22-08 Dev Report
+
+
+.In Brief
+
+The https://www.froscon.org/en/[FrOSCon conference] opened its doors to people
+and the halls of the college in Sankt Augustine were once again filled with
+visitors this year. Lumiera developers also attended the conference.
+
+The occasion furnished an ideal opportunity for Lumiera developers to review the
+status of Lumiera, debate on the project's furture and to forge a streategy for
+the ensuing year. The team have decided to implement a vertical slice.  This
+entails implementing some feature such that all major software layers
+participate in providing the feature.
+
+Once the vertical slice has been successfully implemented, a horozontal slice
+along the GUI is planned.
+
+However, work cannot begin on the vertical slice until work on other parts of
+Lumiera have been completed.
+
+.In Detail
+
+..The First Vertical Slice of Lumiera
+
+A https://en.wikipedia.org/wiki/Vertical_slice[verticle slice] is a software
+feature that engages all major software components of a software system to
+provide the feature. Lumiera consists of three major layers: the Stage, the
+Steam and the Vault---bear in mind that each layer in itself consists of a
+multitude of often huge sub-components.
+
+The Stage roughly corresponds to the GUI or the area that immediately engages
+the user, the Steam covers translation and orchestration, while the deep
+dungeons of Lumiera catering to low-level functionality is the Lumiera Vault. In
+Lumiera we can envisage a vertical slice being triggered by a user who interacts
+with the GUI. To be a vertical slice, the action would have to trigger some
+functionality in the stage which would, in turn, engage some code in the deeper
+recesses of the Vault. Please bear in mind, that each of these layers consist of
+many sub-components, so in effect, many code components should ideally be
+actived by the user at the GUI. Thus, for example, turning-on a light by
+activating some button would porobably not constitute a vertical slice if this
+is accomplished by one line of code.
+
+...Motivation
+
+Lumiera development over the previous years produced little end-user tangible
+features. The main significant end-user feature was the GUI presented at start
+up; but that has been around for many, many years now. It was decided to provide
+a feature directly accessible to end-users.
+
+End-user feedback is crucial for developers, and it is difficult to discuss GUI
+controls without some real, hands-on GUI. It is hoped that this vertical slice
+will provide more accessibility (however small at this stage) to all potential
+users to participate in the Lumiera development process.
+
+It is, however, important to note, that this was not the sole reason to progress
+with this strategy. Vertical slices are important software development
+strategies providing a wealth of feedback to developers: component interaction,
+timing (exposing time lags and a good deal more), component communication
+limitations, missing components or functionality, inappropriate
+design/implementation of components; and, of course, user feedback on the
+particular feature. Moreover, it is also a litmus test of how the stipulated
+design is actually appropriate to the final model all in the mind of the
+developers.
+
+This will also provide the user with another glimpse from a different
+perspective of what the final application might look like and possibly place a
+user in a better position to provide feedback to developers.
+
+...The Vertical Slice Feature
+
+_Place and then play a clip on the timeline._
+
+While astonishingly simple to formulate, this vertical slice is technically a
+formidable yet fruitful task to complete much functionality can be asserted to
+perform correctly or flaws may emerge: component interaction, time lags,
+hardware performance limitations, memory leaks, ... 
+
+A gentle touch of a button on the GUI by a user can initiate a command via the
+UI-Bus where at the Steam Layer user settings and data are received by the
+builder which translates model entites from the Stage Layer into a low-level
+data processing graph: a representation digestible by the scheduler in the
+vault. The scheduler can process this graph representation into individual frame
+processing jobs. These jobs produce data which are sent to a display buffer
+which can finally emergy at the Stage Layer to be displayed on the GUI. Playback
+is rendered by a playback widget which needs to be integrated into the GUI
+(ticket number?).
+
+While it is a relatively simple matter to provide such functionality using other
+means, the focus is not on functionality; rather the vertical slice will test
+and scrutinize many components that will eventualy provide such functionality as
+a session, scalability, ... and provide users with a preview of the future
+Lumiera user workbench.
+
+Many features and much functionality will initially be mocked, being implemented
+at a later date. For example, the clip is mocked, which means a user cannot load
+any clip.
+
+...Further Details and up-to-date progress
+
+The Lumiera ticketing system system provides more concise and up-to-date information: 
+https://issues.lumiera.org/roadmap[roadmap]. Feedback most welcome.
+
+..Work Requiring Completion
+
+ - Custom drawing needs to be integrated into the main development branch
+ - https://issues.lumiera.org/ticket/1185#comment:7[Build a GTK custom widget]
+   for a named entity for the track heads and the timeline header pane
+ - Clip display requires a foundation
