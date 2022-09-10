@@ -7,7 +7,8 @@ Lumiera 2019 Development Report
 //Menu: label 22-08 Dev Report
 
 
-.In Brief
+In Brief
+---------
 
 The https://www.froscon.org/en/[FrOSCon conference] opened its doors to people
 and the halls of the college in Sankt Augustine were once again filled with
@@ -21,13 +22,14 @@ participate in providing the feature.
 
 Once the vertical slice has been successfully implemented, a horozontal slice
 along the GUI is planned.
-
 However, work cannot begin on the vertical slice until work on other parts of
 Lumiera have been completed.
 
-.In Detail
+In Detail
+---------
 
-..The First Vertical Slice of Lumiera
+The First Vertical Slice of Lumiera
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A https://en.wikipedia.org/wiki/Vertical_slice[verticle slice] is a software
 feature that engages all major software components of a software system to
@@ -47,7 +49,8 @@ actived by the user at the GUI. Thus, for example, turning-on a light by
 activating some button would porobably not constitute a vertical slice if this
 is accomplished by one line of code.
 
-...Motivation
+Motivation
+~~~~~~~~~~
 
 Lumiera development over the previous years produced little end-user tangible
 features. The main significant end-user feature was the GUI presented at start
@@ -73,9 +76,11 @@ This will also provide the user with another glimpse from a different
 perspective of what the final application might look like and possibly place a
 user in a better position to provide feedback to developers.
 
-...The Vertical Slice Feature
+The Vertical Slice Feature
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-_Place and then play a clip on the timeline._
+Place and then play a clip on the timeline.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 While astonishingly simple to formulate, this vertical slice is technically a
 formidable yet fruitful task to complete much functionality can be asserted to
@@ -102,14 +107,17 @@ Many features and much functionality will initially be mocked, being implemented
 at a later date. For example, the clip is mocked, which means a user cannot load
 any clip.
 
-...Further Details and up-to-date progress
+Further Details and up-to-date progress
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Lumiera ticketing system system provides more concise and up-to-date information: 
 https://issues.lumiera.org/roadmap[roadmap]. Feedback most welcome.
 
-..Work Requiring Completion
+Work Requiring Completion
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
  - Custom drawing needs to be integrated into the main development branch
  - https://issues.lumiera.org/ticket/1185#comment:7[Build a GTK custom widget]
    for a named entity for the track heads and the timeline header pane
  - Clip display requires a foundation
+ 

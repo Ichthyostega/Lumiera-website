@@ -1,11 +1,14 @@
-Monthly Meetings
-================
+Developer Meetings
+==================
 
+// Menu :  label Dev Meetings
 // Menu :  include dir .
 // Menu :  include root/documentation/devel/meeting_summary
 // Menu :  include root/documentation/devel/transcript
 // Menu :  put child 'transcript' after 'meeting_summary'
+// Menu :  append child minutes
 
+Currently, **there are no regular developer meetings planned**. +
 We used to conduct regularly developer meetings -- usually at 2^nd^ Thursday of each month, starting 20^00^ UTC.  
 Our meetings take place in the IRC channel #lumiera at Freenode. ->link:/project/contact.html[more]
 

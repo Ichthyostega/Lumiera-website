@@ -1,33 +1,29 @@
-Minutes 
-=======
-:Date: Autumn 2021
+Discussion on the balcony at Bernbach 
+=====================================
+:Date: 25.8.2021
 :Author: Benny Lyons & Hermann Voßeler
-:Present: Benny Lyons & Hermann Voßeler
-:toc:
 
-. Introduction
-
-
-- History Concept--> events (including possibly meta-events)
-- Session: consists of history plus configs
-- Similarities to Git: however History probably not implementd in Git
-  because....
-- Session can be, theoretically, implemented in Git as it is possibly the same concept
-- Command --> Event, but Command no Event?
+- History Concept -> events (including possibly meta-events)
+- Session: consists of history plus configuration and rules
+- Session can be, theoretically, implemented in Git as it is possibly the
+  same concept -- however History probably not implemented in Git,
+  because there are semantic and structural differences
+- Command -> Event, but Command no Event?
 - History contains only events that change state---problem with many commands
   and no state change in history?
-- Session must cary Lumiera version and 'know' what to do with different versions, i.e., session from one user using a newer/older version?
+- Session must carry Lumiera version and 'know' what to do with different versions,
+  i.e., session from one user using a newer/older version?
 - Plugins: installed on one machine produces a session which is replayed on
   another machine with no such plugins?
 - One-to-one between command and event? No, one command can effect several
  controls that are treated as group through a placement, so one command will
  effect all members of the placement group. The events for each member of the
-- group recieve the same single command, however we can distingiuish between
+- group receive the same single command, however we can distinguish between
  each event via the event arguments.
- Example: For example if treple, bass, sound-level are all connteced into a
+ Example: For example if treble, bass, sound-level are all connected into a
  single placement group and are attached to a group volume,
 changing the group volume will effect all members of the group. We can then, in
- the history, distinguish each group member (trebble, bass, ...) through its
+ the history, distinguish each group member (treble, bass, ...) through its
 event arguments
 - After a rough cut, many clips are relegated to the 'cut-away bin'. This is the
 first iteration of the film. In the past, contents from the cut-away bin had
@@ -37,14 +33,14 @@ edit. Lumiera History will have complete easy access at all times and at all
 stages during editing to include such clips.
 Support for this feature is possible because Lumiera History is an event based
  mechanism and will be be possible to back track in events, or under reasonable
-circumstances, to jump back several events to easily retrieven a clip from the
+circumstances, to jump back several events to easily retrieve a clip from the
 cut-away bin as these are all recorded and always available from Lumiera
 History.
 - Events in Lumiera History can be edited: it will be possible to remove events
 - It is possible to rebase 2 divergent histories in a mechanism similar to Git
 - The Lumiera History cannot simply appear on the GUI as a list of events. It
 must be possible to provide meaningful information, i.e, the commands associated
-with the exents of more verbose information
+with the extents of more verbose information
 - The GUI will not simply support do/undo in the history, rather will be be
  possible to 'jump' to any event in the history list and display and highlight
 the entity effected by the event itself.
