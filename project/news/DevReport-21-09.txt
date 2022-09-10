@@ -28,13 +28,14 @@ Project Activity
 The Timeline View
 ~~~~~~~~~~~~~~~~~
 Over the past years, we have invested time in the 
-https://lumiera.org/documentation/user/intro/intro.html[Timeline View], and last year
+https://lumiera.org/documentation/user/intro/intro.html#_timeline_view[Timeline View], and last year
 was no exception. 
 
 We previously reported on a milestone in being able to send a command from the stage 
-layer all the way down to the session. More development work in this area resulted in 
-us in succeeding to respond in the session with a structured message to populate the 
-UI with such things as tracks, nested tracks, clips and some other widgets. 
+layer all the way down to the session (https://issues.lumiera.org/ticket/1099[Ticket #1099]).
+More development work in this area resulted in us in succeeding to respond in the session with
+a structured message to populate the UI with such things as tracks, nested tracks, clips
+and some other widgets (https://issues.lumiera.org/ticket/1014[Ticket #1014]).
 Consequently, the UI has taken its very first steps in being able to interact with a 
 user. A user can now 'command' something by making some gestures. We plan to extend 
 our gesture feature so that editing actions: trim, roll, slide and shuffle are 
