@@ -4,8 +4,17 @@ Please add new items on the top, move older items to old_news.txt
 Comment irrelevant stuff out
 
 ////
-*February 2020*::
-      The Lumiera codebase has been upgraded to C++17 level.
+*September 2022*::
+      Playback Vertical Slice planned.
+      +
+      link:/project/news/DevReport-22-08.html[2022 Development Report]
+      
+*September 2021*::
+      Timeline View and UI population with structured message.
+      +
+      Separation of commands and events to, for example, record history.
+      +
+      &rarr; link:/project/news/DevReport-21-09.html[2021 Development Report]
 
 *September-October 2019*::
       Our link:/project/news/DevReport-19-09.html[2019 Development Report]
@@ -18,57 +27,6 @@ Comment irrelevant stuff out
 We are always glad to hear from you so do not not hesitate to pass on any
 comments you might have
 link:/project/contact.html[to us].
-
-*September 2018*::
-      Our annual report on the progress of Lumiera lists a number of elements
-      contributing to project increment and the general status of the project.
-+
-* link:/project/news/DevReport-18-09.html[2018 Development Report]...
-
-*September 2017*::
-* link:/project/news/DevReport-17-10.html[2017 Development Report]...
-
-*November 2016*::
-      While there’s been a long pause since our last news report,
-      a lot of coding activity happened ``behind the scenes''.
-      Read more in our recent
-      link:/project/news/DevReport-16-11.html[2016 Development Report]...
-
-*November 2015*::
-      We published the next »preview release« `0.pre.03` +
-      We did a lot of library and platform upgrades recently, which need to be
-      reflected within package definitions and buildsystem. This ``release'' is
-      relevant for developers only; we still have no user visible changes yet.
-      As usual, we upgraded our Debian packaging and rebuilt the package
-      on various distributions, to spot build problems
-      and verify compatibility...
-
-*August 2015*::
-      The reference platform for Lumiera has been upgraded to Debian/Jessie.
-      And the Language level has been raised to C++14. As usal, Lumiera
-      core developers will meet at and after the
-      http://froscon.org[FrOSCon conference].
-
-*May 2015*::
-      The existing Lumiera user interface has been switched to GTK-3. +
-      Besides some clean-up, this prompted more activities in
-      the area of GUI and workflow recently. Read more in the
-      link:/project/news/DevReport-15-05.html[2014/15 Spring Coding News...]
-
-*August 2014*::
-      Benny has compiled a small
-      link:/project/news/DevReport-14-08.html[2014 Summer News Report] --
-      As usual, Lumiera team will meet again at the FrOSCon conference
-      at Bonn/St.Augustin (Germany)
-
-*May 2014*::
-      the Lumiera core developers will visit the
-      http://lac.linuxaudio.org/2014[LAC Linux Audio Conference] in Karlsruhe/Germany.
-      As we did some years ago at Utrecht, we'll help again with the Video streaming. And
-      of course we'll use the opportunity for a in-person *developer meeting*.
-+
-After this conference, Benny Lyons has written the
-link:/project/news/DevReport-14-05.html[2014 Spring News Report]
 
 '''''''
 -> link:/project/news/old_news.html[Older News]
