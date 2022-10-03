@@ -86,10 +86,9 @@ This will also provide the user with another glimpse from a different
 perspective of what the final application might look like and possibly place a
 user in a better position to provide feedback to developers.
 
-The Vertical Slice Feature
-^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.Place and then play a clip on the timeline.
+Vertical Slice Feature: Play a clip on the timeline
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 While astonishingly simple to formulate, this vertical slice is technically a
 formidable yet fruitful task to complete. An innocuous touch of a button on the GUI
 by a user can initiate a command via the UI-Bus where at the Steam Layer user settings
@@ -98,6 +97,9 @@ into a low-level data processing graph: a representation digestible by the sched
 vault. The scheduler can process this graph representation into individual frame
 processing jobs. These jobs produce data which are sent to a display buffer
 to finally emerge at the Stage Layer in the video viewer component embedded into GUI.
+
+image::{ldoc}/devel/draw/VerticalSlice.Playback.svg["Vertical-Slice-Playback", width=600, title="Vertical Slice: Playback"]
+
 
 While it is a relatively simple matter to provide such functionality using other
 means, the focus is not on functionality; rather the vertical slice will test
@@ -127,7 +129,5 @@ can not be commenced until the following have been completed:
  
  
  
-TODO
- - Architecture Diagram
- - see how to get Ticket #1014 closed (mentioned in News 2021)
+[red]#TODO: see how to get Ticket #1014 closed (mentioned in News 2021)#
      
