@@ -22,9 +22,10 @@ rather more project activity has occurred recently. Our thoughts have turned
 to how best to progress with Lumiera, and we are unanimously resolved to continue
 along the path set out at the beginning. As a result, the team have decided to
 implement a vertical slice. This entails implementing some feature such that all
-major software layers participate in providing the feature. Moreover, integrating
-the vertical slice many previously developed components will emerge, hidden deep
-down in the steam and vault layers, to reveal their intended functionality.
+major software layers participate in providing the feature. Moreover, while
+integrating the vertical slice many previously developed components will emerge,
+hidden deep down in the steam and vault layers, to reveal the funcionality
+they were originally designed to provide.
 
 Once the vertical slice has been successfully implemented, we have the possibility
 of developing a horizontal layer along the GUI, in the session, etc.
@@ -66,7 +67,8 @@ Motivation
 Lumiera development over the previous years produced little end-user tangible
 features. The main significant end-user feature was the GUI presented at start
 up; but that has been around for many, many years now. It was decided to use
-a feature directly accessible to end-users as starting point for the vertical slice.
+a feature directly accessible to end-users as a starting point for the vertical
+slice.
 
 End-user feedback is crucial for developers, and it is difficult to discuss GUI
 controls without some real, hands-on GUI. It is hoped that this vertical slice
@@ -76,7 +78,7 @@ users to participate in the Lumiera development process.
 It is, however, important to note, that this was not the sole reason to progress
 with this strategy. Vertical slices are an important software development
 method providing a wealth of feedback to developers: component interaction,
-exposing timing lags, limitations in component communication, missing components
+exposing time lags, limitations in component communication, missing components
 or functionality, inappropriate design of components; and, of course, user feedback
 on the particular feature. Moreover, it is also a litmus test of how the stipulated
 design is actually appropriate to the final model all in the mind of the
@@ -94,7 +96,7 @@ formidable yet fruitful task to complete. An innocuous touch of a button on the 
 by a user can initiate a command via the UI-Bus where at the Steam Layer user settings
 and data are received by the builder that translates model entities from the Stage Layer
 into a low-level data processing graph: a representation digestible by the render engine in the
-vault. The dispatcher can process this graph representation into individual frame
+Vault. The dispatcher can process this graph representation into individual frame
 processing jobs. These jobs, when activated by the scheduler, produce data which are sent to a
 display buffer to finally emerge at the Stage Layer in the video viewer embedded into GUI.
 
