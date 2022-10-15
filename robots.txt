@@ -9,3 +9,5 @@ Disallow: /debian/pool
 User-Agent: AhrefsBot
 Crawl-Delay: 35
 
+User-agent: SemrushBot
+Crawl-delay: 40

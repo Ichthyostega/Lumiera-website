@@ -22,5 +22,7 @@ Disallow: /login
 Disallow: /rpc
 
 User-Agent: AhrefsBot
-Crawl-Delay: 20
+Crawl-Delay: 40
 
+User-agent: SemrushBot
+Crawl-delay: 75
