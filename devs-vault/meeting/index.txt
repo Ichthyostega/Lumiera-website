@@ -8,12 +8,17 @@ Developer Meetings
 // Menu :  put child 'transcript' after 'meeting_summary'
 // Menu :  append child minutes
 
-Currently, **there are no regular developer meetings planned**. +
-We used to conduct regularly developer meetings -- usually at 2^nd^ Thursday of each month, starting 20^00^ UTC.  
-Our meetings take place in the IRC channel #lumiera at Freenode. ->link:/project/contact.html[more]
+After a pause, developer meetings have recommenced, but _currently_ at irregular
+intervals. Our next meeting will take place in September, 2023, on the
+2^nd^ Thursday. We'll periodically meet thereafter on the *2^nd^ Thursday of each
+month at 20^00^ UTC*.
 
-This page announces the next meeting. Usually, meetings are also announced some days ahead
-on the Mailinglist. _Everyone is welcome. Feel free to suggest any topic you would like to discuss!_
+Our meeting platform has moved channel from Freenode to Libera.Chat. ->link:/project/contact.html[more]
+
+This page will begin to provide information on meetings. Meetings will not be announced on the
+Mailinglist yet, but this may change: we shall announce details here of any
+changes. _Everyone is welcome. Feel free to join and participate in any meetings
+on the channel!_ 
 
  * *Summaries* of past meetings can be found ->link:{ldoc}/devel/meeting_summary/index.html[here].
 
@@ -34,12 +39,6 @@ For general discussions or further questions, refer to the ->link:/project/conta
 Next Developers Meeting
 -----------------------
 
-WARNING: since 2013 there is only one active coder working on the project.
-
-For the time being, we do not need focussed developer meetings anymore.
+Next meeting *Thursday, 14.9.2023 at 20^00^ UTC*
 If there is some concern, please speak up on the link:/project/contact.html[Mailing List]
 or send a private mail to the developer(s).
-
-_We expect (or hope) the project will gain some momentum eventually_ --
-and when this happens, we'll continue the tradition of regular meetings in IRC.
-

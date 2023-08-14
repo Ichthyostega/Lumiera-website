@@ -19,8 +19,8 @@ but such messages will be moderated.
 
 IRC
 ---
-
-Usually, chances are that you may find some of us hanging out in the IRC channel +#lumiera+ at http://freenode.net/[Freenode].
+We've moved from Freenode to Libera.Chat.
+Lumiera developers congregate on the IRC channel +#lumiera+ at https://libera.chat/[Libera Chat].
 Thats also where we do our link:/devs-vault/meeting[monthly developers meeting].
-If unfamiliar with IRC, you may try out freenode's link:http://webchat.freenode.net/[webchat interface]
-
+If unfamiliar with IRC, you may try out freenode's link:https://libera.chat/guides/[webchat interface].
+All welcome to drop by.
