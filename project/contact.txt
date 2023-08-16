@@ -11,16 +11,13 @@ Non-members may post (without link:http://lists.lumiera.org/cgi-bin/mailman/list
 but such messages will be moderated.
 
  * our own mailing list archives are available http://lists.lumiera.org/pipermail/lumiera/[on our server].
- * the list is bridged to link:http://dir.gmane.org/gmane.comp.video.lumiera.general[Gmane.org], which
-   gives you several alternative styles of following the list, e.g. in 
-   link:http://blog.gmane.org/gmane.comp.video.lumiera.general[blog style] or using your favorite reader
-   via the good old link:nntp://news.gmane.org/gmane.comp.video.lumiera.general[News:] protocol.
    
 
 IRC
 ---
 We've moved from Freenode to Libera.Chat.
-Lumiera developers congregate on the IRC channel +#lumiera+ at https://libera.chat/[Libera Chat].
+Lumiera developers congregate on the IRC channel [yellow-background]#+#lumiera+# at https://libera.chat/[Libera Chat].
 Thats also where we do our link:/devs-vault/meeting[monthly developers meeting].
-If unfamiliar with IRC, you may try out freenode's link:https://libera.chat/guides/[webchat interface].
+If unfamiliar with IRC, you may try out Libera's https://libera.chat/guides/webchat[webchat interface].
+
 All welcome to drop by.
