@@ -69,7 +69,7 @@ Technical Documentation
   file +wiki/renderengine.html+ in your local source checkout. Local
   Modifications, additions, corrections are welcome and can be fed back
   as patches or git checkins. A fairly recent copy of this
-  link:/wiki/renderengine.html[Renderengine-Wiki can be accessed read-only at Lumiera.org].
+  link:/wiki/renderengine.html[Development TiddlyWiki can be accessed read-only at Lumiera.org].
 - you might want to have a look into the
   link:/doxy/[generated API documentation] -- especially when
   interested in some concepts, subsystems or components, check out the file-level
