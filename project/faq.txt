@@ -1,10 +1,21 @@
 FAQ
 ===
-:date: 2013
+:date: 2023
 
 [qanda]
 How can I try Lumiera?::
-  Sorry, you can't yet. Lumiera is still in the early stages of development.
+  Sorry, you can't yet. Lumiera is still in the early stages of development. +
+  The core team decided to focus on development of the core engine and infrastructure,
+  while the UI is built to match the capabilities of the core.
+
+What is the meaning of the name »Lumiera«?::
+  In 2008, as the separation from Cinelerra-CV project became clear, there was a collaborative
+  https://web.archive.org/web/20231026200633/https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-March/013474.html[selection and vote]
+  in the community, which at that time was largely the Cinelerra-CV community.
+  The name alludes to the
+  https://en.wikipedia.org/wiki/Auguste_and_Louis_Lumi%C3%A8re[Lumière brothers]
+  and evokes the memory of the fist century of film art, while also expressing
+  the connection to the name »Cinelerra«
 
 Is Lumiera a fork of Cinelerra?::
   No. Lumiera is a complete rewrite. Not a single line of Cinelerra code is now
