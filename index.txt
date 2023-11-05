@@ -12,13 +12,13 @@ and a high degree of configurability and full control of all parameters, but at 
 a smooth workflow which scales well to larger and more complicated editing projects.
 ***************************************************************************************************
 
-Lumiera is a Free/Open Source Non-Linear Video Editing (NLE) application project for GNU/Linux
+Lumiera is a Free/Open Source project to build a Non-Linear Video Editing (NLE) application for GNU/Linux.
 
-It was born as a rewrite of the link:https://cinelerra-cv.wikidot.com/[Cinelerra-CV] codebase, +
-but developed later into an independent project with its own name.
-The application is still in an pre-alpha state and not usable for normal work.
+Its primary focus is professional editing, quality, usability and flexibility.
+The application is still in a pre-alpha state and is not yet ready for normal use.
 
--> link:/project/index.html[Read more about the Lumiera Project]
+-> link:/project/index.html[Read more about the Lumiera Project] +
+-> link:/project/faq.html[Frequently Asked Questions]
 
 ....
 
@@ -42,7 +42,7 @@ Check Lumiera's Pulse:
 -----------------------
 
  * link:https://git.lumiera.org/gitweb?p=LUMIERA[Lumiera Git Master]
- * link:https://git.lumiera.org/gitweb?p=lumiera/ichthyo;h=refs/heads/gui;[currently most active branch]
- * link:https://issues.lumiera.org/timeline?ticket=on&milestone=on&max=5&daysback=90[Issue tracker activity]
+ * link:https://git.lumiera.org/gitweb?p=lumiera/ichthyo;h=refs/heads/play;a=summary;[currently most active branch]
+ * link:https://issues.lumiera.org/timeline?daysback=180&ticket=on&update=Update[Issue tracker activity]
 
 
