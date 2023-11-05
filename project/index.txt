@@ -73,12 +73,14 @@ called ``Cinelerra-3'' at that time which attempted to rework some of the fundam
 Cinelerra. An in-depth analysis revealed, however, that most aspects of the
 application either needed or would substantially benefit from a redesign so as
 to aspire to the expectations of users and to engange with contemporary tooling.
-This dilemma was met by a drive to develop a new application and a community
-vote setteled on a new name: 'Lumiera'.  Lumiera has grown
-and expanded in scope since its emergence as an independent project, while retaining the
-core of the original vision.  Regular developer meetings, active open-source Community
-participation and stimulating communication over the net contributed to form a slowly
-but steadily maturing project.
+This dilemma was met by a drive to develop a new application and a community vote
+https://web.archive.org/web/20231026200633/https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-March/013474.html[
+setteled on a new name: »Lumiera«].
+Lumiera has grown and expanded in scope since its emergence as an independent project,
+while retaining the core of the original vision. So, technically, Lumiera is not a fork
+of Cinelerra, but is developed from scratch, starting with the engine core.
+Regular developer meetings, active open-source Community participation and stimulating
+communication over the net contributed to form a slowly but steadily maturing project.
 
 -> read more about the link:background/history[Project History]
 
