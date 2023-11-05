@@ -14,7 +14,7 @@ Lumiera: What?
 --------------
 
 The goal of the Lumiera project is to build a free open-source
-nonlinear video editing and compositing application (NLE).
+non-linear video editing and compositing application (NLE).
 
 On the one hand, it must meet the rigours of a professional
 film and video production environment; on the other hand, it must
@@ -29,33 +29,34 @@ Two key factors were identified to achieve these ambitious goals:
 The Lumiera project draws directly on the power of collaborative
 development and the use of prevailing open-source technologies -- relying
 on knowledge documented by the work of other programmers, to avoid solving
-problems which are solved already.
+problems which have already been solved.
 
 
 Lumiera: Why?
 -------------
 
 There is a serious lack of good video editors in the open-source
-community. Especially when it comes to handling professional grade
-high resolution image formats. Commercial solutions tend to take away
+community. This is particularly relevant when it comes to handling professional grade
+high-resolution image formats. Commercial solutions tend to reduce
 freedom of choice in exchange for ``secret sauce'', keeping the user in
 the dark about how results are achieved while gravitating towards the walled
-garden of subscription models and cloud platforms. Many of the distinctive
-features of Lumiera are there to overcome well known limitations
-of currently available video editors.
+garden of subscription models and cloud platforms. Many distinctive
+features of Lumiera are provided to overcome the well known limitations
+imposed by video editors currently available on the market.
 
 
 Lumiera: How?
 -------------
 
-Lumiera builds upon a flexible, open architecture. Composed of modular blocks
-connected to form the application and process the data, Lumiera is a tool for
-craftspeople, offering reliability and flexibility to combine these components to
-build your film edit and compositing. High-quality processing combined with freedom
-of choice however increases complexity -- and thus the ability to handle complexity
-with precision is a tenet of the Lumiera architecture. Another pillar is clarity,
+Lumiera builds upon a flexible and open architecture. It is composed of modular blocks
+connected together to form the application that processes data. Lumiera is a tool for
+craftspeople, delivering both reliability together with flexibility in
+combination to build your film edit and compositing. High-quality processing combined with freedom
+of choice however increases complexity -- and, thus, the ability to handle complexity
+with precision is one of the tenets found in the Lumiera architecture. Another
+pillar in the design is clarity,
 transparency of decisions, documentation of choices and the open exchange of ideas
-and solutions within the community of volunteers powering this project.
+and solutions within the community of volunteers behind this project.
 
 -> read more about the link:{ldoc}/user/intro/intro.html[Design and Vision]
 
@@ -63,17 +64,18 @@ and solutions within the community of volunteers powering this project.
 Lumiera: Project History
 ------------------------
 
-The roots of the project trace back to the https://cinelerra-cv.wikidot.com[Cinelerra-CV]
-community. While Cinelerra was held in no small esteem by many, it does have a number of
-limitations, which are deeply rooted in the code base, making it very hard to expand its
-capabilities beyond the existing feature set. A number of users started an initiative,
-called ``Cinelerra-3'' at that time, attempting to rework some fundamental parts of
-Cinelerra. In-depth analysis revealed however that pretty much every aspect of the
-application needs a redesign to match expectations, driven by contemporary tooling,
-technology and film style.
-
-Accepting this challenge, a new name was selected by community vote. Lumiera has grown
-and expanded in scope since its emergence as independent project, while retaining the
+The roots of the project can be traced back to the https://cinelerra-cv.wikidot.com[Cinelerra-CV]
+community. While Cinelerra was held in no small esteem by many, it suffers from a number of
+limitations, which are nestled deep within the code base. One consequence of this is the difficulty in
+expanding its functionality beyond its current set of features.
+A number of users started an initiative
+called ``Cinelerra-3'' at that time which attempted to rework some of the fundamental parts of
+Cinelerra. An in-depth analysis revealed, however, that most aspects of the
+application either needed or would substantially benefit from a redesign so as
+to aspire to the expectations of users and to engange with contemporary tooling.
+This dilemma was met by a drive to develop a new application and a community
+vote setteled on a new name: 'Lumiera'.  Lumiera has grown
+and expanded in scope since its emergence as an independent project, while retaining the
 core of the original vision.  Regular developer meetings, active open-source Community
 participation and stimulating communication over the net contributed to form a slowly
 but steadily maturing project.
