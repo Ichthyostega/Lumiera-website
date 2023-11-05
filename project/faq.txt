@@ -5,8 +5,8 @@ FAQ
 [qanda]
 How can I try Lumiera?::
   Sorry, you can't yet. Lumiera is still in the early stages of development. +
-  The core team decided to focus on development of the core engine and infrastructure,
-  while the UI is built to match the capabilities of the core.
+  The core team decided to build the engine and infrastructure bottom-up,
+  while the UI is developed to match the capabilities of the core.
 
 What is the meaning of the name »Lumiera«?::
   In 2008, as the separation from Cinelerra-CV project became clear, there was a collaborative
@@ -18,27 +18,38 @@ What is the meaning of the name »Lumiera«?::
   the connection to the name »Cinelerra«
 
 Is Lumiera a fork of Cinelerra?::
-  No. Lumiera is a complete rewrite. Not a single line of Cinelerra code is now
-  used in Lumiera. The project was first called Cinelerra-3 because it was born
-  in the link:https://cinelerra-cv.wikidot.com[Cinelerra Community].
+  No. Lumiera is built from scratch. Not a single line of Cinelerra code is now
+  used in Lumiera. The project grew out of an effort to amend
+  link:{l}/project/background/history/CinelerraWoes.html[long standing problems]
+  present in the Cinelerra-CV code base at that time. Lumiera would be unthinkable
+  without Cinelerra as point of reference, considering both its strengths and
+  weaknesses. The actual technology however is built ground-up, using contemporary
+  methods, always keeping in mind the high degree of flexibility required to
+  handle common professional data formats.
 
 OMG. Why yet another rewrite? Can't you guys just join another project?::
   May we ask back why the ``other guys'' don't just join the Lumiera project?
 +
 Seriously. Our project has specific roots, and it has a distinct focus (professional
 editing, film making). Other projects have different goals and different value systems.
-+
-We didn't start from scratch. Lumiera would be unthinkable without Cinelerra as
-point of reference. Initially, we attempted to overhaul Cinelerra to cope with the
-long standing link:{l}/project/background/history/CinelerraWoes.html[notorious problems].
-Our first in-depth analysis showed us, that we'd need to rework pretty much each and every
-component of Cinelerra, for one reason or the other. Thus our effort turned into a
-``Cinelerra done right'' style project.
+We choose methods and solutions deemed adequate to reach our ambitious goals, yet
+we do not want to spend _our life time_ working with methods we deem inadequate or
+pursuing goals we consider not worth pursuing.
+
+Will Lumiera use Nodes?::
+  The Lumiera Render Engine uses Nodes and asynchronous pull-processing at its core.
+  But we are rather sceptical towards the ``everything nodes'' metaphor as principle
+  for UI organisation. This approach is great for individual compositing or FX tasks,
+  yet tends to be challenging when it comes to handling a large scale editing project.
+  Rather, we attempt to reconcile properties of nodes and classical layering: in
+  Lumiera, _everything is a Placement._
 
 When will Lumiera be usable for basic tasks?::
-  It's very difficult to say. It depends on a lot of things. We are really
-  ambitious, which means we care for a lot of advanced stuff up front, so
-  there's a lot of work to do at the back. And our developer team is small.
+  This is difficult to say. We are ambitious and have a clear vision, yet we choose
+  not to make a ``big up-front design'' -- and thus we can not provide a predetermined
+  schedule or even a guess. We have built a set of core components thus far and achieved
+  some partial integration, but there is still a lot of advanced stuff to work out.
+  And our developer team is small.
 
 Is this project dead? I don't see any progress?::
   Rest assured, we're constantly working on this project. Look at the
@@ -47,14 +58,15 @@ Is this project dead? I don't see any progress?::
   dedicated GUI developer right now, and the other devs are focussed primarily
   at the engine core.
 
-Will Lumiera be using guicast (the Cinelerra GUI library)?::
-  We won't' use Guicast. Lumiera's native interface will be written in GTK,
-  although other interfaces will be possible. Basically the GUI is a plug-in.
-
-Why the hell did you pick GTK?? Toolkit [your favorite here] is so much better!::
-  We picked GTK, because, in the early days, Joel Holdsworth joined the team. Joel was
-  an experienced Inkscape / GTK developer; he contributed a huge load of code. Please
-  don't underestimate the amount of work necessary for any non-trivial GUI
+Why the hell did you pick GTK??::
+  Lumiera's native interface will be written in GTK, although other interfaces will
+  be possible. Basically the GUI is a plug-in. We picked GTK, because, in the early days,
+  Joel Holdsworth joined the team. Joel was an experienced Inkscape / GTK developer;
+  he contributed a tremendous amount of knowledge and a huge load of code. Later,
+  the project successfully switched to GTK-3, and we are confident that GTK provides
+  us both with a clean programming model and the necessary degree of freedom
+  required to build and maintain that kind of elaborate user interface we aspire
+  to provide.
 
 Will there be a Windows version?::
   Windows isn't an Unix flavour, indeed, its internal workings are quite different.
@@ -67,12 +79,11 @@ Someone(TM) to do that work.
 
 Do you rely on hardware acceleration?::
   Hardware acceleration has lots of potential, but it also has lots of potential
-  for vendor lock-in. Since the start of our project (2007), the situation has
-  improved significantly. But anyway, we choose a different approach. Our core
-  _organises_ the rendering and manages the data (buffer, cache) and the metadata
-  (data type descriptions). But the actual processing will always be delegated to
-  some suitable library.
-+
-This approach has the downside to require much more ``organisational'' stuff to
-implement up front, but it promises to be really future-proof.
-
+  for vendor lock-in. Since the start of our project, the situation has improved
+  significantly. But anyway, we choose a different approach. Our core
+  _organises_ the rendering and _manages_ the data (buffer, cache) and the metadata
+  (data type descriptions). The application will provide preview rendering and
+  frame caching. But the actual processing will always be delegated to some
+  suitable library and not developed in-project.
++  
+Deliberately, Lumiera avoids to lock into a single technology.
