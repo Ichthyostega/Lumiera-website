@@ -23,7 +23,7 @@ equipment. In other words, Lumiera will be scalable.
 
 Two key factors were identified to achieve these ambitious goals:
 
-- modern design and methodology
+- modern design adopting state of the art methods
 - the resources of the open-source community
 
 The Lumiera project draws directly on the power of collaborative
@@ -65,17 +65,21 @@ Lumiera: Project History
 ------------------------
 
 The roots of the project can be traced back to the https://cinelerra-cv.wikidot.com[Cinelerra-CV]
-community. While Cinelerra was held in no small esteem by many, it suffers from a number of
+community. +
+While Cinelerra was held in no small esteem by many, it suffers from a number of
 limitations, which are nestled deep within the code base. One consequence of this is the difficulty in
 expanding its functionality beyond its current set of features.
 A number of users started an initiative
 called ``Cinelerra-3'' at that time which attempted to rework some of the fundamental parts of
-Cinelerra. An in-depth analysis revealed, however, that most aspects of the
+Cinelerra.
+
+An in-depth analysis revealed, however, that most aspects of the
 application either needed or would substantially benefit from a redesign so as
-to aspire to the expectations of users and to engange with contemporary tooling.
+to aspire to the expectations of users and to engage with contemporary tooling.
 This dilemma was met by a drive to develop a new application and a community vote
 https://web.archive.org/web/20231026200633/https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-March/013474.html[
-setteled on a new name: »Lumiera«].
+settled on a new name: »Lumiera«].
+
 Lumiera has grown and expanded in scope since its emergence as an independent project,
 while retaining the core of the original vision. So, technically, Lumiera is not a fork
 of Cinelerra, but is developed from scratch, starting with the engine core.
