@@ -30,36 +30,42 @@ Is Lumiera a fork of Cinelerra?::
 OMG. Why yet another rewrite? Can't you guys just join another project?::
   May we ask back why the ``other guys'' don't just join the Lumiera project?
 +
-Seriously. Our project has specific roots, and it has a distinct focus (professional
-editing, film making). Other projects have different goals and different value systems.
-We choose methods and solutions deemed adequate to reach our ambitious goals, yet
-we do not want to spend _our life time_ working with methods we deem inadequate or
-pursuing goals we consider not worth pursuing.
+Seriously. Our project has
+link:{l}/project/background/history[specific roots], and it has
+a distinct focus (professional editing, film making). Other projects have different
+goals and different value systems. We choose methods and solutions deemed adequate
+to reach our ambitious goals, yet we do not want to spend _our life time_ working
+with methods we deem inadequate or pursuing goals we consider not worth pursuing.
 
 Will Lumiera use Nodes?::
   The Lumiera Render Engine uses Nodes and asynchronous pull-processing at its core.
+  footnote:[More about the link:{ldoc}/user/intro/intro.html[Design and Vision]...]
   But we are rather sceptical towards the ``everything nodes'' metaphor as principle
   for UI organisation. This approach is great for individual compositing or FX tasks,
   yet tends to be challenging when it comes to handling a large scale editing project.
-  Rather, we attempt to reconcile properties of nodes and classical layering: in
-  Lumiera, _everything is a Placement._
++
+Rather, we attempt to reconcile properties of nodes and classical layering:
+in Lumiera, _everything is a Placement._
 
 When will Lumiera be usable for basic tasks?::
   This is difficult to say. We are ambitious and have a clear vision, yet we choose
   not to make a ``big up-front design'' -- and thus we can not provide a predetermined
   schedule or even a guess. We have built a set of core components thus far and achieved
   some partial integration, but there is still a lot of advanced stuff to work out.
-  And our developer team is small.
+  And our developer team is small.footnote:[You can follow progress on our regular
+  link:{l}/project/news/news.html[Development News] updates.]
 
 Is this project dead? I don't see any progress?::
   Rest assured, we're constantly working on this project. Look at the
   link:http://Lumiera.org/gitweb[Git repositories] if in doubt. But regarding the GUI,
   your observation is correct: Work on the GUI has stalled, since we don't have a
   dedicated GUI developer right now, and the other devs are focussed primarily
-  at the engine core.
+  at the engine core.footnote:[See also project
+  activity and statistics on link:https://openhub.net/p/lumiera/[Openhub.net]]
 
 Why the hell did you pick GTK??::
-  Lumiera's native interface will be written in GTK, although other interfaces will
+  Lumiera's native interface will be written in
+  link:https://en.wikipedia.org/wiki/GTK[GTK], although other interfaces will
   be possible. Basically the GUI is a plug-in. We picked GTK, because, in the early days,
   Joel Holdsworth joined the team. Joel was an experienced Inkscape / GTK developer;
   he contributed a tremendous amount of knowledge and a huge load of code. Later,
@@ -69,7 +75,8 @@ Why the hell did you pick GTK??::
   to provide.
 
 Will there be a Windows version?::
-  Windows isn't an Unix flavour, indeed, its internal workings are quite different.
+  Windows isn't an link:https://en.wikipedia.org/wiki/Unix[Unix]
+  flavour, indeed, its internal workings are quite different.
   When it comes to system level programming, there is no such thing as OS neutral
   programming. Either, we'd have to introduce an abstraction layer (which costs
   performance), or we'd have to develop a different back-end for Windows.
@@ -78,7 +85,8 @@ That being said -- we'll focus on other topics first. Thus it depends on
 Someone(TM) to do that work.
 
 Do you rely on hardware acceleration?::
-  Hardware acceleration has lots of potential, but it also has lots of potential
+  link:https://en.wikipedia.org/wiki/Hardware_acceleration[Hardware acceleration]
+  has lots of potential, but it also has lots of potential
   for vendor lock-in. Since the start of our project, the situation has improved
   significantly. But anyway, we choose a different approach. Our core
   _organises_ the rendering and _manages_ the data (buffer, cache) and the metadata
