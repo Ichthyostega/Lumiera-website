@@ -8,14 +8,12 @@ Developer Meetings
 // Menu :  put child 'transcript' after 'meeting_summary'
 // Menu :  append child minutes
 
-After a pause, developer meetings have recommenced, but _currently_ at irregular
-intervals. Our next meeting will take place in September, 2023, on the
-2^nd^ Wednesday. We'll periodically meet thereafter on the *2^nd^ Wednesday of each
-month at 20^00^ UTC*.
+After a long pause, developer meetings have recommenced in September 2023.
+We'll periodically meet on the *2^nd^ Wednesday of each month at 20^00^ UTC*.
 
 Our meeting platform has moved channel from Freenode to Libera.Chat. ->link:/project/contact.html[more]
 
-This page will begin to provide information on meetings. Meetings will not be announced on the
+This page provides information on meetings. Meetings will not be announced on the
 Mailinglist yet, but this may change: we shall announce details here of any
 changes. _Everyone is welcome. Feel free to join and participate in any meetings
 on the channel!_ 
@@ -39,6 +37,6 @@ For general discussions or further questions, refer to the ->link:/project/conta
 Next Developers Meeting
 -----------------------
 
-Next meeting *Wednesday, 8.Nov.2023 at 20^00^ UTC*
+Next meeting: *Wednesday, 13.Dec.2023 20^00^ UTC*
 If there is some concern, please speak up on the link:/project/contact.html[Mailing List]
 or send a private mail to the developer(s).
