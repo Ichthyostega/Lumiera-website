@@ -1,0 +1,120 @@
+Lumiera 2022 Development Report
+===============================
+:Date: Winter 2023
+:Author: Benny Lyons & Hermann Voßeler
+:toc:
+
+//Menu: label 23-11 Dev Report
+
+
+In Brief
+---------
+
+This year has seen an increase in developer activity in Lumiera
+https://openhub.net/p/lumiera/factoids#FactoidActivityIncreasing[as reported by
+Openhub.] This can be attributed to a strategic decision made by the developers
+in recent years to complete a
+https://en.wikipedia.org/wiki/Vertical_slice[vertical slice]. This would enable
+developers to examine and put to the test many aspects of the Lumiera design itself
+as originally concieved by the developers at the project's launch.
+While some fine-tuning to the Lumiera design was required, the overall design
+(as had been anticipated) proved to perform as originally expected. Some small
+aspects required fine tuning or were tweaked for optimumn performance.  While
+the vertical slice will provide valuable information to developers, it will also
+provide a glimpse of progress to potential Lumiera users.
++
+https://issues.lumiera.org/ticket/1221[The Playback Vertical Slice]
+
++
+https://lumiera.org/wiki/renderengine.html[Graphical representation of the
+vertical slice and participating components]
+
+As a potential Lumiera User, you will be able to experience the fruits of the
+vertical slice developed over the past year. You, as a potential Lumiera User,
+will be able to activate the vertical slice by _pushing a button_ in the Lumiera
+GUI to play a video. Apart form being able to enjoy a (pre-defined) video clip
+playing on the stage, you might just also be able to enjoy the first whistling
+sounds of the steam layer performing its work to bring forth the video clip on
+your screen. And, if you place your ear even closer to your disc, you might just
+be able to discern the very first groans of The Vault in operation!
+
+The vertcial slice is currently nearing completion.
+
+We have been asked over the previous years---and indeed the question has been
+posed among ourselves---as to _why continue_ with Lumiera? We discuss the
+question below.
+
+And of course, some of the developers attended the anual 
+https://www.froscon.org/en/[FrOSCon conference] in August.
+
+
+In Detail
+---------
+
+The Vertical Slice
+~~~~~~~~~~~~~~~~~~
+
+The Lumiera developer news report from last year reported extensively on our
+intention to implement a vertical slice. There, we also described the vertical
+slice and our reasons for doing this, 
+link:/project/news/DevReport-22-08.html[see report,] and have a
+link:https://issues.lumiera.org/ticket/1221[tracking ticket.]
+Most importantly, a graphical depiction of the vertical and the various
+components involved is depicted
+link:https://lumiera.org/wiki/renderengine.html[here.]
+
+Lumiera development to-date was mainly concerned with components: designing
+components, building components and delivering components to provide some
+definite functionality. Now, for the first time, we've started building using
+these components as our basic building blocks to provide some new
+functionality. In this particular vertical slice, the functionality to provide
+is to play a clip that is triggered by a user on the GUI.
+
+Some components were not even available so we 
+link:https://en.wikipedia.org/wiki/Mock_object[mocked] these. Other more crucial
+components playing a vital role in the workings of Lumiera were implemented from
+the ground up to allow developers to scrutinize its performance in the vertical
+slice, but also in combination with components under development. One such
+component was link:https://en.wikipedia.org/wiki/Scheduling_(computing)[the
+scheduler.]
+
+Few NLE software provide their own scheduler. Instead they rely on the scheduler
+provided by the operating system which is usually resident in the system
+kernel. For Lumiera, the huge demand on system resources and the stringent
+requirments on tasks being executed within fine, pre-defined time frames could
+only be reliably privided by using a Lumiera dedicated scheduler. Lumiera tasks
+are arranged according to priority in the que waiting CPU processing. Timing is
+essential and a Lumiera dedicated scheduler is quintessential.
+
+The bulk of the work to implement the scheduler has been completed
+link:https://issues.lumiera.org/ticket/1280[see details]. The render jobs
+(from the low-level model) have been mocked
+but first measurements of satisfying time constraints reveal that this has been
+achieved: link:https://issues.lumiera.org/ticket/1347[time observation.]
+
+
+Why Continue
+~~~~~~~~~~~~
+
+Well, most obviously, we enjoy doing it. However, this does not necessarily
+justify devoting a considerable amount of time to pursue such a costly
+endeavour---well, at least not for us, the current developers.
+
+We believe that we have a unique ideas and that there is no Open Source project
+currently available providing the scope, functionality and
+https://lumiera.org/documentation/user/intro/intro.html#_vision[vision] that
+embraces the reaches Lumiera perpetuates to provide. We are increasingly being
+justified by the slowly emerging features from new code that fortifies these
+assumptions.
+
+There are of course additional reaons as to why we should wish to continue
+developing Lumiera. For example, the _thrill_ factor reminiscent of the feelings
+after compiling your first "Hellow World" program; or develping the first
+multi-threaded programme and been distraught at its failure to reap any
+performance gain after many, many nights of late-night debugging, only to find
+the the hardware only has a single core: thrill.  But there other aspects that
+should not be overlooked: the project already has a design and many problems
+partially resolved in code or well documented that is, or will be of benifit to
+the communnity.  We believe, this is significant enough to want to share this
+with others.
+
