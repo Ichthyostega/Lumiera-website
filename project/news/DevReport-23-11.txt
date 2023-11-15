@@ -17,31 +17,33 @@ ich füge hier Kommentare ein und mache Vorschläge zum Text.
 Der erste Teil "In Brief" sollte wirklich knapp sein. Hier würde
 ich sogar den Begriff "vertical slice" und alle technischen Details
 vermeiden. Aus meiner Sicht sind die wichtigesten Infos
+<ja, war auch mein Ziel beim Schreiben, aber es kam, leider, was anders bei mir raus>
 - increase in developer activity
 - strategic decision to carry on
 - question "Why" see below
 - focus on integration of the engine
 - design proved to perform as expected
 - first round of integration nears completion
-- a second round will follow
+- a second and possible more round(s) will follow
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 This year has seen an
-https://openhub.net/p/lumiera/factoids#FactoidActivityIncreasing[increase in developer activity]
-in Lumiera.
-This can be attributed to a strategic decision made by the developers
-in recent years to carry on with the project. Accommodations have been made to
-be able to spend much more time on Lumiera development. Moreover, the focus
-has been shifted towards integration of parts developed during the last years.
-This would enable
-developers to examine and put to the test many aspects of the Lumiera design itself
-as originally conceived by the developers at the project's launch.
+https://openhub.net/p/lumiera/factoids#FactoidActivityIncreasing[increase in
+developer activity] in Lumiera.  This can be attributed to a strategic decision
+made by the developers in recent years to continue devoting time and energy to
+the project. An additional provision has been made to invest significantly more
+developer time in the project. The project should also benefit from a slight
+shift in focus towards integrating component parts together that were developed
+over the past few years which will enable developers to examine and put to the
+test many aspects of the Lumiera design itself as originally conceived by the
+developers at the project's launch.
+
 While some fine-tuning to the Lumiera design was required, the overall design
-(as had been anticipated) proved to perform as originally expected.
-The first round of integration steps is currently nearing completion.
-While this work on the integration of the Render Engine
-will provide valuable information to developers, it will also
-provide a glimpse of progress to potential Lumiera users.
+(as had been anticipated) proved to perform as originally expected.  The first
+round of integration steps is currently drawing to a close.  While work on the
+integration of the Render Engine will provide valuable information to
+developers, it will also provide a glimpse into progress for potential Lumiera
+users.
 
 We have been asked over the previous years -- and indeed the question has been
 posed among ourselves -- as to _why continue_ with Lumiera? We discuss the
@@ -62,49 +64,53 @@ analyiert, baut einen Teil, und analyisert weiter.
 Inzwischen sind wir so weit, daß die Konzeption steht und der Weg klar ist.
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-Right from its beginnings, the Lumiera project leans towards professional,
-quality-oriented work. In this context, the term ``professional'' does not necessarily
-imply that this work is done in a _commercial setting_ or _industrial context._
-We do, however, wish to convey an attitude or frame of mind in the approach made
-to such work. Professionalism implies _doing work with sincerity and being subject
-to any kind of wider goal, demand, or purpose._
+Right from its very inception, the Lumiera project strived towards professional
+and high-quality work.  Here, the term ``professional'' does not
+necessarily imply that this work is done in a _commercial setting_ or
+_industrial context._ We do, however, wish to convey an attitude or frame of
+mind in our approach we make to our work. Professionalism implies _doing work with
+sincerity and not being diverted by any kind of wider goal, demand, or purpose._
 
-Placed into the context of film editing, this implies that we need the ability
-to support high resolution data formats and extended colour spaces. And what is
-even more important, the software must be able to adapt to further developments
-and trends. Lumiera is conceived as a tool for craftspeople, delivering both
-reliability together with flexibility in combination to deliver a film edit.
-The user shall be enabled to move seamlessly from the exploring of raw material,
-through the stages of building a rough edit, to work out the narration and further
-to the stages of compositing, fine tuning and grading. High-quality processing
-combined with freedom of choice however increases complexity -- and, thus,
-the ability to handle complexity with precision is one of the tenets found
-in the Lumiera architecture.
+This, our work ethics, has direct implications in the field of film editing as
+it implies the need or even the necessity to support high resolution data
+formats and extended colour spaces. More importantly, the software must be
+sufficiently versatile as to be able to adopt itself to new technological
+developments and trends. Lumiera has been conceived as a tool for craftspeople,
+delivering both reliability in conjunction with flexibility to deliver a film
+edit. The user must have the freedom to glide seemlessly from raw material
+exploration, then to the phases of building a rough edit, next on to working on
+the narration, subsequently followed by compositing and finally to finish up
+with fine tuning and grading.  High-quality processing combined with freedom of
+choice comes at an expense: increased complexity. One of the golden features of
+the Lumiera architectural design is its ability to cope with this complexity tax
+with precision.
 
-These stages and the requirements and tasks to perform are well known to anyone
-familiar with the process of film creation. Each task -- when viewed in isolation
--- is quite feasible with modern computing hardware and software. What _is_
-challenging however is the seamless integration of all these steps while giving
-the user a great amount of leeway in the combination of building blocks. There
-is no existing blueprint and there is no ready made method how to build such an
-application. The project was thus forced to go through a yearlong phase of
-research, combined with prototyping and further analysis. This kind of work
-can be described as an expedition into partially uncharted territory.
-Results can not be derived from first principles alone, you have to consider
-a lot of details to see how things _could_ fit together. 
+Anyone familiar with the process of film creation is well acquainted with the
+stages and the assoociated requirements and tasks needed to perform them. Any
+one of these tasks taken in isolation can be reasonably mastered by modern day
+software and hardware. The _real_ challenge is surely the ability to integrate
+these various stages in a _seemless_ manner so as to afford the user maximum
+leeway and flexibity in combining the building blocks.  The formidable task is
+to build such an application as there is no blueprint availble to guide anyone
+in how to achieve this. This was the price paid by the Lumiera project. We had
+to trudge through a year-long phase of research and prototyping accompanied with
+deeper analysis. The nature of this work can be more appropriately described as
+an expedition into partially uncharted territory.  Results can not be derived
+from first principles alone, many details need to be examined before being able
+to establish a vague picture of possibly how things _could_ fit together.
 
-With the recent achievements by connecting the GUI to a flexible and open ended
-model description in the Session, this work of _mapping out the design space_
-gradually nears completion. A general style and common traits of the solutions
-embraced in Lumiera has emerged:
+With the recent achievements of connecting the GUI to a flexible and open ended
+model description in the Session, this work of _mapping out the design space_ is
+gradually nearing an end. A general style and common traits of the solutions
+required by Lumiera has emerged:
 
-- the application is comprised of self-contained parts with low coupling
-- interactions are performed by exchanging messages asynchronously
+- the application is composed of self-contained parts, each exhibiting low coupling among one another
+- interaction among the self-contained parts is by exchanging messages, asynchronously
 - these messages transmit a _symbolic representation_ of structures and metadata
 - this symbolic representation provides the foundation to allow for adaptation
   by declarative rules and to represent domain knowledge regarding the best
   way to handle and process the media data.
-
+<obla, der letzter punkt ist nicht richtig...ich schaue mir das später an> 
 
 The Vertical Slice
 ~~~~~~~~~~~~~~~~~~
