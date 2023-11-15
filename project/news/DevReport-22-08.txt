@@ -24,7 +24,7 @@ along the path set out at the beginning. As a result, the team have decided to
 implement a vertical slice. This entails implementing some feature such that all
 major software layers participate in providing the feature. Moreover, while
 integrating the vertical slice many previously developed components will emerge,
-hidden deep down in the steam and vault layers, to reveal the funcionality
+hidden deep down in the steam and vault layers, to reveal the functionality
 they were originally designed to provide.
 
 Once the vertical slice has been successfully implemented, we have the possibility

@@ -10,87 +10,165 @@ Lumiera 2022 Development Report
 In Brief
 ---------
 
-This year has seen an increase in developer activity in Lumiera
-https://openhub.net/p/lumiera/factoids#FactoidActivityIncreasing[as reported by
-Openhub.] This can be attributed to a strategic decision made by the developers
-in recent years to complete a
-https://en.wikipedia.org/wiki/Vertical_slice[vertical slice]. This would enable
+///////////////////////////////////////////////////////////////////////////////////////////////////
+Hallo Benny...
+ich füge hier Kommentare ein und mache Vorschläge zum Text.
+
+Der erste Teil "In Brief" sollte wirklich knapp sein. Hier würde
+ich sogar den Begriff "vertical slice" und alle technischen Details
+vermeiden. Aus meiner Sicht sind die wichtigesten Infos
+- increase in developer activity
+- strategic decision to carry on
+- question "Why" see below
+- focus on integration of the engine
+- design proved to perform as expected
+- first round of integration nears completion
+- a second round will follow
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+This year has seen an
+https://openhub.net/p/lumiera/factoids#FactoidActivityIncreasing[increase in developer activity]
+in Lumiera.
+This can be attributed to a strategic decision made by the developers
+in recent years to carry on with the project. Accommodations have been made to
+be able to spend much more time on Lumiera development. Moreover, the focus
+has been shifted towards integration of parts developed during the last years.
+This would enable
 developers to examine and put to the test many aspects of the Lumiera design itself
-as originally concieved by the developers at the project's launch.
+as originally conceived by the developers at the project's launch.
 While some fine-tuning to the Lumiera design was required, the overall design
-(as had been anticipated) proved to perform as originally expected. Some small
-aspects required fine tuning or were tweaked for optimumn performance.  While
-the vertical slice will provide valuable information to developers, it will also
+(as had been anticipated) proved to perform as originally expected.
+The first round of integration steps is currently nearing completion.
+While this work on the integration of the Render Engine
+will provide valuable information to developers, it will also
 provide a glimpse of progress to potential Lumiera users.
-+
-https://issues.lumiera.org/ticket/1221[The Playback Vertical Slice]
 
-+
-https://lumiera.org/wiki/renderengine.html[Graphical representation of the
-vertical slice and participating components]
-
-As a potential Lumiera User, you will be able to experience the fruits of the
-vertical slice developed over the past year. You, as a potential Lumiera User,
-will be able to activate the vertical slice by _pushing a button_ in the Lumiera
-GUI to play a video. Apart form being able to enjoy a (pre-defined) video clip
-playing on the stage, you might just also be able to enjoy the first whistling
-sounds of the steam layer performing its work to bring forth the video clip on
-your screen. And, if you place your ear even closer to your disc, you might just
-be able to discern the very first groans of The Vault in operation!
-
-The vertcial slice is currently nearing completion.
-
-We have been asked over the previous years---and indeed the question has been
-posed among ourselves---as to _why continue_ with Lumiera? We discuss the
+We have been asked over the previous years -- and indeed the question has been
+posed among ourselves -- as to _why continue_ with Lumiera? We discuss the
 question below.
 
-And of course, some of the developers attended the anual 
-https://www.froscon.org/en/[FrOSCon conference] in August.
+As was customary in all of the previous years, some of the developers met in person
+and attended the annual https://www.froscon.org/en/[FrOSCon conference] in August.
 
 
 In Detail
 ---------
+///////////////////////////////////////////////////////////////////////////////////////////////////
+ANMERKUNG ich denke, wir sollten nun nochmal an die Ziele des Projekts
+anknüpfen, um den besonderen Charakter klar zu machen. In den ersten
+Jahren wurde ausführlich nach Lösungen gesucht, die insgesammt zusammenpassen
+könnten im Hinblick auf die Ziele. Das ist Forschungs-Arbeit, d.h. man
+analyiert, baut einen Teil, und analyisert weiter.
+Inzwischen sind wir so weit, daß die Konzeption steht und der Weg klar ist.
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+Right from its beginnings, the Lumiera project leans towards professional,
+quality-oriented work. In this context, the term ``professional'' does not necessarily
+imply that this work is done in a _commercial setting_ or _industrial context._
+We do, however, wish to convey an attitude or frame of mind in the approach made
+to such work. Professionalism implies _doing work with sincerity and being subject
+to any kind of wider goal, demand, or purpose._
+
+Placed into the context of film editing, this implies that we need the ability
+to support high resolution data formats and extended colour spaces. And what is
+even more important, the software must be able to adapt to further developments
+and trends. Lumiera is conceived as a tool for craftspeople, delivering both
+reliability together with flexibility in combination to deliver a film edit.
+The user shall be enabled to move seamlessly from the exploring of raw material,
+through the stages of building a rough edit, to work out the narration and further
+to the stages of compositing, fine tuning and grading. High-quality processing
+combined with freedom of choice however increases complexity -- and, thus,
+the ability to handle complexity with precision is one of the tenets found
+in the Lumiera architecture.
+
+These stages and the requirements and tasks to perform are well known to anyone
+familiar with the process of film creation. Each task -- when viewed in isolation
+-- is quite feasible with modern computing hardware and software. What _is_
+challenging however is the seamless integration of all these steps while giving
+the user a great amount of leeway in the combination of building blocks. There
+is no existing blueprint and there is no ready made method how to build such an
+application. The project was thus forced to go through a yearlong phase of
+research, combined with prototyping and further analysis. This kind of work
+can be described as an expedition into partially uncharted territory.
+Results can not be derived from first principles alone, you have to consider
+a lot of details to see how things _could_ fit together. 
+
+With the recent achievements by connecting the GUI to a flexible and open ended
+model description in the Session, this work of _mapping out the design space_
+gradually nears completion. A general style and common traits of the solutions
+embraced in Lumiera has emerged:
+
+- the application is comprised of self-contained parts with low coupling
+- interactions are performed by exchanging messages asynchronously
+- these messages transmit a _symbolic representation_ of structures and metadata
+- this symbolic representation provides the foundation to allow for adaptation
+  by declarative rules and to represent domain knowledge regarding the best
+  way to handle and process the media data.
+
 
 The Vertical Slice
 ~~~~~~~~~~~~~~~~~~
 
+Lumiera development to-date was mainly concerned with components: designing
+components, building components and delivering components to provide some
+definite functionality. With the successful connection between GUI and
+Session, we've started using these components as our basic building
+blocks to provide some new functionality. The scope of this new functionality
+now expands down into the very core of the Render Engine.
+
 The Lumiera developer news report from last year reported extensively on our
-intention to implement a vertical slice. There, we also described the vertical
-slice and our reasons for doing this, 
-link:/project/news/DevReport-22-08.html[see report,] and have a
+intention to implement a
+https://en.wikipedia.org/wiki/Vertical_slice[vertical slice].
+There, we also described our reasons for doing this, 
+link:{l}/project/news/DevReport-22-08.html[see report,] and have a
 link:https://issues.lumiera.org/ticket/1221[tracking ticket.]
 Most importantly, a graphical depiction of the vertical and the various
 components involved is depicted
-link:https://lumiera.org/wiki/renderengine.html[here.]
+link:{ldoc}/devel/draw/VerticalSlice.Playback.svg[here.]
 
-Lumiera development to-date was mainly concerned with components: designing
-components, building components and delivering components to provide some
-definite functionality. Now, for the first time, we've started building using
-these components as our basic building blocks to provide some new
-functionality. In this particular vertical slice, the functionality to provide
-is to play a clip that is triggered by a user on the GUI.
-
-Some components were not even available so we 
+When completed, this vertical slice will allow to start the display of
+(pre-defined) video content by _pushing a button_ in the Lumiera GUI.
+The implementation made much progress over the course of the last months. 
+Several existing parts of the _player_ could be integrated successfully.
+Some components were not yet available so we 
 link:https://en.wikipedia.org/wiki/Mock_object[mocked] these. Other more crucial
-components playing a vital role in the workings of Lumiera were implemented from
+parts playing a vital role in the workings of Lumiera were implemented from
 the ground up to allow developers to scrutinize its performance in the vertical
 slice, but also in combination with components under development. One such
-component was link:https://en.wikipedia.org/wiki/Scheduling_(computing)[the
-scheduler.]
+component was the *Scheduler*.
 
-Few NLE software provide their own scheduler. Instead they rely on the scheduler
-provided by the operating system which is usually resident in the system
-kernel. For Lumiera, the huge demand on system resources and the stringent
-requirments on tasks being executed within fine, pre-defined time frames could
-only be reliably privided by using a Lumiera dedicated scheduler. Lumiera tasks
-are arranged according to priority in the que waiting CPU processing. Timing is
-essential and a Lumiera dedicated scheduler is quintessential.
+///////////////////////////////////////////////////////////////////////////////////////////////////
+ANMERKUNG: da wir hier "development news" schreiben, könnten wir etwas genauer darauf
+eingehen, warum wir uns entschieden haben, einen Scheduler zu verwenden.
+Ehrlich gesagt, ich weiß nicht, was Final Cut oder DaVinci machen, daher
+möchte ich mich nicht aus dem Fenster lehnen und behaupten, ein Scheduler
+wäre so etwas Einzigartiges...
+///////////////////////////////////////////////////////////////////////////////////////////////////
+Time bound delivery of media data is an important aspect of editing and
+playback -- yet other concerns are of similar importance: the ability to make
+optimum use of scarce resources and to complete extended processing in reasonable
+time, while retaining some overall responsiveness of the system. And, especially
+for the final render, it is tantamount to produce reproducibly correct results
+without any glitches, spending whatever time it takes to complete the work.
+So the Lumiera Render Engine is bound by several, partially conflicting goals
+and sometimes faces a situation where available resources are insufficient.
+
+link:https://en.wikipedia.org/wiki/Scheduling_(computing)[Scheduling] is
+one well established solution to handle such a situation smoothly. Work is
+broken down into tiny _jobs._ Such jobs can be classified in various regards,
+combined into a prioritisation order. Limited resources can be spent where
+it matters most. Moreover, placing a scheduling mechanism into the centre
+of the engine opens a way for flexible adaptation to future demands. Some
+task could be handed off to dedicated hardware, or be sent over the net
+into a render cluster, all integrated seamlessly with the rest of the
+application.
 
 The bulk of the work to implement the scheduler has been completed
-link:https://issues.lumiera.org/ticket/1280[see details]. The render jobs
-(from the low-level model) have been mocked
-but first measurements of satisfying time constraints reveal that this has been
-achieved: link:https://issues.lumiera.org/ticket/1347[time observation.]
+link:https://issues.lumiera.org/ticket/1280[see details]. The render nodes
+(from the low-level model) are not yet connected, 
+but first measurements with mocked render jobs indicated that the new
+implementation satisfies the time constraints:
+link:https://issues.lumiera.org/ticket/1347[time observation.]
 
 
 Why Continue
@@ -106,6 +184,17 @@ https://lumiera.org/documentation/user/intro/intro.html#_vision[vision] that
 embraces the reaches Lumiera perpetuates to provide. We are increasingly being
 justified by the slowly emerging features from new code that fortifies these
 assumptions.
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+ANMERKUNG: vielleicht sollten wir hier noch einmal den politischen Aspekt anklingen
+lassen: Ein unabhängiges Open-Source Projekt + Zusammenarbeit mit der Community.
+Eine Lösung die nicht kommerziellen Interessen unterworfen ist. ?
+Die Möglichkeit, in diesem Rahmen die Tools weiter zu entwickeln. ?
+
+Wichtig ist mir, daß hier nicht der Eindruck entsteht, wir müßten uns
+für das Projekt entschuldigen oder wir wollten nur spielen.
+Wir haben einen Anspruch *und* wir haben bereits viel geleistet.
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 There are of course additional reaons as to why we should wish to continue
 developing Lumiera. For example, the _thrill_ factor reminiscent of the feelings
