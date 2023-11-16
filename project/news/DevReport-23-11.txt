@@ -65,12 +65,12 @@ Inzwischen sind wir so weit, daß die Konzeption steht und der Weg klar ist.
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 Right from its very inception, the Lumiera project strived towards professional
-and high-quality work.  Here, the term ``professional'' does not
-necessarily imply that this work is done in a _commercial setting_ or
-_industrial context._ We do, however, wish to convey an attitude or frame of
-mind in our approach we make to our work. Professionalism implies _pursuing work with
-sincerity and subjecting myself to engaging in its essence and not its goal,
-consequence, rewards or any other peripheral aspect associated with it._
+and high-quality work.  Here, the term ``professional'' does not necessarily
+imply that this work is done in a _commercial setting_ or _industrial context._
+We do, however, wish to convey an attitude or frame of mind in our approach we
+make to our work. Professionalism implies pursuing work with sincerity and
+subjecting oneself to engaging in its essence and not looking towards rewards or
+any other peripheral aspect associated with it.
 
 This, our work ethics, has direct implications in the field of film editing as
 it implies the need or even the necessity to support high resolution data
@@ -184,7 +184,7 @@ Well, most obviously, we enjoy doing it. However, this does not necessarily
 justify devoting a considerable amount of time to pursue such a costly
 endeavour---well, at least not for us, the current developers.
 
-We believe that we have a unique ideas and that there is no Open Source project
+We believe that we have unique ideas and that there is no Open Source project
 currently available providing the scope, functionality and
 https://lumiera.org/documentation/user/intro/intro.html#_vision[vision] that
 embraces the reaches Lumiera perpetuates to provide. We are increasingly being
@@ -202,14 +202,15 @@ für das Projekt entschuldigen oder wir wollten nur spielen.
 Wir haben einen Anspruch *und* wir haben bereits viel geleistet.
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-There are of course additional reaons as to why we should wish to continue
-developing Lumiera. For example, the _thrill_ factor reminiscent of the feelings
-after compiling your first "Hellow World" program; or develping the first
-multi-threaded programme and been distraught at its failure to reap any
-performance gain after many, many nights of late-night debugging, only to find
-the the hardware only has a single core: thrill.  But there other aspects that
-should not be overlooked: the project already has a design and many problems
-partially resolved in code or well documented that is, or will be of benifit to
-the communnity.  We believe, this is significant enough to want to share this
-with others.
+Of personal interest to the Lumiera developers is making a contribution to the
+Open Source Community, a community that given us, the Lumiera developers, so
+much over the years and the ability to feed back to the community is a personal
+gain. The Lumiera project has gained so much from the community, indeed its
+roots may be traced back to that very community, and continues to do so. Indeed
+it is a commitment which we, the developers, are committed to not only for now,
+but also to ensure that the project remains in the Open Source community for
+long to come.
+
+We must finally mention the developer satisfaction in operating in such an
+environment and not in a commercial cage. 
 
