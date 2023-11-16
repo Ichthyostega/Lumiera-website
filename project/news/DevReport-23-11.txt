@@ -68,8 +68,9 @@ Right from its very inception, the Lumiera project strived towards professional
 and high-quality work.  Here, the term ``professional'' does not
 necessarily imply that this work is done in a _commercial setting_ or
 _industrial context._ We do, however, wish to convey an attitude or frame of
-mind in our approach we make to our work. Professionalism implies _doing work with
-sincerity and not being diverted by any kind of wider goal, demand, or purpose._
+mind in our approach we make to our work. Professionalism implies _pursuing work with
+sincerity and subjecting myself to engaging in its essence and not its goal,
+consequence, rewards or any other peripheral aspect associated with it._
 
 This, our work ethics, has direct implications in the field of film editing as
 it implies the need or even the necessity to support high resolution data
@@ -82,8 +83,8 @@ exploration, then to the phases of building a rough edit, next on to working on
 the narration, subsequently followed by compositing and finally to finish up
 with fine tuning and grading.  High-quality processing combined with freedom of
 choice comes at an expense: increased complexity. One of the golden features of
-the Lumiera architectural design is its ability to cope with this complexity tax
-with precision.
+the Lumiera architectural design is its ability to cope with this complexity 
+while still retaining precision.
 
 Anyone familiar with the process of film creation is well acquainted with the
 stages and the assoociated requirements and tasks needed to perform them. Any
