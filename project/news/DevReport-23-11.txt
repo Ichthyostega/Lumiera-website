@@ -132,10 +132,10 @@ Most importantly, a graphical depiction of the vertical and the various
 components involved is depicted
 link:{ldoc}/devel/draw/VerticalSlice.Playback.svg[here.]
 
-When completed, this vertical slice will allow to start the display of
+Once finished, this vertical slice will allow a user to start the display of
 (pre-defined) video content by _pushing a button_ in the Lumiera GUI.
-The implementation made much progress over the course of the last months. 
-Several existing parts of the _player_ could be integrated successfully.
+The implementation has made much progress over the course of the last months. 
+Several existing parts of the _player_ were successfully integrated.
 Some components were not yet available so we 
 link:https://en.wikipedia.org/wiki/Mock_object[mocked] these. Other more crucial
 parts playing a vital role in the workings of Lumiera were implemented from
@@ -151,21 +151,21 @@ möchte ich mich nicht aus dem Fenster lehnen und behaupten, ein Scheduler
 wäre so etwas Einzigartiges...
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 Time bound delivery of media data is an important aspect of editing and
-playback -- yet other concerns are of similar importance: the ability to make
-optimum use of scarce resources and to complete extended processing in reasonable
+playback -- yet, other concerns are of similar importance: the ability to make
+optimum use of scarce resources and to complete extended processing in acceptable
 time, while retaining some overall responsiveness of the system. And, especially
 for the final render, it is tantamount to produce reproducibly correct results
 without any glitches, spending whatever time it takes to complete the work.
 So the Lumiera Render Engine is bound by several, partially conflicting goals
 and sometimes faces a situation where available resources are insufficient.
 
-link:https://en.wikipedia.org/wiki/Scheduling_(computing)[Scheduling] is
-one well established solution to handle such a situation smoothly. Work is
-broken down into tiny _jobs._ Such jobs can be classified in various regards,
-combined into a prioritisation order. Limited resources can be spent where
-it matters most. Moreover, placing a scheduling mechanism into the centre
-of the engine opens a way for flexible adaptation to future demands. Some
-task could be handed off to dedicated hardware, or be sent over the net
+link:https://en.wikipedia.org/wiki/Scheduling_(computing)[Scheduling] is one
+well established solution to handle such a situation smoothly. Work is broken
+down into tiny _jobs._ Such jobs can be classified according to various criteria
+and combined in order with respect to priority. Limited resources can be used
+where it matters most. Moreover, placing a scheduling mechanism into the centre
+of the engine opens a way to flexibly adapt to future demands. It is possible to
+assign some tasks to dedicated hardware, or to have them dispatched over the net
 into a render cluster, all integrated seamlessly with the rest of the
 application.
 
@@ -173,7 +173,7 @@ The bulk of the work to implement the scheduler has been completed
 link:https://issues.lumiera.org/ticket/1280[see details]. The render nodes
 (from the low-level model) are not yet connected, 
 but first measurements with mocked render jobs indicated that the new
-implementation satisfies the time constraints:
+implementation satisfies necessary time constraints:
 link:https://issues.lumiera.org/ticket/1347[time observation.]
 
 
