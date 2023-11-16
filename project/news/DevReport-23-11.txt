@@ -107,10 +107,9 @@ required by Lumiera has emerged:
 - the application is composed of self-contained parts, each exhibiting low coupling among one another
 - interaction among the self-contained parts is by exchanging messages, asynchronously
 - these messages transmit a _symbolic representation_ of structures and metadata
-- this symbolic representation provides the foundation to allow for adaptation
-  by declarative rules and to represent domain knowledge regarding the best
-  way to handle and process the media data.
-<obla, der letzter punkt ist nicht richtig...ich schaue mir das später an> 
+- this symbolic representation allows us to represent domain knowledge using
+  declarative rules which contains information on the best way to handle and
+  process data
 
 The Vertical Slice
 ~~~~~~~~~~~~~~~~~~
