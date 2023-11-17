@@ -29,7 +29,7 @@ vermeiden. Aus meiner Sicht sind die wichtigesten Infos
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 This year has seen an
 https://openhub.net/p/lumiera/factoids#FactoidActivityIncreasing[increase in
-developer activity] in Lumiera.  This can be attributed to a strategic decision
+developer activity] in Lumiera. This can be attributed to a strategic decision
 made by the developers in recent years to continue devoting time and energy to
 the project. An additional provision has been made to invest significantly more
 developer time in the project. The project should also benefit from a slight
@@ -78,21 +78,21 @@ formats and extended colour spaces. More importantly, the software must be
 sufficiently versatile as to be able to adopt itself to new technological
 developments and trends. Lumiera has been conceived as a tool for craftspeople,
 delivering both reliability in conjunction with flexibility to deliver a film
-edit. The user must have the freedom to glide seemlessly from raw material
+edit. The user must have the freedom to glide seamlessly from raw material
 exploration, then to the phases of building a rough edit, next on to working on
 the narration, subsequently followed by compositing and finally to finish up
 with fine tuning and grading.  High-quality processing combined with freedom of
 choice comes at an expense: increased complexity. One of the golden features of
 the Lumiera architectural design is its ability to cope with this complexity 
-while still retaining precision.
+while still retaining precision, link:{ldoc}/user/intro/intro.html[ref. Lumiera.]
 
 Anyone familiar with the process of film creation is well acquainted with the
-stages and the assoociated requirements and tasks needed to perform them. Any
+stages and the associated requirements and tasks needed to perform them. Any
 one of these tasks taken in isolation can be reasonably mastered by modern day
 software and hardware. The _real_ challenge is surely the ability to integrate
-these various stages in a _seemless_ manner so as to afford the user maximum
-leeway and flexibity in combining the building blocks.  The formidable task is
-to build such an application as there is no blueprint availble to guide anyone
+these various stages in a _seamless_ manner so as to afford the user maximum
+leeway and flexibility in combining the building blocks.  The formidable task is
+to build such an application as there is no blueprint available to guide anyone
 in how to achieve this. This was the price paid by the Lumiera project. We had
 to trudge through a year-long phase of research and prototyping accompanied with
 deeper analysis. The nature of this work can be more appropriately described as
@@ -139,7 +139,7 @@ Several existing parts of the _player_ were successfully integrated.
 Some components were not yet available so we 
 link:https://en.wikipedia.org/wiki/Mock_object[mocked] these. Other more crucial
 parts playing a vital role in the workings of Lumiera were implemented from
-the ground up to allow developers to scrutinize its performance in the vertical
+the ground up to allow developers to scrutinise its performance in the vertical
 slice, but also in combination with components under development. One such
 component was the *Scheduler*.
 
@@ -169,7 +169,7 @@ assign some tasks to dedicated hardware, or to have them dispatched over the net
 into a render cluster, all integrated seamlessly with the rest of the
 application.
 
-The bulk of the work to implement the scheduler has been completed
+The bulk of the work to implement the scheduler has been completed,
 link:https://issues.lumiera.org/ticket/1280[see details]. The render nodes
 (from the low-level model) are not yet connected, 
 but first measurements with mocked render jobs indicated that the new
@@ -180,13 +180,13 @@ link:https://issues.lumiera.org/ticket/1347[time observation.]
 Why Continue
 ~~~~~~~~~~~~
 
-Well, most obviously, we enjoy doing it. The many challeges encountered by
-Lumiera: surmounting interminable complexity while retaining precision and
-enganging uncharted territory while retaining our professional mind-set are some
-of the ingredients which contribute to our joy in working on Lumiera.  But, our
-personal gratification does not necessarily justify devoting a considerable
-amount of time to pursue such a costly endeavour---well, at least not for us,
-the current developers.
+Well, most obviously, we enjoy doing it. The many challenges encountered by
+working on Lumiera: surmounting interminable complexity while retaining
+precision and engaging uncharted territory while retaining our professional
+mind-set are some of the ingredients which contribute to our joy in working on
+Lumiera.  But, our personal gratification does not necessarily justify devoting
+a considerable amount of time to pursue such a costly endeavour---well, at least
+not for us, the current developers.
 
 We believe that we have unique ideas and that there is no Open Source project
 currently available providing the scope, functionality and
@@ -207,13 +207,12 @@ Wir haben einen Anspruch *und* wir haben bereits viel geleistet.
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 Of personal interest to the Lumiera developers is making a contribution to the
-Open Source Community, a community that given us, the Lumiera developers, so
+Open Source Community, a community that has given us, the Lumiera developers, so
 much over the years and the ability to feed back to the community is a personal
 gain. The Lumiera project has gained so much from the community, indeed its
-roots may be traced back to that very community, and continues to do so.
-///////////////////////////////////////////////////////////////////////////////////////////////////
-Hast Du einen guten Link für hier?
-///////////////////////////////////////////////////////////////////////////////////////////////////
+roots may be traced back to that very community, and continues to do so, ref.
+link:{l}/project/index.html[About Lumiera.]
+
 Indeed it is a commitment which we, the developers, are committed to not only
 for now, but also to ensure that the project remains in the Open Source
 community for long to come.
