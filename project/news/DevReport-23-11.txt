@@ -180,9 +180,13 @@ link:https://issues.lumiera.org/ticket/1347[time observation.]
 Why Continue
 ~~~~~~~~~~~~
 
-Well, most obviously, we enjoy doing it. However, this does not necessarily
-justify devoting a considerable amount of time to pursue such a costly
-endeavour---well, at least not for us, the current developers.
+Well, most obviously, we enjoy doing it. The many challeges encountered by
+Lumiera: surmounting interminable complexity while retaining precision and
+enganging uncharted territory while retaining our professional mind-set are some
+of the ingredients which contribute to our joy in working on Lumiera.  But, our
+personal gratification does not necessarily justify devoting a considerable
+amount of time to pursue such a costly endeavour---well, at least not for us,
+the current developers.
 
 We believe that we have unique ideas and that there is no Open Source project
 currently available providing the scope, functionality and
@@ -206,11 +210,13 @@ Of personal interest to the Lumiera developers is making a contribution to the
 Open Source Community, a community that given us, the Lumiera developers, so
 much over the years and the ability to feed back to the community is a personal
 gain. The Lumiera project has gained so much from the community, indeed its
-roots may be traced back to that very community, and continues to do so. Indeed
-it is a commitment which we, the developers, are committed to not only for now,
-but also to ensure that the project remains in the Open Source community for
-long to come.
+roots may be traced back to that very community, and continues to do so.
+///////////////////////////////////////////////////////////////////////////////////////////////////
+Hast Du einen guten Link für hier?
+///////////////////////////////////////////////////////////////////////////////////////////////////
+Indeed it is a commitment which we, the developers, are committed to not only
+for now, but also to ensure that the project remains in the Open Source
+community for long to come.
 
 We must finally mention the developer satisfaction in operating in such an
 environment and not in a commercial cage. 
-
