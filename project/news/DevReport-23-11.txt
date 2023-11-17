@@ -10,23 +10,6 @@ Lumiera 2022 Development Report
 In Brief
 ---------
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-Hallo Benny...
-ich füge hier Kommentare ein und mache Vorschläge zum Text.
-
-Der erste Teil "In Brief" sollte wirklich knapp sein. Hier würde
-ich sogar den Begriff "vertical slice" und alle technischen Details
-vermeiden. Aus meiner Sicht sind die wichtigesten Infos
-<ja, war auch mein Ziel beim Schreiben, aber es kam, leider, was anders bei mir raus>
-- increase in developer activity
-- strategic decision to carry on
-- question "Why" see below
-- focus on integration of the engine
-- design proved to perform as expected
-- first round of integration nears completion
-- a second and possible more round(s) will follow
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 This year has seen an
 https://openhub.net/p/lumiera/factoids#FactoidActivityIncreasing[increase in
 developer activity] in Lumiera. This can be attributed to a strategic decision
@@ -55,14 +38,6 @@ and attended the annual https://www.froscon.org/en/[FrOSCon conference] in Augus
 
 In Detail
 ---------
-///////////////////////////////////////////////////////////////////////////////////////////////////
-ANMERKUNG ich denke, wir sollten nun nochmal an die Ziele des Projekts
-anknüpfen, um den besonderen Charakter klar zu machen. In den ersten
-Jahren wurde ausführlich nach Lösungen gesucht, die insgesammt zusammenpassen
-könnten im Hinblick auf die Ziele. Das ist Forschungs-Arbeit, d.h. man
-analyiert, baut einen Teil, und analyisert weiter.
-Inzwischen sind wir so weit, daß die Konzeption steht und der Weg klar ist.
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
 Right from its very inception, the Lumiera project strived towards professional
 and high-quality work.  Here, the term ``professional'' does not necessarily
@@ -84,7 +59,8 @@ the narration, subsequently followed by compositing and finally to finish up
 with fine tuning and grading.  High-quality processing combined with freedom of
 choice comes at an expense: increased complexity. One of the golden features of
 the Lumiera architectural design is its ability to cope with this complexity 
-while still retaining precision, link:{ldoc}/user/intro/intro.html[ref. Lumiera.]
+while still retaining precision
+(-> more link:{ldoc}/user/intro/intro.html[here]).
 
 Anyone familiar with the process of film creation is well acquainted with the
 stages and the associated requirements and tasks needed to perform them. Any
@@ -122,15 +98,23 @@ Session, we've started using these components as our basic building
 blocks to provide some new functionality. The scope of this new functionality
 now expands down into the very core of the Render Engine.
 
+***************************************************
+.»Playback Vertical Slice«
+image:{ldoc}/devel/draw/VerticalSlice.Playback.svg[
+"Lumiera Architecture",width=256,
+link="{ldoc}/devel/draw/VerticalSlice.Playback.svg"]
+
+[verse]
+Graphical depiction of the
+*vertical slice* and the various
+components involved.
+*****************************************************
 The Lumiera developer news report from last year reported extensively on our
 intention to implement a
 https://en.wikipedia.org/wiki/Vertical_slice[vertical slice].
 There, we also described our reasons for doing this, 
 link:{l}/project/news/DevReport-22-08.html[see report,] and have a
 link:https://issues.lumiera.org/ticket/1221[tracking ticket.]
-Most importantly, a graphical depiction of the vertical and the various
-components involved is depicted
-link:{ldoc}/devel/draw/VerticalSlice.Playback.svg[here.]
 
 Once finished, this vertical slice will allow a user to start the display of
 (pre-defined) video content by _pushing a button_ in the Lumiera GUI.
@@ -143,13 +127,6 @@ the ground up to allow developers to scrutinise its performance in the vertical
 slice, but also in combination with components under development. One such
 component was the *Scheduler*.
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-ANMERKUNG: da wir hier "development news" schreiben, könnten wir etwas genauer darauf
-eingehen, warum wir uns entschieden haben, einen Scheduler zu verwenden.
-Ehrlich gesagt, ich weiß nicht, was Final Cut oder DaVinci machen, daher
-möchte ich mich nicht aus dem Fenster lehnen und behaupten, ein Scheduler
-wäre so etwas Einzigartiges...
-///////////////////////////////////////////////////////////////////////////////////////////////////
 Time bound delivery of media data is an important aspect of editing and
 playback -- yet, other concerns are of similar importance: the ability to make
 optimum use of scarce resources and to complete extended processing in acceptable
@@ -195,27 +172,13 @@ embraces the reaches Lumiera perpetuates to provide. We are increasingly being
 justified by the slowly emerging features from new code that fortifies these
 assumptions.
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-ANMERKUNG: vielleicht sollten wir hier noch einmal den politischen Aspekt anklingen
-lassen: Ein unabhängiges Open-Source Projekt + Zusammenarbeit mit der Community.
-Eine Lösung die nicht kommerziellen Interessen unterworfen ist. ?
-Die Möglichkeit, in diesem Rahmen die Tools weiter zu entwickeln. ?
-
-Wichtig ist mir, daß hier nicht der Eindruck entsteht, wir müßten uns
-für das Projekt entschuldigen oder wir wollten nur spielen.
-Wir haben einen Anspruch *und* wir haben bereits viel geleistet.
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
 Of personal interest to the Lumiera developers is making a contribution to the
 Open Source Community, a community that has given us, the Lumiera developers, so
 much over the years and the ability to feed back to the community is a personal
 gain. The Lumiera project has gained so much from the community, indeed its
-roots may be traced back to that very community, and continues to do so, ref.
-link:{l}/project/index.html[About Lumiera.]
-
-Indeed it is a commitment which we, the developers, are committed to not only
-for now, but also to ensure that the project remains in the Open Source
-community for long to come.
+roots may be traced back to that very community, and continues to do so.
+And this is a commitment which we, the developers, will pursue not only for now,
+but also to ensure that the project remains in the Open Source for long to come.
 
 We must finally mention the developer satisfaction in operating in such an
 environment and not in a commercial cage. 
