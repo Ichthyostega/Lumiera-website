@@ -1,4 +1,4 @@
-Lumiera 2022 Development Report
+Lumiera 2023 Development Report
 ===============================
 :Date: Winter 2023
 :Author: Benny Lyons & Hermann Voßeler
@@ -154,8 +154,8 @@ implementation satisfies necessary time constraints:
 link:https://issues.lumiera.org/ticket/1347[time observation.]
 
 
-Why Continue
-~~~~~~~~~~~~
+Why Continue?
+~~~~~~~~~~~~~
 
 Well, most obviously, we enjoy doing it. The many challenges encountered by
 working on Lumiera: surmounting interminable complexity while retaining
