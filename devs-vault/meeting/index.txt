@@ -37,6 +37,6 @@ For general discussions or further questions, refer to the ->link:/project/conta
 Next Developers Meeting
 -----------------------
 
-Next meeting: *Wednesday, 13.Mar.2024 20^00^ UTC*
+Next meeting: *Wednesday, 8.May.2024 20^00^ UTC*
 If there is some concern, please speak up on the link:/project/contact.html[Mailing List]
 or send a private mail to the developer(s).
