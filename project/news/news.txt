@@ -5,7 +5,7 @@ Comment irrelevant stuff out
 
 ////
 *November 2023*::
-      Playback Vertical Slice almost complete.
+      Playback Vertical Slice made good progress.
       +
       Why Continue?
       +
