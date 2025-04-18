@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # -*- python -*-
 ##
@@ -18,17 +18,17 @@
 import os
 import re
 import sys
-import types
 import string
 from os import path
 from optparse import OptionParser
-from itertools import ifilter,chain
+from itertools import chain
 
-import menuformat   # defines specific HTML to generate
+# Note menuformat.py (helper module) expected in same dir,
+#      to provide a HTML template for rendering the menu.
 
 
 #------------CONFIGURATION-----------------------------
-PROGVER      = 0.1
+PROGVER      = 0.2
 PROGNAME     = 'menugen'
 TREE_ROOT    = 'root'
 INDEX_NAME   = 'index'
@@ -101,7 +101,7 @@ def parseAndDo():
     
     usage = "usage: %prog [options] [directory]"
     
-    parser = OptionParser(usage=usage, version="%s %1.2f" % (PROGNAME,PROGVER)) 
+    parser = OptionParser(usage=usage, version="%s %1.2f" % (PROGNAME,PROGVER))
     
     parser.add_option("-p", "--predefined",    action="store_true"
                      ,help="populate the menu with a built-in backbone structure")
@@ -116,12 +116,10 @@ def parseAndDo():
     
     (options, args) = parser.parse_args()
     
-    global startdir
     if len(args) >= 1:
-        startdir = args[0]
+        defineRootDir(args[0])
     else:
-        startdir = '.'
-    startdir = path.abspath(startdir)
+        defineRootDir('.')
     if len(args) > 1:
         __warn('additional arguments "%s" ignored.' % args[1:])
     if not (options.debug or options.text or options.webpage):
@@ -132,7 +130,7 @@ def parseAndDo():
     if options.predefined:
         addPredefined()
     if options.scan:
-        discoverPages(startdir)
+        discoverPages()
     if options.debug:
         dumpTables()
     if options.webpage:
@@ -146,15 +144,23 @@ def parseAndDo():
 
 ##################### Parsing and Discovery ######################
 
-def discoverPages (startdir):
+def defineRootDir (spec):
+    ''' define the directory where discovery and parsing starts.
+        Further processing will discover locations relative to this point
+        and encode them as Node objects; relative paths within those nodes
+        are prefixed with the token TREE_ROOT, which is later expanded
+        to the concrete path defined with this function.
+    '''
+    global startdir
+    startdir = path.abspath(spec)
     if not isDir(startdir):
         __err('unable to scan/discover contents: '+
-              '"%s" is not an accessable directory' % startdir)
-    
+              '"%s" is not an accessible directory' % startdir)
+
+def discoverPages():
     discoverLocation (TREE_ROOT)
 
-
-def discoverLocation(loc, parent=None):
+def discoverLocation (loc, parent=None):
     file = findSource (loc)
     node = scanSource (loc, file, parent)
     for child in discoverChildren(node, loc):
@@ -174,7 +180,7 @@ nameID = lambda p: p and path.splitext(path.basename(p))[0]
 def expandRoot (loc):
     ''' expand a relative path
         starting with the TREE_ROOT token.
-        @return: absolute path based on the global startdir
+        @return: absolute path based on the global start-dir
     '''
     global startdir
     if (loc and loc.startswith(TREE_ROOT)):
@@ -226,8 +232,8 @@ def findSource (loc):
 def buildFilename (loc, FILE_EXT):
     ''' strategy to build acceptable file names,
         especially handling directory index files
-        @param loc: filename or location to search 
-        @param FILE_EXT: extension to require on files 
+        @param loc: filename or location to search
+        @param FILE_EXT: extension to require on files
         @return: an existing file or index file
     '''
     loc = expandRoot(loc)
@@ -275,16 +281,15 @@ def discoverChildrenRecursively(location):
             yield path.join(location,eID)
 
 
-class DiscoveryRedirect:
+class ChildDiscoveryRedirected:
     ''' functor object to be used for discovering children.
-        like the simple #discoverChildrenRecursively strategy,
+        Similar to the simple #discoverChildrenRecursively strategy,
         it it will be attached to a node to be used when discovering
         possible sub-menu entries. But here this discovery can be
-        parametised with relative paths to include and names to filter
+        parametrised with relative paths to include and names to filter
     '''
     def __init__(self, includes=[], excludes=[], srcdirs=[]):
-        filter = lambda loc: not nameID(loc) in excludes
-        self.excludesFilter = filter
+        self.excludesFilter = lambda loc: not nameID(loc) in excludes
         self.includes = includes
         self.srcdirs = srcdirs
     
@@ -292,25 +297,27 @@ class DiscoveryRedirect:
         ''' when invoked to discover a start location,
             apply our includes and excludes relative to that
             location and yield an iterator for possible children
-            - each of our srcdirs is appended in turn to the
+            - each of our src dirs is appended in turn to the
               given location to form a new place to explore
-            - the includes are immediately treated as chilrden
+            - the includes are immediately treated as children
             - the bare name of all results found there
               are checked against our excludes
         '''
         if not (self.srcdirs or self.includes):
             self.srcdirs = ['.']
         prependLocation = lambda relPath: navigateRelative(location, relPath)
-        buildSubIter = lambda loc: ifilter(self.excludesFilter, [loc])
-        buildDirIter = lambda loc: ifilter(self.excludesFilter,
-                                           discoverChildrenRecursively(loc))
-        toRetrieve = map(prependLocation, self.srcdirs )
-        toInclude = map(prependLocation, self.includes )
-        sources = map(buildDirIter, toRetrieve) + map(buildSubIter, toInclude)
-        return chain(*sources)
+        buildSubIter = lambda loc: filter(self.excludesFilter, [loc])
+        buildDirIter = lambda loc: filter(self.excludesFilter,
+                                          discoverChildrenRecursively(loc))
+        toRetrieve = map(prependLocation, self.srcdirs)
+        toRetrieve = map(buildDirIter, toRetrieve)
+        toInclude  = map(prependLocation, self.includes)
+        toInclude  = map(buildSubIter, toInclude)
+        processors = list(toRetrieve) + list(toInclude)
+        return chain(*processors)
     
     
-    def chain(self, includes=[], excludes=[], srcdirs=[]):
+    def chainDiscovery(self, includes=[], excludes=[], srcdirs=[]):
         prevFilter = self.excludesFilter
         newfilter = lambda loc: not nameID(loc) in excludes and prevFilter(loc)
         self.excludesFilter = newfilter
@@ -328,7 +335,7 @@ def scanSource (location, srcFile, parentNode):
         for Menu specs embedded in comments.
         Translate these into Node invocations
         @note various Placement subclasses perform
-              the actual parsing and manipulations. 
+              the actual parsing and manipulations.
     '''
     if not (srcFile and location): return None
     if not parentNode:
@@ -339,7 +346,7 @@ def scanSource (location, srcFile, parentNode):
     node = Node(nodeID)
     
     assert isFile(srcFile)
-    srcTxt = file(srcFile)
+    srcTxt = open(srcFile)
     title = findTitle(srcTxt)
     if title and node.hasNoLabel():
         node.label = title
@@ -386,7 +393,7 @@ def extractMenuSpecs(srcFile):
 
 
 
-##################### Datastructures #############################
+##################### Data structures #############################
 
 class NodeIndex:
     def __init__(self):
@@ -411,30 +418,30 @@ class NodeIndex:
 
 class Node(object):
     ''' Menu building block: An entry within the menu tree or DAG
-        Operations provided for building the structure and for adding atributes.
+        Operations provided for building the structure and for adding attributes.
         The final menu generation step traverses the node structure and accesses
         the properties to generate the desired output
     '''
     index = NodeIndex()
     
-    def __new__(type, id, **args):
+    def __new__(cls, idi, **_):
         ''' Factory function for nodes: retrieve existing or create new '''
-        if not id:
+        if not idi:
             return None # neutral
-        if isinstance(id, Node):
-            return id   # idempotent
+        if isinstance(idi, Node):
+            return idi   # idempotent
         
-        assert isinstance(id, basestring)
-        node = Node.index.find(id)
+        assert isinstance(idi, str)
+        node = Node.index.find(idi)
         if node == None:
-            node = object.__new__(type)
-            Node.index.add(id,node)
+            node = object.__new__(cls)
+            Node.index.add(idi,node)
         return node
     
     
-    def __init__(self, id, **args):
+    def __init__(self, idi, **args):
         if not self._isInit():
-            self.id = normaliseComponentId(id)
+            self.id = normaliseComponentId(idi)
             self.url = None
             self.label = titleFormatted(self.id)
             self.parents = []
@@ -471,7 +478,7 @@ class Node(object):
         self._applyPlacementSpecs()
         return self.children.__iter__()
     
-    def hasChildren(self): 
+    def hasChildren(self):
         self._applyPlacementSpecs()
         return 0 < len(self.children)
     
@@ -525,7 +532,7 @@ class Node(object):
     
     def establishPosition (self,parent,webpage):
         ''' define the primary coordinates of this menu entry.
-            @param parent: primary parent, defining the menuPath 
+            @param parent: primary parent, defining the menuPath
             @param webpage: used to form the in-tree URL
         '''
         parent = self.linkParent(parent)
@@ -552,7 +559,7 @@ class Node(object):
     
     
     def childDiscovery(self, location):
-        ''' @param location: current starting point to find children 
+        ''' @param location: current starting point to find children
             @return iterator yielding possible child nodes to discover,
         '''
         return self._childDiscoveryStrategy (location)
@@ -585,9 +592,9 @@ class Node(object):
 
 ### Helpers for ID / URL handling
 
-def normaliseComponentId(id):
-    return nameID(id)
-        
+def normaliseComponentId(idi):
+    return nameID(idi)
+
 
 def normaliseLocalURL(url):
     if url.startswith(TREE_ROOT):
@@ -623,12 +630,12 @@ class Placement(object):
         in the #addPredefined() function (internal DSL style).
         Each Node instance may collect a list of individual Placement specs.
         Typical examples being to sort the children, place an entry at a
-        specific point, or disable recursion or menu generation alltogether.
+        specific point, or disable recursion or menu generation altogether.
     '''
     handlers = [] # List of all usable kinds of Placement specs (Subclasses)
     
     def preprocess(self,node): pass
-    def execute(self, node):                   __err("abstract") # make this placement spec effective on the given node 
+    def execute(self, node):                   __err("abstract") # make this placement spec effective on the given node
     def acceptVerb(self, methodID, *arg,**kw): __err("abstract") # try to accept a method invocation to yield a placement
     def acceptDSL(self, specificationTextLine):__err("abstract") # try to accept a textual spec from a file to be parsed
     
@@ -639,12 +646,13 @@ class Placement(object):
         '''
         for handler in Placement.handlers:
             try:
-                placement = apply(handler).acceptDSL(specification)
+                placement = handler().acceptDSL(specification)
                 if placement:
                     targetNode.placements.append(placement)
                     return targetNode
             except:
-                print_warning("»%s« (%s)" % (sys.exc_type,sys.exc_value))
+                err = sys.exc_info()
+                print_warning("»%s« (%s)" % (err[0],err[1]))
         return None
     
     @staticmethod
@@ -655,7 +663,7 @@ class Placement(object):
         def tryVerb (*arg,**kw):
             for handler in Placement.handlers:
                 try:
-                    placement = apply(handler).acceptVerb(methodID, *arg,**kw)
+                    placement = handler().acceptVerb(methodID, *arg,**kw)
                     if placement:
                         targetNode.placements.append(placement)
                         return targetNode
@@ -688,7 +696,7 @@ class PlaceChildAfter(Placement):
     def execute(self, node):
         ''' This placement expresses an child ordering constraint
             Do what needs to be done to the children of the given node,
-            in order to fulfill this constraint.
+            in order to fulfil this constraint.
             @note no ref point -> prepend child
             @note ref point not found -> append child
         '''
@@ -758,7 +766,7 @@ class PlaceChildAfter(Placement):
 
 # DSL Parsing...
 quote_ = r'[\'\"]?'
-s__    = r'\s*' 
+s__    = r'\s*'
 nodeID_= s__+quote_ + r'(\w[\w\/\-\.]*)' + quote_+s__
 
 attach_child_after_ = r'((attach|put)\s+)?child'+nodeID_+r'after'+nodeID_
@@ -797,10 +805,10 @@ class AttachExternalLink(Placement):
         node.linkChild(newNode)
     
     
-    def acceptVerb(self, methodID, url, id=None, label=None):
+    def acceptVerb(self, methodID, url, idi=None, label=None):
         if methodID in ['link', 'attachLink']:
             self.url = url
-            self.subID = id
+            self.subID = idi
             self.label = label
             return self
         else:
@@ -821,7 +829,7 @@ class AttachExternalLink(Placement):
 
 nodeSpec_       = r'(?:(?:child|node)'+nodeID_+')?'               # optional nodeID in group(1)
 urlSpec_        = r'([^\s\[]+)'                                   # mandatory url/path in group(2)
-labelSpec_      = r'\[([^\]]*)\]'                                 # label in [] as group(3) 
+labelSpec_      = r'\[([^\]]*)\]'                                 # label in [] as group(3)
 externalLink_   = nodeSpec_+'link:'+urlSpec_+labelSpec_+r'\s*$'   # id-url-label + only whitespace to line end
 
 externalLink_RE = re.compile (externalLink_, re.IGNORECASE)
@@ -835,14 +843,14 @@ class DefineLabel(Placement):
     
     def __init__(self):
         self.label = None
-        
+    
     def __repr__(self):
         return '|pageLabel "%s"|' % self.label
     
     def preprocess(self,node):
         assert node
         if self.label: node.label = self.label
-        
+    
     def execute(self, node): pass
     def acceptVerb(self, _): return None
     
@@ -965,7 +973,7 @@ detachNode_RE   = re.compile (detachNode_,   re.IGNORECASE)
 
 class RedirectDiscovery(Placement):
     ''' this placement spec instructs the node
-        to serach for children at specific places ('includes')
+        to search for children at specific places ('includes')
         or to exclude some of the discovered children
     '''
     
@@ -979,11 +987,11 @@ class RedirectDiscovery(Placement):
     
     def preprocess(self, node):
         strategy = node._childDiscoveryStrategy
-        if isinstance(strategy, DiscoveryRedirect):
-            strategy.chain(self.includes, self.excludes, self.srcdirs)
+        if isinstance(strategy, ChildDiscoveryRedirected):
+            strategy.chainDiscovery(self.includes, self.excludes, self.srcdirs)
         else:
-            strategy = DiscoveryRedirect(self.includes, self.excludes, self.srcdirs)
-        node._childDiscoveryStrategy = strategy 
+            strategy = ChildDiscoveryRedirected(self.includes, self.excludes, self.srcdirs)
+        node._childDiscoveryStrategy = strategy
     
     def execute(self, node): pass
     
@@ -1047,13 +1055,13 @@ Placement.handlers += [AttachExternalLink
 ##################### Output Generation ##########################
 
 def dumpTables():
-    print '\nMenu Tree:\n'
-    print walkMenuTree (Dumper())
-    print '(end)Menu Tree\n\n'
+    print ('\nMenu Tree:\n')
+    print (walkMenuTree (Dumper()))
+    print ('(end)Menu Tree\n\n')
 
 
 def generateTextMenu():
-    print walkMenuTree (TextFormatter())
+    print (walkMenuTree (TextFormatter()))
 
 
 def generateHtmlMenu():
@@ -1062,7 +1070,7 @@ def generateHtmlMenu():
     buildingBlocks = {'menuBody'  : walkMenuTree(HtmlGenerator())
                      ,'menuScript': walkMenuTree(ScriptGenerator())
                      }
-    print generateHTML(buildingBlocks)
+    print (generateHTML (buildingBlocks))
 
 
 def walkMenuTree (tool, subTree = Node(TREE_ROOT)):
@@ -1090,15 +1098,15 @@ class Formatter:
     def __str__(self):
         return '\n'.join (self.output)
     
-    # Subclasse have to define:
+    # Subclasses have to define:
     # INDENT, LEAF, PRE_SUB, POST_SUB and the showNode() method
     
-    def format(self, template, **vars):
+    def format(self, template, **variables):
         engine = self.formatters.get(template)
         if not engine:
             engine = string.Template(template)
             self.formatters[template] = engine
-        renderedText = engine.substitute(vars)
+        renderedText = engine.substitute(variables)
         return self.level * self.INDENT + renderedText
     
     def show(self, formattedData):
@@ -1157,15 +1165,16 @@ class Dumper(Formatter):
 # --Messages-and-errors-------------------------------------
 #
 def __err(text):
-    print "--ERROR-------------------------"
-    print >> sys.stderr, text
+    print("--ERROR-------------------------")
+    print(text, file=sys.stderr)
     sys.exit(255)
-    
+
 def __exerr(text):
-    __err(text + ": »%s« (%s)" % (sys.exc_type,sys.exc_value))
+    problem = sys.exc_info()
+    __err(text + ": »%s« (%s)" % (problem[0],problem[1]))
 
 def __warn(text):
-    print >> sys.stderr, "--WARNING--   " + str(text)
+    print("--WARNING--   " + str(text), file=sys.stderr)
 
 print_warning = __warn
 

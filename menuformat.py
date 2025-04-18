@@ -61,8 +61,8 @@ def generateHTML(buildingBlocks):
     return engine.substitute(buildingBlocks)
 
 
-def expandButtonHTML(id):
-    return '<span class="expand_button" onclick="menuTable.toggle(\'%s\')">+</span>' % id
+def expandButtonHTML(idi):
+    return '<span class="expand_button" onclick="menuTable.toggle(\'%s\')">+</span>' % idi
 
 def menuEntryText(node):
     label = node.label
@@ -74,7 +74,7 @@ def menuEntryText(node):
     else:
         hover = ''
     return (label, hover)
-        
+
 
 
 class HtmlGenerator(menugen.Formatter):
