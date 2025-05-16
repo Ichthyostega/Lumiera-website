@@ -1,0 +1,10 @@
+
+Getting Your Hands Dirty with Video Output on Linux Using C++
+
+Most people will use some video app to output video on Linux. But video output remains a magic blackbox.
+However the Lumiera team were confronted with having to examine the magic blackbox themselves.
+
+In this talk we demonstrate several well established mechanisms that can be used to display video frames
+from a Linux desktop application written in C++
+
+
