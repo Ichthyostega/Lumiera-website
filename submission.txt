@@ -35,6 +35,15 @@ To cope with this situation, a software stack is generally employed, relying
 on vendor specific micro code, a driver in the kernel and then one or several
 layers of abstraction libraries on top
 
+For the task of driving a direct video output from a desktop application,
+we focus on some standards and frameworks, which are around for a very long
+time and can thus benefit from being widely available in most distributions
+and desktop systems:
+- XVideo
+- SDL
+- OpenGL
+- Vulcan
+
 # TODO
 to a large degree, modern libraries and frameworks go beyond handling individual
 pixels, and offer drawing primitives and provide mechanisms for decoding common
