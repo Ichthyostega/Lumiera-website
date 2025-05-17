@@ -11,6 +11,6 @@ to display video frames from a Linux desktop application.  We explain the techni
 prerequisites to display video frames, discuss the challanges and we show some
 widely avaiable technologies used to implement video disaply.
 
-Lumiera is a video editing application being written in C++ -- which serves as an
-example here to point out how raw video output fits into the context of a
-video processing render engine.
+Lumiera is a video editing application under development in C++ -- which we use
+here to illustrate how raw video output is at the heart of a video processing
+render engine.
