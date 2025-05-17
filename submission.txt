@@ -30,8 +30,12 @@ of data. And while modern CPUs are generally capable of handling this task in
 real time, it is still preferable to rely on dedicated hardware for some of the
 common processing steps. However, since programming a GPU requires to work
 close to the hardware, each GPU need to be handled slightly differently.
+# Dieser Satz muß überarbeitet
 To cope with this situation, a software stack is generally employed, relying
 on vendor specific micro code, a driver in the kernel and then one or several
 layers of abstraction libraries on top
 
-
+# TODO
+to a large degree, modern libraries and frameworks go beyond handling individual
+pixels, and offer drawing primitives and provide mechanisms for decoding common
+video codecs directly in the hardware
