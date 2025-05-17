@@ -14,3 +14,17 @@ widely avaiable technologies used to implement video disaply.
 Lumiera is a video editing application under development in C++ -- which we use
 here to illustrate how raw video output is at the heart of a video processing
 render engine.
+
+--------------------------------------------------------------------------------
+Getting Your Hands Dirty with Video Output on Linux Using C++
+
+Most video formats are compressed and packed into containers for perfoormace and
+storage reasons. To edit a video it is essential to use a video in a raw format
+as a sequence of indicidual frames. Raw video is processed as buffers filled
+with pixel data. The pixels are encoded with respect to some colour space.
+
+# Mabe not needed, or have I missed something?
+#In contrast, video stored in a container will use a codec to store a compressed
+#representation for a group of frames, so to save storage and transmission
+#bandwidth. However, to process video, we must be able to access every single
+#pixel directly
