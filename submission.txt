@@ -22,14 +22,16 @@ Most video formats are compressed and packed into containers for performace and
 storage reasons. To edit a video it is essential to use a video in a raw format
 as a sequence of individual frames. Raw video is processed as buffers filled
 with pixel data. The pixels are encoded with respect to some colour space, and
-there are a variety of standard mechanisms avaiable: RGB and YUV are two
-prominent ones.
+there are a variety of standard mechanisms avaiable, which will be discussed
+in the talk.
+
+Handling raw video requires to access, process and transfer an enormous amount
+of data. And while modern CPUs are generally capable of handling this task in
+real time, it is still preferable to rely on dedicated hardware for some of the
+common processing steps. However, since programming a GPU requires to work
+close to the hardware, each GPU need to be handled slightly differently.
+To cope with this situation, a software stack is generally employed, relying
+on vendor specific micro code, a driver in the kernel and then one or several
+layers of abstraction libraries on top
 
 
-
-
-# Mabe not needed, or have I missed something?
-#In contrast, video stored in a container will use a codec to store a compressed
-#representation for a group of frames, so to save storage and transmission
-#bandwidth. However, to process video, we must be able to access every single
-#pixel directly
