@@ -18,10 +18,15 @@ render engine.
 --------------------------------------------------------------------------------
 Getting Your Hands Dirty with Video Output on Linux Using C++
 
-Most video formats are compressed and packed into containers for perfoormace and
+Most video formats are compressed and packed into containers for performace and
 storage reasons. To edit a video it is essential to use a video in a raw format
-as a sequence of indicidual frames. Raw video is processed as buffers filled
-with pixel data. The pixels are encoded with respect to some colour space.
+as a sequence of individual frames. Raw video is processed as buffers filled
+with pixel data. The pixels are encoded with respect to some colour space, and
+there are a variety of standard mechanisms avaiable: RGB and YUV are two
+prominent ones.
+
+
+
 
 # Mabe not needed, or have I missed something?
 #In contrast, video stored in a container will use a codec to store a compressed
