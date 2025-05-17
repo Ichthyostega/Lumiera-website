@@ -7,9 +7,10 @@ among the Linux community.  However the Lumiera team were confronted with having
 to examine the magic blackbox themselves.
 
 In this talk we demonstrate several well established mechanisms that can be used
-to display video frames from a Linux desktop application written in C++.  We
-discuss the technical prerequisites ti display video frames, th challanges and
-then the moost basic technologies used to implement video disaply.
+to display video frames from a Linux desktop application.  We explain the technical
+prerequisites to display video frames, discuss the challanges and we show some
+widely avaiable technologies used to implement video disaply.
 
-
-
+Lumiera is a video editing application being written in C++ -- which serves as an
+example here to point out how raw video output fits into the context of a
+video processing render engine.
