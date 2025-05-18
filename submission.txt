@@ -58,7 +58,3 @@ In this talk we would like to present a bare-bone application in C++ to play and
 display a sequence of raw video frames to illuminate the various aforementioned
 frameworks.
 
-Moreover we would also like present a more mature application,
-[[xjadeo][https://xjadeo.sourceforge.net]], which adheres to the framework
-premises outlined here.
-
