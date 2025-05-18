@@ -26,25 +26,21 @@ there are a variety of standard mechanisms avaiable, which will be discussed
 in the talk.
 
 Handling raw video requires to access, process and transfer an enormous amount
-of data. And while modern CPUs are generally capable of handling this task in
-real time, it is still preferable to rely on dedicated hardware for some of the
-common processing steps. However, since programming a GPU requires to work
-close to the hardware, each GPU need to be handled slightly differently.
-# Dieser Satz muß überarbeitet
-To cope with this situation, a software stack is generally employed, relying
-on vendor specific micro code, a driver in the kernel and then one or several
-layers of abstraction libraries on top
+of data. While modern CPUs are more than capable of managing such tasks in real
+time, modern hardware is geared towards mastering these steps with precision and
+speed. The downside would obviously require hardware specific programming, i.e.,
+slightly different software implementations for the various GPUs on the
+market. Fortunately the various hardware implementations can be wrapped in a
+softare library that depends on vendor specific micro code, a driver in
+the kernel.
 
-For the task of driving a direct video output from a desktop application,
-we focus on some standards and frameworks, which are around for a very long
-time and can thus benefit from being widely available in most distributions
-and desktop systems:
+For this talk we focus on displaying direct video output from a C++ application
+that uses some long and well established standard frameworks that are widely
+available not only on Linux (HA! or GNU/Linux?????), but on various Unix
+flavours:
+
 - XVideo
 - SDL
 - OpenGL
 - Vulcan
-
-# TODO
-to a large degree, modern libraries and frameworks go beyond handling individual
-pixels, and offer drawing primitives and provide mechanisms for decoding common
-video codecs directly in the hardware
+- Wayland????
