@@ -44,36 +44,21 @@ flavours:
 - SDL
 - Vulcan Wayland????
 
-
 X Window System (aka X11, X) is a graphics protocol most widely used on Linux
-and even older than Linux itself. It has many implementations, but currently the
-most popular is that implemented by the X.org foundation which we use here.
+and even older than Linux itself. It has several implementations, e.g., Xorg
+server. There is an extention to X to accomodate video output which is capable
+of using video hardware to achieve optimum output while not taxing the CPU. This
+is knoown as the X Video Extention (aka XVideo).
 
-X provides the user with a user interface that is the same for all hardware
-and supplies the various hardware dependent components as libraries.  The X11
-protocol specifies only primitive drawing features, so in addition to using X
-another graphics layer can be used that provides the user with more high-level
-graphics tools to the user and uses XVideo to implement these features.
+The X protocol specifies only primitive drawing features, so in addition to
+using X other graphic layers can be used that provide the user with more
+high-level graphic tools: OpenGL and SDL.
 
-X only provides primitive drawing features and does not take advantage of
-graphical hardware features: OpenGl does. OpenGL is platform independent
-protocol which provides an API. The implementation is often provided by
-graphical card manufacturers, thereby reaping the wards of all the bells and
-whistles available to a particular graphic card, but being portable as it must
-here to the single API.
+In this talk we would like to present a bare-bone application in C++ to play and
+display a sequence of raw video frames to illuminate the various aforementioned
+frameworks.
 
-The new rendition of the OpenGl phoenix is Vulkan, but is still relatively new
-and still emerging from its ashes; so we use OpenGL.
-
-# Text on protocols is here too long; I'll shorten and _maybe_ add a
-# half-sentence on SDL 
-
-
-# TODO
-Examples
-
-
-
-
-
+Moreover we would also like present a more mature application,
+[[xjadeo][https://xjadeo.sourceforge.net]], which adheres to the framework
+premises outlined here.
 
