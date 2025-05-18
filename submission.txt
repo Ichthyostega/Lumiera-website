@@ -28,10 +28,10 @@ in the talk.
 Handling raw video requires to access, process and transfer an enormous amount
 of data. While modern CPUs are more than capable of managing such tasks in real
 time, modern special purpose hardware (GPU) is geared towards mastering these
-steps with precision and speed. The downside is obviously that addressing th
+steps with precision and speed. The downside is obviously that addressing the
 GPU requires hardware specific programming, i.e., slightly different software
 implementations for the various GPUs on the market. Fortunately the variations
-of the hardware implementations can be accomodated by a software stack comprising
+of the hardware implementations can be accommodated by a software stack comprising
 vendor specific micro code, a driver in the kernel, and several layers of adapter
 libraries in userland.
 
