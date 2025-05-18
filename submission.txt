@@ -27,22 +27,22 @@ in the talk.
 
 Handling raw video requires to access, process and transfer an enormous amount
 of data. While modern CPUs are more than capable of managing such tasks in real
-time, modern hardware is geared towards mastering these steps with precision and
-speed. The downside would obviously require hardware specific programming, i.e.,
-slightly different software implementations for the various GPUs on the
-market. Fortunately the various hardware implementations can be wrapped in a
-softare library that depends on vendor specific micro code, a driver in
-the kernel.
+time, modern special purpose hardware (GPU) is geared towards mastering these
+steps with precision and speed. The downside is obviously that addressing th
+GPU requires hardware specific programming, i.e., slightly different software
+implementations for the various GPUs on the market. Fortunately the variations
+of the hardware implementations can be accomodated by a software stack comprising
+vendor specific micro code, a driver in the kernel, and several layers of adapter
+libraries in userland.
 
 For this talk we focus on displaying direct video output from a C++ application
 that uses some long and well established standard frameworks that are widely
-available not only on Linux (HA! or GNU/Linux?????), but on various Unix
-flavours:
+available not only on GNU/Linux, but on various Unix flavours:
 
 - XVideo
 - OpenGL
 - SDL
-- Vulcan Wayland????
+- Vulcan
 
 X Window System (aka X11, X) is a graphics protocol most widely used on Linux
 and even older than Linux itself. It has several implementations, e.g., Xorg
