@@ -40,7 +40,23 @@ available not only on Linux (HA! or GNU/Linux?????), but on various Unix
 flavours:
 
 - XVideo
-- SDL
 - OpenGL
+- SDL
 - Vulcan
 - Wayland????
+
+XVideo
+
+X Window System (aka X11, X) is a graphics protocol most widely used on Linux and
+even older than Linux itself. It has many implementations, but currently the
+most popular is that implemented by the X.org foundation which we use here.
+
+XVideo provides the user with a user interface that is the same for all
+hardware and supplies the various hardware dependent components as libraries. 
+The X11 protocol specifies only primitive drawing features, so in addition to
+using X another graphics layer can be used that provides the user with more
+high-level graphics tools to the user and uses XVideo to implement these
+features. 
+
+OpenGL:
+
