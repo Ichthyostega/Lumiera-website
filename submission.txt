@@ -8,8 +8,8 @@ to examine the magic blackbox themselves.
 
 In this talk we demonstrate several well established mechanisms that can be used
 to display video frames from a Linux desktop application.  We explain the technical
-prerequisites to display video frames, discuss the challanges and we show some
-widely avaiable technologies used to implement video disaply.
+prerequisites to display video frames, discuss the challenges and we show some
+widely available technologies used to implement video display.
 
 Lumiera is a video editing application under development in C++ -- which we use
 here to illustrate how raw video output is at the heart of a video processing
@@ -18,11 +18,11 @@ render engine.
 --------------------------------------------------------------------------------
 Getting Your Hands Dirty with Video Output on Linux Using C++
 
-Most video formats are compressed and packed into containers for performace and
+Most video formats are compressed and packed into containers for performance and
 storage reasons. To edit a video it is essential to use a video in a raw format
 as a sequence of individual frames. Raw video is processed as buffers filled
 with pixel data. The pixels are encoded with respect to some colour space, and
-there are a variety of standard mechanisms avaiable, which will be discussed
+there are a variety of standard mechanisms available, which will be discussed
 in the talk.
 
 Handling raw video requires to access, process and transfer an enormous amount
@@ -32,7 +32,7 @@ steps with precision and speed. The downside is obviously that addressing the
 GPU requires hardware specific programming, i.e., slightly different software
 implementations for the various GPUs on the market. Fortunately the variations
 of the hardware implementations can be accommodated by a software stack comprising
-vendor specific micro code, a driver in the kernel, and several layers of adapter
+vendor specific micro code, a driver in the kernel, and several layers of adaptor
 libraries in userland.
 
 For this talk we focus on displaying direct video output from a C++ application
@@ -40,19 +40,19 @@ that uses some long and well established standard frameworks that are widely
 available not only on GNU/Linux, but on various Unix flavours:
 
 - XVideo
-- OpenGL
 - SDL
+- OpenGL
 - Vulcan
 
 X Window System (aka X11, X) is a graphics protocol most widely used on Linux
 and even older than Linux itself. It has several implementations, e.g., Xorg
-server. There is an extention to X to accomodate video output which is capable
+server. There is an extension to X to accommodate video output which is capable
 of using video hardware to achieve optimum output while not taxing the CPU. This
-is knoown as the X Video Extention (aka XVideo).
+is known as the X Video Extension (aka "Xv").
 
 The X protocol specifies only primitive drawing features, so in addition to
 using X other graphic layers can be used that provide the user with more
-high-level graphic tools: OpenGL and SDL.
+high-level graphic tools: OpenGL and Vulcan.
 
 In this talk we would like to present a bare-bone application in C++ to play and
 display a sequence of raw video frames to illuminate the various aforementioned
