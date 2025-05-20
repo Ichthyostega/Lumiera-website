@@ -1,5 +1,23 @@
+Proposal for a Talk for FrOSCon 25
+==================================
+:date: 20.5.2025
+
 
 Getting Your Hands Dirty with Video Output on Linux Using C++
+-------------------------------------------------------------
+
+.Anmerkung für das FrOSCon Team
+In diesem Vortrag geht es um eine technische Herausforderung, die wir für unser
+OpenSource-Projekt lösen mussten: in der Applikation errechnetes Raw-Video anzeigen.
+Wir wollen mit konkreten Code-Beispielen zeigen, dass das im Prinzip eigentlich
+einfach ist, und auf welche etablierten Technologien man dafür aufsetzen kann.
+
+Den Vortrag wollen Hermann Voßeler und Benny Lyons gemeinsam halten, auf Englisch.
+Wir planen unsere Darstellung für eine Länge von 40 Minuten.
+
+
+Short Summary
+~~~~~~~~~~~~~
 
 Most people will use some video app to obtain video output on Linux. But video
 output is still generally steeped in mystery and viewed as a magic blackbox
@@ -11,17 +29,18 @@ to display video frames from a Linux desktop application.  We explain the techni
 prerequisites to display video frames, discuss the challenges and we show some
 widely available technologies used to implement video display.
 
-Lumiera is a video editing application under development in C++ -- which we use
-here to illustrate how raw video output is at the heart of a video processing
+<i>Lumiera</i> is a video editing application under development in C++ -- which we
+use here to illustrate how raw video output is at the heart of a video processing
 render engine.
 
---------------------------------------------------------------------------------
-Getting Your Hands Dirty with Video Output on Linux Using C++
+
+Abstract
+~~~~~~~~
 
 Most video formats are compressed and packed into containers for performance and
-storage reasons. To edit a video it is essential to use a video in a raw format
-as a sequence of individual frames. Raw video is processed as buffers filled
-with pixel data. The pixels are encoded with respect to some colour space, and
+storage reasons. To edit a video it is essential to use a video in a <i>raw format</i>
+as a sequence of individual frames. Raw video is processed as <i>buffers filled
+with pixel data.</i> The pixels are encoded with respect to some colour space, and
 there are a variety of standard mechanisms available, which will be discussed
 in the talk.
 
@@ -38,11 +57,12 @@ libraries in userland.
 For this talk we focus on displaying direct video output from a C++ application
 that uses some long and well established standard frameworks that are widely
 available not only on GNU/Linux, but on various Unix flavours:
-
-- XVideo
-- SDL
-- OpenGL
-- Vulkan
+<ul>
+<li>XVideo</li>
+<li>SDL</li>
+<li>OpenGL</li>
+<li>Vulkan</li>
+</ul>
 
 X Window System (aka X11, X) is a graphics protocol most widely used on Linux
 and even older than Linux itself. It has several implementations, e.g., Xorg
