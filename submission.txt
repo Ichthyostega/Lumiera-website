@@ -42,7 +42,7 @@ available not only on GNU/Linux, but on various Unix flavours:
 - XVideo
 - SDL
 - OpenGL
-- Vulcan
+- Vulkan
 
 X Window System (aka X11, X) is a graphics protocol most widely used on Linux
 and even older than Linux itself. It has several implementations, e.g., Xorg
