@@ -52,7 +52,7 @@ is known as the X Video Extension (aka "Xv").
 
 The X protocol specifies only primitive drawing features, so in addition to
 using X other graphic layers can be used that provide the user with more
-high-level graphic tools: OpenGL and Vulcan.
+high-level graphic tools: OpenGL and Vulkan.
 
 In this talk we would like to present a bare-bone application in C++ to play and
 display a sequence of raw video frames to illuminate the various aforementioned
