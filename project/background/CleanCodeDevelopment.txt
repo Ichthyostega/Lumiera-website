@@ -44,8 +44,8 @@ denominator of generally accepted principles and best practices is established.
 
 As a help for understanding and practising, the Clean Code Developer Initiative grouped
 these into five levels or degrees (in allusion to martial arts training). We prefer
-here to use the term _Path_ while still retaining the distinctive colour codes used
-by the original link:http://www.clean-code-developer.de/Grade.ashx[CCDI] page.
+here to use the term _Path_ while still retaining the distinctive colour codes used by the
+link:https://web.archive.org/web/20120920012616/http://www.clean-code-developer.de/Grade.ashx[original CCDI page].
 
 Each of these paths focusses on a certain aspect of development -- and does so by
 combining a set of well known principles and guidelines with some suitable practices.
@@ -245,14 +245,16 @@ Test first::
 
 References
 ----------
-Unfortunately, the link:http://www.clean-code-developer.de/[original Clean Code Developer page] with 
-extensive explanations is written entirely in German. There was immediately much reception amongst the
+Unfortunately, the link:https://web.archive.org/web/20120920012635/http://clean-code-developer.de/[original Clean Code Developer page]
+with extensive explanations is written entirely in German. There was immediately much reception amongst the
 German speaking .NET and Java developers and others -- yet it still seems to be not so well recognized
 in other countries.
 
 The link:http://codescouts.dejung.id.au/tiki-index.php?page=codeScoutsPaths[CodeScouts] have prepared
 a full english translation of the Principles and Practices described on the original page. The translation
-is a bit crude at places -- they used google translation as a starting point.
+is a bit crude at places -- they used google translation as a starting point. As of 2025, the original
+website has been reworked, while retaining most of the original content -- now including an
+link:https://clean-code-developer.de/en/[English version].
 
 *Robert C. Martin*'s Book link:http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/[»Clean Code«]
 was the initial inspiration. Indeed, the whole initiative started out of excitement, controversies and discussions ignited
@@ -264,7 +266,7 @@ essential read anyway.
 
 Further articles explaining details
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- link:http://www.pragprog.com/articles/tell-dont-ask[Tell, don't Ask and the Law of Demeter]
+- link:https://web.archive.org/web/20120904143623/http://www.pragprog.com/articles/tell-dont-ask[Tell, don't Ask and the Law of Demeter]
 - link:http://www.objectmentor.com/resources/articles/ocp.pdf[Open-Closed-Principle]
 - link:http://www.objectmentor.com/resources/articles/lsp.pdf[Liskov Substitution Principle]
 - link:http://www.objectmentor.com/resources/articles/dip.pdf[Dependency Inversion Principle]

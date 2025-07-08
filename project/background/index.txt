@@ -4,6 +4,8 @@ Lumiera Project: Background
 :Date: 3/2011
 
 //MENU: label more about...
+//MENU: prepend child CleanCodeDevelopment
+//MENU: prepend child history
 
 
 This page contains a collection of general background information -- +
