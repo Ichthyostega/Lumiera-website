@@ -32,14 +32,14 @@ projects and organisations with external liabilities.
 ******************************************************************************************************
 
 The essence of software is that it can be changed. People and organisations may rely on its workings,
-leading to new avenues of usage and the desire to adapt the software to evolving circumstances,
-while retaining all achievements, insights and the resolution of former conflicts embodied into
-the formulation of the software's behaviour. As a collaborative effort, code can easily accumulate
-interdependencies to a degree surpassing the abilities and capacity of a single person or even a
-coherent group of people in charge of maintaining the application. Mistakes will be made, causing
-damage and conflict. An increasing amount of time and effort is required to both keep the system
-in usable shape, and to retain the ability for change -- and this effort in itself conflicts
-with the demand to expand the software's abilities.
+leading to new avenues of usage and the desire to adapt the software to evolving circumstances, while
+retaining all achievements, insights and the resolution of former conflicts embodied into the formulation of
+the software's behaviour. As a collaborative effort, code can easily accumulate interdependencies to a
+degree surpassing the abilities and capacity of a single person or even a coherent group of people in charge
+of maintaining the application. Mistakes will be made, causing damage and conflict. An increasing amount of
+time and effort is required to both keep the system in a usable shape, and, at the same time, to retain the
+ability for change -- and this effort in itself conflicts with the demand to expand the software's
+abilities.
 
 If a system encounters such a situation loaded with tension and conflict, dedicated care and consideration
 is required to avoid the generation and amplification of *accidental complexity* -- which may lead to
@@ -47,7 +47,7 @@ a loss of control and corrupt and nullify the software's usability. A _formalise
 _practical experience_ may help to mitigate this danger -- allowing different persons to focus on
 some aspects in isolation, while creating controlled and predictable points of conflict resolution.
 This is the idea behind any kind of project management method, development scheme or integration model:
-allowing to focus at one problem a time, and to resolve issues and conflicts in several steps, _without_
+allowing to focus on one problem at a time, and to resolve issues and conflicts in several steps, _without_
 the need to connect everything with everything.
 
 Focus::
@@ -55,21 +55,21 @@ Focus::
   while _explicitly disregarding_ other requirements and circumstances existing at the same time.
   Any achievement requires some degree of simplification.
 Integration::
-  Yet aspects disregarded for sake of focus must be considered in a second step, incrementally
+  Yet aspects disregarded for the sake of focus must be considered in a second step, incrementally
   building up a solution and a state that is acceptable, and sustainable.
 Time pressure::
   Any non trivial work requires time, and some efforts must be started in advance and carried
   out concurrently with other work to meet deadlines. Bugs must be fixed quickly and often
   external commitments (e.g. a release date) must be met.
 Prioritisation::
-  It must be possible to prioritise work and move some tasks past each other, without
-  incurring excessive integration efforts due to the changed schedule.
+  It must be possible to prioritise work and move some tasks past one another, without
+  incurring excessive integration efforts due to a modified schedule.
 Avoid wasted effort::
-  Whenever effort spent to solve some problem, the results must be retained, even
+  Whenever effort is invested to solve some problem, the results must be retained, even
   while it may not be possible to integrate these results immediately; it is easy to
-  forfeit a solution under the pressure of ongoing development and changed circumstances.
+  forfeit a solution under the pressure of ongoing development and different circumstances.
 Ubiquitous designations::
-  There should be a simple and clear scheme how to label efforts and deliverables, to
+  There should be a simple and clear scheme on how to label effort and deliverables, to
   connect changes to causes, and to tag versions and CI build artefacts.
 
 
@@ -77,18 +77,17 @@ A Code and development centred solution
 ---------------------------------------
 The classical (and in a way, naive) approach to organisation and management is to track
 and control matters extraneously, from the outside, from ``above''. Thereby, some people
-acquire the power to watch and control other people -- which, surprisingly enough, seems
-attractive both for the watched and the watchers. A prudent solution however places
+acquire the power to watch and check the actions of other people -- which, surprisingly enough, seems
+attractive both for the watcher and the watched. A prudent solution however places 
 the onerous of coordination onto those people doing the actual work, because these
 are the only ones able to see the essential nuances required for good judgement.
 
-The success of *Git* (and similar distributed systems) is based on this insight; instead
-of locking, rejecting and selectively permitting changes from a system placed above people,
-people are given the tools to collaborate, and the history forms as result from this real-world
-collaboration. 
-*Git-flow* attempts to _expand this approach to handle the intricacy of releases_. In essence,
-it is a set of conventions allowing for _changes to flow from development to production release,_
-while mitigating the friction caused by conflicts.
+The success of *Git* (and similar distributed systems) is based on this insight; instead of locking,
+rejecting and selectively permitting changes from a system placed above people, people are given the tools
+to collaborate, and the that history that is established as a result of this real-world collaboration.
+*Git-flow* attempts to _expand on this approach to handle the intricacies involved in software releases_. In essence, it is a set
+of conventions allowing for _changes to flow from development to production release,_ while mitigating the
+friction caused by conflicts.
 
 Order of domains: development and production
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -98,25 +97,25 @@ into two permanent ongoing branches: the *development-branch* and the *productio
 The former represents the development process, while the latter tracks the history of
 production-ready code. A _release_ marks a transition between these spheres, and is thus
 modelled by a *release-branch*, which originates at _development_ and is finally merged
-into _production._ And a _bugfix_ is caused by an issue with the production code and thus
+into _production._ And a _bugfix_ is caused by an issue in the production code and thus
 _originates from production,_ is kept separate from development, and is _merged back
 into production_ after resolving the issue. The production branch itself _never carries 
-direct changes,_ but rather receives tested and approved changes by merge.
+direct changes,_ but rather receives tested and approved changes through merging.
 
-The names for all these branches are a matter of convention, yet should be settled and
-documented and never changed thereafter. The _development branch_ is often called
+The names for all these branches are a matter of convention, yet a final decision on nomenclature
+should be made, documented and never changed thereafter. The _development branch_ is often called
 `develop` or `integration`, or `main`, while the traditional `master` is repurposed as
-_production branch_ in most cases -- which has the benefit that a user unaware of
-Git-flow usage will not hesitate to check out `master`, which happens to be the right
+_production branch_ in most cases -- which has the benefit any a users unfamiliar with
+Git-flow usage will not hesitate to check out `master`, which happens to be the correct
 choice for casual contributions or bugfix investigations.
 
 
 Patterns of development
 ~~~~~~~~~~~~~~~~~~~~~~~
-Regarding development, Git-flow can accommodate various ways of collaboration and does
+As regards to development, Git-flow can accommodate various ways of collaboration and does
 not favour any specific style of development. Work can be done by a single person, by
 a tightly knit group of experienced developers, or by an elaborate, structured organisation,
-maybe even with several teams, including a formalised review and approval process.
+with possibly even several teams, including a formalised review and approval process.
 
 Clarification of tendentious claims
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -133,14 +132,14 @@ into self-exploitation, to lever out checks and balances, accrue technical dept,
 of safety and to sweep problems under the carpet. In this general state of confusion, the so called
 ``tunk development'' has been praised as the ultimate of agility and a boon for productivity.
 
-It thus seems indicated to set matters straight.
+(??) It thus seems indicated to set matters straight.
 
 A _truk based development style_ can be used by a seasoned team of experienced developers,
 working in a well confined environment and within a largely stabilised state of a system.
 It should not be confused with _trunk based releases,_ where some code from the mainline
 is directly transferred into the production system with the help of a highly automated
 delivery pipeline. None of these methods is inherently superior; it's rather that
-their applicability depends on the fine points of the given circumstances.
+their applicability depends on the finer points of the given circumstances.
 
 Continuous delivery
 ^^^^^^^^^^^^^^^^^^^
@@ -150,10 +149,10 @@ to deliver every arbitrary state of code any time into the production environmen
 This setup works well to the degree that requirements are strict and can be formalised into
 automated testing. Essentially the purpose and usage of the system as such must be focused,
 limited and always clear, secondary cross dependencies should be minimised, and the latency of
-any effect of change should ideally be small. Furthermore, since mistakes will be made non the less,
-it helps if the scope can be limited and the consequences of any defect are not that severe.
+any effect of change should ideally be small. Furthermore, since mistakes will be made nonetheless,
+it helps if the scope can be limited and the consequences of any defect are not particularly severe.
 
-The effort of establishing all those prerequisites (notably the strict formalisation
+The effort to establish all required prerequisites (notably the strict formalisation
 of requirements and the conditioning of the environment) should not be underestimated. However,
 when either the situation is mostly stable and without the conflicts and tensions related to
 the evolution of software as detailed above -- or, quite to the extreme, when the goal is
@@ -167,12 +166,12 @@ When most changes can be achieved with a single step or broken down into an incr
 scheme while the overall system remains fully functional during all stages, a well-practised
 team of experienced developers is able to act without much formalisation, collaboratively,
 on a single shared development branch. Working in such an environment can be quite rewarding
-and yield a high productivity, assuming that all participants know their limits.
+and result in a high degree of productivity, assuming that all participants know their own limits.
 
-Notably such a trunk centric working style does not necessarily also imply continuous delivery;
-quite to the contrary, it tends to work best when a well organised additional release and QA
+Such a trunk centric working style does not necessarily also imply continuous delivery;
+quite on the contrary, it tends to work best when a well organised additional release and QA
 process is present as an additional safety net. A collaboration style where work mostly happens
-on the main development branch can thus perfectly well be combined with Git-flow for release
+on the main development branch can thus be perfectly well combined with Git-flow for release
 and maintenance aspects.
 
 Breaking changes
@@ -203,21 +202,21 @@ various ways
 
 Gate keeping and Review
 ^^^^^^^^^^^^^^^^^^^^^^^
-Another reason to favour development branches is to allow for various levels of proficiency
-and to accept incomplete and immature contributions, which require some time to come to fruition.
-This situation is very common in Open-Source development. Likewise, very large and deeply structured
-systems might necessitate an integration in several steps, first within some subsystem, followed by
-joining subsystem branches subsequently into a new state of integration. *Code Review* is most effectively
+Another reason to favour development branches is to allow various levels of proficiency
+and to accept incomplete and immature contributions, which require time to achieve maturity.
+This situation is very common in Open-Source development communities. Large and intricately structured
+systems might require integration over a number of steps: initially within, for example, a subsystem, which
+is followed by joining subsystem branches into a new state of integration. *Code Review* is most effectively
 used when it is a means of support and collaboration: you can move more confidently when you know that
-another experienced developer will keep your back. Reviews by gatekeepers tend to be more problematic;
-they easily turn into a superficially ritual, or cause a bottleneck and threaten to overload the most
-experienced developers with gatekeeper work, which is demanding, time-consuming and prevents them from
-exerting their best abilities. In any case, reviewing and merging should happen frequently, and deeply
+another experienced developer will assist from the sidelines. Reviews by gatekeepers tend to be more problematic;
+which can easily turn into a superficial ritual, or cause a bottleneck and threaten to overload the most
+experienced developers with gatekeeper work, which is often demanding, time-consuming and prevents them from
+exercising their more able capabilities. Nevertheless, reviewing and merging should occur on a frequent basis, and 
 integrated with the coding work itself, so that the code on the development branch is already well
-reviewed, scrutinised and covered by automated testing. All the various flavours of working with
+reviewed, scrutinised and supported by automated testing. All the various flavours of working with
 branches can be combined with Git-flow for the release and maintenance work. To which degree the
-_landing of branches_ is conducted as a formalised review process is a matter of collaboration
-style within the development crew and thus beyond the scope of this discussion.
+_landing of branches_ is conducted as a formalised review process is a matter of style in collaboration
+within the development team and thus beyond the scope of this discussion.
 
 
 Convergence
@@ -255,9 +254,9 @@ crucial however that the release tag should use the same number as was embedded 
 and build artefacts will also be marked with the same number. It is a good idea not to get overly obsessed
 with version numbers; to achieve that, it can be helpful to have a separate »public« version number, while
 using a consistent build-number scheme internally. Also, API versioning (and SONAMEs) should be kept entirely
-separate from official version numbers, because especially for APIs (and actually, _only_ for APIs) the
+separate from official version numbers, because especially for APIs (and really, _only_ for APIs) the
 link:https://semver.org/[Semantic Versioning] scheme is well defined and fully deterministic, so that
-no room is left for bikeshedding. Generally speaking, you do not want to allow regards of marketing or
+no room is left for bikeshedding. Generally speaking, you do not want to allow marketing or
 communication to interfere with your level of API compatibility.
 
 For Git-flow to work well, the (technical) version number should be predictable, because we want to bump
@@ -278,7 +277,7 @@ The Release Branch
 ^^^^^^^^^^^^^^^^^^
 The code for a release originates from a stabilised state of the development line; after the fork,
 developers are free to break the code base again, to work towards the future. At the same time, only
-bugfixes, stabilisation and minor tweaks should be done on the release branch. Often, global reviews of
+bugfixes, stability issues and minor tweaks should be applied to the release branch. Often, global reviews of
 the overall situation are conducted here, or the builds from the branch are handed over to an external
 QA team. It is not uncommon for actual full-scale integration testing to be very expensive, often
 requiring to spin up a dedicated wide-scale integration testing environment, which is connected
@@ -300,23 +299,23 @@ often split up into a part concerned with getting the release out of the door, w
 has already moved on to the next topics of development. Having a dedicated branch and distinct
 version numbering and CI jobs allows for both parts to proceed without interference.
 
-Anyway, at some point the release will be ready, eventually. Some finishing touches will be done
-to the release notes, possibly the development (or RC) marker will be removed with one final
+The release will invariably be at some point in time ready: Final polishing touches
+made to the release notes, possibly the development (or RC) marker will be removed with one final
 commit, and then the release code will be _merged into the production-branch._ Due to the well
-defined branching scheme, together with the fact that commits will be never done on the production
+defined branching scheme, together with the fact that commits will never be done on the production
 branch directly, this merge will always succeed without conflict. At that point, the release version
 tag can be set, which often also triggers an automated build-and-delivery pipeline. So the
-production branch will comprise only a sequence of merge commits with release version tags,
-and any commit here will cause a delivery into production.
+production branch will comprise of only a sequence of merge commits with release version tags,
+and any commit here will trigger delivery to production.
 
 Back Merge
 ^^^^^^^^^^
 A naive branching scheme would call it a day here, and maybe keep the release branch around,
-for later bug fixes. Not so Git-flow! Because we have done significant work on the release branch,
-we must care not to loose any findings and achievements. Thus, in the Git-flow scheme, after the
+for later bug fixes. Not so with Git-flow! Because we have completed significant work on the release branch,
+we must be careful not to loose any findings and achievements. Thus, in the Git-flow scheme, after the
 actual release is done, also a final *back merge to development* is performed. This merge often
-leads to merge conflicts, which must be sorted out manually. Doing so is important work, and
-typically requires to consult those developers which have already proceeded with future work on
+leads to merge conflicts, which must be resolved manually. Doing this is important work, and
+typically requires to consult with those developers who have already progressed to future work on
 the development branch. Resolving such conflicts together is an effective means of knowledge exchange,
 and often spurs an effort to re-implement release fixes in a more robust, future proof way.
 
@@ -340,9 +339,9 @@ release work, but rather urgent maintenance.
 
 Handling Bugfixes in production
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-When anything breaks in a production system, or with code widely distributed to people and used
-for real work, then immediate action and a quick response is required. Changes done in this mode
-however should be minimal and defensive. Git-flow uses a specific branch pattern for such a
+If a failure occurs in a production system, or with code distributed to to many users and in use
+for real work, then immediate action and quick response is required. Changes done to this code,
+however, should be as minimal and risk-free as possible. Git-flow uses a specific branch pattern for such a
 »Hotfix« or »Patch« release: it is forked off from the code in production, which is at the tip
 of the current production branch, and named with a suitable prefix (`patch-4.20.1` or `fix/4.20.1`
 or whatever the actually chosen convention is). The first commit on such a bugfix branch will set
@@ -356,22 +355,22 @@ the release preparation phase; if the fix is urgent, a bugfix must be delivered 
 with the isolated fix only, and a bugfix version number smaller than the release version
 currently in preparation. However, the back-merge _has to go into the release branch_ in this
 case, otherwise the release will cause a regression. Later, the back-merge after the release
-will also cause that fix to be integrated into mainline.
+will also cause that fix to be integrated into the main development line.
 
-Similar to releases, also bugfix branches will be deleted when complete -- and there can be
-only a single bugfix branch in active preparation at any time.
+Similar to releases, bugfix branches will also be deleted when complete -- and there can be
+only a single bugfix branch in active preparation at any one time.
 
 
 Using Git-flow in practice
 --------------------------
-It should be clear by now that Git-flow is not a tool or technology -- it is a _pattern of behaviour,_
+It should be evident by now that Git-flow is not a tool or technology -- it is a _pattern of behaviour,_
 time-proven in many real-world projects to deal with _liabilities, conflicts and constraints_ related
 to the release and maintenance of software which actually matters in some way or another.
-Git-flow is an _elegant_ solution for these problems, since it re-orders the activities related to
+Git-flow is an _elegant_ solution to these problems, since it re-orders the activities related to
 releases and bugfixes, so that the history of the code itself, as captured by the Git version management,
 is enough to guide and document the structure of the process.
 
-If you don't have any liabilities to care, or if you think there is nothing to consider beyond
+If you are subject to liabilities, or if you think there is nothing to consider beyond
 coding, then please continue to be happy with technology, but stop painting other people as retarded
 or old-fashioned, who actually _do care_ for the consequences of their work.
 
