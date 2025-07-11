@@ -6,16 +6,19 @@ Git Flow
 :toclevels: 3
 
 .Motivation
-The distributed version management system Git allows to capture the content of documents and
-files in a directory tree, to track their evolution in a timeline; it is possible to _branch_
-into several coexisting lines of history, and even to _merge_ several divergent evolution
-lines back together.  But Git _is a tool_ -- it does not tell you how to coordinate your
-work with other developers, how to combine and integrate ongoing efforts and how to handle
-maintenance and bugfixes for released versions. Projects tend to either use ad-hoc solutions,
-or to introduce rigid external project management methodologies -- the *Git-flow branching scheme*
-strives at a middle ground and places the code evolution centre stage, as recorded in Git branches
-and marked by Git tags, by introducing a common naming scheme together with some simple rules
-when and how to branch and to merge.
+Documents and files can be arranged in a directory tree by the distributed version management system
+Git, which can also track how these evolve over time. It also supports divergent evolving seperate lines
+simultaneously along parallel branches, each branch with its own unique history since it divereged,
+which can even be combined later, once again into a one single coxtail branch
+with the constituent branches as the ingrediend nmixture. Among such magic, nevertheless,
+Git still remains a tool---it does not dictate, inform or even suggest how developers organise their work
+amongs themselves, how miscellaneous development efforts ought to be be combined together nor provide an answer
+to bug fix release integration policy. Often software development projects tend to do
+these things either on an ad-hoc basis, or impose stringent external project management rules and regulation.
+The Git-flow branching scheme strives towards a middle ground between both extremities and places evolving
+code centre stage as it is recorded in Git branches and denominated by Git tags. This is achieved by simply
+introducing a common naming scheme together with some simple rules on when and how to branch,
+and when and how to merge.
 
 
 Challenges and Needs
@@ -176,29 +179,28 @@ and maintenance aspects.
 
 Breaking changes
 ^^^^^^^^^^^^^^^^
-However, any substantial change to the essence of a code base, and any change which is
+However, any substantial change to the core of a code base, and any change which is
 explorative or innovative in nature will inevitably break some other aspects of the system.
 It is this very breakage which enables transformation and allows to gain new insights.
 When other groups of people need to work on other aspects of the system at the same time,
-they must be shielded from the ripple effect of such breakage. This can be achieved in
-various ways
+they must be shielded from the ripple effect of such a breakage. This can be achieved in
+various ways:
 
 - *Feature toggles* allow to activate the new functionality at runtime, dynamically,
-  while retaining the former stable state of the system otherwise. This works to the
-  degree that the breakage can be confined to a local realm of functionality, while
-  retaining the code structure uncompromised. Otherwise, structures must be duplicated,
+  while retaining the former stable state of the system. This works to such a
+  degree that the breakage can be confined to a local area of functionality, while
+  retaining an uncompromised code structure . Otherwise, structures would have to be duplicated,
   which makes the code hard to understand and difficult to work with. Constantly maintaining
   a set of feature toggles incurs significant cost and effort, especially when the changes
   are far reaching.
 
-- *Feature branches* are the only viable solution whenever the overall structure
-  of the code must be broken temporarily, and when a new solution has to be worked
-  out gradually. Any divergent other development work happening at the same time
-  causes additional effort when it comes to integrating the reworked shape.
-  Care should be taken to re-integrate frequently, at least in one direction,
-  i.e. the new and partially broken code should strive at integrating the ongoing
-  regular development work, so that the new shape is able to replace the old code
-  base after completion. This can be achieved by performing frequent re-bases.
+- *Feature branches* are the only viable solution whenever the overall structure of the code must be broken
+  temporarily, and when a new solution has to be developed often in gradual phases.  Any other development
+  work that yet again diverges and occurs at the same time as oothe code development causes additional
+  effort when it comes to integrating the reworked code.  Care should be taken to re-integrate frequently,
+  at least in one direction, i.e. the new and partially broken code should strive to integrate the ongoing
+  regular development work so that the new code is able to replace the old code base once it is
+  completed. This can be achieved by performing frequent re-bases.
 
 Gate keeping and Review
 ^^^^^^^^^^^^^^^^^^^^^^^
