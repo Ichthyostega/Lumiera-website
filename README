@@ -1,0 +1,44 @@
+Video Output Example Code
+=========================
+:revision: 1.0
+:author: Benny Lyons & Hermann Voßeler
+:date: 8/2025
+
+
+This directory contains a collection of code examples to demonstrate how to
+display generated video frames from a C++ application running under Linux.
+
+
+Building the code
+-----------------
+As convenience, a CMake build system is provided, structured hierarchically:
+The 'examples/' directory defines a common build for all examples; yet each
+individual subdirectory provides again a self-contained CMake build definition,
+which is included from the top-level build. The reason for this setup is to allow
+to build only a subset, because each of the examples deals with a specific technology
+and thus requires a lot of special library dependencies.
+
+For a simple build from the command line, use the following scheme:
+
+--------------
+cmake -S <path/to/source> -B <path/to/builddir>  [-D SOME_SETTING]
+cmake --build <path/to/builddir> --target <ID> -- [options for make....]
+--------------
+
+A typical invocation for a complete build might be...
+
+[source,sh]
+--------------
+cmake -S examples -B build
+cmake --build build -- -j4
+
+# clean tree with...
+cmake --build build --target clean
+--------------
+
+TIP: The `-j4` option tells make to use 4 cores concurrently to speed up the build.
+     Furthermore, you might want to configure further options with a graphical GUI,
+     e.g: `cmake-gui build`; this way you can configure individual library dependencies
+     to point to custom locations.
+
+
