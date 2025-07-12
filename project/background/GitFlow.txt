@@ -6,19 +6,13 @@ Git Flow
 :toclevels: 3
 
 .Motivation
-Documents and files can be arranged in a directory tree by the distributed version management system
-Git, which can also track how these evolve over time. It also supports divergent evolving seperate lines
-simultaneously along parallel branches, each branch with its own unique history since it divereged,
-which can even be combined later, once again into a one single coxtail branch
-with the constituent branches as the ingrediend nmixture. Among such magic, nevertheless,
-Git still remains a tool---it does not dictate, inform or even suggest how developers organise their work
-amongs themselves, how miscellaneous development efforts ought to be be combined together nor provide an answer
-to bug fix release integration policy. Often software development projects tend to do
+Git _is a tool_ -- it does not dictate, inform or even suggest how developers organise their work amongst
+themselves, how miscellaneous development efforts ought to be be combined together and how the maintenance
+for released versions is related to ongoing development work. Often software development projects tend to do
 these things either on an ad-hoc basis, or impose stringent external project management rules and regulation.
-The Git-flow branching scheme strives towards a middle ground between both extremities and places evolving
-code centre stage as it is recorded in Git branches and denominated by Git tags. This is achieved by simply
-introducing a common naming scheme together with some simple rules on when and how to branch,
-and when and how to merge.
+The *Git-flow* branching scheme strives towards a middle ground between both extremities and places the evolving
+code centre stage as it is recorded in Git branches and denominated by Git tags. This is achieved by introducing
+a common naming scheme together with some simple rules on when and how to branch, and when and how to merge.
 
 
 Challenges and Needs
@@ -87,10 +81,10 @@ are the only ones able to see the essential nuances required for good judgement.
 
 The success of *Git* (and similar distributed systems) is based on this insight; instead of locking,
 rejecting and selectively permitting changes from a system placed above people, people are given the tools
-to collaborate, and the that history that is established as a result of this real-world collaboration.
-*Git-flow* attempts to _expand on this approach to handle the intricacies involved in software releases_. In essence, it is a set
-of conventions allowing for _changes to flow from development to production release,_ while mitigating the
-friction caused by conflicts.
+to collaborate, and the history emerges as a result of this real-world collaboration.
+*Git-flow* attempts to _expand on this approach to handle the intricacies involved in software releases_.
+In essence, it is a set of conventions allowing for _changes to flow from development to production release,_
+while mitigating the friction caused by conflicts.
 
 Order of domains: development and production
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -99,11 +93,11 @@ between _development_ and _delivery of production-ready code_. Git-flow translat
 into two permanent ongoing branches: the *development-branch* and the *production-branch*.
 The former represents the development process, while the latter tracks the history of
 production-ready code. A _release_ marks a transition between these spheres, and is thus
-modelled by a *release-branch*, which originates at _development_ and is finally merged
-into _production._ And a _bugfix_ is caused by an issue in the production code and thus
-_originates from production,_ is kept separate from development, and is _merged back
-into production_ after resolving the issue. The production branch itself _never carries 
-direct changes,_ but rather receives tested and approved changes through merging.
+modelled by a *release-branch*, which originates at _development_ and is finally merged into
+ _production._ And a _bugfix_ is caused by an issue related to the system in productive use
+and thus _originates from the production branch,_ is kept separate from development, and is
+_merged back into production_ after resolving the issue. The production branch itself
+_never carries direct changes,_ but rather receives tested and approved changes through merging.
 
 The names for all these branches are a matter of convention, yet a final decision on nomenclature
 should be made, documented and never changed thereafter. The _development branch_ is often called
@@ -112,6 +106,41 @@ _production branch_ in most cases -- which has the benefit any a users unfamilia
 Git-flow usage will not hesitate to check out `master`, which happens to be the correct
 choice for casual contributions or bugfix investigations.
 
+Are Releases old-fashioned?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In the field of software development and project management, in recent years a trend can be observed
+to work towards an increased frequency of releases and delivery. Beginning with an effort to gradually
+automate more and more stages of the delivery process, at some point even the usefulness of marked
+releases and the adequacy of stable software selections and distributions is called into question.
+New methods of work organisation were promoted with much creed and dogmatism, at times leading to
+a false dichotomy to place the ``agile trunk based development'' in opposition to pretty much
+any other established form of structured work organisation. The driving force behind this
+tendency however is a gradual *move towards industrialisation* within the field of
+data technology and software development.
+
+In the light of this perception shift, it seems advisable to clarify and disentangle some of the
+terms, practices and handling patterns related to development, work organisation and delivery of
+software. A _trunk based development style_ can be used by a seasoned team of experienced developers,
+working in a well confined environment and within a largely stabilised state of a system.
+It should not be confused with _trunk based releases,_ where some code from the tip of the
+development branch is directly published into the production system with the help of a highly
+automated delivery pipeline. None of these methods is inherently superior; their applicability
+largely depends on the finer points of the given circumstances.
+
+Decisions in software development can be subject to wider considerations and forces beyond
+the technical realm. External liabilities may arise once people start to rely on data
+technology for any purpose or goal of significance. Yet at the same time a change in the
+patterns of usage, a shift of focus or even an improved understanding of the problem domain
+can lead to the desire for, or even the necessity of deep changes, to a degree that the
+very heart of the software system must be upended.
+
+The practice of working towards release milestones, to create a vetted software stack and
+stabilised selections and distributions of code can be seen as a strategy to cope with
+such a situation and to handle demands surpassing the problem solving capacity of a small
+and coherent group of people. Establishing such a release will protect the users and enables
+the emergence of a down-stream ecosystem of connected tools and usages. And it helps to create
+a safe space for development to focus on resolving tough problems and non-trivial challenges.
+
 
 Patterns of development
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -119,30 +148,6 @@ As regards to development, Git-flow can accommodate various ways of collaboratio
 not favour any specific style of development. Work can be done by a single person, by
 a tightly knit group of experienced developers, or by an elaborate, structured organisation,
 with possibly even several teams, including a formalised review and approval process.
-
-Clarification of tendentious claims
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Unfortunately, achievements and insights from new work methods have fallen prey to machinations,
-power play and propaganda by management people lately. Management people are good in talking
-about other people's work and blaming others for failure, and they are adept in avoiding any
-substantial commitment on their own, for fear of getting tangled with details or anything that
-might jeopardise the air of coolness and sovereignty. Rather, management prefers to turn methods
-into a fetish and subvert and replace human interactions with expensive tools they can buy
-and repressive processes they can control.
-
-In its perverted form, »Agile« becomes a means to extort additional profit, to lure working people
-into self-exploitation, to lever out checks and balances, accrue technical dept, disregard concerns
-of safety and to sweep problems under the carpet. In this general state of confusion, the so called
-``tunk development'' has been praised as the ultimate of agility and a boon for productivity.
-
-(??) It thus seems indicated to set matters straight.
-
-A _truk based development style_ can be used by a seasoned team of experienced developers,
-working in a well confined environment and within a largely stabilised state of a system.
-It should not be confused with _trunk based releases,_ where some code from the mainline
-is directly transferred into the production system with the help of a highly automated
-delivery pipeline. None of these methods is inherently superior; it's rather that
-their applicability depends on the finer points of the given circumstances.
 
 Continuous delivery
 ^^^^^^^^^^^^^^^^^^^
@@ -179,8 +184,8 @@ and maintenance aspects.
 
 Breaking changes
 ^^^^^^^^^^^^^^^^
-However, any substantial change to the core of a code base, and any change which is
-explorative or innovative in nature will inevitably break some other aspects of the system.
+However, any change that touches the essence of a system -- and also any change which is
+explorative or innovative in nature will inevitably break some other aspects of the setup.
 It is this very breakage which enables transformation and allows to gain new insights.
 When other groups of people need to work on other aspects of the system at the same time,
 they must be shielded from the ripple effect of such a breakage. This can be achieved in
@@ -189,34 +194,34 @@ various ways:
 - *Feature toggles* allow to activate the new functionality at runtime, dynamically,
   while retaining the former stable state of the system. This works to such a
   degree that the breakage can be confined to a local area of functionality, while
-  retaining an uncompromised code structure . Otherwise, structures would have to be duplicated,
+  retaining an uncompromised code structure. Otherwise, structures would have to be duplicated,
   which makes the code hard to understand and difficult to work with. Constantly maintaining
   a set of feature toggles incurs significant cost and effort, especially when the changes
   are far reaching.
 
 - *Feature branches* are the only viable solution whenever the overall structure of the code must be broken
-  temporarily, and when a new solution has to be developed often in gradual phases.  Any other development
-  work that yet again diverges and occurs at the same time as oothe code development causes additional
-  effort when it comes to integrating the reworked code.  Care should be taken to re-integrate frequently,
-  at least in one direction, i.e. the new and partially broken code should strive to integrate the ongoing
-  regular development work so that the new code is able to replace the old code base once it is
-  completed. This can be achieved by performing frequent re-bases.
+  temporarily, and when a new solution has to be developed often in gradual phases. Any other development
+  work that yet again diverges and occurs at the same time as regular maintenance activity will cause
+  additional effort when it comes to integrating the reworked and altered shape of the system. Care should
+  be taken to re-integrate frequently, at least in one direction, i.e. the new and partially broken code
+  should strive to integrate the ongoing regular development work so that the new form of the code is able
+  to replace the exiting code once it is completed. This can be achieved by performing frequent re-bases.
 
 Gate keeping and Review
 ^^^^^^^^^^^^^^^^^^^^^^^
 Another reason to favour development branches is to allow various levels of proficiency
 and to accept incomplete and immature contributions, which require time to achieve maturity.
-This situation is very common in Open-Source development communities. Large and intricately structured
-systems might require integration over a number of steps: initially within, for example, a subsystem, which
-is followed by joining subsystem branches into a new state of integration. *Code Review* is most effectively
+This situation is very common in Open-Source development communities. A complex integration process
+is also required for large and intricately structured systems: changes will first be accommodated within a subsystem,
+which is followed by joining subsystem branches into a new state of integration. *Code Review* is most effectively
 used when it is a means of support and collaboration: you can move more confidently when you know that
-another experienced developer will assist from the sidelines. Reviews by gatekeepers tend to be more problematic;
+another experienced developer will stand by you. Reviews by gatekeepers tend to be more problematic;
 which can easily turn into a superficial ritual, or cause a bottleneck and threaten to overload the most
 experienced developers with gatekeeper work, which is often demanding, time-consuming and prevents them from
 exercising their more able capabilities. Nevertheless, reviewing and merging should occur on a frequent basis, and 
 integrated with the coding work itself, so that the code on the development branch is already well
-reviewed, scrutinised and supported by automated testing. All the various flavours of working with
-branches can be combined with Git-flow for the release and maintenance work. To which degree the
+reviewed and scrutinised, with bold moves supported by automated testing. All the various flavours of working
+with branches can be combined with Git-flow for the release and maintenance work. To which degree the
 _landing of branches_ is conducted as a formalised review process is a matter of style in collaboration
 within the development team and thus beyond the scope of this discussion.
 
@@ -245,7 +250,7 @@ the release story. First there is the _convergence phase,_ which is obvious from
 branches and lots of smallish tweak and fixup commits. When the code seems stable, the _release is cut:_
 A new *release branch* is created at that point, and the immediate next commit on development mainline
 will *bump the version* number of the code base. The kind of formalised scheme applied here is what allows
-us to forego external ``organsiation work'': At any time, at maximum _one_ release branch should exist in
+us to forego external ``organisation work'': At any time, at maximum _one_ release branch should exist in
 the repository, named with a prefix and the version number (e.g. `release-4.20` or `rel/4.20` or whatever
 convention was established).
 
@@ -258,8 +263,8 @@ with version numbers; to achieve that, it can be helpful to have a separate »pu
 using a consistent build-number scheme internally. Also, API versioning (and SONAMEs) should be kept entirely
 separate from official version numbers, because especially for APIs (and really, _only_ for APIs) the
 link:https://semver.org/[Semantic Versioning] scheme is well defined and fully deterministic, so that
-no room is left for bikeshedding. Generally speaking, you do not want to allow marketing or
-communication to interfere with your level of API compatibility.
+no room is left for bikeshedding. Generally speaking, you do not want to allow considerations of marketing
+or communication to interfere with your level of API compatibility.
 
 For Git-flow to work well, the (technical) version number should be predictable, because we want to bump
 the version on development mainline immediately after cutting a release. Furthermore, it should be noted
@@ -341,7 +346,7 @@ release work, but rather urgent maintenance.
 
 Handling Bugfixes in production
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If a failure occurs in a production system, or with code distributed to to many users and in use
+If a failure occurs in a production system, or with code distributed to many users and in use
 for real work, then immediate action and quick response is required. Changes done to this code,
 however, should be as minimal and risk-free as possible. Git-flow uses a specific branch pattern for such a
 »Hotfix« or »Patch« release: it is forked off from the code in production, which is at the tip
@@ -371,10 +376,6 @@ to the release and maintenance of software which actually matters in some way or
 Git-flow is an _elegant_ solution to these problems, since it re-orders the activities related to
 releases and bugfixes, so that the history of the code itself, as captured by the Git version management,
 is enough to guide and document the structure of the process.
-
-If you are subject to liabilities, or if you think there is nothing to consider beyond
-coding, then please continue to be happy with technology, but stop painting other people as retarded
-or old-fashioned, who actually _do care_ for the consequences of their work.
 
 To start using Git-flow, the only thing that is necessary is to discuss and settle for a clear
 and simple naming convention for branches, tags and version numbers. Anything beyond that can
@@ -415,4 +416,4 @@ tweaks, or the long-term support for older versions. Keeping this additional inf
 additional Git-repositories helps to reduce complexity and distribute the burden of maintenance
 work to several people, without breaking the chain of automated and reproducible publication.
 
-
+-> see link:{ldoc}/technical/code/GitBranching.html[Git-flow conventions used by the Lumiera project]
