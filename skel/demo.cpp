@@ -5,8 +5,8 @@
      2025,            Benny Lyons <benny.lyons@gmx.net>
      2025,            Hermann Vosseler <Ichthyostega@web.de>
 
-  This program is free software;
-  TODO License
+  This program is Open Source software and provided under the MIT License.
+  See the LICENSE file for details.
 
 * *****************************************************************/
 

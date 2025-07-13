@@ -1,10 +1,10 @@
 #
-# Seletton of a demo application  -  open a GTK window and say hellw
+# CMake-Build for a collection of demo applications for video output
 #
 # Copyright 2025, Hermann Vosseler <Ichthyostega@web.de>
 #
-# This program is free software: 
-# TODO License
+# This program is Open Source software and provided under the MIT License.
+# See the LICENSE file for details.
 #
 cmake_minimum_required (VERSION 3.20)
 

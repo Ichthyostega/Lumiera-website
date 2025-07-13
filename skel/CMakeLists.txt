@@ -1,15 +1,15 @@
 #
-# Seletton of a demo application  -  open a GTK window and say hellw
+# Skeleton of a demo application  -  open a GTK window and say hello
 #
 # Copyright 2025, Hermann Vosseler <Ichthyostega@web.de>
 #
-# This program is free software: 
-# TODO License
+# This program is Open Source software and provided under the MIT License.
+# See the LICENSE file for details.
 #
 cmake_minimum_required(VERSION 3.20)
 
 project(
-    DemoSkeletton
+    DemoSkeleton
     VERSION 1.0
     LANGUAGES CXX
 )
