@@ -12,7 +12,7 @@ for released versions is related to ongoing development work. Often software dev
 these things either on an ad-hoc basis, or impose stringent external project management rules and regulation.
 The *Git-flow* branching scheme strives towards a middle ground between both extremities and places the evolving
 code centre stage as it is recorded in Git branches and denominated by Git tags. This is achieved by introducing
-a common naming scheme together with some simple rules on when and how to branch, and when and how to merge.
+a consistent naming scheme together with some simple rules on when and how to branch, and when and how to merge.
 
 
 Challenges and Needs
@@ -83,7 +83,7 @@ The success of *Git* (and similar distributed systems) is based on this insight;
 rejecting and selectively permitting changes from a system placed above people, people are given the tools
 to collaborate, and the history emerges as a result of this real-world collaboration.
 *Git-flow* attempts to _expand on this approach to handle the intricacies involved in software releases_.
-In essence, it is a set of conventions allowing for _changes to flow from development to production release,_
+It is essentialy a set of conventions allowing for _changes to flow from development to production release,_
 while mitigating the friction caused by conflicts.
 
 Order of domains: development and production
@@ -91,7 +91,7 @@ Order of domains: development and production
 Development, features, integration, testing, QA, bugfixes and delivery cover the space
 between _development_ and _delivery of production-ready code_. Git-flow translates this
 into two permanent ongoing branches: the *development-branch* and the *production-branch*.
-The former represents the development process, while the latter tracks the history of
+The development process is represented by the former, while the latter tracks the history of
 production-ready code. A _release_ marks a transition between these spheres, and is thus
 modelled by a *release-branch*, which originates at _development_ and is finally merged into
  _production._ And a _bugfix_ is caused by an issue related to the system in productive use
@@ -102,21 +102,20 @@ _never carries direct changes,_ but rather receives tested and approved changes 
 The names for all these branches are a matter of convention, yet a final decision on nomenclature
 should be made, documented and never changed thereafter. The _development branch_ is often called
 `develop` or `integration`, or `main`, while the traditional `master` is repurposed as
-_production branch_ in most cases -- which has the benefit any a users unfamiliar with
+_production branch_ in most cases -- which has the benefit of any users unfamiliar with
 Git-flow usage will not hesitate to check out `master`, which happens to be the correct
 choice for casual contributions or bugfix investigations.
 
 Are Releases old-fashioned?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-In the field of software development and project management, in recent years a trend can be observed
-to work towards an increased frequency of releases and delivery. Beginning with an effort to gradually
-automate more and more stages of the delivery process, at some point even the usefulness of marked
-releases and the adequacy of stable software selections and distributions is called into question.
-New methods of work organisation were promoted with much creed and dogmatism, at times leading to
-a false dichotomy to place the ``agile trunk based development'' in opposition to pretty much
-any other established form of structured work organisation. The driving force behind this
-tendency however is a gradual *move towards industrialisation* within the field of
-data technology and software development.
+The field of software development and project management has seen a trend towards an increase in releases
+and delivery in recent years.  Beginning with an effort to gradually automate more and more stages of the
+delivery process, at some point even the usefulness of marked releases and the adequacy of stable
+software selections and distributions is called into question.  New methods of work organisation were
+promoted with much creed and dogmatism, at times leading to a false dichotomy to place the ``agile trunk
+based development'' in opposition to pretty much any other established form of structured work
+organisation. The driving force behind this tendency however is a gradual *move towards
+industrialisation* within the field of data technology and software development.
 
 In the light of this perception shift, it seems advisable to clarify and disentangle some of the
 terms, practices and handling patterns related to development, work organisation and delivery of
@@ -129,7 +128,7 @@ largely depends on the finer points of the given circumstances.
 
 Decisions in software development can be subject to wider considerations and forces beyond
 the technical realm. External liabilities may arise once people start to rely on data
-technology for any purpose or goal of significance. Yet at the same time a change in the
+technology for any purpose or goal of significance. Yet, at the same time, a change in the
 patterns of usage, a shift of focus or even an improved understanding of the problem domain
 can lead to the desire for, or even the necessity of deep changes, to a degree that the
 very heart of the software system must be upended.
@@ -278,7 +277,7 @@ afterwards, because a version bump was also done on the latter directly after fo
 While it is possible to auto-resolve certain kinds of merge conflicts with clever scripting, doing so is
 tricky and risks auto-resolving and thus possibly discarding actual code conflicts erroneously --
 conflicts, which actually should have stopped automatic processing and require a manual inspection
-of the situation.
+of the situation might have been auto-optimised away.
 
 The Release Branch
 ^^^^^^^^^^^^^^^^^^
@@ -297,7 +296,7 @@ Honestly, while you could just release and wait for the systems to blow up, you'
 try that for software which actually matters.
 
 So the release branch reflects activities beyond the scope of pure development and connected
-to extended human interactions. However, it is not unusual to uncover serious problems in this
+to extended human interactions. However, it is not unusual to uncover serious problems at this
 stage, leading to further significant development efforts. And while not ideal, in practice some
 last-minute rushed features and changes can be encountered, based on overly zealous commitments
 made for the release. Furthermore, the time a release takes to reach maturity is also typically
