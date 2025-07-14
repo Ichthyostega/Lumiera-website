@@ -44,3 +44,26 @@ TIP: The `-j4` option tells make to use 4 cores concurrently to speed up the bui
      to point to custom locations.
 
 
+Dependencies
+~~~~~~~~~~~~
+The objective of this demo and tutorial is to explore several options to display video frames.
+This implies to use various different libraries and frameworks -- each which its unique set
+of dependencies; generally speaking, we need the _development setup_ of the libraries, since
+we are compiling and linking against the dependencies; so either you have to install a lot of
+transitive dependencies manually, or (preferrably) you might want to rely on the _package manager_
+of Linux distribution. The following list shows how to install the dependencies on Debian / Ubuntu.
+
+Basic build environment::
++
+-----------
+apt install build-essential cmake
+-----------
++
+Build a GTK-3 application with C++::
++
+-----------
+apt install libgtkmm-3.0-dev
+-----------
+
+
+

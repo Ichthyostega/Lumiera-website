@@ -11,11 +11,17 @@
 * *****************************************************************/
 
 
+#include "gtk-app.hpp"
+
 #include <iostream>
 
 int
-main (int argc, const char* argv[])
+main (int, const char*[])
 {
-    std::cout << "Hello Video" << std::endl;
+    return GtkApp{"demo.gtk"}.run(
+        [](auto& window)
+          {
+            std::cout << "Hello Video" << std::endl;
+          });
 }
 
