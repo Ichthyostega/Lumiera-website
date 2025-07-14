@@ -15,13 +15,32 @@
 
 #include <iostream>
 
+uint
+sayHello (Gtk::Window&)
+{
+  std::cout << "Hello Video" << std::endl;
+  return 0;
+}
+
+void
+markTick (uint& id)
+{
+  std::cout << "tick ... " << id++ << std::endl;
+}
+
+void
+sayBye (uint& id)
+{
+  std::cout << "STOP " << id << " frames are enough!!!" << std::endl;
+}
+
+
 int
 main (int, const char*[])
 {
-    return GtkApp{"demo.gtk"}.run(
-        [](auto& window)
-          {
-            std::cout << "Hello Video" << std::endl;
-          });
+    return GtkApp<uint>{"demo.gtk"}
+            .onStart (sayHello)
+            .onFrame (markTick)
+            .onClose (sayBye)
+            .run(4);
 }
-

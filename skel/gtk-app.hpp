@@ -13,60 +13,117 @@
 #ifndef GTK_APP_H
 #define GTK_APP_H
 
-#include <gtkmm/application.h>
 #include <gtkmm/window.h>
 #include <gtkmm/button.h>
+#include <gtkmm/application.h>
+#include <glibmm/dispatcher.h>
+
 #include <functional>
+#include <memory>
 
 using Glib::ustring;
+using std::move;
 
-using Task = std::function<void(Gtk::Window&)>;
+using uint = unsigned int;
+
 
 /**
  * Minimalistic GTK application, used as framework for video output demo.
- * The #run() function accepts a »Task« that will be performed in the GUI thread,
- * when clicking the Button.
+ * @tparam CTX custom data context to allocate while periodic processing is active
+ * @remark The actual actions can be installed as functors / callbacks
+ *       - onStart() installs a function to be invoked when the button is first clicked;
+ *         this function must return a _context object,_ which represents "the process"
+ *         and will be copied into heap storage; the further functors will receive context.
+ *       - onFrame(CTX&) installs a function to be invoked periodically; the GtkApp::run() function
+ *         takes a parameter do define the invocation frequency as _frames per second_
+ *       - onClose(CTX&) will be invoked when the application is shut down
+ * @note all processing happens in the GUI-thread; if a functor blocks, the application is deadlocked.
  */
+template<class CTX>
 class GtkApp
   : public Gtk::Application
   {
     class DemoWindow
       : public Gtk::Window
       {
-        Gtk::Button button_{"doIt"};
-        
       public:
         DemoWindow()
           {
             add (button_);
             button_.show();
           }
-        
-        void
-        connectTask (Task action)
-          {
-            button_.signal_clicked().connect(
-              sigc::track_obj ([action,this]{ action(*this); }
-                              ,*this
-                              ));
-          }
+
+        Gtk::Button button_{"do It"};
       };
-    
+
     DemoWindow demoWindow_;
-    
+
+
   public:
     GtkApp (ustring appID)
       : Gtk::Application{appID}
       { }
-    
-    int
-    run (Task action)
+
+
+    using StartTask = std::function<CTX(Gtk::Window&)>;
+    using FrameTask = std::function<void(CTX&)>;
+    using CloseTask = std::function<void(CTX&)>;
+
+    GtkApp&
+    onStart (StartTask task)
       {
-        demoWindow_.connectTask (action);
+        startTask_ = move(task);
+        return *this;
+      }
+
+    GtkApp&
+    onFrame (FrameTask task)
+      {
+        frameTask_ = move(task);
+        return *this;
+      }
+
+    GtkApp&
+    onClose (CloseTask task)
+      {
+        closeTask_ = move(task);
+        return *this;
+      }
+
+    int
+    run (uint framesPerSec)
+      {
+        uint timeout_ms = 1000 / framesPerSec;
+        demoWindow_.button_.signal_clicked().connect([&]{ triggerProcessing(timeout_ms); });
         return Gtk::Application::run (demoWindow_);
+      }                       // blocks while application is active
+
+
+  private:
+    std::unique_ptr<CTX> processor_;
+    StartTask startTask_;
+    FrameTask frameTask_;
+    CloseTask closeTask_;
+
+    void
+    triggerProcessing (uint timeout_ms)
+      {
+        if (processor_) return;
+        if (startTask_ and timeout_ms)
+          {
+            processor_ = std::make_unique<CTX> (startTask_(demoWindow_));
+            demoWindow_.button_.set_sensitive(false); // disable the button
+            demoWindow_.button_.set_label("active");
+
+            if (frameTask_)
+              Glib::signal_timeout().connect ([this]{ frameTask_(*processor_); return true; }
+                                             ,timeout_ms
+                                             );
+            if (closeTask_)
+              this->signal_shutdown().connect([this]{ closeTask_(*processor_); }
+                                             );
+          }
       }
   };
 
-
 #endif /*GTK_APP_H*/
-
