@@ -21,3 +21,4 @@ project(
 
 
 add_subdirectory (skel)
+add_subdirectory (xvideo)
