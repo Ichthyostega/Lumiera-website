@@ -49,7 +49,7 @@ class GtkXvApp
       public:
         DemoWindow()
           {
-            set_default_size (320,240);
+            set_default_size (CTX::VIDEO_WIDTH, CTX::VIDEO_HEIGHT);
             set_resizable (false);
             add (button_);
             button_.show();

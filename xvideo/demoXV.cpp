@@ -59,7 +59,11 @@ fourCC (const char id[5])
   return code;
 }
 
-const std::set<int> SUPPORTED_FORMATS = {fourCC("I420"), fourCC("YUY2")};
+const std::set<int> SUPPORTED_FORMATS = {fourCC("I420")    ///////TODO implement
+                                        ,fourCC("YV12")    ///////TODO implement
+                                        ,fourCC("YUY2")
+                                        ,fourCC("UYVY")    ///////TODO implement
+                                        };
 
 
 
@@ -74,8 +78,20 @@ struct XvCtx
     Display* display;
     Window window;
     uint port;
+    GC gc;
 
-    std::set<int> formats{};
+    int format;
+
+    // hard wired here (should be configurable in real-world usage)
+    constexpr static uint VIDEO_WIDTH {320};
+    constexpr static uint VIDEO_HEIGHT{240};
+
+    /** shared memory image descriptor for the video output */
+    XvImage* xvImage;
+
+    /** descriptor of the shared memory segment used for data exchange */
+    XShmSegmentInfo shmInfo;
+
   };
 
 
@@ -92,6 +108,9 @@ openDisplay (Gtk::Window& appWindow)
 
   if (not XShmQueryExtension(ctx.display))
     __FAIL ("X11 shared memory extension not available for this display.");
+
+
+  std::set<int> formats{}; // collection of usable formats supported by this setup
 
   uint count;
   XvAdaptorInfo* adaptorInfo;
@@ -112,13 +131,13 @@ openDisplay (Gtk::Window& appWindow)
                 {
                   auto isSupportedFormat = [](int formatCode){ return contains (SUPPORTED_FORMATS, formatCode); };
 
-                  int formats;
-                  XvImageFormatValues* list = XvListImageFormats (ctx.display, port, &formats);
-                  for (int i = 0; i < formats; ++i)
+                  int num_formats;
+                  XvImageFormatValues* list = XvListImageFormats (ctx.display, port, &num_formats);
+                  for (int i = 0; i < num_formats; ++i)
                       if (isSupportedFormat (list[i].id))
-                        ctx.formats.insert (list[i].id);
+                        formats.insert (list[i].id);
 
-                  foundPort = not ctx.formats.empty();
+                  foundPort = not formats.empty();
                   if (foundPort)
                     {
                       ctx.port = port;
@@ -129,9 +148,53 @@ openDisplay (Gtk::Window& appWindow)
                 }
             }//for all ports
         }// for all adaptors
+      XvFreeAdaptorInfo (adaptorInfo);
 
       if (not foundPort)
-        __FAIL ("unable to allocate XV port with supported pixel format");
+        __FAIL ("unable to allocate XV port with supported pixel format.");
+
+      // after having established a connection to the X-server,
+      // allocate resources and setup buffers for the actual output
+      ctx.gc = XCreateGC (ctx.display, ctx.window, 0, nullptr);
+
+      // select suitable graphic data format
+      if (contains (formats, fourCC("YUY2")))
+        ctx.format = fourCC("YUY2");
+      else
+        __FAIL ("current setup can not handle any of the pixel formats supported by this implementation.");
+
+      ctx.xvImage = static_cast<XvImage*> (XvShmCreateImage (ctx.display
+                                                            ,ctx.port
+                                                            ,ctx.format
+                                                            ,nullptr
+                                                            ,ctx.VIDEO_WIDTH
+                                                            ,ctx.VIDEO_HEIGHT
+                                                            ,&ctx.shmInfo
+                                                            ));
+      // allocate a shared-memory buffer
+      // with a size as indicated in xvImage
+      ctx.shmInfo.shmid = shmget (IPC_PRIVATE, ctx.xvImage->data_size, IPC_CREAT | 0777);
+      if (ctx.shmInfo.shmid < 0)
+        {
+          XFree (ctx.xvImage);
+          XvUngrabPort (ctx.display, ctx.port, CurrentTime);
+          __FAIL ("unable to allocate a shared memory buffer for image data exchange");
+        }
+
+
+      ctx.xvImage->data =
+      ctx.shmInfo.shmaddr = static_cast<char*> (shmat (ctx.shmInfo.shmid, 0, 0));
+      ctx.shmInfo.readOnly = false;
+
+      if (not XShmAttach (ctx.display, &ctx.shmInfo))
+        {
+          XFree (ctx.xvImage);
+          XvUngrabPort (ctx.display, ctx.port, CurrentTime);
+          __FAIL ("failed to establish shared-memory setup for communication with XServer");
+        }
+
+      XSync (ctx.display, false);
+      shmctl(ctx.shmInfo.shmid, IPC_RMID, 0);
     }
 
   return ctx;
