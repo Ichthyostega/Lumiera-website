@@ -80,22 +80,77 @@ struct XvCtx
 
     using ImgGen = ImageGenerator<VIDEO_WIDTH,VIDEO_HEIGHT>;
     ImgGen imgGen_;
-    
+
     XvCtx(FrameRate fps)
       : imgGen_{fps}
       { }
   };
 
 
+namespace { // implementation details : pixel format conversion
+
+  using std::clamp;
+
+  using ImgGen    = XvCtx::ImgGen;
+  using Trip      = ImgGen::Trip;
+  using PackedRGB = ImgGen::PackedRGB;
+
+
+  /** slightly simplified conversion from RGB components to Y'CbCr with Rec.601 (MPEG style) */
+  inline Trip
+  rgb_to_yuv (Trip const& rgb)
+  {
+    auto r = int(rgb[0]);
+    auto g = int(rgb[1]);
+    auto b = int(rgb[2]);
+    Trip yuv;
+    auto& [y,u,v] = yuv;
+    y = byte(clamp (  0 + (    299 * r +    587 * g +    114 * b) /    1000, 16,235));   // Luma clamped to MPEG scan range
+    u = byte(clamp (128 + (-168736 * r - 331264 * g + 500000 * b) / 1000000, 0, 255));   // Chroma components mapped according to Rec.601
+    v = byte(clamp (128 + ( 500000 * r - 418688 * g -  81312 * b) / 1000000, 0, 255));   // (but with integer arithmetics and truncating)
+    return yuv;
+  }
+
+
+  void
+  rgb_buffer_to_yuy2 (PackedRGB const& in, byte* out)
+  {
+    uint cntPix = in.size();
+    assert (cntPix %2 == 0);
+    for (uint i = 0; i < cntPix; i += 2)
+      {// convert and interleave 2 pixels in one step
+        uint op = i * 2;                           // Output packed in groups with 2 bytes
+        Trip const& rgb0 = in[i];
+        Trip const& rgb1 = in[i+1];
+        Trip yuv0 = rgb_to_yuv (rgb0);
+        Trip yuv1 = rgb_to_yuv (rgb1);
+
+        auto& [y0,u0,v0] = yuv0;
+        auto& [y1,_u,_v] = yuv1;                   // note: this format discards half of the chroma information
+
+        out[op    ] = y0;
+        out[op + 1] = u0;
+        out[op + 2] = y1;
+        out[op + 3] = v0;
+  }   }
+
+
+} // (End) implementation details
 
 
 void
 convert_RGB_intoBuffer (int format, char* targetBuff, int targetSiz
-                       ,XvCtx::ImgGen::Img const& inputFrame)
+                       ,PackedRGB const& inputFrame)
 {
+  static_assert (sizeof(byte) == sizeof(char));
+  byte* outputData = reinterpret_cast<byte*> (targetBuff);
+
   if (format == fourCC("YUY2"))
     {
-      
+      // this format discards 1/3 of the information
+      // input comes in RGB triplets, output discards 50% chroma
+      assert (targetSiz == 2 * inputFrame.size());
+      rgb_buffer_to_yuy2 (inputFrame, outputData);
     }
   else
     __FAIL ("Logic broken: unsupported output target format");
@@ -206,20 +261,25 @@ void
 displayFrame (XvCtx& ctx)
 {
   assert (ctx.xvImage and ctx.xvImage->data);
-  std::cout << "tick ... " << ctx.imgGen_.getFrameNr() << std::endl;
-  
+  uint frameNr = ctx.imgGen_.getFrameNr();
+  uint fps     = ctx.imgGen_.getFps();
+  if (0 == frameNr % fps)
+    std::cout << "tick ... " << ctx.imgGen_.getFrameNr() << std::endl;
+
   int org_x = 0
     , org_y = 0
     , destW = ctx.VIDEO_WIDTH
     , destH = ctx.VIDEO_HEIGHT;
-  /////////////////////////////////////////TODO actually compute output window position
+  //  Note: this demo uses a fixed-size window and hard-coded video size;
+  //        a real-world implementation would have to place the video frame
+  //        dynamically into the available screen space, possibly scaling up/down
 
   convert_RGB_intoBuffer (ctx.format
                          ,ctx.xvImage->data
                          ,ctx.xvImage->data_size
                          ,ctx.imgGen_.buildNext()
                          );
-  
+
   XvShmPutImage (ctx.display, ctx.port, ctx.window, ctx.gc
                 ,ctx.xvImage
                 ,0, 0, ctx.VIDEO_WIDTH, ctx.VIDEO_HEIGHT
@@ -257,5 +317,5 @@ main (int, const char*[])
             .onStart (openDisplay)
             .onFrame (displayFrame)
             .onClose (cleanUp)
-            .run(4);
+            .run(30);
 }

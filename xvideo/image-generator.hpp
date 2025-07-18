@@ -33,18 +33,27 @@ class ImageGenerator
 
     static_assert (sizeof(Img) == W * H * 3);
 
+    using PackedRGB = std::array<Trip, W*H>;
+
+
     ImageGenerator(uint fps)
       : fps_{fps}
       , frameNr_{0}
-      , buff_{byte(0)}
+      , img_{byte(0)}
       { };
 
+
+    PackedRGB const&
+    current()  const
+      {
+        return reinterpret_cast<PackedRGB const&> (img_);
+      }
 
     /**
      * generate the next frame of the animation.
      * @return reference to the buffer with RGB888 data.
      */
-    Img const&
+    PackedRGB const&
     buildNext()
       {
         if (frameNr_ == 0)
@@ -52,25 +61,16 @@ class ImageGenerator
         animatePos();
         drawBall();
         ++frameNr_;
-        return buff_;
+        return current();
       }
 
-    Img const&
-    current()  const
-      {
-        return buff_;
-      }
-
-    uint
-    getFrameNr()  const
-      {
-        return frameNr_;
-      }
+    uint getFrameNr()  const { return frameNr_; }
+    uint getFps()      const { return fps_;     }
 
   private:
     uint fps_;
     uint frameNr_;
-    Img buff_;
+    Img img_;
 
     void initGen();
     void animatePos();
@@ -97,7 +97,7 @@ class ImageGenerator
   ImageGenerator<W,H>::drawBall()
     {
       ///////////////TODO real animation
-      buff_[(frameNr_ / W) % H][frameNr_ % W] = {{byte(0xFF),byte(0xFF),byte(0x40)}};
+      img_[(frameNr_ / W) % H][frameNr_ % W] = {{byte(0xFF),byte(0xFF),byte(0x40)}};
     }
 
 
