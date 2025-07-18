@@ -11,10 +11,13 @@
 * *****************************************************************/
 
 
+#include "commons.hpp"
 #include "gtk-xv-app.hpp"
+#include "image-generator.hpp"
 
 #include <iostream>
-#include <cstdint>
+#include <algorithm>
+#include <cassert>
 #include <set>
 
 // for low-level access -> X-Window
@@ -26,21 +29,6 @@
 #include <sys/shm.h>
 #include <X11/extensions/XShm.h>
 #include <X11/extensions/Xvlib.h>
-
-void
-__FAIL (std::string msg)
-{
-  std::cerr << "FAIL: " << msg << std::endl;
-  std::abort();
-}
-
-/** shortcut for set value containment test (C++17) */
-template <typename T, class CMP, class ALO>
-inline bool
-contains (std::set<T,CMP,ALO> const& set, T const& val)
-{
-  return set.end() != set.find (val);
-}
 
 
 
@@ -72,37 +60,57 @@ const std::set<int> SUPPORTED_FORMATS = {fourCC("I420")    ///////TODO implement
  */
 struct XvCtx
   {
-    uint frameNr{0};
-
     /** X11 connection. */
-    Display* display;
-    Window window;
-    uint port;
-    GC gc;
+    Display* display{nullptr};
+    Window window{0};
+    uint port{0};
+    GC gc{nullptr};
 
-    int format;
+    int format{0};
 
     // hard wired here (should be configurable in real-world usage)
     constexpr static uint VIDEO_WIDTH {320};
     constexpr static uint VIDEO_HEIGHT{240};
 
     /** shared memory image descriptor for the video output */
-    XvImage* xvImage;
+    XvImage* xvImage{nullptr};
 
     /** descriptor of the shared memory segment used for data exchange */
     XShmSegmentInfo shmInfo;
 
+    using ImgGen = ImageGenerator<VIDEO_WIDTH,VIDEO_HEIGHT>;
+    ImgGen imgGen_;
+    
+    XvCtx(FrameRate fps)
+      : imgGen_{fps}
+      { }
   };
 
 
+
+
+void
+convert_RGB_intoBuffer (int format, char* targetBuff, int targetSiz
+                       ,XvCtx::ImgGen::Img const& inputFrame)
+{
+  if (format == fourCC("YUY2"))
+    {
+      
+    }
+  else
+    __FAIL ("Logic broken: unsupported output target format");
+}
+
+
+
 XvCtx
-openDisplay (Gtk::Window& appWindow)
+openDisplay (Gtk::Window& appWindow, FrameRate fps)
 {
   std::cout << "Open X-Video display slot..." << std::endl;
 
   Glib::RefPtr<Gdk::Window> gdkWindow = appWindow.get_window();
 
-  XvCtx ctx;
+  XvCtx ctx{fps};
   ctx.window  = GDK_WINDOW_XID      (gdkWindow->gobj());
   ctx.display = GDK_WINDOW_XDISPLAY (gdkWindow->gobj());
 
@@ -197,14 +205,35 @@ openDisplay (Gtk::Window& appWindow)
 void
 displayFrame (XvCtx& ctx)
 {
-  std::cout << "tick ... " << ctx.frameNr++ << std::endl;
+  assert (ctx.xvImage and ctx.xvImage->data);
+  std::cout << "tick ... " << ctx.imgGen_.getFrameNr() << std::endl;
+  
+  int org_x = 0
+    , org_y = 0
+    , destW = ctx.VIDEO_WIDTH
+    , destH = ctx.VIDEO_HEIGHT;
+  /////////////////////////////////////////TODO actually compute output window position
+
+  convert_RGB_intoBuffer (ctx.format
+                         ,ctx.xvImage->data
+                         ,ctx.xvImage->data_size
+                         ,ctx.imgGen_.buildNext()
+                         );
+  
+  XvShmPutImage (ctx.display, ctx.port, ctx.window, ctx.gc
+                ,ctx.xvImage
+                ,0, 0, ctx.VIDEO_WIDTH, ctx.VIDEO_HEIGHT
+                ,org_x, org_y, destW, destH
+                ,false
+                );
+  XFlush (ctx.display);
 }
 
 
 void
 cleanUp (XvCtx& ctx)
 {
-  std::cout << "STOP " << ctx.frameNr << " frames displayed." << std::endl;
+  std::cout << "STOP " << ctx.imgGen_.getFrameNr() << " frames displayed." << std::endl;
 
   XvStopVideo (ctx.display, ctx.port, ctx.window);
   XSync (ctx.display, false);
