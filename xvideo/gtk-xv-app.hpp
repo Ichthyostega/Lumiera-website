@@ -55,7 +55,7 @@ class GtkXvApp
             button_.show();
           }
 
-        Gtk::Button button_{"XVideo display"};
+        Gtk::Button button_{"click to start XVideo display..."};
       };
 
     DemoWindow demoWindow_;

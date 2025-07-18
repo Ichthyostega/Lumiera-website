@@ -68,11 +68,11 @@ const std::set<int> SUPPORTED_FORMATS = {fourCC("I420")    ///////TODO implement
 
 
 /**
- * Output connection context used for opening a X-Video display.
+ * Output connection context used for opening X-Video display.
  */
 struct XvCtx
   {
-    uint frame{0};
+    uint frameNr{0};
 
     /** X11 connection. */
     Display* display;
@@ -103,7 +103,7 @@ openDisplay (Gtk::Window& appWindow)
   Glib::RefPtr<Gdk::Window> gdkWindow = appWindow.get_window();
 
   XvCtx ctx;
-  ctx.window  = GDK_WINDOW_XID (gdkWindow->gobj());
+  ctx.window  = GDK_WINDOW_XID      (gdkWindow->gobj());
   ctx.display = GDK_WINDOW_XDISPLAY (gdkWindow->gobj());
 
   if (not XShmQueryExtension(ctx.display))
@@ -144,7 +144,7 @@ openDisplay (Gtk::Window& appWindow)
                       break;
                     }
                   else
-                    XvUngrabPort(ctx.display, port, CurrentTime );
+                    XvUngrabPort (ctx.display, port, CurrentTime );
                 }
             }//for all ports
         }// for all adaptors
@@ -166,7 +166,7 @@ openDisplay (Gtk::Window& appWindow)
       ctx.xvImage = static_cast<XvImage*> (XvShmCreateImage (ctx.display
                                                             ,ctx.port
                                                             ,ctx.format
-                                                            ,nullptr
+                                                            ,nullptr          // shared-mem buffer will be attached later
                                                             ,ctx.VIDEO_WIDTH
                                                             ,ctx.VIDEO_HEIGHT
                                                             ,&ctx.shmInfo
@@ -175,28 +175,21 @@ openDisplay (Gtk::Window& appWindow)
       // with a size as indicated in xvImage
       ctx.shmInfo.shmid = shmget (IPC_PRIVATE, ctx.xvImage->data_size, IPC_CREAT | 0777);
       if (ctx.shmInfo.shmid < 0)
-        {
-          XFree (ctx.xvImage);
-          XvUngrabPort (ctx.display, ctx.port, CurrentTime);
-          __FAIL ("unable to allocate a shared memory buffer for image data exchange");
-        }
+        __FAIL ("unable to allocate a shared memory buffer for image data exchange");
 
 
       ctx.xvImage->data =
-      ctx.shmInfo.shmaddr = static_cast<char*> (shmat (ctx.shmInfo.shmid, 0, 0));
+      ctx.shmInfo.shmaddr = static_cast<char*> (shmat (ctx.shmInfo.shmid, nullptr, 0));
       ctx.shmInfo.readOnly = false;
 
       if (not XShmAttach (ctx.display, &ctx.shmInfo))
-        {
-          XFree (ctx.xvImage);
-          XvUngrabPort (ctx.display, ctx.port, CurrentTime);
-          __FAIL ("failed to establish shared-memory setup for communication with XServer");
-        }
+        __FAIL ("failed to establish shared-memory setup for communication with XServer");
 
       XSync (ctx.display, false);
       shmctl(ctx.shmInfo.shmid, IPC_RMID, 0);
     }
-
+   // hand-over the activated connection context
+  //  to be managed by the GTK application...
   return ctx;
 }
 
@@ -204,15 +197,28 @@ openDisplay (Gtk::Window& appWindow)
 void
 displayFrame (XvCtx& ctx)
 {
-  std::cout << "tick ... " << ctx.frame++ << std::endl;
+  std::cout << "tick ... " << ctx.frameNr++ << std::endl;
 }
 
 
 void
 cleanUp (XvCtx& ctx)
 {
-  std::cout << "STOP " << ctx.frame << " frames displayed." << std::endl;
+  std::cout << "STOP " << ctx.frameNr << " frames displayed." << std::endl;
+
+  XvStopVideo (ctx.display, ctx.port, ctx.window);
+  XSync (ctx.display, false);
+  if (ctx.shmInfo.shmaddr)
+    {
+      XShmDetach (ctx.display, &ctx.shmInfo);
+      shmdt (ctx.shmInfo.shmaddr);
+    }
+  if (ctx.xvImage)
+    XFree (ctx.xvImage);
+  XFreeGC (ctx.display, ctx.gc);
+  XvUngrabPort (ctx.display, ctx.port, CurrentTime);
 }
+
 
 
 int
