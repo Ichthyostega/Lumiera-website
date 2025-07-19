@@ -76,6 +76,14 @@ struct Vec2
         return u.x*v.x + u.y*v.y;
       }
 
+    Vec2&
+    operator+= (Vec2 const& o)
+      {
+        x += o.x;
+        y += o.y;
+        return *this;
+      }
+
     int
     abs()  const
       {

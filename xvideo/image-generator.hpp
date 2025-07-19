@@ -89,6 +89,10 @@ class ImageGenerator
                                            ,BLACK, GRAY3, WHITE, GRAY3, BLACK
                                            };
     constexpr static int BALL_SIZ = std::ceil (std::sqrt (BALL.size()));
+
+    Vec2 p1_;
+    Vec2 v1_;
+    void maybeBounce (Vec2&, Vec2&);
   };
 
 
@@ -96,25 +100,69 @@ class ImageGenerator
   void
   ImageGenerator<W,H>::initGen()
     {
-
+      std::srand (std::time (nullptr));
+      v1_ = {rand() % 10, rand() % 10};
     }
 
   template<uint W, uint H>
   void
   ImageGenerator<W,H>::animatePos()
     {
-
+      p1_ += v1_;
+      maybeBounce (p1_, v1_);
     }
 
   template<uint W, uint H>
   void
   ImageGenerator<W,H>::drawBall()
     {
-      ///////////////TODO real animation
-      img_[(frameNr_ / W) % H][frameNr_ % W] = LT_YELLOW;
+      // blank out canvas      
+      img_ = Img{Row{Trip{}}};
+
+      for (uint row=0; row < BALL_SIZ; ++row)
+        for (uint col=0; col < BALL_SIZ; ++col)
+          img_[p1_.y+row][p1_.x+col] = BALL[row*BALL_SIZ + col];
+    }
+
+  template<uint W, uint H>
+  void
+  ImageGenerator<W,H>::maybeBounce (Vec2& p, Vec2& v)
+    {
+      auto randomise = [](int& val)
+                          {
+                            int offset{rand() % 7 - 3};
+                            val += offset;
+                          };
+      auto limX = W-BALL_SIZ;
+      auto limY = H-BALL_SIZ;
+
+      if (p.x <= 0)
+        {
+          p.x *= -1;
+          v.x *= -1;
+          randomise (v.y);
+        }
+      else
+      if (p.x >= limX)
+        {
+          p.x  = limX - (p.x-limX);
+          v.x *= -1;
+          randomise (v.y);
+        }
+      if (p.y <= 0)
+        {
+          p.y *= -1;
+          v.y *= -1;
+          randomise (v.x);
+        }
+      else
+      if (p.y >= limY)
+        {
+          p.y  = limY - (p.y-limY);
+          v.y *= -1;
+          randomise (v.x);
+        }
     }
 
 
-
 #endif /*IMAGE_GENERATOR_H*/
-
