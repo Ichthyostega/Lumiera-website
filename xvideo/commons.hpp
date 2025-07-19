@@ -152,21 +152,27 @@ operator+ (Trip const& tu, Trip const& tv)
 
 constexpr inline Trip
 operator- (Trip const& tu, Trip const& tv)
-  {
-    return trip (cval<0>(tu) - cval<0>(tv)
-                ,cval<1>(tu) - cval<1>(tv)
-                ,cval<2>(tu) - cval<2>(tv)
-                );
-  }
+{
+  return trip (cval<0>(tu) - cval<0>(tv)
+              ,cval<1>(tu) - cval<1>(tv)
+              ,cval<2>(tu) - cval<2>(tv)
+              );
+}
 
-constexpr inline int
-distNorm (Trip const& tu, Trip const& tv)
-  {
-    return cval<0>(tu) * cval<0>(tv)
-         + cval<1>(tu) * cval<1>(tv)
-         + cval<2>(tu) * cval<2>(tv)
-         ;
-  }
+constexpr inline void
+operator += (Trip& c, Trip const& o)
+{
+  c = c + o;
+}
+
+constexpr inline void
+decay (Trip& c, double feedback, Trip const& ref)
+{
+  c = trip (cval<0>(c) + feedback * (cval<0>(ref) - cval<0>(c))
+           ,cval<1>(c) + feedback * (cval<1>(ref) - cval<1>(c))
+           ,cval<2>(c) + feedback * (cval<2>(ref) - cval<2>(c))
+           );
+}
 
 
 #endif /*COMMONS_H*/

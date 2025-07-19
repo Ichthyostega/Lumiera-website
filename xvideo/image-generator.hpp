@@ -58,6 +58,7 @@ class ImageGenerator
         if (frameNr_ == 0)
           initGen();
         animatePos();
+        attenuate();
         drawBall();
         ++frameNr_;
         return current();
@@ -73,6 +74,7 @@ class ImageGenerator
 
     void initGen();
     void animatePos();
+    void attenuate();
     void drawBall();
 
     constexpr static auto BLACK = gray (0);
@@ -80,7 +82,8 @@ class ImageGenerator
     constexpr static auto GRAY1 = 0.25 * WHITE;
     constexpr static auto GRAY2 = 0.50 * WHITE;
     constexpr static auto GRAY3 = 0.75 * WHITE;
-    constexpr static auto LT_YELLOW = trip (0xFF, 0xFF, 0x40);
+    constexpr static auto LT_YELLOW = trip (0xFF, 0xFF, 0xE0);
+    constexpr static auto DARK_BLUE = trip (0x10, 0   , 0x50);
 
     constexpr static auto BALL = std::array{BLACK, GRAY3, WHITE, GRAY3, BLACK
                                            ,GRAY3, WHITE, WHITE, WHITE, GRAY3
@@ -90,8 +93,7 @@ class ImageGenerator
                                            };
     constexpr static int BALL_SIZ = std::ceil (std::sqrt (BALL.size()));
 
-    Vec2 p1_;
-    Vec2 v1_;
+    Vec2 p1_, p2_, v1_, v2_;
     void maybeBounce (Vec2&, Vec2&);
   };
 
@@ -100,8 +102,15 @@ class ImageGenerator
   void
   ImageGenerator<W,H>::initGen()
     {
+      for (int row=0; row < H; ++row)
+        for (int col=0; col < W; ++col)
+          img_[row][col] = GRAY2;
+
       std::srand (std::time (nullptr));
-      v1_ = {rand() % 10, rand() % 10};
+      p1_ = {0,0};
+      v1_ = { 1 + rand() % 5,  1 + rand() % 5};
+      p2_ = {rand() % int(W), rand() % int(H)};
+      v2_ = {-1,-1};
     }
 
   template<uint W, uint H>
@@ -110,18 +119,38 @@ class ImageGenerator
     {
       p1_ += v1_;
       maybeBounce (p1_, v1_);
+      p2_ += v2_;
+      maybeBounce (p2_, v2_);
+    }
+
+  template<uint W, uint H>
+  void
+  ImageGenerator<W,H>::attenuate()
+    {
+      double dim{H*W};
+      for (int row=0; row < H; ++row)
+        for (int col=0; col < W; ++col)
+          {
+            Vec2 point{col,row};
+            auto vicinity = [&](Vec2& p, int s)
+                              {
+                                int range = (p - point).abs();
+                                return 1.0 /(1 + s/dim * range);
+                              };
+            Trip& px{img_[row][col]};
+            
+            decay (px, 0.05,     1.0 * vicinity (p2_, 1) * DARK_BLUE);
+            decay (px, 0.1, px + 0.5 * vicinity (p1_,12) * LT_YELLOW);
+          }
     }
 
   template<uint W, uint H>
   void
   ImageGenerator<W,H>::drawBall()
     {
-      // blank out canvas      
-      img_ = Img{Row{Trip{}}};
-
       for (uint row=0; row < BALL_SIZ; ++row)
         for (uint col=0; col < BALL_SIZ; ++col)
-          img_[p1_.y+row][p1_.x+col] = BALL[row*BALL_SIZ + col];
+          img_[p1_.y+row][p1_.x+col] += BALL[row*BALL_SIZ + col];
     }
 
   template<uint W, uint H>
@@ -132,6 +161,8 @@ class ImageGenerator
                           {
                             int offset{rand() % 7 - 3};
                             val += offset;
+                            if (abs(val > 3) and val*offset > 0)
+                              val /= 2; // damp excess outward trend
                           };
       auto limX = W-BALL_SIZ;
       auto limY = H-BALL_SIZ;
