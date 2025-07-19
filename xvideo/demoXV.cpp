@@ -92,7 +92,6 @@ namespace { // implementation details : pixel format conversion
   using std::clamp;
 
   using ImgGen    = XvCtx::ImgGen;
-  using Trip      = ImgGen::Trip;
   using PackedRGB = ImgGen::PackedRGB;
 
 

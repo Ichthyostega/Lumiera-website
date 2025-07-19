@@ -27,7 +27,6 @@ class ImageGenerator
   {
 
   public:
-    using Trip = std::array<byte,3>;
     using Row = std::array<Trip, W>;
     using Img = std::array<Row,  H>;
 
@@ -39,7 +38,7 @@ class ImageGenerator
     ImageGenerator(uint fps)
       : fps_{fps}
       , frameNr_{0}
-      , img_{byte(0)}
+      , img_{Row{Trip{}}}
       { };
 
 
@@ -75,6 +74,21 @@ class ImageGenerator
     void initGen();
     void animatePos();
     void drawBall();
+
+    constexpr static auto BLACK = gray (0);
+    constexpr static auto WHITE = gray (0xFF);
+    constexpr static auto GRAY1 = 0.25 * WHITE;
+    constexpr static auto GRAY2 = 0.50 * WHITE;
+    constexpr static auto GRAY3 = 0.75 * WHITE;
+    constexpr static auto LT_YELLOW = trip (0xFF, 0xFF, 0x40);
+
+    constexpr static auto BALL = std::array{BLACK, GRAY3, WHITE, GRAY3, BLACK
+                                           ,GRAY3, WHITE, WHITE, WHITE, GRAY3
+                                           ,WHITE, WHITE, WHITE, WHITE, WHITE
+                                           ,GRAY3, WHITE, WHITE, WHITE, GRAY3
+                                           ,BLACK, GRAY3, WHITE, GRAY3, BLACK
+                                           };
+    constexpr static int BALL_SIZ = std::ceil (std::sqrt (BALL.size()));
   };
 
 
@@ -97,7 +111,7 @@ class ImageGenerator
   ImageGenerator<W,H>::drawBall()
     {
       ///////////////TODO real animation
-      img_[(frameNr_ / W) % H][frameNr_ % W] = {{byte(0xFF),byte(0xFF),byte(0x40)}};
+      img_[(frameNr_ / W) % H][frameNr_ % W] = LT_YELLOW;
     }
 
 
