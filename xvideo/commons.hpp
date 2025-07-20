@@ -165,33 +165,31 @@ operator += (Trip& c, Trip const& o)
   c = c + o;
 }
 
-constexpr inline void
-decay (Trip& c, double feedback, Trip const& ref)
-{
-  c = trip (cval<0>(c) + feedback * (cval<0>(ref) - cval<0>(c))
-           ,cval<1>(c) + feedback * (cval<1>(ref) - cval<1>(c))
-           ,cval<2>(c) + feedback * (cval<2>(ref) - cval<2>(c))
-           );
-}
+const uint32_t KNUTH_MAGIC{0x9e3779b1};
 
 /**
- * Use the provided vectors as random source to produce random bits.
- * Based on ideas from libBoost and the »murmur« hash family.
+ * A cheap source of random bits, based on repreated mixing.
  * @warning fast but not high quality
  */
 inline uint32_t
-noise (Vec2 const& src1, Vec2 const& src2)
+noise()
 {
-  constexpr auto KNUTH_MAGIC{0x9e3779b1};
   static uint32_t state{0x55555555};
-  uint32_t entropy = src1.y * 31
-                   ^ src1.x * 23
-                   ^ src2.y * 17
-                   ^ src2.x * 13;
-  return state ^= entropy * KNUTH_MAGIC
+  return state ^= KNUTH_MAGIC
                 + (state<<6)
                 + (state>>2)
                 ;
+}
+
+inline void
+decay (Trip& c, double feedback, Trip const& ref)
+{
+  auto randBits = noise();
+  auto dither = [&]{ return 0.07 * (-7.5 + (0xF & (randBits >>= 4))); };
+  c = trip (cval<0>(c) + feedback * (cval<0>(ref) - cval<0>(c)) + dither()
+           ,cval<1>(c) + feedback * (cval<1>(ref) - cval<1>(c)) + dither()
+           ,cval<2>(c) + feedback * (cval<2>(ref) - cval<2>(c)) + dither()
+           );
 }
 
 
