@@ -174,5 +174,25 @@ decay (Trip& c, double feedback, Trip const& ref)
            );
 }
 
+/**
+ * Use the provided vectors as random source to produce random bits.
+ * Based on ideas from libBoost and the »murmur« hash family.
+ * @warning fast but not high quality
+ */
+inline uint32_t
+noise (Vec2 const& src1, Vec2 const& src2)
+{
+  constexpr auto KNUTH_MAGIC{0x9e3779b1};
+  static uint32_t state{0x55555555};
+  uint32_t entropy = src1.y * 31
+                   ^ src1.x * 23
+                   ^ src2.y * 17
+                   ^ src2.x * 13;
+  return state ^= entropy * KNUTH_MAGIC
+                + (state<<6)
+                + (state>>2)
+                ;
+}
+
 
 #endif /*COMMONS_H*/
