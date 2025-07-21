@@ -22,3 +22,4 @@ project(
 
 add_subdirectory (skel)
 add_subdirectory (xvideo)
+add_subdirectory (sdl1)
