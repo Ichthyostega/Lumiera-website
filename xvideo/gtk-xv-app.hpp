@@ -10,8 +10,8 @@
 
 * *****************************************************************/
 
-#ifndef GTK_APP_H
-#define GTK_APP_H
+#ifndef GTK_XV_APP_H
+#define GTK_XV_APP_H
 
 #include "commons.hpp"
 
@@ -119,15 +119,21 @@ class GtkXvApp
             demoWindow_.button_.set_sensitive(false); // disable the button
             demoWindow_.button_.set_label("active");
 
-            if (frameTask_)
-              Glib::signal_timeout().connect ([this]{ frameTask_(*processor_); return true; }
-                                             ,timeout_ms
-                                             );
-            if (closeTask_)
-              this->signal_shutdown().connect([this]{ closeTask_(*processor_); }
-                                             );
+            auto frameHook = [this]{
+                                     if (frameTask_)
+                                       frameTask_(*processor_);
+                                     return bool(frameTask_); // false ≙ stop tick
+                                   };
+            auto closeHook = [this]{
+                                     frameTask_ = FrameTask{};// disable tick
+                                     if (closeTask_)
+                                       closeTask_(*processor_);
+                                   };
+
+            Glib::signal_timeout().connect (frameHook, timeout_ms );
+            this->signal_shutdown().connect (closeHook);
           }
       }
   };
 
-#endif /*GTK_APP_H*/
+#endif /*GTK_XV_APP_H*/

@@ -11,14 +11,15 @@
 * *****************************************************************/
 
 
+#include "commons.hpp"
 #include "gtk-app.hpp"
 
 #include <iostream>
 
 uint
-sayHello (Gtk::Window&)
+sayHello (Gtk::Window&, FrameRate fps)
 {
-  std::cout << "Hello Video" << std::endl;
+  std::cout << "Hello Video ("<<fps<<" fps)" << std::endl;
   return 0;
 }
 

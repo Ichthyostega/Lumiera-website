@@ -13,6 +13,8 @@
 #ifndef GTK_APP_H
 #define GTK_APP_H
 
+#include "commons.hpp"
+
 #include <gtkmm/window.h>
 #include <gtkmm/button.h>
 #include <gtkmm/application.h>
@@ -24,7 +26,6 @@
 using Glib::ustring;
 using std::move;
 
-using uint = unsigned int;
 
 
 /**
@@ -65,7 +66,7 @@ class GtkApp
       { }
 
 
-    using StartTask = std::function<CTX(Gtk::Window&)>;
+    using StartTask = std::function<CTX(Gtk::Window&, FrameRate)>;
     using FrameTask = std::function<void(CTX&)>;
     using CloseTask = std::function<void(CTX&)>;
 
@@ -91,10 +92,9 @@ class GtkApp
       }
 
     int
-    run (uint framesPerSec)
+    run (FrameRate fps)
       {
-        uint timeout_ms = 1000 / framesPerSec;
-        demoWindow_.button_.signal_clicked().connect([&]{ triggerProcessing(timeout_ms); });
+        demoWindow_.button_.signal_clicked().connect([&]{ triggerProcessing(fps); });
         return Gtk::Application::run (demoWindow_);
       }                       // blocks while application is active
 
@@ -106,22 +106,30 @@ class GtkApp
     CloseTask closeTask_;
 
     void
-    triggerProcessing (uint timeout_ms)
+    triggerProcessing (FrameRate fps)
       {
         if (processor_) return;
+
+        uint timeout_ms = 1000 / fps;
         if (startTask_ and timeout_ms)
           {
-            processor_ = std::make_unique<CTX> (startTask_(demoWindow_));
+            processor_ = std::make_unique<CTX> (startTask_(demoWindow_, fps));
             demoWindow_.button_.set_sensitive(false); // disable the button
             demoWindow_.button_.set_label("active");
 
-            if (frameTask_)
-              Glib::signal_timeout().connect ([this]{ frameTask_(*processor_); return true; }
-                                             ,timeout_ms
-                                             );
-            if (closeTask_)
-              this->signal_shutdown().connect([this]{ closeTask_(*processor_); }
-                                             );
+            auto frameHook = [this]{
+                                     if (frameTask_)
+                                       frameTask_(*processor_);
+                                     return bool(frameTask_); // false ≙ stop tick
+                                   };
+            auto closeHook = [this]{
+                                     frameTask_ = FrameTask{};// disable tick
+                                     if (closeTask_)
+                                       closeTask_(*processor_);
+                                   };
+
+            Glib::signal_timeout().connect (frameHook, timeout_ms );
+            this->signal_shutdown().connect (closeHook);
           }
       }
   };

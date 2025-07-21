@@ -252,6 +252,7 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
     }
    // hand-over the activated connection context
   //  to be managed by the GTK application...
+  std::cout << "Started playback at "<<fps<<" frames/sec." << std::endl;
   return ctx;
 }
 
