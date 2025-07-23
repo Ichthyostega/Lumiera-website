@@ -1,5 +1,5 @@
 /*
-  demoXV.cpp  -  output video from a GTK application, using the X-Video standard
+  demoSDL1.cpp  -  output video from a GTK application, using the SDL Abstraction (v1.2)
 
    Copyright (C)
      2025,            Benny Lyons <benny.lyons@gmx.net>
@@ -20,18 +20,7 @@
 #include <cassert>
 #include <array>
 
-// for low-level access -> X-Window
-//#include <gdk/gdkx.h>
-
 #include <SDL/SDL.h>
-//#include <SDL/SDL_syswm.h>  ///////////////////TODO do we need this one? It provides access to system-specific features, like the X11 window
-
-// X11 and XVideo extension
-//#include <X11/Xlib.h>
-//#include <sys/ipc.h>
-//#include <sys/shm.h>
-//#include <X11/extensions/XShm.h>
-//#include <X11/extensions/Xvlib.h>
 
 
 
@@ -66,7 +55,8 @@ struct SdlCtx
   {
     SDL_Surface* surface_{nullptr};
     SDL_Overlay* overlay_{nullptr};
-    SDL_Rect position_{};
+    SDL_Rect windowPos_{};
+    SDL_Rect targetPos_{};
 
 
     // hard wired here (should be configurable in real-world usage)
@@ -133,17 +123,18 @@ namespace { // implementation details : pixel format conversion
 
 
 void
-convert_RGB_intoBuffer (int format, char* targetBuff, int targetSiz
+convert_RGB_intoBuffer (SDL_Overlay& target
                        ,PackedRGB const& inputFrame)
 {
-  static_assert (sizeof(byte) == sizeof(char));
-  byte* outputData = reinterpret_cast<byte*> (targetBuff);
+  static_assert (sizeof(byte) == sizeof(uint8_t));
 
-  if (format == fourCC("YUY2"))
+  if (target.format == fourCC("YUY2"))
     {
       // this format discards 1/3 of the information
       // input comes in RGB triplets, output discards 50% chroma
-      assert (targetSiz == 2 * inputFrame.size());
+      assert (target.planes == 1);
+      assert (target.pitches[0] == 2 * SdlCtx::VIDEO_WIDTH);
+      byte* outputData = reinterpret_cast<byte*> (target.pixels[0]);
       rgb_buffer_to_yuy2 (inputFrame, outputData);
     }
   else
@@ -183,25 +174,25 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
   if (bpp == 8)
     __FAIL ("this system only supports palette colours.");
 
-  ctx.position_ = determinePosition (appWindow);
+  ctx.windowPos_ = determinePosition (appWindow);
   std::cout << ".... System supports "<<uint(bpp)<<" bit-per-pixel colour\n"
             << ".... Screen size: "
             << videoInfo->current_w << " x "
             << videoInfo->current_h << " px\n"
             << ".... Window: at ("
-            << ctx.position_.x <<","<< ctx.position_.y << ") size "
-            << ctx.position_.w<<" x "<<ctx.position_.h << " px"
+            << ctx.windowPos_.x <<","<< ctx.windowPos_.y << ") size "
+            << ctx.windowPos_.w<<" x "<<ctx.windowPos_.h << " px"
             << std::endl;
 
   assert (bpp == 16 or bpp == 24 or bpp == 32);
-  assert (ctx.position_.w == ctx.VIDEO_WIDTH and  // ◁────────────────────┨ specifically arranged for this demo
-          ctx.position_.h == ctx.VIDEO_HEIGHT);
+  assert (ctx.windowPos_.w == ctx.VIDEO_WIDTH and // ◁────────────────────┨ specifically arranged for this demo
+          ctx.windowPos_.h == ctx.VIDEO_HEIGHT);
 
-  const auto DISPLAY_FLAGS = SDL_HWSURFACE     // we want the framebuffer surface to be backed by video hardware memory
-                           | SDL_DOUBLEBUF     // we want hardware supported double-buffering
-                           | SDL_NOFRAME;      // we want a surface without window decoration
+  const auto DISPLAY_FLAGS = SDL_HWSURFACE        // framebuffer surface backed by video hardware memory
+                           | SDL_DOUBLEBUF        // request hardware supported double-buffering
+                           | SDL_NOFRAME;         // request surface without window decoration
 
-  ctx.surface_ = SDL_SetVideoMode (ctx.position_.w, ctx.position_.h, bpp, DISPLAY_FLAGS);
+  ctx.surface_ = SDL_SetVideoMode (ctx.VIDEO_WIDTH, ctx.VIDEO_HEIGHT, bpp, DISPLAY_FLAGS);
   if (not ctx.surface_)
     __FAIL ("access to hardware backed framebuffer not possible");
 
@@ -211,11 +202,17 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
                                           ,ctx.VIDEO_HEIGHT
                                           ,formatCode     // ◁────────────┨ supported formats are defined in sdl.h (but happen to be fourCC codes)
                                           ,ctx.surface_); // ◁────────────┨ this establishes a link to the underlying surface
-      if (ctx.overlay_) break;
+      if (ctx.overlay_
+          and ctx.overlay_->hw_overlay)
+        break;
     }
   if (not ctx.overlay_)
     __FAIL ("unable to setup a YUV converter with a supported format");
 
+   //////////////////////////////////////TODO find out how to position a transparent overly into the App window 
+  ctx.targetPos_ = ctx.windowPos_;
+  ctx.targetPos_.x = 0;
+  ctx.targetPos_.y = 0;
 
    // hand-over the activated connection context
   //  to be managed by the GTK application...
@@ -233,14 +230,16 @@ displayFrame (SdlCtx& ctx)
     std::cout << "tick ... " << ctx.imgGen_.getFrameNr() << std::endl;
 
   SDL_LockYUVOverlay (ctx.overlay_);
-  ///////////////////////////////////////////////////////TODO : convert and copy pixels here
+  convert_RGB_intoBuffer (*ctx.overlay_
+                         ,ctx.imgGen_.buildNext()
+                         );
   SDL_UnlockYUVOverlay (ctx.overlay_);
 
   //  Note: this demo uses a fixed-size window and hard-coded video size;
   //        a real-world implementation would have to place the video frame
   //        dynamically into the available screen space, possibly scaling up/down;
   //        In such a case, you'd pass the desired target position here, and SDL would scale
-  SDL_DisplayYUVOverlay (ctx.overlay_, & ctx.position_);
+  SDL_DisplayYUVOverlay (ctx.overlay_, & ctx.targetPos_);
 }
 
 
