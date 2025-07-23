@@ -1,5 +1,5 @@
 /*
-  gtk-sdl-app.cpp  -  simple GTK Host Application
+  gtk-glx-app.cpp  -  simple GTK Host Application
 
    Copyright (C)
      2025,            Benny Lyons <benny.lyons@gmx.net>
@@ -10,8 +10,8 @@
 
 * *****************************************************************/
 
-#ifndef GTK_SDL_APP_H
-#define GTK_SDL_APP_H
+#ifndef GTK_GLX_APP_H
+#define GTK_GLX_APP_H
 
 #include "commons.hpp"
 
@@ -29,7 +29,7 @@ using std::move;
 
 
 /**
- * Minimalistic GTK application, used as framework for a demo using SDL v1 for video output.
+ * Minimalistic GTK application, used as framework for a demo of X-Video output.
  * @tparam CTX custom data context to allocate while periodic processing is active
  * @remark The actual actions can be installed as functors / callbacks
  *       - onStart() installs a function to be invoked when the button is first clicked;
@@ -41,7 +41,7 @@ using std::move;
  * @note all processing happens in the GUI-thread; if a functor blocks, the application is deadlocked.
  */
 template<class CTX>
-class GtkSdlApp
+class GtkGlxApp
   : public Gtk::Application
   {
     class DemoWindow
@@ -56,14 +56,14 @@ class GtkSdlApp
             button_.show();
           }
 
-        Gtk::Button button_{"click to start SDL-1 video display..."};
+        Gtk::Button button_{"click to start GLX display..."};
       };
 
     DemoWindow demoWindow_;
 
 
   public:
-    GtkSdlApp (ustring appID)
+    GtkGlxApp (ustring appID)
       : Gtk::Application{appID}
       { }
 
@@ -72,21 +72,21 @@ class GtkSdlApp
     using FrameTask = std::function<void(CTX&)>;
     using CloseTask = std::function<void(CTX&)>;
 
-    GtkSdlApp&
+    GtkGlxApp&
     onStart (StartTask task)
       {
         startTask_ = move(task);
         return *this;
       }
 
-    GtkSdlApp&
+    GtkGlxApp&
     onFrame (FrameTask task)
       {
         frameTask_ = move(task);
         return *this;
       }
 
-    GtkSdlApp&
+    GtkGlxApp&
     onClose (CloseTask task)
       {
         closeTask_ = move(task);
@@ -136,4 +136,4 @@ class GtkSdlApp
       }
   };
 
-#endif /*GTK_SDL_APP_H*/
+#endif /*GTK_GLX_APP_H*/
