@@ -47,10 +47,10 @@ fourCC (const char id[5])
   return code;
 }
 
-const std::set<int> SUPPORTED_FORMATS = {fourCC("I420")    ///////TODO implement
-                                        ,fourCC("YV12")    ///////TODO implement
+const std::set<int> SUPPORTED_FORMATS = {fourCC("I420")    ///////DOING
+                                        ,fourCC("YV12")    ///////DOING
                                         ,fourCC("YUY2")
-                                        ,fourCC("UYVY")    ///////TODO implement
+                                        ,fourCC("UYVY")    ///////DOING
                                         };
 
 
@@ -133,7 +133,81 @@ namespace { // implementation details : pixel format conversion
         out[op + 3] = v0;
   }   }
 
+  // I420
+  void
+  rgb_buffer_to_i420 (PackedRGB const& in, byte* out)
+  {
+    uint cntPix = in.size();
+    assert (cntPix %2 == 0);
+    for (uint i = 0; i < cntPix; i += 2)
+      {// convert and interleave 2 pixels in one step
+        uint op = i * 2;                           // Output packed in groups with 2 bytes
+        Trip const& rgb0 = in[i];
+        Trip const& rgb1 = in[i+1];
+        Trip yuv0 = rgb_to_yuv (rgb0);
+        Trip yuv1 = rgb_to_yuv (rgb1);
 
+        auto& [y0,u0,v0] = yuv0;
+        auto& [y1,_u,_v] = yuv1;  
+
+        out[op    ] = y0;
+        out[op + 1] = u0; 
+        out[op + 2] = v0; 
+        out[op + 3] = y1;
+  }   }
+        
+  // YV12: 
+  //      planar YUV 4:2:0. 12Bits/pixel
+  //      YV indicates the the U and V colour planes are exchanged
+  //      // YUV --> YVU
+  void
+  rgb_buffer_to_yv12 (PackedRGB const& in, byte* out)
+  {
+    uint cntPix = in.size();
+    assert (cntPix %2 == 0);
+    for (uint i = 0; i < cntPix; i += 2)
+      {// convert and interleave 2 pixels in one step
+        uint op = i * 2;                           // Output packed in groups with 2 bytes
+        Trip const& rgb0 = in[i];
+        Trip const& rgb1 = in[i+1];
+        Trip yuv0 = rgb_to_yuv (rgb0);
+        Trip yuv1 = rgb_to_yuv (rgb1);
+
+        auto& [y0,u0,v0] = yuv0;
+        auto& [y1,_u,_v] = yuv1;                   // note: this format discards half of the chroma information
+
+        // FORMAT: over 2 pixells: Y1V1U1Y2
+        out[op    ] = y0;
+        out[op + 1] = v0; 
+        out[op + 2] = u0; 
+        out[op + 3] = y1;
+  }   }
+
+
+  // UXVY
+  void
+  rgb_buffer_to_uyvy (PackedRGB const& in, byte* out)
+  {
+    uint cntPix = in.size();
+    assert (cntPix %2 == 0);  
+    for (uint i = 0; i < cntPix; i += 2)
+      {// convert and interleave 2 pixels in one step
+        uint op = i * 2;                           // Output packed in groups with 2 bytes
+        Trip const& rgb0 = in[i];
+        Trip const& rgb1 = in[i+1];
+        Trip yuv0 = rgb_to_yuv (rgb0);
+        Trip yuv1 = rgb_to_yuv (rgb1);
+
+        auto& [y0,u0,v0] = yuv0;
+        auto& [y1,_u,_v] = yuv1;                   // note: this format discards half of the chroma information
+
+        out[op    ] = u0;
+        out[op + 1] = y0;
+        out[op + 2] = v0;
+        out[op + 3] = y1;
+   }  }
+
+  
 } // (End) implementation details
 
 
@@ -150,6 +224,24 @@ convert_RGB_intoBuffer (int format, char* targetBuff, int targetSiz
       // input comes in RGB triplets, output discards 50% chroma
       assert (targetSiz == 2 * inputFrame.size());
       rgb_buffer_to_yuy2 (inputFrame, outputData);
+    }
+  else if (format == fourCC("I420"))
+    {
+      // planar 4:2:0 YUV
+      rgb_buffer_to_i420 (inputFrame, outputData);
+    }
+  else if (format == fourCC("YV12"))
+    {
+      // planar YUV 4:2:0. 12Bits/pixel
+      // same as above but U and V exchanged
+      // TODO: this should be pass?
+      // assert (targetSiz == 2 * inputFrame.size());
+      rgb_buffer_to_yv12 (inputFrame, outputData);
+    }
+  else if (format == fourCC("UYVY"))
+    {
+      // packed 4:2:2 YUV
+      rgb_buffer_to_uyvy (inputFrame, outputData);
     }
   else
     __FAIL ("Logic broken: unsupported output target format");
@@ -222,8 +314,14 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
       // select suitable graphic data format
       if (contains (formats, fourCC("YUY2")))
         ctx.format = fourCC("YUY2");
+      else if (contains (formats, fourCC("I420")))
+        ctx.format = fourCC("I420");
+      else if (contains (formats, fourCC("YV12")))
+        ctx.format = fourCC("YV12");
+      else if (contains (formats, fourCC("UYVY")))
+              ctx.format = fourCC("UYVY");
       else
-        __FAIL ("current setup can not handle any of the pixel formats supported by this implementation.");
+       __FAIL ("current setup can not handle any of the pixel formats supported by this implementation.");
 
       ctx.xvImage = static_cast<XvImage*> (XvShmCreateImage (ctx.display
                                                             ,ctx.port

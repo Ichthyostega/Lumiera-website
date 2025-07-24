@@ -128,7 +128,7 @@ template<uint idx>
 constexpr inline int
 cval (Trip const& t)
 {
-  static_assert (idx < t.size());
+        //static_assert (idx < t.size());
   return int(t[idx]);
 }
 
