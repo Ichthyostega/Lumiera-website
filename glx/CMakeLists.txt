@@ -20,6 +20,7 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK  REQUIRED IMPORTED_TARGET gtkmm-3.0>=3.20)
 pkg_check_modules(XLIB REQUIRED IMPORTED_TARGET x11>=1.7)
 pkg_check_modules(GLU1 REQUIRED IMPORTED_TARGET glu)
+pkg_check_modules(OGL  REQUIRED IMPORTED_TARGET gl>=1.2)
 
 
 # build complete source tree (detect changes on rebuild)
@@ -32,4 +33,5 @@ target_include_directories(demo_glx PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOU
 target_link_libraries(demo_glx PRIVATE PkgConfig::GTK)
 target_link_libraries(demo_glx PRIVATE PkgConfig::XLIB)
 target_link_libraries(demo_glx PRIVATE PkgConfig::GLU1)
+target_link_libraries(demo_glx PRIVATE PkgConfig::OGL)
 

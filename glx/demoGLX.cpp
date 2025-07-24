@@ -59,8 +59,9 @@ struct GlxCtx
     /** X11 connection. */
     Display* display{nullptr};
     Window window{0};
-    uint port{0};
-    GC gc{nullptr};
+    uint screen{0};
+
+    GLXContext glx{nullptr};
 
     int format{0};
 
@@ -158,6 +159,31 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
   GlxCtx ctx{fps};
   ctx.window  = GDK_WINDOW_XID      (gdkWindow->gobj());
   ctx.display = GDK_WINDOW_XDISPLAY (gdkWindow->gobj());
+  ctx.screen  = DefaultScreen (ctx.display);
+
+  auto DESIRED_ATTRIBS
+    = std::array{GLX_RGBA            // require true-colour, not palette-colour
+                ,GLX_DOUBLEBUFFER    // want hardware backed double-buffering
+                ,GLX_RED_SIZE, 4     // need at minimum support for 12 bit per pixel
+                ,GLX_GREEN_SIZE, 4
+                ,GLX_BLUE_SIZE, 4
+                ,0};
+
+  XVisualInfo* vis = glXChooseVisual (ctx.display, ctx.screen, DESIRED_ATTRIBS.data());
+  if (not vis)
+    __FAIL ("unable to connect to OpenGL visual with desired attributes");
+
+  ctx.glx = glXCreateContext (ctx.display, vis
+                             ,nullptr          // do not share display list definitions
+                             ,true             // prefer direct rendering if possible
+                             );
+  XFree (vis);
+  if (not ctx.glx)
+    __FAIL ("failed to create OpenGL context for this display with desired visuals");
+
+  // create a binding for the current thread to use this context on this window
+  if (not glXMakeCurrent (ctx.display, ctx.window, ctx.glx))
+    __FAIL ("failed to attach an OpenGL context to the application X-Window");
 
    // hand-over the activated connection context
   //  to be managed by the GTK application...
@@ -196,6 +222,10 @@ cleanUp (GlxCtx& ctx)
 {
   std::cout << "STOP " << ctx.imgGen_.getFrameNr() << " frames displayed." << std::endl;
 
+  // detach binding with OpenGL context
+  glXMakeCurrent (ctx.display, None, nullptr);
+  if (ctx.glx)
+    glXDestroyContext (ctx.display, ctx.glx);
 }
 
 
