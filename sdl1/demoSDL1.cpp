@@ -49,7 +49,7 @@ constexpr auto SUPPORTED_FORMATS = std::array{fourCC("YUY2")
 
 
 /**
- * Output connection context used for opening X-Video display.
+ * Output connection context used for video display via SDL.
  */
 struct SdlCtx
   {
