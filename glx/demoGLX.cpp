@@ -41,7 +41,8 @@ struct GlxCtx
 
     GLXContext glx{nullptr};
     uint texID{0};
-    float scaleX{1}, scaleY{1};
+    float scaleX{1};
+    float scaleY{1};
 
     // hard wired here (should be configurable in real-world usage)
     constexpr static uint VIDEO_WIDTH {320};
@@ -63,12 +64,14 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
 {
   std::cout << "Open GLX display-connection..." << std::endl;
 
-  Glib::RefPtr<Gdk::Window> gdkWindow = appWindow.get_window();
-
   GlxCtx ctx{fps};
+
+  // use the X-Window as anchor to build an OpenGL context via GLX
+  Glib::RefPtr<Gdk::Window> gdkWindow = appWindow.get_window();
   ctx.window  = GDK_WINDOW_XID      (gdkWindow->gobj());
   ctx.display = GDK_WINDOW_XDISPLAY (gdkWindow->gobj());
   ctx.screen  = DefaultScreen (ctx.display);
+
 
   auto DESIRED_ATTRIBS
     = std::array{GLX_RGBA            // require true-colour, not palette-colour
@@ -78,15 +81,15 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
                 ,GLX_BLUE_SIZE, 4
                 ,0};
 
-  XVisualInfo* vis = glXChooseVisual (ctx.display, ctx.screen, DESIRED_ATTRIBS.data());
-  if (not vis)
+  XVisualInfo* visual = glXChooseVisual (ctx.display, ctx.screen, DESIRED_ATTRIBS.data());
+  if (not visual)
     __FAIL ("unable to connect to OpenGL visual with desired attributes");
 
-  ctx.glx = glXCreateContext (ctx.display, vis
+  ctx.glx = glXCreateContext (ctx.display, visual
                              ,nullptr          // do not share display list definitions
                              ,true             // prefer direct rendering if possible
                              );
-  XFree (vis);
+  XFree (visual);
   if (not ctx.glx)
     __FAIL ("failed to create OpenGL context for this display with desired visuals");
 
@@ -94,7 +97,6 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
   if (not glXMakeCurrent (ctx.display, ctx.window, ctx.glx))
     __FAIL ("failed to attach an OpenGL context to the application X-Window");
 
-  glClearColor (0.0f, 0.0f, 0.0f, 0.0f);       // use these (R,G,B,α) values for glClear(GL_COLOR_BUFFER_BIT);
   glDisable (GL_DEPTH_TEST);                   // we do not need 3D layering / positioning
   glEnable (GL_TEXTURE_RECTANGLE_ARB);         // allow texture size to be *not* a power of two
 
@@ -143,6 +145,10 @@ displayFrame (GlxCtx& ctx)
   //  Note: this demo uses a fixed-size window and hard-coded video size;
   //        a real-world implementation would have to place the video frame
   //        dynamically into the available screen space, possibly scaling up/down
+  GLfloat w{ctx.VIDEO_WIDTH};
+  GLfloat h{ctx.VIDEO_HEIGHT};
+  GLfloat sX{ctx.scaleX};
+  GLfloat sY{ctx.scaleY};
 
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
@@ -150,17 +156,17 @@ displayFrame (GlxCtx& ctx)
   // draw a quatrilateral which exactly fills the viewport
   // each vertex is also supplied with a texture mapping point
   glBegin(GL_QUADS);
-  glTexCoord2f (      0.0f, GLfloat(ctx.VIDEO_HEIGHT));
-  glVertex2f (- ctx.scaleX, -ctx.scaleY);
+  glTexCoord2f (0, h);
+  glVertex2f (-sX,-sY);
 
-  glTexCoord2f (GLfloat(ctx.VIDEO_WIDTH), GLfloat(ctx.VIDEO_HEIGHT));
-  glVertex2f (  ctx.scaleX, -ctx.scaleY);
+  glTexCoord2f (w, h);
+  glVertex2f ( sX,-sY);
 
-  glTexCoord2f (GLfloat(ctx.VIDEO_WIDTH), 0.0f);
-  glVertex2f (   ctx.scaleX, ctx.scaleY);
+  glTexCoord2f (w, 0);
+  glVertex2f ( sX, sY);
 
-  glTexCoord2f (0.0f, 0.0f);
-  glVertex2f ( - ctx.scaleX, ctx.scaleY);
+  glTexCoord2f (0, 0);
+  glVertex2f (-sX, sY);
   glEnd();
 
   // double-buffer flip, automatically invokes glFlush()

@@ -134,7 +134,7 @@ class ImageGenerator
             Vec2 point{col,row};
             auto vicinity = [&](Vec2& p, int s)
                               {
-                                int range = (p - point).abs();
+                                int range = (p - point).norm();
                                 return 1.0 /(1 + s/dim * range);
                               };
             Trip& px{img_[row][col]};

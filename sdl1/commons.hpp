@@ -85,7 +85,7 @@ struct Vec2
       }
 
     int
-    abs()  const
+    norm()  const
       {
         return dot (*this,*this);
       }
@@ -93,8 +93,8 @@ struct Vec2
     friend int
     dist (Vec2 const& u, Vec2 const& v)
       {
-        float absDiff = (v - u).abs();
-        return int(std::sqrt (absDiff));
+        float normDiff = (v - u).norm();
+        return int(std::sqrt (normDiff));
       }
   };
 
@@ -126,7 +126,7 @@ gray (int lum =0)
 
 template<uint idx>
 constexpr inline int
-cval (Trip const& t)
+c (Trip const& t)
 {
   static_assert (idx < t.size());
   return int(t[idx]);
@@ -135,27 +135,27 @@ cval (Trip const& t)
 constexpr inline Trip
 operator* (double fac, Trip const& t)
 {
-  return trip (fac * cval<0>(t)
-              ,fac * cval<1>(t)
-              ,fac * cval<2>(t)
+  return trip (fac * c<0>(t)
+              ,fac * c<1>(t)
+              ,fac * c<2>(t)
               );
 }
 
 constexpr inline Trip
-operator+ (Trip const& tu, Trip const& tv)
+operator+ (Trip const& t1, Trip const& t2)
 {
-  return trip (cval<0>(tu) + cval<0>(tv)
-              ,cval<1>(tu) + cval<1>(tv)
-              ,cval<2>(tu) + cval<2>(tv)
+  return trip (c<0>(t1) + c<0>(t2)
+              ,c<1>(t1) + c<1>(t2)
+              ,c<2>(t1) + c<2>(t2)
               );
 }
 
 constexpr inline Trip
-operator- (Trip const& tu, Trip const& tv)
+operator- (Trip const& t1, Trip const& t2)
 {
-  return trip (cval<0>(tu) - cval<0>(tv)
-              ,cval<1>(tu) - cval<1>(tv)
-              ,cval<2>(tu) - cval<2>(tv)
+  return trip (c<0>(t1) - c<0>(t2)
+              ,c<1>(t1) - c<1>(t2)
+              ,c<2>(t1) - c<2>(t2)
               );
 }
 
@@ -165,11 +165,13 @@ operator += (Trip& c, Trip const& o)
   c = c + o;
 }
 
+
+/** closest prime to (2^32 * goldenRatio) % 2^32 */
 const uint32_t KNUTH_MAGIC{0x9e3779b1};
 
 /**
- * A cheap source of random bits, based on repreated mixing.
- * @warning fast but not high quality
+ * A cheap source of random bits, based on repeated mixing.
+ * @warning fast but not high quality...
  */
 inline uint32_t
 noise()
@@ -181,15 +183,23 @@ noise()
                 ;
 }
 
+/**
+ * Manipulate a colour value to add a decay step towards a target colour.
+ * When applying this repeatedly to the same colour, it will approach
+ * the target colour asymptotically, by an exponential function,
+ * because ∂/∂x e^kx ≡ k · e^kx
+ * @param feedback controls the strength of the effect
+ * @note adding 4 bit of random dither to each channel to avoid banding
+ */
 inline void
-decay (Trip& c, double feedback, Trip const& ref)
+decay (Trip& col, double feedback, Trip const& target)
 {
   auto randBits = noise();
   auto dither = [&]{ return 0.07 * (-7.5 + (0xF & (randBits >>= 4))); };
-  c = trip (cval<0>(c) + feedback * (cval<0>(ref) - cval<0>(c)) + dither()
-           ,cval<1>(c) + feedback * (cval<1>(ref) - cval<1>(c)) + dither()
-           ,cval<2>(c) + feedback * (cval<2>(ref) - cval<2>(c)) + dither()
-           );
+  col = trip (c<0>(col) + feedback * (c<0>(target) - c<0>(col)) + dither()
+             ,c<1>(col) + feedback * (c<1>(target) - c<1>(col)) + dither()
+             ,c<2>(col) + feedback * (c<2>(target) - c<2>(col)) + dither()
+             );
 }
 
 
