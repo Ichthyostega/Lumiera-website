@@ -1,5 +1,5 @@
 /*
-  gtk-glx-app.cpp  -  simple GTK Host Application
+  gtk-egl-app.cpp  -  simple GTK Host Application
 
    Copyright (C)
      2025,            Benny Lyons <benny.lyons@gmx.net>
@@ -10,8 +10,8 @@
 
 * *****************************************************************/
 
-#ifndef GTK_GLX_APP_H
-#define GTK_GLX_APP_H
+#ifndef GTK_EGL_APP_H
+#define GTK_EGL_APP_H
 
 #include "commons.hpp"
 
@@ -29,7 +29,7 @@ using std::move;
 
 
 /**
- * Minimalistic GTK application, used as framework for a demo of GLX-Video output.
+ * Minimalistic GTK application, used as framework for a demo of OpenGL-Video output.
  * @tparam CTX custom data context to allocate while periodic processing is active
  * @remark The actual actions can be installed as functors / callbacks
  *       - onStart() installs a function to be invoked when the button is first clicked;
@@ -41,7 +41,7 @@ using std::move;
  * @note all processing happens in the GUI-thread; if a functor blocks, the application is deadlocked.
  */
 template<class CTX>
-class GtkGlxApp
+class GtkEglApp
   : public Gtk::Application
   {
     class DemoWindow
@@ -56,14 +56,14 @@ class GtkGlxApp
             button_.show();
           }
 
-        Gtk::Button button_{"click to start GLX display..."};
+        Gtk::Button button_{"click to start display via EGL..."};
       };
 
     DemoWindow demoWindow_;
 
 
   public:
-    GtkGlxApp (ustring appID)
+    GtkEglApp (ustring appID)
       : Gtk::Application{appID}
       { }
 
@@ -72,21 +72,21 @@ class GtkGlxApp
     using FrameTask = std::function<void(CTX&)>;
     using CloseTask = std::function<void(CTX&)>;
 
-    GtkGlxApp&
+    GtkEglApp&
     onStart (StartTask task)
       {
         startTask_ = move(task);
         return *this;
       }
 
-    GtkGlxApp&
+    GtkEglApp&
     onFrame (FrameTask task)
       {
         frameTask_ = move(task);
         return *this;
       }
 
-    GtkGlxApp&
+    GtkEglApp&
     onClose (CloseTask task)
       {
         closeTask_ = move(task);
@@ -136,4 +136,4 @@ class GtkGlxApp
       }
   };
 
-#endif /*GTK_GLX_APP_H*/
+#endif /*GTK_EGL_APP_H*/

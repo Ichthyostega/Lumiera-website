@@ -1,5 +1,5 @@
 /*
-  demoGLX.cpp  -  output video from a GTK application, using GLX - OpenGL binding
+  demoEGL.cpp  -  output video from a GTK application, using EGL - OpenGL binding
 
    Copyright (C)
      2025,            Benny Lyons <benny.lyons@gmx.net>
@@ -12,7 +12,7 @@
 
 
 #include "commons.hpp"
-#include "gtk-glx-app.hpp"
+#include "gtk-egl-app.hpp"
 #include "image-generator.hpp"
 
 #include <iostream>
@@ -30,9 +30,9 @@
 
 
 /**
- * Connection and drawing context used for GLX based video display.
+ * Connection and drawing context used for EGL based video display.
  */
-struct GlxCtx
+struct EglCtx
   {
     /** X11 connection. */
     Display* display{nullptr};
@@ -51,7 +51,7 @@ struct GlxCtx
     using ImgGen = ImageGenerator<VIDEO_WIDTH,VIDEO_HEIGHT>;
     ImgGen imgGen_;
 
-    GlxCtx(FrameRate fps)
+    EglCtx(FrameRate fps)
       : imgGen_{fps}
       { }
   };
@@ -59,14 +59,14 @@ struct GlxCtx
 
 
 
-GlxCtx
+EglCtx
 openDisplay (Gtk::Window& appWindow, FrameRate fps)
 {
-  std::cout << "Open GLX display-connection..." << std::endl;
+  std::cout << "Open display-connection through EGL..." << std::endl;
 
-  GlxCtx ctx{fps};
+  EglCtx ctx{fps};
 
-  // use the X-Window as anchor to build an OpenGL context via GLX
+  // use the X-Window as anchor to build an OpenGL context via EGL
   Glib::RefPtr<Gdk::Window> gdkWindow = appWindow.get_window();
   ctx.window  = GDK_WINDOW_XID      (gdkWindow->gobj());
   ctx.display = GDK_WINDOW_XDISPLAY (gdkWindow->gobj());
@@ -76,8 +76,8 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
   auto DESIRED_ATTRIBS
     = std::array{GLX_RGBA            // require true-colour, not palette-colour
                 ,GLX_DOUBLEBUFFER    // want hardware backed double-buffering
-                ,GLX_RED_SIZE,  4    // need at minimum support for 12 bit per pixel
-                ,GLX_GREEN_SIZE,4
+                ,GLX_RED_SIZE, 4     // need at minimum support for 12 bit per pixel
+                ,GLX_GREEN_SIZE, 4
                 ,GLX_BLUE_SIZE, 4
                 ,0};
 
@@ -124,7 +124,7 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
 
 
 void
-displayFrame (GlxCtx& ctx)
+displayFrame (EglCtx& ctx)
 {
   uint frameNr = ctx.imgGen_.getFrameNr();
   uint fps     = ctx.imgGen_.getFps();
@@ -175,7 +175,7 @@ displayFrame (GlxCtx& ctx)
 
 
 void
-cleanUp (GlxCtx& ctx)
+cleanUp (EglCtx& ctx)
 {
   std::cout << "STOP " << ctx.imgGen_.getFrameNr() << " frames displayed." << std::endl;
 
@@ -190,7 +190,7 @@ cleanUp (GlxCtx& ctx)
 int
 main (int, const char*[])
 {
-    return GtkGlxApp<GlxCtx>{"demo.glx"}
+    return GtkEglApp<EglCtx>{"demo.egl"}
             .onStart (openDisplay)
             .onFrame (displayFrame)
             .onClose (cleanUp)
