@@ -179,40 +179,32 @@ namespace { // implementation details : pixel format conversion
   void
   rgb_buffer_to_i420 (PackedRGB const& in, byte* out)
   {
-    uint cntP = in.size();
-    uint cntUV = (in.size()/2)*(in.size()/2);
-    uint cntPix = cntP + cntUV;
+    uint cntPix = in.size();
     assert (cntPix %2 == 0);
     for (uint i = 0; i < cntPix; i++)
       {
-
         Trip const& rgb = in[i];
-        
         Trip yuv = rgb_to_yuv (rgb);
         
         // Memory: y*8 u*2 v*2 bits/pixel
         auto& [y, u, v] = yuv;
         out[i] = y;
-        out[i + 1] = u;
-        out[i + 2] = v;
 
-       
+        
         if (i % 2)
           { // odd
             Trip const& rgbPrev = in[i - 1];
             Trip yuvPrev = rgb_to_yuv (rgbPrev);
                   
             auto& [yp,up,vp] = yuvPrev;  
-            out[i + 1] = up;
-            out[i + 2] = vp;
+            out[i + cntPix/4 ] = up;
+            out[i + cntPix/4 + cntPix/4] = vp;
           }
         else
           { // even including i=0
-            auto& [y, u, v] = yuv;  
-            out[i + 1] = u;
-            out[i + 2] = v;  
+            out[i + cntPix/4] = u;
+            out[i + cntPix/4 + cntPix/4] = v;  
           }  
-
   }   }
         
   // YV12: 
