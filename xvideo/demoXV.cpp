@@ -51,8 +51,16 @@ const std::set<int> SUPPORTED_FORMATS = {fourCC("I420")    ///////DOING
                                         ,fourCC("YV12")    ///////DOING
                                         ,fourCC("YUY2")
                                         ,fourCC("UYVY")    ///////DOING
-                                        };
-
+                                       };
+// TODO:
+// Get rid of this. Defining the same things twice
+// is not a good idea, but I needed the checks in a
+// heavily used loop and calling functions might prove
+// expensive and I did not want to tax the loop unnecessarily 
+enum packedFomrats { pYUY2
+                    ,pUYVY
+                    ,pYVYU
+                    };
 
 
 /**
@@ -111,11 +119,24 @@ namespace { // implementation details : pixel format conversion
   }
 
 
+
   void
-  rgb_buffer_to_yuy2 (PackedRGB const& in, byte* out)
+  rgb_buffer_to_packed (int format, PackedRGB const& in, byte* out)
   {
     uint cntPix = in.size();
     assert (cntPix %2 == 0);
+    packedFomrats pFormat;
+
+    if (format == fourCC("YUY2"))
+      pFormat = pYUY2;
+    else if (format == fourCC("UYVY")) 
+      pFormat = pUYVY;
+    else if (format == fourCC("YVYU"))
+      pFormat = pYVYU;
+    else
+      __FAIL ("Invald packed format; cannot convert");                 
+                     
+    
     for (uint i = 0; i < cntPix; i += 2)
       {// convert and interleave 2 pixels in one step
         uint op = i * 2;                           // Output packed in groups with 2 bytes
@@ -127,44 +148,83 @@ namespace { // implementation details : pixel format conversion
         auto& [y0,u0,v0] = yuv0;
         auto& [y1,_u,_v] = yuv1;                   // note: this format discards half of the chroma information
 
-        out[op    ] = y0;
-        out[op + 1] = u0;
-        out[op + 2] = y1;
-        out[op + 3] = v0;
+        switch (pFormat) {
+        case  pYUY2:
+          out[op    ] = y0;
+          out[op + 1] = u0;
+          out[op + 2] = y1;
+          out[op + 3] = v0;  
+          break;
+        case pUYVY:
+          out[op    ] = u0;
+          out[op + 1] = y0;
+          out[op + 2] = v0;
+          out[op + 3] = y1;
+          break;
+        case pYVYU:
+          out[op    ] = y0;
+          out[op + 1] = v0;
+          out[op + 2] = y1;
+          out[op + 3] = u0;
+          break;
+        default:
+          break;
+        }
   }   }
 
+             
   // I420
+  // n1: V1...V1 U1 V1
+  // n2: V2...V2 U1 V1
   void
   rgb_buffer_to_i420 (PackedRGB const& in, byte* out)
   {
-    uint cntPix = in.size();
+    uint cntP = in.size();
+    uint cntUV = (in.size()/2)*(in.size()/2);
+    uint cntPix = cntP + cntUV;
     assert (cntPix %2 == 0);
-    for (uint i = 0; i < cntPix; i += 2)
-      {// convert and interleave 2 pixels in one step
-        uint op = i * 2;                           // Output packed in groups with 2 bytes
-        Trip const& rgb0 = in[i];
-        Trip const& rgb1 = in[i+1];
-        Trip yuv0 = rgb_to_yuv (rgb0);
-        Trip yuv1 = rgb_to_yuv (rgb1);
+    for (uint i = 0; i < cntPix; i++)
+      {
 
-        auto& [y0,u0,v0] = yuv0;
-        auto& [y1,_u,_v] = yuv1;  
+        Trip const& rgb = in[i];
+        
+        Trip yuv = rgb_to_yuv (rgb);
+        
+        // Memory: y*8 u*2 v*2 bits/pixel
+        auto& [y, u, v] = yuv;
+        out[i] = y;
+        out[i + 1] = u;
+        out[i + 2] = v;
 
-        out[op    ] = y0;
-        out[op + 1] = u0; 
-        out[op + 2] = v0; 
-        out[op + 3] = y1;
+       
+        if (i % 2)
+          { // odd
+            Trip const& rgbPrev = in[i - 1];
+            Trip yuvPrev = rgb_to_yuv (rgbPrev);
+                  
+            auto& [yp,up,vp] = yuvPrev;  
+            out[i + 1] = up;
+            out[i + 2] = vp;
+          }
+        else
+          { // even including i=0
+            auto& [y, u, v] = yuv;  
+            out[i + 1] = u;
+            out[i + 2] = v;  
+          }  
+
   }   }
         
   // YV12: 
   //      planar YUV 4:2:0. 12Bits/pixel
   //      YV indicates the the U and V colour planes are exchanged
-  //      // YUV --> YVU
+  //      YYYYYYYY VV UU   --> YYYYYYYY UU VV
   void
   rgb_buffer_to_yv12 (PackedRGB const& in, byte* out)
   {
     uint cntPix = in.size();
-    assert (cntPix %2 == 0);
+    //uint cntPix = (in.VIDEO_WIDTH * in.VIDEO_WIDTH);
+    //assert (cntPix %2 == 0);
     for (uint i = 0; i < cntPix; i += 2)
       {// convert and interleave 2 pixels in one step
         uint op = i * 2;                           // Output packed in groups with 2 bytes
@@ -218,12 +278,18 @@ convert_RGB_intoBuffer (int format, char* targetBuff, int targetSiz
   static_assert (sizeof(byte) == sizeof(char));
   byte* outputData = reinterpret_cast<byte*> (targetBuff);
 
-  if (format == fourCC("YUY2"))
+
+
+  if (format == fourCC("YUY2") ||
+      format == fourCC("UYVY") ||
+      format == fourCC("YVYU"))
     {
+      // Popular packed formats: similar conversion procedure
+            
       // this format discards 1/3 of the information
       // input comes in RGB triplets, output discards 50% chroma
       assert (targetSiz == 2 * inputFrame.size());
-      rgb_buffer_to_yuy2 (inputFrame, outputData);
+      rgb_buffer_to_packed (format, inputFrame, outputData);
     }
   else if (format == fourCC("I420"))
     {
