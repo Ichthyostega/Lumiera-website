@@ -96,7 +96,6 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
               ,EGL_BLUE_SIZE, 4
               ,EGL_RENDERABLE_TYPE, EGL_OPENGL_BIT // config must support creating an OpenGL context
               ,EGL_SURFACE_TYPE, EGL_WINDOW_BIT    // want to create a window surface
-              ,EGL_NATIVE_RENDERABLE ,EGL_TRUE     // want config able to render directly to the underlying native display
               ,EGL_DEPTH_SIZE,   0                 // prefer config without depth buffer (occlusion testing not needed)
               ,EGL_STENCIL_SIZE, 0                 // prefer config without stencil buffer (no advanced visual effects)
               ,EGL_NONE);
@@ -108,7 +107,8 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
   if (not eglChooseConfig (ctx.display
                           ,DESIRED_ATTRIBS.data()
                           ,& config
-                          ,1,&_cnt))
+                          ,1,&_cnt)
+        or not config)
     __FAIL ("unable to select a EGL display config with the required attributes");
 
 
@@ -130,6 +130,42 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
         break;
       }
 
+  auto querySurf = [&](EGLint attr)
+                {
+                  EGLint val;
+                  if (not eglQuerySurface (ctx.display,ctx.surface, attr, &val))
+                    __FAIL ("Tilt");
+                  return val;
+                };
+  auto val = querySurf (EGL_CONFIG_ID);
+  std::cout << "Config("<<val<<"):"  <<std::endl;
+  val = querySurf (EGL_GL_COLORSPACE);
+  std::cout << "EGL_GL_COLORSPACE: "  << (val == EGL_GL_COLORSPACE_SRGB? "EGL_GL_COLORSPACE_SRGB":"EGL_GL_COLORSPACE_LINEAR")<<std::endl;
+  val = querySurf (EGL_TEXTURE_FORMAT);
+  std::cout << "EGL_TEXTURE_FORMAT: " << (val == EGL_NO_TEXTURE? "EGL_NO_TEXTURE":(val== EGL_TEXTURE_RGB?"EGL_TEXTURE_RGB":"EGL_TEXTURE_RGBA"))<<std::endl;
+  val = querySurf (EGL_RENDER_BUFFER);
+  std::cout << "EGL_RENDER_BUFFER: "  << (val == EGL_BACK_BUFFER? "client renders to back-buffer":"client renders directly to visible display")<<std::endl;
+  val = querySurf (EGL_SWAP_BEHAVIOR);
+  std::cout << "EGL_SWAP_BEHAVIOR: "  << (val == EGL_BUFFER_PRESERVED? "contents preserved on buffer-swap":"buffer or contents destroyed on buffer-swap")<<std::endl;
+  val = querySurf (EGL_GL_COLORSPACE);
+  std::cout << "EGL_GL_COLORSPACE: "  << (val == EGL_GL_COLORSPACE_SRGB? "EGL_GL_COLORSPACE_SRGB":"EGL_GL_COLORSPACE_LINEAR")<<std::endl;
+  auto queryConf = [&](EGLint attr)
+                {
+                  EGLint val;
+                  if (not eglGetConfigAttrib (ctx.display,config, attr, &val))
+                    __FAIL ("Tilt");
+                  return val;
+                };
+  val = queryConf (EGL_BUFFER_SIZE);
+  std::cout << "Color depth total: " << val <<" bit"<<std::endl;
+  std::cout << "Color depth ....l: " << queryConf (EGL_RED_SIZE) <<"R bit "
+                                     << queryConf (EGL_GREEN_SIZE) <<"G bit "
+                                     << queryConf (EGL_BLUE_SIZE) <<"B bit "
+                                     << queryConf (EGL_ALPHA_SIZE) <<"α bit "<<std::endl;
+  val = queryConf (EGL_DEPTH_SIZE);
+  std::cout << "Depth buffer    l: " << val <<" bit"<<std::endl;
+  
+  
   if (not eglBindAPI( EGL_OPENGL_API))
     __FAIL ("unable to configure EGL for usage with the OpenGL API.");
 
