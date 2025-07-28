@@ -37,7 +37,7 @@ struct GlxCtx
     /** X11 connection. */
     Display* display{nullptr};
     Window window{0};
-    uint screen{0};
+    int screen{0};
 
     GLXContext glx{nullptr};
     uint texID{0};

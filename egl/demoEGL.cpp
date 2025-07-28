@@ -25,7 +25,9 @@
 
 // X11 and GLX extension
 #include <X11/Xlib.h>
-#include <GL/glx.h>
+#include <EGL/egl.h>
+#include <EGL/eglext.h>  // defines plattform-specific config and extensions
+#include <GL/glx.h> //////////////////////TODO
 
 
 
@@ -34,12 +36,12 @@
  */
 struct EglCtx
   {
-    /** X11 connection. */
-    Display* display{nullptr};
-    Window window{0};
-    uint screen{0};
+    /** EGL / X11 connection. */
+    EGLDisplay display{nullptr};
+    EGLSurface surface{nullptr};
 
-    GLXContext glx{nullptr};
+    EGLContext egl{nullptr};
+
     uint texID{0};
     float scaleX{1};
     float scaleY{1};
@@ -68,33 +70,81 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
 
   // use the X-Window as anchor to build an OpenGL context via EGL
   Glib::RefPtr<Gdk::Window> gdkWindow = appWindow.get_window();
-  ctx.window  = GDK_WINDOW_XID      (gdkWindow->gobj());
-  ctx.display = GDK_WINDOW_XDISPLAY (gdkWindow->gobj());
-  ctx.screen  = DefaultScreen (ctx.display);
+  Window   xWindow  = GDK_WINDOW_XID      (gdkWindow->gobj());
+  Display* xDisplay = GDK_WINDOW_XDISPLAY (gdkWindow->gobj());
 
+  long xScreen;
+  XWindowAttributes xWinAttrs;
+  if (XGetWindowAttributes (xDisplay, xWindow, &xWinAttrs))
+    xScreen = XScreenNumberOfScreen (xWinAttrs.screen);
+  else
+    __FAIL ("unable to retrieve screen number from the X11 window attributes.");
+
+  auto SCREEN_SPEC
+    = asArray (EGL_PLATFORM_X11_SCREEN_EXT, xScreen
+              ,EGL_NONE);
+
+  ctx.display = eglGetPlatformDisplay (EGL_PLATFORM_X11_EXT, xDisplay, SCREEN_SPEC.data());
+  if (EGL_NO_DISPLAY == ctx.display
+      or not eglInitialize(ctx.display, NULL,NULL))
+    __FAIL ("could not establish EGL Display connection.");
 
   auto DESIRED_ATTRIBS
-    = std::array{GLX_RGBA            // require true-colour, not palette-colour
-                ,GLX_DOUBLEBUFFER    // want hardware backed double-buffering
-                ,GLX_RED_SIZE, 4     // need at minimum support for 12 bit per pixel
-                ,GLX_GREEN_SIZE, 4
-                ,GLX_BLUE_SIZE, 4
-                ,0};
+    = asArray (EGL_COLOR_BUFFER_TYPE, EGL_RGB_BUFFER
+              ,EGL_RED_SIZE, 4
+              ,EGL_GREEN_SIZE, 4
+              ,EGL_BLUE_SIZE, 4
+              ,EGL_RENDERABLE_TYPE, EGL_OPENGL_BIT // config must support creating an OpenGL context
+              ,EGL_SURFACE_TYPE, EGL_WINDOW_BIT    // want to create a window surface
+              ,EGL_NATIVE_RENDERABLE ,EGL_TRUE     // want config able to render directly to the underlying native display
+              ,EGL_DEPTH_SIZE,   0                 // prefer config without depth buffer (occlusion testing not needed)
+              ,EGL_STENCIL_SIZE, 0                 // prefer config without stencil buffer (no advanced visual effects)
+              ,EGL_NONE);
 
-  XVisualInfo* visual = glXChooseVisual (ctx.display, ctx.screen, DESIRED_ATTRIBS.data());
-  if (not visual)
-    __FAIL ("unable to connect to OpenGL visual with desired attributes");
 
-  ctx.glx = glXCreateContext (ctx.display, visual
-                             ,nullptr          // do not share display list definitions
-                             ,true             // prefer direct rendering if possible
-                             );
-  XFree (visual);
-  if (not ctx.glx)
+
+  EGLint _cnt;
+  EGLConfig config;
+  if (not eglChooseConfig (ctx.display
+                          ,DESIRED_ATTRIBS.data()
+                          ,& config
+                          ,1,&_cnt))
+    __FAIL ("unable to select a EGL display config with the required attributes");
+
+
+  ctx.surface = eglCreateWindowSurface (ctx.display,config,xWindow,nullptr);
+  if (not ctx.surface)
+    switch (eglGetError())
+      {
+        case EGL_BAD_CONFIG:
+          __FAIL ("selected display configuration is not valid");
+          break;
+        case EGL_BAD_ALLOC:
+          __FAIL ("unable to allocate resources or collision with existing resources");
+          break;
+        case EGL_BAD_MATCH:
+          __FAIL ("mismatch between X11 window visuals and the capabilities of the selected config");
+          break;
+        default:
+          __FAIL ("unable to create EGL window surface, for unknown reasons");
+        break;
+      }
+
+  if (not eglBindAPI( EGL_OPENGL_API))
+    __FAIL ("unable to configure EGL for usage with the OpenGL API.");
+
+  auto CTX_ATTRIBS
+    = std::array{EGL_CONTEXT_OPENGL_PROFILE_MASK, EGL_CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT
+                ,EGL_NONE};
+
+  ctx.egl = eglCreateContext (ctx.display, config
+                             ,EGL_NO_CONTEXT   // do not share definitions and data with another context
+                             ,CTX_ATTRIBS.data());
+  if (not ctx.egl)
     __FAIL ("failed to create OpenGL context for this display with desired visuals");
 
   // create a binding for the current thread to use this context on this window
-  if (not glXMakeCurrent (ctx.display, ctx.window, ctx.glx))
+  if (not eglMakeCurrent (ctx.display, ctx.surface,ctx.surface, ctx.egl))
     __FAIL ("failed to attach an OpenGL context to the application X-Window");
 
   glDisable (GL_DEPTH_TEST);                   // we do not need 3D layering / positioning
@@ -170,7 +220,7 @@ displayFrame (EglCtx& ctx)
   glEnd();
 
   // double-buffer flip, automatically invokes glFlush()
-  glXSwapBuffers (ctx.display, ctx.window);
+  eglSwapBuffers (ctx.display, ctx.surface);
 }
 
 
@@ -180,9 +230,10 @@ cleanUp (EglCtx& ctx)
   std::cout << "STOP " << ctx.imgGen_.getFrameNr() << " frames displayed." << std::endl;
 
   // detach binding with OpenGL context
-  glXMakeCurrent (ctx.display, None, nullptr);
-  if (ctx.glx)
-    glXDestroyContext (ctx.display, ctx.glx);
+  eglMakeCurrent (ctx.display,  EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
+  eglDestroySurface (ctx.display, ctx.surface);
+  eglDestroyContext (ctx.display, ctx.egl);
+  eglTerminate(ctx.display); // detach EGL from display
 }
 
 

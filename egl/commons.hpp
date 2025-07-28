@@ -44,6 +44,16 @@ contains (std::set<T,CMP,ALO> const& set, T const& val)
   return set.end() != set.find (val);
 }
 
+/** build an value array holding the given elements inline */
+template<typename...TS>
+auto
+asArray (TS&& ... data)
+{
+  using TT = std::common_type_t<TS...>;
+  return std::array<TT, sizeof...(TS)>{data...};
+}
+
+
 
 
 /* == simplistic 2D vector math == */
