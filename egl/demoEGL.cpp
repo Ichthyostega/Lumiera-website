@@ -18,6 +18,7 @@
 #include <iostream>
 #include <algorithm>
 #include <cassert>
+#include <string>
 #include <set>
 
 // for low-level access -> X-Window
@@ -27,8 +28,10 @@
 #include <X11/Xlib.h>
 #include <EGL/egl.h>
 #include <EGL/eglext.h>  // defines plattform-specific config and extensions
-#include <GL/glx.h> //////////////////////TODO
+#include <GL/glew.h>     // provides system-specific bindings for OpenGL extensions
+#include <GL/gl.h>
 
+using std::string;
 
 
 /**
@@ -43,6 +46,9 @@ struct EglCtx
     EGLContext egl{nullptr};
 
     uint texID{0};
+    uint vboID{0};
+    uint vaoID{0};
+
     float scaleX{1};
     float scaleY{1};
 
@@ -65,7 +71,6 @@ EglCtx
 openDisplay (Gtk::Window& appWindow, FrameRate fps)
 {
   std::cout << "Open display-connection through EGL..." << std::endl;
-
   EglCtx ctx{fps};
 
   // use the X-Window as anchor to build an OpenGL context via EGL
@@ -80,32 +85,30 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
   else
     __FAIL ("unable to retrieve screen number from the X11 window attributes.");
 
-  auto SCREEN_SPEC
-    = asArray (EGL_PLATFORM_X11_SCREEN_EXT, xScreen
-              ,EGL_NONE);
+  long SCREEN_SPEC[]
+    {EGL_PLATFORM_X11_SCREEN_EXT, xScreen
+    ,EGL_NONE};
 
-  ctx.display = eglGetPlatformDisplay (EGL_PLATFORM_X11_EXT, xDisplay, SCREEN_SPEC.data());
+  ctx.display = eglGetPlatformDisplay (EGL_PLATFORM_X11_EXT, xDisplay, SCREEN_SPEC);
   if (EGL_NO_DISPLAY == ctx.display
       or not eglInitialize(ctx.display, NULL,NULL))
     __FAIL ("could not establish EGL Display connection.");
 
-  auto DESIRED_ATTRIBS
-    = asArray (EGL_COLOR_BUFFER_TYPE, EGL_RGB_BUFFER
-              ,EGL_RED_SIZE, 4
-              ,EGL_GREEN_SIZE, 4
-              ,EGL_BLUE_SIZE, 4
-              ,EGL_RENDERABLE_TYPE, EGL_OPENGL_BIT // config must support creating an OpenGL context
-              ,EGL_SURFACE_TYPE, EGL_WINDOW_BIT    // want to create a window surface
-              ,EGL_DEPTH_SIZE,   0                 // prefer config without depth buffer (occlusion testing not needed)
-              ,EGL_STENCIL_SIZE, 0                 // prefer config without stencil buffer (no advanced visual effects)
-              ,EGL_NONE);
-
-
+  EGLint DESIRED_ATTRIBS[]
+    {EGL_COLOR_BUFFER_TYPE, EGL_RGB_BUFFER
+    ,EGL_RED_SIZE, 4
+    ,EGL_GREEN_SIZE, 4
+    ,EGL_BLUE_SIZE, 4
+    ,EGL_RENDERABLE_TYPE, EGL_OPENGL_BIT // config must support creating an OpenGL context
+    ,EGL_SURFACE_TYPE, EGL_WINDOW_BIT    // want to create a window surface
+    ,EGL_DEPTH_SIZE,   0                 // prefer config without depth buffer (occlusion testing not needed)
+    ,EGL_STENCIL_SIZE, 0                 // prefer config without stencil buffer (no advanced visual effects)
+    ,EGL_NONE};
 
   EGLint _cnt;
   EGLConfig config;
   if (not eglChooseConfig (ctx.display
-                          ,DESIRED_ATTRIBS.data()
+                          ,DESIRED_ATTRIBS
                           ,& config
                           ,1,&_cnt)
         or not config)
@@ -130,52 +133,18 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
         break;
       }
 
-  auto querySurf = [&](EGLint attr)
-                {
-                  EGLint val;
-                  if (not eglQuerySurface (ctx.display,ctx.surface, attr, &val))
-                    __FAIL ("Tilt");
-                  return val;
-                };
-  auto val = querySurf (EGL_CONFIG_ID);
-  std::cout << "Config("<<val<<"):"  <<std::endl;
-  val = querySurf (EGL_GL_COLORSPACE);
-  std::cout << "EGL_GL_COLORSPACE: "  << (val == EGL_GL_COLORSPACE_SRGB? "EGL_GL_COLORSPACE_SRGB":"EGL_GL_COLORSPACE_LINEAR")<<std::endl;
-  val = querySurf (EGL_TEXTURE_FORMAT);
-  std::cout << "EGL_TEXTURE_FORMAT: " << (val == EGL_NO_TEXTURE? "EGL_NO_TEXTURE":(val== EGL_TEXTURE_RGB?"EGL_TEXTURE_RGB":"EGL_TEXTURE_RGBA"))<<std::endl;
-  val = querySurf (EGL_RENDER_BUFFER);
-  std::cout << "EGL_RENDER_BUFFER: "  << (val == EGL_BACK_BUFFER? "client renders to back-buffer":"client renders directly to visible display")<<std::endl;
-  val = querySurf (EGL_SWAP_BEHAVIOR);
-  std::cout << "EGL_SWAP_BEHAVIOR: "  << (val == EGL_BUFFER_PRESERVED? "contents preserved on buffer-swap":"buffer or contents destroyed on buffer-swap")<<std::endl;
-  val = querySurf (EGL_GL_COLORSPACE);
-  std::cout << "EGL_GL_COLORSPACE: "  << (val == EGL_GL_COLORSPACE_SRGB? "EGL_GL_COLORSPACE_SRGB":"EGL_GL_COLORSPACE_LINEAR")<<std::endl;
-  auto queryConf = [&](EGLint attr)
-                {
-                  EGLint val;
-                  if (not eglGetConfigAttrib (ctx.display,config, attr, &val))
-                    __FAIL ("Tilt");
-                  return val;
-                };
-  val = queryConf (EGL_BUFFER_SIZE);
-  std::cout << "Color depth total: " << val <<" bit"<<std::endl;
-  std::cout << "Color depth ....l: " << queryConf (EGL_RED_SIZE) <<"R bit "
-                                     << queryConf (EGL_GREEN_SIZE) <<"G bit "
-                                     << queryConf (EGL_BLUE_SIZE) <<"B bit "
-                                     << queryConf (EGL_ALPHA_SIZE) <<"α bit "<<std::endl;
-  val = queryConf (EGL_DEPTH_SIZE);
-  std::cout << "Depth buffer    l: " << val <<" bit"<<std::endl;
-  
-  
   if (not eglBindAPI( EGL_OPENGL_API))
     __FAIL ("unable to configure EGL for usage with the OpenGL API.");
 
-  auto CTX_ATTRIBS
-    = std::array{EGL_CONTEXT_OPENGL_PROFILE_MASK, EGL_CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT
-                ,EGL_NONE};
+  EGLint CTX_ATTRIBS[]                 // Note: require modern OpenGL
+    {EGL_CONTEXT_OPENGL_PROFILE_MASK,  EGL_CONTEXT_OPENGL_CORE_PROFILE_BIT
+//    ,EGL_CONTEXT_MAJOR_VERSION, 3
+//    ,EGL_CONTEXT_MINOR_VERSION, 3
+    ,EGL_NONE};
 
   ctx.egl = eglCreateContext (ctx.display, config
                              ,EGL_NO_CONTEXT   // do not share definitions and data with another context
-                             ,CTX_ATTRIBS.data());
+                             ,CTX_ATTRIBS);
   if (not ctx.egl)
     __FAIL ("failed to create OpenGL context for this display with desired visuals");
 
@@ -183,23 +152,152 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
   if (not eglMakeCurrent (ctx.display, ctx.surface,ctx.surface, ctx.egl))
     __FAIL ("failed to attach an OpenGL context to the application X-Window");
 
-  glDisable (GL_DEPTH_TEST);                   // we do not need 3D layering / positioning
-  glEnable (GL_TEXTURE_RECTANGLE_ARB);         // allow texture size to be *not* a power of two
 
-  // setup a 2D texture, to be mapped into the viewport
-  glGenTextures (1, &ctx.texID);                                       // allocate 1 new texture ID
-  glBindTexture (GL_TEXTURE_RECTANGLE_ARB, ctx.texID);                 // use this textureID as "the" RECTANGLE_ARB texture
-  glTexEnvi     (GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);       // disable blending (≙transparency), "decal" means just to paint opaque
+  // use lib-GLEW to manage OpenGL extensions (notably GL Shader Language)
+  GLenum glewErr = glewInit();
+////////////////////////////////////////////////////////////////////////////////////TODO for some reason I get glewErr == 4 ("unknown error"), but it works non the less
+//  if (GLEW_OK != glewErr)
+//    __FAIL ("could not bind OpenGL extensions through lib-GLEW:\n"
+//           +string{reinterpret_cast<const char*> (glewGetErrorString(glewErr))});
+
+
+  auto compileShader = [](GLenum kind, string code)
+                        {
+                          uint shaderID = glCreateShader (kind);
+                          const GLchar* codeSegment = code.c_str();
+                          glShaderSource (shaderID, 1, &codeSegment, NULL);
+                          glCompileShader(shaderID);
+                          // diagnostics...
+                          int success;
+                          glGetShaderiv (shaderID, GL_COMPILE_STATUS, &success);
+                          if (not success)
+                            {
+                              int logSiz{0};
+                              glGetShaderiv (shaderID, GL_INFO_LOG_LENGTH, &logSiz);
+                              string report(logSiz,'.');
+                              glGetShaderInfoLog (shaderID, logSiz, NULL, & report[0]);
+                              std::cout << "\n■□■□■□■□■----Shader-Code-------------------------\n"
+                                        << code
+                                        << "\n■□■□■□■□■----Failure-Report----------------------\n"
+                                        << report.c_str()
+                                        << std::endl;
+                              __FAIL ("shader compilation failure");
+                            }
+                          return shaderID;
+                        };
+
+  auto checkLinkError = [](uint programID)
+                        {
+                          int success;
+                          glGetProgramiv (programID, GL_LINK_STATUS, &success);
+                          if (not success)
+                            {
+                              int logSiz{0};
+                              glGetProgramiv (programID, GL_INFO_LOG_LENGTH, &logSiz);
+                              string report(logSiz,'.');
+                              glGetProgramInfoLog (programID, logSiz, NULL, & report[0]);
+                              std::cout << "\n■□■□■□■□■----Failure-Report----------------------\n"
+                                        << report.c_str()
+                                        << std::endl;
+                              __FAIL ("unable to link shader code");
+                            }
+                        };
+
+
+  uint vertexShader
+    = compileShader (GL_VERTEX_SHADER,
+      R"-(#version 330 core
+
+          layout(location = 0) in vec2 position;
+          layout(location = 1) in vec2 texCoord;
+
+          out vec2 fragTexCoord;
+
+          void main() {
+              gl_Position  = vec4 (position, 0.0, 1.0);
+              fragTexCoord = texCoord;
+          }
+        )-");
+
+  uint fragmentShader
+    = compileShader (GL_FRAGMENT_SHADER,
+      R"-(#version 330 core
+
+          in  vec2 fragTexCoord;
+          out vec4 colour;
+
+          uniform sampler2D textureSampler;
+
+          void main() {
+              colour = texture (textureSampler, fragTexCoord);
+          }
+        )-");
+
+  uint gpuProgram = glCreateProgram();
+  glAttachShader (gpuProgram, vertexShader);
+  glAttachShader (gpuProgram, fragmentShader);
+  glLinkProgram  (gpuProgram);
+  checkLinkError (gpuProgram);
+
+  glUseProgram  (gpuProgram);
+  glDeleteShader(vertexShader);
+  glDeleteShader(fragmentShader);
+
+
+  /* === setup a 2D texture, to be mapped into the viewport === */
+  glActiveTexture(GL_TEXTURE0);                                        // activate texture-unit #0 on the GPU
+  glGenTextures  (1, &ctx.texID);                                      // allocate 1 new texture ID
+  glBindTexture  (GL_TEXTURE_2D, ctx.texID);                           // use this textureID as "the" TEXTURE_2D
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);    // configure image scaling filter
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE); // clamp, don't wrap at the texture edges
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
-  // setup coordinate system
+  // configure the `textureSampler` parameter (»uniform« is a global parameter visible in all shaders)
+  GLint samplerParam = glGetUniformLocation(gpuProgram, "textureSampler");
+  glUniform1i(samplerParam, 0);                                        // configure the shader to use texture-unit #0 of the GPU
+
+
+  /* === setup a fixed geometry to hold that texture === */
+  glDisable (GL_DEPTH_TEST);                                           // we do not need 3D layering / positioning
   glViewport (0, 0, ctx.VIDEO_WIDTH, ctx.VIDEO_HEIGHT);                // Origin in the middle of the window (note Y points upwards)
-  glMatrixMode (GL_PROJECTION);                                        // the following matrix commands affect the image projection matrix
-  glLoadIdentity();
-  glOrtho (-1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f);                     // setup orthograpic (non-perspective) projection within standard coordinates
+
+  //  Note: this demo uses a fixed-size window and hard-coded video size;
+  //        a real-world implementation would have to place the video frame
+  //        dynamically into the available screen space, possibly scaling up/down
+  GLfloat sX{ctx.scaleX};
+  GLfloat sY{ctx.scaleY};                                              // Note: positions use »normalised device coordinates« (NDC)
+  GLfloat w{1};                                                        //       TEXTURE_2D points cover the range (0,0) ... (1,1)
+  GLfloat h{1};
+
+  GLfloat vertexData[]                                                 // Geometry and mapping data to be sent to the GPU...
+    //-point-+--texture                                                // We define the 4 edges of a rectangular »projection screen«
+    {-sX,-sY ,  0,h                                                    // For each edge, we define the position in NDC [-1 ... +1]
+    , sX,-sY ,  w,h                                                    // and we specify which point in the texture to map there
+    , sX, sY ,  w,0                                                    // Note: the rows of the video image run top-down, and thus we
+    ,-sX, sY ,  0,0                                                    // have to map the texture flipped, since OpenGL orients Y upwards.
+    };
+
+  glGenBuffers     (1, &ctx.vboID);                                    // allocate 1 new vertex-buffer-object
+  glGenVertexArrays(1, &ctx.vaoID);                                    // allocate 1 new vertex-array-object (to attach all definitions)
+
+  glBindVertexArray(ctx.vaoID);                                        // activate the VAO to pick up the following definitions...
+  glBindBuffer (GL_ARRAY_BUFFER, ctx.vboID);
+  // copy the vertexData into the vertex-buffer-object currently bound to GL_ARRAY_BUFFER
+  glBufferData (GL_ARRAY_BUFFER, sizeof(vertexData), vertexData, GL_STATIC_DRAW);
+
+  auto SIZ = sizeof(float);                                            // parameters are transferred to the GPU as float data
+  auto attrib = 2;                                                     // we use 2 input attributes for the shader pipeline
+  auto coords = 2;                                                     // our data vectors have 2 coordinates (2D)
+  auto stride = attrib * coords * SIZ;                                 // stride is the offset in bytes between full data points
+  auto offset = [&](uint elm){ return (void*) (elm * SIZ); };          // offset of one attribute relative to the start of a data point (packaged into a void*)
+  auto normalise = GL_FALSE;                                           // do not auto-normalise, positions are already [-1 ... +1]
+
+  // define how two two attributes are packed into the data sequence we send to the GPU
+  glVertexAttribPointer (0, coords, GL_FLOAT, normalise, stride, offset(0) );
+  glVertexAttribPointer (1, coords, GL_FLOAT, normalise, stride, offset(2) );
+  glEnableVertexAttribArray (0);                                       // activate attribute #1 ≙ input argument `position` in vertexShader
+  glEnableVertexAttribArray (1);                                       // activate attribute #2 ≙ input argument `texCoord` in vertexShader
 
 
    // hand-over the activated connection context
@@ -207,6 +305,7 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
   std::cout << "Started playback at "<<fps<<" frames/sec." << std::endl;
   return ctx;
 }
+
 
 
 void
@@ -219,7 +318,7 @@ displayFrame (EglCtx& ctx)
 
   // compute a buffer with RGB data and bind it into the prepared texture...
   const void* buffer = ctx.imgGen_.buildNext().data();
-  glTexImage2D (GL_TEXTURE_RECTANGLE_ARB                               // the target texture store to work on, here "the" RECTANGLE_ARB
+  glTexImage2D (GL_TEXTURE_2D                                          // the target texture store to work on, here "the" TEXTURE_2D
                ,0                                                      // detail level (when using mipmap reduction, which we don't)
                ,GL_RGB                                                 // internal format or features to use for this texture
                ,ctx.VIDEO_WIDTH,ctx.VIDEO_HEIGHT, /*border*/ 0
@@ -228,32 +327,8 @@ displayFrame (EglCtx& ctx)
                ,buffer
                );
 
-  //  Note: this demo uses a fixed-size window and hard-coded video size;
-  //        a real-world implementation would have to place the video frame
-  //        dynamically into the available screen space, possibly scaling up/down
-  GLfloat w{ctx.VIDEO_WIDTH};
-  GLfloat h{ctx.VIDEO_HEIGHT};
-  GLfloat sX{ctx.scaleX};
-  GLfloat sY{ctx.scaleY};
-
-  glMatrixMode(GL_MODELVIEW);
-  glLoadIdentity();
-
-  // draw a quatrilateral which exactly fills the viewport
-  // each vertex is also supplied with a texture mapping point
-  glBegin(GL_QUADS);
-  glTexCoord2f (0, h);
-  glVertex2f (-sX,-sY);
-
-  glTexCoord2f (w, h);
-  glVertex2f ( sX,-sY);
-
-  glTexCoord2f (w, 0);
-  glVertex2f ( sX, sY);
-
-  glTexCoord2f (0, 0);
-  glVertex2f (-sX, sY);
-  glEnd();
+  // Draw the quadrilateral
+  glDrawArrays(GL_QUADS, 0, 4);
 
   // double-buffer flip, automatically invokes glFlush()
   eglSwapBuffers (ctx.display, ctx.surface);

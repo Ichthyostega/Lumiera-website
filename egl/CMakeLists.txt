@@ -21,6 +21,8 @@ pkg_check_modules(GTK  REQUIRED IMPORTED_TARGET gtkmm-3.0>=3.20)
 pkg_check_modules(XLIB REQUIRED IMPORTED_TARGET x11>=1.7)
 pkg_check_modules(EGL  REQUIRED IMPORTED_TARGET egl>=1.5)
 pkg_check_modules(OGL  REQUIRED IMPORTED_TARGET gl>=1.2)
+pkg_check_modules(GLEW REQUIRED IMPORTED_TARGET glew>=2.2)
+
 
 
 # build complete source tree (detect changes on rebuild)
@@ -34,4 +36,5 @@ target_link_libraries(demo_egl PRIVATE PkgConfig::GTK)
 target_link_libraries(demo_egl PRIVATE PkgConfig::XLIB)
 target_link_libraries(demo_egl PRIVATE PkgConfig::EGL)
 target_link_libraries(demo_egl PRIVATE PkgConfig::OGL)
+target_link_libraries(demo_egl PRIVATE PkgConfig::GLEW)
 

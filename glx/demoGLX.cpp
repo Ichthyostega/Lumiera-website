@@ -153,7 +153,7 @@ displayFrame (GlxCtx& ctx)
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
 
-  // draw a quatrilateral which exactly fills the viewport
+  // draw a quadrilateral which exactly fills the viewport
   // each vertex is also supplied with a texture mapping point
   glBegin(GL_QUADS);
   glTexCoord2f (0, h);
