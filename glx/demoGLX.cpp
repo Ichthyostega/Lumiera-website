@@ -73,15 +73,15 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
   ctx.screen  = DefaultScreen (ctx.display);
 
 
-  auto DESIRED_ATTRIBS
-    = std::array{GLX_RGBA            // require true-colour, not palette-colour
-                ,GLX_DOUBLEBUFFER    // want hardware backed double-buffering
-                ,GLX_RED_SIZE,  4    // need at minimum support for 12 bit per pixel
-                ,GLX_GREEN_SIZE,4
-                ,GLX_BLUE_SIZE, 4
-                ,0};
+  int DESIRED_ATTRIBS[]
+    {GLX_RGBA            // require true-colour, not palette-colour
+    ,GLX_DOUBLEBUFFER    // want hardware backed double-buffering
+    ,GLX_RED_SIZE,  4    // need at minimum support for 12 bit per pixel
+    ,GLX_GREEN_SIZE,4
+    ,GLX_BLUE_SIZE, 4
+    ,0};
 
-  XVisualInfo* visual = glXChooseVisual (ctx.display, ctx.screen, DESIRED_ATTRIBS.data());
+  XVisualInfo* visual = glXChooseVisual (ctx.display, ctx.screen, DESIRED_ATTRIBS);
   if (not visual)
     __FAIL ("unable to connect to OpenGL visual with desired attributes");
 

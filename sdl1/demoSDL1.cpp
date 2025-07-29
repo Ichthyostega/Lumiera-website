@@ -22,6 +22,7 @@
 
 #include <SDL/SDL.h>
 
+using std::string;
 
 
 /**
@@ -37,6 +38,16 @@ fourCC (const char id[5])
   for (uint c=0; c<4; ++c)
       code |= uint(id[c]) << c*8;
   return code;
+}
+
+/** display fourCC code in human readable form */
+string
+fourCCstring (int fcc)
+{
+  string id{"????"};
+  for (uint c=0; c<4; ++c)
+    id[c] = 0xFF & (fcc >> c*8);
+  return id;
 }
 
 constexpr auto SUPPORTED_FORMATS = std::array{fourCC("YUY2")
@@ -204,19 +215,22 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
                                           ,ctx.surface_); // ◁────────────┨ this establishes a link to the underlying surface
       if (ctx.overlay_
           and ctx.overlay_->hw_overlay)
-        break;
+        {
+          std::cout << ".... Format: " << fourCCstring (formatCode) << std::endl;
+          break;
+        }
     }
   if (not ctx.overlay_)
     __FAIL ("unable to setup a YUV converter with a supported format");
 
-   //////////////////////////////////////TODO find out how to position a transparent overly into the App window 
+   //////////////////////////////////////TODO find out how to position a transparent overly into the App window
   ctx.targetPos_ = ctx.windowPos_;
   ctx.targetPos_.x = 0;
   ctx.targetPos_.y = 0;
 
    // hand-over the activated connection context
   //  to be managed by the GTK application...
-  std::cout << "Started playback at "<<fps<<" frames/sec." << std::endl;
+  std::cout << "\nStarted playback at "<<fps<<" frames/sec." << std::endl;
   return ctx;
 }
 

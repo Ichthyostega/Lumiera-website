@@ -18,6 +18,7 @@
 #include <iostream>
 #include <algorithm>
 #include <cassert>
+#include <string>
 #include <set>
 
 // for low-level access -> X-Window
@@ -29,6 +30,8 @@
 #include <sys/shm.h>
 #include <X11/extensions/XShm.h>
 #include <X11/extensions/Xvlib.h>
+
+using std::string;
 
 
 
@@ -47,11 +50,23 @@ fourCC (const char id[5])
   return code;
 }
 
-const std::set<int> SUPPORTED_FORMATS = {fourCC("I420")    ///////TODO implement
+/** display fourCC code in human readable form */
+string
+fourCCstring (int fcc)
+{
+  string id{"????"};
+  for (uint c=0; c<4; ++c)
+    id[c] = 0xFF & (fcc >> c*8);
+  return id;
+}
+
+
+const std::set<int> SUPPORTED_FORMATS = {/*fourCC("I420")    ///////TODO implement
                                         ,fourCC("YV12")    ///////TODO implement
-                                        ,fourCC("YUY2")
+                                        ,*/fourCC("YUY2")
                                         ,fourCC("UYVY")    ///////TODO implement
                                         };
+
 
 
 
@@ -219,11 +234,9 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
       // allocate resources and setup buffers for the actual output
       ctx.gc = XCreateGC (ctx.display, ctx.window, 0, nullptr);
 
-      // select suitable graphic data format
-      if (contains (formats, fourCC("YUY2")))
-        ctx.format = fourCC("YUY2");
-      else
-        __FAIL ("current setup can not handle any of the pixel formats supported by this implementation.");
+      // select one of the supported output data formats
+      ctx.format = *formats.begin();
+      std::cout << "Using Format: " << fourCCstring(ctx.format) << std::endl;
 
       ctx.xvImage = static_cast<XvImage*> (XvShmCreateImage (ctx.display
                                                             ,ctx.port
