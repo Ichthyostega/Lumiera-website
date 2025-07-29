@@ -52,11 +52,11 @@ const std::set<int> SUPPORTED_FORMATS = {fourCC("I420")    ///////DOING
                                         ,fourCC("YUY2")
                                         ,fourCC("UYVY")    ///////DOING
                                        };
-// TODO:
-// Get rid of this. Defining the same things twice
-// is not a good idea, but I needed the checks in a
-// heavily used loop and calling functions might prove
-// expensive and I did not want to tax the loop unnecessarily 
+//// TODO:
+//// Get rid of this. Defining the same things twice
+//// is not a good idea, but I needed the checks in a
+//// heavily used loop and calling functions might prove
+//// expensive and I did not want to tax the loop unnecessarily 
 enum packedFomrats { pYUY2
                     ,pUYVY
                     ,pYVYU
@@ -118,20 +118,18 @@ namespace { // implementation details : pixel format conversion
     return yuv;
   }
 
-
-
   void
-  rgb_buffer_to_packed (int format, PackedRGB const& in, byte* out)
+  rgb_buffer_to_packed (int format, PackedRGB const &in, byte *out)
   {
-    uint cntPix = in.size();
-    assert (cntPix %2 == 0);
-    packedFomrats pFormat;
+    uint cntPix = in.size ();
+    assert (cntPix % 2 == 0);
 
-    if (format == fourCC("YUY2"))
+    packedFomrats pFormat;
+    if (format == fourCC ("YUY2"))
       pFormat = pYUY2;
-    else if (format == fourCC("UYVY")) 
+    else if (format == fourCC ("UYVY"))
       pFormat = pUYVY;
-    else if (format == fourCC("YVYU"))
+    else if (format == fourCC ("YVYU"))
       pFormat = pYVYU;
     else
       __FAIL ("Invald packed format; cannot convert");                 
@@ -148,20 +146,21 @@ namespace { // implementation details : pixel format conversion
         auto& [y0,u0,v0] = yuv0;
         auto& [y1,_u,_v] = yuv1;                   // note: this format discards half of the chroma information
 
+        // Both g++ Version 12 fails with SUPPORTED_FORMATS for pFormat
         switch (pFormat) {
-        case  pYUY2:
+        case  fourCC("YUY2"):
           out[op    ] = y0;
           out[op + 1] = u0;
           out[op + 2] = y1;
           out[op + 3] = v0;  
           break;
-        case pUYVY:
+        case fourCC("UYVY"):
           out[op    ] = u0;
           out[op + 1] = y0;
           out[op + 2] = v0;
           out[op + 3] = y1;
           break;
-        case pYVYU:
+        case fourCC("YVYU"):
           out[op    ] = y0;
           out[op + 1] = v0;
           out[op + 2] = y1;
@@ -170,43 +169,55 @@ namespace { // implementation details : pixel format conversion
         default:
           break;
         }
-  }   }
+  }
+  }
 
-             
   // I420
-  // n1: V1...V1 U1 V1
-  // n2: V2...V2 U1 V1
+  // *out: Y1Y2Y3Y4....U1U2....V1V2...
   void
-  rgb_buffer_to_i420 (PackedRGB const& in, byte* out)
+  rgb_buffer_to_i420 (PackedRGB const &in, byte *out)
   {
-    uint cntPix = in.size();
-    assert (cntPix %2 == 0);
+    uint cntPix = in.size ();
+    uint offSet = cntPix;
+    assert (cntPix % 2 == 0);
+
+    // u, v components should not be over counted
+    const uint freq = 2; // set of numbers, but only want every third position;
+                         // but we're commencing at 0, so it's freq-1
+    uint uvCnt = 0; // index over uv components
+    uint j;  // every second matched uv component counter;  
+    
+
+    
     for (uint i = 0; i < cntPix; i++)
       {
-        Trip const& rgb = in[i];
+        Trip const &rgb = in[i];
         Trip yuv = rgb_to_yuv (rgb);
-        
+
         // Memory: y*8 u*2 v*2 bits/pixel
-        auto& [y, u, v] = yuv;
+        auto &[y, u, v] = yuv;
         out[i] = y;
 
-        
         if (i % 2)
           { // odd
-            Trip const& rgbPrev = in[i - 1];
-            Trip yuvPrev = rgb_to_yuv (rgbPrev);
-                  
-            auto& [yp,up,vp] = yuvPrev;  
-            out[i + cntPix/4 ] = up;
-            out[i + cntPix/4 + cntPix/4] = vp;
+            // Nothing to fo here for the uv components
           }
         else
           { // even including i=0
-            out[i + cntPix/4] = u;
-            out[i + cntPix/4 + cntPix/4] = v;  
-          }  
-  }   }
-        
+            if (!(uvCnt % freq))
+              {
+                if (!(j % 2)) // only want every second element
+                  {
+                    out[i + offSet] = u;
+                    out[i + offSet + offSet / 4] = v;
+                    j++;
+                  }
+              }
+            uvCnt++;
+          }
+      }
+  }
+
   // YV12: 
   //      planar YUV 4:2:0. 12Bits/pixel
   //      YV indicates the the U and V colour planes are exchanged
