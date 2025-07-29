@@ -61,11 +61,12 @@ fourCCstring (int fcc)
 }
 
 
-const std::set<int> SUPPORTED_FORMATS = {/*fourCC("I420")    ///////TODO implement
-                                        ,fourCC("YV12")    ///////TODO implement
+const std::set<int> SUPPORTED_FORMATS = {/*fourCC("I420")    ///////DOING
+                                        ,fourCC("YV12")    ///////DOING
                                         ,*/fourCC("YUY2")
-                                        ,fourCC("UYVY")    ///////TODO implement
-                                        };
+                                        ,fourCC("UYVY")
+                                        ,fourCC("YVYU")
+                                       };
 
 
 
@@ -127,10 +128,14 @@ namespace { // implementation details : pixel format conversion
 
 
   void
-  rgb_buffer_to_yuy2 (PackedRGB const& in, byte* out)
+  rgb_buffer_to_packed (int format, PackedRGB const& in, byte* out)
   {
     uint cntPix = in.size();
-    assert (cntPix %2 == 0);
+    assert (cntPix % 2 == 0);
+    assert (format == fourCC ("YUY2") or
+            format == fourCC ("UYVY") or
+            format == fourCC ("YVYU"));
+
     for (uint i = 0; i < cntPix; i += 2)
       {// convert and interleave 2 pixels in one step
         uint op = i * 2;                           // Output packed in groups with 2 bytes
@@ -140,15 +145,33 @@ namespace { // implementation details : pixel format conversion
         Trip yuv1 = rgb_to_yuv (rgb1);
 
         auto& [y0,u0,v0] = yuv0;
-        auto& [y1,_u,_v] = yuv1;                   // note: this format discards half of the chroma information
+        auto& [y1,_u,_v] = yuv1;                   // note: these formats discard half of the chroma information
 
-        out[op    ] = y0;
-        out[op + 1] = u0;
-        out[op + 2] = y1;
-        out[op + 3] = v0;
-  }   }
-
-
+        switch (format) {
+          case fourCC ("YUY2"):
+            out[op    ] = y0;
+            out[op + 1] = u0;
+            out[op + 2] = y1;
+            out[op + 3] = v0;
+            break;
+          case fourCC ("UYVY"):
+            out[op    ] = u0;
+            out[op + 1] = y0;
+            out[op + 2] = v0;
+            out[op + 3] = y1;
+            break;
+          case fourCC ("YVYU"):
+            out[op    ] = y0;
+            out[op + 1] = v0;
+            out[op + 2] = y1;
+            out[op + 3] = u0;
+            break;
+          default:
+            __FAIL ("Logic broken");
+            break;
+        }
+      }
+  }
 } // (End) implementation details
 
 
@@ -159,13 +182,21 @@ convert_RGB_intoBuffer (int format, char* targetBuff, int targetSiz
   static_assert (sizeof(byte) == sizeof(char));
   byte* outputData = reinterpret_cast<byte*> (targetBuff);
 
-  if (format == fourCC("YUY2"))
-    {
-      // this format discards 1/3 of the information
+  if (format == fourCC("YUY2") or
+      format == fourCC("UYVY") or
+      format == fourCC("YVYU"))
+    { // Handle popular packed formats:
+      // These formats discard 1/3 of the information
       // input comes in RGB triplets, output discards 50% chroma
       assert (targetSiz == 2 * inputFrame.size());
-      rgb_buffer_to_yuy2 (inputFrame, outputData);
+      rgb_buffer_to_packed (format, inputFrame, outputData);
     }
+  else
+  if (format == fourCC("I420"))
+    __FAIL ("TODO: implement I420");
+  else
+  if (format == fourCC("YV12"))
+    __FAIL ("TODO: implement YV12");
   else
     __FAIL ("Logic broken: unsupported output target format");
 }
