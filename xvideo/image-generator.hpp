@@ -94,6 +94,8 @@ class ImageGenerator
     constexpr static int BALL_SIZ = std::ceil (std::sqrt (BALL.size()));
 
     Vec2 p1_, p2_, v1_, v2_;
+    double a1_{0}, a2_{0};
+
     void maybeBounce (Vec2&, Vec2&);
   };
 
@@ -102,15 +104,35 @@ class ImageGenerator
   void
   ImageGenerator<W,H>::initGen()
     {
-      for (int row=0; row < H; ++row)
-        for (int col=0; col < W; ++col)
-          img_[row][col] = GRAY2;
-
       std::srand (std::time (nullptr));
       p1_ = {0,0};
       v1_ = { 1 + rand() % 5,  1 + rand() % 5};
       p2_ = {rand() % int(W), rand() % int(H)};
       v2_ = {-1,-1};
+
+      // initially fill background with colour bar pattern
+      byte ON {0xE0};
+      byte OFF{0};
+
+      // classic NTSC colour bars  --R---G---B--
+      std::array<Trip, 7> bars = {{{ ON, ON, ON}
+                                  ,{ ON, ON,OFF}
+                                  ,{OFF, ON, ON}
+                                  ,{OFF, ON,OFF}
+                                  ,{ ON,OFF, ON}
+                                  ,{ ON,OFF,OFF}
+                                  ,{OFF,OFF, ON}
+                                 }};
+      // create a colour strip pattern in the first row...
+      for (uint x = 0; x < W; ++x)
+        {  //  quantise into 7 columns
+          uint col = x  * 7/W;
+          img_[0][x] = bars[col];
+        }
+       // fill remaining rows alternating
+      for (uint y = 1; y < H; ++y)
+        if ((y/25) % 2 == 0)
+          img_[y] = img_[0];
     }
 
   template<uint W, uint H>
@@ -121,6 +143,15 @@ class ImageGenerator
       maybeBounce (p1_, v1_);
       p2_ += v2_;
       maybeBounce (p2_, v2_);
+
+      auto fade = [this](double& val, double target, uint dur)
+                        {
+                          if (val == target)
+                            return;
+                          val = std::min (target, val + target/(dur*fps_));
+                        };
+      fade (a1_, 0.05, 9);
+      fade (a2_, 0.1,  2);
     }
 
   template<uint W, uint H>
@@ -138,9 +169,9 @@ class ImageGenerator
                                 return 1.0 /(1 + s/dim * range);
                               };
             Trip& px{img_[row][col]};
-            
-            decay (px, 0.05,     (1.0 * vicinity (p2_, 1)) * DARK_BLUE);
-            decay (px, 0.1, px + (0.5 * vicinity (p1_,12)) * LT_YELLOW);
+
+            decay (px, a1_,      (1.0 * vicinity (p2_, 1)) * DARK_BLUE);
+            decay (px, a2_, px + (0.5 * vicinity (p1_,13)) * LT_YELLOW);
           }
     }
 
