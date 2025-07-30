@@ -15,6 +15,7 @@
 #include "gtk-xv-app.hpp"
 #include "image-generator.hpp"
 
+#include <cstdlib>
 #include <iostream>
 #include <algorithm>
 #include <cassert>
@@ -260,7 +261,7 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
       XvFreeAdaptorInfo (adaptorInfo);
 
       if (not foundPort)
-        __FAIL ("unable to allocate XV port with supported pixel format.");
+        __FAIL ("unable to allocate XV port or unsupported pixel format.");
 
       // after having established a connection to the X-server,
       // allocate resources and setup buffers for the actual output
