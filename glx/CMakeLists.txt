@@ -19,6 +19,7 @@ project(
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK  REQUIRED IMPORTED_TARGET gtkmm-3.0>=3.20)
 pkg_check_modules(XLIB REQUIRED IMPORTED_TARGET x11>=1.7)
+pkg_check_modules(GLX  REQUIRED IMPORTED_TARGET glx>=1.4)
 pkg_check_modules(OGL  REQUIRED IMPORTED_TARGET gl>=1.2)
 
 
@@ -31,5 +32,6 @@ target_compile_features(demo_glx PUBLIC cxx_std_17)
 target_include_directories(demo_glx PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
 target_link_libraries(demo_glx PRIVATE PkgConfig::GTK)
 target_link_libraries(demo_glx PRIVATE PkgConfig::XLIB)
+target_link_libraries(demo_glx PRIVATE PkgConfig::GLX)
 target_link_libraries(demo_glx PRIVATE PkgConfig::OGL)
 

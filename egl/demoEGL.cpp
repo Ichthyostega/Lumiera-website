@@ -24,12 +24,11 @@
 // for low-level access -> X-Window
 #include <gdk/gdkx.h>
 
-// X11 and GLX extension
+// X11, EGL and GLEW for OpenGL
 #include <X11/Xlib.h>
 #include <EGL/egl.h>
 #include <EGL/eglext.h>  // defines plattform-specific config and extensions
 #include <GL/glew.h>     // provides system-specific bindings for OpenGL extensions
-#include <GL/gl.h>
 
 using std::string;
 
