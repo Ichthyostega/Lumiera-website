@@ -22,3 +22,6 @@ project(
 
 add_subdirectory (skel)
 add_subdirectory (xvideo)
+add_subdirectory (sdl1)
+add_subdirectory (glx)
+add_subdirectory (egl)

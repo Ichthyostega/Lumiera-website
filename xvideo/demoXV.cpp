@@ -18,6 +18,7 @@
 #include <iostream>
 #include <algorithm>
 #include <cassert>
+#include <string>
 #include <set>
 
 // for low-level access -> X-Window
@@ -29,6 +30,8 @@
 #include <sys/shm.h>
 #include <X11/extensions/XShm.h>
 #include <X11/extensions/Xvlib.h>
+
+using std::string;
 
 
 
@@ -47,21 +50,26 @@ fourCC (const char id[5])
   return code;
 }
 
-const std::set<int> SUPPORTED_FORMATS = {fourCC("I420")    ///////DOING
+/** display fourCC code in human readable form */
+string
+fourCCstring (int fcc)
+{
+  string id{"????"};
+  for (uint c=0; c<4; ++c)
+    id[c] = 0xFF & (fcc >> c*8);
+  return id;
+}
+
+
+const std::set<int> SUPPORTED_FORMATS = {/*fourCC("I420")    ///////DOING
                                         ,fourCC("YV12")    ///////DOING
-                                        ,fourCC("YUY2")
-                                        ,fourCC("UYVY")    ///////DOING
+                                        ,*/fourCC("YUY2")
+                                        ,fourCC("UYVY")
+                                        ,fourCC("YVYU")
                                        };
 
-//// TODO:
-//// Get rid of this. Defining the same things twice
-//// is not a good idea, but I needed the checks in a
-//// heavily used loop and calling functions might prove
-//// expensive and I did not want to tax the loop unnecessarily 
-enum packedFomrats { pYUY2
-                    ,pUYVY
-                    ,pYVYU
-                    };
+
+
 
 
 /**
@@ -119,23 +127,16 @@ namespace { // implementation details : pixel format conversion
     return yuv;
   }
 
-  void
-  rgb_buffer_to_packed (int format, PackedRGB const &in, byte *out)
-  {
-    uint cntPix = in.size ();
-    assert (cntPix % 2 == 0);
 
-    packedFomrats pFormat;
-    if (format == fourCC ("YUY2"))
-      pFormat = pYUY2;
-    else if (format == fourCC ("UYVY"))
-      pFormat = pUYVY;
-    else if (format == fourCC ("YVYU"))
-      pFormat = pYVYU;
-    else
-      __FAIL ("Invald packed format; cannot convert");                 
-                     
-    
+  void
+  rgb_buffer_to_packed (int format, PackedRGB const& in, byte* out)
+  {
+    uint cntPix = in.size();
+    assert (cntPix % 2 == 0);
+    assert (format == fourCC ("YUY2") or
+            format == fourCC ("UYVY") or
+            format == fourCC ("YVYU"));
+
     for (uint i = 0; i < cntPix; i += 2)
       {// convert and interleave 2 pixels in one step
         uint op = i * 2;                           // Output packed in groups with 2 bytes
@@ -145,134 +146,33 @@ namespace { // implementation details : pixel format conversion
         Trip yuv1 = rgb_to_yuv (rgb1);
 
         auto& [y0,u0,v0] = yuv0;
-        auto& [y1,_u,_v] = yuv1;                   // note: this format discards half of the chroma information
+        auto& [y1,_u,_v] = yuv1;                   // note: these formats discard half of the chroma information
 
-        
-        // Both g++ Version 12 fails with SUPPORTED_FORMATS for pFormat
-        switch (pFormat) {
-        case  pYUY2:
-          out[op    ] = y0;
-          out[op + 1] = u0;
-          out[op + 2] = y1;
-          out[op + 3] = v0;  
-          break;
-        case pUYVY:
-          out[op    ] = u0;
-          out[op + 1] = y0;
-          out[op + 2] = v0;
-          out[op + 3] = y1;
-          break;
-        case pYVYU:
-          out[op    ] = y0;
-          out[op + 1] = v0;
-          out[op + 2] = y1;
-          out[op + 3] = u0;
-          break;
-        default:
-          __FAIL ("Invald format for pFormat");
-          break;
-        }
-  }
-  }
-
-  // I420
-  // *out: Y1Y2Y3Y4....U1U2....V1V2...
-  void
-  rgb_buffer_to_i420 (PackedRGB const &in, byte *out)
-  {
-    uint cntP = in.size ();
-    uint cntUV = (in.size () / 2) * (in.size () / 2);
-    uint offSet = cntP + cntUV;
-    assert (cntP % 2 == 0);
-
-    // u, v components should not be over counted
-    const uint freq = 2; // set of numbers, but only want every third position;
-                         // but we're commencing at 0, so it's freq-1
-    uint uvCnt = 0;      // index over uv components
-    uint j;              // every second matched uv component counter;
-
-    for (uint i = 0; i < cntP; i++)
-      {
-        Trip const &rgb = in[i];
-        Trip yuv = rgb_to_yuv (rgb);
-
-        // Memory: y*8 u*2 v*2 bits/pixel
-        auto &[y, u, v] = yuv;
-        out[i] = y;
-
-        if (i % 2)
-          { // odd
-            // Nothing to fo here for the uv components
-          }
-        else
-          { // even including i=0
-            if (!(uvCnt % freq))
-              {
-                if (!(j % 2)) // only want every second element
-                  {
-                    out[i + offSet] = u;
-                    out[i + offSet + offSet / 4] = v;
-                    j++;
-                  }
-              }
-            uvCnt++;
-          }
+        switch (format) {
+          case fourCC ("YUY2"):
+            out[op    ] = y0;
+            out[op + 1] = u0;
+            out[op + 2] = y1;
+            out[op + 3] = v0;
+            break;
+          case fourCC ("UYVY"):
+            out[op    ] = u0;
+            out[op + 1] = y0;
+            out[op + 2] = v0;
+            out[op + 3] = y1;
+            break;
+          case fourCC ("YVYU"):
+            out[op    ] = y0;
+            out[op + 1] = v0;
+            out[op + 2] = y1;
+            out[op + 3] = u0;
+            break;
+          default:
+            __FAIL ("Logic broken");
+            break;
+        } 
       }
   }
-
-  // YV12: 
-  //      planar YUV 4:2:0. 12Bits/pixel
-  //      YV indicates the the U and V colour planes are exchanged
-  //      YYYYYYYY VV UU   --> YYYYYYYY UU VV
-  void
-  rgb_buffer_to_yv12 (PackedRGB const& in, byte* out)
-  {
-    uint cntPix = in.size();
-    //uint cntPix = (in.VIDEO_WIDTH * in.VIDEO_WIDTH);
-    //assert (cntPix %2 == 0);
-    for (uint i = 0; i < cntPix; i += 2)
-      {// convert and interleave 2 pixels in one step
-        uint op = i * 2;                           // Output packed in groups with 2 bytes
-        Trip const& rgb0 = in[i];
-        Trip const& rgb1 = in[i+1];
-        Trip yuv0 = rgb_to_yuv (rgb0);
-        Trip yuv1 = rgb_to_yuv (rgb1);
-
-        auto& [y0,u0,v0] = yuv0;
-        auto& [y1,_u,_v] = yuv1;                   // note: this format discards half of the chroma information
-
-        // FORMAT: over 2 pixells: Y1V1U1Y2
-        out[op    ] = y0;
-        out[op + 1] = v0; 
-        out[op + 2] = u0; 
-        out[op + 3] = y1;
-  }   }
-
-
-  // UXVY
-  void
-  rgb_buffer_to_uyvy (PackedRGB const& in, byte* out)
-  {
-    uint cntPix = in.size();
-    assert (cntPix %2 == 0);  
-    for (uint i = 0; i < cntPix; i += 2)
-      {// convert and interleave 2 pixels in one step
-        uint op = i * 2;                           // Output packed in groups with 2 bytes
-        Trip const& rgb0 = in[i];
-        Trip const& rgb1 = in[i+1];
-        Trip yuv0 = rgb_to_yuv (rgb0);
-        Trip yuv1 = rgb_to_yuv (rgb1);
-
-        auto& [y0,u0,v0] = yuv0;
-        auto& [y1,_u,_v] = yuv1;                   // note: this format discards half of the chroma information
-
-        out[op    ] = u0;
-        out[op + 1] = y0;
-        out[op + 2] = v0;
-        out[op + 3] = y1;
-   }  }
-
-  
 } // (End) implementation details
 
 
@@ -283,37 +183,21 @@ convert_RGB_intoBuffer (int format, char* targetBuff, int targetSiz
   static_assert (sizeof(byte) == sizeof(char));
   byte* outputData = reinterpret_cast<byte*> (targetBuff);
 
-
-
-  if (format == fourCC("YUY2") ||
-      format == fourCC("UYVY") ||
+  if (format == fourCC("YUY2") or
+      format == fourCC("UYVY") or
       format == fourCC("YVYU"))
-    {
-      // Popular packed formats: similar conversion procedure
-            
-      // this format discards 1/3 of the information
+    { // Handle popular packed formats:
+      // These formats discard 1/3 of the information
       // input comes in RGB triplets, output discards 50% chroma
       assert (targetSiz == 2 * inputFrame.size());
       rgb_buffer_to_packed (format, inputFrame, outputData);
     }
-  else if (format == fourCC("I420"))
-    {
-      // planar 4:2:0 YUV
-      rgb_buffer_to_i420 (inputFrame, outputData);
-    }
-  else if (format == fourCC("YV12"))
-    {
-      // planar YUV 4:2:0. 12Bits/pixel
-      // same as above but U and V exchanged
-      // TODO: this should be pass?
-      // assert (targetSiz == 2 * inputFrame.size());
-      rgb_buffer_to_yv12 (inputFrame, outputData);
-    }
-  else if (format == fourCC("UYVY"))
-    {
-      // packed 4:2:2 YUV
-      rgb_buffer_to_uyvy (inputFrame, outputData);
-    }
+  else
+  if (format == fourCC("I420"))
+    __FAIL ("TODO: implement I420");
+  else
+  if (format == fourCC("YV12"))
+    __FAIL ("TODO: implement YV12");
   else
     __FAIL ("Logic broken: unsupported output target format");
 }
@@ -382,17 +266,9 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
       // allocate resources and setup buffers for the actual output
       ctx.gc = XCreateGC (ctx.display, ctx.window, 0, nullptr);
 
-      // select suitable graphic data format
-      if (contains (formats, fourCC("YUY2")))
-        ctx.format = fourCC("YUY2");
-      else if (contains (formats, fourCC("I420")))
-        ctx.format = fourCC("I420");
-      else if (contains (formats, fourCC("YV12")))
-        ctx.format = fourCC("YV12");
-      else if (contains (formats, fourCC("UYVY")))
-              ctx.format = fourCC("UYVY");
-      else
-       __FAIL ("current setup can not handle any of the pixel formats supported by this implementation.");
+      // select one of the supported output data formats
+      ctx.format = *formats.begin();
+      std::cout << "Using Format: " << fourCCstring(ctx.format) << std::endl;
 
       ctx.xvImage = static_cast<XvImage*> (XvShmCreateImage (ctx.display
                                                             ,ctx.port
