@@ -52,6 +52,7 @@ const std::set<int> SUPPORTED_FORMATS = {fourCC("I420")    ///////DOING
                                         ,fourCC("YUY2")
                                         ,fourCC("UYVY")    ///////DOING
                                        };
+
 //// TODO:
 //// Get rid of this. Defining the same things twice
 //// is not a good idea, but I needed the checks in a
@@ -146,27 +147,29 @@ namespace { // implementation details : pixel format conversion
         auto& [y0,u0,v0] = yuv0;
         auto& [y1,_u,_v] = yuv1;                   // note: this format discards half of the chroma information
 
+        
         // Both g++ Version 12 fails with SUPPORTED_FORMATS for pFormat
         switch (pFormat) {
-        case  fourCC("YUY2"):
+        case  pYUY2:
           out[op    ] = y0;
           out[op + 1] = u0;
           out[op + 2] = y1;
           out[op + 3] = v0;  
           break;
-        case fourCC("UYVY"):
+        case pUYVY:
           out[op    ] = u0;
           out[op + 1] = y0;
           out[op + 2] = v0;
           out[op + 3] = y1;
           break;
-        case fourCC("YVYU"):
+        case pYVYU:
           out[op    ] = y0;
           out[op + 1] = v0;
           out[op + 2] = y1;
           out[op + 3] = u0;
           break;
         default:
+          __FAIL ("Invald format for pFormat");
           break;
         }
   }
@@ -177,19 +180,18 @@ namespace { // implementation details : pixel format conversion
   void
   rgb_buffer_to_i420 (PackedRGB const &in, byte *out)
   {
-    uint cntPix = in.size ();
-    uint offSet = cntPix;
-    assert (cntPix % 2 == 0);
+    uint cntP = in.size ();
+    uint cntUV = (in.size () / 2) * (in.size () / 2);
+    uint offSet = cntP + cntUV;
+    assert (cntP % 2 == 0);
 
     // u, v components should not be over counted
     const uint freq = 2; // set of numbers, but only want every third position;
                          // but we're commencing at 0, so it's freq-1
-    uint uvCnt = 0; // index over uv components
-    uint j;  // every second matched uv component counter;  
-    
+    uint uvCnt = 0;      // index over uv components
+    uint j;              // every second matched uv component counter;
 
-    
-    for (uint i = 0; i < cntPix; i++)
+    for (uint i = 0; i < cntP; i++)
       {
         Trip const &rgb = in[i];
         Trip yuv = rgb_to_yuv (rgb);
