@@ -15,6 +15,7 @@
 #include "gtk-xv-app.hpp"
 #include "image-generator.hpp"
 
+#include <cstdlib>
 #include <iostream>
 #include <algorithm>
 #include <cassert>
@@ -61,15 +62,12 @@ fourCCstring (int fcc)
 }
 
 
-const std::set<int> SUPPORTED_FORMATS = {/*fourCC("I420")    ///////DOING
+const std::set<int> SUPPORTED_FORMATS = {fourCC("I420")    ///////DOING
                                         ,fourCC("YV12")    ///////DOING
-                                        ,*/fourCC("YUY2")
+                                        ,fourCC("YUY2")
                                         ,fourCC("UYVY")
                                         ,fourCC("YVYU")
                                        };
-
-
-
 
 /**
  * Output connection context used for opening X-Video display.
@@ -169,15 +167,118 @@ namespace { // implementation details : pixel format conversion
           default:
             __FAIL ("Logic broken");
             break;
-        }
+        } 
       }
   }
 } // (End) implementation details
 
 
 void
+rgb_buffer_to_i420 (PackedRGB const &in, byte *out
+                    ,int width, int height)
+  {
+    uint cntPix = in.size ();
+
+    assert (in.size() == (width * height));
+    assert (cntPix % 2 == 0);
+
+    // u, v components should not be over counted
+    uint uvCnt = 0;       // index over uv components
+    bool line_even{true}; // first line, i=0; is true
+
+    
+    for (uint i = 0; i < cntPix-1; i++)
+      {
+        Trip const &rgb = in[i];
+        Trip yuv = rgb_to_yuv (rgb);
+
+        // Memory: y*8 u*2 v*2 bits/pixel
+        auto &[y, u, v] = yuv;
+        out[i] = y;
+
+        // 4 Pixels share a single UV Chroma component
+        //   2 adjacent horizontal Y components on the same line share a UV Chroma
+        //   => store the UV component for alll even Y, and skip UV for odd Y component
+        //   2 stacked adjacent vertical Y components, one above the other, on consecutive lines share a UV 
+        //   => do not store any UV Chroma infos on every second line of length width 
+        if (i % 2)
+          { // odd: horozontally adjacent
+            // Nothing to do here for the uv components
+          }
+        else
+          { // even including i=0: vertically adjacent
+            if (line_even) // only write UV components on evenry second line
+              {
+                out[cntPix + uvCnt] = u;
+                out[cntPix + cntPix/4 + uvCnt] = v;
+                //j++;
+                uvCnt++;
+              }
+            if ( i % width == 0)
+              {
+                // end of line, then toggle
+                line_even = !line_even;
+              }
+          }
+      }
+  }
+
+  void
+  rgb_buffer_to_yv12 (PackedRGB const &in, byte *out
+                      ,int width, int height)
+  {
+
+    uint cntPix = in.size ();
+
+    assert (in.size() == (width * height));
+    assert (cntPix % 2 == 0);
+
+    // u, v components should not be over counted
+    uint uvCnt = 0;       // index over uv components
+    bool line_even{true}; // first line, i=0; is true
+
+    
+    for (uint i = 0; i < cntPix-1; i++)
+      {
+        Trip const &rgb = in[i];
+        Trip yuv = rgb_to_yuv (rgb);
+
+        // Memory: y*8 u*2 v*2 bits/pixel
+        auto &[y, u, v] = yuv;
+        out[i] = y;
+
+        // 4 Pixels share a single UV Chroma component
+        //   2 adjacent horizontal Y components on the same line share a UV Chroma
+        //   => store the UV component for alll even Y, and skip UV for odd Y component
+        //   2 stacked adjacent vertical Y components, one above the other, on consecutive lines share a UV 
+        //   => do not store any UV Chroma infos on every second line of length width 
+        if (i % 2)
+          { // odd: horozontally adjacent
+            // Nothing to do here for the uv components
+          }
+        else
+          { // even including i=0: vertically adjacent
+            if (line_even) // only write UV components on evenry second line
+              {
+                out[cntPix + uvCnt] = v;
+                out[cntPix + cntPix/4 + uvCnt] = u;
+                //j++;
+                uvCnt++;
+              }
+            if ( i % width == 0)
+              {
+                // end of line, then toggle
+                line_even = !line_even;
+              }
+          }
+      }
+  }
+
+void
 convert_RGB_intoBuffer (int format, char* targetBuff, int targetSiz
-                       ,PackedRGB const& inputFrame)
+                        ,PackedRGB const& inputFrame
+                        ,int width, int height
+                        )
 {
   static_assert (sizeof(byte) == sizeof(char));
   byte* outputData = reinterpret_cast<byte*> (targetBuff);
@@ -193,10 +294,10 @@ convert_RGB_intoBuffer (int format, char* targetBuff, int targetSiz
     }
   else
   if (format == fourCC("I420"))
-    __FAIL ("TODO: implement I420");
+    rgb_buffer_to_i420 (inputFrame, outputData, width, height);
   else
   if (format == fourCC("YV12"))
-    __FAIL ("TODO: implement YV12");
+    rgb_buffer_to_yv12 (inputFrame, outputData, width, height);
   else
     __FAIL ("Logic broken: unsupported output target format");
 }
@@ -259,7 +360,7 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
       XvFreeAdaptorInfo (adaptorInfo);
 
       if (not foundPort)
-        __FAIL ("unable to allocate XV port with supported pixel format.");
+        __FAIL ("unable to allocate XV port or unsupported pixel format.");
 
       // after having established a connection to the X-server,
       // allocate resources and setup buffers for the actual output
@@ -322,6 +423,8 @@ displayFrame (XvCtx& ctx)
                          ,ctx.xvImage->data
                          ,ctx.xvImage->data_size
                          ,ctx.imgGen_.buildNext()
+                         ,ctx.VIDEO_WIDTH
+                         ,ctx.VIDEO_HEIGHT
                          );
 
   XvShmPutImage (ctx.display, ctx.port, ctx.window, ctx.gc
