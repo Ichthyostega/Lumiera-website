@@ -113,7 +113,7 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
   glViewport (0, 0, ctx.VIDEO_WIDTH, ctx.VIDEO_HEIGHT);                // Origin in the middle of the window (note Y points upwards)
   glMatrixMode (GL_PROJECTION);                                        // the following matrix commands affect the image projection matrix
   glLoadIdentity();
-  glOrtho (-1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f);                     // setup orthograpic (non-perspective) projection within standard coordinates
+  glOrtho (-1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f);                     // setup orthographic (non-perspective) projection within standard coordinates
 
 
    // hand-over the activated connection context
