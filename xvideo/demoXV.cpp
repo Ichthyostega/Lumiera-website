@@ -32,6 +32,7 @@
 #include <X11/extensions/XShm.h>
 #include <X11/extensions/Xvlib.h>
 
+
 using std::string;
 
 
@@ -175,10 +176,10 @@ namespace { // implementation details : pixel format conversion
 
 void
 rgb_buffer_to_i420 (PackedRGB const &in, byte *out
-                    ,int width, int height)
+                    ,uint width, uint height)
   {
     uint cntPix = in.size ();
-
+    
     assert (in.size() == (width * height));
     assert (cntPix % 2 == 0);
 
@@ -225,7 +226,7 @@ rgb_buffer_to_i420 (PackedRGB const &in, byte *out
 
   void
   rgb_buffer_to_yv12 (PackedRGB const &in, byte *out
-                      ,int width, int height)
+                      ,uint width, uint height)
   {
 
     uint cntPix = in.size ();
@@ -277,7 +278,7 @@ rgb_buffer_to_i420 (PackedRGB const &in, byte *out
 void
 convert_RGB_intoBuffer (int format, char* targetBuff, int targetSiz
                         ,PackedRGB const& inputFrame
-                        ,int width, int height
+                        ,uint width, uint height
                         )
 {
   static_assert (sizeof(byte) == sizeof(char));
@@ -289,7 +290,8 @@ convert_RGB_intoBuffer (int format, char* targetBuff, int targetSiz
     { // Handle popular packed formats:
       // These formats discard 1/3 of the information
       // input comes in RGB triplets, output discards 50% chroma
-      assert (targetSiz == 2 * inputFrame.size());
+      assert(targetSiz > 0);
+      assert (static_cast<uint>(targetSiz) == 2 * inputFrame.size());
       rgb_buffer_to_packed (format, inputFrame, outputData);
     }
   else
