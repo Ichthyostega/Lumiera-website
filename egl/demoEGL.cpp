@@ -154,10 +154,9 @@ openDisplay (Gtk::Window& appWindow, FrameRate fps)
 
   // use lib-GLEW to manage OpenGL extensions (notably GL Shader Language)
   GLenum glewErr = glewInit();
-////////////////////////////////////////////////////////////////////////////////////TODO for some reason I get glewErr == 4 ("unknown error"), but it works non the less
-//  if (GLEW_OK != glewErr)
-//    __FAIL ("could not bind OpenGL extensions through lib-GLEW:\n"
-//           +string{reinterpret_cast<const char*> (glewGetErrorString(glewErr))});
+  if (GLEW_OK != glewErr)
+    __FAIL ("could not bind OpenGL extensions through lib-GLEW:\n"
+           +string{reinterpret_cast<const char*> (glewGetErrorString(glewErr))});
 
 
   auto compileShader = [](GLenum kind, string code)
