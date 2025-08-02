@@ -159,8 +159,8 @@ class ImageGenerator
   ImageGenerator<W,H>::attenuate()
     {
       double dim{H*W};
-      for (int row=0; row < H; ++row)
-        for (int col=0; col < W; ++col)
+      for (int row=0; row < int(H); ++row)
+        for (int col=0; col < int(W); ++col)
           {
             Vec2 point{col,row};
             auto vicinity = [&](Vec2& p, int s)
@@ -195,8 +195,8 @@ class ImageGenerator
                             if (abs(val > 3) and val*offset > 0)
                               val /= 2; // damp excess outward trend
                           };
-      auto limX = W-BALL_SIZ;
-      auto limY = H-BALL_SIZ;
+      int limX = W-BALL_SIZ;
+      int limY = H-BALL_SIZ;
 
       if (p.x <= 0)
         {
