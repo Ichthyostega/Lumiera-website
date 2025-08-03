@@ -5,11 +5,10 @@
      2025,            Benny Lyons <benny.lyons@gmx.net>
      2025,            Hermann Vosseler <Ichthyostega@web.de>
 
+  This program is free software; you can redistribute it and/or modify it
+  under the terms of the GNU GPL version 2+ See the LICENSE file for details.
 
-  This program is Open Source software and provided under the MIT License.
-  See the LICENSE file for details.
-
-* *****************************************************************/
+* ************************************************************************/
 
 #ifndef COMMONS_H
 #define COMMONS_H

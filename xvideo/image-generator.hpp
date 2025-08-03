@@ -4,11 +4,10 @@
    Copyright (C)
      2025,            Hermann Vosseler <Ichthyostega@web.de>
 
+  This program is free software; you can redistribute it and/or modify it
+  under the terms of the GNU GPL version 2+ See the LICENSE file for details.
 
-  This program is Open Source software and provided under the MIT License.
-  See the LICENSE file for details.
-
-* *****************************************************************/
+* ************************************************************************/
 
 #ifndef IMAGE_GENERATOR_H
 #define IMAGE_GENERATOR_H
