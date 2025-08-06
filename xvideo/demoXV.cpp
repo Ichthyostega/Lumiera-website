@@ -240,7 +240,7 @@ rgb_buffer_to_i420_yv12 (PackedRGB const &in, byte *out
       }
   }
 
-
+void
 convert_RGB_intoBuffer (int format, char* targetBuff, int targetSiz
                         ,PackedRGB const& inputFrame
                         ,uint width, uint height
