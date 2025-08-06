@@ -13,16 +13,15 @@ if (NOT CMAKE_BUILD_TYPE)
     set (CMAKE_BUILD_TYPE Debug CACHE STRING "Default to Debug build")
     set (CMAKE_VERBOSE_MAKEFILE TRUE CACHE STRING "Show full compile commands")
 endif()
+# optimise debugging symbols for GNU gdb
+SET(CMAKE_CXX_FLAGS_DEBUG "-O0 -ggdb3" CACHE STRING "Special option for debug builds")
 
-# Most people er expect are using GNU GDB, so lets optimise debugging symbols for gdb
-if( CMAKE_BUILD_TYPE STREQUAL "Debug")
-    SET( CMAKE_CXX_FLAGS  "-O0 -ggdb3 -Wall")
-endif()
 
 project(
     VideoOutputDemos
 )
 
+add_compile_options("-Wall")
 
 add_subdirectory (skel)
 add_subdirectory (xvideo)

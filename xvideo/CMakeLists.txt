@@ -29,7 +29,6 @@ file(GLOB_RECURSE demo_xv_headers CONFIGURE_DEPENDS "*.hpp")
 
 add_executable(demo_xv ${demo_xv_sources} ${demo_xv_headers})
 target_compile_features(demo_xv PUBLIC cxx_std_17)
-target_compile_options (demo_xv PRIVATE -Wall)
 target_include_directories(demo_xv PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
 target_link_libraries(demo_xv PRIVATE PkgConfig::GTK)
 target_link_libraries(demo_xv PRIVATE PkgConfig::XLIB)

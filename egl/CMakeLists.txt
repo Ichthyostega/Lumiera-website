@@ -30,7 +30,6 @@ file(GLOB_RECURSE demo_egl_headers CONFIGURE_DEPENDS "*.hpp")
 
 add_executable(demo_egl ${demo_egl_sources} ${demo_egl_headers})
 target_compile_features(demo_egl PUBLIC cxx_std_17)
-target_compile_options (demo_egl PRIVATE -Wall)
 target_include_directories(demo_egl PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
 target_link_libraries(demo_egl PRIVATE PkgConfig::GTK)
 target_link_libraries(demo_egl PRIVATE PkgConfig::XLIB)

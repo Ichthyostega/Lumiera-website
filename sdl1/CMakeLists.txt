@@ -30,7 +30,6 @@ file(GLOB_RECURSE demo_sdl1_headers CONFIGURE_DEPENDS "*.hpp")
 
 add_executable(demo_sdl1 ${demo_sdl1_sources} ${demo_sdl1_headers})
 target_compile_features(demo_sdl1 PUBLIC cxx_std_17)
-target_compile_options (demo_sdl1 PRIVATE -Wall)
 target_include_directories(demo_sdl1 PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
 target_link_libraries(demo_sdl1 PRIVATE PkgConfig::GTK)
 target_link_libraries(demo_sdl1 PRIVATE PkgConfig::SDL1)
