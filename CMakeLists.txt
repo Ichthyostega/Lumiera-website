@@ -14,6 +14,10 @@ if (NOT CMAKE_BUILD_TYPE)
     set (CMAKE_VERBOSE_MAKEFILE TRUE CACHE STRING "Show full compile commands")
 endif()
 
+# Most people er expect are using GNU GDB, so lets optimise debugging symbols for gdb
+if( CMAKE_BUILD_TYPE STREQUAL "Debug")
+    SET( CMAKE_CXX_FLAGS  "-O0 -ggdb3 -Wall")
+endif()
 
 project(
     VideoOutputDemos

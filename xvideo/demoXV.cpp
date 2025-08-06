@@ -174,96 +174,63 @@ namespace { // implementation details : pixel format conversion
 
 
 void
-rgb_buffer_to_i420 (PackedRGB const &in, byte *out, uint width, uint height)
+rgb_buffer_to_i420_yv12 (PackedRGB const& in, byte* out,
+                         uint width, uint height, int format)
   {
     uint cntPix = in.size ();
 
+    assert(format == fourCC("I420") or format == fourCC("YV12"));
     assert (in.size() == (width * height));
     assert (cntPix % 2 == 0);
 
-    // u, v components should not be over counted
-    uint uvCnt = 0;       // index over uv components
+    byte* outU;
+    byte* outV;
     bool line_even{true}; // first line, i=0; is true
+    uint uvIdx = 0;
 
-    
-    for (uint i = 0; i < cntPix-1; i++)
+    if (format == fourCC("I420"))
       {
-        Trip const &rgb = in[i];
-        Trip yuv = rgb_to_yuv (rgb);
-
-        // Memory: y*8 u*2 v*2 bits/pixel
-        auto &[y, u, v] = yuv;
-        out[i] = y;
-
-        // 4 Pixels share a single UV Chroma component
-        //   2 adjacent horizontal Y components on the same line share a UV Chroma
-        //   => store the UV component for alll even Y, and skip UV for odd Y component
-        //   2 stacked adjacent vertical Y components, one above the other, on consecutive lines share a UV 
-        //   => do not store any UV Chroma infos on every second line of length width 
-        if (i % 2)
-          { // odd: horozontally adjacent
-            // Nothing to do here for the uv components
-          }
-        else
-          { // even including i=0: vertically adjacent
-            if (line_even) // only write UV components on evenry second line
-              {
-                out[cntPix + uvCnt] = u;
-                out[cntPix + cntPix/4 + uvCnt] = v;
-                //j++;
-                uvCnt++;
-              }
-            if ( i % width == 0)
-              {
-                // end of line, then toggle
-                line_even = !line_even;
-              }
-          }
+        outU = out + cntPix;
+        outV = outU + cntPix /4;
       }
-  }
-
-  void
-  rgb_buffer_to_yv12 (PackedRGB const &in, byte *out, uint width, uint height)
-  {
-
-    uint cntPix = in.size ();
-
-    assert (in.size() == (width * height));
-    assert (cntPix % 2 == 0);
-
-    // u, v components should not be over counted
-    uint uvCnt = 0;       // index over uv components
-    bool line_even{true}; // first line, i=0; is true
-
-    
-    for (uint i = 0; i < cntPix-1; i++)
+    else
+    if (format == fourCC("YV12"))
       {
-        Trip const &rgb = in[i];
+        outV = out + cntPix;
+        outU = outV + cntPix /4;
+      }
+    else
+      __FAIL ("Developer wake up");
+
+
+
+    for (uint yIdx = 0; yIdx < cntPix-1; yIdx++)
+      {
+        Trip const& rgb = in[yIdx];
         Trip yuv = rgb_to_yuv (rgb);
 
         // Memory: y*8 u*2 v*2 bits/pixel
-        auto &[y, u, v] = yuv;
-        out[i] = y;
+        auto& [y, u, v] = yuv;
+        out[yIdx] = y;
 
         // 4 Pixels share a single UV Chroma component
         //   2 adjacent horizontal Y components on the same line share a UV Chroma
         //   => store the UV component for alll even Y, and skip UV for odd Y component
         //   2 stacked adjacent vertical Y components, one above the other, on consecutive lines share a UV 
         //   => do not store any UV Chroma infos on every second line of length width 
-        if (i % 2)
+        if (yIdx % 2)
           { // odd: horozontally adjacent
             // Nothing to do here for the uv components
           }
         else
-          { // even including i=0: vertically adjacent
+          { // even including yIdx=0: vertically adjacent
             if (line_even) // only write UV components on evenry second line
               {
-                out[cntPix + uvCnt] = v;
-                out[cntPix + cntPix/4 + uvCnt] = u;
-                //j++;
-                uvCnt++;
+                outU[uvIdx] = u;
+                outV[uvIdx] = v;
+                uvIdx++;
               }
-            if ( i % width == 0)
+            if ( yIdx % width == 0)
               {
                 // end of line, then toggle
                 line_even = !line_even;
@@ -292,11 +259,8 @@ convert_RGB_intoBuffer (int format, char* targetBuff, int targetSiz
       rgb_buffer_to_packed (format, inputFrame, outputData);
     }
   else
-  if (format == fourCC("I420"))
-    rgb_buffer_to_i420 (inputFrame, outputData, width, height);
-  else
-  if (format == fourCC("YV12"))
-    rgb_buffer_to_yv12 (inputFrame, outputData, width, height);
+  if (format == fourCC("I420") or format == fourCC("YV12"))
+    rgb_buffer_to_i420_yv12 (inputFrame, outputData, width, height, format);
   else
     __FAIL ("Logic broken: unsupported output target format");
 }
