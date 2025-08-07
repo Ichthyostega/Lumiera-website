@@ -62,8 +62,8 @@ fourCCstring (int fcc)
 }
 
 
-const std::set<int> SUPPORTED_FORMATS = {fourCC("I420")    ///////DOING
-                                        ,fourCC("YV12")    ///////DOING
+const std::set<int> SUPPORTED_FORMATS = {fourCC("I420")
+                                        ,fourCC("YV12")
                                         ,fourCC("YUY2")
                                         ,fourCC("UYVY")
                                         ,fourCC("YVYU")
@@ -125,14 +125,19 @@ namespace { // implementation details : pixel format conversion
   }
 
 
+  /**
+   * These 4:2:2 _packed formats_ have in common that they process two consecutive pixels,
+   * while outputting only the chroma information from the first pixel; they differ in
+   * the actual arrangement of the four output elements into the packed data sequence.
+   */
   void
   rgb_buffer_to_packed (int format, PackedRGB const& in, byte* out)
   {
-    uint cntPix = in.size();
-    assert (cntPix % 2 == 0);
     assert (format == fourCC ("YUY2") or
             format == fourCC ("UYVY") or
             format == fourCC ("YVYU"));
+    uint cntPix = in.size();
+    assert (cntPix % 2 == 0);
 
     for (uint i = 0; i < cntPix; i += 2)
       {// convert and interleave 2 pixels in one step
@@ -167,83 +172,74 @@ namespace { // implementation details : pixel format conversion
           default:
             __FAIL ("Logic broken");
             break;
-        } 
+        }
       }
   }
+
+
+  /**
+   * These 4:2:0 _planar formats_ place all Luma information into one data block,
+   * followed by two chroma data blocks with 1/4 size each.
+   * Every 2 x 2 Block of pixels shares a single Chroma sample:
+   * - 2 adjacent horizontal Y components on the same line share a UV Chroma
+   *   => store the UV component for all even columns and skip odd columns
+   * - 2 stacked adjacent vertical Y components, one above the other,
+   *   on consecutive lines share a single Chroma sample
+   *   => do not store any UV data on every second line of pixels
+   */
+  void
+  rgb_buffer_to_planar (int format, PackedRGB const& in, byte* out, uint width, uint height)
+    {
+      assert (format == fourCC("I420") or
+              format == fourCC("YV12"));
+      uint cntPix = in.size ();
+      assert (cntPix % 4 == 0);
+      assert (in.size() == width*height);
+
+      byte* outU;
+      byte* outV;
+      if (format == fourCC("I420"))
+        {
+          outU = out + cntPix;
+          outV = outU + cntPix /4;
+        }
+      else
+      if (format == fourCC("YV12"))
+        {
+          outV = out + cntPix;
+          outU = outV + cntPix /4;
+        }
+      else
+        __FAIL ("Developer wake up");
+
+      for (uint yIdx = 0, uvIdx = 0; yIdx < cntPix; ++yIdx)
+        {
+          bool evenLine = yIdx % (2*width) < width;
+          bool evenCol  = yIdx % 2 == 0;
+
+          Trip const& rgb = in[yIdx];
+          Trip yuv = rgb_to_yuv (rgb);
+          auto& [y, u, v] = yuv;
+
+          out[yIdx] = y;
+          if (evenLine and evenCol)
+            {// output chroma
+              outU[uvIdx] = u;
+              outV[uvIdx] = v;
+              ++uvIdx;
+            }
+        }
+    }
 } // (End) implementation details
 
 
-void
-rgb_buffer_to_i420_yv12 (PackedRGB const& in, byte* out,
-                         uint width, uint height, int format)
-  {
-    uint cntPix = in.size ();
-
-    assert(format == fourCC("I420") or format == fourCC("YV12"));
-    assert (in.size() == (width * height));
-    assert (cntPix % 2 == 0);
-
-    byte* outU;
-    byte* outV;
-    bool line_even{true}; // first line, i=0; is true
-    uint uvIdx = 0;
-
-    if (format == fourCC("I420"))
-      {
-        outU = out + cntPix;
-        outV = outU + cntPix /4;
-      }
-    else
-    if (format == fourCC("YV12"))
-      {
-        outV = out + cntPix;
-        outU = outV + cntPix /4;
-      }
-    else
-      __FAIL ("Developer wake up");
-
-
-
-    for (uint yIdx = 0; yIdx < cntPix-1; yIdx++)
-      {
-        Trip const& rgb = in[yIdx];
-        Trip yuv = rgb_to_yuv (rgb);
-
-        // Memory: y*8 u*2 v*2 bits/pixel
-        auto& [y, u, v] = yuv;
-        out[yIdx] = y;
-
-        // 4 Pixels share a single UV Chroma component
-        //   2 adjacent horizontal Y components on the same line share a UV Chroma
-        //   => store the UV component for alll even Y, and skip UV for odd Y component
-        //   2 stacked adjacent vertical Y components, one above the other, on consecutive lines share a UV 
-        //   => do not store any UV Chroma infos on every second line of length width 
-        if (yIdx % 2)
-          { // odd: horozontally adjacent
-            // Nothing to do here for the uv components
-          }
-        else
-          { // even including yIdx=0: vertically adjacent
-            if (line_even) // only write UV components on evenry second line
-              {
-                outU[uvIdx] = u;
-                outV[uvIdx] = v;
-                uvIdx++;
-              }
-            if ( yIdx % width == 0)
-              {
-                // end of line, then toggle
-                line_even = !line_even;
-              }
-          }
-      }
-  }
 
 void
-convert_RGB_intoBuffer (int format, char* targetBuff, int targetSiz
-                        ,PackedRGB const& inputFrame
-                        ,uint width, uint height
-                        )
+convert_RGB_intoBuffer (int format
+                       ,char* targetBuff, int targetSiz
+                       ,PackedRGB const& inputFrame
+                       ,uint width, uint height
+                       )
 {
   static_assert (sizeof(byte) == sizeof(char));
   byte* outputData = reinterpret_cast<byte*> (targetBuff);
@@ -254,13 +250,20 @@ convert_RGB_intoBuffer (int format, char* targetBuff, int targetSiz
     { // Handle popular packed formats:
       // These formats discard 1/3 of the information
       // input comes in RGB triplets, output discards 50% chroma
-      assert(targetSiz > 0);
+      assert (targetSiz > 0);
       assert (static_cast<uint>(targetSiz) == 2 * inputFrame.size());
       rgb_buffer_to_packed (format, inputFrame, outputData);
     }
   else
-  if (format == fourCC("I420") or format == fourCC("YV12"))
-    rgb_buffer_to_i420_yv12 (inputFrame, outputData, width, height, format);
+  if (format == fourCC("I420") or
+      format == fourCC("YV12"))
+    { // Handle common planar formats:
+      // These formats discard half of the information
+      // input comes in RGB triplets, output discards 75% chroma
+      assert (targetSiz > 0);
+      assert (static_cast<uint>(targetSiz) == inputFrame.size() *3/2);
+      rgb_buffer_to_planar (format, inputFrame, outputData, width, height);
+    }
   else
     __FAIL ("Logic broken: unsupported output target format");
 }
