@@ -9,7 +9,7 @@ Getting Your Hands Dirty with Video Output on Linux Using C++
 
 Sources
 -------
- * link:skel.html[Minimal]
+ * link:sdl1.html[Minimal]
  * link:xvideo.html[XServer]
  * link:sdl1.html[SDL Legacy]
  * link:glx.html[OpenGL]
