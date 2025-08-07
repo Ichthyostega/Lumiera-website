@@ -1,0 +1,38 @@
+Getting Your Hands Dirty with Video Output on Linux Using C++
+=============================================================
+
+:Author:             Benny Lyons & Hermann Vosseler
+:Email:              <benny.lyons@gmx.net>, <Ichthyostega@web.de>
+:Date:               2025
+:source-highlighter: coderay
+
+
+Sources
+-------
+ * link:skel.html[Minimal]
+ * link:xvideo.html[XServer]
+ * link:sdl1.html[SDL Legacy]
+ * link:glx.html[OpenGL]
+ * link:egl.html[]
+
+
+Headers
+-------
+
+
+Obtaining Sources from the Git Repository
+-----------------------------------------
+
+---------------------------------------------------------
+$ git clone git://git.lumiera.org/:/git/extra/froscon.git
+---------------------------------------------------------
+
+
+Building
+--------
+
+[,shell]
+-------------------------------------
+include::../../examples/README[]
+-------------------------------------
+
