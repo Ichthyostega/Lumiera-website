@@ -28,9 +28,9 @@ Headers
 Obtaining Sources from the Git Repository
 -----------------------------------------
 
----------------------------------------------------------
-$ git clone git://git.lumiera.org/:/git/extra/froscon.git
----------------------------------------------------------
+---------------------------------------------------
+$ git clone git://git.lumiera.org/extra/froscon.git
+---------------------------------------------------
 
 
 Building
