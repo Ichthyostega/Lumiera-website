@@ -43,6 +43,16 @@ TIP: The `-j4` option tells make to use 4 cores concurrently to speed up the bui
      e.g: `cmake-gui build`; this way you can configure individual library dependencies
      to point to custom locations.
 
+Use at least GCC-14
+~~~~~~~~~~~~~~~~~~~
+Some older C++ compilers seem to have problems with a `constexpr` function used in 'commons.hpp'.
+Either comment out the line with the static assertion, or use at least GCC-14, which can be
+configured for CMake with
+
+-----
+cmake -S examples -B build -DCMAKE_CXX_COMPILER=g++-14
+-----
+
 
 Dependencies
 ~~~~~~~~~~~~
@@ -64,6 +74,28 @@ Build a GTK-3 application with C++::
 -----------
 apt install libgtkmm-3.0-dev
 -----------
-
-
++
+Use the XVideo X11 extension::
++
+-----------
+apt install libx11-dev libxext-dev libxv-dev
+-----------
++
+SDL Demo(Legacy v1.2)::
++
+-----------
+apt install libsdl1.2-dev
+-----------
++
+GLX Demo::
++
+-----------
+apt install libglx-dev libx11-dev libgl-dev
+-----------
++
+EGL Demo::
++
+-----------
+apt install libx11-dev libglew-dev libegl-dev libgl-dev
+-----------
 
