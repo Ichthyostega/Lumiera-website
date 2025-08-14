@@ -1,0 +1,129 @@
+Links and Resources
+===================
+
+
+Theory: Colour Spaces
+---------------------
+
+ - https://poynton.ca/PDFs/YUV_and_luminance_harmful.pdf[YUV and Luminance considered harmful]
+
+ - https://en.wikipedia.org/wiki/YCbCr[Wikipedia: Component Video Formats]
+ - https://en.wikipedia.org/wiki/Rec._601[Wikipedia: Rec.601 Standard]
+ - https://en.wikipedia.org/wiki/Chroma_subsampling[Wikipedia: Chroma subsampling]
+
+Advanced topics regarding colour spaces
+
+ - The relation of CIE1931 vs Rec.709 and the perceptual Lu'v' colourspace
+   is discussed and depicted link::https://www.portrait.com/resource-center/introduction-to-colorspace-measurement/[here]
+ - sRGB gammut in CIE1931: link::https://en.wikipedia.org/wiki/File:SRGB_chromaticity_CIE1931.svg[Wikipedia, SVG] ·
+   link::https://en.wikipedia.org/wiki/File:Cie_Chart_with_sRGB_gamut_by_spigget.png[with Planckian locus and colour temperature]
+
+Pixel formats
+~~~~~~~~~~~~~
+ - many pixel formats and codecs are described in detail at link:https://fourcc.org/[fourCC.org]
+ - GStreamer provides a description of link:https://gstreamer.freedesktop.org/documentation/additional/design/mediatype-video-raw.html?gi-language=c[various FourCC] formats
+ - A very useful explanation with graphics for
+   link:https://github.com/lix19937/nv_driveos/tree/main/yuv[YUV 420]
+
+
+Real-World implementations
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+ - *VLC* link:https://code.videolan.org/videolan/vlc/-/tree/master/modules/video_output[Video output modules]
+ - In *GStreamer*, the link:https://github.com/GStreamer/gst-plugins-base/blob/master/ext/gl/gstglimagesink.c[gst_gl_imagesink]
+   handles the OpenGL based display of video frames; however -- as can be expected by such a massive framework --
+   it is near impossible to derive any conclusions regarding actual implementation technique from this code;
+   all you can get hold off are GStreamer internal types, messages and wiring.
+ - the video monitor *xjadeo* from Robin Gareus implements various
+   link:https://github.com/x42/xjadeo/blob/master/src/xjadeo/display.c[Video display back-ends];
+   while this code is _very old,_ it is easy to follow and allows to identify actual graphics implementation routines. 
+
+
+
+
+Standards
+---------
+XVideo
+~~~~~~
+[blue yellow-background]#WIP#
+
+ * link:https://en.wikipedia.org/wiki/X_video_extension[Wikipedia: X video extension]
+ * link:https://www.x.org/releases/current/doc/videoproto/xv-protocol-v2.txt[Xv Spec 2.0]
+ * link:https://www.x.org/current/doc/man/man3/[XOrg: X11R7 Library Functions]
+ * link:https://www.x.org/releases/current/doc/man/man3/Xv.3.xhtml[XV man]
+
+[red]#TODO#
+
+SDL
+~~~
+[blue yellow-background]#WIP#
+
+ * link:https://en.wikipedia.org/wiki/Simple_DirectMedia_Layer[Wikipedia: Simple DirectMedia Layer]
+ * Documentation
+
+   ** link:https://wiki.libsdl.org/SDL3/APIByCategory[SDL3: API overview]
+   ** link:https://www.libsdl.org/release/SDL-1.2.15/docs/html/index.html[SDL1: API overview]
+
+ * Examples and Tutorials
+
+   ** link:https://examples.libsdl.org/SDL3/[Collection of SDL-3 examples]
+   ** link:https://lazyfoo.net/SDL_tutorials/[Lazy Foo SDL-1 Tutorial]
+
+[red]#TODO#
+
+OpenGL
+~~~~~~
+
+ * The link:https://en.wikipedia.org/wiki/Khronos_Group[»Khronos Group«] is a non-profit consortium
+   and maintains the stewardship for the OpenGL specifications.
+ * link:https://www.khronos.org/opengl/wiki/Programming_OpenGL_in_Linux:_GLX_and_Xlib[Khronos Wiki: Programming OpenGL in Linux (2014)]
+ * link:https://www.khronos.org/opengl/wiki/Platform_specifics:_Linux[Khronos: Platform specifics -- Linux (2021)]
+ * GLX is an X-Lib extension, which allows to bind an OpenGL context to an X11 based display.
+
+   ** link:https://en.wikipedia.org/wiki/GLX[Wikipedia: GLX]
+   ** link:https://registry.khronos.org/OpenGL/specs/gl/glx1.4.pdf[GLX 1.4 Reference (PDF)]
+   ** GLX is also documented as part of the link:https://registry.khronos.org/OpenGL-Refpages/gl2.1/[Legacy API v2.x]
+   
+ * EGL is a modern cross-platform integration library for OpenGL or OpenGL ES (GLES) or OpenVG
+ 
+   ** link:https://en.wikipedia.org/wiki/EGL_(API)[Wikipedia: EGL]
+   ** link:https://www.khronos.org/egl/[Khronos: Overview EGL]
+   ** link:https://registry.khronos.org/EGL/sdk/docs/man/[EGL API doc]
+ 
+ * to find out about the OpenGL API level supported on your system
++
+----
+glxinfo | grep "OpenGL version"
+----
++
+ * API Reference:
+   link:https://registry.khronos.org/OpenGL/index_gl.php[current Core-API] ·
+   link:https://registry.khronos.org/OpenGL-Refpages/gl4/[OpenGL 4.x (core)] ·
+   link:https://registry.khronos.org/OpenGL-Refpages/gl2.1/[Legacy & GLX-API]
+
+ * The _OpenGL Legacy API_ (up to v2.x) is known as »Fixed Function Pipeline«
+ 
+   ** Explanation in the link:https://www.khronos.org/opengl/wiki/Fixed_Function_Pipeline[Khronos Wiki]
+   ** A compact description of the difference on link:https://stackoverflow.com/a/18978466/444796[Stackoverflow]
+   ** Discussion: ``Are there reasons to still use OpenGL 2.x/fixed function pipeline?''
+      -> link:https://www.reddit.com/r/opengl/comments/hzbn04/are_there_reasons_to_still_use_opengl_2xfixed/[Reddit 2020]
+ 
+ * Tutorials
+ 
+   ** a frequently quoted (and quite old)
+      link:https://duriansoftware.com/joe/an-intro-to-modern-opengl.-table-of-contents[»Introduction to modern OpenGL«]
+   ** The *Learning-OpenGL* site
+   
+      *** link:https://learnopengl.com/Getting-started/Hello-Triangle[Hello Triangle]
+      *** link:https://learnopengl.com/Getting-started/Shaders[Shaders]
+      *** link:https://learnopengl.com/Getting-started/Textures[Textures]
+ 
+[red]#TODO#
+
+Vulcan
+~~~~~~
+[purple]#maybe#
+
+Wayland
+~~~~~~~
+[purple]#maybe#
+

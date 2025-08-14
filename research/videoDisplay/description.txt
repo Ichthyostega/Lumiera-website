@@ -1,0 +1,482 @@
+Processing Specification
+========================
+:Date: Summer 2025
+:Author: Ichthyostega <Ichthyostega@web.de>
+:toc:
+:toclevels: 3
+
+This specification is the result of our research and provides the compilation
+of a typical sequence of processing steps, for the purpose of
+
+- Opening a display connection
+- Setup of parametrisation (image format, colour space)
+- Initialisation of working data structures
+- Handling of a single frame for output
+- Shutdown of the display connection and deallocation
+
+
+Generic X-Display connection
+----------------------------
+It is not overly difficult to create a display connection with X-Lib and to define a X-Window.
+However, when developing a desktop application, typically some windowing toolkit will be used.
+For this tutorial, we use GTK-3 with C++ bindings to build a
+link:https://web.archive.org/web/20161202123640/https://developer.gnome.org/gtkmm-tutorial/stable/sec-helloworld.html.en[simple demo application].
+
+Given a Gtk-Window instance, it is possible to access the underlying X11 resources --
+assuming here that the desktop is (still) based on X11 (and not Wayland).
+
+- retrieve the *GDK*-Window, which represents the raw mapping of display space used by GTK
+- then use C-macros defined in the GDK library to access the corresponding X11 handles
+- either use the _default screen_ or use X-Lib to find out the current screen number
+  through the X-Window-Attributes, as _detailed below_ in the xref:_set_up[Set-up section regarding EGL].
+
+[source,c]
+-----
+  // use the X-Window as anchor to build an OpenGL context via GLX
+  Glib::RefPtr<Gdk::Window> gdkWindow = appWindow.get_window();
+  ctx.window  = GDK_WINDOW_XID      (gdkWindow->gobj());
+  ctx.display = GDK_WINDOW_XDISPLAY (gdkWindow->gobj());
+  ctx.screen  = DefaultScreen (ctx.display);
+-----
+
+
+XVideo
+------
+
+Open display
+~~~~~~~~~~~~
+prerequisites:: have a suitable X-Window
+
+X-extensions:: actual hardware and setup must support additional features
++
+- the link:https://www.x.org/releases/current/doc/man/man3/XShm.3.xhtml[XShm shared-memory extensions]
+- and obviously the link:https://www.x.org/releases/current/doc/man/man3/Xv.3.xhtml[XV extension]
+
+build:: need to include the ''X-Lib'' and the mentioned ''X-Extensions''
++
+- Debian packages: `libx11-dev`, `libxext-dev` and `libxv-dev`
+- package-config: `x11`, `xext` and `xv`
+- header: `<X11/Xlib.h>`, `<sys/ipc.h>`, `<sys/shm.h>`, `<X11/extensions/XShm.h>`, `<X11/extensions/Xvlib.h>`
+
+
+Find suitable connection
+^^^^^^^^^^^^^^^^^^^^^^^^
+* query available adaptors: `XvQueryAdaptors()` (-> see link:https://www.x.org/releases/current/doc/man/man3/XShm.3.xhtml[XShm])
+* grab a port related to this adaptor: `XvGrabPort()` -> link:https://www.x.org/releases/current/doc/man/man3/XvGrabPort.3.xhtml[man]
+  ** ports are allocated exclusively for a client
+  ** the adaptor info indicates the available port range
+  ** => should walk this port range and try to grab
+  ** (could in theory grab the port for a specific time, but typically you grab for »now« which is indicated by the macro `CurrentTime`)
+* for each adaptor, enumerate supported formats: `XvListImageFormats()` -> link:https://www.x.org/releases/current/doc/man/man3/XvListImageFormats.3.xhtml[man]
+
+  ** look for the one of the widely used YUV pixel formats (designated by a
+     link:https://fourcc.org/yuv.php[FourCC code])
+
+     *** planar: `I420` or `YV12`
+     *** packed: `YUY2` or `UYVY` or `YVYU`
+     
+  ** all these formats have in common that the _Chroma_ information is reduced, so that
+     several pixels with different _Luma_ (Y component) share the same U and V components;
+     in the end, it depends on the source format available in the pipeline, and the actual
+     graphics hardware and drivers which pixel format to select.
+  ** However, if the video data in the pipeline is encoded as RGB888, it is necessary to
+     convert the pixel data into a suitable YUV format; the XVideo extension was specifically
+     created to display content from video while offloading some of the scaling and conversion
+     work to the GPU.
+
+* setup chroma-keying: in case the video output covers only part of the underlying X-Window,
+  the XV standard allows to define a _chroma key_ do derive a mask for transparency. Only parts
+  of the X-Window filled with the mask marker colour will show the video overlay created with
+  the help of the XV extension. With the help of this simple technique, it is possible to
+  have the video display being partially covered by other windows on the desktop.
+
+
+Init output
+^^^^^^^^^^^
+* create a X-graphics context: `XCreateGC(Display,Window, &XGCValues)` -> link:https://www.x.org/releases/current/doc/man/man3/XCreateGC.3.xhtml[man]
+* create a shared-memory image
+
+** create image descriptor with `XvShmCreateImage()`                   -> link:https://www.x.org/archive/X11R7.6/doc/man/man3/XvCreateImage.3.xhtml[man]
+
+   *** specify the image format, which was chosen from the formats supported by the adaptor / connection
+   *** the X-server will fill in the required buffer size into `xvImage->data_size`
+
+** create shared memory segment with `shmget()`                        -> link:https://linux.die.net/man/2/shmget[man]
+   using this size; this returns an ID for this segment
+** can then attach it to the current process with `shmat()`            -> link:https://linux.die.net/man/2/shmdt[man]
+** `XShmAttach (display, &shmInfo)`                                    -> see link:https://www.x.org/releases/current/doc/man/man3/XShm.3.xhtml[XShm man]);
+   this instructs the X-server also to connect to this shared-mem segment
+** `shmctl (shmInfo.shmid, IPC_RMID, 0)`                               -> link:https://linux.die.net/man/2/shmctl[man]
+   the shared-segment is marked for deletion, but will be retained until its use-cnt drops to zero,
+   which happens after all client processes either call `shmdt()` for their mapped address, or
+   when all related processes have terminated
+
+* possibly sync/flush the X-processing: `XSync(display, false)` (-> link:https://linux.die.net/man/3/xsync[XLib man]).footnote:[
+  the second arg `discard = false` instructs XLib not to discard events which happen to be in the queue after flushing; to ensure
+  that a frame is actually displayed after posting it, `XFlush(display)` can be used.]
+
+Clean-up
+^^^^^^^^
+All allocated resources should be detached and discarded, in reverse order of allocation.
+
+* deactivate any internal processing with `XvStopVideo()`
+* detach the shared-memory from X-server: `XShmDetach()`
+* detach the association of this memory to current process `shmdt()`
+* de-allocate xvImage descriptor with `XFree()`
+* discard the graphics context with `XFreeGC()`
+
+Display frame
+~~~~~~~~~~~~~
+Typically the image data must be converted to the specific pixel data format and layout chosen
+based on the available options provided by the hardware and system setup. For the purpose of this demonstration,
+it is assumed that the frame data is given as a raw video image in RGB888 format (packed as one byte Red, Green, Blue)
+
+**What does »YUV« actually mean here**? While this acronym is commonly used in this context,
+this usage is not strictly correct, and leaves some room for interpretation: To be precise, »YUV« is the name
+for an analog video signal. When such a signal is digitised, the resulting component format is called »Y'CbCr«.
+However, there are several standards how to choose the colour primaries and how to encode the analog signal range
+into a digital number range. The XVideo standard is quite old and predates most _high definition_ standards;
+the colour information is encoded similar to MPEG here, which uses the same colour primaries as SD video.
+The corresponding standard is known as link:https://en.wikipedia.org/wiki/Rec._601[»REC.601«]
+
+XvShmPutImage() -> link:https://www.x.org/releases/X11R7.6/doc/man/man3/XvShmPutImage.3.xhtml[man]
+
+
+SDL
+---
+[blue yellow-background]#WIP#
+
+prerequisites:: SDL library with a suitable backend for your system,
+                so that blitting footnote:[In computer graphic jargon, _to blit_ means to scale and then
+                to copy bitmap pixels into a target position; this acronym stands for
+                »link:https://de.wikipedia.org/wiki/Bit_blit[Block Image Transfer]«.]
+                and format conversion will be hardware-accellerated
+
+build:: need to include a suitable ''SDL API''
++
+- Debian packages: `libsdl1.2-dev` (for legacy v1.2) or `libsdl2-dev` or `libsdl3-dev` (new in 2025)
+- package-config: `sdl`
+- header: `<SDL/SDL.h>` (and `<SDL/SDL_syswm.h>` for accessing system-specific APIs)
+
+[red]#TODO this part of the research is unfinished...#
+
+
+
+
+OpenGL
+------
+
+prerequisites:: OpenGL implementation, either directly from the vendor of the graphics hardware,
+                or adapted through the **Mesa** Library. In addition, a technology or framework
+                is required to provide the integration with the existing system, hardware and
+                setup.
+
+setup:: a **Framebuffer** for the display contents is required, with a connection to the
+        actual video hardware -- and typically some way to leverage the computing capabilities
+        of the GPU to accelerate the processing of video data; in theory, the latter is
+        optional and all operations can be emulated in software.
+
+flavours:: OpenGL can be integrated in quite different ways with the rest of the system
++
+- a separate display can be configured and operated in full-screen mode
+- an existing display connection, established for running a graphical desktop environment
+- OpenGL can use some part of the display, drawing even window and control elements,
+- or an existing window manager can provide screen space to use for OpenGL content
+- OpenGl (or Vulkan) can be used as base technology, with desktop and window manager
+  running on top
+
+
+Open context via GLX
+~~~~~~~~~~~~~~~~~~~~
+prerequisites:: OpenGL implementation (typically Mesa), and GLX, which is an extension
+                to X-Lib and allows to attach an OpenGL context to the X-Server and then
+                send OpenGL instructions over the X11 display connection
+
+build:: need the development packages for OpenGL via GLX
++
+- Debian packages: `libglx-dev` `libx11-dev` `libgl-dev` (for the OpenGL part)
+- package-config: `x11>=1.7` `glx>=1.4` `gl>=1.2`
+- header: `<X11/Xlib.h>` and `<GL/glx.h>`
+
+Similar to the XVideo demo, we use the underlying X-Window created by the GTK application,
+which largely simplifies the setup. But we need to ensure that the display supports some
+minimum level of visuals and capabilities.footnote:[it is quite common to use a different
+approach: connect to the display, determine visuals, and then create your own X11 window
+with those visuals; examples using this approach will typically also draw their own controls
+and build a dedicated (hybrid) event handling based on X11 events with GLX extensions.]
+
+* select a suitable configuration of visuals: `glXChooseVisual (display, screen, attributes)`
+  -> link:https://registry.khronos.org/OpenGL-Refpages/gl2.1/xhtml/glXChooseVisual.xml[man]
+* create OpenGL context for this display connection: `glXCreateContext(display, visuals, ...)`
+  -> link:https://registry.khronos.org/OpenGL-Refpages/gl2.1/xhtml/glXCreateContext.xml[man]
+* establish a binding for the current thread: `glXMakeCurrent(display,window,context)`
+  -> link:https://registry.khronos.org/OpenGL-Refpages/gl2.1/xhtml/glXMakeCurrent.xml[man]
+
+Set-up
+^^^^^^
+As prerequisite for the setup of a suitable drawing context, we need a framebuffer with
+adequate visuals. Since GLX provides an integration of OpenGL rendering into the X-Server
+and X-Lib framework, this is accomplished here through the underlying X display. As
+mentioned above, we use  `glXChooseVisual()` -- yet we provide some attributes specified by GLX
+(-> link:https://registry.khronos.org/OpenGL-Refpages/gl2.1/xhtml/glXChooseVisual.xml[manpage])
+to define minimum requirements. The automatically chosen X-visual fulfils these requirements
+(or else the selection will fail).
+
+The OpenGL context based on the current X-Window and these visuals is the anchor point
+(-> link:https://registry.khronos.org/OpenGL-Refpages/gl2.1/xhtml/glXMakeCurrent.xml[glXMakeCurrent])
+for all drawing activities and also serves to manage the attached system and graphics resources.
+
+How to proceed further at that point depends on the _OpenGL Api style_ used:
+xref:_display_video_frames_with_opengl[legacy or modern?]
+
+Clean-up
+^^^^^^^^
+It is sufficient to destroy the OpenGL context to release the graphics resources
+
+Acquire a Surface via EGL
+~~~~~~~~~~~~~~~~~~~~~~~~~
+In ancient days, there were a lot of platform specific integration mechanisms for OpenGL.
+The GLX library described above is a prominent example, as it integrates the use of OpenGL
+compliant rendering instructions with the X-Server architecture model.
+
+With the advent of mobile devices, there was a growing desire for visually appealing interfaces
+that could effectively utilise the limited hardware resources available on these platforms.
+link:https://en.wikipedia.org/wiki/OpenGL_ES[OpenGL ES / GLES (Open Graphics Library for Embedded Systems)]
+was developed as a lightweight version of the OpenGL graphics API, specifically designed for
+mobile and embedded systems. Together with link:https://en.wikipedia.org/wiki/OpenVG[OpenVG]
+for 2D graphics and user interfaces, these new frameworks provide a streamlined set of features
+able to deliver high-quality graphics without overwhelming the constrained processing power
+and memory of mobile devices.
+
+After 2012, some convergence can be seen between OpenGL and GLES; the principles underlying the OpenGL
+»core profile«, OpenGL ES and the Vulcan APIs are similar, even while the _shader languages_ are not
+compatible. Integration with the wide array of hardware and operating system setups however remained
+an unsolved problem. link:https://en.wikipedia.org/wiki/EGL_(API)[EGL (Embedded-System Graphics Library)]
+was created to provide an unified interface between rendering APIs like OpenGL, OpenGL ES or OpenVG and the
+underlying native platform windowing system, enabling efficient rendering of graphics in embedded systems
+as well as on desktop systems. Its primary purpose is to facilitate the management of graphics contexts,
+surfaces, and synchronisation, allowing developers to create portable applications that can run on different
+hardware and operating systems while ensuring optimal performance and resource management in diverse environments.
+
+EGL is organised as a core API with platform specific extensions, which can be used
+to establish an _EGL graphics context_ and a _drawing surface,_ using the platform specific
+display connection as anchor point. EGL can thus be used in a similar way as GLX, and allows
+to bind to the X-Window created by a GTK application. Once such an application has been adapted
+to run under Wayland, similar mechanisms are available to obtain a _drawing surface_ through EGL;
+the actual graphics code can be used in this setup under Wayland with minimal changes related to
+the integration with the application.
+
+prerequisites:: OpenGL implementation and an implementation of the EGL API -- both are typically
+                provided by the Mesa library
+
+build:: need the development packages for OpenGL and EGL
++
+- Debian packages: `libx11-dev`, `libglew-dev`, `libegl-dev` and `libgl-dev`
+  (formerly, both were part of a single package `libegl1-mesa-dev`)
+- package-config: `x11>=1.7`, `egl>=1.5`, `glew>=2.2`
+- header: `<X11/Xlib.h>` and `<EGL/egl.h>`, `<EGL/eglext.h>` and `<GL/glew.h>`
+
+TIP: For this setup to work, several extensions are required for the platform-specific
+     access. The link:https://glew.sourceforge.net/[OpenGL Extension Wrangler Library (GLEW)]
+     is used to create a suitable binding between all these libraries at runtime; but it is
+     still necessary to install an OpenGL development package and to link against an OpenGL
+     implementation (typically Mesa). The 'egl.pc' (package-config) describes the necessary
+     build switches.
+
+Set-up
+^^^^^^
+Again we need the X-Window used by the GTK-Application, which can be retrieved thorugh GDK functions.
+Furthermore, we need the actual Screen number holding this window. The reason is that separate screens
+might be driven by different graphics cards, and EGL must be able to connect an and configure the
+set of hardware and drivers actually used. The actual Screen can be retrieved though X-Lib, using
+`XGetWindowAttributes()` (->link:https://tronche.com/gui/x/xlib/window-information/XGetWindowAttributes.html[man])
+and then extract the current screen number from these attributes with
+`XScreenNumberOfScreen()` (-> link:https://tronche.com/gui/x/xlib/display/screen-information.html[man])
+
+Next, a *Surface* and a *Context* can be established for this window:
+
+- use the X11 platform extension of EGL to establish an abstracted `EGLScreen` with
+  `eglGetPlatformDisplay(EGLenum platform, void* native, const EGLAttrib*)` (-> link:https://registry.khronos.org/EGL/sdk/docs/man/html/eglGetPlatformDisplay.xhtml[man])
+  as described in detail in the link:https://registry.khronos.org/EGL/extensions/EXT/EGL_EXT_platform_x11.txt[EGL_EXT_platform_x11]
+
+- initialise this binding: `eglInitialize(display, NULL, NULL)` -> link:https://registry.khronos.org/EGL/sdk/docs/man/html/eglInitialize.xhtml[man]
+
+- select a suitable configuration and visuals (colour model, bit depth),
+  using `eglChooseConfig()` -> link:https://registry.khronos.org/EGL/sdk/docs/man/html/eglChooseConfig.xhtml[man]
+
+- establish a *EGLSurface* for this window and config with
+  `eglCreateWindowSurface(display, config, native_window, NULL)` -> link:https://registry.khronos.org/EGL/sdk/docs/man/html/eglCreateWindowSurface.xhtml[man]
+
+- define the API binding to use (OpenGL, GLES or OpenVG):
+  `eglBindAPI()` -> link:https://registry.khronos.org/EGL/sdk/docs/man/html/eglBindAPI.xhtml[man]
+
+- finally create the *EGLContext*:
+  `eglCreateContext(display, config, EGL_NO_CONTEXT, contextAttribs)` -> link:https://registry.khronos.org/EGL/sdk/docs/man/html/eglCreateContext.xhtml[man]
+
+- bind this context to the current thread, so that any further OpenGL invocations
+  will implicitly use this setup (-> link:https://registry.khronos.org/EGL/sdk/docs/man/html/eglMakeCurrent.xhtml[man]).
+
+
+
+
+Display video frames with OpenGL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+All the variations of this demo are based on the basic assumption that the actual video
+frame data is already rendered, and available as pixel data in memory. Quite commonly
+users today face a different challenge: given a (compressed) video file or network stream,
+how to decompress and play that, preferably as a »black box« component within the application.
+So in this case, rather a ready-made video player component is desired -- which is beyond the
+scope of this tutorial.footnote:[Have a look at GStreamer, VLC or MPlayer, or use the
+video widgets of GTK-4 or QT.]
+
+Over time, the field of hardware accelerated graphics display has changed significantly;
+through mass production, advanced computation methods for graphical display and an increasing
+level of computation resources is available at consumer pricing levels. This development caused
+a shift in the goals pursued by the OpenGL API specification and a desire to move towards newer
+architecture models to increase the level of parallelisation and throughput.
+
+Starting with OpenGL v3.3, a new _API style_ was codified as the »core profile« -- thereby
+marking the old API style as _legacy,_ which however will be supported for the foreseeable
+future. The reason is that no development of newer OpenGL APIs is expected beyond the 4.x
+series -- since 2017, the industry re-orients and re-groups around the *Vulcan* API,
+which is based on and very similar to the newer _OpenGL core profile._
+
+Fixed Function Pipeline (Legacy)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The old OpenGL APIs, pioneered in the 90ies, strive at abstracting away most technical details.
+Explicit knowledge regarding the drawing operations and concepts is thus directly incorporated
+into the API, which allows to issue _high-level drawing instructions._ For this reason,
+the legacy API is much more approachable for the beginner -- and is still well suited
+for simple applications like in this example, where actually no 3D capabilities, lighting,
+shading and transparency is required.
+
+- the setup configures one texture, which serves to map the video frame pixels
+  into a simple 2D shape placed within the window. In this legacy setup, the
+  GL_TEXTURE_RECTANGLE_ARB _extension_ is used for non-rectangular textures with
+  pixel based coordinates, where the dimensions are not limited to powers of two.
+- the link:https://registry.khronos.org/OpenGL-Refpages/gl2.1/xhtml/glViewport.xml[Viewport]
+  is placed in the middle of the available screen space in the GTK-Window.
+- Generally speaking, in OpenGl the Y axis points upwards -- similar to mathematical
+  geometry, yet different to the low-level addressing of video memory and bitmap data.
+- furthermore, all drawing in OpenGl is based on _normalised device coordinates_ (NDC),
+  using values in the range [-1.0 ... +1.0]
+- the link:https://registry.khronos.org/OpenGL-Refpages/gl2.1/xhtml/glMatrixMode.xml[Matrix Mode]
+  for the viewport projection `GL_PROJECTION` is selected, defining a non-perspective,
+  link:https://registry.khronos.org/OpenGL-Refpages/gl2.1/xhtml/glOrtho.xml[Orthographic Projection].
+
+TIP: OpenGL is a _statefull API:_ It is based on a _current context_ -- and there is a selection
+     of basic entities, designated by constant labels like `GL_TEXTURE_2D` or `GL_ARRAY_BUFFER`.
+     The client then creates instances of these »objects« by generating an ID and binding
+     this ID, e.g. a ``texture ID'' to this generic entity class. All subsequent function
+     invocations referring to this kind of entity, e.g. a `GL_TEXTURE_2D` will then
+     implicitly use this specific instance, until another binding is established.
+
+For each frame, a simple shape (quadrilateral) is created and the video image is mapped
+as a texture onto this surface; the setup of the coordinate system ensures the video frame
+covers exactly the desired space.
+
+- texture binding is accomplished by the function
+  `glTexImage2D()` (-> link:https://registry.khronos.org/OpenGL-Refpages/gl2.1/xhtml/glTexImage2D.xml[man]),
+  which loads an _packed array of RGB pixels_ from a memory buffer _into the current texture instance._
+  (In terms of implementation, this implies to download the pixels into _video memory_ mapped to the GPU).
+- a _»fixed function« invocation_ is then used directly to define the vertices and texture mapping points
+  of a link:https://registry.khronos.org/OpenGL-Refpages/gl2.1/xhtml/glBegin.xml[Quadrilateral];
+  this invocation causes this shape to be defined and rendered on the GPU into the _current back buffer._
+- when done with drawing, a *double-buffer flip* is triggered _through GLX_.footnote:[Note that double
+  buffering and display management is a detail of the platform and system integration and can thus not
+  be described in the OpenGL API proper]:
+  `glXSwapBuffers()` -> link:https://registry.khronos.org/OpenGL-Refpages/gl2.1/xhtml/glXSwapBuffers.xml[man]
+- triggering the double-buffer flip also implies to flush the graphics pipeline with `glFlush()` and
+  thus causes all preceding graphics instructions to be actually executed before the back-buffer
+  flips to become the currently displayed video frame
+
+-> see the link:https://registry.khronos.org/OpenGL-Refpages/gl2.1/[Legacy-API reference] (including GLX)
+
+
+
+OpenGL Core Profile with Shaders
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The new-style OpenGL APIs developed after 2007 aim at exposing much more structural details of the
+render pipeline in the GPU, while still abstracting from the actual, vendor-specific implementation.
+The client is _required_ to provide _custom rendering and shading function,_ defined in a C-like
+*Shading Language*. At runtime, executable instructions are _compiled from source code_ embedded
+into the host application and installed on the GPU, to provide a fully configurable graphics pipeline.
+To make good use of this approach, a solid understanding of scan-line based rendering and shading
+is necessary. A good introduction can be found on the
+link:https://learnopengl.com/Getting-started/Hello-Triangle[Learn-OpenGL site].
+
+- after establishing an OpenGL context (see above), a concrete linkage of the various
+  OpenGL extensions is required. On Linux, it is common practice to use the
+  link:https://www.opengl.org/sdk/libs/GLEW/[GLEW Library]
+  (-> link:https://glew.sourceforge.net/[OpenGL Extension Wrangler Library (Sourceforge Homepage)])
+  for this purpose.
+- Lib GLEW _must be initialised after creating the context_ (-> common source of problems):
+  `glewInit()` -> link:https://glew.sourceforge.net/basic.html[doc]
+- Next, we need to
+  link:https://registry.khronos.org/OpenGL-Refpages/gl4/html/glCompileShader.xhtml[compile]
+  and
+  link:https://registry.khronos.org/OpenGL-Refpages/gl4/html/glLinkProgram.xhtml[link]
+  the _Shader Language_ code into executable instructions for the actual GPU.
+  -> see link:https://learnopengl.com/Getting-started/Shaders[Learn-OpenGL: Shaders]
+- Since we still do not actually need any 3D projection, shading or transparency, a minimalistic
+  shader definition is employed, which results in mapping the video frame bitmap pixels directly
+  to screen pixels on the GPU; yet the same approach could also be used to scale the video frames
+  or to convert between colour models, using the computation capabilities of the GPU.
+- For this setup, similar to the GLX version, a flat quadrilateral shape is used as
+  ``projection screen'' for texture mapping. However, the new-style OpenGL core profile does
+  no longer provide »fixed functions« to ``draw'' primitives -- rather, we need to send a set
+  of float coordinates to the GPU and configure a _vertex shader_ to create such a flat shape
+  and texture mapping directly in the render pipeline.
+- This is accomplished by
+  link:https://registry.khronos.org/OpenGL-Refpages/gl4/html/glGenBuffers.xhtml[defining]
+  and
+  link:https://registry.khronos.org/OpenGL-Refpages/gl4/html/glBindBuffer.xhtml[binding]
+  a »Vertex Buffer«, followed by the setup of an
+  link:https://registry.khronos.org/OpenGL-Refpages/gl4/html/glVertexAttribPointer.xhtml[Vertex Attribute]
+  binding for parameters we pass to the graphics pipeline on the GPU.
+- With this setup, we can send an array of float values directly to the GPU in the setup phase,
+  which helps to speed-up the frame rendering process.
+
+It comes as no surprise that the actual frame processing is much more streamlined and efficient
+with the new-style core API: Since all viewport projection is done in shader code and the geometry
+data was already downloaded to the GPU in the setup phase, only the actual frame data will be sent
+
+- Texture bitmap binding works the same way as for the legacy API:
+  `glTexImage2D()` -> link:https://registry.khronos.org/OpenGL-Refpages/gl4/html/glTexImage2D.xhtml[man]
+  sends the pixel data to the GPU; however, in the new-style API we can use the generic `GL_TEXTURE_2D`
+  entity, since limitations regarding dimensions and pixel format have been resolved. Note though that
+  this implies that the texture mapping must now be defined in _normalised device coordinates_ [-1.0 ... 1.0]
+  and no longer in absolute pixel coordinates of the bitmap image.
+- To render this frame, the GPU is instructed to interpret the provided float data according
+  to the scheme for a quadrilateral:
+  glDrawArrays(GL_QUADS, 0, 4) -> link:https://registry.khronos.org/OpenGL-Refpages/gl4/html/glDrawArrays.xhtml[man]
+- A buffer-flip --
+  link:https://registry.khronos.org/EGL/sdk/docs/man/html/eglSwapBuffers.xhtml[instructed through EGL]
+  publishes this image to the video display
+
+
+Vulkan
+------
+The link:https://en.wikipedia.org/wiki/Vulkan[Vulkan] standard for 3D graphics and computing
+is developed since 2015, intending to address shortcomings of OpenGL, to support a wide variety of GPUs,
+CPUs, devices and operating systems, and is especially designed to work with modern multi-core CPUs.
+Vulkan utilises a similar API style to the modern OpenGL core profile, offering developers enhanced control
+over the graphics pipeline, including direct management of resources, synchronisation, and rendering operations.
+However, Vulkan distinguishes itself by using a different shader language that requires pre-compiling code into
+*SPIR-V* (Standard Portable Intermediate Representation), which is a binary format that compiles down to various
+target platforms -- as opposed to OpenGL's use of GLSL, which is compiled at runtime. The design of Vulkan
+gives developers fine-grained control in their graphics applications, allowing to implement advanced
+rendering techniques, or to achieve an increased level of resource management and performance optimisation.
+
+[purple]#maybe provide an example?#
+
+Wayland
+-------
+While this tutorial is based on X11 as foundation for the desktop, the increasingly popular
+link:https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)[Wayland] display server protocol
+and compositor also uses *EGL* to allow clients to draw directly into a framebuffer. So the flexibility
+provided by EGL carries over into a Wayland based setup, where client code is basically free to use
+either modern OpenGL core APIs, GLES, OpenVG or Vulkan for the actual graphics programming.
+
+[purple]#seems rather we can not cover that here in more detail#
+
