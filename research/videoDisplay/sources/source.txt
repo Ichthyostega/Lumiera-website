@@ -1,0 +1,43 @@
+Getting Your Hands Dirty with Video Output on Linux Using C++
+=============================================================
+
+:Author:             Benny Lyons & Hermann Vosseler
+:Email:              <benny.lyons@gmx.net>, <Ichthyostega@web.de>
+:Date:               2025
+:source-highlighter: coderay
+
+
+Sources
+-------
+ * link:sdl1.html[Minimal: .../examples/skel/demo.cpp]
+ * link:xvideo.html[XServer: .../examples/xvideo/demoXV.cpp]
+ * link:sdl1.html[SDL Legacy: .../examples/sdl1/demoSDL1.cpp]
+ * link:glx.html[OpenGL: .../examples/glx/demoGLX.cpp]
+ * link:egl.html[EGL: .../examples/glx/demoEGL.cpp]
+ 
+
+Headers
+-------
+  * link:headers.html[Common Headers: commons.hpp, image-generator.hpp]
+  * link:gtk-app.html[.../examples/skel/gtk-app.hpp]
+  * link:gtk-xv-app.html[.../examples/xvideo/gtk-xv-app.hpp]
+  * link:gtk-sdl-app.html[.../examples/sdl1/gtk-sdl-app.hpp]
+  * link:gtk-glx-app.html[.../examples/glx/gtk-glx-app.cpp]
+  * link:gtk-egl-app.html[.../examples/egl/gtk-egl-app.hpp]
+
+Obtaining Sources from the Git Repository
+-----------------------------------------
+
+---------------------------------------------------
+$ git clone git://git.lumiera.org/extra/froscon.git
+---------------------------------------------------
+
+
+Building
+--------
+
+[,shell]
+-------------------------------------
+include::../../examples/README[]
+-------------------------------------
+
