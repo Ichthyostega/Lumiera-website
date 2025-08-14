@@ -1,6 +1,6 @@
-[,C++, linenos]
+[source,Cpp]
 ---------------------------------------------
-include::../../examples/egl/gtk-egl-app.hpp[]
+include::code/egl/gtk-egl-app.hpp[]
 ---------------------------------------------
 
 

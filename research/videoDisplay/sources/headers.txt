@@ -5,15 +5,15 @@ Headers
 commons.hpp
 -----------
 
-[, C++, linenos]
+[source,Cpp]
 ----------------------------------------------------
-include::../../examples/xvideo/commons.hpp[]
+include::code/xvideo/commons.hpp[]
 ----------------------------------------------------
 
 image-generator.hpp
 --------------------
 
-[, C++, linenos]
+[source,Cpp]
 ----------------------------------------------------
-include::../../examples/xvideo/image-generator.hpp[]
+include::code/xvideo/image-generator.hpp[]
 ----------------------------------------------------

@@ -1,6 +1,6 @@
-[,C++, linenos]
+[source,Cpp]
 ------------------------------------------------
-include::../../examples/sdl1/gtk-sdl-app.hpp[]
+include::code/sdl1/gtk-sdl-app.hpp[]
 ------------------------------------------------
 
 

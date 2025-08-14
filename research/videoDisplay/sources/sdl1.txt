@@ -1,5 +1,5 @@
 
-[,C++, linenos]
+[source,Cpp]
 --------------------------------------------
-include::../../examples/sdl1/demoSDL1.cpp[]
+include::code/sdl1/demoSDL1.cpp[]
 --------------------------------------------

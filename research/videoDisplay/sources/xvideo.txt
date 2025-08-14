@@ -1,6 +1,6 @@
 
-[, C++, linenos]
+[source,Cpp]
 --------------------------------------------
-include::../../examples/xvideo/demoXV.cpp[]
+include::code/xvideo/demoXV.cpp[]
 --------------------------------------------
 

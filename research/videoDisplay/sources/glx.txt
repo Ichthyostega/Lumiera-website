@@ -1,4 +1,4 @@
-[,C++, linenos]
+[source,Cpp]
 --------------------------------------------
-include::../../examples/glx/demoGLX.cpp[]
+include::code/glx/demoGLX.cpp[]
 --------------------------------------------

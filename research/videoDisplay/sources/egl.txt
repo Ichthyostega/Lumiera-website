@@ -1,5 +1,5 @@
-[,C++, linenos]
+[source,Cpp]
 --------------------------------------------
-include::../../examples/egl/demoEGL.cpp[]
+include::code/egl/demoEGL.cpp[]
 --------------------------------------------
 

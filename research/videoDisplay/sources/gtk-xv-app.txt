@@ -1,7 +1,6 @@
-
-[,C++, linenos]
+[source,Cpp]
 -----------------------------------------------
-include::../../examples/xvideo/gtk-xv-app.hpp[]
+include::code/xvideo/gtk-xv-app.hpp[]
 -----------------------------------------------
 
 

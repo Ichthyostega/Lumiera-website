@@ -1,4 +1,4 @@
-[,C++, linenos]
+[source,Cpp]
 --------------------------------------------
-include::../../examples/skel/gtk-app.hpp[]
+include::code/skel/gtk-app.hpp[]
 --------------------------------------------

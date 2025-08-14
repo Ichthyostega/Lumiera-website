@@ -38,6 +38,7 @@ $ git clone git://git.lumiera.org/extra/video-output.git
 More Documentation
 ------------------
 See:
+
  * link:sources/code/README.html[README] with build instructions
  * link:description.html[Description of the demo examples]
  * link:resources.html[More links and resources]]
