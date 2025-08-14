@@ -51,13 +51,14 @@ def addPredefined():
     root.linkChild('download')
     root.linkChild('contribute')
     root.linkChild('search')
+    root.linkChild('research')
     
     vault = root.linkChild(Node('devs-vault', label="Dev's Vault"))
     
     root.enabled(False)   # suppress adding any further children
     
-    # explicitly recurse into the following subdirectories
-    root.discover(includes='project documentation download contribute search devs-vault'.split())
+    # explicitly recurse into the following sub directories
+    root.discover(includes='project documentation download contribute search research devs-vault'.split())
     
     proj.linkChild ('screenshots')
     proj.linkChild ('faq')

@@ -1,0 +1,11 @@
+Research
+========
+
+//MENU: label Research
+//
+//Note order of top level menu entries is setup statically in menugen.py
+
+This section contains research projects,
+whereby the results are intended as input to Lumiera.
+
+- link:videoDisplay/index.html[How to output video frames from a desktop application]
