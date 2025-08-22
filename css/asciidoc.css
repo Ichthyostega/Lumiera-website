@@ -295,8 +295,10 @@ span.image img {
 }
 
 div.imageblock img {
-    padding-left: 13%;
-    border: 0px solid silver;
+    border-style: none;
+ /* NOTE: no further settings here
+    to allow direct settings on the img element
+  */
 }
 
 
