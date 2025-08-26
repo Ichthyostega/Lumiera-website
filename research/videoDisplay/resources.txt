@@ -14,9 +14,9 @@ Theory: Colour Spaces
 Advanced topics regarding colour spaces
 
  - The relation of CIE1931 vs Rec.709 and the perceptual Lu'v' colourspace
-   is discussed and depicted link::https://www.portrait.com/resource-center/introduction-to-colorspace-measurement/[here]
- - sRGB gammut in CIE1931: link::https://en.wikipedia.org/wiki/File:SRGB_chromaticity_CIE1931.svg[Wikipedia, SVG] ·
-   link::https://en.wikipedia.org/wiki/File:Cie_Chart_with_sRGB_gamut_by_spigget.png[with Planckian locus and colour temperature]
+   is discussed and depicted https://www.portrait.com/resource-center/introduction-to-colorspace-measurement/[here]
+ - sRGB gammut in CIE1931: https://en.wikipedia.org/wiki/File:SRGB_chromaticity_CIE1931.svg[Wikipedia, SVG] ·
+   https://en.wikipedia.org/wiki/File:Cie_Chart_with_sRGB_gamut_by_spigget.png[with Planckian locus and colour temperature]
 
 Pixel formats
 ~~~~~~~~~~~~~
@@ -44,19 +44,14 @@ Standards
 ---------
 XVideo
 ~~~~~~
-[blue yellow-background]#WIP#
-
  * link:https://en.wikipedia.org/wiki/X_video_extension[Wikipedia: X video extension]
  * link:https://www.x.org/releases/current/doc/videoproto/xv-protocol-v2.txt[Xv Spec 2.0]
  * link:https://www.x.org/current/doc/man/man3/[XOrg: X11R7 Library Functions]
  * link:https://www.x.org/releases/current/doc/man/man3/Xv.3.xhtml[XV man]
 
-[red]#TODO#
 
 SDL
 ~~~
-[blue yellow-background]#WIP#
-
  * link:https://en.wikipedia.org/wiki/Simple_DirectMedia_Layer[Wikipedia: Simple DirectMedia Layer]
  * Documentation
 
@@ -68,7 +63,13 @@ SDL
    ** link:https://examples.libsdl.org/SDL3/[Collection of SDL-3 examples]
    ** link:https://lazyfoo.net/SDL_tutorials/[Lazy Foo SDL-1 Tutorial]
 
-[red]#TODO#
+[red]#TODO: could be upgraded to SDL v2 / v3#
+
+WARNING: Research regarding SDL is incomplete, and the demo code can not handle
+         display embedded into the application window. Since SDL typically delegates
+         to OpenGL, and usage of SDL is not simpler than using OpenGL directl,
+         we did not consider SDL especially relevant for Linux.
+
 
 OpenGL
 ~~~~~~
@@ -117,13 +118,12 @@ glxinfo | grep "OpenGL version"
       *** link:https://learnopengl.com/Getting-started/Shaders[Shaders]
       *** link:https://learnopengl.com/Getting-started/Textures[Textures]
  
-[red]#TODO#
 
 Vulcan
 ~~~~~~
-[purple]#maybe#
+[purple]#maybe more research here...#
 
 Wayland
 ~~~~~~~
-[purple]#maybe#
+[purple]#maybe more research here...#
 

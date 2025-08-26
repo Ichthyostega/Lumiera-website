@@ -1,0 +1,23 @@
+Demo Code
+=========
+
+//MENU: prepend gtk-app
+//MENU: prepend sdl1
+//MENU: prepend xvideo
+//MENU: prepend glx
+//MENU: prepend egl
+
+//MENU: prepend headers
+//MENU: prepend README
+
+ * link:README.html[README]
+ * link:headers.html[Common Headers]
+ * link:xvideo.html[XServer: demoXV.cpp]
+ * link:glx.html[OpenGL: demoGLX.cpp]
+ * link:egl.html[EGL: demoEGL.cpp]
+
+.Git Repository
+---------------------------------------------------
+$ git clone git://git.lumiera.org/extra/video-output.git
+---------------------------------------------------
+

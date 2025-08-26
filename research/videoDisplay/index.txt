@@ -1,12 +1,19 @@
 Getting Your Hands Dirty with Video Output on Linux Using C++
 =============================================================
-
-:Author:             Benny Lyons & Hermann Vosseler
-:Email:              <benny.lyons@gmx.net>, <Ichthyostega@web.de>
-:Date:               2025
-:source-highlighter: coderay
+:Author: Benny Lyons, Hermann Vosseler
+:Email:  benny.lyons@gmx.net, Ichthyostega@web.de
+:Date:   August 2025
 
 //MENU: label Video Display
+//MENU: append child sources
+
+.Talk at FrOSCon 2025
+This research was motivated by the effort towards a first integration
+of the Lumiera render engine; an overview of the results and parts of the code
+were https://programm.froscon.org/2025/events/3316.html[presented in a talk]
+at the https://froscon.org/[FrOSCon conference] 2025.
+The video stream was recorded and archieved at
+https://media.ccc.de/v/froscon2025-3316-getting_your_hands_dirty_with_video_output_on_linux_using_c[media.ccc.de]
 
 
 Sources
@@ -18,7 +25,7 @@ Sources
  
 
 Headers
--------
+~~~~~~~
   * link:sources/headers.html[Common Headers: commons.hpp, image-generator.hpp]
   * GTK Application to launch the demos:
   
@@ -27,9 +34,9 @@ Headers
     ** link:sources/gtk-glx-app.html[gtk-glx-app.cpp]
     ** link:sources/gtk-egl-app.html[gtk-egl-app.hpp]
 
-Obtaining Sources from the Git Repository
------------------------------------------
-
+Obtaining Sources from Git
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+link:https://git.lumiera.org/gitweb?p=extra/video-output.git;a=tree[browse content...]
 ---------------------------------------------------
 $ git clone git://git.lumiera.org/extra/video-output.git
 ---------------------------------------------------
@@ -39,7 +46,7 @@ More Documentation
 ------------------
 See:
 
- * link:sources/code/README.html[README] with build instructions
+ * link:sources/README.html[README] with build instructions
  * link:description.html[Description of the demo examples]
- * link:resources.html[More links and resources]]
+ * link:resources.html[More links and resources]
  
