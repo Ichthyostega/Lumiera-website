@@ -7,7 +7,7 @@ Video Output Example Code
 
 This directory contains a collection of code examples to demonstrate how to
 display generated video frames from a C++ application running under Linux.
-The code is Open Source and can be used under the terms of the MIT License.
+The code is Free Software and can be used under the terms of the *GPL v2+*.
 See the file LICENSE for details.
 
 

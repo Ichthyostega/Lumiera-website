@@ -10,7 +10,9 @@ Demo Code
 //MENU: prepend headers
 //MENU: prepend README
 
- * link:README.html[README]
+This code is Free Software and can be used under the terms of the *GPL v2+*.
+
+ * link:README.html[README] ^link:code/LICENSE[(License: GPL 2+)]^
  * link:headers.html[Common Headers]
  * link:xvideo.html[XServer: demoXV.cpp]
  * link:glx.html[OpenGL: demoGLX.cpp]
