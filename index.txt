@@ -43,6 +43,6 @@ Check Lumiera's Pulse:
 
  * link:https://git.lumiera.org/gitweb?p=LUMIERA[Lumiera Git Master]
  * link:https://git.lumiera.org/gitweb?p=lumiera/ichthyo;h=refs/heads/play;a=summary;[currently most active branch]
- * link:https://issues.lumiera.org/timeline?daysback=180&ticket=on&update=Update[Issue tracker activity]
 
 
+ * link:https://issues.lumiera.org/timeline?daysback=180&ticket=on&update=Update[Issue tracker activity] link:https://www.lumiera.org/bait[​]

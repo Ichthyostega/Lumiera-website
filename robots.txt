@@ -5,6 +5,7 @@ Disallow: /static
 Disallow: /admin
 Disallow: /attic
 Disallow: /debian/pool
+Disallow: /bait
 
 User-Agent: AhrefsBot
 Crawl-Delay: 35
