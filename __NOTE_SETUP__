@@ -1,0 +1,51 @@
+NOTE: how to setup the Lumiera-Website
+
+The Website is built with Asciidoc (the old python flavour).
+Thus you need to install `apt install asciidoc`
+
+There is a script `build-website.sh` to generate the HTML-pages
+from the Asciidoc sources. Furthermore there is a python script
+to build the navigation-menue (and this script is invoked
+automatically from build-website.sh)
+
+Typically you want to integrate this build-script as a Git-hook,
+so that the Website is automatically rebuilt on each Git push.
+
+
+However -- we integrate some subdirectories from other Git repositories,
+which also provide Asciidoc sources. Most notably, the main Lumiera repository
+holds the complete technical documentation.
+
+Thus you need to provide extra working directories for these additional
+components, and check our an appropriate branch there. And in addition to that,
+you need to set up a symlink *manually* to point to those extra components.
+
+(In the future we plan to use git-submodules eventually)
+
+
+git://git.lumiera.org/lumiera_documentation
+
+ln -s <checkout-of-this-repo>/doc documentation
+
+
+
+Furthermore, a Debian Apt-Depot for DEB packages is included.
+The setup of this repository is managed by the "reprepro" tool,
+which is part of the Debian distribution (apt install reprepro).
+
+The configuration for this repository is maintained in this Git-Repo
+git://git.lumiera.org/debian/lumiera
+
+you need to checkout branch "depot" and then build the repository
+with the reprepro tool. However, some index and information page
+in Asciidoc format is directly included on that branch, in the
+file 'depot/index.txt'
+
+Typically you'll maintain this DEB repo locally and publish the
+contents of the 'depot' directory with `rsync`
+
+For this to work, you need to setup a symlink
+
+ln -s <depot-directory> debian
+
+
