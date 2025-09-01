@@ -49,7 +49,7 @@ Complete small tasks
 We always have small needs and necessities, please check our issue tracker; +
 If in doubt, ask on the mailing list.
 
--> see link:https://issues.lumiera.org/report/15[small/non-coding tasks] in our Trac.
+-> see https://issues.lumiera.org/report/15[small/non-coding tasks] in our Trac.
 
 
 Contribute to the Lumiera design
@@ -61,7 +61,7 @@ We base the development of the design on **RfC**s; these start out as proposals 
 or users -- we'll discuss them on the next IRC meeting, work in modifications and finally
 accept or drop them...
 
--> read more about our link:{l}/documentation/devel/rfc.html[RfC system].
+-> read more about our link:{ldoc}/devel/rfc.html[RfC system].
 
 
 Start contributing to the code
@@ -128,5 +128,5 @@ Resources
 * we care for code quality -- please have a look at our
   link:{ldoc}/technical/code/codingGuidelines.html[coding guidelines] +
   and consider the principles of
-  link:{l}/project/background/CleanCodeDevelopment.html[Clean Code].
+  link:/project/background/CleanCodeDevelopment.html[Clean Code].
 

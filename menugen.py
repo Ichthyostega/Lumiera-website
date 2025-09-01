@@ -86,11 +86,10 @@ def addPredefined():
     doc.discover(includes='user design technical'.split())
     
     # define external links
-    doc.link('https://lumiera.org/doxy',           label="API Doc (Doxygen)")
+    doc.link('/doxy',                              label="API Doc (Doxygen)")
     proj.link('https://issues.lumiera.org/roadmap',label="Roadmap (Trac)")
-    vault.link('https://git.lumiera.org/gitweb',   label="Gitweb")
-    vault.link('https://lumiera.org/wiki/renderengine.html',
-                                                   label="TiddlyWiki")
+    vault.link('https://git.lumiera.org/','gitweb',label="Gitweb")
+    vault.link('/wiki/renderengine.html',          label="Development TiddlyWiki")
     
     # ordering of news entries
     Node('news').sortChildren(reverse=True) \

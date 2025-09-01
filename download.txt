@@ -45,16 +45,16 @@ Build it, try it...
 
 We use a distributed infrastructure based on *Git* repositories.
 To learn how to compile Lumiera from source, you might want to read our tutorial
-link:{l}/documentation/user/tutorials/building.html[»Building Lumiera from source«].
+link:{ldoc}/user/tutorials/building.html[»Building Lumiera from source«].
 
 Additional resources
 ^^^^^^^^^^^^^^^^^^^^
 - browse, review and download current Lumiera code and more from our various
-  Git repositories, link:http://www.lumiera.org/gitweb[browsable online here].
+  Git repositories, http://git.lumiera.org/[browsable online here].
 - find more information about the project in the 
-  link:{l}/project/index.html[Project section].
+  link:/project/index.html[Project section].
 - for in-depth design and technical documentation and further tutorials
-  please see the link:{lDoc}/user/intro/intro.html[Documentation section].
+  please see the link:{ldoc}/user/intro/intro.html[Documentation section].
 
 
 
@@ -62,5 +62,5 @@ Contribute
 ~~~~~~~~~~
 Lumiera is an ambitious project -- to reach our goals we need your help.
 Even if you're not a coder, there are various ways you could
-link:{l}/contribute.html[help the project].
+link:/contribute.html[help the project].
 

@@ -26,7 +26,7 @@ design, helping people to understand the ideas behind Lumiera and the tools they
 will get to work with. It is aimed for workflow designers and anyone who wants to 
 know how Lumiera works in general. The document is still in draft form, but already 
 useful. Read the 
-link:http://git.lumiera.org/gitweb?p=lumiera/ct;a=blob;f=doc/user/lumiera_from_outer_space/lumiera_from_outer_space.txt;h=75be10ba3534be344a2f9feeb60784a6776ef695;hb=documentation[Asciidoc draft]. +
+https://git.lumiera.org/?p=lumiera/ct;a=blob;f=doc/user/lumiera_from_outer_space/lumiera_from_outer_space.txt;h=75be10ba3534be344a2f9feeb60784a6776ef695;hb=documentation[Asciidoc draft]. +
 _^([,yellow]#note:# meanwhile this text has been integrated into the
 link:{ldoc}/user/intro/intro.html[Documentation Section] of the website)^_
 
@@ -40,7 +40,7 @@ to the very things you want to control.
 
 Brian Rytel (_BJMR_) launched brainstorming with a little GUI mock-up incorporating 
 the pre-existing GUI ideas already floating around. It was well received, feel free to share your thoughts.
-See the full discussion on the http://lists.lumiera.org/pipermail/lumiera/2010-July/001990.html[Mailing list Archives]. 
+See the full discussion on the https://lists.lumiera.org/pipermail/lumiera/2010-July/001990.html[Mailing list Archives]. 
 
 _BJMR_ is working on the content and style of the new website. 
 

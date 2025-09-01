@@ -142,15 +142,16 @@ _CALL FOR TESTERS_ - We are looking for people using MacOS, BSD, OpenSolaris or
 ////
 
 *September 5 2009*::
-        The page about our link:froscon09.html[FrOSCon] appearance is now
+        The page about our link:/media/FrOSCon09/index.html[FrOSCon] appearance is now
         online, still a bit prelimary we work on it.
 
 *September 4 2009*::
-        A new http://freshmeat.sourceforge.net/projects/nobug[release] of
-        https://nobug.pipapo.org/nobug_manual.html[NoBug], our debugging library is
-        out. Lumiera needs this new version from now on. We are on the track
-        for a production release really soon. Some help for testing and
-        improving the documentation is still needed.
+
+        A new release of https://nobug.pipapo.org/nobug_manual.html[NoBug], our
+        debugging library is out. Lumiera needs this new version from
+        now on. We are on the track for a production release really
+        soon. Some help for testing and improving the documentation is
+        still needed.
 
 *September 3 2009*::
         Mario from https://www.lxde.org/[LXDE] talked with us at FrSOCon. This

@@ -17,8 +17,7 @@ Lumiera is a Free/Open Source project to build a Non-Linear Video Editing (NLE) 
 Its primary focus is professional editing, quality, usability and flexibility.
 The application is still in a pre-alpha state and is not yet ready for normal use.
 
--> link:/project/index.html[Read more about the Lumiera Project] +
--> link:/project/faq.html[Frequently Asked Questions]
+-> link:/project/index.html[Read more about the Lumiera Project]
 
 ....
 
@@ -46,6 +45,6 @@ link:https://www.lumiera.org/bait.html[​]
 Check Lumiera's Pulse:
 -----------------------
 
- * link:https://git.lumiera.org/gitweb?p=LUMIERA[Lumiera Git Master]
- * link:https://git.lumiera.org/gitweb?p=lumiera/ichthyo;h=refs/heads/play;a=summary;[currently most active branch]
- * link:https://issues.lumiera.org/timeline?daysback=180&ticket=on&update=Update[Issue tracker activity]
+ * https://git.lumiera.org/?p=LUMIERA[Lumiera Git Master]
+ * https://git.lumiera.org/?p=lumiera/ichthyo;h=refs/heads/play;a=summary;[currently most active branch]
+ * https://issues.lumiera.org/timeline?daysback=180&ticket=on&update=Update[Issue tracker activity]

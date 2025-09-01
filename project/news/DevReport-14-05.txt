@@ -78,11 +78,11 @@ the defacto annual Lumiera get-together.  This year promises to continue the
 slowly emerging tradition of meeting up either before or after the conference.
 FroSCon takes place this year from 23 to the 24 of August, and Lumiera members
 and enthusiasts will discuss plans on our regular IRC meetings and on our
-link:{l}/project/contact.html[Mailing List].
+link:/project/contact.html[Mailing List].
 
 Stay in Touch
 -------------
-Keep checking {l}[lumiera.org] for updates, join our
+Keep checking https://Lumiera.org[Lumiera.org] for updates, join our
 https://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[mailing list] or give
 us a visit on IRC at #lumiera.
 

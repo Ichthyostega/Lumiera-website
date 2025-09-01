@@ -3,6 +3,7 @@ wiki
 doxy
 static
 gitweb.css
+asciidoc_log
 *.html
 *.pyc
 .*

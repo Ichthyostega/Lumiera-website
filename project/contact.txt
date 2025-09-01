@@ -5,9 +5,9 @@ Mailing List
 ------------
 
 For all kinds of questions, proposals, general as well as technical questions, the
-link:http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[lumiera@lists.lumiera.org] Mailing List
+https://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[lumiera@lists.lumiera.org] Mailing List
 is the right location. Deliberately, this list is both for coders and (prospective) users.
-Non-members may post (without link:http://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[subscribing]),
+Non-members may post (without https://lists.lumiera.org/cgi-bin/mailman/listinfo/lumiera[subscribing]),
 but such messages will be moderated.
 
  * our own mailing list archives are available http://lists.lumiera.org/pipermail/lumiera/[on our server].

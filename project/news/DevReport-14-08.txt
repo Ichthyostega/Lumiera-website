@@ -8,7 +8,7 @@ Lumiera Summer Report
 
 FrOSCon 2014 and the Annual Lumiera Project Meeting
 ---------------------------------------------------
-The link:http://www.froscon.de/en/home/[FrOSCon conference] has become
+The https://www.froscon.de/en/home/[FrOSCon conference] has become
 the defacto annual meeting for the Lumiera community.  It was held this year
 on August 23'rd and 24'th in Sankt Augustin, near Bonn in Germany.  Lumiera was
 one again represented at the conference with a developer room,
