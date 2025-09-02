@@ -10,7 +10,7 @@ Lumiera 2019 Development Report
 .Introduction
 We review the status of the project here.  Traditionally, we present _our_
 view of the project.  However, for opinions from another perspective outside the
-Lumiera team, some statistics about Lumiera, https://www.openhub.net/p/lumiera/[Openhub]
+Lumiera team, some statistics about Lumiera, https://openhub.net/p/lumiera/[Openhub]
 might be interesting:
 
  - 115,094 lines of code; 88% written in C++

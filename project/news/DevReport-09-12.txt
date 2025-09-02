@@ -13,7 +13,8 @@ After a long silence (in busy times one forgets to update a website) we're ready
 .So off we go. 
 
 As you might know, the development of Lumiera has been divided into three sections: backend, proc-layer and GUI. Due to circumstances work on the backend and GUI parts have slowed down a bit. +
-For the backend this was caused by the amount of work it took to get https://nobug.pipapo.org[NoBug] (Lumiera's debugging library, used for logging, diagnosis and detection of misaligned resource handling) and \http://freshmeat.sourceforge.net/projects/uwiki[uWiki] (our wiki-engine) up and running.
+For the backend this was caused by the amount of work it took to get https://nobug.pipapo.org[NoBug] (Lumiera's debugging library, used for logging, diagnosis and detection of misaligned resource handling)
+and 'http://freshmeat.sourceforge.net/projects/uwiki' (a wiki-engine) up and running.
 
 image:/media/FrOSCon09/uwiki.png["uWiki", width=180]
 

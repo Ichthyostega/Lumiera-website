@@ -105,8 +105,10 @@ model'', rather on a connection to the UI-Bus.
 Collaboration and Exchange of Ideas
 -----------------------------------
 Last winter, there was an inspiring conversation and exchange of ideas between _Ichthyo_ and _Andrej_ from
-https://www.apertus.org/en/opencine[OpenCine project], which is related to the
-https://www.apertus.org/[Apertus°] effort. These new cameras will provide raw sensor
+https://web.archive.org/web/20160625130342/https://www.apertus.org/en/opencine[OpenCine project],
+which is related to the
+https://web.archive.org/web/20160611051605/https://www.apertus.org/en/[Apertus°] effort.
+These new cameras will provide raw sensor
 data. Obviously, we require a free application to develop raw video stream data, in a way similar to
 what is known from developing raw digital (still) images. Starting from ``how to integrate for
 example into Lumiera?'', the discussion quickly turned towards requirements to enable integration of

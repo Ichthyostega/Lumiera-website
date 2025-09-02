@@ -14,7 +14,7 @@ Karlsruhe in 2003.
 
 Some of the Lumiera developers were there helping out with organisation:
 _cehteh_, _ichthyo_ and _ibenn_. You might be able to see us peeping through in
-http://lac.linuxaudio.org/2014/[this picture].  The conference provided us with
+https://lac.linuxaudio.org/2014/[this picture].  The conference provided us with
 an opportunity to meet up and discuss Lumiera and see old friends from the
 world of FOSS Audio.
 

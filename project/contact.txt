@@ -17,7 +17,7 @@ IRC
 ---
 We've moved from Freenode to Libera.Chat.
 Lumiera developers congregate on the IRC channel [yellow-background]#+#lumiera+# at https://libera.chat/[Libera Chat].
-Thats also where we do our link:/devs-vault/meeting[monthly developers meeting].
+That is also where we hold our link:/devs-vault/meeting/[monthly developers meeting].
 If unfamiliar with IRC, you may try out Libera's https://libera.chat/guides/webchat[webchat interface].
 
 All welcome to drop by.

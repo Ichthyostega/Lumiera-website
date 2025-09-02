@@ -64,7 +64,7 @@ and solutions within the community of volunteers behind this project.
 Lumiera: Project History
 ------------------------
 
-The roots of the project can be traced back to the https://cinelerra-cv.wikidot.com[Cinelerra-CV]
+The roots of the project can be traced back to the http://cinelerra-cv.wikidot.com[Cinelerra-CV]
 community. +
 While Cinelerra was held in no small esteem by many, it suffers from a number of
 limitations, which are nestled deep within the code base. One consequence of this is the difficulty in

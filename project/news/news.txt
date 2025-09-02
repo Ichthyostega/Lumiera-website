@@ -8,7 +8,7 @@ Comment irrelevant stuff out
       Presentation at FrOSCon 2025:
       +
 * link:https://programm.froscon.org/froscon2025/talk/f5d0b872-2142-4f1c-88a8-081429b87b1c/[Getting Your Hands Dirty with Video Output on Linux Using C++]
-* link:{l}/research/videoDisplay/index.html[Code examples]
+* link:/research/videoDisplay/index.html[Code examples]
       
 *November 2023*::
       Playback Vertical Slice made good progress.

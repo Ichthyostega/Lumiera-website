@@ -112,7 +112,7 @@ and improved to facilitate component wiring. A service can now be exposed so tha
 up at another site that is not directly connected to the site at which the service was exposed.
 
 Components are now guarded during initialisation using
-https://en.cppreference.com/w/cpp/atomic[`std::atomic`] from the recent standard C++ improvements.
+https://en.cppreference.com/w/cpp/atomic.html[`std::atomic`] from the recent standard C++ improvements.
 
 -> link:{ldoc}/technical/library/Dependencies.html[Details].
 

@@ -9,13 +9,20 @@ Developers
 //
 
 
-_cehteh_::
-  *Christian Thäter* +
-  Backend, Library, Infrastructure
-  
+Active
+------
+
 _ichthyo_::
   *Hermann Vosseler* +
-  Model, Renderengine, Architecture
+  Architecture, Model, Renderengine, GUI
+
+
+Former Contributors
+-------------------
+
+_cehteh_::
+  *Christian Thäter* +
+  Library, Infrastructure
   
 _joelholdsworth_::
   *Joel Holdsworth* +
@@ -31,7 +38,7 @@ _skangas_::
 
 _mfisher31_::
   *Michael Fisher* +
-  GUI, GTK-3 porting, Jack audio
+  GUI, GTK-3 porting
 
 _simAV_::
   *Simeon Voelkel* +
@@ -42,4 +49,4 @@ _simAV_::
 
 
 ....
-~see also -> https://www.ohloh.net/p/lumiera/contributors[code stats at +ohloh.net+]~
+~see also -> https://openhub.net/p/lumiera/contributors/summary[code stats at +openhub.net+]~

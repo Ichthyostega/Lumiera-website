@@ -10,7 +10,7 @@ Lumiera 2022 Development Report
 In Brief
 ---------
 
-The https://www.froscon.org/en/[FrOSCon conference] opened its doors to people
+The https://froscon.org/en/[FrOSCon conference] opened its doors to people
 and the halls of the college in Sankt Augustin were once again filled with
 visitors this year. Lumiera developers also attended the conference.
 The occasion furnished an ideal opportunity to review the

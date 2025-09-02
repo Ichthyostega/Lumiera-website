@@ -16,7 +16,7 @@ taken within the project.
 NOTE: more contents to be added occasionally
 
 -> see also the link:/documentation/user/[User documentation] and 
-link:/documentation/user/tutorials[Tutorials]
+link:/documentation/user/tutorials/[Tutorials]
 
 
 About the history
@@ -25,7 +25,7 @@ As with many open source projects, it is difficult to determine the
 absolute beginnings precisely. There was no ``kick off'' meeting with
 some people to decide ``now we'll start writing a video editing software''.
 Rather, the initiators of the project were all suffering from some well-known
-problems when using https://cinelerra-cv.wikidot.com[Cinelerra-CV]...
+problems when using http://cinelerra-cv.wikidot.com[Cinelerra-CV]...
 
 -> link:history[read more about the project history]
 

@@ -11,29 +11,30 @@ Integrated & Related Projects
 -----------------------------
 Our projects and those we use
 
- * http://nobug.pipapo.org/[NoBug]
- * http://gmerlin.sourceforge.net/[Gmerlin / GAVL]
- * http://git-scm.com/[Git]
- * http://doxygen.nl[Doxygen]
+ * https://nobug.pipapo.org/[NoBug]
+ * https://github.com/bplaum/gmerlin[Gmerlin] / https://github.com/bplaum/gavl[GAVL]
+ * https://git-scm.com/[Git]
+ * https://doxygen.nl/[Doxygen]
  * https://www.gtk.org/[GTK+]
- * http://asciidoc.org/[AsciiDoc]
- * http://freenode.net/[IRC-Freenode]
+ * https://asciidoc.org/[AsciiDoc]
+ * https://libera.chat/[Libera IRC]
+ * https://freenode.net/[IRC-Freenode]
 
 Other Projects of Interest
 --------------------------
 
- * https://cinelerra-cv.wikidot.com/[Cinelerra CV]
- * https://ardour.org/[Ardour DAW]
- * https://blender.org/[Blender]
- * https://inkscape.org/[Inkscape]
- * http://jackaudio.org/[JACK Audio]
+ * http://cinelerra-cv.wikidot.com/[Cinelerra CV]
+ * https://ardour.org[Ardour DAW]
+ * https://blender.org[Blender]
+ * https://inkscape.org[Inkscape]
+ * https://jackaudio.org/[JACK Audio]
  * https://ffmpeg.org/[FFmpeg]
 
 FLOSS
 -----
 Free GNU/Linux & Open Source Software
 
- * http://froscon.org/[FrOSCon Conference]
+ * https://froscon.org/[FrOSCon Conference]
  * http://linuxaudio.org/lac.html[LAC / Linuxaudio]
 
 

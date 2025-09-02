@@ -247,12 +247,11 @@ References
 ----------
 Unfortunately, the https://web.archive.org/web/20120920012635/http://clean-code-developer.de/[original Clean Code Developer page]
 with extensive explanations is written entirely in German. There was immediately much reception amongst the
-German speaking .NET and Java developers and others -- yet it still seems to be not so well recognized
-in other countries.
+German speaking .NET and Java developers and others -- while reception in other countries was lagging initially.
 
-The http://codescouts.dejung.id.au/tiki-index.php?page=codeScoutsPaths[CodeScouts] have prepared
-a full english translation of the Principles and Practices described on the original page. The translation
-is a bit crude at places -- they used google translation as a starting point. As of 2025, the original
+In 2011, the »CodeScouts« from Australia have prepared
+a full English translation of the Principles and Practices described on the original page. This translation
+was a bit crude at places -- they used google translation as a starting point. As of 2025, the original
 website has been reworked, while retaining most of the original content -- now including an
 https://clean-code-developer.de/en/[English version].
 
@@ -267,10 +266,10 @@ essential read anyway.
 Further articles explaining details
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - https://web.archive.org/web/20120904143623/http://www.pragprog.com/articles/tell-dont-ask[Tell, don't Ask and the Law of Demeter]
-- http://www.objectmentor.com/resources/articles/ocp.pdf[Open-Closed-Principle]
-- http://www.objectmentor.com/resources/articles/lsp.pdf[Liskov Substitution Principle]
-- http://www.objectmentor.com/resources/articles/dip.pdf[Dependency Inversion Principle]
-- http://www.objectmentor.com/resources/articles/isp.pdf[Interface Segregation Principle]
-- http://www.objectmentor.com/resources/articles/srp.pdf[Single Responsibility Principle]
-- http://martinfowler.com/articles/mocksArentStubs.html[Martin Fowler: Mocks aren't Stubs]
+- https://objectmentor.com/resources/articles/ocp.pdf[Open-Closed-Principle]
+- https://objectmentor.com/resources/articles/lsp.pdf[Liskov Substitution Principle]
+- https://objectmentor.com/resources/articles/dip.pdf[Dependency Inversion Principle]
+- https://objectmentor.com/resources/articles/isp.pdf[Interface Segregation Principle]
+- https://objectmentor.com/resources/articles/srp.pdf[Single Responsibility Principle]
+- https://martinfowler.com/articles/mocksArentStubs.html[Martin Fowler: Mocks aren't Stubs]
 

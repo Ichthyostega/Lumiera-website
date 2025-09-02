@@ -1,7 +1,7 @@
 Media Documentation
 ===================
 
-// Menu :  child August-2013 link:/media/Au13.pre/[Developer Meeting and Excursion -- August 2013]
+// Menu :  child August-2013 link:/media/August13/[Developer Meeting and Excursion -- August 2013]
 // Menu :  attach child presentations
 
 Here you will eventually find:

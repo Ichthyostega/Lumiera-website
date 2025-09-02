@@ -11,8 +11,8 @@ In Brief
 ---------
 
 This year has seen an
-https://openhub.net/p/lumiera/factoids#FactoidActivityIncreasing[increase in
-developer activity] in Lumiera. This can be attributed to a strategic decision
+https://openhub.net/p/lumiera/commits/summary[increase in developer activity]
+in Lumiera. This can be attributed to a strategic decision
 made by the developers in recent years to continue devoting time and energy to
 the project. An additional provision has been made to invest significantly more
 developer time in the project. The project should also benefit from a slight
@@ -33,7 +33,7 @@ posed among ourselves -- as to _why continue_ with Lumiera? We discuss the
 question below.
 
 As was customary in all of the previous years, some of the developers met in person
-and attended the annual https://www.froscon.org/en/[FrOSCon conference] in August.
+and attended the annual https://froscon.org/en/[FrOSCon conference] in August.
 
 
 In Detail
@@ -113,7 +113,7 @@ The Lumiera developer news report from last year reported extensively on our
 intention to implement a
 https://en.wikipedia.org/wiki/Vertical_slice[vertical slice].
 There, we also described our reasons for doing this, 
-link:{l}/project/news/DevReport-22-08.html[see report,] and have a
+link:DevReport-22-08.html[see report,] and have a
 link:https://issues.lumiera.org/ticket/1221[tracking ticket.]
 
 Once finished, this vertical slice will allow a user to start the display of

@@ -7,9 +7,11 @@ Lumiera Autumn Report
 
 .Just a short summary this time....
 Last months the Lumiera community has been busy preparing for conferences.
-We have been at https://froscon.org/[FrOSCon 2010] with a booth and a 
-http://programm.froscon.org/2010/events/551.de.html[talk on Lumiera].
-You might want to watch the link:{smedia}/hs12%5F-%5F2010-08-22%5F10%3A00%5F-%5Fde%5F-%5Flumiera%5F-%5Fhermann%5Fvosseler.ogv[video (in German)] from Ichthyo's presentation.
+We have been at https://programm.froscon.org/2010/[FrOSCon 2010] with a booth and a
+https://programm.froscon.org/2010/events/551.de.html[talk on Lumiera].
+You might want to watch the
+https://media.ccc.de/v/froscon10%5F-%5F551%5F-%5Fde%5F-%5Flumiera%5F-%5Fhermann_vosseler[video (in German)]
+from Ichthyo's presentation.
 
 Besides, we have been present at http://www.openvideoconference.org/[OVC] and met the OpenVideo community. +
 After an intermission caused by other duties, _ichthyo_ is now back working

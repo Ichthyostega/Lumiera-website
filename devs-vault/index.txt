@@ -8,7 +8,7 @@ Developers Vault
 // Menu :  prepend child 'devs'
 // Menu :  put child 'roadmap' after 'devs'
 // Menu :  put child 'doxy' after 'roadmap'
-// Menu :  put child 'renderengine' after 'doxy'
+// Menu :  put child 'DevWiki' after 'doxy'
 // Menu :  append child 'gitweb
 // Menu :  append child 'report'
 // Menu :  append child 'design_process'
@@ -61,8 +61,8 @@ In case everything else fails, you may fork there as well.
 Technical Documentation
 -----------------------
 - semi-final detail documentation can be found in the
-  link:/documentation/technical[Documentation section]
-- for work-in-progress on the ``Proc-Layer'', Ichthyo uses an
+  link:/documentation/technical/[Documentation section]
+- for drafts and development notes, Ichthyo uses an
   embedded *TiddlyWiki* in the source tree.
   There you'll find _extensive documentation_ about _internal concepts_,
   design reasoning and UML diagrams. Just point your browser at the

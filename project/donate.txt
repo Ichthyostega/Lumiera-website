@@ -16,11 +16,11 @@ documentation of the project.
 image:{img}/ffis-klein.png[ffis Logo]
 
 Since October 2009, Lumiera has been associated with the
-http://www.ffis.de/[ffis], a German non-profit association for the advancement
+https://www.ffis.de/[ffis], a German non-profit association for the advancement
 of Free Software and Free Information. Notably, ffis can collect donations on
 our behalf and manage our funds.
 
-For payment methods see the http://www.ffis.de/Verein/donations.html[ffis donation page].
+For payment methods see the https://www.ffis.de/Verein/donations.html[ffis donation page].
 If you do not specify any project, your donation will support ffis, Free
 Software and Free Information in general.
 

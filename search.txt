@@ -4,6 +4,7 @@ Search Lumiera.org
 
 Here you may search _focussed_ on Lumiera.org and the Mailingist.
 
+WARNING: this page is [red]#outdated and broken#!
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 <form method="post" action="/cgi-bin/htsearch">

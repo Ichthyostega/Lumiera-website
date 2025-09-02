@@ -44,10 +44,11 @@ Standards
 ---------
 XVideo
 ~~~~~~
- * link:https://en.wikipedia.org/wiki/X_video_extension[Wikipedia: X video extension]
- * link:https://www.x.org/releases/current/doc/videoproto/xv-protocol-v2.txt[Xv Spec 2.0]
- * link:https://www.x.org/current/doc/man/man3/[XOrg: X11R7 Library Functions]
- * link:https://www.x.org/releases/current/doc/man/man3/Xv.3.xhtml[XV man]
+ * https://en.wikipedia.org/wiki/X_video_extension[Wikipedia: X video extension]
+ * https://www.x.org/releases/current/doc/videoproto/xv-protocol-v2.txt[Xv Spec 2.0]
+ * https://www.x.org/current/doc/man/man3/[XOrg: X11R7 Library Functions]
+ * https://www.x.org/releases/current/doc/man/man3/Xv.3.xhtml[XV man]
+ * https://cgit.freedesktop.org/xorg/lib/libXv[libXv repo]
 
 
 SDL
@@ -104,7 +105,8 @@ glxinfo | grep "OpenGL version"
  * The _OpenGL Legacy API_ (up to v2.x) is known as »Fixed Function Pipeline«
  
    ** Explanation in the link:https://www.khronos.org/opengl/wiki/Fixed_Function_Pipeline[Khronos Wiki]
-   ** A compact description of the difference on link:https://stackoverflow.com/a/18978466/444796[Stackoverflow]
+   ** A compact description of the difference at
+      https://stackoverflow.com/questions/18950395/fixed-function-vs-shader-based/18978466#18978466[Stackoverflow]
    ** Discussion: ``Are there reasons to still use OpenGL 2.x/fixed function pipeline?''
       -> link:https://www.reddit.com/r/opengl/comments/hzbn04/are_there_reasons_to_still_use_opengl_2xfixed/[Reddit 2020]
  

@@ -12,7 +12,7 @@ Covid-19 has also affected the Lumiera project as _Ichthyo_ has had a major work
 to bear over the past year in his professional occupation in the financial sector as a developer.
 Moreover he continues to devote
 time to other projectes such as his contribution to 
-http://yoshimi.sourceforge.net/[Yoshimi (soft synthesiser)],
+https://yoshimi.sourceforge.io/[Yoshimi (soft synthesiser)],
 building an acceptance
 https://github.com/Ichthyostega/yoshimi-test/[test framework and a test suite]
 for Yoshimi and a Blender artwork project. However, modest progress has also been seen in Lumiera.   
