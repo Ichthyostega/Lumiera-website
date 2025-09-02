@@ -1,23 +1,30 @@
-NOTE: how to setup the Lumiera-Website
+How to setup the Lumiera-Website
+================================
+
+TIP: see also /documentation/technical/infra/Webserver/Webserver.html
+
 
 The Website is built with Asciidoc (the old python flavour).
 Thus you need to install `apt install asciidoc`
 
-There is a script `build-website.sh` to generate the HTML-pages
-from the Asciidoc sources. Furthermore there is a python script
+There is a script `build_website.sh` to generate the HTML-pages
+from the Asciidoc sources. Furthermore there is a Python script
 to build the navigation-menue (and this script is invoked
 automatically from build-website.sh)
 
 Typically you want to integrate this build-script as a Git-hook,
 so that the Website is automatically rebuilt on each Git push.
+Please ensure that _only select people_ can push to that repository
+and that the corresponding accounts have write permission to the
+website root and linked subdirectories.
 
 
 However -- we integrate some subdirectories from other Git repositories,
 which also provide Asciidoc sources. Most notably, the main Lumiera repository
 holds the complete technical documentation.
 
-Thus you need to provide extra working directories for these additional
-components, and check our an appropriate branch there. And in addition to that,
+Thus you need to provide extra Git working directories for these additional
+components, and check out an appropriate branch there. And in addition to that,
 you need to set up a symlink *manually* to point to those extra components.
 
 (In the future we plan to use git-submodules eventually)
@@ -28,10 +35,22 @@ git://git.lumiera.org/lumiera_documentation
 ln -s <checkout-of-this-repo>/doc documentation
 
 
+The Doxygen generated documentation is also included by symlink
+
+ln -s /<local/path/to/lumiera/checkout>/doc/devel/html/ doxy
+ln -s /<local/path/to/lumiera/checkout>/wiki/           wiki
+
+On the actual webserver, typically you'd want to link to some
+directory instead where those resources are rsynced regularly.
+
+ln -s /var/local/doxy       doxy
+ln -s /var/local/tiddly     wiki
+ln -s /var/local/www_static static
+
 
 Furthermore, a Debian Apt-Depot for DEB packages is included.
 The setup of this repository is managed by the "reprepro" tool,
-which is part of the Debian distribution (apt install reprepro).
+which is part of the Debian distribution (`apt install reprepro`).
 
 The configuration for this repository is maintained in this Git-Repo
 git://git.lumiera.org/debian/lumiera

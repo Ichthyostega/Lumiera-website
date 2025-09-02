@@ -1,4 +1,12 @@
 #!/bin/bash
+#
+# == Generate the Lumiera website from Asciidoc sources ==
+#
+# Copyright 2009-2018, Christian Thaeter <ct@pipapo.org>
+#
+# This program is free software; you can redistribute it and/or modify it
+# under the terms of the GNU GPL version 2+ See the LICENSE file for details.
+#
 DEFAULT_CONF=page
 GROUP=$(find -L index.txt -printf "%g" | head -1)
 PARALLEL=${PARALLEL:-$(nproc || echo 4)}
