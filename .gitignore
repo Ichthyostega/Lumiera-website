@@ -5,6 +5,8 @@ static
 gitweb.css
 asciidoc_log
 *.html
+!x/*html
+!x/*/*.html
 *.pyc
 .*
 *~
