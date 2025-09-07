@@ -6,9 +6,46 @@ Disallow: /admin
 Disallow: /attic
 Disallow: /debian/pool
 Disallow: /bait
+Disallow: /bait.html
+Disallow: /baitattention
+Disallow: /baitdo
+Disallow: /baitnot
+Disallow: /baitclick
+Disallow: /baitthe
+Disallow: /baitlinks
+Disallow: /baiton
+Disallow: /baitthis
+Disallow: /baitpage
+Disallow: /baitor
+Disallow: /baityou
+Disallow: /baitwill
+Disallow: /baitbecome
+Disallow: /baitblack
+Disallow: /baitlisted
+Disallow: /baitweb
+Disallow: /baitserver
+Disallow: /baitattention.html
+Disallow: /baitdo.html
+Disallow: /baitnot.html
+Disallow: /baitclick.html
+Disallow: /baitthe.html
+Disallow: /baitlinks.html
+Disallow: /baiton.html
+Disallow: /baitthis.html
+Disallow: /baitpage.html
+Disallow: /baitor.html
+Disallow: /baityou.html
+Disallow: /baitwill.html
+Disallow: /baitbecome.html
+Disallow: /baitblack.html
+Disallow: /baitlisted.html
+Disallow: /baitweb.html
+Disallow: /baitserver.html
+
 
 User-Agent: AhrefsBot
 Crawl-Delay: 35
 
 User-agent: SemrushBot
 Crawl-delay: 40
+
