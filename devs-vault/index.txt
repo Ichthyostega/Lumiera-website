@@ -90,7 +90,7 @@ IRC Developer meetings
 ~~~~~~~~~~~~~~~~~~~~~~
 We try to ``meet'' at least once every month in our IRC channel +#lumiera+ on Freenode.net +
 Depending on the number of participants and topics to discuss, these meetings are more formal
-or informal. 'Everyone is welcome'  -> more about link:meeting[dev meetings].
+or informal. 'Everyone is welcome'  -> more about link:meeting/[dev meetings].
 
 Design proposals
 ~~~~~~~~~~~~~~~~

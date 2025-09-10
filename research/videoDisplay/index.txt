@@ -5,6 +5,7 @@ Getting Your Hands Dirty with Video Output on Linux Using C++
 :Date:   August 2025
 
 //MENU: label Video Display
+//MENU: append child resources
 //MENU: append child sources
 
 .Talk at FrOSCon 2025

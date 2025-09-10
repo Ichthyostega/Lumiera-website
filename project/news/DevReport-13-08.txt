@@ -13,7 +13,7 @@ the project.
 The Froscon conference approaches.
 As in previous years, members of the Lumiera project will meet again in the
 South of Germany for a few days before heading off on our annual pilgrimage to
-attend the https://www.froscon.de/en/home/[FrOSCon conference].  
+attend the https://programm.froscon.org/2013/[FrOSCon conference].
 
 The Lumiera project will have a developer room at the conference.  We will again
 hold introductory talks on Git and be available throughout the conference to

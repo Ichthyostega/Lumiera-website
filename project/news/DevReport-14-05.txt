@@ -73,7 +73,7 @@ of coding development to the general user: there's nothing to exhibit.
 
 FroSCon 20014: 23-24 August
 ---------------------------
-https://froscon.de[FroSCon] is beginning to establish itself as
+https://froscon.org/en/[FroSCon] is beginning to establish itself as
 the defacto annual Lumiera get-together.  This year promises to continue the
 slowly emerging tradition of meeting up either before or after the conference.
 FroSCon takes place this year from 23 to the 24 of August, and Lumiera members

@@ -26,7 +26,7 @@ might be interesting:
 So why then less activity over the previous year?  _Ichthyo_ devoted a number of
 months pursuing other activities, most notably some music composition projects
 and his contribution to the
-http://yoshimi.sourceforge.net/[Yoshimi soft synthesiser], which emerged after his
+https://yoshimi.sourceforge.io/[Yoshimi soft synthesiser], which emerged after his
 https://media.ccc.de/v/lac2018-12-inbuilt_musicality[Workshop »Inbuilt Musicality« at LAC 2018 Berlin].
 
 

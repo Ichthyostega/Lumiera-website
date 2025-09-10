@@ -13,7 +13,9 @@ You might want to watch the
 https://media.ccc.de/v/froscon10%5F-%5F551%5F-%5Fde%5F-%5Flumiera%5F-%5Fhermann_vosseler[video (in German)]
 from Ichthyo's presentation.
 
-Besides, we have been present at http://www.openvideoconference.org/[OVC] and met the OpenVideo community. +
+Besides, we have been present at
+https://web.archive.org/web/20130430035840/http://openvideoconference.org/archive/2009program.pdf[OVC]
+and met the OpenVideo community. +
 After an intermission caused by other duties, _ichthyo_ is now back working
 on integration of some recently finished parts into the session. The plan
 is then to address topics like output / Jack integration or the builder.

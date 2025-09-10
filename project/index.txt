@@ -86,6 +86,6 @@ of Cinelerra, but is developed from scratch, starting with the engine core.
 Regular developer meetings, active open-source Community participation and stimulating
 communication over the net contributed to form a slowly but steadily maturing project.
 
--> read more about the link:background/history[Project History]
+-> read more about the link:background/history/[Project History]
 
 

@@ -8,7 +8,7 @@ Lumiera Summer Report
 
 FrOSCon 2014 and the Annual Lumiera Project Meeting
 ---------------------------------------------------
-The https://froscon.de/en/[FrOSCon conference] has become
+The https://froscon.org/en/[FrOSCon conference] has become
 the defacto annual meeting for the Lumiera community.  It was held this year
 on August 23'rd and 24'th in Sankt Augustin, near Bonn in Germany.  Lumiera was
 one again represented at the conference with a developer room,
@@ -26,7 +26,7 @@ There is little code progress to report on this time.
 Blender
 -------
 _ichthyo_ has been busy recently.  What initially began as a casual look into
-https://web.archive.org/web/20140829014715/www.blender.org[Blender]
+https://web.archive.org/web/20140829014715/http://www.blender.org/[Blender]
 has resulted in a contribution to the Blender code-base, expanding and improving the
 https://docs.blender.org/manual/en/2.83/movie_clip/tracking/clip/properties/stabilization/introduction.html[function for video stabilisation].
 For example, films made using a hand-held camera result in picture ``shake''.

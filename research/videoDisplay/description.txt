@@ -52,7 +52,7 @@ X-extensions:: actual hardware and setup must support additional features
 - the link:https://www.x.org/releases/current/doc/man/man3/XShm.3.xhtml[XShm shared-memory extensions]
 - and obviously the link:https://www.x.org/releases/current/doc/man/man3/Xv.3.xhtml[XV extension]
 
-build:: need to include the ''X-Lib'' and the mentioned ''X-Extensions''
+build:: need to include the ``X-Lib'' and the mentioned ``X-Extensions''
 +
 - Debian packages: `libx11-dev`, `libxext-dev` and `libxv-dev`
 - package-config: `x11`, `xext` and `xv`
@@ -152,7 +152,7 @@ prerequisites:: SDL library with a suitable backend for your system,
                 »link:https://de.wikipedia.org/wiki/Bit_blit[Block Image Transfer]«.]
                 and format conversion will be hardware-accellerated
 
-build:: need to include a suitable ''SDL API''
+build:: need to include a suitable ``SDL API''
 +
 - Debian packages: `libsdl1.2-dev` (for legacy v1.2) or `libsdl2-dev` or `libsdl3-dev` (new in 2025)
 - package-config: `sdl`

@@ -25,7 +25,7 @@ Other Projects of Interest
 
  * http://cinelerra-cv.wikidot.com/[Cinelerra CV]
  * https://ardour.org[Ardour DAW]
- * https://blender.org[Blender]
+ * https://www.blender.org/[Blender]
  * https://inkscape.org[Inkscape]
  * https://jackaudio.org/[JACK Audio]
  * https://ffmpeg.org/[FFmpeg]

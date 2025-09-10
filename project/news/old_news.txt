@@ -161,7 +161,7 @@ _CALL FOR TESTERS_ - We are looking for people using MacOS, BSD, OpenSolaris or
 	    Thanks to Mario and the radiotux team who made this happen.
 
 *August 22-23 2009*::
-        https://programm.froscon.de/2009/[FrOSCon] was a big success, a lot of people where
+        https://programm.froscon.org/2009/[FrOSCon] was a big success, a lot of people where
         interested in Lumiera! We will show videos, photos and stuff soon.
 
 *June 19-20 2009*::
