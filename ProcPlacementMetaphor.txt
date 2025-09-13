@@ -1,207 +1,38 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html><head>
-
-
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<meta name="robots" content="index,nofollow"><title>Cinelerra3/DesignProcess/ProcPlacementMetaphor - Pipapo Wiki</title>
-
-
-<script type="text/javascript" src="ProcPlacementMetaphor_files/common.js"></script>
-
-<script type="text/javascript">
-<!--// common functions
-
-// We keep here the state of the search box
-searchIsDisabled = false;
-
-function searchChange(e) {
-    // Update search buttons status according to search box content.
-    // Ignore empty or whitespace search term.
-    var value = e.value.replace(/\s+/, '');
-    if (value == '' || searchIsDisabled) { 
-        searchSetDisabled(true);
-    } else {
-        searchSetDisabled(false);
-    }
-}
-
-function searchSetDisabled(flag) {
-    // Enable or disable search
-    document.getElementById('fullsearch').disabled = flag;
-    document.getElementById('titlesearch').disabled = flag;
-}
-
-function searchFocus(e) {
-    // Update search input content on focus
-    if (e.value == 'Suche') {
-        e.value = '';
-        e.className = '';
-        searchIsDisabled = false;
-    }
-}
-
-function searchBlur(e) {
-    // Update search input content on blur
-    if (e.value == '') {
-        e.value = 'Suche';
-        e.className = 'disabled';
-        searchIsDisabled = true;
-    }
-}
-
-function actionsMenuInit(title) {
-    // Initialize action menu
-    for (i = 0; i < document.forms.length; i++) {
-        var form = document.forms[i];
-        if (form.className == 'actionsmenu') {
-            // Check if this form needs update
-            var div = form.getElementsByTagName('div')[0];
-            var label = div.getElementsByTagName('label')[0];
-            if (label) {
-                // This is the first time: remove label and do buton.
-                div.removeChild(label);
-                var dobutton = div.getElementsByTagName('input')[0];
-                div.removeChild(dobutton);
-                // and add menu title
-                var select = div.getElementsByTagName('select')[0];
-                var item = document.createElement('option');
-                item.appendChild(document.createTextNode(title));
-                item.value = 'show';
-                select.insertBefore(item, select.options[0]);
-                select.selectedIndex = 0;
-            }
-        }
-    }
-}
-//-->
-</script>
-
-<script type="text/javascript">
-var gui_editor_link_href = "/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=edit&editor=gui";
-var gui_editor_link_text = "Editieren (GUI)";
-</script>        
-
-<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="ProcPlacementMetaphor_files/common.css">
-<link rel="stylesheet" type="text/css" charset="utf-8" media="screen" href="ProcPlacementMetaphor_files/screen.css">
-<link rel="stylesheet" type="text/css" charset="utf-8" media="print" href="ProcPlacementMetaphor_files/print.css">
-<link rel="stylesheet" type="text/css" charset="utf-8" media="projection" href="ProcPlacementMetaphor_files/projection.css"><!-- css only for MSIE browsers --><!--[if IE]>
-   <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/wiki/modern/css/msie.css">
-<![endif]-->
-
-
-
-
-
-
-<link rel="Start" href="http://www.pipapo.org/pipawiki/StartSeite">
-<link rel="Alternate" title="Wiki Quelltext" href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=raw">
-<link rel="Alternate" media="print" title="Druckansicht" href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=print">
-<link rel="Up" href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess">
-<link rel="Search" href="http://www.pipapo.org/pipawiki/SeiteFinden">
-<link rel="Index" href="http://www.pipapo.org/pipawiki/TitelIndex">
-<link rel="Glossary" href="http://www.pipapo.org/pipawiki/WortIndex">
-<link rel="Help" href="http://www.pipapo.org/pipawiki/HilfeZumFormatieren"></head><body dir="ltr" lang="de">
-
-<div id="header">
-
-
-<form id="searchform" method="get" action="">
-<div>
-<input name="action" value="fullsearch" type="hidden">
-<input name="context" value="180" type="hidden">
-<label style="display: none;" for="searchinput">Suchen:</label>
-<input class="disabled" id="searchinput" name="value" value="" size="20" onfocus="searchFocus(this)" onblur="searchBlur(this)" onkeyup="searchChange(this)" onchange="searchChange(this)" alt="Search" type="text">
-<input disabled="disabled" id="titlesearch" name="titlesearch" value="Titel" alt="Search Titles" type="submit">
-<input disabled="disabled" id="fullsearch" name="fullsearch" value="Text" alt="Search Full Text" type="submit">
-</div>
-</form>
-<script type="text/javascript">
-<!--// Initialize search form
-var f = document.getElementById('searchform');
-f.getElementsByTagName('label')[0].style.display = 'none';
-var e = document.getElementById('searchinput');
-searchChange(e);
-searchBlur(e);
-//-->
-</script>
-
-<ul id="username"><li><a href="http://www.pipapo.org/pipawiki/Ichthyostega" id="userhome" title="Ichthyostega @ Self">Ichthyostega</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=userprefs" id="userprefs">Einstellungen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=logout&amp;logout=logout" id="logout">Abmelden</a></li></ul>
-<div id="locationline">
-
-
-<ul id="pagelocation">
-<li><a href="http://www.pipapo.org/pipawiki/Cinelerra3">Cinelerra3</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess">DesignProcess</a></li><li><a class="backlink" title="Hier klicken für eine Liste der Seiten, die auf diese verweisen" href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=fullsearch&amp;value=linkto%3A%22Cinelerra3/DesignProcess/ProcPlacementMetaphor%22&amp;context=180">ProcPlacementMetaphor</a></li>
-</ul>
-
-</div>
-
-<ul id="pagetrail">
-<li><a href="http://www.pipapo.org/pipawiki/HilfeZuListen">HilfeZuListen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder">ProcBuilder</a></li><li><a href="http://www.pipapo.org/pipawiki/HilfeZumEditieren/UnterSeiten">UnterSeiten</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess">Cinelerra3/DesignProcess</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor">ProcPlacementMetaphor</a></li>
-</ul>
-
-<ul id="navibar">
-<li class="wikilink"><a href="http://www.pipapo.org/pipawiki/StartSeite">StartSeite</a></li><li class="wikilink"><a href="http://www.pipapo.org/pipawiki/Aktuelle%C3%84nderungen">AktuelleÄnderungen</a></li><li class="wikilink"><a href="http://www.pipapo.org/pipawiki/SeiteFinden">SeiteFinden</a></li><li class="wikilink"><a href="http://www.pipapo.org/pipawiki/HilfeInhalt">HilfeInhalt</a></li><li class="current"><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor">ProcPlacementMetaphor</a></li>
-</ul>
-
-<div id="pageline"><hr style="display: none;"></div>
-
-<ul class="editbar"><li><a name="texteditlink" href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=edit&amp;editor=text">Editieren (Text)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=edit&amp;editor=gui">Editieren (GUI)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=info">Info</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=subscribe">Abonnieren</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=quicklink">Verweis hinzufügen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=AttachFile">Dateianhänge</a></li><li>
-<form class="actionsmenu" method="get" action="">
-<div>
-    
-    <select name="action" onchange="if ((this.selectedIndex != 0) &&
-                      (this.options[this.selectedIndex].disabled == false)) {
-                this.form.submit();
-            }
-            this.selectedIndex = 0;">
-        <option value="show">Weitere Aktionen:</option><option value="raw">Rohform</option>
-<option value="print">Druckansicht</option>
-<option value="RenderAsDocbook">Docbook ausgeben</option>
-<option value="refresh">Cache löschen</option>
-<option value="show" disabled="disabled" class="disabled">------------</option>
-<option value="SpellCheck">Rechtschreibung prüfen</option>
-<option value="LikePages">Ähnliche Seiten</option>
-<option value="LocalSiteMap">ÜbersichtsKarte</option>
-<option value="show" disabled="disabled" class="disabled">------------</option>
-<option value="RenamePage">Seite umbenennen</option>
-<option value="DeletePage">Seite löschen</option>
-<option value="show" disabled="disabled" class="disabled">------------</option>
-<option value="MyPages">Meine Seiten</option>
-<option value="SubscribeUser">Abo für Benutzer</option>
-<option value="show" disabled="disabled" class="disabled">------------</option>
-<option value="Despam">Spam entfernen</option>
-<option value="PackagePages">Seiten paketieren</option>
-    </select>
-    
-</div>
-<script type="text/javascript">
-<!--// Init menu
-actionsMenuInit('Weitere Aktionen:');
-//-->
-</script>
-</form>
-</li></ul>
-
-</div>
+<title>Cinelerra3/DesignProcess/ProcPlacementMetaphor - Pipapo Wiki</title>
 
 <div id="page" dir="ltr" lang="en">
-<div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
-<span class="anchor" id="line-3"></span><div><p class="line891"></p><p class="line891"></p><p class="line891"></p><table><tbody><tr>  <td><p class="line891"><strong>State</strong></p></td>
-  <td><p class="line891"><em>Idea</em></p></td>
+<div dir="ltr" id="content" lang="en">
+<div>
+<p></p>
+<p></p>
+<p></p><table><tbody><tr>  <td>
+<p><strong>State</strong></p></td>
+  <td>
+<p><em>Idea</em></p></td>
 </tr>
-<tr>  <td><span class="anchor" id="line-7"></span><p class="line891"><strong>Date</strong></p></td>
+<tr>  <td>
+<p><strong>Date</strong></p></td>
   <td>2008-03-06</td>
 </tr>
-<tr>  <td><span class="anchor" id="line-8"></span><p class="line891"><strong>Proposed by</strong></p></td>
-  <td><p class="line891"><a href="http://www.pipapo.org/pipawiki/Ichthyostega">Ichthyostega</a></p></td>
+<tr>  <td>
+<p><strong>Proposed by</strong></p></td>
+  <td>
+<p><a href="http://www.pipapo.org/pipawiki/Ichthyostega">Ichthyostega</a></p></td>
 </tr>
-</tbody></table></div><span class="anchor" id="line-9"></span><span class="anchor" id="line-10"></span><p class="line867"><span class="anchor" id="line-11"></span></p><p class="line867">
+</tbody></table></div>
+<p></p>
+<p>
 </p><h1 id="head-8680712df84abacc09b2d2cec0ecda56891cb6a6">Placement Metaphor used within the high-level view of Proc-Layer</h1>
-<span class="anchor" id="line-12"></span><p class="line867"><span class="anchor" id="line-13"></span></p><p class="line862">besides the <a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder">Builder</a>, one of the core ideas of the Proc-Layer (as being currently implemented by Ichthyo) is to utilize <em>Placement</em>
+
+<p></p>
+<p>besides the <a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcBuilder">Builder</a>, one of the core ideas of the Proc-Layer (as being currently implemented by Ichthyo) is to utilize <em>Placement</em>
 as a single central metaphor for object association, location and
-configuration within the high-level model. This means prefering <em>rules</em> over fixed values. <span class="anchor" id="line-14"></span><span class="anchor" id="line-15"></span><span class="anchor" id="line-16"></span></p><p class="line867">
+configuration within the high-level model. This means prefering <em>rules</em> over fixed values. </p>
+<p>
 </p><h2 id="head-f4a9bfacc9f245597df70e421d7660e74f5feec6">Description</h2>
-<span class="anchor" id="line-17"></span><p class="line867"><span class="anchor" id="line-18"></span></p><p class="line862">The basic idea is to locate <em>Media Objects</em> of various kinds within a <em>configuration space</em>.
+
+<p></p>
+<p>The basic idea is to locate <em>Media Objects</em> of various kinds within a <em>configuration space</em>.
 Any object can have a lot of different properties, which may partially
 depend on one another, and partially may be chosen freely. All these
 various choices are considered as <em>degrees of freedom</em> -- and defining a property can be seen as <em>placing</em>
@@ -209,7 +40,8 @@ the object to a specific parameter value on one of these dimensions.
 This view may be bewildering at first sight, but the important
 observation is, that in many cases, we don't want to lock down any of
 those parameters completely to one fixed value. Rather, we just want to
-<em>limit</em> some parameters. <span class="anchor" id="line-19"></span><span class="anchor" id="line-20"></span></p><p class="line874">To
+<em>limit</em> some parameters. </p>
+<p>To
 give an example, most editing applications let the user place a video
 clip at a fixed time and track. They do so by just assigning fixed
 values, where the track number determines the output and the layering
@@ -220,26 +52,76 @@ necessary to "nail down" a video clip, rather, the user wants it to
 start immediately after the end of another clip, it should be sent to
 some generic output and it should stay in the layering order above some
 other clip. But, as the editing system fails to provide the means for
-expressing such relationships, we are forced to <span class="anchor" id="line-21"></span>work
+expressing such relationships, we are forced to work
 with hard values, resort to a bunch of macro features or even
 compensate for this lack by investing in production organisation (the
-latter is especially true for building up a movie sound track). <span class="anchor" id="line-22"></span><span class="anchor" id="line-23"></span></p><p class="line862">Thus, using the <strong>Placement</strong> metaphor <span class="anchor" id="line-24"></span></p><ul><li>we have one single instrument to express the various kinds of relations <span class="anchor" id="line-25"></span></li><li><p class="line862">the <em>kind of placement</em> becomes an internal value of the placement <span class="anchor" id="line-26"></span></p></li><li>some kinds of placement can express rule-like relations in a natural fashion <span class="anchor" id="line-27"></span></li><li>while there remains only one single mechanism for treating a bunch of features in a unified manner <span class="anchor" id="line-28"></span></li><li>plugins could provide exotic and advanced placement kinds without the need of massively reworking the core. <span class="anchor" id="line-29"></span><span class="anchor" id="line-30"></span></li></ul><p class="line862">When interpreting the high-level model and creating the low-level model, Placements need to be <em>resolved</em>, <span class="anchor" id="line-31"></span>resulting in a simplified and completely nailed-down copy of the session contents, which this design calls »the <strong>Fixture</strong>« <span class="anchor" id="line-32"></span><span class="anchor" id="line-33"></span></p><p class="line874">Media Objects can be placed <span class="anchor" id="line-34"></span></p><ul><li>fixed at a given time <span class="anchor" id="line-35"></span></li><li>relative to some reference time point given by another object (clip, label, timeline origin) <span class="anchor" id="line-36"></span></li><li>as plugged into a specific output pipe (destination port) <span class="anchor" id="line-37"></span></li><li>to a fixed layer number <span class="anchor" id="line-38"></span></li><li>layered above or below another reference object <span class="anchor" id="line-39"></span></li><li>fixed to a given pan position in virtual sound space <span class="anchor" id="line-40"></span></li><li>panned relative to the pan position of another object <span class="anchor" id="line-41"></span><span class="anchor" id="line-42"></span><span class="anchor" id="line-43"></span><span class="anchor" id="line-44"></span></li></ul><p class="line867">
+latter is especially true for building up a movie sound track). </p>
+<p>Thus, using the <strong>Placement</strong> metaphor </p><ul>
+<li>we have one single instrument to express the various kinds of relations </li>
+<li>
+<p>the <em>kind of placement</em> becomes an internal value of the placement </p></li>
+<li>some kinds of placement can express rule-like relations in a natural fashion </li>
+<li>while there remains only one single mechanism for treating a bunch of features in a unified manner </li>
+<li>plugins could provide exotic and advanced placement kinds without the need of massively reworking the core. </li></ul>
+<p>When interpreting the high-level model and creating the low-level model, Placements need to be <em>resolved</em>, resulting in a simplified and completely nailed-down copy of the session contents, which this design calls »the <strong>Fixture</strong>« </p>
+<p>Media Objects can be placed </p><ul>
+<li>fixed at a given time </li>
+<li>relative to some reference time point given by another object (clip, label, timeline origin) </li>
+<li>as plugged into a specific output pipe (destination port) </li>
+<li>to a fixed layer number </li>
+<li>layered above or below another reference object </li>
+<li>fixed to a given pan position in virtual sound space </li>
+<li>panned relative to the pan position of another object </li></ul>
+<p>
 </p><h4 id="head-5fd29128a78e613f56b92efaa04636b525774c61">Tasks</h4>
-<span class="anchor" id="line-45"></span><p class="line867"><span class="anchor" id="line-46"></span></p><ul><li>currently just the simple standard case is drafted in code. <span class="anchor" id="line-47"></span></li><li>the
+
+<p></p><ul>
+<li>currently just the simple standard case is drafted in code. </li>
+<li>the
 mechanism for treating placements within the builder is drafted in
-code, but needs to be worked out to see the implications more clearly <span class="anchor" id="line-48"></span><span class="anchor" id="line-49"></span><span class="anchor" id="line-50"></span></li></ul><p class="line867">
+code, but needs to be worked out to see the implications more clearly </li></ul>
+<p>
 </p><h3 id="head-6061fbaa5841bb17c825f037084cf2a21d0eb681">Pros</h3>
-<span class="anchor" id="line-51"></span><p class="line867"><span class="anchor" id="line-52"></span></p><ul><li>one grippy metaphor to rule them all <span class="anchor" id="line-53"></span></li><li>includes the simple standard case <span class="anchor" id="line-54"></span></li><li>unified treatment <span class="anchor" id="line-55"></span></li><li>modular and extensible <span class="anchor" id="line-56"></span></li><li>allows
+
+<p></p><ul>
+<li>one grippy metaphor to rule them all </li>
+<li>includes the simple standard case </li>
+<li>unified treatment </li>
+<li>modular and extensible </li>
+<li>allows
 much more elaborate handling of media objects then the conventional
 approach, while both the simple standard case and the elaborate special
 case are "first class citizens" and completely integrated in all object
-treatment. <span class="anchor" id="line-57"></span><span class="anchor" id="line-58"></span><span class="anchor" id="line-59"></span></li></ul><p class="line867">
+treatment. </li></ul>
+<p>
 </p><h3 id="head-30ccfb1d3951ebb0a822b00612c72d38a3adaf91">Cons</h3>
-<span class="anchor" id="line-60"></span><p class="line867"><span class="anchor" id="line-61"></span></p><ul><li>difficult to grasp <span class="anchor" id="line-62"></span></li><li>requires a separate resolution step <span class="anchor" id="line-63"></span></li><li><p class="line862">requires to <em>query</em> for object properties instead of just looking up a fixed value <span class="anchor" id="line-64"></span></p></li><li>forces the GUI to invent means for handling object placement which may go beyond the conventional <span class="anchor" id="line-65"></span></li><li>can create quite some surprises for the user, especially if he doesn't care to understand the concept up front <span class="anchor" id="line-66"></span><span class="anchor" id="line-67"></span><span class="anchor" id="line-68"></span></li></ul><p class="line867">
+
+<p></p><ul>
+<li>difficult to grasp </li>
+<li>requires a separate resolution step </li>
+<li>
+<p>requires to <em>query</em> for object properties instead of just looking up a fixed value </p></li>
+<li>forces the GUI to invent means for handling object placement which may go beyond the conventional </li>
+<li>can create quite some surprises for the user, especially if he doesn't care to understand the concept up front </li></ul>
+<p>
 </p><h3 id="head-12897e1138bf74f9f1b2ab969899a8dc64409cdc">Alternatives</h3>
-<span class="anchor" id="line-69"></span><p class="line867"><span class="anchor" id="line-70"></span></p><p class="line874">Use the conventional approach <span class="anchor" id="line-71"></span></p><ul><li>media objects are assigned with fixed time positions <span class="anchor" id="line-72"></span></li><li>they are stored directly within a grid (or tree) of tracks <span class="anchor" id="line-73"></span></li><li>layering and pan are hard wired additional properties <span class="anchor" id="line-74"></span></li><li>implement an additional auto-link facility to attach e.g. sound to a video clip <span class="anchor" id="line-75"></span></li><li>implement a magnetic snap-to for attaching clips seamless after each other <span class="anchor" id="line-76"></span></li><li>implement a splicing/sliding/shuffling mode in the gui <span class="anchor" id="line-77"></span></li><li>provide a output wiring tool in the GUI <span class="anchor" id="line-78"></span></li><li><p class="line862">provide macro features for this and that.... (hopefully I made clear by now <em>why</em> I don't want to take the conventional approach) <span class="anchor" id="line-79"></span><span class="anchor" id="line-80"></span><span class="anchor" id="line-81"></span></p></li></ul><p class="line867">
+
+<p></p>
+<p>Use the conventional approach </p><ul>
+<li>media objects are assigned with fixed time positions </li>
+<li>they are stored directly within a grid (or tree) of tracks </li>
+<li>layering and pan are hard wired additional properties </li>
+<li>implement an additional auto-link facility to attach e.g. sound to a video clip </li>
+<li>implement a magnetic snap-to for attaching clips seamless after each other </li>
+<li>implement a splicing/sliding/shuffling mode in the gui </li>
+<li>provide a output wiring tool in the GUI </li>
+<li>
+<p>provide macro features for this and that.... (hopefully I made clear by now <em>why</em> I don't want to take the conventional approach) </p></li></ul>
+<p>
 </p><h2 id="head-0d9edeb9caf4306e1638722bd2c827f4626e9ee1">Rationale</h2>
-<span class="anchor" id="line-82"></span><p class="line867"><span class="anchor" id="line-83"></span></p><p class="line874">The
+
+<p></p>
+<p>The
 high-level model is close to the problem domain, it should provide
 means to express the (naturally complex) relationships between media
 objects. Using an abstract and unified concept is always better then
@@ -249,67 +131,14 @@ into the problem domain. Besides, there is sort-of a visionary aspect
 involved here too: Ichthyo thinks that nowadays, after image and sound
 are no longer bound to physical media, there is potential for new
 workflows to be discovered, and the Placement concept could be an
-extension point for such undertakings. <span class="anchor" id="line-84"></span><span class="anchor" id="line-85"></span><span class="anchor" id="line-86"></span></p><p class="line867"><span class="anchor" id="line-87"></span></p><p class="line867"><span class="anchor" id="line-88"></span><span class="anchor" id="line-89"></span><span class="anchor" id="line-90"></span><span class="anchor" id="line-91"></span></p><p class="line867">
+extension point for such undertakings. </p>
+<p></p>
+<p></p>
+<p>
 </p><h1 id="head-3715a118366bff174a3faced451d84c4be69b09f">Comments</h1>
-<span class="anchor" id="line-92"></span><p class="line867"><span class="anchor" id="line-93"></span></p><p class="line867"><span class="anchor" id="line-94"></span><span class="anchor" id="line-95"></span><span class="anchor" id="line-96"></span></p><p class="line867"></p><hr class="hr1"><p class="line874"> <span class="anchor" id="line-97"></span>Back to <a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess">Cinelerra3/DesignProcess</a> <span class="anchor" id="line-98"></span><span class="anchor" id="bottom"></span></p></div><p id="pageinfo" class="info" dir="ltr" lang="de">Cinelerra3/DesignProcess/ProcPlacementMetaphor  (zuletzt geändert am 2008-03-06 05:21:24 durch <span title="Ichthyostega @ 91.12.56.21[91.12.56.21]"><a href="http://www.pipapo.org/pipawiki/Ichthyostega" title="Ichthyostega @ 91.12.56.21[91.12.56.21]">Ichthyostega</a></span>)</p>
 
-<div id="pagebottom"></div>
-</div>
+<p></p>
+<p></p>
+<p></p><hr class="hr1">
+<p> Back to <a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess">Cinelerra3/DesignProcess</a> </p></div><p id="pageinfo" class="info" dir="ltr" lang="de">Cinelerra3/DesignProcess/ProcPlacementMetaphor  (zuletzt geändert am 2008-03-06 05:21:24 durch <span title="Ichthyostega @ 91.12.56.21[91.12.56.21]"><a href="http://www.pipapo.org/pipawiki/Ichthyostega" title="Ichthyostega @ 91.12.56.21[91.12.56.21]">Ichthyostega</a></span>)</p>
 
-
-<div id="footer">
-<ul class="editbar"><li><a name="texteditlink" href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=edit&amp;editor=text">Editieren (Text)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=edit&amp;editor=gui">Editieren (GUI)</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=info">Info</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=subscribe">Abonnieren</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=quicklink">Verweis hinzufügen</a></li><li><a href="http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/ProcPlacementMetaphor?action=AttachFile">Dateianhänge</a></li><li>
-<form class="actionsmenu" method="get" action="">
-<div>
-    
-    <select name="action" onchange="if ((this.selectedIndex != 0) &&
-                      (this.options[this.selectedIndex].disabled == false)) {
-                this.form.submit();
-            }
-            this.selectedIndex = 0;">
-        <option value="show">Weitere Aktionen:</option><option value="raw">Rohform</option>
-<option value="print">Druckansicht</option>
-<option value="RenderAsDocbook">Docbook ausgeben</option>
-<option value="refresh">Cache löschen</option>
-<option value="show" disabled="disabled" class="disabled">------------</option>
-<option value="SpellCheck">Rechtschreibung prüfen</option>
-<option value="LikePages">Ähnliche Seiten</option>
-<option value="LocalSiteMap">ÜbersichtsKarte</option>
-<option value="show" disabled="disabled" class="disabled">------------</option>
-<option value="RenamePage">Seite umbenennen</option>
-<option value="DeletePage">Seite löschen</option>
-<option value="show" disabled="disabled" class="disabled">------------</option>
-<option value="MyPages">Meine Seiten</option>
-<option value="SubscribeUser">Abo für Benutzer</option>
-<option value="show" disabled="disabled" class="disabled">------------</option>
-<option value="Despam">Spam entfernen</option>
-<option value="PackagePages">Seiten paketieren</option>
-    </select>
-    
-</div>
-<script type="text/javascript">
-<!--// Init menu
-actionsMenuInit('Weitere Aktionen:');
-//-->
-</script>
-</form>
-</li></ul>
-
-<ul id="credits">
-<li><a href="http://moinmoin.wikiwikiweb.de/">MoinMoin Powered</a></li><li><a href="http://www.python.org/">Python Powered</a></li><li><a href="http://validator.w3.org/check?uri=referer">Valid HTML 4.01</a></li>
-</ul>
-
-
-</div>
-<ul id="timings">
-<li>compile_huge_and_ugly = 0.001s</li>
-<li>getACL = 0.006s</li>
-<li>getPageList = 0.325s</li>
-<li>load_multi_cfg = 0.000s</li>
-<li>run = 0.785s</li>
-<li>send_page = 0.444s</li>
-<li>send_page_content = 0.290s</li>
-<li>total = 0.793s</li>
-</ul>
-
-</body></html>
