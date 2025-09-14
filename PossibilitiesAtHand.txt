@@ -1,31 +1,38 @@
+Editing and Render-Engine: Possibilities at hand
+================================================
+:author: Ichthyostega
+:date: June 2007
 
+.You may call this text a vision, albeit a very moderate one.
+The basic aproach taken by Cinelrra is quite modern and clean.
+I want to sketch what would be possible if we'd really stand up to this basic aproach,
+making it govern parts of the actual Design and Implementation. +
+Just about doing things that seem self-evident nowadays.
 
-<p>
-</p><h1 id="head-a5863c089ceb8e9992864fc22f294e91728dde3b">Editing and Render-Engine: Possibilities at hand</h1>
+We could spend our time
 
-<p>You may call this text a vision, albeit a very moderate one.<br>
- The basic aproach taken by Cinelrra is quite modern and clean. I want to sketch what would be possible<br>
- if we'd really stand up to this basic aproach, making it govern parts of the actual Design and Implementation.<br>
- Just about doing things that seem self-evident nowadays. </p>
-<p>We could spend our time </p><ul>
-<li>just hunting and fixing bugs -- or we could spend it making things reliable by design </li>
-<li>just
-having a GUI and Features like "the others" -- or we could spend it to
-embody and encompass these common ideas and structures within our
-internal design and implementation. </li></ul>
-<p>So
--- to motivate all those clean-up and restructuring efforts, I'll lay
+- just hunting and fixing bugs -- or we could spend it making things reliable by design
+- just having a GUI and Features like ``the others'' -- or we could spend it to
+  embody and encompass these common ideas and structures within our
+  internal design and implementation.
+
+So -- to motivate all those clean-up and restructuring efforts, I'll lay
 out some Ideas that seem to me beeing quite at hand, and I'll show how
-they could fit together. The first steps seem to be quite agreed upon.
-Possible further steps and possibilities just coming into vision at the moment. Feel free to propose and participate. </p>
-<p>I think, we should <em>prefere the bottom-up aproach</em>
+they could fit together.
+link:Cin3-ProjectProposal.html#_milestone_2_laying_the_foundations[The first steps]
+seem to be quite agreed upon.
+Possible further steps and possibilities just coming into vision at the moment.
+Feel free to propose and participate.
+
+I think, we should _prefer the bottom-up aproach_
 of how a certain design could give rise to usefull features over the
 aproach of defining cool features and then figuring out how to
-implement them. </p>
-<p>
-</p><h3 id="head-27c7a7883c87ef6d362fc265e94c82f7f0de8e7a">Builder Pattern</h3>
+implement them.
 
-<p>Completely separate <em>building</em> of the Render Pipeline and <em>running</em> of the Render Pipeline. The Nodes in this Pipeline should process Video/Audio and <em>do nothing else.</em>
+Builder Pattern
+---------------
+Completely separate _building_ of the Render Pipeline and _running_ of the Render Pipeline.
+The Nodes in this Pipeline should process Video/Audio and _do nothing else._
 No more any decisions, tests and conditional operations when running
 the Pipeline. Move all of this out into the configuration of the
 pipeline, done by the Builder. Make the actual processing nodes
@@ -40,125 +47,170 @@ between core and hardware accelerated rendering out of the
 implementation of the actual processing. Introduce separate control
 data connections for the automation data, separating the case of true
 multi-channel-effects from the case where one node just gets remote
-controlled by another node (or two nodes using the sama automation
-data). Unfold any "internal-multi" effects into separate instances,
-e.g. the possibility of having an arbitrary number of <em>single</em> masks at <em>any</em> point of the pipeline instead of having <em>one</em> special masking facility encompassing multiple sub-masks. </p>
-<p>
-</p><h3 id="head-ee5592e21379b280794d8614e8c77c3c4be5a905">Abstract Data-flow</h3>
+controlled by another node (or two nodes using the same automation
+data). Unfold any ``internal-multi'' effects into separate instances,
+e.g. the possibility of having an arbitrary number of _single_ masks at
+_any_ point of the pipeline instead of having _one_ special masking facility
+encompassing multiple sub-masks.
 
-<p>Apply a
+
+
+Abstract Data-flow
+------------------
+Apply a
 moderate degree of abstraction to the data handling and data flows.
-Unify all data reading and writing and push it down into a data
-handling backend. Create a new data flow type "Intention and Hinting
-messages", thus giving rise for far more clever media access and
+Unify all data reading and writing and push it down into a data handling
+backend. Create a new data flow type ``Intention and Hinting messages'',
+thus giving rise for far more clever media access and
 caching on all levels, without the need of the Object/Editing Subsystem
 doing any data flow optimizing decisions. Unify the control and
 automation data and make it a first class data flow. Encapsulate all
 interpolation and keying consideartions thus freeing the Render nodes
-of any need to access "keyframes" or to do sub-frame interpolation
+of any need to access ``keyframes'' or to do sub-frame interpolation
 (e.g. within one Audio Frame) on their own. Automation data could as
 well be created within the Render Engine (e.g. by the motion tracker)
-and written into an automation track for further editing. </p>
-<p>
-</p><h3 id="head-6ef036926759d99d693449fdc54cf4cb2e25032d">Self-contained Builder</h3>
+and written into an automation track for further editing.
 
-<p>Make the
-Builder a separate entity with cleary specified interfaces. One
-interface is towards the Rendering-Engine for loading a newly
+
+
+Self-contained Builder
+----------------------
+Make the Builder a separate entity with cleary specified interfaces.
+One interface is towards the Rendering-Engine for loading a newly
 constructed Render Pipeline into the Engine or for hot-swapping parts
 of the Render Pipeline in case of modifications while doing
-playback/rendering, and for passing on "Intention and Hinting
-messages". The other interface is towards the Object manipulation
-Subsystem, the EDLs and Session handling. Pass over this interface
-instructions <em>what</em> has to be done, but not <em>how</em> to do it. Concentrate structural and methodical optimizations within the Builder. He <em>could</em>
-rearrange or even "compile" the Render Pipeline, e.g. he could decide
+playback/rendering, and for passing on ``Intention and Hinting messages''.
+The other interface is towards the Object manipulation Subsystem,
+the EDLs and Session handling. Pass over this interface instructions
+_what_ has to be done, but not _how_ to do it. Concentrate structural
+and methodical optimizations within the Builder. He _could_
+rearrange or even ``compile'' the Render Pipeline, e.g. he could decide
 only to rende a region of some pipeline, because the rest will be
 discarded by the final projector and overlayed by another tracks
 output. This openes possibilities for further research and improvement
-without the need of hand written assembler or OpenGL code. </p>
-<p>
-</p><h3 id="head-42d8e65b8d492736db54d13b26dd99093fadec1b">Clear Control Flow and Dependencies</h3>
+without the need of hand written assembler or OpenGL code.
 
-<p>Always try
-to get at a uniform Control Flow. Avoid mutual couplings and callbacks.
-Use Dependency Injection and Inversion of Control. For example, let the
-Builder make a <em>complete</em> set of decisions ready to be
-executed. Never call back from within the Render Engine to get
-additional Informations for "Plugin X" out of "Track N" in "the EDL".
+
+
+
+Clear Control Flow and Dependencies
+-----------------------------------
+Always try to get at a uniform Control Flow. Avoid mutual couplings and callbacks.
+Use Dependency Injection and Inversion of Control. For example, let the Builder
+make a _complete_ set of decisions ready to be executed.
+Never call back from within the Render Engine to get additional Informations
+for ``Plugin X'' out of ``Track N'' in ``the EDL''.
 Because this unneccessarily couples the Render Engine to internal
-Details of "the EDL" </p>
-<p>
-</p><h3 id="head-4961c1ab6b1aee377f385a35590d28e8f49f1d40">Separate Edit Decisions and actual Render Configuration</h3>
+Details of ``the EDL''
 
-<p>Distinguish
-between the Objects the user places and manipulates within the
-Session/EDL and the Objects which comprise the Render Pipeline. Don't
-take a "Plugin" out of "the EDL" and connect it into the Render
+
+
+
+Separate Edit Decisions and actual Render Configuration
+-------------------------------------------------------
+Distinguish between the Objects the user places and manipulates within
+the Session/EDL and the Objects which comprise the Render Pipeline.
+Don't take a ``Plugin'' out of ``the EDL'' and connect it into the Render
 Pipelene, be it bare or wrapped within a Virtual Node. Rather declare
-the user wants <em>a placement</em> of some Plugin (given by ID) at
-some Location, given absolutely by "(Track,Frame)" or relatively by
-"attached at Clip X". Let the Builder retrieve the actual Plugin or the
-actual Clip (or a Dummy / Proxy), resolve everything to actual
+the user wants *a placement* of some Plugin (given by ID) at
+some Location, given absolutely by `(Track,Frame)` or relatively by
+``attached at Clip X''. Let the Builder retrieve the actual Plugin
+or the actual Clip (or a Dummy / Proxy), resolve everything to actual
 Positions and Render Pipe Numbers (corresponding to the Tracks) and
 finally wire the Objects together. Persist both the Placement requested
-by the user (this is the EDL) and the actual Assembly found to
+by the user _(this is the EDL)_ and the actual Assembly found to
 implement this placement. Give the ability to fix this Assembly to a
 certain degree, so things can't be messed up by further editing. So the
-user can, say, lock a part of a larger project which is "done" and be
+user can, say, lock a part of a larger project which is ``done'' and be
 content not the slightest detail will be changed when doing the final
 render some months later. (That's the reason why I propose to persist
 the actual Assembly as well, so all of the editing work can be checked
 into a SCM system by the user. May seem silly at the moment, as most
-users don't know the power of SCM, but this will change for sure). </p>
-<p>
-</p><h3 id="head-24098d8434a1dd1878385a9034e63121783468b9">Use High-Level techniques where appropriate</h3>
+users don't know the power of SCM, but this will change for sure).
 
-<p>Stick to the proved and the reliable for the foundations of the system. No "new Languages" for the Backbone! But be open for advanced technology in cleanly isolated subsystems. For example, embed a Prolog engine and maybe even some Constraint solver. Use them within the Builder to do the decisions and use them to <em>derive</em>
-the actual Object Assembly out of the Placements given by the user. We
-could even make the internal Structure visible to a ceratin degree,
-giving the user a better "feel" on what is going on internally, because
+
+
+
+Use High-Level techniques where appropriate
+-------------------------------------------
+Stick to the proved and the reliable for the foundations of the system.
+No ``new Languages'' for the Backbone! But be open for advanced technology
+in cleanly isolated subsystems. For example, embed a _Prolog engine_ and maybe
+even some _Constraint solver._ Use them within the Builder to do the decisions
+and use them to _derive_ the actual Object Assembly out of the Placements given
+by the user. We could even make the internal Structure visible to a ceratin degree,
+giving the user a better ``feel'' on what is going on internally, because
 the internals could be expressed in a high-level manner not overloaded
-with implemention details this way. </p>
-<p>
-</p><h3 id="head-89e230a63348771097deeaa1ba92e7d8983dce0f">Structured EDL Elements</h3>
+with implemention details this way.
 
-<p>Make the
-contents of the EDL -- the things manipulated by the user -- more
+
+
+
+Structured EDL Elements
+-----------------------
+Make the contents of the EDL -- the things manipulated by the user -- more
 structured. Because of Decoupling and Inversion of Control, there is no
 longer any need for a flat and simple structure along the lines of
 Tracks, Edits, Plugin-Sets, separate Automation keyframes. Things could
 be tied together directly. Edits could be placed to be sequential,
 Clips and Sound could be linked, Effects could be attached to the track
-<em>or</em> to groups of objects, automation will be attached to the
-Effects and move with them. Nothing revolutionary. I have seen several
+_or_ to groups of objects, automation will be attached to the
+Effects and move with them. _Nothing revolutionary._ I have seen several
 users getting angry and feeling betrayed if a System hinderes them
 doing such things seemingly natural todays. Thats the story with
-"Accidental Complexity" versus "Fundamental Complexity". If I have to
-take care actively for keeping an audio clip placed in-synch, this is
-creating Accidental Complexity both for the user <em>and for the programmer.</em>  </p>
-<p>
-</p><h3 id="head-7b91afdfd7c6a1b92b39b797762298b3dfa15f58">Support building up larger Structures</h3>
+``Accidental Complexity'' versus ``Fundamental Complexity''. If I have to
+take care actively for keeping an audio clip placed in-sync, this is
+creating Accidental Complexity both for the user _and for the programmer._
 
-<p>All this
-achievements together enable the building of larger structures and help
-maintaining them. If we separate Edit Decision Objects from Render
-Objects, we could provide "Meta Clips", the ability to assemble
-seamlessly complete Timelines or Sub-Sessions for a larger project. We
-could extend the Asset management to be really helpful where it is
+
+
+
+Support building up larger Structures
+-------------------------------------
+All this achievements together enable the building of larger structures
+and help maintaining them. If we separate Edit Decision Objects from Render
+Objects, we could provide ``Meta Clips'', the ability to assemble
+seamlessly complete Timelines or Sub-Sessions for a larger project.
+We could extend the Asset management to be really helpful where it is
 needed, i.e. in larger projects. Building up a customized collection of
 Media, prepared Clips, really-needed Effects, preconfigured Snipets and
 using them uniformely in the assembly of individual Sessions comprising
 a larger project. Save as Templates or Macro Blocks, search for
 keywords, organize clips within bins and sub bins, integrate with
-external systems used to organize movie shooting. </p>
-<p>
-</p><h2 id="head-50608cd7747547643a3be2a55c911b3d149f80bd">Conclusion</h2>
+external systems used to organize movie shooting.
 
-<p>None of
-this is there at the moment, and non of this will be there immediate.
-All of this together is way too much work as to be done by a single
-programmer or a small core team. We need colaboration to get at this
-level. But I don't see any other viable aproach for getting there
-besides working up from the core in a structured manner. </p></div><p id="pageinfo" class="info" dir="ltr" lang="de">Cinelerra/Developers/ichthyo/Possibilities at hand  (zuletzt geändert am 2007-06-10 18:34:44 durch <span title="MichaelPloujnikov @ 207.112.111.140[207.112.111.140]"><a class="nonexistent" href="http://www.pipapo.org/pipawiki/MichaelPloujnikov" title="MichaelPloujnikov @ 207.112.111.140[207.112.111.140]">MichaelPloujnikov</a></span>)</p>
 
-<
+
+
+Conclusion
+----------
+None of this is there at the moment, and non of this will be there immediate.
+All of this together is way too much work as to be done by a single programmer
+or a small core team. We need colaboration to get at this level. But I don't
+see any other viable aproach for getting there besides working up from the core
+in a structured manner.
+
+~(zuletzt geändert am 2007-06-10 18:34:44 durch _MichaelPloujnikov_)~
+
+....
+​
+​
+​
+....
+''''
+
+Historical note
+---------------
+This text is a follow-up within a series of publications on pipapo.org,
+starting with link:CinelerraWoes.html[»Cinelerra woes«] in May 2007,
+and the link:Cin3-ProjectProposal.html[Cinelerra-3 project proposal].
+Notably this third text from June 2007 contains already all the fundamental
+ideas of the *Lumiera* project, which emerged from the initial movement to
+_improve Cinelerra_ and constituted itself as a separate project early in 2008.
+
+I'm re-publishing this text here, closely following the original, roughly drafted form,
+as was preserved by a HTML capture early in 2008 -- yet with markup transformed
+into Asciidoc.
+
+Ichthyo:: 2025-09-13
+
