@@ -1,0 +1,140 @@
+Cinelerra3 : Proc Placement Metaphor
+====================================
+
+[options="autowidth"]
+|====================================
+|*State*       | _Idea_
+|*Date*        | _2008-03-06_
+|*Proposed by* | Ichthyostega
+|====================================
+
+
+Placement Metaphor used within the high-level view of Proc-Layer
+----------------------------------------------------------------
+
+besides the link:ProcBuilder.html[Builder], one of the core ideas of the Proc-Layer
+(as being currently implemented by Ichthyo) is to utilize _Placement_
+as a single central metaphor for object association, location and
+configuration within the high-level model. +
+This means prefering _rules_ over fixed values.
+
+
+Description
+~~~~~~~~~~~
+The basic idea is to locate _Media Objects_ of various kinds within a _configuration space_. +
+Any object can have a lot of different properties, which may partially
+depend on one another, and partially may be chosen freely. All these
+various choices are considered as _degrees of freedom_ -- and defining a property can be seen as _placing_
+the object to a specific parameter value on one of these dimensions.
+This view may be bewildering at first sight, but the important
+observation is, that in many cases, we don't want to lock down any of
+those parameters completely to one fixed value. Rather, we just want to
+_limit_ some parameters.
+
+To give an example, most editing applications let the user place a video
+clip at a fixed time and track. They do so by just assigning fixed
+values, where the track number determines the output and the layering
+order. While this may seem simple, sound and pragmatic, indeed this
+puts down way to much information in a much to rigid manner for many
+common use cases of editing media. More often than not it's not
+necessary to ``nail down'' a video clip, rather, the user wants it to
+start immediately after the end of another clip, it should be sent to
+some generic output and it should stay in the layering order above some
+other clip. But, as the editing system fails to provide the means for
+expressing such relationships, we are forced to work
+with hard values, resort to a bunch of macro features or even
+compensate for this lack by investing in production organisation
+(the latter is especially true for building up a movie sound track).
+
+Thus, using the *Placement* metaphor
+
+- we have one single instrument to express the various kinds of relations
+- the _kind of placement_ becomes an internal value of the placement
+- some kinds of placement can express rule-like relations in a natural fashion
+- while there remains only one single mechanism for treating a bunch of features in a unified manner
+- plugins could provide exotic and advanced placement kinds without the need of massively reworking the core.
+
+When interpreting the high-level model and creating the low-level model, Placements need to be _resolved_,
+resulting in a simplified and completely nailed-down copy of the session contents, which this design calls »the *Fixture*«
+
+Media Objects can be placed
+
+- fixed at a given time
+- relative to some reference time point given by another object (clip, label, timeline origin)
+- as plugged into a specific output pipe (destination port)
+- to a fixed layer number
+- layered above or below another reference object
+- fixed to a given pan position in virtual sound space
+- panned relative to the pan position of another object
+
+.Tasks
+- currently just the simple standard case is drafted in code.
+- the mechanism for treating placements within the builder is drafted
+  in code, but needs to be worked out to see the implications more clearly
+
+Pros
+^^^^
+- one grippy metaphor to rule them all
+- includes the simple standard case
+- unified treatment
+- modular and extensible
+- allows much more elaborate handling of media objects then the conventional
+approach, while both the simple standard case and the elaborate special
+case are ``first class citizens'' and completely integrated in all object
+treatment.
+
+Cons
+^^^^
+- difficult to grasp
+- requires a separate resolution step
+- requires to _query_ for object properties instead of just looking up a fixed value
+- forces the GUI to invent means for handling object placement which may go beyond the conventional
+- can create quite some surprises for the user, especially if he doesn't care to understand the concept up front
+
+
+Alternatives
+^^^^^^^^^^^^
+Use the conventional approach
+
+- media objects are assigned with fixed time positions
+- they are stored directly within a grid (or tree) of tracks
+- layering and pan are hard wired additional properties
+- implement an additional auto-link facility to attach e.g. sound to a video clip
+- implement a magnetic snap-to for attaching clips seamless after each other
+- implement a splicing/sliding/shuffling mode in the GUI
+- provide a output wiring tool in the GUI
+- provide macro features for this and that.... +
+  (hopefully I made clear by now _why_ I don't want to take the conventional approach
+
+
+Rationale
+~~~~~~~~~
+The high-level model is close to the problem domain, it should provide
+means to express the (naturally complex) relationships between media
+objects. Using an abstract and unified concept is always better then
+having a bunch of seemingly unrelated features. Moreover, the Placement
+concept deliberately brings in an rule based approach, which well fits
+into the problem domain. Besides, there is sort-of a visionary aspect
+involved here too: _Ichthyo_ thinks that nowadays, after image and sound
+are no longer bound to physical media, there is potential for new
+workflows to be discovered, and the Placement concept could be an
+extension point for such undertakings.
+
+~(zuletzt geändert am 2008-03-06 05:21:24 durch _Ichthyostega_)~
+
+....
+​
+​
+​
+....
+''''
+
+Historical note
+---------------
+This first draft of a RfC was written and published on Cehteh's Moin-Moin Wiki in 2008; +
+it has been preserved as a HTML capture from pipapo.org at 2008-03-06.
+
+I'm re-publishing this text as historic document, only transliterated into Asciidoc markup.
+
+Ichthyo:: 2025-09-13
+

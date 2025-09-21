@@ -3,7 +3,7 @@ Cinelerra woes
 :Author: Ichthyostega
 :Date: 6/2007
 
-*This text is polemic*. It is intended to foment controversy, and to foster discussion. +
+*This text is polemic*. It is intended to forment controversy, and to foster discussion. +
 My intention is to collect a list of things considered problematic and to
 analyze why they are this way and if it is possible to change them.
 
@@ -397,8 +397,8 @@ certainly doesn't interfere with Cinelerra's Pro focus on a short timescale, and
 that's the main concern of this page.
 
 I want to add here a reference to my _Vision of never throwing away a single
-frame_. Because this is an approach to improve performance without improving the
-raw computing performance, but by using a smart workflow. ~[,yellow]#WIP#~
+frame_. Because this is an aproach to improve performance without improving the
+raw computing performance, but by using a smart workflow. ~[yellow-background]#WIP#~
 
 
 == Conclusions and Consequences ==
@@ -408,40 +408,46 @@ raw computing performance, but by using a smart workflow. ~[,yellow]#WIP#~
  
 It is possible to attack these problems even in a quite large and long living
 code base. We just need to leave the _Problem perspective_ and switch to the
-Design and Architecture viewpoint. It is not necessary to cure thousands of
+Design and Achiecture viewpoint. It is not necessary to cure tousends of
 isolated problems, but it will advance Cinelerra if we step back and introduce
 some Structures, Layer separation, encapsulation and QA facilities and then, in
 a second step, rework and reorganize a view central facilities to provide a
 higher level of Integration.
 
-[,yellow]#TODO#: separate page for this ``reversed approach'' (much shorter).
+[red]#TODO#: separate page for this ``reversed aproach'' (much shorter).
 List the Design principles from my project plan proposal, add an explanatory
 paragraph to each, followed by a proposal to rework the Render Engine by using
 the Builder pattern and to elaborate the EDLs, Plugins, Clips and Assets. (all
 just telegram style)
 
  
-~[,yellow]#WIP# flesh out some details, smooth formulations etc.
-But the core of my argumentation is complete.~
+CAUTION: [yellow-background]#WIP# flesh out some details, smooth formulations etc. +
+         ~But the core of my argumentation is complete.~
 
 ....
-
-
-
-
-
+​
+​
+​
 ....
 ''''
 
 Historical note
 ---------------
-This text was written and published on Cehteh's PiPaWiki in June 2007
-and immediately caused a lot of discussions, leading to the *Cin-3* effort
-to rework the existing Cinelerra codebase. This movement eventually turned into the
-separate *Lumiera* project early in 2008.
+This text was written and published on _Cehteh_'s PiPaPo-Wiki in May 2007
+and immediately caused a lot of discussions. The next day, _Ichthyo_ published
+a second text, sketching a link:Cin3-ProjectProposal.html[project plan] to gradually
+transform the existing Cinelerra code base into a modern piece of software, with
+a similar set of features, yet crafted well enough to fulfill the user's expectations.
+A link:PossibilitiesAtHand.html[third text], published subsequently,
+developed the proposed ideas into a coherent implementation concept.
+During the next weeks, a group of people formed around the goal of creating a
+*Cinelerra-3* by reworking the existing codebase. This movement however gradually
+turned into a project to re-write Cinelerra, which eventually became the
+*Lumiera* project early in 2008.
 
 I'm re-publishing this text here unaltered in the roughly drafted form with all typos,
 omissions and spelling errors. Basically, at that time this text was written one-off,
 during a single night.
 
-~_Ichthyo_ 5/2011~
+Ichthyo:: 5/2011
+

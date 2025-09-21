@@ -1,0 +1,243 @@
+»best practices«
+================
+:author: Ichthyostega
+:date: May 2007
+
+
+Encapsulation and Interfaces
+----------------------------
+
+The basic idea is to hide the internals, i.e. the way _how_
+things are done within each Component. Other Components just use an
+Interface to get Services, but don't access or rely on the internals of
+a given Component. This principle can be applied at the level of single
+Components (Objects), as well as at the level of whole Subsystems and
+Application Layers.
+
+The benefit immediate obvious is to cut down complexity (and help Decoupling).
+But the real big gain is that it _forces the programmer_ to figure out _what the Services are_
+he needs or wants to provide. Thus, it is often first percieved as a
+hindrance in creativity and as causing a slowdown in development speed,
+but this perception is considered a fallacy nowadays.
+
+_Especially for the Cinelerra codebase_ this means changing the way things are done
+quite dramatically, sort of inwards-out. To give some examples:
+
+- instead of looping through a linked list of nodes located elsewhere
+(i.e. ``we'' are doing something with ``them'') think on what Information
+we want to find out and require a service to get this information
+(i.e. ``they'' are doing something for ``us'')
+- instead of having some state information in some field and relying on
+other components to treat this state consistently, let the other components
+provide an Interface to register and receive notifications. The net
+effect being a big simplification, as the other component generating
+the change doesn't need to know of any specific detail of us (we just
+implement a Listener interface) and we don't need to worry because we
+manipulate our internals ourselves.
+
+
+Decoupling
+----------
+
+The basic idea is to break apart (and avoid) all situations, where several
+components are mutually dependent on each other or where one component
+relies on several intermediate components to get some information.
+Instead, reformulate in terms of _Services_ and choose the borders of
+Components and Subsystems such, that each part provides just the services
+he _can_ provide without creating many external dependencies. Commonly,
+this goal is not 100% achievable and you need some sort of a ``backlink''
+in some situations. But at least you should favour to rely on some generic
+_Interface_ for the backlink (instead of relying on the concrete Implementation
+of some component, which in turn uses _you_ to get some services).
+
+Especially for Cinelerra this means breaking with some practices
+pertinent all over the code base:
+
+- sub components typically assume the existence of ``the `EDL`'' or ``the `MWindow`''
+to do `mwindow->edl->track[i]->` ... +
+Instead, we should figure out _what Information the callee needs_ to perform its job
+and pass it down from the caller when making the original call.
+- this has the immediate consequence that we are forced to think in larger
+units and to deal in terms of abstractions. If the callee needs to make
+some tests and behave different depending on the result, split apart
+the callee and move the decision to the caller
+- several parts in cinelerra are organized in terms of GUI elements
+or facilities, while belonging rather to the EDL or even the Render
+Engine. For example all of the automation nodes provide functions to
+express their ``value'' as percentage of the curve display height
+within the GUI. Changing this immediately forces us to rethink what
+``the value'' of the automation at question should be and what queries and
+services any automation could provide without making assumptions on its
+internal representation, and such would be very much beneficial (it
+drives us at unifying all automation into a sort of control link and
+hiding all of the key frame accounting details)
+
+
+Composition over Inheritance
+----------------------------
+
+It is a well known and broadly discussed fallacy of the early days of
+Object Orientation to fall for the suggestive meaning of the word ``Inheritance'',
+thus mirroring a genealogy of concepts by a hierarchy of Objects
+related by Inheritance. Such appeals to our sense of orderliness, but
+creates a whole bunch of characteristic problems later on, most
+noticeable the pervasive use of Type casts (which either make the code
+complex or foster the overlooking of border cases).
+
+Instead, we should note that _Composition_ is the basic concept,
+i.e. one Object uses another object to get its work done.
+Inheritance expresses just _one_ specific case of Composition,
+namely the ``is-a-kind-of'' relation. It should be used _only_
+if the Subclass can stand in for the Superclass in any respect,
+_and_ if the Superclasses operations are completely sufficient
+to express _all services needed._
+
+To give again some concrete examples...
+
+- the ``Contract'' (i.e. the set of operations provided) of the general
+`Automation` class is too narrow -- and several things actually to be done,
+like interpolation, only make sense for `FloatAutomation`
+(i.e. a float valued smooth function curve), not for switches (like
+mute), not for masks, not for keyframes (encompassing several different
+values). As pointed out above, the problem can be solved by inverting
+the direction of control: instead of querying or even directly fetching
+a value, let the client or callee (e.g. the effect) declare its
+parameter and parameter kinds and _provide_ the value, or at least
+provide a functor object for the plugin to retrieve the value.
+- several parts of the Render Engine are solved differently for Audio and Video
+processing. Thus, we have the split into `A*` and `V*` subclasses all over
+the place and the whole processing control flow is teared apart and
+difficult to trace. Instead, it would be preferable to use an ``MediaStream''
+or ``MediaFrame'' abstraction and push the difference of Audio and Video down
+to within the different Implementations of these Interfaces. Use Factories to
+configure the Frames and Processors accordingly, especially apply the
+_Builder_ Design Pattern to separate construction and running of the
+Pipeline.
+
+
+Strong Typing and Design Patterns
+---------------------------------
+
+Design Patterns are sort of a structural plan commonly found practical
+for solving a wide range of similar problems. They represent common wisdom
+gained by mastering the same situations again and again. Thus, in many
+cases, instead of coming up with a newly invented solution aproach, it
+is preferable to combine several Design Patterns to build up the
+solution. They help thinking on a higher abstraction level and they
+provide a common language for reasoning over details of the problem,
+and while doing so we are able to detect the specific properties of a
+problem in question.
+
+Especially, many Patterns target at using _the power of strong typed constructs._
+This is, overcoming the ``if so do so and in case of that do this'' approach.
+Every Object which needs to be treated differently in accordance with
+some of its state is potentially dangerous, because represents a blend
+of several concepts. It is always better when one Class or Interface
+represents just _one_ concept. By letting an operation just accept one
+type of input we avoid decisions with all their potential dangers alltogether.
+
+To point out some concrete usage scenarios:
+
+- instead of manipulating pointers in a linked list,
+  prefer using Iteration over a Collection.
+- instead of introducing conditional branches into the control flow
+  and building up case-switch statements, prefer using a Factory
+  to create customized components (e.g. OpenGL, non-OpenGL, Audio vs Video)
+- instead of securing the code to deal with some rare special cases, use a Proxy
+  to stand-in just for this rare case (i.e. solve it by polymorphism)
+
+
+Design by Contract
+------------------
+
+DBC is just some different way of looking at the ``Encapsulation -- Decoupling --
+Interface'' theme: If we have separate elements of a software system
+collaborate with each other over well defined interfaces, we can think
+of this collaboration as being driven by mutual obligations and
+benefits. An Inteface can be understood as a promise to do some
+service, and the requirement to provide the necessary input within some
+limitations. The key idea now is to let the program itself test the
+compliance to this contract just at the point where the service is
+requested/provided.
+
+This gives us a viable approach for controlling Cinelerra's long standing
+stability problems. It is clearly not feasible to check every corner
+case everywhere, but if we succeed in defining some Components and
+Interfaces, as a side effect we have gained an excellent location to
+concentrate any sanity checks. Just build rigorous and complete
+compliance checks into the interface, and all the implementation code
+below this interface is freed from the need of doing additional checks,
+and can just rely on the Contract.
+
+
+Unit Testing
+------------
+
+Unit Testing can be seen as closely related to DBC. Not every compliance
+check can and should be done in the actual processing code of the real
+application. Many sanity checks can be done just by additional checks
+in a debug version. And for many aspects of the compliance it is
+sufficient to check them in a separate self test application. Just
+verify systematically that one isolated component detects all dangerous
+corner cases and you don't have to worry much about all sorts of
+combinations of corner cases.
+
+At a second thought, the really big benefit of unit tests is another one:
+they force the programmer to make his components _unit testable,_
+i.e. they force to make a given Component cleanly separated and
+decoupled from the rest of the system. Often, it's just a minute detail
+which breakes unit testability, quite common it's just a single line
+added at the end of a subroutine. For example, there is a method doing
+some preconfiguration, then pulling one rendered frame out of the
+Render Pipeline and conveniently displaying it in the GUI. Such is _not_
+unit testable. Breaking it apart into one method for the configuration,
+one for the pulling and one for the display enables at least to test
+the configuration without the need of having real video data at hand
+and maybe even for testing the rendering with some very simplified
+video footage (but this is rather challenging). The lesson learned here
+is: by trying to get some operation unit testable we identify that it
+is passing the borders of several domains and should be split into more
+cleanly defined sub-operations.
+
+I want to make one thing clear: it is rather pointless to write unit
+tests afterwards for an already existing application. Such unit test
+suites ``after the fact'' serve mostly as an alibi. Thus it is clear
+that we can't do real Test Driven Development with such a huge existing
+codebase, but at least the idea is helpful for any newly written code
+
+
+Frequent Refacturing
+--------------------
+
+Many of the practices described thus far are linked to a style of
+developing and project management *distributed and in flux*.
+Many of these practices are challenging and almost impossible to get
+``right at the first shot''. They really need to be supplemented by the
+help of other people looking at your code, by discussing questions of
+style and by continuously reworking, reshaping and improving the
+solution, striving at an equilibrium of requirements, simplicity,
+performance and style.
+
+~(zuletzt geändert am 2007-06-16 18:22:29 durch _Ichthyostega_)~
+
+....
+​
+​
+​
+....
+''''
+
+Historical note
+---------------
+This text belongs into a series of publications on Cehteh's PiPaPo-Wiki,
+starting with link:CinelerraWoes.html[»Cinelerra woes«] in May 2007.
+These immediately set off a heated debate on the Cinelerra mailing list
+and on IRC, leading to the *Cin-3* effort to rework the existing Cinelerra codebase.
+This movement eventually turned into the separate *Lumiera* project early in 2008.
+
+I'm re-publishing this text here in the roughly drafted form, as preserved by
+a HTML capture from early 2008. I have fixed a small number of grammatical mistakes
+to improve readability, and I have tranliterated the formatting into Asciidoc.
+
+Ichthyo:: 2025-09-13
+

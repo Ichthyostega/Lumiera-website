@@ -1,0 +1,62 @@
+Architecure Overview
+====================
+
+[options="autowidth"]
+|====================================
+|*State*       | _Draft_
+|*Date*        | _2008-03-06_
+|*Proposed by* | Ichthyostega
+|====================================
+
+
+
+.envisioned Architecture of the Application
+- the Application has three Layers: Backend, Proc and GUI
+- the Application shall be completely functional without GUI (script-driven)
+- all IO, media data fetching, processing and bookkeeping falls within the realm of the Backend
+- all media object manipulation, deciding and configuration is the Proc Layer's job
+- extendible by plugins on all levels, highly configurable, but not totally componentized (micro kernel) architecture
+- strong separation between high-level and low-level areas of the Application
+ -the user/GUI manipulates a high-level model wheras rendering is based on a corresponding low-level model
+ -stored Session (state) is comprised of hig-level model, a collection of Assets and accompaning configuration
+- (possibly) several storage backends, abstracted out by a common interface
+
+*Tasks*:
+
+- fill in the parts regarding the GUI
+- more details on the Backend? (_cehteh?_)
+
+Discussion
+----------
+This proposal intends to capture our current architectural view. Feel free to comment, augment and propose...
+
+ask _Ichthyo_ if interested _in the SVG source of the drawing_
+
+....
+​
+​
+​
+....
+''''
+
+Historical note
+---------------
+This early draft of the Architecture RfC was published on Cehteh's Wiki in 2008; +
+it has been preserved as a HTML capture from pipapo.org at 2008-03-06.
+
+I'm re-publishing this text as historic document, only transliterated into Asciidoc markup. +
+-> See the link:{ldoc}/devel/rfc/ArchitectureOverview.html[reworked and accepted version].
+
+
+Ichthyo:: 2025-09-13
+
+
+NOTE: The HTML capture shows a drawing, which was generated from `Lumi.Architecture-1.svg`
+
+This graphic was first added to Git in May 2008, and looks similar, yet notably different
+than the later iterations of this graphic
+
+- SVG https://git.lumiera.org/?p=LUMIERA;a=blob_plain;f=doc/devel/draw/Lumi.Architecture-1.svg;hb=c0d7ae1aa2073e4e5b29f864d32a639c2864e9a1[first Version from 2008]
+- SVG https://git.lumiera.org/?p=LUMIERA;a=blob_plain;f=doc/devel/draw/Lumi.Architecture-1.svg;hb=c7c6fe547fd8ad11811dc7a1411600a68b29f47b[Version from 2008-09]
+- SVG https://git.lumiera.org/?p=LUMIERA;a=blob_plain;f=doc/devel/draw/Lumi.Architecture-2.svg;hb=0b9f2e2c3139cad542013caac593cb5972a2e3f6[current Version (2022)]
+

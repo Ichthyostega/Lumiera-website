@@ -1,0 +1,630 @@
+Cinelerra-3 Project Proposal
+============================
+:author: Ichthyostega
+:date: May 2007
+
+
+.May 2007
+Much of this is rather vapourware at the time of this writing. Just,
+there seems to be some momentum in the Cinelerra community at the
+moment. +
+And there ist
+the existing codebase. It is huge. It contains lots of know-how. But
+any developer of some experience can easily see that it is the root for
+some of the current problems Cinelerra is struck with. All of this
+problems are rather indirect in nature. To make it clear: the state of
+the current code base is satisfactory, it is well maintained. But it is
+difficult to extend, tedious to analyze and it is lacking the
+infrastructure needed to accomodate the demands users are putting on
+such an application nowadays. If we would just go ahead pragmatically
+and add all the sensible feature requests, like expandable tracks, more
+drag-n-drop, more object-like behaviour of the assets, effects linked
+to clips, sound linked to clips, individual keying of plugin
+parameters, complete user-defineable ordering of the elements in the
+render pipeline, a full-blown DVD-export editor, asset management and
+searching features, transparent proxy editing, meta-clips, support for
+larger projects with multiple timelines, etc -- adding all those
+features _will kill the existing Codebase for sure._
+
+But things are not hopeless. Cinelerra is not alone, other Applications
+have seen this problems, other Applications have advanced.
+
+- we should not stick to a programming style that was _up to date_ 20 Years ago
+- we should utilize all the _experience, wisdom and craftmanship_ gained
+  in the last years by the developer community
+- we should rely more heavily on external libs for all things that are
+  _not specific to video editing_
+- we should adopt _well proven methods_ and _»best practices«_
+
+  ** Encapsulation, programming against Interfaces.
+     link:bestPractices.html[This means for Cinelerra...]
+  ** Decoupling of Components by making them self-contained
+     link:bestPractices.html#_decoupling[(this means...)]
+  ** Composition over Inheritance
+     link:bestPractices.html#_composition_over_inheritance[(more...)]
+  ** Strong Typing and the use of Design Patterns
+     link:bestPractices.html#_strong_typing_and_design_patterns[(more...)]
+  ** Design by Contract and wide use of Assertions
+     link:bestPractices.html#_design_by_contract[(more...)]
+  ** Frequent Refacturing combined with a Stable Branch
+  ** Unit Testing
+     link:bestPractices.html#_unit_testing[(more...)]
+
+ 
+.But won't this be a new Application?
+No, it won't, because we don't want a new application. We want it basically to stay the same.
+
+The concepts embodied into Cinelerra are clean and stright forward.
+It is format-agnostic, quality oriented, targeted at pro work. +
+The phillosophy is right. It has good Karma. [big]#😉#
+
+ * So, everything should be done in a manner that doesn't fundamentally break the existing codebase.
+ * We don't want to start out from scratch, we want a transition and a reworking.
+ * At every Milestone, there should be a usable and almost feature-complete Application.
+
+
+Architecture
+------------
+
+The Current Cinelerra has an Architecture. Well, sort of. +
+There is a backend region (libquicktimehv, libmpeg).
+There are the virtual nodes and plugins of the render engine,
+and there is the guicast lib with its window and widget classes.
+
+And thats all of it... _Architecture is not a reality at the code level._ +
+We should most definitively change this.
+
+The existing functionaliy should be separated into *three layers*: Backend, Core, GUI. +
+Or -- slightly changed viewpoint -- separated into *five independent functional Units*:
+
+. data handling backend
+. object manipulation (EDLs/cuts/plugin-instances/automation)
+. render engine (render-pipeline/plugins/mixing/playback/rendering)
+. asset management
+. user interface
+
+Each of this units is self-contained as much as possible.
+They cooperate using only well defined and more or less fixed Interfaces.
+Each of this Interfaces builds upon one _key abstraction,_ which should be
+choosen/designed to be just powerfull enough to encompass and
+express all interactions going on at this Interface. For example,
+Render Engine and Data Backend are just talking about media streams.
+Render Engine retrieves playlists from the object manipulation
+component, while this one loads and queries assets
+(clips, whole sessions, effects, plugins) from the asset manager.
+And the GUI just sends and recieves events from the core engine.
+As a spin-off product, most of the components could be usefull as such.
+The data handling backend and the asset management could be scriptable,
+e.g. via python bindings. Object manipulation and Render Engine
+could work in a headless fashion (commandline client)
+
+Read more on the proposed core Components and Interfaces [purple]#<broken-URL>#
+
+''''
+
+Roadmap
+-------
+
+All of this sounds ambitious and contradictory to the aforementioned goal of
+allways having a usable and almost complete application. But it is doable, serious.
+And, with the exception of one (final) step, namely rewriting the GUI,
+it doesn't require excessive developer manpower or overly much specialized skills.
+Why? _Because we don't need to re-invent functionallity_ -- we always have a working
+piece of code and have _just_ to break it out and transform it into the new structures.
+
+Don't get me wrong: this _is_ a proposal, a draft, sort of brainstorming. +
+Just to show that it's feasible, I'll detail on a complete project plan with milestones.
+
+Milestone-1: whetting of tools
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[options="header",cols="1>,3<"]
+|==============================
+|abstract | bring in proper tools and frameworks
+|criteria | we _feel_ well equipped for the battle 😄
+|user-visible impact | backported fixes for bugs spotted by the new tools
+|==============================
+
+motivation::
+  just don't rely solely on common sense and handwork, +
+  bring in proven tools and methods.
+
+description:: some facilities are better to setup beforehand.
++
+This includes quite some ``chainsaw surgery'',
+but we shouldn't get too much into individual technical details.
+Mostly, it's about selecting and integrating library solutions
+for some of the common problems, like multithreading and locking.
++
+Further, we need diagnostic tools and a framework for assertions and quality management
+(https://nobug.pipapo.org/[NoBug], https://valgrind.org/[Valgind],...).
+We need an up-to-date, configurable Logging/Reporting System,
+and we should set up a basic Unit Testing framework
+(at least for the new code to-be-written; it is clear
+that we can't do Test Driven Developement in its pure form).
+Moreover, any improvements to the build system are welcome,
+and we should establish a framework of Git branches, build scripts
+and repos to be able to roll out beta versions to the users without much effort. +
+(We can't do TDD, so we need the users, hehe! 😁 )
+
+
+problems:: the runtime behaviour of the current Cinelerra app is quite frightening.
+  It creates lots and lots of threads, uses a locking scheme obviousely broken,
+  and it segfaults on a regular base. _We need to stop this._
+  Cinelerra is inteded to be used for professional work.
+  With respect to this pretension, the current state is plain ridiculous.
+
+solution aproach:: Twofold.
++
+--
+* Bring in some tools and spot some of the most obvious problems.
+  Replace some of the homebrew solutions with state-of-the-art libraries.
+  Try to get some of this backported to Cinelrra-CV. This is to immediately
+  prove the usefullness of our undertakings and give our faithfull users
+  an immedate value payback.
+* Besides, select some further libraries,
+  tools and methods usable only in conjunction with a partial
+  reorganization of the code base. This is only preparatory at the moment
+  but will give us the ability to get a really reliable codebase, if at
+  all we choose to proceed on this path...
+--
+
+goals:: Nothing dramatic. The same code base.
++
+Some additional dependencies 😕, some spotted bugs. 😜
++
+Maybe having gained some approvement by the Community
+
+
+Milestone-2: laying the foundations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[options="header",cols="1>,3<"]
+|==============================
+|abstract | design the key abstractions and the data backend
+|criteria | we can draft all neccessary interfaces and express the main calls in a natural way
+|user-visible impact | none. the newly added code is never called.
+|==============================
+
+motivation::
++
+This milestone has a bit of ``doing more than is needed at the moment''.
+We can decide how much we do, but at least we shall try to get the first
+steps right. _We really need a positive guideline on what the code should be,_
+before we can tackle the existing code.
++
+This really matters. I'll tell you why: the existing code isn't broken,
+function-wise. The problem is, it uses mainly outdated and partially
+ill-guided concepts. It tries to achieve features with an excessive
+amount of dilligence and elaboration on details, which could be achieved
+rather effortless by fully _encorporating the ideas and concepts_
+which gave rise to all those features (media objects, processing networks,
+event-driven GUIs) at first place.
++
+If we don't get the vision clear, we'll end up spending still more
+dilligence for just reimplementing those awry aproach with modern tools
+not at all suited for such programming style.
+
+description::
+need some abstraction for the ``media objects''. This should enable us
+to pass and manipulate those objects in an uniform manner, without being
+tied to the specific properties of the given object. We can (and should)
+borrow the basic ideas from existing libraies. We should decide,
+if we can even use those libraries to do some of the work for
+us. Next, we have to identify ``corresponding features'' in the existing
+code base. I'm quite content, that we will find it to be quite sensible
+in this respect and that all we have to do is some aligning and
+reordering of methods. (e.g. in the `VFrame` object)
+
+problems::
+. we need a way to access all sorts of media stream content in a uniform way.
+. we need to pass renderable objects from the object manipulation substytem to the core rendering engine
+. we need to represent all sorts of automation data in a generalized manner
+. we need to organize assets, which could be raw media, pre-cut clips,
+  effects, transitions and possibly more things in future (extensible!)
+
+solution aproach::
+. build upon the key abstraction of a media stream.
++
+This abstraction will build the front interface for our data backend layer.
+Behind this abstraction, it will most likely continue to use most of HV's media
+accessing code, at least for a long time, maybe forever. This will open
+the possibility of improved caching (and that's the big deal).
+Moreover, we need to solve the problem of representing different color
+models. We need a solution how to write processing code targeted at
+different models in a clean manner.
++
+_All of this is mandatory, we can't proceed without._
+
+. build upon the abstraction of ``playlists'', i.e. collections of ``renderable objects''.
+Without this, we can't decouple the rendering engine from the
+representation of EDLs, clips, effects, sessions.
+We can choose to defer the solution of this problem to Milestone-3
+. I have written the bezier patch, probably this hinders me to get a clear vision here.
+Any ideas welcome! +
+At least, we should replace all of the hand-written, double linked
+lists by standard containers and base the processing at least on
+iterators (or functional programming, i.e. mapping and filtering?).
+This will force us (in a quite natural way) to define a common node
+abstraction. We probably can't do much of this replacement before we
+are at Milestone-5, because the existing code passes references to the
+list pointers over several layers of function calls and can be heavily
+complicated and error prone at places. Cleaning up all of this
+iterating and searching comprises most of the work for Milestone-5. But
+we should develop a prototype and try it out on some collecion-like
+objects we encounter in Milestone-3 (e.g. the plugin sets)
+. I have not the slightest idea how the asset management works at the moment.
+Maybe we introduce sort of a plugin architecture here too?
+
+goals:: just being able to access media streams in a uniform manner and
+being able to write the backend interface, which will encompass all future
+media stream access. Add this code and maybe alredy the interface classes
+to the code base, but don't use it.
+
+
+
+
+Milestone-3: encountering reality
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[options="header",cols="1>,3<"]
+|==============================
+|abstract | reorganize the core rendering engine
+|criteria | Cinelerra renders/playbacks same as before, +
+            including all effects
+|user-visible impact | none (hopefully)
+|==============================
+
+motivation::
+the rendering pipeline is alredy quite self contained and has rather well
+defined borders, so it is a good candidate to get the first grip at.
+Moreover, it is _the_ reality test par excelance: if our ideas,
+design principles, foundations and abstractions aren't sound, then
+performance and stability will be worse then at current. +
+Quality is measurable here.
+
+description::
+The rendering pipeline consists of processing nodes and works in pull processing mode.
+We won't change this.
++
+But we want to remove the ``special role'' some of the nodes are playing
+at the moment, namely the mask, the camera, the fader, the projector.
+Another central point is the _Builder-Pattern:_ 
+the current code is organized vaguely by this pattern, but it is not
+really implemented this way. This causes a mix of several concerns and
+causes the rendering codepath to be polluted with lots of conditional
+tests and decisions which aren't strictly video prcessing related. This
+is again an example of ``missing the spirit of the concept'': typically
+that's just why you want to apply the Builder pattern. Without that
+incentive, it would be much more transparent to use table-style
+programming.
++
+So the idea here should be that the augmented object manipulation
+component (i.e. the EDL and such) does the building and delivers a
+completely configured render pipelline (object graph) to the rendering
+engine. To be more precise: it could be a list of render pipelines, one
+for each constantly configured segment of the session. No need to build
+up the objects for every frame. No need to do any color model decisions
+within the inner processing loop and no need to test for objects
+disappearing due to editing activties in the course of playback, not to
+mention handling of specific hardware like BUZZ-support. Just one
+central solution for hot-swapping the render pipeline for one segment
+of the session is needed. So my guess is, finally 3/4 of the code
+presently there will simply disappear.
+
+problems:: the current implementation...
++
+(a) is rather directly integrated with playback and background rendering
++
+(b) the nodes are built up for each frame while rendering
++
+(c) what to do with all the existing plugin code?
+
+solution aproach::
+Introduce a new controller component, the `RenderManager`.
+Rewrite existing code ``out there'' to interface directly to it.
+This solves (a).
++
+Further, introduce as an intermediate means a new `ProvisoryBuilder`,
+as all of the object manipulation subsystem is nonexistant at the moment.
+This `ProvisoyBuilder`
+behaves identical to the current Cinelerra rendering code: it builds up
+a rendering pipeline for each frame by directly accessing EDL and clip
+objects. But, at least, we alredy use the new data backend functions --
+the newly created render pipeline nodes are cleanly separated from the Builder,
+as well from the backend complexities and they do _nothing but rendering_.
+This solves (b).
++
+For the plugin code, I see two different aproaches at the moment:
++
+* we could provide an translation layer located in the so called
+  `PluginServer` (which is no real server, but rather an Adapter)
+  and leave the plugin code alone at the moment
+* we could go ahead and adapt all plugins, once and for all.
+  This includes the `process_buffer()` and the OpenGL variants,
+  but would leave alone all plugin GUIs and all parameter/keyframe management.
+
+goals::
+All of the rendering, playback and EDL manipulation code is working as
+before, with the same usage pattern (including multithreading). In
+spite of this, the core rendering engine code (and hopefully the
+processing code in the plugins) is drastically simplified, because we
+have factured out several crosscutting concerns, centralized a good
+bunch of decision logic, ruled out most of the switch-case-blocks
+together with the macro stuff caused by them, as we can now utilize our
+improved data abstractions developed in Milestone-2. If we are clever,
+we will see performance gains due to new memory management
+possibilities (but we shouldn't expect too much here).
+
+
+
+
+Milestone-4: taking a break
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[options="header",cols="1>,3<"]
+|==============================
+|abstract | switch session file loading and improve asset representation
+|criteria | new system can handle existing session files and assets, maybe with some improvements
+|user-visible impact | ability to use new (switchable) external session representations beside the traditional XML
+|==============================
+
+motivation::
+doing some rather simple and isolated improvements, preparing Milestone-5, getting user feedback for Milestone-3
+
+description:: ~[red]#to be written...#~
+
+problems::
+Storing and loading is scattered all over the code,
+and tangled with the undo/redo and copy/paste functionalities.
+
+solution aproach:: ~[red]#to be written...#~
+goals::
+New Session storage system in place, more possibilities to do format
+conversions, besides that, everything should work as before.
+
+CAUTION: [yellow-background]#WIP# ^_more analysis required to specify missing details_^
+
+
+
+
+Milestone-5: biting the bullet
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[options="header",cols="1>,3<"]
+|==============================
+|abstract | replace object management
+|criteria | new subsystem can handle _all_ the existing features
+|user-visible impact | no functional changes, but better locking/multithreading behaviour,
+                       resulting in improved stability (hopefully)
+|==============================
+
+motivation::
+At some point, we need to do the _big step_
+and introduce common container classes and the standard library.
+Moreover, this core object network needs a slightly augmented structure
+and some improved abstractions, in order to be able to implement all
+those feature requests now lurking in our famous bug tracker since
+years. Also, if we want to implement a fully event-centric GUI at some
+point in the future (Milestone-7), we need centralized service
+oriented access points to all of this object manipulation, i.e. a real
+client-server aproach.
+
+description::
+All of the edit session content and state is contained in a structure of
+connected objects, most of this connections beeing of collection-type
+(implemented by double linked lists). A Session is a collection of
+tracks, which in turn contain a collection of edits, pluginsets,
+collections of automation-nodes and keyframes of various types. At the
+moment, this structure is accessed directly from both sides (GUI and
+Render Engine). Further, the cleaned-up structure of the Render Engine
+(Milestone-3) puts a new demand on this object manipulation subsystem:
+it needs to do the building and connection of the render pipeline
+object graph. Quite in line with this are some of the long standing
+feature requests of the users: the ability to link media objects
+(clips, sound and effects) and move them in combination, the ability to
+do individual keying of plugin parameters. Because the performance
+pressure is rather low in this region of the system, we may well think
+of using advanced programming techniques to solve this problems. At the
+moment, I could imagine to embed some Prolog engine here, or
+something of this sort. At least, we should prepare for the ability to
+do so in the future. Such things are absolutely impossible as long as
+all of the processing is done by directly passing along pointers to
+linked list nodes, or, worse, references to such pointers, it's just
+not the right abstraction level. Rather, there should be augmented
+Asset-Objects which could encompass some layout and association rules.
+Like: ``place this plugin below that clip'', or ``place this keyframe
+sequence relative to that plugin''. We really don't need a full-blown
+constraint solver here, but some sort of rule-driven aproach will make
+this things more simple and manageable.
+
+problems:: currently,
+most operations are done by directly modifying inner object properties
+from outwart in a completely unstructured manner. It's an almost
+intangible, monolithic labyrinth of dependencies. So we need methods of
+breaking out parts and create new separation layers. Moreover, at the
+moment there is overly heavy multithreading, and we want partially to
+get rid of this in the GUI layer.
+
+solution aproach::
+Create a new `CommandDispatcher`-Component
+and (temporarily) introduce a layer of proxy-objects above this. The
+proxy objects can be accessed in a similar manner from the existing
+code (mainly in the GUI layer) to the way the real objects are now
+manipulated directly by the GUI. Of course we have to replace direct
+manipulation of object fileds by getter/setter calls. The proxy objects
+in turn access the new interface on the `CommandDispatcher`,
+which reacts by advising the new (or reworked) media object
+manipulation subsystem to carry out the desired action. The net effect
+is to replace external manipulation by letting the EDL media objects
+themselves provide the desired service, maybe even asynchronousely.
+
+goals:: Not sure what the goals should be. +
+Possibly this Milestone will be about
+replacing a good part of the core app. But it is also possible to think
+of it rather as an Adaptation Layer for integrating the new Backend and
+Render Engine, while the ``editing part'' of the App stays unchanged
+functionallity-wise.
+
+
+
+
+Milestone-6: harvesting the fruits
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[options="header",cols="1>,3<"]
+|==============================
+|abstract | implement some nice new features based on the augmented structures
+|criteria | users are happy
+|user-visible impact | speed improvements, new features
+|==============================
+
+motivation::
+At this point, we can start to take profit from all this internal
+reworkings and also to realize the potential of the augmented
+structures.
+
+description::
+The most important thing to do here is an improved Cache Manager and
+a more intelligent re-use of (background)rendered frames. If we just
+implement what's possible on top of Cinelerra's clear and
+straightforward structure, we can get way ahead of a good bunch of our
+competitors: If we manage to rerender really just the recently changed
+parts of the session and nothing more, a simple aging aproach to the
+cache organization will yield us pre-existing frames ready for playback
+most of the time. I for my part assess this as beeing far more
+important then augmenting hardware acceleration (note: for the
+conventional video editing cinelerra is taylored at. 3D animations or
+virtual reality is quite a different thing)
+
+problems::
+after having solved the adaptation problem to the existing code in the
+data backend and in the GUI layer, I don't see any further difficulties.
+Moreover, there is no project dependencies pressure, i.e. we can
+implement what is feasible here and make our users happy.
+
+goals::
+Runs like greased lighning, rock stable [big]#😜#
+
+
+
+
+Milestone-7: getting megalomania
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[options="header",cols="1>,3<"]
+|==============================
+|abstract | a new GUI
+|criteria | bangs and whistles
+|user-visible impact | gigantic 😇
+|==============================
+
+motivation:: gain better usability, be cool...
+description:: Starting form the `CommandDispatcher`
+introduced in Milestone-5, rebuild the current GUI using one of the
+existing GUI toolkit sets. Openes the ability to have collapsable
+tracks with sub-tracks for the automation, for displaying keyframes and
+curves for every imaginable parameter, for letting the user directly
+edit connections of the data processing network, for gaining more screen
+real estate and improved usability by tabbed property editing boxes,
+user-defineable key bindings, dockable sub-windows,
+vector-graphic-driven rendering of widgetes, etc., etc., etc. ...
+
+problems: a great bunch of work.
+Could be way more then all preceeding Milestones together.
+The problem to decide on the ``political correct'' GUI framework 😈
+
+goals::
+an application, that's not only advanced, clean and quality oriented in its inner workings,
+but conveyes this properties in the user experience (do you need more marketing fluff?)
+
+~[red]#more to add here...?#~
+
+
+
+Comments
+--------
+
+I'd rather start from scratch and then lets see what we can reuse. Reasons are:
+
+- Picking up the current codebase into a new design will be hard _at best_ -- probably discuraging and not doable
+- We still stick with old undocumented code until we gone over all of it,
+which might be never the case for this project, at some point when
+things are working people get lazy (which is ok for volunteers).
+Starting it in the right fashion, writing specs, docs and tests first
+before starting actual implementation will not suffer from such a
+lazyness
+- We know what we've done, no compromises, no ugly workarounds,
+no debugging of old code to make it fit, that will safe *much* time.
+- There is still a lot to resuse. HV put a lot efforts into doing things right,
+say effects, chromakeying, color handling, motion tracker, etc..., this
+are the things we want to reuse. 
+
+ct:: '2007-06-04 01:18:44'
+
+
+Well, while I agree with the points mentioned by you,
+I tend to draw a different conclusion:
+
+- just because it is possible (and even has some probability) that this effort
+  will cease half-way done, I prefere an aproach which basically aims at
+  an working App at every Milestone.
+- Milestone-5 seems to be the ``point-of-no-return'', but if we stop erlier,
+  we have at least done some substantial improvements for the existing codebase
+- starting from scratch means not having anything (usable) besides the existing
+  Cinelerra 2.x for a long time.
+
+Ichthyostega:: '2007-06-08 02:35:51'
+
+I find myself nodding in agreement with Ichthyostega. I think it's
+important that we don't ``do a Netscape'' or end up with the video editor
+equivalent of Vista. I'd prefer a DragonFlyBSD approach, where the
+codebase is systematically migrated to the new improved architecture.
+Breakages should be minimised -- although I think that some temporary
+breakage is inevitable. My idea for a new Cinelerra is:
+
+- to see something more stable rather than a whole raft of improvements
+- to see code that is easier to modify and enhance.
+
+I think being too ambitious is highly likely to lead in failure.
+What I propose is that we identify one key area of Cinelerra that needs
+addressing, and make that the target of Cinelerra 3.0.
+
+MarkCarter:: '2008-03-06 05:25:10'
+
+I would love to agree, but systematic migration is not always possible or
+desirable. My day job is senior architect/developer for a sizable web
+application. We worked for a long time on a migration plan, trying to
+``shoehorn in'' improvements to the codebase, but we found that we were
+spending more time working around the problems than writing new code.
+Finally we started from scratch, using everything we had learned, and
+development is moving _much_ more quickly.
+
+RobScott:: '2008-02-07 17:30:00'
+
+Yes, that's pretty much the conclusion we reached meanwhile too.
+Now it is a _completely separate project_ and it's a _rewrite_.
+The first three steps remain valid, though
+(and we are somewhre within step-2 and 3)
+
+Ichthyostega:: '2008-02-07 18:33:18'
+
+~(zuletzt geändert am 2008-02-07 18:34:21 durch _91.12.47.139_)~
+
+....
+​
+​
+​
+....
+''''
+
+Historical note
+---------------
+This text is the second within a series of publications on pipapo.org,
+starting with link:CinelerraWoes.html[»Cinelerra woes«] in May 2007.
+It set off an avalanche of responses, many commenters pointing out that
+this text shows that _real change was possible_ and the initial steps would
+even be not too hard to achieve. During the following weeks, a movement
+formed with the goal to create a *Cineleera-3*; this effort eventually
+turned into the separate *Lumiera* project early in 2008.
+
+I'm re-publishing this text here close to the original, roughly drafted form,
+as preserved by a HTML capture from early 2008. I have fixed a small number
+of grammatical mistakes to improve readability, and I have tranliterated
+the formatting into Asciidoc.
+
+Ichthyo:: 2025-09-13
+
