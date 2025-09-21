@@ -3,7 +3,12 @@ Lumiera Project History
 :Author: Ichthyostega
 :Date: 3/2011
 
-// Menu :  put child 'Cinelerra3Announcement' after 'CinelerraWoes'
+// Menu :  sort children
+// Menu :  prepend 'PossibilitiesAtHand'
+// Menu :  prepend 'Cin3-ProjectProposal'
+// Menu :  prepend 'CinelerraWoes'
+// Menu :  put child 'bestPractices' after 'PossibilitiesAtHand'
+// Menu :  put child 'Cinelerra3Announcement' after 'bestPractices'
 
 CAUTION: incomplete, more content to come...
 
@@ -50,11 +55,11 @@ isolated fixes and small improvements. Because any change, irrespective
 of the result, would just add to the increasing amount of differences
 to maintain and merge with each new upstream release.
 
-- even ignoring this problem of ``mergeability'', Ichthyo's attempts to
+- even ignoring this problem of ``mergeability'', _Ichthyo_'s attempts to
   rectify some of the most time-consuming oddities in the behaviour of
   frequently needed features (transitions, automation, effects, interlacing,
   proxy editing) quickly evolved into disproportionally expensive refactoring
-  and reworking projects. At the same time, Cehteh concentrated on the frequent
+  and reworking projects. At the same time, _Cehteh_ concentrated on the frequent
   deadlocks and crashes. Being an experienced system programmer, he quickly
   spotted the reason -- yet any attempt of fixing the problems would lead
   to ``chainsaw surgery'' all over the place. Seemingly, Cinelerra's
@@ -70,8 +75,8 @@ all but one had left, for one reason or the other (not related to Cinelerra).
 The development efforts for the CV-Version basically stalled. Several discussions
 on IRC gave the impression that the project as a whole might take another turn.
 
-In May, Cehteh and Ichthyo for the first time had some longer conversations on IRC.
-Cehteh showed a ``Cinelerra Guerilla Git repository'' with the official CV-Version
+In May, _Cehteh_ and _Ichthyo_ for the first time had some longer conversations on IRC.
+_Cehteh_ showed a ``Cinelerra Guerilla Git repository'' with the official CV-Version
 and some of his disruptive changes to rework the asset handling, memory management
 and thread locking. He wrote a _Braindump page_ on his personal Wiki, proposing
 
@@ -87,27 +92,33 @@ and thread locking. He wrote a _Braindump page_ on his personal Wiki, proposing
 
 Some days later, ill tempered and in a bad mood after yet another frustrating
 editing session with Cinelerra, spending most of the time just with re-adjusting
-already finished sound work messed up by side effects of further editing, Ichthyo
+already finished sound work messed up by side effects of further editing, _Ichthyo_
 wrote a rant, peppered with random insults and curses. Herman Robak encouraged
 him to rewrite that bluster into a polemic text which can be taken seriously.
 The resulting link:CinelerraWoes.html[»Cinelerra Woes«] page caused a surprisingly
 strong resonance among the Cinelerra-CV community and quickly led to the proposal
 for a gradual reworking of the existing code base to rectify and cure the problems
-pinpointed here. Ichthyo condensed that into a project plan with seven milestones,
-first to define a solid new tooling and project framework and build some trusted
-islands of new code. Starting from there, gradually then the whole source base
-could be reworked. On another page, he defined some crucial »best practices«
-to complement and support the desired open distributed nature of the new
-project.
+pinpointed here. _Ichthyo_ condensed that into a link:Cin3-ProjectProposal.html[project plan]
+with seven milestones, first to define a solid new tooling and project framework and
+build some trusted islands of new code. Starting from there, gradually then the whole
+source base could be reworked. A link:PossibilitiesAtHand.html[Vision text], written
+after some days, takes a slightly different angle and explains the _potential_ of
+the proposed reworking plan not only to ``fix problems'' but beyond that to enable
+usage patterns, which seem obvious based on the capabilities of Cinelerra: to
+create compound structures, customised tool palettes and nested ``Meta Clips''.
+Notably this text proposes to extract the _building of the render configuration_
+from the Session model into a dedicated, self-contained, compiler-like »Builder«
+component -- something later to become a hallmark of the Lumiera architecture.
 
 So, suddenly we found ourselves right in the middle of an exciting new movement
 with much momentum, long debates and lots of new ideas -- and, most exciting, it
-seemed doable right now and here. Yet we should note that we didn't want to start
-a new video editor project -- we didn´t want something different, we wanted a
-_better Cinelerra_. Throughout these discussions, it became custom to label it
-_the-next-Cinelerra_, or -- since the current Version was '2.1' -- just call it
-**Cinelerra-3**. After some weeks, Cehteh wrote a _Project Manifest_ and sent a
-link:Cinelerra3Announcement.html[Project Announcement] to the contributors,
+seemed doable right now and here. It should be noted however that this momentum
+of ``new hope'' was not about starting a new video editor project -- we didn´t want
+something entirely different, we wanted a _better Cinelerra_. And so, throughout
+these discussions, it became custom to label it _the-next-Cinelerra_, or -- as
+the current Version was v2.1 -- just call it **Cinelerra-3**. Early in June 2007,
+_Cehteh_ wrote a _Project Manifest_ and sent a
+link:Cinelerra3Announcement.html[Project Announcement] to the active contributors,
 the known Cinelerra-CV developers and Cinelerra's original Author
 (``Heroine Warrior'' alias ``Jack Crossfire'').
 
