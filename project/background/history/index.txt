@@ -2,6 +2,7 @@ Lumiera Project History
 =======================
 :Author: Ichthyostega
 :Date: 3/2011
+:toc:
 
 // Menu :  sort children
 // Menu :  prepend 'PossibilitiesAtHand'
@@ -9,14 +10,27 @@ Lumiera Project History
 // Menu :  prepend 'CinelerraWoes'
 // Menu :  put child 'bestPractices' after 'PossibilitiesAtHand'
 // Menu :  put child 'Cinelerra3Announcement' after 'bestPractices'
+// Menu :  prepend 'Resources'
 
-CAUTION: incomplete, more content to come...
-
-In this section of the Lumiera website we'll collect some documents
-and background informations about the history of the Lumiera project.
+CAUTION: incomplete, more content to come... +
+         ^[blue]#Last update: **2025-09**#^
 
 Roots of the Project
 --------------------
+
+*******************************************************************
+.to tell a story...
+In this section of the Lumiera website we'll collect some documents
+and background information regarding the history of the Lumiera project.footnote:[
+This page was primarily written by _Ichthyostega_, who was part of the project
+from the very beginning. The writing started in 2011, as it became clear that
+former motivations and decisions are waning into the dust of memories.
+Updates and extensions happened infrequently, as time permits.
+The accompanying link:Resources.html[Resources page] was started in 2025
+with extended notes and pointers into historical resources.
+] -> further link:Resources.html[Resources].
+*******************************************************************
+
 As with many open source projects, it is difficult to determine the
 absolute beginnings precisely. There was no ``kick off'' meeting with
 some people to decide ``now we'll start writing a video editing software''.
@@ -93,7 +107,7 @@ and thread locking. He wrote a _Braindump page_ on his personal Wiki, proposing
 Some days later, ill tempered and in a bad mood after yet another frustrating
 editing session with Cinelerra, spending most of the time just with re-adjusting
 already finished sound work messed up by side effects of further editing, _Ichthyo_
-wrote a rant, peppered with random insults and curses. Herman Robak encouraged
+wrote a rant, peppered with random insults and curses. _Herman Robak_ encouraged
 him to rewrite that bluster into a polemic text which can be taken seriously.
 The resulting link:CinelerraWoes.html[»Cinelerra Woes«] page caused a surprisingly
 strong resonance among the Cinelerra-CV community and quickly led to the proposal
@@ -110,14 +124,20 @@ Notably this text proposes to extract the _building of the render configuration_
 from the Session model into a dedicated, self-contained, compiler-like »Builder«
 component -- something later to become a hallmark of the Lumiera architecture.
 
+A New Hope
+~~~~~~~~~~
 So, suddenly we found ourselves right in the middle of an exciting new movement
-with much momentum, long debates and lots of new ideas -- and, most exciting, it
-seemed doable right now and here. It should be noted however that this momentum
+with much drive, long debates and lots of new ideas -- and, most exciting, it
+seemed all doable, right here and now. It should be noted however that this momentum
 of ``new hope'' was not about starting a new video editor project -- we didn´t want
 something entirely different, we wanted a _better Cinelerra_. And so, throughout
 these discussions, it became custom to label it _the-next-Cinelerra_, or -- as
 the current Version was v2.1 -- just call it **Cinelerra-3**. Early in June 2007,
-_Cehteh_ wrote a _Project Manifest_ and sent a
+_Cehteh_ wrote a _Project Manifest_ footnote:[This text has been preserved as a
+link:{rfc}/Manifest.html[»Design Process« document]; however, all the early RfC
+texts were imported into the main git only in 2010 -- and at that time all
+references to ``Cinelerra'' had been mass-replaced into ``Lumiera''.]
+and sent a
 link:Cinelerra3Announcement.html[Project Announcement] to the active contributors,
 the known Cinelerra-CV developers and Cinelerra's original Author
 (``Heroine Warrior'' alias ``Jack Crossfire'').

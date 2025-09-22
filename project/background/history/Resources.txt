@@ -1,0 +1,42 @@
+History: Resources and Background
+=================================
+:Author: Ichthyostega
+:Date: 9/2025
+:toc:
+
+.Attic
+This page is very long and intended as a place to sash away
+additional background information, notes, extended explanations
+and a collection of pointers into further content of historical
+relevance.
+
+2011::
+  Start telling the _Story of Lumiera_ by recalling the circumstances
+  where the movement to improve Cinelerra started in 2007. Some HTML
+  snapshots from 2008 and an undated copy of the polemic
+  link:CinelerraWoes.html[»Cinelerra Woes«] in Moin-Moin markup had
+  been preserved in some folder on _Ichthyo_'s private PC.
+
+2025::
+  During recherche about the background of some very old RfCs, as
+  part of a general clean-up of the Lumiera website together with
+  the __preview release *0.pre.04*__, the HTML captures were rediscovered
+  and transliterated into Asciidoc. Revisiting these documents, together
+  with further resources from Mailing List archives and the TidlyWikis
+  preserved
+  -> https://www.lumiera.org/gitweb/?p=LUMIERA;a=tree;f=wiki;h=3f7fae67a1ab808bc0c1aeb09e594ff8de354ffc;hb=9bccc7b29e719f5d24c3af246330a4a002dd34b4[<1>]
+  -> https://www.lumiera.org/gitweb/?p=LUMIERA;a=tree;f=wiki;h=7fa5051361c8dd7c2bbb74d9b4fae34659755eb0;hb=23cac22a9fde9cdb35914881da0ecde5b5b1a74b[<2>]
+  in the project Git history leads to a more reflected and coherent
+  understanding of the initial movement leading to the Lumiera project.
+
+
+
+
+Inception
+---------
+
+
+
+The Initial Phase
+-----------------
+
