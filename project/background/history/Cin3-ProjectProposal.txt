@@ -623,7 +623,7 @@ turned into the separate *Lumiera* project early in 2008.
 
 I'm re-publishing this text here close to the original, roughly drafted form,
 as preserved by a HTML capture from early 2008. I have fixed a small number
-of grammatical mistakes to improve readability, and I have tranliterated
+of grammatical mistakes to improve readability, and I have transcribed
 the formatting into Asciidoc.
 
 Ichthyo:: 2025-09-13

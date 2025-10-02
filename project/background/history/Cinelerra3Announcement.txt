@@ -104,7 +104,7 @@ used for volatile discussions.
 it?
 +
 The Linux Foundation offers a travel fund ``...for the Rock Stars of
-the Open source Community'', we think you really qualify for that! ;-)
+the Open source Community'', we think you really qualify for that! 😉
 
 I've set up a small description about the project: +
  'http://www.pipapo.org/pipawiki/Cinelerra3/DesignProcess/Manifest'

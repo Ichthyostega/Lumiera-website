@@ -3,6 +3,7 @@ Lumiera Project History
 :Author: Ichthyostega
 :Date: 3/2011
 :toc:
+:toclevels: 4
 
 // Menu :  sort children
 // Menu :  prepend 'PossibilitiesAtHand'
@@ -22,128 +23,524 @@ Roots of the Project
 .to tell a story...
 In this section of the Lumiera website we'll collect some documents
 and background information regarding the history of the Lumiera project.footnote:[
-This page was primarily written by _Ichthyostega_, who was part of the project
-from the very beginning. The writing started in 2011, as it became clear that
-former motivations and decisions are waning into the dust of memories.
-Updates and extensions happened infrequently, as time permits.
-The accompanying link:Resources.html[Resources page] was started in 2025
-with extended notes and pointers into historical resources.
+  This page was primarily written by _Ichthyostega_, who was part of the project
+  from the very beginning. The writing started in 2011, as it became clear that
+  former motivations and decisions are waning into the dust of memories.
+  Updates and extensions happened infrequently, as time permits.
+  The accompanying link:Resources.html[Resources page] was started in 2025
+  with extended notes and pointers into historical resources.
 ] -> further link:Resources.html[Resources].
 *******************************************************************
 
-As with many open source projects, it is difficult to determine the
-absolute beginnings precisely. There was no ``kick off'' meeting with
-some people to decide ``now we'll start writing a video editing software''.
+As is the case with many open source projects, it is difficult to determine the
+absolute beginnings precisely. There was no »kick off« meeting with some people
+to decide ``now we'll start writing a video editing software''.
 Rather, several of us were using http://cinelerra-cv.wikidot.com[Cinelerra-CV]
-for editing tasks with rather professional quality level. It turned out
-that indeed Cinelerra _is_ capable of delivering professional quality,
-but users of Cinelerra are constantly facing some more or less serious
-problems.
+for editing tasks requiring professional quality. For some time, it had been
+the only open-source package suitable for this purpose. And although Cinelerra
+was not on par with commercial offerings, it _was_ fundamentally capable of meeting
+professional standards and even surpassed them in some aspects -- but users were
+constantly confronted with certain more or less serious problems and had to apply
+tedious workarounds to achieve quite basic functionality.
 
-While not being part of the long-standing ``Cinelerra-CV'' community
-right from start, since 2005 we tried to remedy this situation by
-contributing improvements, especially addressing things perceived as
-major impediment in our everyday editing work. But, overall, the net
-result of these efforts was rather sobering
+Although they were not part of the long-standing »Cinelerra-CV« community,
+several people attempted to remedy this situation by contributing improvements since 2005,
+especially to address issues perceived as major impediment in everyday editing work. +
+Yet overall, any of these attempts turned out to be rather sobering.
 
-- first of all, the basic constellation within the Cinelerra-CV project
-  isn't encouraging. Judging from past discussions, several forums and
-  mailing list archives, the original _upstream_ author(s) -- generally
-  only known under the pseudonym ``Heroine Warrior Inc.'' -- seem(s) rather not
-  to be interested in a more collaborative working style. Just, from time to
-  time, a new _upstream version_ will be ``thrown over the brick-wall'',
-  featuring some new and nifty additions, some bugfixes plus some more or less
-  serious new quality problems.
+- first and foremost, the basic constellation within the Cinelerra-CV project is not
+  encouraging substantial contributions. Judging this situation from past discussions,
+  several related forums and mailing list archives, it appears that the _original author_
+  of the _upstream_ project -- commonly known by the pseudonym »Heroine Warrior Inc.« --
+  has no particular interest in a more collaborative way of working. Just, from time to time,
+  a new _upstream version_  was ``thrown over the brick-wall'', featuring some new and nifty
+  additions, some bugfixes plus yet some more or less serious new quality problems.
 +
-Fortunately, there was the Cinelerra-CV crew,
+Fortunately, there was the »Cinelerra-CV« crew however,
 which used to merge these _new upstream versions_ into the community's
-source control system and then, over the course of the next months,
+`Subversion` source control system and then, over the course of the next months,
 did a great job in getting the new version into a roughly usable
 shape for a larger variety of distributions and configurations.
 Some of these improvements where picked up by Heroine Warrior,
 some weren't, without any real feedback.
 +
-But given this overall situation, it is quite understandable that this
-long-term Cinelerra-CV crew was rather reluctant towards anything beyond
-isolated fixes and small improvements. Because any change, irrespective
+But given this overall situation, it is quite understandable that these
+long-term Cinelerra-CV maintainers were rather reluctant towards accepting anything
+beyond isolated fixes and small improvements. Because any change, irrespective
 of the result, would just add to the increasing amount of differences
 to maintain and merge with each new upstream release.
 
-- even ignoring this problem of ``mergeability'', _Ichthyo_'s attempts to
-  rectify some of the most time-consuming oddities in the behaviour of
-  frequently needed features (transitions, automation, effects, interlacing,
-  proxy editing) quickly evolved into disproportionally expensive refactoring
-  and reworking projects. At the same time, _Cehteh_ concentrated on the frequent
-  deadlocks and crashes. Being an experienced system programmer, he quickly
-  spotted the reason -- yet any attempt of fixing the problems would lead
-  to ``chainsaw surgery'' all over the place. Seemingly, Cinelerra's
-  code base was just resilient towards change and evolution.
+- even ignoring this problem of ``mergeability'', _Ichthyo_'s repeated
+  attempts to rectify some of the most time-consuming oddities in the behaviour
+  of frequently used features (transitions, automation, effects, interlacing,
+  proxy editing) soon turned into disproportionately expensive refactoring projects.
+  At the same time, _Cehteh_ concentrated on the frequent deadlocks and crashes.
+  Being an experienced system programmer, he quickly spotted the reason -- yet
+  any attempt at fixing those problems would lead to ``chainsaw surgery'' all
+  over the place. Apparently, something in Cinelerra's code base was stubbornly
+  resisting improvements and further evolution.
 
 The strange year 2007
 ~~~~~~~~~~~~~~~~~~~~~
 I recall 2007 as one of these pivotal years, which -- while featuring rather
-few ``news events'' -- still endow some kind of _atmospheric change_ in several
-areas of life, both in small and on the large. For the Cinelerra-CV community,
-in spring 2007 it became evident that, from the long-standing core contributors,
-all but one had left, for one reason or the other (not related to Cinelerra).
+few ``news events'' -- still bring about some kind of _atmospheric change_ in various
+areas of life, both on a small and a large scale. For the Cinelerra-CV community,
+in spring 2007 it became evident that all but one from the long-standing core contributors
+had left, for one reason or the other.
 The development efforts for the CV-Version basically stalled. Several discussions
 on IRC gave the impression that the project as a whole might take another turn.
 
-In May, _Cehteh_ and _Ichthyo_ for the first time had some longer conversations on IRC.
+In May, _Cehteh_ and _Ichthyo_ had their very first extended conversations on IRC.
 _Cehteh_ showed a ``Cinelerra Guerilla Git repository'' with the official CV-Version
 and some of his disruptive changes to rework the asset handling, memory management
 and thread locking. He wrote a _Braindump page_ on his personal Wiki, proposing
 
 - to replace Cinelerra's excessive use of threading by a thread pool with precisely
   scheduled, side-effect free frame calculation jobs, optimally using the I/O bandwidth
-- to introduce a more stringent module- and plugin system, and then to modularise the
-  codebase step by step
+- to introduce a more stringent module and plug-in system in order to then gradually
+  modularise the code base
 - to replace Cinelerra's ``background rendering'' by a frame index and frame cache
 - to handle the render pipeline more flexibly, so that every component (Camera,
   Mask, Projector, Effects) can be inserted everywhere
 - to switch to a really open distributed project structure, allowing everyone to
   contribute freely. Let just the best merged version win!
 
-Some days later, ill tempered and in a bad mood after yet another frustrating
-editing session with Cinelerra, spending most of the time just with re-adjusting
-already finished sound work messed up by side effects of further editing, _Ichthyo_
-wrote a rant, peppered with random insults and curses. _Herman Robak_ encouraged
-him to rewrite that bluster into a polemic text which can be taken seriously.
-The resulting link:CinelerraWoes.html[»Cinelerra Woes«] page caused a surprisingly
-strong resonance among the Cinelerra-CV community and quickly led to the proposal
-for a gradual reworking of the existing code base to rectify and cure the problems
-pinpointed here. _Ichthyo_ condensed that into a link:Cin3-ProjectProposal.html[project plan]
-with seven milestones, first to define a solid new tooling and project framework and
-build some trusted islands of new code. Starting from there, gradually then the whole
-source base could be reworked. A link:PossibilitiesAtHand.html[Vision text], written
-after some days, takes a slightly different angle and explains the _potential_ of
-the proposed reworking plan not only to ``fix problems'' but beyond that to enable
-usage patterns, which seem obvious based on the capabilities of Cinelerra: to
-create compound structures, customised tool palettes and nested ``Meta Clips''.
+Some days later -- being ill tempered and in a bad mood after yet another frustrating
+editing session with Cinelerra (having spent most of the time just with fixing and
+re-adjusting already finished sound work, that had been messed up by side effects of
+further editing), _Ichthyo_ wrote a rant, peppered with random insults and curses. _Herman Robak_
+encouraged him to rewrite that bluster into a polemic text which can be taken seriously.
+The resulting link:CinelerraWoes.html[»Cinelerra Woes«] page triggered a surprisingly
+strong resonance in the Cinelerra-CV community over the next days, which soon led to the proposal
+of engaging into a gradual rework of the existing code base to rectify and cure the problems
+identified therein. _Ichthyo_ condensed that into a link:Cin3-ProjectProposal.html[project plan]
+with seven milestones, beginning with the choice of solid contemporary tooling and the setup
+of a project framework, in order to build some trusted islands of new code then. Progressing
+from that anchor point, the whole source base could be reworked, step by step.
+A link:PossibilitiesAtHand.html[Vision text], written after some days, takes a slightly
+different angle and explains the _potential_ of the proposed reworking plan not only to
+``fix problems'' but beyond that to enable further patterns of usage, which may seem obvious
+based on the capabilities of Cinelerra, but are difficult to support with the current code base:
+the ability to define compound structures, customised tool palettes and nested ``Meta Clips''.
 Notably this text proposes to extract the _building of the render configuration_
-from the Session model into a dedicated, self-contained, compiler-like »Builder«
-component -- something later to become a hallmark of the Lumiera architecture.
+from the Session model into a dedicated, self-contained, compiler-like
+link:/project/background/history/ProcBuilder.html[»Builder«] component --
+something later to become a hallmark of the Lumiera architecture.
 
 A New Hope
-~~~~~~~~~~
+^^^^^^^^^^
 So, suddenly we found ourselves right in the middle of an exciting new movement
-with much drive, long debates and lots of new ideas -- and, most exciting, it
+with much drive, long debates and lots of new ideas -- and, most enticing, it
 seemed all doable, right here and now. It should be noted however that this momentum
 of ``new hope'' was not about starting a new video editor project -- we didn´t want
 something entirely different, we wanted a _better Cinelerra_. And so, throughout
 these discussions, it became custom to label it _the-next-Cinelerra_, or -- as
 the current Version was v2.1 -- just call it **Cinelerra-3**. Early in June 2007,
-_Cehteh_ wrote a _Project Manifest_ footnote:[This text has been preserved as a
-link:{rfc}/Manifest.html[»Design Process« document]; however, all the early RfC
-texts were imported into the main git only in 2010 -- and at that time all
-references to ``Cinelerra'' had been mass-replaced into ``Lumiera''.]
+_Cehteh_ wrote a _Project Manifest_ footnote:[
+  This text has been preserved as a link:{rfc}/Manifest.html[»Design Process« document];
+  however, all the early RfC texts were imported into the main Git much later,
+  in 2010 -- and at that time all references to ``Cinelerra'' had been mass-replaced
+  into ``Lumiera''.
+]
 and sent a
 link:Cinelerra3Announcement.html[Project Announcement] to the active contributors,
 the known Cinelerra-CV developers and Cinelerra's original Author
 (``Heroine Warrior'' alias ``Jack Crossfire'').
 
+Yet the most prevalent experience in those first days was a flurry of activity
+in various IRC channels and in endless private mail threads. The same arguments
+were repeated and reconfirmed over and over again. Numerous people made proposals
+to point out how easy this and that would become if we'd just add one special
+feature or use just that other technology. It all felt like flying.
+
+There was unanimous consent that the reasons why Cinelerra got stuck were
+largely of social nature. If it was just easier to contribute! If just stable
+releases were made and improvements by the community were integrated in a less
+timid way, then the »community version« could gain more traction and momentum
+and the original author, which was perceived as a ``lone wolf'', would become
+less important. Most participants identified with the vision of a distributed
+development organisation, where automated tooling helps to cross connect the
+people in a chaotic yet efficient way, similar to a market place of ideas,
+where the whole is more than the sum of its parts and overall the idea
+most beneficial for the community wins.
+
+As _Cehteh_ repeatedly put it, ``the community shall be the benevolent dictator!''
+He had opened his personal wiki at `pipapo.org` to be freely editable and established
+a template for proposals (labelled ``RfC'' -- Request for Comment). The very first
+proposal was to use a »distributed development framework« to replace all conventional
+project management tooling like design documents and bug trackers. There was some
+slight discord however if the goal should actually be a refactoring of the Cinelerra
+code base. _Cehteh_ seems to have concluded earlier this year already that the code base
+is a ``bottomless pit'' and perceived it as an environment he does not want to work in.
+_Ichthyo_ rather brushed that aside as ``quality problems'' that can be amended easily
+with contemporary craftsmanship. He insisted on gradually improving Cinelerra, since
+he deemed the application and the basic ideas of the code base to be sound and adequate
+to the task of professional editing, just many aspects would need some clean-up and
+sharpening so that the underlying ideas can be strengthened to bring them to their
+inherent consequence. One such consequence would be the idea of using a
+link:/project/background/history/ProcPlacementMetaphor.html[»Placement«],footnote:[
+  The RfC entries linked here for
+  link:/project/background/history/ProcBuilder.html[Builder] and
+  link:/project/background/history/ProcPlacementMetaphor.html[Placement]
+  are based on HTML captures from early 2008, and were seemingly written
+  shortly before, as the »Lumiera« project had formed officially. However,
+  the nucleus of both ideas is already present in the link:PossibilitiesAtHand.html[vision]
+  spelled out at start of the »Cinelerra-3« movement, and both concepts were ventilated
+  in much detail during the heated discussions of the first days.
+]
+which requires at least an environment at the level of maturity as available in Cinelerra,
+in order to become feasible.
+
+And while this subtle foreshadowing of contention could not be resolved,
+there was unanimous agreement about the
+link:Cin3-ProjectProposal.html#_milestone_2_laying_the_foundations[first two milestones]
+in __Ichthyo__'s project proposal, namely to try out modern tools and to demonstrate
+a working technology sketch with an emulation of parts of Cinelerra's session,
+but backed by the new frame cache and scheduler envisaged for the DataBackend.
+So a ``distributed guerrilla wiki'' was established, by checking a
+https://classic.tiddlywiki.com/[TiddlyWiki page] into Git and pulling from each other.
+And soon thereafter, a small group of ``active doers'' (as __Herman Robak__ put it)
+started the breeding and exchange of ideas, written down into tiny notepads called
+``tiddlers'', cross-linking to each other. No one could have imagined that this was
+https://git.lumiera.org/?p=LUMIERA;a=commit;h=13b963ba5bc39603c1d425752f07d8b3941f01ba[the begining]
+of a large project's commit history.
+
+__Cehteh__, always eager to experiment with technologies, proposed to try out
+the build systems https://www.scons.org/[SCons] and https://cmake.org/[CMake]
+and the UML-Modeller https://web.archive.org/web/20070625100128/http://bouml.free.fr/[Bouml],
+which all had been mentioned favourably within the community. Yet the prototype setup
+left him disappointed;footnote:[
+  In the ensuing discussions, _Cehteh_ opposed the idea of organising the build system
+  as a _project model_, encasing the actual code like a shell -- something he considered
+  redundant and limiting; rather he insisted  that a really supportive and enabling tool
+  should ``just understand the code'' itself;
+  regarding SCons he furthermore resented the use of Python, a language, which _Ichthyo_
+  favoured, while _Cehteh_ found it bloated, guided by strange principles and riddled
+  with a superfluous and ``tacked-on'' object orientation.
+  Instead, he introduced the ``tried and true'' Autotools, a build system, which
+  _Ichthyo_ and several other members of the Cinelerra community hated with passion.
+]
+and he also felt uncomfortable with UML. _Ichthyo_ on the other hand, knowing UML
+in and out from his work job, soon happily embraced this new angle, using it as a
+workaround for his prototyping of Render Node generation, since _Cehteh_ insisted not
+to introduce the existing Cinelerra source code yet, for this and that reason and another.
+_Ichthyo_ thus quickly re-modelled the assets and part of Cinelerra's session structure
+into UML, with the intention to use the code generation capabilities of Bouml to produce
+an extended hierarchy of class bodies and method stubs, which can then be used as a backdrop
+to trace out the possibilities of _generating_ or _building_ the Render Nodes beforehand, and
+not as part of the actual render invocation (as Cinelerra does). _Cehteh_ meanwhile introduced
+a proposal to confine all plug-in interfaces to plain-C (not C++) -- and the ensuing discussion
+made it blatantly clear that he furthermore intended to open up pretty much every internal part
+to be reconfigured and invoked as a plug-in, even allowing to bind to arbitrary other programming
+languages. This seemed like an elegant and obvious way to enable fluid and low-barrier
+code contributions, which he considered as the turning point to cure Cienelerra's woes --
+while _Ichthyo_ foresaw an explosion in complexity and was shocked by the prospect of making
+cohesive data-centric programming easy, while the use of the type system to express intent,
+and the use of those design patterns, which he associated with software craftsmanship,
+would become increasingly difficult and penalised up to a degree to be effectively
+off the table. And so this _clash of cultures_,footnote:[
+  Sometimes people may seem to have similar political alignments, they may like each other
+  and detect much overlap in their value systems in casual talk -- but once they are
+  working together and are engaged and entangled into all that uncanny ambivalence
+  of reality, they end up with diametrically opposed judgement and incompatible
+  coping strategies in response to mundane problems. The actual topic of contention
+  seems to be more like a symptom, and the arguments exchanged seem to tap into
+  disjoint worlds.
+  The link:Resources.html#\_debate_plugin_centric_architecture[debate regarding plugin-centric architecture],
+  which unfolded at this point, might be seen as this kind of an ambivalent encounter.
+]
+which had been lurking just below the surface, suddenly discharged into a sharp controversy
+regarding the idea of a plugin based architecture. _Michael Ploujnikov_ attempted to moderate
+and find a compromise -- in vain, as the topic appeared to be a matter of ``make or break''.
+This quarrel thus ended without a clear resolution of the dilemma, while unfortunately
+also causing quite some serious loss of trust.
+
+
+A Project in Limbo
+^^^^^^^^^^^^^^^^^^
+However, both _Cehteh_ and _Ichthyo_ managed to keep this strife strictly confined
+to the inner circle of actual code contributors and continued to uphold the facade
+of the project in public. Yet this disturbance just below the surface turned out
+however to be instrumental for the further evolution of the movement, and the
+character of the emerging new code base.
+
+After the unfriendly encounter had unfolded, _Cehteh_ completed his work on
+a low-level plugin-loader and a linked-list implementation written entirely in
+C language. Around mid August 2007, he then directed all his work capacity towards
+the idea of an *uWiki* based on Git.footnote:[
+  This effort went through several stages, starting as a web-frontend to create Git commits.
+  Initially, during the next months, it was called »webgit«, sometime in
+  link:{ldoc}/devel/meeting_summary/2008-05-08.html#%5Fwebpage%5Finfrastructure%5Fmaintenance[spring 2008],
+  the name changed to »uWiki« (`u' meaning µ, like in ``micro''). The underlying
+  technology for attaching to Git and for templating was also switched several times.
+]
+This can be seen as a direct consequence of the vision of enablement through
+distributed tooling. This Git-based tool was envisioned as a low-level,
+self-contained, rules based interpreter driven by Git commits, which could
+branch out into various handlers embedded into the Git repository itself.
+These handlers were intended to replace pretty much any known project support tooling,
+like bug trackers, continuous integration, release management, forums and mailing lists,
+documentation and wiki based website publication. _Cehteh_ frequently pointed out that
+this effort was top priority, since the existing tooling is woefully inadequate and tends
+to discourage people from engaging in fluid contributions and thus prevents the Cinelerra-3
+project to unfold its full potential.footnote:[
+  This statement should be placed into the
+  historical context: this time was the culmination of the
+  https://en.wikipedia.org/wiki/Blogosphere#cite_note-14[»Blogosphere«],
+  Github was funded in https://en.wikipedia.org/wiki/GitHub#cite_note-githubfirstcommit-14[October 2007] (!),
+  Stackoverflow in https://en.wikipedia.org/wiki/Stack_Overflow#cite_note-introducing-2[April 2008],
+  https://en.wikipedia.org/wiki/Mobile_operating_system#cite_note-Macworld2007Keynote-32[smartphones]
+  and social networks just started to gain traction,
+  https://en.wikipedia.org/wiki/Pirate_Party#cite_note-guard09-17[»Pirate Parties«]
+  made significant political inroads in several European countries, with the proposal
+  of a technology-based https://en.wikipedia.org/wiki/Liquid_democracy[»liquid democracy«],
+  while Bitcoin with its Blockchain-Technology was invented as a means to enable
+  bottom-up financial and social collaboration through smart-contracts, which
+  are impossible to control or suppress by central authorities.
+]
+
+_Ichthyo_ meanwhile continued with his part of the coding work, seemingly without
+ever reflecting its purpose and how the structures he built might fit into the actual
+refactoring of Cinelerra, which all participants continued to uphold as a the goal.
+First he started to round out the class skeleton generated from UML and added a factory
+for assets and a memory management based upon the new kind of smart pointers available
+in the Boost libraries, which were expected to become a feature of standard C++ somewhere
+in the next years. And since no progress was to be expected regarding the DataBackend,
+the focus gradually drifted away from the Render Engine and towards the Builder, which
+turned out to be a problematic move. _Ichthyo_ soon found himself entangled with
+insurmountable problems: it was clear from the beginning, that such a Builder, levelled
+up to a generic form, would lead to an internal structure similar to a language compiler:
+the session model would be treated as a syntax tree, to be augmented then with attributions
+in several passes, until it becomes possible to generate ``output code'' in the form of a
+Render Node tree.
+
+But what structures could be expected in the session model? Those structures present in Cinelerra?
+are they adequate? are they sufficiently generic? Could they be mapped down and implemented by a
+low-level model? -- which in turn was likewise thoroughly undefined, as was the implementation of
+actual render functionality. One of the central plans of the initiative had been to replace much
+of the project-specific and somewhat limited video handling code in Cinelerra with ``widely used
+general-purpose video processing libraries'' -- nuff said; just, ``which ones?'' Many of the supporters
+in the community liked and promoted GStreamer, while the developers did rather not like what they
+saw when looking into the source code of this project: it comes with a heavy-wight framework and
+is more like an embedded video rendering and playback engine; and, taking a decisively different
+approach regarding various aspects of internal organisation, it can be expected that the GStreamer
+framework would rather compete for system resources with the planned DataBackend, instead of
+complementing each other. FFmpeg on the other hand had a reputation of being a chaotic and brittle
+project at that time, accumulating features without any clear vision. This was when _Cehteh_
+brought in _Burkhard Plaum_ from the local Linux community in southwest Germany, which had
+written the media player and decoder framework
+https://web.archive.org/web/20070827125842/http://gmerlin.sourceforge.net/[Gmerlin],
+a well structured piece of software with a seemingly coherent and tidy code base. While this seemed
+like a good fit, several supporters in IRC rose concerns that Gmerlin might be a ``one man show'' --
+and so there would be the lurking danger that the project might end up having to maintain its own
+multimedia framework eventually -- a situation far worse than the status-quo in Cinelerra, which
+had just a small selection of decoders created and maintained in-project.
+
+So all this uncertainty, together with the lack of a direct counterpart to anchor his work,
+led _Ichthyo_ into a rather explorative approach, aiming at a much more generic solution, which
+could be used to derive, by logical reasoning, a guidance for the next steps to be implemented:
+he could recall some research, which he had seen back in his time at the university related to
+theorem proving. In such a context, given deduction rules might be related to one specific
+_domain ontology_, while facts are available within the framework of another domain ontology,
+so that a mapping and translation must be interspersed. When transferred to the current context,
+this leads to the observation that each media handling library is tightly connected to some
+specific formulation of a domain ontology -- and this is the reason why selecting some given
+library as foundation has far reaching consequences and effectively locks the implementation
+of a render engine to that library: thereby the classification of the kinds of data to be
+expected, and the description how these are structured and related to each other, becomes
+deeply ingrained into the internal logic of the engine. Just adding another library through
+a plug-in would be moot; the only way to overcome this dilemma might be to conceive the
+engine in terms which are _library agnostic._ And doing so requires foremost mental work,
+something that can not be side-stepped by introducing technological solutions.
+
+Meanwhile, at the outside, the »Cinelerra-3« initiative gained more and more traction.
+In August, in yet another thread, set off yet again by a user
+https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-August/011487.html[complaining]
+about the current painful situation, the new initiative was
+https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-August/011498.html[hinted at]
+and then later
+https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-August/011499.html[pointed out publicly]
+for the first time. The word spread quickly, and the wider community started dreaming. A flood
+of feature ideas and well meant recommendations set in, and the wording of some ideas from
+half a year ago was repeated in a formulaic way, and appeared to be more convincing the more
+it was picked up, spread and repeated. While, on the inside, the impetus from the beginning had
+already transformed itself into a very narrow thread of conception work, mostly theoretical at
+that time, aiming for a level of genericity which was altogether unrelated to the very mundane
+problems, which remained unresolved and continued to make attempts of working professionally
+with Cinelerra a daunting task.
+
+
+
+The Next-Gen Video Editor
+~~~~~~~~~~~~~~~~~~~~~~~~~
+This strange state of abeyance, tied with inner contradictions, was bound to lead to
+the collapse of the initiative soon -- yet external events caused a sudden twist of fate.
+The original author of Cinelerra, _Adam Williams_ issued a
+https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012870.html[statement],
+that was perceived as insipid and disdainful by the community, after all those extended discussions
+and the numerous attempts to contact and invite the original author to participate in the initiative.
+Hiding behind the name »Heroine Virtual Inc«, he requested that the term »Cinelerra-3« should not be used,
+since doing so would interfere with the schedule and feature set they had ``as the creator of Cinelerra''.
+Furthermore, the information was passed on within the community that Adam allegedly had responded by private mail
+to one of the developers involved into the »Cinelerra-3« effort, pointing out that over the years he has seen
+numerous ``students'' trying to tell him how to build an application. Even a rather favourable interpretation
+of such behaviour would amount to quite some carelessness, since it was well-known that all the primary actors
+involved into this initiative were experienced professionals, roughly the same age as Adam, or Linus Torvalds,
+from the Generation born shortly before 1970. Placed into the context of the sole statements he made, from
+https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-January/009306.html[December 2006] and
+https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-November/012362.html[November 2007],
+which all radiate a sense of bitterness, as he seems to have lost his job early in 2007 and connected
+this to his involvement with Cinelerra --
+a plausible conclusion might be that _Adam Williams_ neither understands nor cares for the dynamics of
+a Free Software community, and presumably perceives them as a group of freeloaders, poised to discredit him
+of his work and to collect the donations he deserves.footnote:[
+   A lot of further statements from _Adam Williams_ can be found, scattered over the years, which seem to support this reading.
+   At that time, several people in the community also _suspected_ that he might not even understand the concept
+   of Free Software and that the release of Cinelerra under GPL might have been an act of despair, to evade a
+   _litigation threat_. This conclusion
+   link:Resources.html#\_was_cinelerra_only_gpled_to_avoid_legal_problems[remains questionable] and seems
+   rather far-fetched however. Yet it seems safe to conclude that he did not care to have any relation or
+   share much insight during all those years, which made many members of the community feel bitter, given the
+   emotional attachment they had to the software and the significant effort spent to keep it workable in their
+   setup and to amend annoying deficiencies. +
+   In this context, it might be necessary to distinguish between *publication* under a Free Software licence
+   (e.g. the GPL) and a *project development model* which is _community oriented_.
+   Furthermore, *moral obligations* should be taken into account, as
+   https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012942.html[Johannes Sixt pointed out]
+   during the discussion following the request to drop the name »Cinelerra-3«.
+]
+
+Be that as it may, the option of a group of volunteers working together with the upstream author was
+off the table now -- and with it the whole reason why this initiative had formed several months ago.
+Furthermore, the group of long-standing maintainers of the »Cinelerra Community Version« was gone,
+and the only one to participate in discussions, _Johannes Sixt_ made it clear that it was impossible
+for him currently to dedicate any time to volunteer work, and expressed the hope that ``upstream''
+might not release a new version soon, so that the status quo could somehow be maintained, at least
+_pro forma_. So the long-standing vision of _Herman Robak_ to move towards a somewhat more autonomous
+role of the »Community Version« was also
+https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012913.html[kind of doomed].
+The very vocal group of developers around _Oracle2025_ and _Cehteh_ expressed contempt towards the existing
+Cinelerra code base, while _Ichthyo_ disagreed with them, valued the design ideas behind Cinelerra and just
+wanted to continue with his deep explorative work to expand upon those ideas, without starting any kind of
+fundamental discussion (which, as he assumed, would lead towards abandoning anything related to Cinelerra
+presumably, and to start a new media platform, written in ``beautiful pure C'', with ``everything a node'',
+and everything a plug-in, of course). Thus the beautiful thing _everyone could agree upon_ was _not_ to
+make any decision and to avoid any further reflection. It was sufficient to exchange the
+``Next Generation Cinelerra'' by a ``Next Generation Video Editor'' and continue to repeat
+all the established talking points.
+
+
+And the Ship Sails On
+^^^^^^^^^^^^^^^^^^^^^
+So the first official developer meeting on IRC was scheduled very soon, and the group confirmed all
+the basic traits of the initiative: a ``distributed development model based on Git'', the existing setup
+of the source tree and build system(s), regular developer meetings every month and a semi-formal proposal
+process based on the »RfC« template, with a discussion on the wiki page and a formal approval or rejection
+by the developer meeting. Furthermore, it was decided to collectively rent a bare server in a data centre
+and to run our own infrastructure. By using a setup with several _VServers_ based on `libvirt`, it would be
+possible to host several websites; notably we could offer to host the Cinelerra-CV infrastructure, thereby
+helping and supporting that community, which had supported the initiative and all our discussions from the
+beginning, and now seemed to lack the capacity to maintain its own infrastructure.
+
+__Raffa (Raffella Traniello)__ had noticed the important role of the wider user community, which had
+reinforced the formation of the initiative, riding on a wave of excitement and anticipation. She urged
+to look for ways to maintain a connection to the (prospective) users, providing ways to contribute with
+small tasks which can be handled by a non-developer. All developers wholeheartedly agreed to this vision,
+and came up with the idea to place the decision about a name for the new project into the hands of a
+community initiative, since people had started to propose lots of interesting names anyway. _Raffa_ and
+_Odin_ volunteered to look into ways to spur and then to channel such a naming discussion -- which indeed
+carried on in a healthy way. The community continued to come up with all kinds of creative names, the
+first one to be proposed was, obviously, »Pr++0++nEdit« -- and after some time, there was even some degree
+of convergence, with either variations of the Cinelerra name being favoured, like »CineZilla« or »Scintilla«,
+or ideas related to film making, like »Verite« or »cameo«, or »cutting room«. The name »Lumierra« appeared
+comparatively late, and was first proposed as a blend of the ``*erra'' template combined with the idea of
+``the next 100 years of pure cinema'', alluding to the
+https://en.wikipedia.org/wiki/Auguste_and_Louis_Lumi%C3%A8re[Lumière brothers]. Furthermore, many
+contributors also pointed out that the chosen name should sound ``female'', like Cinelerra and the
+virtual Heroines. _Raffa_ even insisted that it _must_ be female, since females are powerful.
+_Jay Truesdale_, a producer from California and Cinelerra enthusiast, objected somewhat
+to this brainstorming process, pointing out that most proposed names were considered
+``the next Ubergeek-editing-platform'' by several people he had contacted, working in the media industry.
+He even performed a small
+https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-March/013458.html[focus group test]
+and found out that (to his own surprise) »CuttingRoom« scored best with 85%, while »Lumiera«, »Auteur«,
+»Verite«, »freecine« and »cameo« all scored in the low 40s.
+
+The list of approximately 250 name suggestions was subsequently narrowed down by applying a set of rules
+accepted by everyone: the name should be evocative, not too limited, too funny or offensive,footnote:[
+  As _Cehteh_ put it: ``I can vividly imagine _Raffa_ in her schoolroom with the children,
+  teaching them »Pr++0++nEdit«...''
+]
+it should not match with an established product name, and a suitable top-level internet domain should be available.
+This vetting process led to the preselection of 15 candiates, which were then placed into a
+https://en.wikipedia.org/wiki/Condorcet_method[Condorcet Voting] scheme for the community to
+elect the winner. As a result, the new project
+https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-March/013474.html[was named »**Lumiera**«]
+
+And it was just wonderful being on board of this new splendid project. There were lots of tangible,
+practical tasks to master, promising immediate gratification. No need for endless depressing mail threads
+to analyse a muddled situation, no hostile »upstream«, no fighting against windmills any more, in a legacy
+code base where any change just ends up piling more liabilities. The tone in discussions was friendly and
+collaborative, there was a workable structure, and the goal of the journey was exciting and comfortably
+far away. _Ichthyo_ recalls a grand sense of relieve. He somehow felt like the fifth wheel at times,
+since other people had the greatest say in the group -- yet he was also aware of the fact that he
+was the only one to do actual coding work for the project,
+https://git.lumiera.org/?p=LUMIERA;a=log;h=a869c7107774fe6b4d85e7600033dcacc8011bf3[since several months]
+already. He had built up a considerable body of code during that time, albeit most of it as placeholder
+code to mark out the circumference of the ideas he had developed in the accompanying conception work. But he
+was also increasingly concerned, as he observed that pretty much every discussion of goals within the community
+drifted either towards excitement about effects, the hype around node editors, a trend to create meta features
+like a built-in market place or collaboration platform; and the developers seemed to be excited mostly
+about video and GPU technology and real-time processing. The perspective of _film making_, of working
+with material to _tell a story through montage,_ was sorely lacking. In the light of these tendencies,
+it seemed desirable actually to _raise the bar_ for contributions, and to nail-in the focus towards a
+professional workflow, to prevent the new project from drifting into amateur territory.
+
+However, brought about by yet another surprising turn of events, an ally appeared at the stage, to support
+the orientation away from mere technology and towards aspects of workflow: _Joel Holdsworth_ joined the project
+as a *GUI developer*. He had contributed to the https://inkscape.org/[Inkscape] project and thus brought a
+lot of experience with GTK, and he favoured a modern, forward looking approach for UI development: to move
+away from pixels and define the UI through vector-graphics and CSS layout rules rather, in order to separate
+style and structure, and also to employ functional closures for event handling. According to his recount,
+Inkscape was dominated at that time by a long-standing and tightly knit group of core developers and _Joel_
+was thus looking for a project where he could set his own standards moving forward. And thus the newly formed
+Lumiera project suddenly had _three_ core developers -- one responsible for each of the three layers in the
+planned architecture. And, even better, the decision regarding the UI toolkit had been settled without any
+further discussion and bikeshedding: the Lumiera UI would be based on GTK, with the intention to move to GTK-3
+as soon this becomes feasible, while already relying on the C\++ framework from Gtkmm and lib-SigC\++ to embrace
+the functor-style bindings, which were expected to become part of the ``C\+\+0X'' standard soon.footnote:[
+  During the last months, _Ichthyo_ had learned a lot about modern C\+\+. He did not know the language
+  very well previously, and had only some superficial experience with C\++ in the 90ies, which had been
+  rather unsettling. But he had worked a lot with Haskell in the past, and was happy to recognise a trend
+  towards an object-functional fusion and a multi-paradigm language, which was present in the plans
+  and preparation for the new language standard. Incidentally, for a short time, _Cehteh_ and _Ichthyo_ had
+  even considered to experiment with the D language -- but there was a quarrel and split in the D community
+  at that time,  which probably was a reason why _Alexandrescu_ subsequently also supported the project to
+  revive and modernise the C\++ language, which eventually culminated in the ground breaking C++11 standard
+  some years later. +
+  During those years, several splits and ruptures could be observed in the wider developer community: some
+  preferred dynamic languages and high-level integrated frameworks, some embraced the tendency to raise the
+  level of abstraction and to express relations from the problem domain directly into the type system,
+  while others moved ``back to the roots'' to work in a mostly data centric way again.
+]
+
+As Member of the project team, _Joel Holdworth_ was always friendly and agreeable -- a considerate and
+level minded man from Great Britain. But he had a clear apprehension what comprises good UI design and
+had a decent way to postpone all kinds of fancy UI features for later, while pulling up a new GUI framework
+at the same time, including considerable complexities, all in an effective way and within a short
+time frame. After some initial planning together with _Ichthyo_, where both had marked out the basics of
+the session interface together, it was agreed upon that the new GUI was first built as a stand-alone GUI
+application shell, without actual functionality. This afforded _Joel_ to define a clean framework and lay
+out the foundations, without interference with the rest of the project, which, at global level, was some
+kind of a moving target still. Stimulated by the new coordinated activity within the project and the massive
+amount of code being added, _Cehteh_ started also to contribute again, while channelling yet much further work
+into his uWiki vision, which he expected to yield a boost to the project, since it would facilitate casual
+contributions by many people. He also promised to handle bugs and project planning in the new tool, but _Joel_
+and _Ichthyo_ indicated that they would prefer a classical bug tracker. Regarding the DataBackend, _Cehteh_
+started to provide some fundamental facilities, like a manager for file handles and filedescriptors,
+memory-mapping based file access and a cache relying on a MRU scheme. _Michael Ploujnikov_ and _Simeon Vökl_
+supported him and also engaged into the development in the backend layer. Thus Lumiera had become a
+fast moving project with construction work happening all over the place.
 
 
 [red]#more to be written as time permits...#
-
-

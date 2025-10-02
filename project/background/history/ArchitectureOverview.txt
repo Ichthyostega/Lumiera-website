@@ -44,7 +44,7 @@ Historical note
 This early draft of the Architecture RfC was published on Cehteh's Wiki in 2008; +
 it has been preserved as a HTML capture from pipapo.org at 2008-03-06.
 
-I'm re-publishing this text as historic document, only transliterated into Asciidoc markup. +
+I'm re-publishing this text as historic document, only transcribed into Asciidoc markup. +
 -> See the link:{ldoc}/devel/rfc/ArchitectureOverview.html[reworked and accepted version].
 
 

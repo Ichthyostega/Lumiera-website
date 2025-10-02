@@ -3,10 +3,12 @@ History: Resources and Background
 :Author: Ichthyostega
 :Date: 9/2025
 :toc:
+:toclevels: 4
+
 
 .Attic
-This page is very long and intended as a place to sash away
-additional background information, notes, extended explanations
+This page is very long and intended as a place to stash away
+additional peripheral information, notes, extended explanations
 and a collection of pointers into further content of historical
 relevance.
 
@@ -18,16 +20,18 @@ relevance.
   been preserved in some folder on _Ichthyo_'s private PC.
 
 2025::
-  During recherche about the background of some very old RfCs, as
-  part of a general clean-up of the Lumiera website together with
-  the __preview release *0.pre.04*__, the HTML captures were rediscovered
-  and transliterated into Asciidoc. Revisiting these documents, together
+  While researching the roots of some very old RfCs, +
+  and as part of a general clean-up of the Lumiera website together with
+  the __preview release **0.pre.04**__, the HTML captures were rediscovered
+  and transcribed into Asciidoc.
++
+Revisiting these documents, together
   with further resources from Mailing List archives and the TidlyWikis
   preserved
   -> https://www.lumiera.org/gitweb/?p=LUMIERA;a=tree;f=wiki;h=3f7fae67a1ab808bc0c1aeb09e594ff8de354ffc;hb=9bccc7b29e719f5d24c3af246330a4a002dd34b4[<1>]
   -> https://www.lumiera.org/gitweb/?p=LUMIERA;a=tree;f=wiki;h=7fa5051361c8dd7c2bbb74d9b4fae34659755eb0;hb=23cac22a9fde9cdb35914881da0ecde5b5b1a74b[<2>]
   in the project Git history leads to a more reflected and coherent
-  understanding of the initial movement leading to the Lumiera project.
+  understanding of the initial movements leading to the Lumiera project.
 
 
 
@@ -35,8 +39,1613 @@ relevance.
 Inception
 ---------
 
+Most of the activities connected to the formation of the »Cinelerra-3« project
+happened through informal cooperation via the `#cinelerra` IRC channel and by
+private mail exchanges. Unless something was captured and stored by some of
+the participants at that time, most records are gone.
+
+The Archive of the Cinelerra mailinglist however is still
+https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/[available online].footnote:[
+  And this implies that the mailinglist activity was also captured partially (but not completely)
+  in the https://Archive.org/[Internet Archive]. Furthermore, _Ichthyo_ has retained a local
+  `mbox` folder with all posts since he joined this mailing list in October 2005.
+]
+Which allows to reconstruct some stepping stones of the interactions at that time.
+
+- the https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-March/010194.html[first
+  proposal to modernise Cinelerra]
+- the https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-August/011499.html[first
+  public announcement of the »Cinelerra-3« effort]
+- the https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012875.html[official
+  announcement] of the new project.
+- the new project is
+  https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-March/013474.html[named »**Lumiera**«]
+
+
+
+
+Timetable
+~~~~~~~~~
+[cols="<m, ^e, <6", options="header"]
+|====================================
+|Date | Actor(s) | Description
+
+|2006-10-12
+ | Cehteh, +
+   Joh.Sixt
+ | first
+  https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2006-October/008215.html[mention of a Git repository]
+  set up by _Cehteh_ to track the Cinelerra-Subversion repo and used by _Johannes_ to help with merging tasks.
+  This message seemingly slipped by accident onto the public Cinelerra Mailing list, and the
+  https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2006-October/008230.html[response]
+  in this thread is the earliest record of _Cehteh_ being active in the Cinelerra project.
+
+|2006-12-31 18:39:23 -0800
+ |
+ | The original author of Cinelerra
+  https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-January/009306.html[complains]
+  about what he considers a ``list of authors'' stored in the Community-SVN,
+  interpreting this as an attempt to sideline him and not giving appropriate credit.
+  The team is quick to
+  https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-January/009307.html[respond and apologise],
+  while _Cehteh_
+  https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-January/009308.html[points out]
+  that this file is a technical artefact required by the Subversion-to-Git bridge; some days earlier,
+  the Cinelerra-CV developers and _Cehteh_ had indeed
+  https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2006-December/009245.html[discussed]
+  how to populate and maintain this file, and notably the core developers did
+  foresee the hurt reaction by Adam Williams (aka »Jack Crossfire«, »Heroine Virtual«).
+
+  This banter puts a spotlight onto the situation regarding the _community version_ of Cinelerra.
+
+|2007-03-07
+ | Cehteh, Ichthyo
+ | The first
+  https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-March/010194.html[public proposal]
+  by _Cehteh_ to modernise Cinelerra:
+  He suggests to replace several hand-made solutions by facilities from the C++ standard library;
+  _Johannes Sixt_ responds
+  https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-March/010214.html[in a slightly reserved way],
+  and proposes he might start with introducing `std::string`;
+  _Ichthyo_ responds
+  https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-March/010199.html[in support of this initiative],
+  but raises the question of mergeability and cautions that a full fork
+  would require much more developer manpower...
+  _Cehteh_'s
+  https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-March/010200.html[answer is **essential**],
+  and summarises his mindset at that time.
+  Likewise, the response by _Herman Robak_
+  https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-March/010201.html[should be noted],
+  as he assesses that a technical clean-up would be _prerequisite_ to attract more developers, and he
+  urges to appreciate _Cehteh_'s initiative. Furthermore, another member of the list speaks up and
+  https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-March/010209.html[proposes a collaboration].footnote:[
+    The term ``lack of developer power'', which was some kind of a formula often used in the
+    Cinelerra community at that time, not only refers to a lack of »man months« to be expended on
+    the project, but also the lack of coherent collaboration as a group. When Nathan Ryan asks in the
+    mentioned proposal ``Any thoughts or advice you as the developer community can pass on would be great.
+    In particular I would like to know more about how we could work with you guys to create the best
+    possible software'', then no-one is entitled to answer and speak for the group and no-one is
+    able to commit some capacity for such a kind of collaboration. The status-quo is structured
+    in a way that suffocates any initiative. And while _Cehteh_ indeed
+    https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-March/010212.html[answers]
+    to the proposal, he can only state his opinion and relate his answer to the kind of
+    initiative he presumably hoped to start at that time.
+  ]
+
+|2007-04-16
+ | Andraž Tori
+ | The developer most active in the community version during the last years, and the last one
+  to contribute regularly and to respond to critical issues,
+  https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-April/010517.html[announces]
+  that he has to step down and devote his time and attention to other issues; he points out that the situation
+  of the community version is dire.
+
+  _Cehteh_
+  https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-April/010525.html[responds and mentions]
+  his initiative to rely on ``the Git way'' for collaborative work on Cinelerra, pointing out
+  that some people have created improvement branches in their Git repos. Furthermore, he intends
+  to focus more **on infrastructure and clean-up** than on bugfixes, considering this the most
+  helpful approach. He even proposes *monthly developer meetings* coordinated on the Mailing List.
+
+  This response and proposal is _ignored completely_ by the community. People continue to discuss
+  feature requests and ask for patches to be included (even while there is no active developer anymore)
+
+
+|2007-04-28
+ | Ichthyo, Cehteh
+ | Taking note of the conspicuous non-reaction to a grave if not critical situation, _Ichthyo_ responds
+  off-list. _Cehteh_ invites him to join the ``guerilla team'' and grants him write access
+  to his »Pipapo wiki«, so that _Ichthyo_ would be able to publish design proposals and make announcements there.
+
+  Both commence their first extended conversation on IRC and _Cehteh_ shows his ``braindump'' page.
+  But, unfortunately, _Ichthyo_ is completely overloaded at that time, with his day-job in
+  the finance sector, a CD project recording classical pipe organ music and work on
+  an independent film project.
+
+|End of footnote:[
+   The exact date can only be guessed, since the earliest documented captures of these
+   documents had a filesystem timestamp from 2008-03, and the content from the »pipapo
+   wiki« was imported as part of the Lumiera website in 2010. +
+   The earliest timestamped comment (2007-06-04) by _Cehteh_ can be found in the
+   link:Cin3-ProjectProposal.html#\_comments[project proposal],
+   while the
+   link:{rfc}/LumieraDesignProcess.html[»Design Process« RfC] is marked `2007-06-03`.
+   Given that this was a Sunday, and handling the avalanche of responses to _Ichthoyo_'s
+   pamphlet took several days, we arrive in the last weak of May 2007. This is confirmed
+   by the note ``May 2007'' at the start of the
+   link:Cin3-ProjectProposal.html[project proposal].
+] May 2007
+ | Ichthyo
+ | Publication of
+  link:CinelerraWoes.html[»Cinelerra woes«], the
+  link:Cin3-ProjectProposal.html[»Cinelerra-3 Project Proposal] and
+  link:bestPractices.html[»best practices«].
+
+  The vision text link:PossibilitiesAtHand.html[»Possibilities at hand«]
+  was published roughly one week later.
+
+|2007-06-03
+ | Cehteh
+ | RfC link:{rfc}/LumieraDesignProcess.html[»Design Process«]
+   footnote:[
+     all mentions of the word +"cinelerra"+ had been mass-replaced by +"lumiera"+
+     early in 2008, after the new name
+     https://web.archive.org/web/20231026200633/https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-March/013474.html[was chosen]
+     in a vote by the community.
+   ]
+
+|2007-06-04
+ | Cehteh
+ | adds comment to _Ichthyo_'s link:Cin3-ProjectProposal.html#\_comments[Project Proposal]
+   with several arguments on why it might be better to ``start from scratch''.footnote:[
+     _Ichthyo_ immediately countered these arguments, and was backed by several other
+     members on IRC; yet comments from _Cehteh_ later this summer (notably in the first
+     public discussions on the Mailinglist in August) indicate that he saw the existing
+     code base of Cinelerra as a ``bottomless pit''; he must have then arrived at that
+     conclusion by some time in spring, since no further detailed investigation
+     and work directly related to the old codebase was discussed throughout that Summer in the group. +
+     On the other hand, _Ichthyo_ was well acquainted with the Cinelerra-2 code base, and had just
+     succeeded in getting his ``Bézier Patch'' accepted by the Cinelerra-CV developers,
+     and he
+     https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-May/010832.html[published another patch]
+     while the new initiative was unfolding.
+   ]
+
+|2007-06-07
+ | Cehteh
+ | RfC link:{rfc}/DistributedDevelopmentFramework.html[Distributed Development Framework]
+   based on Git, to replace all customary project management tooling.
+
+|2007-06-08
+ | Cehteh
+ | RfC link:{rfc}/DevelopmentFramework.html[Development Toolchain]
+
+|2007-06-09
+ | Cehteh
+ | RfC link:{rfc}/Manifest.html[Community Manifest]
+
+|2007-06-13
+ | Cehteh
+ | link:/project/background/history/Cinelerra3Announcement.html[Cinelerra-3 Announcment]
+   sent as private mail to the original author of Cinelerra, all developers associated with the 
+   Cinnelerra-CV _community version_ and to select people considered to be active in the community.footnote:[
+     Years later, in September 2011, in commit `3a2a65d6d` _Ichthyo_ wrote the section of the
+     link:/project/background/history/index.html#_the_strange_year_2007[»History« page]
+     on the the project beginnings and added his copy of this mail, transcribed into Asciidoc.
+     Notably the source of this page contains the full mail headers of this message, hidden as  a comment.
+   ]
+
+|2007-06-18
+ | Cehteh
+ | Initial
+   https://git.lumiera.org/?p=LUMIERA;a=commit;h=13b963ba5bc39603c1d425752f07d8b3941f01ba[Git commit].footnote:[
+     In line with __Cehteh__'s vision, this Git repo was meant to serve as ``distributed tooling'',
+     initially to exchange updates to https://classic.tiddlywiki.com/[TiddlyWiki pages]. +
+     However, due to the turns and twists of the »Cinelerra-3« initiative,
+     this eventually became the *first commit* in the *Lumiera project history*.
+   ]
+
+|2007-06-19
+ | Ichthyo
+ | elaborated UML diagram
+   https://git.lumiera.org/?p=LUMIERA;a=commit;h=904c82bba44aa9f087f07ea0dd8b6db4e64e3280[added to Git],
+   showing components involved in the render.
+
+|2007-06-26
+ | Ichthyo
+ | first experiments with code generation from UML.footnote:[
+     These experiments were done on a branch +"prototype"+, which was mentioned in several
+     internal mails, yet discarded later without being merged. The purpose (as can be inferred from
+     those mails, was manifold: it was used as an example to discuss indentation styles, which
+     eventually led to
+     link:{rfc}/CodingStyle.html#\_conclusion[choosing __GNU style__]; furthermore, it was used
+     to experiment with build systems, and -- last but not least -- _Ichthyo_ intended to use
+     a hierarchy of skeleton classes, closely modelled after Cinelerra's »EDL«, as a backdrop
+     for prototyping work, intended to be integrated into the Cinelerra code base later.
+   ]
+
+|2007-06-27
+ | Cehteh, Ichthyo
+ | Decision to link:{rfc}/CodingStyle.html[use __GNU style__] for newly written code.footnote:[
+     This discussion and the following decision seem plausible at a glance, given that
+     the development team seemingly agreed to produce some prototypical code quickly. They knew
+     that matters of code style had to be decided early, preferably immediately, to avoid
+     ``bikeshedding''.
+     However -- given the specific circumstances at the on-set of this new initiative -- it still
+     seemed strangely mis-aligned to launch into debate on selecting a code style; the code was
+     only intended to serve as a prototype, and meant to be integrated into the then current Cinelerra code base.
+     So this might be seen as yet another indication that _Cehteh_ (who was pushing to pick a code
+     style instead of just using the default from Bouml) had already made up his mind
+     at that point to aim at a new code base, separate from the existing Cinelerra-2.
+   ]
+
+|2007-06-29
+ | Cehteh
+ | RfC link:{rfc}/AllPluginInterfacesAreC.html[All Plugin Interfaces are C]
+
+|2007-07-02
+ | Ichthyo
+ | recommends the use of a https://www.scons.org/[SCons] based build system,
+   after investigating alternatives and building
+   https://git.lumiera.org/?p=LUMIERA;a=commit;h=7719c710ae81ba446cdeddf2573958c197278276[a prototype].footnote:[
+     The proposal to investigate SCons and CMake was made by _Cehteh_, based on ``favourable mentions''
+     within the community. _Ichthyo_ investigated several systems, but quickly narrowed them down to SCons,
+     which is written in _Python_ and defines the build in a DSL written in _Python_. 
+     Furthermore, he showed how the build can be extended by ``build tools'' written in _Python_. +
+     _Cehteh_ had investigated CMake, but was disappointed with both systems:
+     ``ich hab jetzt in cin3 bissl mit scons gespielt, ist ok, aber nicht gerade wirklich gut,
+     dann hab ich mal cmake angefangen (siehe nen branch) ist eigentlich das gleiche in grün,
+     kann alles, aber auch nur umständlich'' [SCons is OK-ish, yet far from compelling, and
+     CMake is just plain confusing\]. He then
+     https://web.archive.org/web/20250924035520/https://www.pipapo.org/essays/BuildingSoftware[publishes a page]
+     to state his discontent with the existing tooling to build code, and describes what he would
+     consider a ``smart'' build system.
+   ]
+
+|2007-07-03
+ | Cehteh
+ | RfC link:{rfc}/CCodingStyleGuide.html[Naming scheme for C Interfaces].footnote:[
+     While the RfC is titled »C Coding Style Guide«, the text, especially the
+     comments, appear confusing; however, it is linked directly to the
+     link:{rfc}/AllPluginInterfacesAreC.html[Plugin RfC] and its purpose becomes
+     more evident when viewed from the perspective of the
+     xref:_debate_plugin_centric_architecture[Plugin architecture debate],
+     which unfolded at the same time.
+   ]
+
+|2007-07-03 -- 2007-07-10
+ | Ichthyo, Cehteh, Plouj
+ | Debate on introducing a xref:_debate_plugin_centric_architecture[Plugin-centric architecture],
+   that ended without a clear resolution.
+
+|2007-07-11
+ | Cehteh
+ | link:{rfc}/AllPluginInterfacesAreC.html#_comments[declares] the Plugin-RfC as __accepted__.
+
+|2007-07-15
+ | Cehteh
+ | first https://git.lumiera.org/?p=LUMIERA;a=commit;h=a313ea87a588241a1db72b6cac6e2aee2b512fc7[commit to add code]:
+   a draft for a plugin loader.
+
+|2007-07-19
+ | Cehteh
+ | adds an https://git.lumiera.org/?p=LUMIERA;a=commit;h=471148b7db2e41f2c081760cc367710ce6999da9[Automake build system]
+   and promises to maintain it.
+
+|2007-08-08
+ | Ichthyo
+ | performs the code generation from the UML model -- after configuring Bouml for GNU style -- and
+   https://git.lumiera.org/?p=LUMIERA;a=commit;h=ebb4da6cc738392c015c7d66c54c6483331459f4[checks in]
+   the resulting hierarchy of skeleton code, to be used as a starting point for the render engine prototype.
+
+|2007-08-13
+ | Ichthyo, Cehteh
+ | add a minimalist
+   https://git.lumiera.org/?p=LUMIERA;a=commit;h=45c21677009dfc733d0ecd6f26d783c99b2818d5[Unit test runner]
+   and test suite written in C++, complemented by a
+   https://git.lumiera.org/?p=LUMIERA;a=commit;h=ce3eb42131b0f8f809b00ef9a7759eb885e684d3[shell script]
+   to launch collections of test executable invocations
+
+|2007-08-15
+ | Cehteh
+ | first ``public''
+   https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-August/011499.html[announcement]
+   of the »Cinelerra-3« effort on the Cinelerra Mailinglist.footnote:[
+      This was not really a planned, official announcement, since the developers had previously agreed
+      to avoid public ``wishlist'' discussions and evaluate a code prototype first, so that the
+      new proposed initiative could be backed by facts and achievements. +
+      However, the mention of the term »Cinelerra-3« started to appear occasionally on the mailinglist,
+      since most of the internal discussions among the developers took place in the `#cinelerra` IRC
+      channel and where thus effectively visible in public (you just needed to know where to look).
+      Seemingly it first appeared in one of the numerous threads to analyse the desperate situation
+      and the various issues of the Cinelerra project,
+      https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-August/011487.html[this time by Marcos Cabalero],
+      a Cinelerra user working in the media industry in Argentina. As part of the ensuing discussion,
+      https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-August/011498.html[Herman Robak hinted]
+      at the new effort: ``I think Christian Thäter's protocols for work on Cin3 are clever'', then repeating the
+      distinction between ``talkers'' and ``doers'' he frequently made. _Cehteh_ responded soon thereafter with the
+      https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-August/011499.html[summary statement],
+      which can be considered the first public representation of the new initiative.
+   ]
+
+|2007-11-15
+ |
+ | https://web.archive.org/web/20090329094609if_/http://www.piksel.no/piksel07[Piksel07 Festival]
+   in Bergen (Norway). _Herman Robak_, _Oracle2025 (Richard Spindler)_, _Cehteh_, _Raffa (Raffella Traniello)_
+   and _Vale (Valentina Messeri)_ meet there; video editing with Free Software is one of the topics of the festival.
+   _Cehteh_ explains the advantages of contributing through using Git and distributed tooling, while Richard holds an
+   https://web.archive.org/web/20090330032456/http://www.piksel.no/pwiki/OpenVideoEditing[Open Video] workshop
+   to demonstrate a complete video workflow with his https://en.wikipedia.org/wiki/Open_Movie_Editor[Open Movie Editor].
+   There is also a discussion round to analyse problems open on video editing on Linux
+   https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-November/012331.html[-> summary].footnote:[
+     It is remarkable that the discussion among developers almost entirely revolves around issues of
+     _video technology_ -- which are certainly notoriously challenging. The
+     https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-November/012334.html[discussion thread]
+     following the mentioned protocol of ``problems for video editing on linux'' is a good example.
+     There appears to be widespread consensus that
+     https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-November/012355.html[simple building blocks]
+     should be provided as free software, that ``can be used to combine new functionality''.
+     However, it would appear that users suffer from quite
+     https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012806.html[different problems].
+   ]
+
+|Winter 07/08
+ |
+ | Mailinglist and IRC users continue to propose new initiatives to address the problems:
+   -> https://web.archive.org/web/20221206105148/https://lab.dyne.org/cinelerra/Usability[Cinelrra Usability]
+   · https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-December/012485.html[make Cinelerra smart]
+   · https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012806.html[I believe in Cinelerra]
+   · https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012846.html[I believe ... continued]
+   · https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012807.html[Proposal: Open Video Platform]
+
+|2007-11-26
+ |
+ | The very first message from the original author in a year:
+
+   https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-November/012362.html[A complaint about misrepresentation].footnote:[
+     Some days before, a member of film maker's IT staff had
+     https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-November/012280.html[contacted the list]
+     to express his gratitude for the work done on Cinelerra, asking how it
+     would be possible to get involved and how support to build
+     a render farm could be obtained. This individual indicated that they would like to donate money. Adam Williams, the original author
+     https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-November/012362.html[responds] that
+     ``cvs.cinelerra.org did not write most of the software and they do not contribute to the original tree''.
+     This hurtful response seems to indicate again, that -- even after all those years -- Adam still does not comprehend
+     what a Free Software community is all about; presumably he perceives the community as a group of impostors who try
+     to damage his reputation and discredit him of his work.
+     To put this into appropriate context it should be noted that numerous
+     individuals had reached out and contacted him throughout the year to request
+     that he
+     https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-November/012371.html[join discussion].
+     Some weeks later, it was reported within the community that Adam had responded by private mail to one
+     of the developers involved into the »Cinelerra-3« effort, pointing out that over the years he has seen
+     numerous ``students'' trying to tell him how to build an application.
+   ]
+
+|2008-01-25
+ | Adam
+ | The original author of Cinelerra, speaking on behalf of Heroine Virtual Inc,
+   https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012870.html[requests]
+   to drop the name »Cinelerra-3«, since it would interfere with their planned schedule and feature set.footnote:[
+     Within the »Cinelerra-3« group, this statement is interpreted as insipid if not insulting to the community, which also clarifies that
+     any possibility of re-integrating any improvements into »upstream« code would be rejected. _Ichthyo_
+     https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012875.html[responds with an official statement]
+     to clarify how the initiative formed and that it will continue henceforth as a separate project,
+     including the adoption of an entirely new name. As to be be expected, the ensuing thread immediately digresses into
+     https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012925.html[a discussion about UI toolkits],
+     leading to the topic of
+     https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012929.html[UI plugin interfaces],
+     and closing again with a
+     https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012927.html[summary by another user],
+     explaining what is broken both with the software and the organisation of the Cinelerra project.
+   ]
+
+|2008-01-28
+ | Ichthyo
+ | https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012875.html[Official statement]:
+   a new separate project begins.
+
+|2008-01-28
+ | Hermanr
+ | https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012908.html[Proposal]
+   to form a new »Cinelerra-2« group with the goal to organise the improvement of the software,
+   on the grounds that the »Cinelerra-3« initiative is now officially a *separate project*.
+   This proposal does not find
+   https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012940.html[much resonance].
+
+|2008-01-30
+ |
+ | Start of an extended series of discussion threads on UI toolkits.footnote:[
+     Although developers of the new project immediately stated that there would be no agenda 
+     for UI toolkit debate for some time to come, reality revealed itself otherwise as 
+     such discussions seem usually unavoidable:
+     The interface is the only part of the software to which a user can relate to. However, during those
+     discussions, some notable statements were made, which clarify the attitude of the developers:
+     -> https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012959.html[1]
+     · https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012960.html[2]
+     · https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012964.html[3]
+     · https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012968.html[4]
+     · https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012975.html[5]
+     · https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012978.html[6]
+     · https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012980.html[7]
+     · https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/012981.html[8]
+     · https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-January/013000.html[9]
+   ]
+
+|2008-02-01
+ |
+ | First official link:{ldoc}/devel/meeting_summary/2008-02-01.html[Developer Meeting] of the new project
+
+|2008-03-07
+ | Raffa Odin
+ | The new project
+   https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-March/013474.html[is now named
+   »**Lumiera**«].footnote:[
+      A list of names were proposed by the community for the project, the proposals were narrowed down by applying a set of rules,
+      selecting 15 candidates from ~250 proposals. Finally, the name of the project was determined through a
+      https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2008-March/013431.html[naming contest]
+      using a https://en.wikipedia.org/wiki/Condorcet_method[Condorcet Voting] scheme. All people registered
+      for the Cinelerra Mailing list were allowed to cast a vote, since these
+      are considered to be the active community.
+   ]
+
+|====================================
+
+
+History of Cinelerra
+~~~~~~~~~~~~~~~~~~~~
+Cinelerra was first released in August 2002. According to the
+https://en.wikipedia.org/wiki/Cinelerra#History[Wikipedia article], the author had developed
+a predecessor »Broadcast 2000« since 1996, which was audio-only at start, aiming at audio for
+broadcast production. The ability to play-back a video track was added eventually, in 1999 --
+and various internal limitations related to the UI caused the rewrite into Cinelerra.
+According to a common narrative, the Author was way ahead of the time to recognise the potential
+of PC hardware to allow for independent film production outside of the system of the media industry.
+
+For a long time, the identity of the original Author and the relation to the *Heroine Virtual Ltd* company
+was steeped in mystery. This setup was chosen intentionally, as the pseudonymous character *Jack Crossfire*
+aka »the Heroine Warrior« pointed out in an
+https://web.archive.org/web/20040605151736/http://www.linuxdevcenter.com/pub/a/linux/2003/12/30/cinelerra.html[interview in 2003]
+with O'Reilly's https://web.archive.org/web/20040406011049/http://linuxdevcenter.com/[Linux devcenter]:
+
+[quote, Jack Crossfire 2003]
+``In a shrinking industry like we're in now, managers aren't ready to see staff engineers building killer apps
+outside their day jobs, and they aren't afraid to get rid of anyone who ignores the system.
+You can't release software under an individual name when that happens, so
+https://web.archive.org/web/20040605151736/http://heroinewarrior.com/[»Heroine Virtual Ltd.«]
+became the entity under which all our content creation tools would appear.
+We leave it to your imagination how many people are behind it.''
+
+It is well established meanwhile that ``Jack Crossfire'' is a pseudonym for *Adam Williams*, as was
+https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-March/010308.html[confirmed by himself
+in March 2007] on the Cinelerra Mailinglist:
+
+[quote, Heroine Virtual Ltd. 2007]
+``Could you use Adam Williams instead of Jack Crossfire for license notices?
+He is unemployed again and doesn't have the conflict that he did before.''
+
+The interview mentioned above is
+https://web.archive.org/web/20040605151736/http://www.linuxdevcenter.com/pub/a/linux/2003/12/30/cinelerra.html[a recommended read],
+as it touches onto various subjects related both to the technological hurdles to overcome, as well as to his
+attitude towards collaborative development:
+
+[[interview_jack_crossfire]]
+[quote, Jack Crossfire 2003]
+--
+*JC*: (...) +
+Now, before we get into another war about evil murdering dictators oppressing free software developers
+by withholding important technical documents, the lack of import and export capability is probably going
+to solve itself in the long term.
+
+More and more of the compatibility between external devices and Linux boxes is moving from
+hardware implementation to software implementation. For some new high definition camcorders coming out,
+the interface change is purely in software. Instead of creating new I/O boards with new registers sets and logic waveforms,
+they're using the existing I/O boards while changing the software to decode MPEG-2 instead of DV.
+It's virtually impossible to support new I/O boards, while it's relatively easy to support new software protocols.
+
+That isn't to say the evil murdering dictators should continue refusing interviews with their driver developers,
+but free software developers can get their biggest gains by doing more in software instead of hardware.
+
+*ORN*: What kind of help could Cinelerra use from those willing to volunteer their skills?
+
+*JC*: The biggest contributions would be detailed explanations of how to crash it.
+There are a lot of crash situations, but they're very hard to reproduce.
+
+We're always interested in new developments in image processing,
+new directions the content creation industry is headed in,
+and platform-independent assembly languages.
+
+Finally, it takes a long time to incorporate outside changes.
+New code has to be verified against the current stability, and it has to be maintainable.
+So that limits the amount of new code that can be integrated to bug fixes or big,
+major features people are going to use all the time.
+
+Supposedly, this is why a lot of programs have macro languages and language bindings.
+The problem is, the guys who use the macro languages to add new features
+are normally more interested in programming the language than using the program to create content.
+
+A lot of people like the Autoconf system and want to rebuild the Cinelerra tree to use Autoconf.
+That system has proven to be real hard to cross compile with and it fills the screen with huge amounts
+of linker wrappers, compiler flags, compiler wrappers, concealing the important messages.
+Furthermore, these systems of layered build scripts and package configurators have grown so huge
+that it's become just as hard to hunt down the right script flags as it is to configure a makefile.
+
+*ORN*: Any advice for those interested in modifying the Cinelerra code to help improve/stabilize it?
+Or advice in developing Linux multimedia applications that deal with video?
+
+JC: There are very few features that are going to justify the amount of work required to implement them.
+Unless you've got millions of dollars and a large staff of slaves, features that are big, major,
+and lasting in impact are the things you'll be most rewarded for in your private software adventures.
+(...)
+--
+
+Was Cinelerra only GPLed to avoid legal problems?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This hypothesis was spread frequently within the Cinelerra-CV community around the time
+when the Lumiera project started. While being **a questionable claim** in itself,footnote:[
+  Only the initial author of a piece of software, who (still) holds the copyright, can place it
+  under the protection of a Free Software license. A pseudonym however is not a person, and can
+  thus easily be challenged. Consequently, this would not be a viable move to shake off an already
+  existing litigation threat. +
+  It might be seen as an attempt however to conceal traces and to prevent other people from
+  establishing a possibly dangerous link to a person -- especially if this person might
+  be bound already by legal terms of an employment contract, and thus prohibited to undertake
+  any actions that can be construed as competing with the interests of the employer.
+]
+it might be seen as a reflection of generally negative sentiment against ``upstream'',
+which was perceived by the community as someone not sharing the ``Free Software mindset'' --
+an assessment based on the difficulties to establish any kind of collaboration with the
+upstream author of Cinerlerra.
+
+The claim regarding litigation problems is based on a sentence, found in the introductory paragraph of the
+https://en.wikipedia.org/w/index.php?title=Cinelerra&oldid=102002668[Wikipedia page until January 2007],
+which was then https://en.wikipedia.org/w/index.php?title=Cinelerra&diff=prev&oldid=103468528[removed] due to
+https://en.wikipedia.org/wiki/Talk:Cinelerra#The_%22Litigation_Threat%22[doubts regarding plausibility]
+of that claim:
+
+[quote, Wikipedia in 2006]
+``Cinelerra was first released August 1, 2002, and was based in part on an earlier product
+known as Broadcast 2000. Broadcast 2000 was withdrawn by Heroine Virtual in September 2001;
+Heroine Virtual cited legal liability concerns in the wake of litigation from the RIAA and MPAA
+and the costs involved in high-end video production.''
+
+However, the
+https://cinelerra.org/our-story[History of Cinelerra as told by Michael Collins 2014]
+paints a distinctively different image, and provides much needed background texture,
+necessary to understand the roots of Cinelerra and the people driving it ahead.
+This source, as well as the xref:interview_jack_crossfire[Interview quoted above] rather
+indicate that _Adam Williams_ always identified as a Free Software developer, and as an
+actor standing on his own feet. He sees Cinelerra as his brainchild, and feels responsible
+to steer its further development -- yet always mixed with some concern of not being
+recognised properly, and the apprehension that his baby might be taken away.
+
+The Footer at the bottom of the
+https://web.archive.org/web/20170203061537/http://cinelerra.org/our-story[Archive capture from 2017]
+(of ``our story'') might be seen as just another indication to support this impression
+
+[quote]
+--
+**Notice**: There are many versions of this application called Lumiera and "Cinelerra...."
+on other websites with various tweeks, random version numbers, & varying documentation,
+but this [here] is the distribution they're all derived.
+
+Donations and support to other websites and versions which are called "Cinelerra",
+"Cinelerra-CV" or "Cinelerra 5.xxxxxxxxxx???" do not fund development of Cinelerra.
+In fact, support with those versions does nothing but delay the actual development of Cinelerra,
+as originally envsioned, created, and developed almost 20 years ago.
+--
+
+
+
+
+Debate: Plugin-centric architecture
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This section provides background information regarding a controversy, which
+surfaced after the first weeks of actual planning work had passed in the
+new »Cinelerra-3« initiative, in Summer 2007.
+
+Both opponents had a strikingly different background of experience.
+__**Cehteh** (Christian Thäter)__ had worked in a qualified job related to events
+and music, and as a freelance software developer, with a focus on system programming
+and embedded systems. At that time, he had already long-lasting connections with
+the Linux community in Karlsruhe and south-west Germany, and he had published
+several small-scale toolchain projects as Free Software. His wife had completed
+an ambitious video editing project with Cinelerra one year ago, and he had
+helped her with technical support, which has led to his involvement
+with the Cinelerra-CV community. His aspirations can be sumarised by
+the following quote from August 2008, in a
+https://lists.cinelerra-cv.org/pipermail/cinelerra-skolelinux/2007-August/011520.html[response on the Mailinglist]
+
+_______________
+My ideal would be if free software could be done in a evolutionary
+process, where good ideas are exchanged and reviewed between developers
+and maybe seasoned/interested users (only a distributed revision control
+system makes this possible). Good things will persist and be merged
+while unimportant or bad things just get abandoned (but stay alive
+somewhere in a public repo to be fixed or reconsidered anytime later).
+_______________
+
+On the other hand, __**Ichthyo(stega)** (Hermann Voßeler)__ has a strong
+academic background. He worked for the past years in the banking sector,
+developing critical infrastructure in a small team of experienced developers,
+where code reviews, discussions about code quality and maintenance of legacy
+code is everyday practice. Since his time at the university, he has a vested
+interest in the dynamics of failing IT projects. He had succeeded with
+contributing some localised improvements and features to larger projects,
+but had no deeper ties with the Free Software community yet. Aside of his
+work job, he was involved into independent film making, did a lot of editing
+both on commercial and free software and increasingly used Free Software both
+for video and audio related to his CD production projects with classical music.
+His approach can be characterised by the conclusion of the
+link:CinelerraWoes.html#\_conclusions_and_consequences[Cinelerra woes] text
+_______________
+
+Design matters; don't blame the past, start improving it now:
+It is possible to attack problems even in a quite large and long living
+code base. We just need to leave the _Problem perspective_ and switch to the
+Design and Architecture viewpoint. It is not necessary to cure thousands of
+isolated problems, but it will advance Cinelerra if we step back and introduce
+some structures, Layer separation, encapsulation and QA facilities and then, in
+a second step, rework and reorganize a few central facilities to provide a
+higher level of Integration.
+_______________
+
+The controversy arose at the point where a team of three developers had formed
+within a new development framework, and was about to start into actual coding.
+From the context, it can be seen that tensions were building up in various
+related topics. The actual dispute was set off by a RfC from _Cehteh_,
+to confine all plugin interfaces to plain-C. Together with his stated
+intention to use plugins as building blocks also within the application,
+this amounts to turning a C\++ code base (Cinelerra) into a new C-style
+code base, where C++ programming techniques are relegated to a local
+context.
+
+
+.Subject: CStyleGuide
+................................................
+Date: Tue, 3 Jul 2007 21:30:20 +0200
+From: Voßeler Hermann <Hermann.Vosseler@XXX-bank.de>
+To: Christian Thaeter <ct@XXXXX.org>
+CC: ploujj@XXXX.com
+
+Am Dienstag, den 03.07.2007, 20:51 +0200 schrieb Christian Thaeter:
+
+> Btw: seen my Interface / CStyleGuide proposal in the pipapo wiki? please
+> review it carefully if it looks ok, I straight go into make a referene
+> implementation, since this is a very low level building block.
+>
+yes, I have seen it this morning. I have to look at it more carefull
+tonight, when at home. Basically, it looks OK for all external
+interfaces, i.e. interfaces other external apps or components will use
+to call to cinelerra or to embed within cinelerra. Good examples for
+this type of things are LADSPA plugins or some video codec interface
+
+For use /within/ the application we should consider the following
+questions first:
+
+* how much "plugin architecture" do we want? Does a "micro
+  kernel/plugin" approach help? how then do we handle extension points?
+* why should we constrain ourselves to just C linkage? For example for
+  the effects plugins it's just natural to require each plugin to define
+  a GUI object as well and then proxy the communication (Cinelerra2
+  basically does the same, just does it create two instances of each
+  plugin class, one for the processing and one for the gui). Same for
+  exceptions: they wouldn't be used so commonly if they weren't helpfull 😉
+  On the other hand: for a data storage plugin/interface
+  I don't see much use in using classes at all because this is
+  procedural by nature. (Thats the point where people start inventing
+  all those silly singleton classes...)
+* the internal interfaces shouldn't be fixed this much, because this
+  hinders refacturing. Well, at least until we reach beta 0.98 😃
+
+Hermann
+................................................
+
+''''
+
+.Subject: Re: CStyleGuide
+................................................
+Date: Tue, 03 Jul 2007 23:18:49 +0200
+From: Christian Thaeter <ct@XXXXX.org>
+To: Ichthyo <prg@XXXXX.de>
+CC: ploujj@XXXX.com
+
+Voßeler Hermann wrote:
+> (...) Basically, it looks OK for all external interfaces,
+> i.e. interfaces other external apps or components will use to call
+> to cinelerra or to embed within cinelerra. (...)
+>
+> For use /within/ the application we should consider the following
+> questions first:
+> * how much "plugin architecture" do we want? Does a "micro
+>   kernel/plugin" approach help? how then do we handle extension points?
+
+IMO as much as possible, I stated that the cinelerra main app should be
+only a skeleton using plugins. (do we want to start more monolithic and
+then factor plugins out, or plugins from start on?)
+
+Extensions shall be considered when designing this interfaces. I also
+considered to make the plugin interface extensible without breaking
+compatibility (naturally it will turn out whats needed during
+development of new features)
+
+consider my favorite example
+ (based on cin2, cin3 might be little different):
+Cinelerra has tracks on the timeline, these tracks shall be plugins (we
+provide plugins for audio and video tracks, but someone might provide
+tracks for midi, 3D animation or such)
+
+Tracks have some gui components
+ 1. patchbay
+ 2. timline drawing (thumbs for video, waveform for audio, notes for
+midi, ...)
+
+some internal components:
+ 1. list of clips on the track
+ 2. attached effects container
+
+(and some more)
+
+we now need to define/collect what interfaces are needed to implement
+tracks. There will be not a single interface but a group of related
+interfaces which in sum define the behaviour and gui rendering of a track.
+ * cinelerra_track_gui_patchbay_interface
+  defines the patchbay gui
+ * cinelerra_track_gui_timeline_interface
+  how timeline is rendered
+ * cinelerra_track_effects_container_interface
+  manage effects on the track
+ * cinelerra_track_clips_interface
+  manages clips (add/remove, order, ...)
+
+
+these 'tracks' use in turn other interfaces we define, effects, codecs, ...
+
+
+for effects plugins this is quite similar, we need at least a interface
+for the gui component and one for the internal workings.
+
+
+> * why should we constrain ourselfs to just C linkage? For example for
+>   the effects plugins it's just natural to require each plugin to define
+>   a GUI object as well and then proxy the communication (Cinelerra2
+>   basically does the same, just does it create two instances of each
+>   plugin class, one for the processing and one for the gui). Same for
+>   exceptions: they wouldn't be used so commonly if they weren't
+>   helpfull ;-). On the other hand: for a data storage plugin/interface
+>   I don't see much use in using classes at all because this is
+>   procedural by nature. (Thats the point where people start intventing
+>   all those silly singleton classes...)
+
+The Idea is here to make it possible to write plugins in any other
+language, C bindings are the best thing to make this possible. The
+downside is that glueing C++ is not effortless. I think it's still worth it,
+but this is just a proposal.
+
+> * the internal interfaces shouldn't be fixed this much, because this
+>   hinders refacturing. Well, at least until we reach beta 0.98 😃
+
+yes, my proposal only applies to 'external' interfaces. Unfortunately many
+interfaces are considered external by this plugin architecture (whatever
+we provide for us, we provide for people extending it too)
+................................................
+
+''''
+
+.Subject: How to proceed?
+................................................
+Date: Wed, 4 Jul 2007 22:01:32 +0200
+From: Voßeler Hermann <Hermann.Vosseler@XXX-bank.de>
+To: Christian Thaeter <ct@XXXXX.org>
+CC: ploujj@XXXX.com
+
+
+Hi Christian, Hi Michael,
+
+for my part I am now at the point where I could start coding. Yesterday
+I looked at your UML and wiki, Christian, and I got the impression you
+are at a similar point, as it seems to be a complete sketch and just
+"the details" have to be worked out.
+
+In the last discussions about plugins, interfaces and naming conventions
+we touched several times this "good old C versus OO" question. I really
+don't want to engage in these discussions anymore, basically it were
+the arguments and fights of the 80ties and early 90ties and led to the
+conclusion that no single paradigm can claim to be absolute superior;
+probably this explains the gigantic success of compromise languages
+like C++ and Java, which give us choice of paradigm within one environment.
+
+Probably I told you about my background, having to deal everyday with
+such object networks and collections (typically with objectrelational
+mapping beneath and a distributed environment with parallel queries),
+this led me to just "seeing" some striking structural deficiencies of
+Cinelerra2 causing quite some of the user visible trouble. Further,
+I experienced several times, that a combination of design patterns,
+abstraction and separation of concerns can make such problems
+manageable to the degree of almost disappearing; thus I come to
+trust that this methods will work for the objectoriented part of
+cinelerra as well. On the other hand, I don't have much in depth
+knowledge about low level I/O and can't even judge the quality of
+this aspect of the cinelerra code base.
+
+In my work domain the last 10 years saw quite a hype of plugin/
+microkernel and component based approaches, followed by much sobering
+and sort of a "back-to-the roots" movement. Today, "Plain Old Java
+Objects" and reliance on just the language's abstraction mechanisms
+(which notably include some sort of introspection in all modern
+languages though) is often found much more viable than all those EJB,
+ActiveX, Corba and even SOA frameworks. To quote some observations
+
+- plugin frameworks are either really universal and pay for this
+  by being trivial (not allowing much more then be plugged together).
+  Or they just pretend to be universal and arbitrary combinable,
+  but indeed there is not just a microkernel, rather
+  the system relies on very specific plugins being there and
+  configured in a very specific way (and this can result sometime
+  in a lousy architecture -- interesting question)
+
+- when a plugin system really does what it promises, i.e. giving
+  you the ability to combine the components dynamically in a
+  rather unlimited way, this can lead to a plethora of different
+  systems and maybe the "write once test everywhere", and finally
+  the "dependency hell" and "metadata hell"
+
+- microkernel/plugin systems which stand the test of time and don't
+  degenerate are rare. One notable example is the ECLIPSE/OSGI.
+  The key idea here is, not only to have plugins, but to have a
+  generic mechanism, by which the plugins can provide extension
+  points. Each plugin can create it's own new plugin framework
+  so to say. Together with a good feature/bundle/installation
+  management, this works surprisingly well (but is -- not much
+  surprise -- quite complex and has a very steep learning curve).
+
+- and last but not least the well known XP mantra. "You aren't
+  going to need it": I have seen too many component frameworks
+  invented to be open for the world, but really just used and
+  extended by their inventors and even avoided by the younger
+  team members.
+
+You can hear a good deal of scepticism from this, while I am
+d'accord with the basic Idea to stay open, extensible and
+adaptable just by configuration. Personally, I tend rather to
+making just plugin interfaces for subsystems, because so the
+common purpose of all plugins of one sort can be clearly defined.
+
+So, after rethinking, I'd now like to propose:
+ * have a plugin interface for codecs (gstreamer?)
+ * have application specific plugins for effects (basically
+   just extend the capabilities of Cinelerra2 plugins a bit
+   to include projector and mask)
+ * add a LADSPA host (and ditch all hand written sound processors)
+ * design the render engine from start as being self contained,
+   so the render engine (together with these interfaces) is a
+   embeddeable component)
+ * add the glue language and a small objects/scriptable framework
+   at the EDL level, to support things like your track patchbay
+   or new editing methods and styles. (thats what I am aiming at
+   with the "placements")
+ * allow GUI components or extension modules (need to be compiled
+   in, but easy to write even for beginners)
+
+
+====================================
+
+Now, personally I would like to think about this possibilities,
+but start or proceed now with implementing a (just plain monolithic)
+prototype of the core render engine + data backend, just to find
+out where the real problems are hidden.
+
+I say I'd like, because I really don't want to rush ahead
+or to trap anyone into a specific programming or project style.
+
+So, please, tell me if this would be an option, or if you would
+prefer to stay in the planning and designing phase.
+
+cheers,
+Hermann
+ (which has to wait for some really looong running 🙄 SQL queries
+  at the moment...)
+
+................................................
+
+''''
+
+After that exchange, an extended and heated debate followed,
+and both continue to talk past each other...
+
+ - _Ichthyo_ refutes the benefits claimed by _Cehteh_, by arguments of architecture
+ - _Cehteh_ ignores _Ichthyo_'s arguments and proposes technical solutions
+ - _Michael Ploujnikov_ proposes that
++
+--
+   ** _Cehteh_ should actually implement his envisaged plug-in solution...
+   ** _Ichthyo_ should build a functional prototype of the session with an invocation
+      of the Builder component, all in C\++ and well structured using C++ interfaces...
+   ** then all developers would investigate together how this can be translated into plug-ins
+--
++
+but _Cehteh_ rejects such an assessment as a waste of time
+
+ - _Cehteh_ claims that the concerns regarding complexity can be addressed
+   by using only simple function calls in plain-C
+ - _Ichthyo_ urges to complete a functional prototype for the render engine first
+
+After having missed each other several times on IRC (_Ichthyo_ was still very
+busy with his work job plus a music recording project and a film project),
+they meet in IRC on 2007-07-10 to settle this dispute
+
+- _Cehteh_ starts the discussion by claiming that actually both of them
+  would pursue very similar intentions, with only marginal differences
+- furthermore, he points out that he does not want to build a system of
+  ``Lego bricks'' and all he wants is to introduce proper versioning to
+  external plugin interfaces
+- _Ichthyo_ attempts to voice his various concerns...
+- but _Cehteh_ constantly talks him over and proposes a plethora of technical
+  solutions to details, and digresses to several other topics
+- the discussion fades out on a rather benignly note, with
+  ** ``I think we can jump into the coding now'' (_Ichthyo_)
+  ** ``this talk was a big progress'' (_Cehteh_)
+
+Next day (2007-07-11), _Cehteh_ unilaterally
+link:{rfc}/AllPluginInterfacesAreC.html#_comments[marks the Plugin-RfC as __accepted__],
+without any qualifications or limitations, adding just the statement
+_______
+``after a talk on irc, we decided to do it this way,
+further work will be documented in the repository''
+_______
+
+In Hindsight it is not clear why _Ichthyo_ did not object to this audacity.
+
+As can be expected, this unsettled conflict flared up several times later
+down into the project's development. A notable example is documented as
+part of the discussion regarding application start-up, more than a
+year later, in November 2008. _Cehteh_ had opened a RfC regarding
+»Application Structure«, and _Ichthyo_
+link:{rfc}/ApplicationStructure.html#_comments[commented]
+
+_______
+``(...) I am
+somewhat unsure if the purpose of this proposal isn't rather to load just a
+*micro kernel* and then pull up components according to configuration. Because
+I wouldn't accept such an architecture, and I clearly stated so right at the
+beginning of our project. I accepted a very flexible and language neutral
+plugin system on the condition that the core remains in control, stays
+„reasonable“ monolithic and componentization doesn't handicap us in creating
+an architecture based on abstractions and exploiting the proven design
+patterns.''
+_______
+
+
+
 
 
 The Initial Phase
 -----------------
 
+Development Activities
+~~~~~~~~~~~~~~~~~~~~~~
+[cols="^2m, ^e, <m, <7", options="header"]
+|=========================================
+|Date | Actor | Commit | Activity
+
+|08/2007
+ | Cehteh
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=f428295a3[f428295a3]
+ | Plug-in loader
+
+|08/07-09/07
+ | Cehteh
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=65ce98c87[65ce98c87]
+ | C data structures and helpers for Backend
+
+|08/07-09/07
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=0ad1a295b[0ad1a295b]
+ | Assets, MObject hierarchy, Session interface
+
+|10/07-11/07
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=47eeaaaf4[47eeaaaf4]
+ | Placements, MObject memory management
+
+|11/07-01/08
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=9e6459cc4[9e6459cc4]
+ | Builder framework (Visitor)
+
+|02/08-04/08
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=a869c7107[a869c7107]
+ | Pipes and ConfigRules Query framework
+
+|04/08-05/08
+ | JoelH
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=5f8c9a2a1[5f8c9a2a1]
+ | GTK UI framework and docking panels
+
+|04/08-05/08
+ | Cehteh
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=64e549dc8[64e549dc8]
+ | Filedescriptors and memory mapped files
+
+|05/2008
+ | Cehteh
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=2a1d6c623[2a1d6c623]
+ | C data structures and library helpers
+
+|05/08-06/08
+ | JoelH
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=a7aff05dd[a7aff05dd]
+ | Timeline framework and styling basics
+
+|04/08-05/08
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=86162ad31[86162ad31]
+ | Application Lifecycle and module structure
+
+|05/08-08/08
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=749f7a41c[749f7a41c]
+ | First draft of render pull processing
+
+|06/08-08/08
+ | JoelH
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=04320ae79[04320ae79]
+ | Timeline view handling and Icon rendering
+
+|08/08-09/08
+ | Cehteh
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=79fee2951[79fee2951]
+ | C data structure library implementation
+
+|08/08-09/08
+ | Cehteh SimeonV
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=c4e6cd3c5[c4e6cd3c5]
+ | Config parser and Config loader foundation
+
+|08/08-09/08
+ | JoelH
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=e815bd4fd[e815bd4fd]
+ | Timeline redrawing and zoom
+
+|09/08-10/08
+ | JoelH
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=efd9ab771[efd9ab771]
+ | Timeline header and track tree
+
+|08/08-09/08
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=feb64fac0[feb64fac0]
+ | Draft of Stream Type framework
+
+|09/08-10/08
+ | Cehteh
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=ebcc5c7fd[ebcc5c7fd]
+ | Interface system and plugin loader
+
+|10/08-11/08
+ | Cehteh
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=aae3c8ed8[aae3c8ed8]
+ | Interface definition framework
+
+|09/08-10/08
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=b475fd097[b475fd097]
+ | Render Node memory management
+
+|11/08-12/08
+ | JoelH
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=6cbd4282c[6cbd4282c]
+ | Timeline model connection and layout
+
+|11/08-12/08
+ | Cehteh
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=369c644ab[369c644ab]
+ | Backend facilities: mmapcache, files
+
+|11/08-12/08
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=054f8d51e[054f8d51e]
+ | Application subsystems and GuiStart
+
+|12/2008
+ | JoelH
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=bc2fdc40e[bc2fdc40e]
+ | Integrate GuiStart and Timeline layout
+
+|12/2008
+ | Cehteh Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=a0ff1f611[a0ff1f611]
+ | Integrate new application structure
+
+|12/2008
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=93c4a282c[93c4a282c]
+ | Introduce Object Monitor locking/waiting
+
+|12/08-01/09
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=e8229623b[e8229623b]
+ | Integration: Thread-sync App startup
+
+|12/2008
+ | Cehteh
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=072ea6035[072ea6035]
+ | Low-level thread handling and locking
+
+|01/2009
+ | Cehteh
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=25108f6af[25108f6af]
+ | Nobug based logging configuration
+
+|12/08-01/09
+ | JoelH
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=b48d8fc49[b48d8fc49]
+ | Track tree expansion and timeline layout
+
+|01/2009
+ | JoelH
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=4bdee1623[4bdee1623]
+ | Drag-n-drop and timeline state logic
+
+|01/09-02/09
+ | JoelH Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=ea5684138[ea5684138]
+ | Dummy video player prototype Proc+GUI
+
+|02/09-04/09
+ | JoelH
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=5359f0df6[5359f0df6]
+ | Action buttons, toolbars and menues
+
+|03/09-05/09
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=d49eea6e5[d49eea6e5]
+ | Placement index and ID handling
+
+|01/09-05/09
+ | Cehteh
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=ee5c2b98e[ee5c2b98e]
+ | Locking primitives and mpool allocator
+
+|06/09-08/09
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=a845a4d23[a845a4d23]
+ | Generic Proc-Command handling front-end
+
+|08/09-09/09
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=1969adaf0[1969adaf0]
+ | Builder / NodeFactory implementation draft
+
+|09/09-10/09
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=cd51e5fef[cd51e5fef]
+ | Proc Command definition and registry
+
+|10/09-11/09
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=018634390[018634390]
+ | Placement scope, ScopePath and QueryFocus
+
+|11/09-01/10
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=14c7f7fc6[14c7f7fc6]
+ | Itertools, Scope iteration, PlacementIndex
+
+|11/09-12/09
+ | Plouj
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=7a507a0ce[7a507a0ce]
+ | Basic Threadpool implementation
+
+|01/10-02/10
+ | Plouj Cehteh
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=5b9aa5deb[5b9aa5deb]
+ | Threadwrapper + Threadpool second attempt
+
+|02/10-03/10
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=dd3d22f95[dd3d22f95]
+ | Session interface and element-tracking
+
+|03/10-04/10
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=ea861a8c7[ea861a8c7]
+ | High-level model with Timelines / Sequences
+
+|04/10-06/10
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=2debae62e[2debae62e]
+ | Design and implement new Advice framework
+
+|04/10-06/10
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=562e57162[562e57162]
+ | Track handling + Timeline-Sequence binding
+
+|03/10-07/10
+ | Cehteh
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=ac7d14f05[ac7d14f05]
+ | Rework mmap, -cache, fileheader, tmpbuf
+
+|09/10-10/10
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=08d90be1b[08d90be1b]
+ | Session ElementQuery and ElementTracker
+
+|10/10-11/10
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=f947f4522[f947f4522]
+ | Pipes, OutputDesignation and OutputMapping
+
+|10/10-11/10
+ | SKangas
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=bdb9832f2[bdb9832f2]
+ | UI improvements and moderinsation
+
+|12/10-01/11
+ | Ichthyo SKangas
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=9df0df614[9df0df614]
+ | Time quantisation and Timecode
+
+|01/11-03/11
+ | Ichthyo SKangas
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=72b62cb26[72b62cb26]
+ | Release 0.pre.01 : Timehandling, GUI
+
+|03/11-05/11
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=3e28c870f[3e28c870f]
+ | Mutations of quantised time entities
+
+|05/11-06/11
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=a37947641[a37947641]
+ | Initial draft for Player Subsystem
+
+|06/11-10/11
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=ca0ae9c12[ca0ae9c12]
+ | Output management and BufferProvider
+
+|10/2011
+ | MFisher
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=f851c875e[f851c875e]
+ | GUI Zoom handling and zoom slider
+
+|10/11-11/11
+ | MFisher Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=d6fa67f2b[d6fa67f2b]
+ | Integrate time::Control into the GUI
+
+|10/11-11/11
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=7ba8ff432[7ba8ff432]
+ | BufferMetadata BufferProvider integration
+
+|12/11-01/12
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=f5290a99a[f5290a99a]
+ | Design and verify OutputSlot protocol
+
+|01/12-06/12
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=b52a1a836[b52a1a836]
+ | JobPlanning and Dispatch / Iterator Monad
+
+|10/12-12/12
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=1328ef4aa[1328ef4aa]
+ | Symbolic query interface for capabilities
+
+|12/12-01/13
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=aca90f7ce[aca90f7ce]
+ | Complete Job planning mechanics
+
+|01/13-06/13
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=1f1d478da[1f1d478da]
+ | calculation streams and job planning
+
+|08/13-10/13
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=7204c5868[7204c5868]
+ | Dependency Injection and service access
+
+|10/13-11/13
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=4ef1883c0[4ef1883c0]
+ | Release 0.pre.02 and code cleanup
+
+|02/14-05/14
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=faf62cf8a[faf62cf8a]
+ | C++11 transition
+
+|08/14-10/14
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=faf62cf8a[faf62cf8a]
+ | Debian/Jessie + framework improvements
+
+|10/11-08/12
+ | MFisher Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=ea8358c66[ea8358c66]
+ | Upgrade GUI to GTK-3
+
+|10/2014
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=819a81d86[819a81d86]
+ | Adapt GUI + Application to C++11 + GTK-3
+
+|10/14-12/14
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=9707a8982[9707a8982]
+ | Design a Diff framework for UI connection
+
+|12/14-04/15
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=51cdc85e5[51cdc85e5]
+ | Mutate a tree structure by Diff application
+
+|04/15-05/15
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=75aa5c970[75aa5c970]
+ | Generic property tree / Diff representation
+
+|06/15-10/15
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=b14943251[b14943251]
+ | Integrate Diff framework
+
+|10/15-11/15
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=b14943251[b14943251]
+ | Release 0.pre.03
+
+|11/15-01/16
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=96ba1fc2d[96ba1fc2d]
+ | UI-Element and UI-Bus design
+
+|01/16-02/16
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=d7d90bf49[d7d90bf49]
+ | PresentationStateManger connected to UI-Bus
+
+|02/16-09/16
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=5c0baba2e[5c0baba2e]
+ | Commands and Changes via Diff and UI-Bus
+
+|09/16-10/16
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=2d8a59503[2d8a59503]
+ | Complete the new UI-Element/Bus framework
+
+|10/16-11/16
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=1e642dc80[1e642dc80]
+ | Research how to build a GTK-3 Canvas widget
+
+|11/16-12/16
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=e75152b29[e75152b29]
+ | Build a new MVVC Timeline GUI structure
+
+|12/16-01/17
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=2e9bd7879[2e9bd7879]
+ | Implement command dispatch from UI-Bus
+
+|01/17-03/17
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=41ea59176[41ea59176]
+ | Establish a new UI-top-level structure
+
+|03/17-04/17
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=f9c3b8b61[f9c3b8b61]
+ | Integrate Command registry and Dispatch
+
+|04/2017
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=4e7c64bf3[4e7c64bf3]
+ | First complete UI / Session Command
+
+|04/17-05/17
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=c96845ab6[c96845ab6]
+ | Integrate new UI framework and UI startup
+
+|08/17-09/17
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=5b445a236[5b445a236]
+ | Demonstrate integration with the InfoBox UI
+
+|09/17-10/17
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=ed76151d1[ed76151d1]
+ | Design and implement UI addressing scheme
+
+|10/17-01/18
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=7dd69003b[7dd69003b]
+ | Build a rules based UI navigation resolver
+
+|01/18-03/18
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=9ca9b1b89[9ca9b1b89]
+ | UI ViewSpec DSL and LocationSolver
+
+|03/18-04/18
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=d6167c184[d6167c184]
+ | Rewrite DI DependencyFactory
+
+|04/18-06/18
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=30db18806[30db18806]
+ | UI ViewSpec and access prototyping
+
+|07/18-09/18
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=f97beaa77[f97beaa77]
+ | Complete round-trip GUI ⟷ Session
+
+|10/18-11/18
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=c8dc5a24a[c8dc5a24a]
+ | Draft new Timeline structure
+
+|04/19-08/19
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=03c358fe8[03c358fe8]
+ | Timeline custom drawing and styling
+
+|10/19-12/19
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=03c358fe8[03c358fe8]
+ | Implement Timeline structure change by Diff
+
+|02/2020
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=b2b5cf0f6[b2b5cf0f6]
+ | Upgrade to Debian/Buster and C++17
+
+|02/20-04/20
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=28adf9a64[28adf9a64]
+ | Timeline display and Clip dynamic layout
+
+|01/21-05/21
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=5b1dfe453[5b1dfe453]
+ | Clip dragging and gesture controller
+
+|07/22-10/22
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=5b1dfe453[5b1dfe453]
+ | Develop size constrained Clip display
+
+|10/22-12/22
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=52d323122[52d323122]
+ | Precise fraction based ZoomWindow control
+
+|01/23-03/23
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=dfcb17b89[dfcb17b89]
+ | Finish UI rework for now
+
+|04/23-05/23
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=db87de3c9[db87de3c9]
+ | PlaybackVerticalSlice: Segmentation splice
+
+|05/23-06/23
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=42f4e403a[42f4e403a]
+ | Rework of pipeline builder and JobTicket
+
+|06/23-07/23
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=28b390028[28b390028]
+ | Deadline based mem-manager for Scheduler
+
+|07/23-09/23
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=2e28f5d27[2e28f5d27]
+ | Micro language for Scheduler Activities
+
+|09/2023
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=997fc36c8[997fc36c8]
+ | Actively work-pulling worker pool
+
+|09/23-10/23
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=997fc36c8[997fc36c8]
+ | Switch concurrency from POSIX to C++
+
+|10/23-11/23
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=313588791[313588791]
+ | Dependency-tracking Activity Scheduler
+
+|11/23-12/23
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=fcfdf9785[fcfdf9785]
+ | Generate synthetic load for Scheduler testing
+
+|12/23-02/24
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=255615130[255615130]
+ | Scheduler integration and stress testing (I)
+
+|03/24-04/24
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=55f8f229f[55f8f229f]
+ | Integrate Gnuplot and statistics tooling
+
+|04/2024
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=d71eb37b5[d71eb37b5]
+ | Scheduler stress testing (II)
+
+|05/24-06/24
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=f632701f4[f632701f4]
+ | Generic extent-allocated container for Nodes
+
+|06/24-07/24
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=409f2f20b[409f2f20b]
+ | Draft reworked Render Node invocation
+
+|10/24-11/24
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=c04a46513[c04a46513]
+ | Render Node builder and wiring
+
+|11/24-12/24
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=d80966c1f[d80966c1f]
+ | Reproducible random test data
+
+|11/24-12/24
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=07410e14f[07410e14f]
+ | Switch Render Engine from `void*` to Generics
+
+|12/24-01/25
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=e444ad67c[e444ad67c]
+ | Parametrised generic Render Node trees
+
+|01/25-02/25
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=efcb456e2[efcb456e2]
+ | Invoke complex render graph
+
+|03/25-04/25
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=998e22549[998e22549]
+ | Upgrade Debian/Trixie + GCC-14 + Python-3
+
+|04/25-05/25
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=8abeb0239[8abeb0239]
+ | Investigate XVideo / VideoWidget for GTK-3
+
+|05/25-07/25
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=20f325289[20f325289]
+ | Upgrade to C++23 and long standing clean-up
+
+|07/25-08/25
+ | Ichthyo
+ | https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=43a9036c0[43a9036c0]
+ | Research: Video Output / Workflow-discussion
+
+|=========================================

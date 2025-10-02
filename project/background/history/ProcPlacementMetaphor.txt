@@ -134,7 +134,7 @@ Historical note
 This first draft of a RfC was written and published on Cehteh's Moin-Moin Wiki in 2008; +
 it has been preserved as a HTML capture from pipapo.org at 2008-03-06.
 
-I'm re-publishing this text as historic document, only transliterated into Asciidoc markup.
+I'm re-publishing this text as historic document, only transcribed into Asciidoc markup.
 
 Ichthyo:: 2025-09-13
 
