@@ -4,6 +4,9 @@ Lumiera Project: Background
 :Date: 3/2011
 
 //MENU: label more about...
+//MENU: sort children
+//MENU: prepend child Flexibility
+//MENU: prepend child GitFlow
 //MENU: prepend child CleanCodeDevelopment
 //MENU: prepend child history
 
@@ -39,4 +42,9 @@ with extensive explanations are unfortunately written in German.
 -> we provide a link:CleanCodeDevelopment.html[condensed outline of the principles]
 in English...
 
+Since 2025, Lumiera uses the *Git-flow* branching pattern to organise the
+integration of coding developments and to prepare releases and provide bugfixes.
 
+- Principles and reasoning are described in this link:GitFlow.html[Background Article]
+- Actual conventions and usage patterns can be found in the
+  link:{ldoc}/technical/code/GitBranching.html[Technical Docu]

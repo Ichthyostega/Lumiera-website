@@ -1,0 +1,1101 @@
+Complexity and Flexibility
+==========================
+:Author: Ichthyostega
+:Date: 9/2025
+:toc:
+:toclevels: 3
+
+A software system and a public railway system have a lot in common.
+Not only can both attain mind-boggling levels of complexity, while any part you
+might see and realise is of boring simplicity -- yet, as every railwayman can witness --
+the system could function so smoothly if there weren't all those passengers.
+If there weren't the hills and the vales, the rocks and the mountains,
+the spring and the summer, the autumn and winter.
+
+*Software* can be produced in industrial settings, it can be constructed, crafted
+or manufactured, or botched together with a touch of MacGyver. And _building_ software
+can be a matter of formalised engineering, it can be an expedition into
+uncharted territory, a creative process or an act of desperation.
+
+And programming can be fun.
+
+[quote, Frederick Brooks, The Mythical Man-Month (1974)]
+--
+First it is the sheer joy of making things. As the child delights in his mud pie,
+so the adult enjoys building things, especially things of his own design. (...)
+
+Second is the pleasure of making things that are useful to other people.
+Deep within, we want others to use our work and to find it helpful. In this respect
+the programming system is not essentially different from the child's first clay
+pencil holder ``for Daddy's office''
+
+Third is the fascination of fashioning complex puzzle-like objects of interlocking
+moving parts and watching them work in subtle cycles, playing out the consequences
+of principles built in from the beginning. The programmed computer has all the
+fascination of the pinball machine or the jukebox mechanism, carried to the ultimate.
+
+Fourth is the joy of always learning, which springs from the nonrepeating nature
+of the task. In one way or another the problem is ever new, and its solver learns
+something: sometimes practical, sometimes theoretical, and sometimes both.
+
+Finally, there is the delight of working in such a tractable medium. The programmer,
+like the poet, works only slightly removed from pure thought-stuff. He builds his
+castles in the air, from air, creating by exertion of the imagination. Few media
+of creation are so flexible, so easy to polish and rework, so readily capable
+of realizing grand conceptual structures. (...) Yet the program construct,
+unlike the poet's words, is real in the sense that it moves and works,
+producing visible outputs separate from the construct itself.footnote:[
+  Frederick P. Brooks, Jr. »The Mythical Man-Month« Essays on Software-Engineering,
+  1975 -- Anniversary Edition 1995, Addison Wesley, Longman, Inc. ISBN 0201835959 +
+  The quote is taken from Chapter 1 ``The Tar Pit'', Section ``The Joys of the Craft'',
+  Page 7
+]
+--
+
+But this fluidity of the medium, the closeness and familiarity of mental concepts
+is misleading. The program might seem like an extension of the brain, controlled
+by our minds. But it is not -- it is written language. It contains and encases
+the verbalisation of an idea. And as such, it has a shady _outer side,_
+one that evades our grasp and control.
+
+[quote, Pete Goodliffe, Code Craft (2007)]
+--
+Code craft starts at the codeface; it's where we love to be.
+We programmers are never happier than when immersed in an editor,
+bashing out line after line of perfectly formed and well-executed
+source code. We'd be quite happy if the world around us disappeared
+in a puff of boolean logic. Sadly, the Real World isn't going anywhere --
+and it doesn't seem willing to keep itself to itself.
+
+Around our carefully crafted code, the world is in a chaotic state of change.
+Almost every software project is characterized by flux: changing requirements,
+changing budgets, changing deadlines, changing priorities and changing teams.
+These all conspire to make writing good code a very difficult job.footnote:[
+  Pete Goodliffe, »Code Craft« -- The practice of writing excellent code.
+  2007, No Starch Press Inc. San Francisco.
+  ISBN-10: 1-59327-119-0; ISBN-13: 978-1-59327-119-0 +
+  It should be pointed out that this is the book with the 1000 monkeys
+]
+--
+
+After all, as Frederick Brooks continues to expound, for the human makers of things,
+the incompletenesses and inconsistencies of our ideas become clear only during implementation.
+Imagination alone is not enough, a new idea must be put into words, written down, explained
+to other people, questioned, connected with other ideas and worked out experimentally.
+
+[quote, Frederick Brooks, The Mythical Man-Month (1974)]
+--
+In many creative activities the medium of execution is intractable. Lumber splits;
+paints smear; electrical circuits ring. These physical limitations of the medium
+constrain the ideas that may be expressed and they also create unexpected difficulties
+in the implementation, (...) which takes time and sweat both because of
+the physical media and because of the inadequacies of the underlying ideas. (...)
+
+Computer programming, however, creates with an exceedingly tractable medium.
+The programmer builds from pure thought-stuff: concepts and very flexible
+representations thereof. Because the medium is tractable, we expect few
+difficulties in implementation; hence our pervasive optimism. Because
+our ideas are inadequate, our software has bugs; hence our optimism
+is unjustified.footnote:[
+  [Brooks95\], Chapter 2, Section ``Optimism'', P.15
+]
+--
+
+
+Complexity
+----------
+
+Frederick P. Brooks is probably best known as the ``father of the IBM System/360'',
+having served as project manager for its development (1956-63) and later as manager
+of the Operating System/360 software project during its design phase (1963-65).
+This project is generally considered one of the most transformational development efforts
+in the newer history of technology. In particular, a _compatible_ stack of hardware and
+software was established for the first time, allowing for user software to be
+_written for this platform,_ as opposed to being delivered together with, and
+being tailored for only one specific model of the mainframe hardware. Several
+further groundbreaking innovations were initiated and catalysed by this new
+setting, most noticeably device-independent input-output and external
+software libraries loaded by a linker component.
+
+But as a business activity of the IBM Corporation, planned and managed
+to achieve a predetermined goal in a controlled way, this endeavour was
+a spectacular failure of project management and one of the scariest dramas
+in American business.footnote:[
+  A good summary of this dramatic story can be found in IEEE Spectrum from April 2019:
+  https://spectrum.ieee.org/building-the-system360-mainframe-nearly-destroyed-ibm[Building the System/360 Mainframe Nearly Destroyed IBM].
+]
+The company spent US $5 billion (about $40 billion in 2020 currency) to develop the System/360,
+which at the time was more than IBM made in a year, and it would eventually hire more than 70,000
+new workers. The product was late, it used and required more memory than planed, 
+the costs were several times the estimate, and it did not perform very well until
+several releases after the first.footnote:[
+  [Brooks95\], ``Preface to the First Edition'', Page xi
+]
+
+As leading manager, Frederik Brooks was right in the middle of this nightmare, and having to live
+through the experience of failure in spite of best intentions from all participants, and in spite of the
+ability to expend near unlimited resources, made him reconsider the intricacies of building software. His
+subsequent publications were part of a beginning critical reflection of the matter,footnote:[
+  To place this into context, Joseph Weizenbaum made his transformational experience with
+  https://en.wikipedia.org/wiki/Joseph_Weizenbaum#Psychology_simulation_at_MIT[the ELIZA program in 1966]
+  and published https://en.wikipedia.org/wiki/Computer_Power_and_Human_Reason[»Computer Power and Human Reason« in 1974]
+]
+as he observed some recurring
+patterns of misjudgement and linked them directly to the nature of software, which might seem obvious
+and simple at first glance yet exhibits some intractable traits that tend to evade our conscious grip.
+
+These observations start with the programmer's pervasive optimism, which stands in stark contrast
+to the recalcitrant character of larger software systems. After mastering the first hurdles and
+getting well acquainted with the formalism and methods of writing software, programmers typically
+acquire a high degree of productivity, and rather quickly reach the level where basically every
+conceivable problem could be ``coded up'' as a matter of some hours or days. All you have to do
+is to divide and conquer, and this frame of mind provides the base for constructing a solution
+and, by extension, is also the foundation to supply an educated guess of the efforts required to
+build the solution. However, as Frederik Brooks indicates at the beginning of his analysis, there
+is a significant difference between a piece of code that seems to work as intended for its creator,
+and a software product that is truly useful for other people. This discrepancy unfolds in two
+independent dimensions: The code must be brought to maturity, it must be tested, scrutinised,
+rounded out, it should be fault tolerant, able to accept a wider array of input data, and its construction
+and usage must be documented. At the same time, going into the other dimension, the piece of software
+should fit into a wider system of software, which requires to adopt further structures and to
+consider concerns that are totally unrelated to the initial idea of the creation. Each of these
+dimensions can easily incur costs of about three times the initial effort, and since both dimensions
+tend to interact, these efforts will multiply, so that it is not uncommon to spend *10 times the effort*
+as initially expected to bring the product to maturity.footnote:[
+  [Brooks95\], Chapter 1 ``The Tar Pit'', Section ``The Programming Systems Product'', Page 6
+]
+
+
+
+Essential ⟷ Accidental
+~~~~~~~~~~~~~~~~~~~~~~
+And all these additional efforts are evasive in nature and difficult to foresee and plan,
+since they can not be derived from first principles nor constructed methodically. And while
+some significant improvements could be achieved by simplifying and reorganising the process
+of building and testing software, none of the methodical solutions proposed thus far did
+deliver on their ``breakthrough'' promise.
+
+Not only are there no magical _silver bullets_ now in view, the very nature of software makes
+it unlikely that there will be any -- and in order to understand why extended systems of software
+slip away from methodical control time and again, the difficulties encountered when building and
+maintaining such systems should be considered.
+
+
+[quote, Frederick Brooks, No Silver Bullet -- Essence and Accidents in Software Engineering (1986)]
+--
+Following Aristotele, I divide them into _essence_ -- the difficulties inherent
+in the nature of the software -- and _accidents_ -- those difficulties that today
+attend its production but that are not inherent. (...)
+
+The essence of a software entity is a construct of interlocking concepts:
+data sets, relationships among data items, algorithms and invocations of
+functions. This essence is abstract, in that the conceptual construct is
+the same under many different representations. It is nonetheless highly
+precise and richly detailed.
+
+__I believe the hard part of building software to be the specification,
+design, and testing of this conceptual construct, not the labor of representing
+it and testing the fidelity of the representation.__ (...)
+If this is true, building software will always be hard.
+There is inherently no silver bullet. (...)
+
+Software is invisible and unvisualizable. Geometric abstractions are powerful tools.
+The floor plan of a building helps both architect and client evaluate spaces, traffic
+flows, views. Contradictions become obvious, omissions can be caught. Scale drawings
+of mechanical parts and stick-figure models of molecules, although abstractions,
+serve the same purpose. A geometric reality is captured in a geometric abstraction.
+
+Yet the reality of software is not inherently embedded in space. Hence it has no
+ready geometric representation in the way that land has maps, silicon chips have
+diagrams, computers have connectivity schematics. As soon as we attempt to diagram
+software structure, we find it to constitute not one, but several, general directed
+graphs, superimposed one upon another. (...) In spite of progress in restricting
+and simplifying the structures of software, they remain inherently unvisualizable,
+thus depriving the mind of some of its most powerful conceptual tools. This lack
+not only impedes the process of design within one mind, it severely hinders
+communication among minds. (...)
+
+Software entities are more complex for their size than
+perhaps any other human construct, because no two parts are alike (at least
+above the statement level). If they are, we make the two similar parts into one,
+a subroutine, open or closed. In this respect software systems differ profoundly
+from computers, buildings, or automobiles, where repeated elements abound.
+
+Digital computers are themselves more complex than most things people build;
+they have very large numbers of states. This makes conceiving, describing, and
+testing them hard. Software systems have orders of magnitude more states than
+computers do.
+Likewise, a scaling-up of a software entity is not merely a repetition of the
+same elements in larger size; it is necessarily an increase in the number of
+different elements. In most cases, the elements interact with each other in
+some nonlinear fashion, and the complexity of the whole increases much more
+than linearly.
+
+The complexity of software is an essential property, not an accidental one.
+Hence descriptions of a software entity that abstract away its complexity
+often abstract away its essence. Mathematics and the physical sciences made
+great strides for three centuries by constructing simplified models of complex
+phenomena, deriving properties from the models, and verifying those properties
+experimentally. This worked because the complexities ignored in the models
+were not the essential properties of the phenomena. It does not work when
+the complexities are the essence.
+
+Many classical problems of developing software products derive from this
+essential complexity and its nonlinear increases with size. From the complexity
+comes the difficulty of communication among team members, which leads to product
+flaws, cost overruns, schedule delays. From the complexity comes the difficulty
+of enumerating, much less understanding all the possible states of the program,
+and from that comes the unreliability. From the complexity of the functions
+comes the difficulty of invoking those functions, which makes programs
+hard to use. From complexity of structure comes the univsualized states
+that constitute security trapdoors.footnote:[
+  [Brooks95\], Chapter 16, Section ``Essential Difficulties'', P.181-183 +
+  Brooks discusses in this section the four inherent properties of the irreducible
+  essence of modern software systems: complexity, conformity, changeability
+  and invisibility; the part quoted here is shortened and slightly rearranged,
+  dealing primarily with the complexity and invisibility of software.
+]
+--
+
+
+System and Components
+---------------------
+
+If software was just built once, and used henceforth, then complexity would not be
+so much of a problem, it would be an engineering challenge rather. But software is
+employed more and more, replacing dedicated hardware and machinery, precisely because
+it is ``soft'', and this means to be malleable. 
+Whenever something seems conceivable, soon the expectation is that it can be realised
+in software, at a whim. Yet the only thing that prevents this magic from happening
+is the essential complexity, inherent both in the way the software systems work,
+and hidden in the details of the real world, into which the software solution
+shall be embedded.
+
+Working on software takes place in the realm of thought, and this work can only be
+mastered to the degree that we understand the system. Complexity breeds bugs, and
+makes them hard to spot. Complexity prevents to exploit the full potential of any
+given setup. Complexity interferes with the ability to cope with the consequences
+of change.
+
+Some degree of control can be regained though, by establishing simplicity and
+uniformity within a limited scope. Such a controlled and safe zone is known as
+_Component_ or _Module_, and indeed it is posited, created by decree. In consequence,
+what fits and belongs into its scope is once again governed by an order _constituted by us,_
+as mental image.
+
+There is a catch however: complexity can not be averted by postulate.
+
+
+Collaboration
+~~~~~~~~~~~~~
+When establishing a structure of components within the software, in addition to the
+original purpose of the application, an extended set of principles is added, which
+define and demarcate the modules. Such a move _adds to the complexity,_ since additional
+relationships are introduced. Not only is there now some processing, which serves the
+original purpose of the program (and thus adopts a relationship to something beyond
+the bounds the system), but now, in addition, a relation between the processing and the
+guiding principles of the component was added, and also a relation of these principles
+and concerns of the component to the original purpose of the system, plus further
+relationships to other components, and, last but not least, to the system as a whole. 
+
+Yet, paradoxically, by adding _and shaping_ all those further relationships, a pathway
+is opened _to work with_ the complexities, transforming them into something different.
+Since each component is related to a _concern_, which, as such, can be brought before the
+mind's eye, it becomes possible now to consider each of the new relationships in isolation,
+using the module with its underlying principles and concerns as a common anchor.
+What was once an excess of demands and concerns of the outer world, has been transmuted into
+a _match_ or _mismatch_ of the _inner character of the system_ with the situation and task
+it is meant to be used upon. What was once just ``a solution'' to do this and that, and
+was then confronted with an overload of requirements to consider _that_ and care _for this,_
+has been grown into a compound of autonomous centres, the components, which
+collaborate to form a whole to achieve a solution and to meet expectations.
+
+
+Coupling
+~~~~~~~~
+Ideally, the overall function is accomplished by the parts of the system complementing
+each other. However, collaboration can take problematic forms, because the new inner
+order of the system, as imposed by the introduction of components, is always artificial
+to some degree. The underlying ideas now governing the form and arrangement of components
+were based on past experience with handling similar problems, which involves an element of
+remoulding and reshaping the problem in subtle ways, so that it fits with a well-known solution.
+Some discrepancies remain, and will resurface in unexpected ways, so that they
+must be absorbed by the components working together beyond the initial plan.
+
+- a component might begin to rely on knowledge regarding the specifics of another
+  component's implementation and especially depend on the shape of data models,
+  officially not exposed as part of their interface
+- a component might attain specialised functionality or manage additional data,
+  which is not logically justified by the ideas underlying its design, but is
+  effectively required by other parts of the system, for lack of a better
+  alternative
+- functionality might be achieved by passing calls subsequently through several
+  components, being transformed and adapted thereby in each step. The action carried out
+  by some component in such a call sequence often lacks substance in itself, and the components
+  are no longer able to provide their respective service, at their own characteristic level
+  of abstraction, without mutually depending on each other in non-obvious ways.
+- a call avenue might seem superficially generic, while in fact only supporting
+  a collection of special cases, clamped together by passing a disjunctive container
+  data structure. A closer look reveals that unrelated requirements were paved into the
+  system in a case-by-case manner.
+- one part might remote-control other parts of the system, by setting flags somewhere
+  in a shared data model, by manipulating the input of service calls or by passing
+  specifically outfitted callbacks, which aim at exploiting specific knowledge
+  hidden in other parts of the system.
+
+Even after decomposing functionality into components, some overarching concerns remain,
+and to the degree that these are handled in a way that surpasses or crosscuts the initial
+idea and design of the components, this additional collaboration becomes a liability. While,
+as such, this is a general tendency, causing internal system structures to ``set in'' and
+``overgrow'' with time, this trend can be exacerbated by handling necessary adaptations in a
+naive fashion, treating each new requirement as isolated ``story'', which in turn is again
+conceptualised as a processing, broken up into several steps, that are then distributed all
+over the system and sewed into the implementation of various components, thereby disregarding
+their actual purpose. Once admitted, such a bearing rapidly corrupts the flexibility and
+ability of the system to adapt to further change.
+
+Such an attitude towards adaptations of the software to changed requirements might be considered
+pragmatic -- but it turns out to be unhealthy and corrosive, since it attempts to respond to change
+by merely an amendment at the level of processing, which is rooted in the naive assumption that
+_processing and data_ are ``the real stuff'', while components and architecture should be considered
+_abstract_, and thus ``removed from reality''. This seemingly plausible conclusion however misses the
+context: Indeed, at the beginning the idea might have been to solve some concern by processing of data.
+Yet it was the actual contact with all the complexities of the world out there, which engulfed and
+entangled the initial idea of processing, up to a degree that sovereignty was lost.
+
+It is thus not sufficient just to define a structured plan and component layout initially.
+Rather, the ideas, concepts and mental images underlying the components must be placed
+centre stage. Instead of allowing one piece of code to grab into another part's innards,
+each component should be treated as a partner, and asked for service, playing by rules.
+And instead of passing data items along, manipulating them to cause some effect downstream,
+a _contract_ should be exposed and passed rather, allowing the partners to collaborate
+without tangling. Mutual dependencies and tight coupling can be replaced by queries,
+instructions and a common interaction protocol.
+
+
+Evolution
+~~~~~~~~~
+It takes time to build a software system. And while pretty much any idea of ``processing''
+can be coded up in a single strike, thereby pursuing a coherent line of thought, it takes time
+to realise its actual consequences. The new idea requires testing, it must be attuned with the
+other ideas and conceptions, as represented in the other parts and components of the system.
+It should be coordinated with and adapted to the forms and metaphors used within the user
+interface, and it needs to be explained and documented, in simple words, intelligible for users
+and other developers as well. And thereby, as this new idea gradually becomes linked into the
+system and connected with the periphery, the initial unity of mind is lost. After some time,
+the original idea has been reduced to an image of mind, entrapped within mental abbreviations,
+covered under layers and layers of further detailed insight and traces of handling the
+contingencies of the surrounding world.
+
+All successful software gets changed: once it is found to be useful, people try it in new
+cases at the edge of, or beyond, the original domain. Users who like the basic function
+of the software will invent new uses for it. Extended functionality might seem like a
+logical consequence of the program's capabilities from the user's point of view, but
+can sometimes be difficult to accommodate internally, within the framework of components.
+New kinds of data must be handled, which might not be congruent with the logical reasoning
+used to build the implementation up to this point, and this places pressure onto structures
+not prepared to carry the unexpected load. Some parts will be rebuilt and redesigned, some
+ideas must be stretched and recast into an extended meaning, contracts and interactions will
+be reshaped. Over time, a gradual shift of focus and a change of proportions occurs, what
+once seemed adequate may be deemed problematic now, and what was meant as a workaround first,
+might become established and accepted practice. In the end, the system as a whole has evolved.
+
+
+Expression Problem
+~~~~~~~~~~~~~~~~~~
+Over time, a software solution either turns out to be not that useful, and will dry up.
+Or it proves to be prolific, and thus either shifts focus, or even expands its scope,
+as it continues to be used in ways that were not foreseeable up front, by reasoning alone.
+So this process of evolution, driven by demand and constrained by complexity, leads to
+a characteristic form of challenge, which was first described in the context of
+functional programming as the »expression problem«
+
+[quote, Philip Wadler (1998)]
+The goal is
+to define a datatype by cases, where one can add new cases to the
+datatype and new functions over the datatype, without recompiling
+existing code, and while retaining static type safety.footnote:[
+  The https://en.wikipedia.org/wiki/Expression_problem[»Expression Problem«]
+  is known since a long time, and was discussed numerous times, since Reynolds
+  pointed it out in 1975. The form quoted here can be attributed to
+  https://homepages.inf.ed.ac.uk/wadler/papers/expression/expression.txt[Philip Wadler],
+  12 Nov 1998, in a Mailinglist discussion regarding _parameterised types_.
+]
+
+On the face of it, this might seem like a problem of coding technique, and indeed
+several cunning technical ``solutions'' have been proposed subsequently, which all
+somehow seem to miss the heart of this problem: what does it mean in fact to add
+new ``cases'' to a system, and how can existing code deal with new cases which
+were inconceivable at the time of inception? What do we actually want to achieve
+through ``static type safety''? How can a software system be flexible and
+evolve in _several independent ways_ -- without having to re-engineer
+all mixed cases generated by those independent degrees of freedom?
+
+Taken to its full consequence, this problem poses a formidable challenge, and it appears
+time and again, in many and varied shapes, whenever a system becomes _flexible_ in several,
+__unrelated ways.__ A notorious example are the never ending difficulties related
+to User Interfaces for plug-ins: Assuming that new processing capabilities can be
+added, independently from the original construction of the system, through some
+dynamic extension mechanism -- how can the GUI of the system be evolved independently
+to work on new devices, to adopt new styling and rely on new paradigms of interaction,
+without breaking and obsoleting the Plug-ins previously created and released? 
+
+
+
+Subsidiarity
+~~~~~~~~~~~~
+In summary, the most problematic are the non-local consequences and interactions
+inflicted by independent degrees of freedom. Therefore it is desirable to look for
+locally coherent, decentralised structures, where change remains possible without
+unleashing far-reaching consequences. In fact there is a surprising convergence
+between the structure of software systems, division of labour organisation and
+questions of governance.
+
+Subsidiarity is a principle of social organisation which has its origins
+in Catholic social teaching,footnote:[
+  According to https://en.wikipedia.org/wiki/Subsidiarity[Wikipedia: »Subsidiarity«],
+  the concept has its roots in the natural law philosophy of Thomas Aquinas
+  and was developed further within the Catholic Church, since the 18th century,
+  in response to reformation, socialism and later fascism. Notably it was
+  incorporated into Pope Pius XI's encyclical Quadragesimo anno, 1931.
+]
+and became a tenet in various modern frameworks of government, in theories
+of law, management methods and modern forms of military command. Subsidiarity
+implies that any issue should be dealt with at the most immediate or local
+level that is consistent with its resolution; a central authority should have
+a _subsidiary function,_ performing only those tasks which cannot be provided
+at a more local level.
+
+When applied to the inner organisation of software systems, in conjunction and
+interplay with _Separation of Concerns,_ it has the effect to simplify the reasoning
+about requirements and dependencies, since local solutions for many aspects are
+preferred, and the structure and layout of facilities is allowed to differ
+between components, accepting even some degree of redundancy. A solution
+within local scope can typically be provided in a much simpler and direct way,
+since only those problems actually relevant within the local neighbourhood need
+to be considered and the correctness of the code after change is easier to assess.
+It should be noted though that overall the complexity of the system _is increased_
+by this kind of decentralised organisation based on subsidiarity -- yet even so,
+paradoxically, such a setup is simpler to handle at times, and can be adapted to
+changing requirements with lesser effort, since remote consequences to local changes
+are unlikely, due to reduced tangling and coupling between modules.
+
+But it is not always possible to establish such a disposition, because the
+problem domain must provide suitable sub-domains, arranged to be self-contained
+and amenable to subsidiary solutions. Separating and solving the global and overarching
+concerns without interfering with the decentralised structure does require special attention
+and dedicated design work at times.
+And one must resist the temptation to solve some given issue ``once and for all'', whenever
+a slightly boring yet local solution can be a possible alternative -- a restraint, that runs
+counter to the engineer's deeply ingrained ambition towards control and achievement.
+Complexities of technology occur intertwined with the call and demand for them to be mastered,
+by the technician, who is trained and capable to accept the challenge, divide et impera, 
+to dissect matters, employ logic and reasoning, and to apply an arsenal of effective tools,
+routinely. The downside is that it can be difficult to foresee how sustainable a chosen
+solution avenue will be and how much additional complexity might ensue, once it interacts
+with further usage of the system. And so it is compelling to forego the reflection of
+consequences and stick to methods and technology, crisp and clear, apt to deliver
+one victory after another.
+
+
+
+Anti-Patterns
+-------------
+While Design Patterns and Antipatterns are somehow related as ideas and often described
+by similar therms, they are decisively different and will not be encountered
+the same way. A *Design Pattern* is a way to grasp both a problem, simultaneously
+and together with its solution, using an evocative name and a mental image, and tied
+to a solution approach which acts as a template to transform the situation, such
+that the solution is easy to teach and to learn, easy to apply correct and
+hard to apply the wrong way.
+
+[quote, Christopher Alexander, A Pattern Language]
+The elements of this language are entities called patterns.
+Each pattern describes a problem that occurs over and over again in our environment,
+and then describes the core of the solution to that problem, in such a way
+that you can use this solution a million times over,
+without ever doing it the same way twice.
+
+Patterns are part of a culture, and several patterns are interconnected in the form
+of a _pattern language_, allowing to pass on the knowledge regarding a healthy way
+to approach given problems, without having to teach every detail of the solution,
+because the individual solution can always be rediscovered, starting from the evocative
+formulation of the pattern, which is easy to remember. Overall, this is a way to understand
+how we humans live and build our world since millennia, and was first discovered in this
+specific form related to buildings and design by the architect Christopher Alexander
+in the 1970^ies^, and then later transferred with great success to the topic of software
+architecture and code craftsmanship by Erich Gamma et al., in 1995.footnote:[
+  Christopher Alexander,
+  https://en.wikipedia.org/wiki/The_Timeless_Way_of_Building[»The Timeless Way of Building« (1979)],
+  +ISBN 0-19-502402-8+, Oxford University Press •
+  https://en.wikipedia.org/wiki/A_Pattern_Language[»A Pattern Language« (1977)],
+  +ISBN 0-19-501919-9+, Oxford University Press; quote taken from the introduction, Page x +
+  Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides,
+  https://en.wikipedia.org/wiki/Design_Patterns[»Design Patterns — Elements of Reusable Object-Oriented Software (1995)],
+  +ISBN 0-201-63361-2+, Addison-Wesley
+]
+
+Following this line of thought -- which links the act of building closely to the nature
+of human language -- leads directly to the discovery of some kind of a ``dark twin'',
+for which Andrew Koenig coined the slightly misleading term »**Anti-Pattern**« in 1995.footnote:[
+  See https://en.wikipedia.org/wiki/Anti-pattern[Wikipedia: »Anti-pattern«].
+  This notion has been picked up readily by the developer community and is often used
+  synonymous to _bad habits_ or _code smells_, which somehow misses the point.
+  Furthermore, the choice of name is unfortunate, since it implies an antagonism,
+  like in matter and anti-matter, and thus treats the ``patterns'' as if they were
+  forces and powers, thereby disregarding the involvement of human
+  understanding, language and behaviour.
+]
+In a similar way, this is a solution approach packaged into a simplified notion, which suggests
+itself, almost obtrudes itself, to the naive person. Yet this seemingly obvious solution
+is misleading, causes entanglement, breeds further problems and further Antipatterns,
+luring and trapping the unwary into an unhealthy and depressing situation altogether.
+And while a Design Pattern is a rare stroke of genius and difficult to discover, yet easy
+to remember and to teach, and thus becomes part of a consciously maintained culture,
+Antipatterns are so blatantly obvious that they are unfortunately re-discovered
+over and over again, while being obnoxious, sticky, evasive and hard to un-learn.
+
+
+
+Mental Abbreviation
+~~~~~~~~~~~~~~~~~~~
+Both Patterns and Antipatterns are related to the phenomenon of mental abbreviations
+or shortcuts, which, according to contemporary theories of cognition, are a way to
+cope with the complexities of our world. As such they are _ambivalent:_ creating or
+using a mental abbreviation can be a powerful tool; instead of having to work through all
+the numerous considerations of detail, an evocative and mediating mental image is applied,
+like a template of prepackaged decisions and actions. Using such a shortcut as leverage
+can be essential, and enables conscious decision and swift acting, while, in contrast,
+going through the painstaking details each time again would surpass the mental capacity
+of a single person. Without a guiding idea, you wouldn’t see the forest for the trees.
+But the flip side of the coin is that the use of such abbreviations and abstractions
+becomes habitual -- the mental shortcut must be applied by routine, to be effective.
+So all the details folded away behind the abbreviation will fade away quickly, and tend
+to be forgotten, once you get used to it. And while usage is prone to broaden with time,
+becoming sloppy, less precise, gradually and less targeted, it also implies an inherent
+tendency towards mystification. Hence any successful Pattern, or Antipattern for that,
+becomes emotionally loaded with time, habitually ascribed with magical powers, and runs
+danger to be used as a panacea. +
+If all you know is a hammer, the world consists of nails.
+
+
+Oversimplification
+~~~~~~~~~~~~~~~~~~
+There is a fine line between an effective abstraction, which indeed requires some
+degree of boldness to be enforced, and an perky abstraction applied in a self-assertive way.
+Once you get used to the powerful effect of simplification precipitated through abstraction,
+it is all to easy to walk that route backwards and start with some technique you'd like to
+implement and apply -- and then to cook up a suitable abstracted scheme to justify that
+decision after the fact. Doing so would be an act of force, as this kind of duplicitous
+abstraction is not rooted in the problem domain and will bring on some discrepancies, and
+thus generate accidental complexity later down the road. Yet every abstraction, and in fact
+any added structure, will incur additional cost somewhere else, in terms of added complexity
+and mental load to understand the situation, and so it might be compelling to ignore the
+first subtle signs of mismatch, skip the self reflection and remain in a state of denial
+regarding the actual effects of this self-indulgent simplification -- and taken together
+this completes the self-reinforcing circle of delusion underlying any Antipattern.
+
+Oversimplification is often amplified by another Antipattern known as »Domain Allergy«
+(or »Domain Aversion«): by aiming at a strikingly generic solution, the pain of working
+through all the pesky details of the problem domain can be evaded, at least long enough to
+offload the ``rest'' of the problem onto the user. The textbook example for this Antipattern
+is to build a business application without understanding and modelling the kinds of business
+transactions and their connections to the entities involved; rather, the data is modelled as
+key-value pairs to represent ``the entities'', ``the parameters'' and possible relationships
+dynamically, by actively probing code. Since users tend to describe the requirements by a set
+of examples, it becomes very easy then to code-up these examples in a case-by-case manner,
+using dynamic switch-on-selector, or some fancy functional monad notation. And while a
+system of this kind becomes impenetrable for the outsider, and thereby helps to make its
+creator indispensable, the blame for any discrepancies can be deflected conveniently
+to the user afterwards for providing an ``incomplete specification''.
+
+Premature flexibilisation
+~~~~~~~~~~~~~~~~~~~~~~~~~
+Antipatterns, like Patterns, reinforce each other. They are woven into a fabric of
+interconnected mental abbreviations, linked together and spread by corresponding forms
+of meaning and language, which both encase and evoke and regenerate the patterns of behaviour.
+
+After having gained some experience, developers often tend to introduce an abundance of
+flexibilisation mechanisms, prematurely, in anticipation -- so that any future demand they'll
+have to face could be resolved by hooking into a chain of decision points spread all over the system.
+Complemented by oversimplification, thereby generating an illusion of sweeping generic capabilities,
+implementation can proceed swiftly by distributing yet another special case all over the system.
+The infamous switch-case statements are a common symptom of this mindset. There are
+numerous shapes this Antipattern can take, like pervasive use of SAM-Interfaces,footnote:[
+  **S**ingle **A**bstract **M**ember, an interface with only a single virtual operation,
+  which is typically a verb, and often something quite generic, like `create()`.
+  As any of the programming techniques mentioned in this section, such interfaces
+  have valid uses -- what makes them questionable is their use without reason,
+  other than to ``come in handy''.
+]
+at places without actual reason for indirection, likewise the dispatch through functors and
+closures without even an attempt to conceptualise the indirected operation, or excessively
+shrewd configuration systems, where everything can be overridden and re-patched by global
+system parameters and environment variables.
+
+A common, almost clichéd trait of many developer cultures is their compulsive hate for
+``the (l)user'' and a deeply rooted dislike for anything related to ``peopleware'', which
+is closely linked to the fact that ``those other people'' do not rely on the same mental
+abbreviations and thought forms as we do. A discussion about the fine points of programming
+language syntax is much rejoiced, yet to understand how the system is hard to use for a
+non-programmer can be a PITA. So the default response to any kind of tension is to cut the
+ground under the user's feet by making everything configurable. And the users, on their
+behalf, are quick to pick up the rules of the game. Instead of considering and explaining
+_what_ they actually need, a bunch of isolated features is requested, looking for ways
+_how_ to tweak and fiddle their way towards that kind of ``solution'' that seems easily
+imaginable. So both sides happily agree to introduce more GUI options, icons and keyboard
+shortcuts, settings and text templating macros and whatever helps to sustain the convenient
+state of denial, while the overall complexity in the system grows and thrives.
+
+
+Can be solved
+~~~~~~~~~~~~~
+When getting engulfed with highly complex matters, a conspicuous Antipattern
+becomes visible, which I'd like to designate as the **»can be solved«-Antipattern**:
+While pursuing a task or goal, which is challenging in itself, and to which we have acquired
+some emotional attachment already, we might unfortunately discover a field of further
+concerns, connected aspects and complexities, which we could not have imagined prior to
+engaging into the challenge. If taken seriously, together these discoveries would amount
+to a change of perspective: it would be prudent to step back and reconsider the situation.
+
+_But we do not want to let go_ of our focus, nor leave the _comfortable drive_ we have gained,
+feeling that our aspirations still might be at arms length. We then silence the nagging doubt
+and fight off the demand for a reassessment by rather treating each problematic aspect, one by
+one, with a schematic band-aid, which can be some means of technology at times, or an
+organisational provision -- while notably keeping each of the new aspects isolated, segregated
+and fixed within a remote and abstracted perspective, without unpacking any of the ramifications
+or looking into any of the consequences the alleged makeshift solution would have onto
+our cherished goals.
+
+We might even be willing to spend considerable effort to pull-in the professed solution and integrate
+yet more technology, as technology is always enticing, as long as it stays at a provisional level,
+so that we are patently entitled to the claim ``this _can_ be solved through XYZ''
+(which however silently implies a ``but not by me, because I could not care less,
+once I reached my goal'').
+
+This scheme is not just some questionable behaviour, happening on occasion, this is a
+_serious Antipattern_ rather, because the proclaimed solution sounds plausible and even
+compelling, as it caused the threat of complexities, slowdowns and roadblocks to disappear,
+after all. The course of action taken seems justified at that point: A person acting by this
+pattern will look like a winner, and will trump another person that proceeds cautiously, while
+frequently re-adjusting the plan and possibly even dropping some goals altogether. Especially
+in the context of a team or group of people, this style will catch-on quickly and be ingrained
+into the group identity. And this style very effectively muddles the waters: once problems start
+to creep up, during the integration phase, they can be brushed aside easily, as being related to
+that other stuff which ``can'' be solved; we even foresaw all those issues, didn't we? Applying this
+Antipattern might even be an effective means to silently disable most of the »definition-of-done«
+criteria, that were established up-front, since we obviously ``can not verify that yet'',
+due to this other issue that ``can be solved''...
+
+As with any Antipattern, it is important not to digress into _moral judgement_.
+It still remains an uneasy question when to blame a person for doing _something obvious,_
+and even more so when numerous other people do the same, to the degree that it seems
+to be a winning strategy.
+The fact that we live in a VUCA world is hard to swallow.footnote:[
+  VUCA https://en.wikipedia.org/wiki/VUCA[stands for] _volatility, uncertainty,
+  complexity and ambiguity_. This revelation can be depressing; in order to act
+  and be successful, a certain degree of confidence is a prerequisite. It is
+  impossible to get moving, and changing the world, for better or worse,
+  without some amount of simplification.
+]
+
+
+Plug-in Magic
+^^^^^^^^^^^^^
+Identifying this »can-be-solved«-Antipattern might be a way to understand the intractable hype
+and mystification around Plug-ins, component frameworks, SOA- and (Micro)Service architectures.
+Why otherwise would an approach, which does not even stand the test of some entry-level
+rational reasoning, and already caused a lot of damage and wasted effort in the past,
+be repeated over and over again? There must be some compelling plausibility at work,
+which makes us overlook the obvious.
+
+For sake of this discussion, a *Plug-in* is a software component deployed and maintained
+independently from a *Core system*, to which it can be connected later, and engaged into
+a collaboration without requiring a re-engineering or even a re-configuration or rebuild
+of the core. Using this setup is an *effective and proven solution* to handle the evolution
+of a system's usage, to open a system for participation, for specialist use cases and niche
+solutions, to allow for collaboration beyond otherwise inhibiting legal and organisational
+boundaries, to generate additional revenue stream or to enable subsidiary arrangements.
+
+Plug-ins however are *not a viable means to address problems of complexity*.
+Quite the opposite, adding a plugin structure with flexible and changeable
+components will always increase complexity, inevitably, no matter how cleverly
+done. But miraculously, they are always brought back into play as cure-all when
+the situation becomes truly complex and would call for real mental work rather.
+So this discussion of complexity in software systems has to look into inadequate
+use of flexibilisation, and the underlying implicit assumptions and mental shortcuts
+taken. It should be noted that the developer's self-concept is called into question by
+a situation of heightened complexity. It is natural to relate encountered difficulties
+to what one already knows and therefore to consider them a mistake, that can be fixed
+methodically. Yet the problem with growing complexity is not that we make mistakes,
+rather how it becomes difficult to recognise and correct them. And so it does not
+help much to remove parts of the problem from sight, to start just with the simple
+and obvious and to hope for the magical hand of fluid collaboration to resolve
+complexity.  _Sometimes,_ Plug-ins can indeed be _part of an architectural solution_
+to reduce overall complexity -- but it aren't the Plug-ins _as such_ which do yield
+that beneficial effect though. It's the architecture, stupid!
+
+.Why then the irrational enthusiasm related to Plug-ins?
+Problems of complexity trace down to the very core why our systems of information
+technology and organisation can not grow to the size we aspire or reach that level
+of effectivity we make up in our dreams. And this is related both to essential
+complexity and to ``accidental'' complexity -- because the fact that something is
+_incidental_ does not imply that is is without its own weight. A new idea might
+set out very promising, yet once it encounters the level of detail, with all its
+nitty gritty ``__if__s'' and ``__maybe__s'', the enthusiasm of the beginning vanes and
+actual commitment is required to carry on. This is the point where the »can-be-solved«
+Antipattern starts to look like a tantalising and cunning solution, because it allows
+to engage into oversimplification, and it allows us to get away with it.
+
+Once the system has been opened-up, every new problem creeping up ``__can be solved__
+by a Plug-in''. The original drive from the beginning might be re-established, yet by
+the hidden price of transforming a complete solution into a limited, intractable and
+pretenceful solution. Which however can be _demonstrated_ with unarming ease, by some
+clever monkey-patching, using yet more Plug-ins. Any objection or doubt can be fended
+off by this, obviously, being just a demonstration, yet it shows ``what __can be__ done''.
+And we ``__can__ always'' change it later, when it gets into our way.
+We are smart -- we _can figure it out._
+
+While seen in isolation, as a behaviour, this might seem like a slight of hand.
+But that kind of moral argument would fall short, because, what makes Plug-ins really
+_effective_, as a phenomenon, are the _social dynamics_ they create. And these dynamics
+are *ambivalent* -- they can in fact amplify and leverage the drive and engagement within
+a project, while at the same time structural corruption will spread like a disease. The
+``cool'', demonstration-level problem solving style will be quickly picked up by the group.
+And when the plugin setup was done adequately, it will lower the bar for participation,
+leading to even more contributions with a focus on quick yield, and easy demonstrable effects.
+Furthermore, people will start to build upon each other's ``achievements'',
+leading to a straw fire of apparent innovation. And while some disenchantment
+will set-in soon, it is _the very nature of Plug-ins_ which prevents the unsolved
+essential problems from becoming apparent -- essential complexity remains hidden and
+locked-up behind a brick wall of accidental complexity. Architecture work turns into
+an uphill battle, while the community evades increasing problems by feature-creep.
+
+Why is this the case? Building a complex system requires some degree of coordination.
+It can not possibly work without, due to the tension between the coherent vision to
+govern a system, and the inherent intricacy of reality, which never fits completely
+with a systematic approach. To achieve at least some degree of wholeness and
+coherency, both the apprehension of the problem to solve, as well as the design
+itself, need the ability to shift and move ``laterally'', so that it can be retained
+within some, always limited, sweet spot of balance. Yet the nature of Plug-ins,
+namely to be outside the realm and coherency of a core system, inhibits this kind of
+coherent lateral adjustment in the design, which is tantamount to sustainability.
+A ``pluginified'' system is not flexible -- rather it is entrapped within some
+incidental view of the matters at hand, which just happened to be encountered
+at the time the structures of the system grew out for the first time.
+
+And thus the situation tends to deteriorate quickly, but also insidiously and in a
+way that can go unnoticed until it is too late: the creativity continues, yet the
+results are hard to use. Combining several plug-in based solutions contributed
+by different people tends to be a minefield. The integration level in the GUI
+remains lacking, and feature requests start piling up, but no one wants to 
+work on them, since any such attempt ends as a battle against windmills.
+The project then either dries up, the core team looses interest, since
+maintaining such a system is emphatically _not fun._ Or some significant
+platform upgrade or security problem is the reason to _pull the plug_
+and remove a large part of the flexibility granted through Plug-ins.
+There is an uproar in the community then, and soon thereafter
+the project is dead  -- or lives happy thereafter, transformed
+into something different, and without the deep creative
+involvement of the community. Sounds familiar?
+
+
+
+
+Plugin Architecture
+^^^^^^^^^^^^^^^^^^^
+The term »Plugin Architecture« is an oxymoron. Admitted, there can be an architecture
+including and involving flexible, extensible parts. Such a setup, however, is distinctively
+different than making *everything a Plug-in*, which is a plausible step, once ``Plug-ins''
+are seen as this mystical entity, a seven-legue boot for the development, where the only thing
+known for sure is that ``everything _can be done_ as a Plug-in''! Such a move is antithetical to
+the idea of architecture, maybe driven by the secret desire to shake off all these concerns to be
+separated, all this apprehensive inversion of control, the disenchanting compromises and the nagging
+sense of responsibility, weight and finality.
+
+What can be motivation for choosing this kind of ``architecture''? For one, it is _cool_.
+Bootstrapping a system ``out of nothing'', just by a plug-in loader and some very terse
+configuration scheme comes close to _pure magic._ People promoting such an idea need a tight
+visionary grip, and they need to be quite capable as programmers, because going this route
+leads to building extended structures quickly and without much scaffolding. So it is a good
+way to show your _brain muscles_ as a programming ninja, or alternatively it is a way to
+move fast and break a lot of things.
+
+But time and again, such a design was chosen for a _second system,_ and, which may seem surprising
+at first glance, this happened after having bad experiences with an attempt to open-up an existing
+system by plug-ins. This move had resulted first in a flash of creativity, which however fizzled out
+soon, and somehow intangible problems creeped up, due in fact to architectural and analytical dept --
+hidden behind a layer of ``can be solved''; and mostly encountered by casual contributors, so that
+the problems could be attributed conveniently to ``the mess created by someone else''. The only point
+of contention that becomes apparent in such a setup is a mismatch with the fixed and explicitly
+formulated structures from the existing system core, before it was opened up. So the plausible
+(yet misguided) conclusion is that we need to be even more radical and throw everything over board
+that might get into the way of ``the flow'': if just _everything was a plug-in_, ``we _can_ change''
+everything whenever we feel like it, so let's do it!
+
+
+Damages
+^^^^^^^
+There are several typical patterns how the story might play out further...
+
+- The code base turns into a very unpleasant place to be -- because ``we _can_'' define
+  proper usage and ``we _can_'' codify some rules that be covered by unit-test (but honestly
+  that's not what we're after, because ``we could be moving already...'')
+
+- The core team increasingly slides into prototyping territory, more and more crazy
+  features are implemented in no time, causing awe by the observer. There are only
+  scarce contributions by the community however, if any -- overall, matters are just
+  too advanced for a casual contributor, and the constant breakage is discouraging.
+  The core team turns into an _in-group._ After some years, the project is stalled,
+  silently --  and maybe, hopefully, the status-quo is maintained by some self sacrificing
+  volunteer, leading to burn-out, eventually.
+
+- The system stratifies, consolidates and stalls after some time. All those things that
+  ``__can__ be done'' did never happen. The grandiose flexibility was only ever used by
+  the core team itself, producing write-only code that no one dares to touch. This kind of
+  development can go through several cycles, ending with a system suffering from
+  the »Lava Flow« Antipattern.
+
+- After the initial fury looses steam, the developers settle upon some degree of architecture,
+  which is hidden in __mandatory Plug-ins.__ The facade of the totally flexible and cool Plugin
+  Architecture is maintained though, like an Potemkin Village. Yet to put the system into
+  practical use, some special magic incantations are necessary to make the mandatory Plug-ins
+  work together properly. The necessary configuration is arcane. This can be the foundation
+  of a very successful business model though, if the real structures are well designed and
+  the system can thus be operated safely: everyone will need to buy consulting to use it then.
+
+- The actions of the core team remain diffuse and incoherent, but overall the system is usable.
+  Some individual developers, which might or might not be related to the original team, jump
+  in and establish rather specific usage scenarios, with much success. Since the system overall
+  lacks a coherent vision and architecture, each of these usages turns into a microcosm,
+  incompatible to the other usages. So effectively there are now N specialised, limited
+  and incomplete systems, with a widely varying quality level. Users are frustrated,
+  developer capacity is split-up and much work is redundant, and wasted.
+
+- There is serious backing from a stringent organisation, with people who know what they are doing.
+  The minimal core is turned into a platform, with a service manager, and a structured configuration
+  scheme. A standard for plug-ins is developed, with deployment descriptors, context profiles and
+  a mechanism to define _extension points._ A gazillion of different applications can be built
+  on top of this platform, deployed and maintained effectively, so that the system gets into
+  widespread use in the industry. In this form, the system represents everything programmers hate:
+  it is heavyweight, has a steep learning curve and comes with a lot of rules to comply to.
+  Every ``cool'' programmer considers this system the classic example of an abomination.
+
+
+Conclusion::
+  Based on experience and reasoning, there is no way for the magical Plug-in solution to
+  deliver upon its promise. Most of the results outlined above could have been achieved
+  better and with less adverse side-effects by building the software conventionally,
+  with a real architecture. The only way where the »everything plugin« approach
+  _actually works,_ is when complemented by a stringent and heavyweight platform.
+
+
+
+Flexibility
+-----------
+_Flexibility is a way to avoid being suffocated by complexities_
+
+Flexibility implies to open up a system and to allow for future adaptation, without
+covering all possible cases conclusively. Yet it requires at least some preconception
+what kind of changes and adaptation to expect. Flexibility can be limited, as in,
+for example, accepting some range of values for a parameter. It can be confined to
+some point of extension, or it can be open and arbitrary. In a way, any software
+solution is flexible, because software can always be changed. But this is not what
+is meant when designating some software solution as ``flexible'' -- rather it
+is a _statement_ to _allow and welcome_ some kind of changes, and to make
+these modifications _easy._
+
+Use and Abuse
+~~~~~~~~~~~~~
+Complexity and Flexibility are related. Depending on the perspective, a given situation
+might appear complex, hard to grasp and impossible to control. Or, by conscious choice,
+some configuration of structure is established to cope with the current situation, while
+retaining the flexibility to adapt to changing requirements later.
+
+_Flexibility is ambivalent._ It can be _that_ decisive move that makes a solution viable.
+As such, it is essential part of every architecture, because architecture establishes
+certain confines and guides in order to create an open, _positive space,_ a possibility
+for things to happen. Good architecture channels the capabilities into a way to resolve
+conflict before it materialises. Yet when architecture fails, or is absent altogether,
+then flexibility can be introduced as an pretence to avoid engaging into the
+hard work to get at the root of the failure. It can be used to evade a
+conflict and push it towards the future, and to avoid commitment.
+
+
+Coping-Strategies
+~~~~~~~~~~~~~~~~~
+In psychology, the term __»coping strategy«__ designates an action, a series of actions,
+or a thought process used in meeting a stressful or unpleasant situation or in modifying
+one’s reaction to such a situation. Coping strategies typically involve a conscious and
+direct approach to problems, in contrast to defence mechanisms.footnote:[
+  American Psychological Association, Dictionary of Psychology:
+  https://dictionary.apa.org/coping-strategy[»Coping Strategy«]
+]
+Coping strategies can be cognitions or behaviours and can be individual or social.footnote:[
+  Wikipedia: https://en.wikipedia.org/wiki/Coping[»Coping«]
+]
+
+Building and maintaining software requires considerable effort, and a commitment to engage
+into the task. To the degree that people spend part of their life time on that work, use their
+will and creativity to overcome the obstacles and maybe even identify with the goals set forth,
+they live through the process of creating software, both as individuals and as a group or team.
+Working through difficulties thus becomes a form of coping -- even when formalised and established
+methods and procedures are employed.
+
+On a personal level, coping can be emotion-focused or problem-focused, where the latter is directed
+at the stressor itself: taking steps to remove or to evade it, or to diminish its impact if it cannot
+be evaded. Persons and groups may develop a distinct style of coping; empirical psychological research
+shows that some link can be established between personality traits and coping strategies, but the former
+are much more stable over the lifetime of an individual, while coping strategies are moderated by age,
+the actual type of the stressor, context, experience and learning.footnote:[
+  An extended summary of recent research can be found in the article
+  https://www.annualreviews.org/content/journals/10.1146/annurev.psych.093008.100352[»Personality and Coping«],
+  by Charles S. Carver and Jennifer Connor-Smith, Annual Review of Psychology, Volume 61, 2010. +
+  Quote from the abstract: ``Personality psychology addresses views of human nature and individual differences.
+  Biological and goal-based views of human nature provide an especially useful basis for construing coping;
+  the five-factor model of traits adds a useful set of individual differences. Coping—responses to adversity
+  and to the distress that results—is categorized in many ways. Meta-analyses link optimism, extraversion,
+  conscientiousness, and openness to more engagement coping; neuroticism to more disengagement coping;
+  and optimism, conscientiousness, and agreeableness to less disengagement coping.
+  Relations of traits to specific coping responses reveal a more nuanced picture.
+  Several moderators of these associations also emerge: age, stressor severity,
+  and temporal proximity between the coping activity and the coping report.
+  Personality and coping play both independent and interactive roles
+  in influencing physical and mental health.''
+]
+Whatever we do and undertake is already part of a meaningful context, and similarities can therefore be
+recognised and put into words. A network of patterns runs through our intentions and goals, our actions
+and solution strategies -- and so a pattern recognised in a successful solution, by means of an evocative
+name and mental image, can inform a strategy to cope with similar problems in the future, and to do so in
+a healthy way.
+
+
+Limits
+^^^^^^
+Complexity emerges when our ideas and plans interact with our reality of life, and the harder we will push,
+the more complexity ensues. A very successful strategy to cope with excess complexity is to establish limits,
+and to allow for controlled flexibility within well chosen confines. Like the joints and ankles in
+the skeleton of a vertebrate. In software, this can be a parameter allowed to take on a range of values,
+yet limited sufficiently so that the ripple effects on storage and processing time can be mitigated.
+Or it can be an extension point, which is governed by an interface and thus by a contract.
+Within the limits set forth by this contract, the implementation can be flexible, while,
+towards the rest of the system, the situation can be subsumed under the abstraction
+established by the same contract. Such a configuration can be successful to the degree
+that the contract also _enables_ a range of _useful_ implementations, which implies to
+provide everything required actually to exert the flexibility granted at that point.
+If this crucial condition is not considered, then the abstraction becomes ``leaky''
+and complexity starts invading the rest of the system.
+
+It has been posited that all abstractions are leaky to some degree,footnote:[
+  The concept of a _leaky abstraction_ was introduced in 2002 through a widely received article
+  by https://en.wikipedia.org/wiki/Joel_Spolsky[Joel Spolsky], who posited the
+  https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/[Law of Leaky Abstractions],
+  which captures the common observation that abstractions, initially introduced to hide details of
+  an underlying implementation, often fail to hide those details completely, so that the user
+  of these abstractions still needs additional knowledge of the underlying technology. One
+  of the examples listed is a database query in SQL, which however can be written in a
+  clumsy way so that performance is drastically affected.
+]
+yet the actual question is when and to which degree this observation becomes relevant. The pattern
+described here aims at a leverage in the design, so that parts of the system _above_ the abstraction
+barrier can be treated at a higher level of abstraction and thus rearranged, adapted and reshaped
+with greater ease. The abstraction maps and transforms the relevant aspects to different levels of
+detail and complexity, which can work only if the design on both sides of the barrier is coherent
+and in accordance with the nature of matters. What does become problematic thus is an overly bold
+abstraction, a form of oversimplification, as such a plotting will evoke a tilted and distorted
+image of the abstracted part, not just a simplified yet adequate image.
+
+Variants
+^^^^^^^^
+Once a software system is entrapped in excessive complexity, which often was exacerbated
+by previous, gratuitous flexibilisation, the situation can not be amended without admitting
+some degree of failure, and that implies to relinquish some goals. In such a situation fraught
+with problems, sometimes a pathway towards a partial resolution could be to identify some notable
+cluster of usages, and then to create a _specialised variant_ of the system dedicated solely to this
+usage pattern. Splitting off such a variant can be successful if most of the flexibility can be removed
+in the process. Plug-ins, for example, can be re-integrated into the main code base, calls that were
+previously dispatched dynamically can now be invoked statically or even inlined, and abstract interfaces
+can be removed, if they were introduced solely for the sake of flexibilisation and do not capture an essential
+trait of the system, according to the new, focused usage. Such a transition process for simplification
+can be painful at times -- using physics as a metaphor, entropy can be reduced only by spending energy
+in a special process to transport the entropy away. In a similar vein, creating sustainable structure
+in software requires effort to rebalance the system, so that its inherent complexity becomes less
+inhibiting, better localised and aligned with the usage patterns of the software.
+
+Meta Structures
+^^^^^^^^^^^^^^^
+Due to the complexity accrued with time, a larger system can not be rebalanced and remoulded at a whim.
+Any large scale change becomes expensive, due to non-local tangling between parts of the system and
+all those tiny additions and cross-cutting adjustments that were made, inevitably, in response to
+shifting demands. Implicit interdependencies, that could not be raised to the level of manifest structures,
+will fade into oblivion, yet reappear as intractable impediments and breakages as the system adapts.
+Reconsidering the xref:_expression_problem[Expression Problem], it is the interplay between demands for
+expansion, incurred and accrued independently, which bears the danger to generate and amplify complexity.
+As such, this complexity will appear accidental; the amplification results from combinatorics, and might
+become an unfailing source for endless problems, unless the underlying pattern is recognised.
+
+To resolve the conflict, that arises from independent demands to the system, which can however not be
+satisfied independently and interfere with each other once accommodated into the structures of the system,
+it is inevitable to introduce some schematism to structure and channel the interactions and thereby forcibly
+create a relation between the initially unrelated concerns driving the proliferation of complexity.
+But since such a schematism tends to be flexible and will cross-cut the established structures of
+the system, it can be conceptualised as a _meta structure;_ the solution takes the form of rules
+and constraints imposed upon a channelled flexibility, and it works by forcing the flexible part
+into a small number of generic patterns of interaction. If the implementation language permits,
+these can be directly represented as type classes and generic bindings amongst them. Often,
+this kind of solution is not complete, and will be combined with penalising the ``other''
+cases, which can not be treated by a solution generated automatically from the schematism
+and thus need to be handled explicitly and manually.
+
+A good example for such a solution would be to replace arbitrary values (which can be hidden in
+primitive data types) by parameter objects with a generic data item, constrained by a type class.
+Pre-built solutions for some of the most common cases can be provided, like e.g. integral numbers
+from a constrained domain, range limited floating point numbers related to a well-defined scale,
+time values and colour values in several colour formats. For those most common cases, an implementation
+for some internal contract interface within the system can then be auto-generated, and the actual
+conflict resolution involving another antagonistic concern (security, marshalling, UI representation,
+coordination of processing) then builds upon that contract interface -- thereby separating those concerns.
+
+
+Empowerment
+^^^^^^^^^^^
+What happened to be entangled within secondary and uncoordinated interdependencies has been connected
+explicitly over a bridge with an abstracting contract. By conscious effort, hidden conflicting forces
+have been remoulded into a form of relationship, so that they buttress each other and become sustainable.
+This way of applying a meta-structure, as a mediating element, can *reinforce the subsidiarity* within the
+system. This works by first imposing a limitation, regarding some non-local concern, as expressed through
+a contract -- which however is then _complemented_ by _providing_ a toolkit to _work_ with that limitation.
+This toolkit can exploit the same generic meta-structures to channel the use of global system resources,
+and provide convenient building blocks to comply with the limitations imposed. This results in empowerment
+for structures of subsidiarity, because it demarcates the local scope as being separate from the more
+centralised concerns, for which the application framework steps in and provides subsidiary function,
+while, on the other hand, simplified means are provided to utilise this subsidiary function
+as part of a local solution.
+
+Instead of, for example, permitting the local scope to build its own UI or manage its own persistent
+data storage, rather a toolkit is provided for attaching some parameters into the application UI or
+bind them into an application-wide persistence solution. This is clearly a limitation, and such an
+arrangement confirms that storage and UI presentation are coordinated centrally, but also relieves
+the local scope from the details of coping with these concerns. The local scope is bound to provide
+parameters in a prescribed form, if it requires UI presentation or persistence. Yet the local scope
+is granted some leeway regarding the shape and structure of these parameters, allowing even custom
+data, as long as the data conforms with a type class. And since connection to those central services
+is not forced altogether into an uniform scheme, by providing this toolkit or builder framework rather,
+the trend towards local and self-contained structures is reinforced, which catalyses a solution 
+expressed in local terms, and thus easier to understand and maintain for the longer term.
+
+In the end, the various forms of limited flexibility, with all those guides and joints and room
+for expansion, are the visible and tangible part of the invisible ways the architecture brings its
+work about -- a work that can not be predicted methodically nor executed by numbers, and which is not
+necessarily successful at all times, since it changes the way possible things are seen and connected.
+When building the system, the technician might see only what is close at hand: a construct of interlocking
+concepts and flexible representations thereof, the data items, algorithms and processing. But any use of 
+effective tools, of logic and reasoning, is rooted in something more fundamental: an understanding of the domain,
+shared with the user in terms of language. A network of patterns runs across the intentions and goals, the
+actions, reasoning and coping strategies, submerged into a backdrop of ideas, conventions, mental shortcuts
+and mystification, silently changing with time. Systems of software, like the great railway systems, are
+conceived first and foremost to be useful -- it is not enough for software just to function and perform,
+technically. It should be enabling and inspiring, for those who work with the system and depend on it.
+And it must be adequate to the contingencies of our world. And what this world is all about,
+may be left as an exercise for the reader.
+
