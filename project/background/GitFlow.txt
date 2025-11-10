@@ -7,7 +7,7 @@ Git Flow
 
 .Motivation
 Git _is a tool_ -- it does not dictate, inform or even suggest how developers organise their work amongst
-themselves, how miscellaneous development efforts ought to be be combined together and how the maintenance
+themselves, how miscellaneous development efforts ought to be combined together and how the maintenance
 for released versions is related to ongoing development work. Often software development projects tend to do
 these things either on an ad-hoc basis, or impose stringent external project management rules and regulation.
 The *Git-flow* branching scheme strives towards a middle ground between both extremities and places the evolving
@@ -265,6 +265,13 @@ link:https://semver.org/[Semantic Versioning] scheme is well defined and fully d
 no room is left for bikeshedding. Generally speaking, you do not want to allow considerations of marketing
 or communication to interfere with your level of API compatibility.
 
+***************************************************
+image:{img}/pub/GitFlow-releasebranch.svg[
+"Illustration: starting a Release with Git-flow"]
+
+~A new Release v4.20 »in flight«~
+***************************************************
+
 For Git-flow to work well, the (technical) version number should be predictable, because we want to bump
 the version on development mainline immediately after cutting a release. Furthermore, it should be noted
 that Git-flow branches will be merged by a well defined scheme, so possible _merge conflicts_ due to
@@ -305,7 +312,15 @@ often split up into a part concerned with getting the release out of the door, w
 has already moved on to the next topics of development. Having a dedicated branch and distinct
 version numbering and CI jobs allows for both parts to proceed without interference.
 
-The release will invariably be at some point in time ready: Final polishing touches
+***************************************************
+image:{img}/pub/GitFlow-release.svg[
+"Illustration: completing a Release with Git-flow"]
+
+~Release v4.20 completed~
+***************************************************
+
+The release will invariably be at some point in time ready: +
+Final polishing touches
 made to the release notes, possibly the development (or RC) marker will be removed with one final
 commit, and then the release code will be _merged into the production-branch._ Due to the well
 defined branching scheme, together with the fact that commits will never be done on the production
@@ -343,6 +358,11 @@ latest version in active use. And any _fixes_ to that code, would not be conside
 release work, but rather urgent maintenance.
 
 
+***************************************************
+image:{img}/pub/GitFlow-fix.svg[
+"Illustration: a production-Fix with Git-flow"]
+***************************************************
+
 Handling Bugfixes in production
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 If a failure occurs in a production system, or with code distributed to many users and in use
@@ -354,6 +374,13 @@ or whatever the actually chosen convention is). The first commit on such a bugfi
 the version number (typically incrementing the last component of the version, which represents a
 revision or patch number). After implementing and testing the fix, it is _released_ with a merge
 back into the production branch. This merge is tagged with the bugfix version.
+
+***************************************************
+image:{img}/pub/GitFlow-relfix.svg[
+"Illustration: a production-Fix during Release preparation"]
+
+~Production-fix v4.19.1 during preparation of v4.20~
+***************************************************
 
 And similar to a regular release, a *back merge* of that patch is then performed, to integrate
 the change with development mainline. A special situation arises when a bug is discovered during
