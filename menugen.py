@@ -64,7 +64,6 @@ def addPredefined():
     proj.linkChild ('faq')
     proj.linkChild ('news')
     proj.linkChild ('press')
-    proj.linkChild ('donate')
     proj.linkChild ('roadmap')
     proj.linkChild ('background')
     proj.linkChild ('contact')

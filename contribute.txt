@@ -1,5 +1,6 @@
 Contribute
 ==========
+:Author: Brian Rytel, Benny Lyons
 :Date: 2010
 :toc:
 

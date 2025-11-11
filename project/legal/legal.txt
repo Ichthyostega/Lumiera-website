@@ -1,12 +1,13 @@
 Legal & License
 ===============
-:Date: 2011
+:Date: 2025
+:Author: Ichthyostega
 
 //Menu: label License
 
 Lumiera is free software, available under the terms and conditions of the
 GNU General Public License *GPL v2 or above*. Additional content and resources
-on this website are dual licensed GPL v2+ and *CC-By-SA*
+on this website are dual licensed GPL v2+ and *CC-By-SA* 4.0
 
 
 == About the source code License ==
@@ -43,51 +44,186 @@ For the precise, legally binding terms and conditions see
 
 == License for additional Material on the Website ==
 
-Lumiera.org provides a lot of additional materials, design documents, technical
-documentation, background informations ( _User Manual is planned_ ) on this
-website. These accompanying materials are covered by the same license as the
-source code, +
-in addition they are also *dual-licensed* under *CC-By-SA*
+The Lumiera project provides a lot of additional materials, design documents,
+technical documentation, background information ( _User Manual is planned_ )
+at https://Lumiera.org[Lumiera.org].
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-<a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">
-<img alt="Creative Commons License" style="border-width:0"
-     src="https://licensebuttons.net/l/by-sa/3.0/88x31.png" /></a>
-     <br /><span xmlns:dct="http://purl.org/dc/terms/"
-                 property="dct:title">Lumiera Website and Documentation</span>
-        by <span xmlns:cc="http://creativecommons.org/ns#"
-                 property="cc:attributionName">Lumiera.org developers and community</span>
-       is licensed under a
-       <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+- These accompanying materials are covered by the same license as the source code:
+  https://www.gnu.org/licenses/old-licenses/gpl-2.0.html[**GNU General Public License** 2+]
+- In addition, material on this Website is also *dual-licensed* under +
+  https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons **Attribution-ShareAlike** 4.0 International] +
+  image:{img}/CC-By-SA.svg["Creative Commons Attribution-ShareAlike",
+                           link="https://creativecommons.org/licenses/by-sa/4.0/"]
+....
+​
+​
 ....
 
 
+== Obligations ==
+In essence we want to protect the fundamental freedoms to use and run, study, share, or modify the software
+and the provided additional content. To comply with the formal requirements of the licenses
 
+- we need to publish any derived content only in ways that retain those freedoms
+- we need to make the source code available and document how artefacts are built
+- we need to record who the initial author was and ensure the work is properly licensed
+- we need to give proper credit to all significant contributors
+- we need to respect moral rights
 
+The Website is considered a collection of works under free licenses and thus constitutes
+a derived work. The dual-license was chosen to provide additional leeway: the GPL part
+allows to incorporate the Asciidoc sources for the documentation directly into the
+source tree, while the CC part allows to use graphics and text in derived works
+without the requirement to provide source code (proper attribution is sufficient).
+
+....
+​
+​
+​
 ....
 '''''
 '''''
 
+[[Impressum]]
 == Impressum ==
-anchor:Impressum[]
 
-~• Angaben gemäß § 5 TMG • Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV •~
+* Kontakt / Angaben gemäß § 5 DDG / Information according to § 5 DDG
++
 ----
 Hermann Voßeler
 Kidlerstraße 5
 D-81371 München
 
-Tel  : +49(0)89 76 755 109
 eMail: Ichthyostega@web.de
 ----
 
-=== Haftungshinweis
+* Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV /
++
+Responsible for Content according to § 18 (2) MStV :
++
+*+Hermann Voßeler+*
 
-~Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die 
-Richtigkeit, Vollständigkeit und Aktualität der Inhalte. Dieses Webangebot enthält
-Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluß haben.
-Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
-Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder
-Betreiber der Seiten verantwortlich.~
+=== Haftungsausschluss / Disclaimer of Liability
+
+*DE*:
+Die Inhalte auf dieser Website werden mit Sorgfalt erstellt und regelmäßig revidiert.
+Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehme ich jedoch keine Gewähr.
+Als Diensteanbieter bin ich gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den
+allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG bin ich jedoch nicht verpflichtet,
+übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen,
+die auf eine rechtswidrige Tätigkeit hinweisen.
+
+Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.
+Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich.
+Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.
+
+*EN*:
+The content on this website is created with care and regularly revised.
+However, I cannot guarantee the accuracy, completeness, or timeliness of the content.
+As a service provider, I am responsible for my own content on these pages under general law (§ 7 para. 1 DDG).
+According to §§ 8–10 DDG, I am not obliged to monitor transmitted or stored external information or to
+investigate circumstances indicating illegal activity.
+
+Obligations to remove or block the use of information under general laws remain unaffected.
+Liability in this respect is only possible from the time of knowledge of a specific infringement.
+Upon notification of such violations, I will remove the content immediately.
+
+
+[[GDPR]]
+== Datenschutzerklärung / Privacy Policy ==
+
+Stand / Last updated:: {docdate}
+
+Verantwortlich / Datenschutzbeauftragter / Controller::
+----
+Hermann Voßeler
+Kidlerstraße 5
+D-81371 München
+----
+
+Contact:: +Ichthyostega@web.de+
+
+
+
+=== Allgemeine Hinweise / General Information
+
+*DE*:
+Diese Website verarbeitet personenbezogene Daten nur,
+soweit dies zur Bereitstellung einer funktionsfähigen Website und ihrer Inhalte erforderlich ist.
+Rechtsgrundlage dieser Verarbeitung personenbezogener Daten ist Art. 6 Abs. 1 Satz 1 lit. f)
+der Verordnung (EU) 2016/679 (Datenschutzgrundverordnung – DSGVO).
+Das berechtigte Interesse an der Datenverarbeitung liegt im ordnungsgemäßen Betrieb dieser Internetseite.
+
+*EN*:
+This website only processes personal data to the extent necessary to provide a functional website and its content.
+The legal basis for this processing of personal data is Article 6(1)(f)
+of Regulation (EU) 2016/679 (General Data Protection Regulation – GDPR).
+The legitimate interest in data processing lies in the proper operation of this website.
+
+
+=== Erhobene Daten / Data Collected
+
+*DE*:
+Beim Aufruf dieser Website werden automatisch technische Daten erfasst
+(z.B. IP-Adresse, Browsertyp, Betriebssystem, Uhrzeit des Seitenaufrufs).
+Diese Daten werden zur Sicherstellung des technischen Betriebs verwendet,
+insbesondere zur Erkennung und Abwehr einer nicht ordnungsgemäßen Nutzung.
+
+*EN*:
+When you visit this website, technical data are automatically collected
+(e.g. IP address, browser type, operating system, time of access).
+This data is used to ensure technical operation,
+in particular to detect and prevent improper use.
+
+
+
+=== Cookies und Analyse / Cookies and Analytics
+
+*DE*:
+Diese Website wird nicht durch Werbung finanziert.
+Diese Website verwendet keine Cookies, Tracking- oder Analyse-Tools,
+außer solche, die für den technischen Betrieb erforderlich sind.
+
+*EN*:
+This website is not financed by advertising.
+This website does not use cookies, tracking, or analytics tools
+other than those technically required for operation.
+
+
+
+=== Kontaktaufnahme / Contact
+
+*DE*:
+Wenn Sie mich per E-Mail kontaktieren,
+werden Ihre Angaben ausschließlich zur Bearbeitung der Anfrage verwendet
+und nicht an Dritte weitergegeben.
+
+*EN*:
+If you contact me by email,
+your data will be used only to process your request
+and will not be shared with third parties.
+
+
+=== Ihre Rechte / Your Rights
+
+*DE*:
+Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung
+der Verarbeitung Ihrer personenbezogenen Daten gemäß Art. 15–18 DSGVO.
+Sollten Sie annehmen, dass Ihre Daten unrechtmäßig verarbeitet wurden,
+können Sie eine Beschwerde bei der zuständigen Aufsichtsbehörde einreichen
+
+*EN*:
+You have the right to access, correct, delete, and restrict the processing of your personal data
+under Articles 15–18 GDPR.
+If you believe that your data has been processed unlawfully, you can file a complaint with a data protection authority.
+
+
+=== Änderungen dieser Datenschutzerklärung / Changes to this Policy
+
+*DE*:
+Ich behalte mir vor, diese Datenschutzerklärung bei Bedarf zu aktualisieren.
+
+*EN*:
+I reserve the right to update this privacy policy if necessary.
+
 

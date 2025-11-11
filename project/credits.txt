@@ -6,44 +6,35 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 [cols=">d,<d",grid="none"]
 |==========================================
 |*Architecture and Design*|
-|graphical
-    user interface | JOEL HOLDSWORTH
 |                  | HERMANN VOSSELER
+|                  | CHRISTIAN THÄTER
+|                  | JOEL HOLDSWORTH
+
+|*Workflow Concept*|
+|                  | HERMANN VOSSELER
+|                  | WOUTER VERWIJLEN
+|                  | CHRISTOPH VARGA
 |                  | BRIAN RYTEL
-|processing layer  | HERMANN VOSSELER
-|backend           | CHRISTIAN THÄTER
+|                  | CLAY BARNES
+
 
 |                  |
 |                  |
-|*Workflow design* |
-|concept           | BRIAN RYTEL
-|                  | MIKE PROVOST
-|                  | NIKOLA DUPER
-
-|                  |
-|                  |
-|*Programming*|
-|session and engine| HERMANN VOSSELER
-|backend           | CHRISTIAN THÄTER
+|*Core Developers* |
+|                  | HERMANN VOSSELER
+|                  | JOEL HOLDSWORTH
+|                  | CHRISTIAN THÄTER
+|*Programming*     |
 |                  | MICHAEL PLOUJNIKOV
-|graphical
-     user interface| JOEL HOLDSWORTH
 |                  | STEFAN KANGAS
 |                  | MICHAEL FISHER
-|library           | HERMANN VOSSELER
-|                  | CHRISTIAN THÄTER
-|                  | ANTON YAKOVLEV
-|                  | STEFAN KANGAS
-|testsuite         | CHRISTIAN THÄTER
-|                  | NICHOLAS SINNOTT-ARMSTRONG
-|                  | HERMANN VOSSELER
+|                  | SIMEON VÖLKEL
 
 |                  |
 |                  |
-|*Programming Documentation*|
-|                  | CHRISTIAN THÄTER
+|*Documentation*   |
 |                  | HERMANN VOSSELER
-|                  | MICHAEL PLOUJNIKOV
+|                  | CHRISTIAN THÄTER
 |                  | ODIN HØRTHE OMDAL
 |                  | SIMEON VÖLKEL
 |                  | MANO STIENEN
@@ -53,15 +44,14 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 |                  |
 |                  |
 |*Used Software and Libraries*|
-|boost libraries|
-|gavl libraries|
-|gtk+ toolkit|
-|nobug|
+2+^|STL - Boost
+2+^|GTK - GDL
+2+^|gavl
+2+^|nobug
+2+^|SCons - Trac
+2+^|Graphviz - Gnuplot
+2+^|Git
 
-||
-||
-|*Builddrone*|
-|idea and implementation | CHRISTIAN THÄTER
 
 ||
 ||
@@ -78,9 +68,11 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 |special effects | FRANCISCO G. RODRIGUEZ
 |creative mockup | FRANÇOIS KUBLER
 |navigation menu | HERMANN VOSSELER
-|authoring tools | BENNY LYONS
 |css             | CILLIAN DE RÓISTE
+|                | ODIN HØRTHE OMDAL
 |                | BRIAN RYTEL
+|                | HERMANN VOSSELER
+|maintenance     | BENNY LYONS
 |                | HERMANN VOSSELER
 
 ||
@@ -88,15 +80,6 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 |*Server Administration*|
 |                | CHRISTIAN THÄTER
 
-||
-||
-|*uWiki*|
-|idea            | CHRISTIAN THÄTER
-|programming     | SERGE GIELKENS
-|                | MRIDUL KASHATRIA
-|                | ROBERT DJUBEK
-|helping hand    | CILLIAN DE RÓISTE
-|                | ANDREW JAMES SWINAMER
 
 
 ||
@@ -114,7 +97,7 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 
 ||
 ||
-|*Merchandising*|
+|*Merchandising* |
 |T-shirts        | RAFFAELLA TRANIELLO
 
 
@@ -212,7 +195,8 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 ||
 2+^|*Asciidoc Transistion*
 2+^|ANDREAS HERMANN BRAML - BRUCE BERTRAND
-2+^|FEDERICO BRUNI - FRANCISCO G. RODRIGUEZ
+2+^|FEDERICO BRUNI - SIMON LARCHER
+2+^|FRANCISCO G. RODRIGUEZ - ANDREW JAMES SWINAMER
 2+^|FRANÇOIS KUBLER - KOMPUTES
 2+^|RAFFAELLA TRANIELLO - WOUTER VERWIJLEN
 
@@ -224,6 +208,7 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 2+^|BURKHARD PLAUM
 2+^|FLORIAN FABERMANN
 2+^|HERMAN ROBAK
+2+^|IGOR VLADIMIRSKY
 2+^|IL'DAR AKHMETGALEEV
 2+^|PERCY TIGLAO
 2+^|RICHARD SPINDLER
@@ -251,5 +236,3 @@ image:/images/lumiera_logo.png[Lumiera Logo]
 [small]#any coincidence with real world problems is purely coincidental# +
 [small]#no animals were harmed during the making of Lumiera#
 |==========================================
-
-
