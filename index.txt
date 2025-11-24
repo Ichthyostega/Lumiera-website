@@ -1,5 +1,6 @@
 Lumiera
 =======
+:webidx:
 
 image:{img}/lumiera_gui_small.png[Lumiera_screenshot]
 

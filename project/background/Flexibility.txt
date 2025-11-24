@@ -2,6 +2,7 @@ Complexity and Flexibility
 ==========================
 :Author: Ichthyostega
 :Date: 9/2025
+:webidx:
 :toc:
 :toclevels: 3
 

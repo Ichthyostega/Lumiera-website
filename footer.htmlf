@@ -23,9 +23,8 @@
     </tr>
     <tr>
         <td><a href="https://git.lumiera.org/?p=LUMIERA;a=shortlog;h=refs/heads/master">master</a>&nbsp;&middot;
-            <a href="https://git.lumiera.org/?p=lumiera/ichthyo;a=shortlog;h=refs/heads/gui">gui</a>&nbsp;&middot;
-            <a href="https://git.lumiera.org/?p=lumiera/ichthyo;a=shortlog;h=refs/heads/proc">proc</a>&nbsp;&middot;
-            <a href="https://git.lumiera.org/?p=lumiera/ct;a=shortlog;h=refs/heads/backend">back</a>&nbsp;&middot;
+            <a href="https://git.lumiera.org/?p=lumiera/ichthyo;a=shortlog;h=refs/heads/integration">integration</a>&nbsp;&middot;
+            <a href="https://git.lumiera.org/?p=lumiera/ichthyo;a=shortlog;h=refs/heads/dev/play">dev</a>&nbsp;&middot;
             <a href="https://git.lumiera.org/?p=lumiera_documentation">doc</a>&nbsp;&middot;
             <a href="https://git.lumiera.org/?p=website">web</a>
         </td>
@@ -34,12 +33,15 @@
             <a href="https://issues.lumiera.org/report/8">core-work</a>&nbsp;&middot;
             <a href="https://issues.lumiera.org/report/15">non-code</a>
         </td>
-        <td>&nbsp;</td>
+        <td rowspan="2" align="right" valign="center">
+            <a href="/project/legal/legal.html#CCBySA" id="license">CC-By-SA 4</a></td>
     </tr>
     <tr>
         <td><a href="https://lumiera.org/doxy/">API Documentation (Doxygen)</a>&nbsp;</td>
-        <td align="right"><span style="font-size:smaller;"><a href="/project/legal/legal.html#Impressum">Impressum</a></font></td>
+        <td align="right"><span style="font-size:smaller;">
+            <a href="/project/legal/legal.html#Impressum">Impressum</a> &middot;
+            <a href="/project/legal/legal.html#GDPR">GDPR</a></span></td>
     </tr>
 </table>
-<span style="font-size: 75%; float: right;">Last updated {localdate} {localtime}</span>
+<span style="font-size: 75%; float: right;">Last updated {docdate}</span>
 <!-- (end)    HTML for page footer -->

@@ -3,6 +3,7 @@ Getting Your Hands Dirty with Video Output on Linux Using C++
 :Author: Benny Lyons, Hermann Vosseler
 :Email:  benny.lyons@gmx.net, Ichthyostega@web.de
 :Date:   August 2025
+:webidx:
 
 //MENU: label Video Display
 //MENU: append child resources

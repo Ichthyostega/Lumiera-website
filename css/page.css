@@ -89,6 +89,11 @@ div#footer-text {
     color: white;
 }
 
+a#license  {
+    font: small sans-serif;
+    color: white;
+}
+
 /* -------- Other -------- */
 h1
 #header {

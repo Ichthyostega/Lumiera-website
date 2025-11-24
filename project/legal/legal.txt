@@ -42,6 +42,7 @@ For the precise, legally binding terms and conditions see
 - the link:documents/gpl3.html[GNU General Public License Version-3]
 
 
+[[CCBySA]]
 == License for additional Material on the Website ==
 
 The Lumiera project provides a lot of additional materials, design documents,
