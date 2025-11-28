@@ -5,7 +5,7 @@ Lumiera at FrOSCon 2009
 //MENU: label FrOSCon 2009
 
 
-image:froscon.png[FrOSCon logo]
+image:{img}/froscon.png[FrOSCon logo]
 
 The conference
 --------------

@@ -10,11 +10,13 @@ About Lumiera
 ************************************
 ``*The Emerging NLE for GNU/Linux*''
 ************************************
+image:{img}/lumiera_logo.png[title="Lumiera Logo",width=250]
+
 
 Lumiera: What?
 --------------
 
-The goal of the Lumiera project is to build a free open-source
+The goal of the Lumiera project is to build a free open-source +
 non-linear video editing and compositing application (NLE).
 
 On the one hand, it must meet the rigours of a professional
@@ -70,9 +72,6 @@ community. +
 While Cinelerra was held in no small esteem by many, it suffers from a number of
 limitations, which are nestled deep within the code base. One consequence of this is the difficulty in
 expanding its functionality beyond its current set of features.
-A number of users started an initiative
-called ``Cinelerra-3'' at that time which attempted to rework some of the fundamental parts of
-Cinelerra.
 
 An in-depth analysis revealed, however, that most aspects of the
 application either needed or would substantially benefit from a redesign so as

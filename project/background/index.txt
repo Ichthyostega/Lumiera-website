@@ -1,7 +1,7 @@
 Lumiera Project: Background
 ===========================
 :Author: Ichthyostega
-:Date: 3/2011
+:Date: 11/2025
 
 //MENU: label more about...
 //MENU: sort children
@@ -11,15 +11,16 @@ Lumiera Project: Background
 //MENU: prepend child history
 
 
-This page contains a collection of general background information -- +
-usually stuff _the insiders_ know already, but which might be helpful
-for new people to understand the rationale and the specific decisions
+This page contains a collection of general background information — +
+usually topics _the insiders_ know inside-out, yet might be helpful
+for new people for understanding the rationale and specific decisions
 taken within the project.
-
-NOTE: more contents to be added occasionally
 
 -> see also the link:/documentation/user/[User documentation] and 
 link:/documentation/user/tutorials/[Tutorials]
+
+· [big navy]#🙞 🙜# ·
+
 
 
 About the history
@@ -28,7 +29,7 @@ As with many open source projects, it is difficult to determine the
 absolute beginnings precisely. There was no ``kick off'' meeting with
 some people to decide ``now we'll start writing a video editing software''.
 Rather, the initiators of the project were all suffering from some well-known
-problems when using http://cinelerra-cv.wikidot.com[Cinelerra-CV]...
+problems when using the _Cinelerra_ video editor...
 
 -> link:history[read more about the project history]
 
@@ -48,3 +49,19 @@ integration of coding developments and to prepare releases and provide bugfixes.
 - Principles and reasoning are described in this link:GitFlow.html[Background Article]
 - Actual conventions and usage patterns can be found in the
   link:{ldoc}/technical/code/GitBranching.html[Technical Docu]
+
+
+Research Topics
+---------------
+As part of our development work, we sometimes have to conduct studies
+and research on sophisticated technologies or complicated methods,
+because sometimes it is not obvious how best to handle a topic.
+
+Video Output::
+
+ - In 2025 we looked into the currently well established technologies
+   for outputting raw video frames from a desktop application.
+ - this research has been summarised in the form of ->
+   link:/research/videoDisplay/[code examples].
+ - results were presented as a 
+   https://programm.froscon.org/froscon2025/talk/f5d0b872-2142-4f1c-88a8-081429b87b1c/[Talk at at FrOSCon 2025]

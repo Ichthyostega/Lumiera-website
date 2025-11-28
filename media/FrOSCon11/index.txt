@@ -12,7 +12,7 @@ Froscon is one of the few Open Souce gatherings that I've experienced over the p
 
 _Benny Lyons_
 **************************************************************************************************************
-image:froscon.png["FrOSCon logo", width=350]
+image:{img}/froscon.png["FrOSCon logo", width=350]
 
 image:frosch-1.jpg[width=422, link="frosch-1.jpg"]
 

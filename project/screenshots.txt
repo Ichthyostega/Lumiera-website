@@ -2,17 +2,19 @@ Screenshots
 ===========
 
 .Current GUI
-image:/images/lumiera_gui_small.png[Current Lumiera GUI Screenshot]
+image:{imgg}/lumiera20250823.png[
+  title="Lumiera GUI Screenshot 2025",
+  link="{imgg}/lumiera20250823.png",
+  width=600
+]
 
 NOTE: development on the UI is stalled since a long time. +
-      Just recently (as of fall 2016), new activity arouse regarding
-      the timeline display, so hopefully we're able to show new results
-      in this area soon...
+      Development concentrated on the core engine recently (2024)...
 
-Past GUIs
-----------
+Past Stages
+-----------
 
-image:{img}/screenshot090124-resources.jpg["Older GUI Screenshot", width=128, link="{img}/screenshot090124-resources.jpg"]
-image:{imgg}/GtkGUI-0.1.png["Early Gtk Mockup", width=128, link="{imgg}/GtkGUI-0.1.png"]
+image:{imgg}/screenshot2009_small.png[title="Older GUI Screenshot from 2009", width=128, link="{imgg}/screenshot2009-04.jpg"]
+image:{imgg}/lum_gui_mockup-2008.png[title="Early GUI Mockup from 2008", width=128, link="{imgg}/lum_gui_mockup-2008.png"]
 
 

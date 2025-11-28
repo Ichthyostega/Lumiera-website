@@ -2,7 +2,15 @@
 
 //Menu: label older news...
 
-*September 2018*::
+September-October 2019::
+      Our link:/project/news/DevReport-19-09.html[2019 Development Report]
+      includes statistics on the project provided by Open Hub which reveals
+      some interesting quantitative numbers on the project. We also provide
+      some notes on the C\++ language in general to explain the peril of
+      using this language and the extra effort required by projects to
+      support a (another) new C++ standard.
+
+September 2018::
       Our annual report on the progress of Lumiera lists a number of elements
       contributing to project increment and the general status of the project.
 +

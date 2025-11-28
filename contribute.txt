@@ -1,10 +1,9 @@
 Contribute
 ==========
-:Author: Brian Rytel, Benny Lyons
-:Date: 2010
+:Author: Brian Rytel, Benny Lyons, Ichthyostega
+:Date: 2010 · 2025
 :toc:
 
-//MENU: on
 
 Lumiera is an open source, community developed project. +
 We need your contributions to get ahead, please join in!
@@ -28,47 +27,15 @@ The mailing list is the central information hub of the project. Everyone is welc
 It is used by the developers for technical discussion but we encourage you to subscribe,
 follow the discussions and use it for proposals, technical or user-level questions and any
 kind of request concerning Lumiera.  You may also talk to us in real time at our IRC channel
-#lumiera on Freenode.
+#lumiera on https://libera.chat/[Libera Chat].
 
--> contact information link:project/contact.html[Mailing List & IRC]
-
-
-Help with our website and infrastructure
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You may be aware that we are updating the website and integrating many of the 
-Lumiera development tools into it. This takes a bit of work and ingenuity, so 
-we need people to work these things out.
-Some additional help is greatly appreciated with keeping news up-to-date, 
-formatting and editing design documentation, and working on the aesthetics of the 
-Lumiera site.
-
-
-Complete small tasks
-~~~~~~~~~~~~~~~~~~~~
-
-We always have small needs and necessities, please check our issue tracker; +
-If in doubt, ask on the mailing list.
-
--> see https://issues.lumiera.org/report/15[small/non-coding tasks] in our Trac.
-
-
-Contribute to the Lumiera design
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The design of Lumiera is being evolved and documented continuously,
-see the related link:{ldoc}/design/index.html[design section] of the documentation.
-We base the development of the design on **RfC**s; these start out as proposals by developers
-or users -- we'll discuss them on the next IRC meeting, work in modifications and finally
-accept or drop them...
-
--> read more about our link:{ldoc}/devel/rfc.html[RfC system].
+-> contact information link:/project/contact.html[Mailing List & IRC]
 
 
 Start contributing to the code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Familiarise yourself with Git. Learn how to build from sources. Explore the code.
+Familiarise yourself with Git. Learn how to build from sources. Explore the code. +
 Lumiera is an open project -- any contribution, small or large, is welcome.
 
 There are portions of the project that require specific knowledge and
@@ -93,7 +60,7 @@ discuss with the other coders, defend and improve your approach, shape
 the direction the project takes.
 
 This needs certain knowledge and experience. Anyone may decide if and which
-parts of the project (s)he is able to handle. The goal is to work together
+parts of the project they are able to handle. The goal is to work together
 where each one adds his best capabilities for the benefit of all.
 
 Sometimes there is tedious work to do, documentation needs writing, boring coding
@@ -111,8 +78,11 @@ your intentions. This helps to avoid wasted efforts. Beyond this, the only real 
 barrier is to learn to work with commandline tools and to set up a coding environment.
 
 Basically, everyone works on his own Git repository and merges in any changes done by
-other contributors. At times, the core developers will pick up your contributions, review
-and accumulate work into the subsystem branch and later into the master branch.
+other contributors. However, you should make sure that your work is noticed by the
+core developers. While we are open towards new angles, in the end we must be
+confident that everything fits together. At some point, the core developers will have
+to pick up your contribution, review and aggregate all work into the subsystem
+development branch and later into the master branch.
 
 
 
@@ -122,7 +92,7 @@ Resources
 
 * build the Lumiera GUI from the Git source repository: 
   link:{ldoc}/user/tutorials/building.html[Building Tutorial].
-* learn to use Git, get the source, build and pass contributions back:
+* learn to use Git, get the source, build and pass contributions back: +
   link:{ldoc}/user/tutorials/contributing.html[Contributing Tutorial]
 * to understand the design of Lumiera visit link:{ldoc}/user/intro/intro.html[»Lumiera from Outer Space«]
 * for technical overview of developed components visit link:{ldoc}/technical/overview.html[»The inner Core«]
