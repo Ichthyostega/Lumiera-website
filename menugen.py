@@ -264,6 +264,7 @@ def discoverChildrenRecursively(location):
     ''' strategy how to proceed from a given location
         to find possible child menu entries. Should
         return None to stop recursive descent '''
+    location = path.normpath(location)
     target = expandRoot(location)
     if isDir(target):
         currentBase = nameID(location)
@@ -273,8 +274,6 @@ def discoverChildrenRecursively(location):
             if INDEX_NAME  ==eID: continue      # skip name/index.txt
             if currentBase ==eID: continue      # skip name/name.txt
             yield path.join(location,eID)
-    elif isFile(target):
-        yield path.join(path.dirname(target), nameID(target))
 
 
 class DiscoveryRedirect:
@@ -402,6 +401,7 @@ class NodeIndex:
                 if entry.matches(key):
                     node = entry
                     self.cache[key] = node
+                    break
         return node # may be None
     
     def add(self, key, node):
