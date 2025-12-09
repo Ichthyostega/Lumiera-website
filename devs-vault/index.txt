@@ -2,23 +2,29 @@ Developers Vault
 ================
 
 // Menu :  include dir .
+// Menu :  include root/documentation/devel/Status
+// Menu :  include root/documentation/devel/design_process
 // Menu :  include root/documentation/devel/report
-// Menu :  include root/documentation/devel/design_process.txt
 
-// Menu :  prepend child 'devs'
-// Menu :  put child 'roadmap' after 'devs'
+// Menu :  prepend child 'Status'
+// Menu :  put child 'roadmap' after 'Status'
 // Menu :  put child 'doxy' after 'roadmap'
 // Menu :  put child 'DevWiki' after 'doxy'
 // Menu :  append child 'gitweb
 // Menu :  append child 'report'
 // Menu :  append child 'design_process'
 // Menu :  append child 'meeting'
+// Menu :  append child 'devs'
 // Menu :  append child 'links'
 
 
 
 This section of the website contains resources for the link:/devs-vault/devs.html[active developers]
 of the project. The content here may not be what you are looking for if you are a user.
+
+- current link:{ldoc}/devel/Status[Development Status] and objectives
+- notes from recent link:{ldoc}/devel/meeting_summary/index.html[Developer Meetings]
+
 
 Repositories
 ------------

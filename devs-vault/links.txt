@@ -3,10 +3,6 @@
 Links
 =====
 
-Lumiera Quicklinks
-------------------
-Get there faster.
-
 Integrated & Related Projects
 -----------------------------
 Our projects and those we use
@@ -38,3 +34,14 @@ Free GNU/Linux & Open Source Software
  * http://linuxaudio.org/lac.html[LAC / Linuxaudio]
 
 
+Relevant Documentation
+----------------------
+ * https://wiki.xiph.org/Videos/A_Digital_Media_Primer_For_Geeks[xiph.org: Digital Media Primer 4 Geeks]
+ * https://gist.github.com/Myndex/47c793f8a054041bd2b52caa7ad5271c[LAB vs LUV (2020)]
+ * https://asciidoc-py.github.io/userguide.html[Asciidoc Userguide]
+   · https://powerman.name/doc/asciidoc[Cheatsheet]
+ * https://www.cairographics.org/tutorial/[Cairo Basics]
+ * https://web.archive.org/web/20171121112601/https://developer.gnome.org/gtkmm-tutorial/stable/index.html.en[Programming mit GTKmm 3 (Archive ~2020)] +
+   https://web.archive.org/web/20171121112601/https://developer.gnome.org/gtkmm-tutorial/stable/index.html.en[API ref (2020)]
+   · https://web.archive.org/web/20201112022432/https://developer.gnome.org/gtkmm/stable/[GTKmm 3]
+   · https://docs.gtk.org/gtk3/[GTK 3.24 (LTS)]

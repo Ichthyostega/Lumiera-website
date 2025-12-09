@@ -76,9 +76,8 @@ def addPredefined():
     doc.linkChild('technical')
     doc.linkChild('doxy')
     
-    vault.linkChild('roadmap')
     vault.linkChild('devs')
-    vault.linkChild('doxy')
+    vault.linkChild('links')
     
     # make the 'media' subdir appear below root/documentation
     doc.discover(includes=[TREE_ROOT+'/media'])

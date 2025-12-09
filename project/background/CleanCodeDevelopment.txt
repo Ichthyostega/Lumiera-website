@@ -71,14 +71,14 @@ KISS -- Keep it simple, stupid::
   ``Everything should be made as simple as possible, but not simpler'' (Einstein).
   Write code foremost to be understandable. Resist using an _interesting_
   solution, when there also is a straight forward (albeit boring) standard solution.
-Avoid Preliminary Optimisation::
+Avoid Premature Optimisation::
   _distrust your own cleverness_. ``More computing sins are committed in the name
   of efficiency than for any other single reason – including blind stupidity'' (W.A.Wulf).
   Defer improvements ``for later''. Require an objective proof for performance problems,
   based on real-world data.
 FCoI -- Favour Composition over Inheritance::
   build up functionality from self-contained abstractions, instead of cleverly extending,
-  bending or specialising. Avoid proliferation of special cases.
+  twisting or specialising. Avoid the proliferation of special cases.
 
 .Practices
 Boy Scout Rule::
@@ -91,7 +91,7 @@ Use Version Management::
   use a revision control system. Create thematically consistent _change sets_, write
   clear _commit messages_, learn to handle _branching and merging_.
 Simple Refactorings::
-  apply the fundamental refactorings ``_extract method_'' and ``_rename_'' liberally.
+  apply the fundamental refactorings ``__extract method__'' and ``__rename__'' liberally.
 Reflection::
   review your own achievements based on the principles (especially but not limited to
   those you're focussing on currently). Partition your work into tasks which can be
@@ -211,9 +211,9 @@ Implementation reflects Design::
   structures, names, organisation of the code base and the runtime structure. Never play tricks to 
   undermine and thwart the design and create a second reality.
 YAGNI -- You Ain't Gonna Need It::
-  _decide later_ and don't do it, if in doubt. Question your own _brilliant ideas_ -- write them down, but defer
-  implementation for later, because, well, you ain't gonna need that crap. Don't say ``I can do that on a single
-  afternoon'' -- be prudent: doing it seriously will be a major undertaking.
+  _decide later_ and better don't do it at all, if in doubt. Question your own _brilliant ideas_ -- write them down,
+  but defer implementation for later, because, well, you ain't gonna need that pomp. Don't say ``I can do that on
+  a single afternoon'' -- be prudent: doing it in earnest will be a major undertaking.
   Refrain from spending effort without a reason.
 
 .Practices
