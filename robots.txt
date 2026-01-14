@@ -1,5 +1,5 @@
 User-agent: *
-Disallow: /git
+Disallow: /doxy
 Disallow: /gitweb
 Disallow: /static
 Disallow: /admin
