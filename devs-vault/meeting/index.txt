@@ -8,15 +8,13 @@ Developer Meetings
 // Menu :  put child 'transcript' after 'meeting_summary'
 // Menu :  append child minutes
 
-After a long pause, developer meetings have recommenced in September 2023.
-We'll periodically meet on the *2^nd^ Wednesday of each month at 20^00^ UTC*.
+Lumiera developers meet regularly in IRC, on the *second Wednesday of each month at 20^00^ UTC*.
+Most meetings are informal; _everyone is welcome._
+Our meeting platform has moved channel from Freenode to Libera.Chat (`#lumiera`). ->link:/project/contact.html[more]
 
-Our meeting platform has moved channel from Freenode to Libera.Chat. ->link:/project/contact.html[more]
-
-This page provides information on meetings. Meetings will not be announced on the
-Mailinglist yet, but this may change: we shall announce details here of any
-changes. _Everyone is welcome. Feel free to join and participate in any meetings
-on the channel!_ 
+This page provides information on meetings. Regular meetings are not announced separately;
+however, any changes, special topics, or cancellations will be posted here.
+Feel free to join and participate in any meetings on the channel!_
 
  * *Summaries* of past meetings can be found ->link:{ldoc}/devel/meeting_summary/index.html[here].
 
