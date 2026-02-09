@@ -18,12 +18,14 @@
 #
 
 
-# after receiving changes, check the current HEAD out
+# after receiving changes, force working directory to contents of current HEAD
 umask 0002
 cd $GIT_DIR/..
 unset GIT_DIR
 git reset --hard
 
-# now we can run any script to update content
-# example make-website.sh
+# start script to rebuild changed pages via ASCIIDOC
+# (note: since some subdirectories are managed in separate Git repositories,
+#        need to step into the web-root explicitly; the update script is located there)
+cd /var/www/
 source ./build_website.sh
